@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ev
 
-j2objc_version=2.0.3
+j2objc_version=2.0.4
 sha1_checksum=unset
 
 echo "fetching j2objc dist"
