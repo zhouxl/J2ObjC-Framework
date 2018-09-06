@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         		= "J2ObjC-Framework"
-  s.version      		= '2.0.4.1'
+  s.version      		= '2.1.1'
   s.summary      		= "Frameworked version of J2ObjC"
   s.homepage        = "https://github.com/HoneyLuka/J2ObjC-Framework"
   s.license         = { :type => 'MIT', :file => 'LICENSE' }
