@@ -3,7 +3,7 @@
 //  source: apache_harmony/classlib/modules/beans/src/main/java/java/beans/SimpleBeanInfo.java
 //
 
-#include "../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaBeansSimpleBeanInfo")
 #ifdef RESTRICT_JavaBeansSimpleBeanInfo
@@ -16,12 +16,18 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaBeansSimpleBeanInfo_) && (INCLUDE_ALL_JavaBeansSimpleBeanInfo || defined(INCLUDE_JavaBeansSimpleBeanInfo))
 #define JavaBeansSimpleBeanInfo_
 
 #define RESTRICT_JavaBeansBeanInfo 1
 #define INCLUDE_JavaBeansBeanInfo 1
-#include "../../java/beans/BeanInfo.h"
+#include "java/beans/BeanInfo.h"
 
 @class IOSObjectArray;
 @class JavaBeansBeanDescriptor;
@@ -30,7 +36,7 @@
 
 #pragma mark Public
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 - (IOSObjectArray *)getAdditionalBeanInfo;
 
@@ -52,14 +58,18 @@ J2OBJC_EMPTY_STATIC_INIT(JavaBeansSimpleBeanInfo)
 
 FOUNDATION_EXPORT void JavaBeansSimpleBeanInfo_init(JavaBeansSimpleBeanInfo *self);
 
-FOUNDATION_EXPORT JavaBeansSimpleBeanInfo *new_JavaBeansSimpleBeanInfo_init() NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaBeansSimpleBeanInfo *new_JavaBeansSimpleBeanInfo_init(void) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaBeansSimpleBeanInfo *create_JavaBeansSimpleBeanInfo_init();
+FOUNDATION_EXPORT JavaBeansSimpleBeanInfo *create_JavaBeansSimpleBeanInfo_init(void);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaBeansSimpleBeanInfo)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaBeansSimpleBeanInfo")

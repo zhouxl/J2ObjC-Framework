@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/javax/security/cert/X509Certificate.java
 //
 
-#include "../../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxSecurityCertX509Certificate")
 #ifdef RESTRICT_JavaxSecurityCertX509Certificate
@@ -16,12 +16,18 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxSecurityCertX509Certificate_) && (INCLUDE_ALL_JavaxSecurityCertX509Certificate || defined(INCLUDE_JavaxSecurityCertX509Certificate))
 #define JavaxSecurityCertX509Certificate_
 
 #define RESTRICT_JavaxSecurityCertCertificate 1
 #define INCLUDE_JavaxSecurityCertCertificate 1
-#include "../../../javax/security/cert/Certificate.h"
+#include "javax/security/cert/Certificate.h"
 
 @class IOSByteArray;
 @class JavaIoInputStream;
@@ -32,14 +38,14 @@
 /*!
  @brief Abstract base class for X.509 certificates.
  <p>
- This represents a standard way for accessing the attributes of X.509 v1
- certificates.
+  This represents a standard way for accessing the attributes of X.509 v1
+  certificates. 
  <p>
- Note: This package is provided only for compatibility reasons.
- It contains a simplified version of the java.security.cert package that was
- previously used by JSSE (Java SSL package). All applications that do not have
- to be compatible with older versions of JSSE (that is before Java SDK 1.5)
- should only use java.security.cert.
+  Note: This package is provided only for compatibility reasons.
+  It contains a simplified version of the java.security.cert package that was
+  previously used by JSSE (Java SSL package). All applications that do not have
+  to be compatible with older versions of JSSE (that is before Java SDK 1.5)
+  should only use java.security.cert.
  */
 @interface JavaxSecurityCertX509Certificate : JavaxSecurityCertCertificate
 
@@ -48,37 +54,36 @@
 /*!
  @brief Creates a new <code>X509Certificate</code>.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Checks whether the certificate is currently valid.
  <p>
- The validity defined in ASN.1:
+  The validity defined in ASN.1: 
  @code
 
   validity             Validity
   Validity ::= SEQUENCE {
-      notBefore       CertificateValidityDate,
-      notAfter        CertificateValidityDate }
+       notBefore       CertificateValidityDate,
+       notAfter        CertificateValidityDate }
   CertificateValidityDate ::= CHOICE {
-      utcTime         UTCTime,
-      generalTime     GeneralizedTime }
+       utcTime         UTCTime,
+       generalTime     GeneralizedTime } 
   
 @endcode
- @throws CertificateExpiredException
+ @throw CertificateExpiredException
  if the certificate has expired.
- @throws CertificateNotYetValidException
+ @throw CertificateNotYetValidException
  if the certificate is not yet valid.
  */
 - (void)checkValidity;
 
 /*!
  @brief Checks whether the certificate is valid at the specified date.
- @param date
- the date to check the validity against.
- @throws CertificateExpiredException
+ @param date the date to check the validity against.
+ @throw CertificateExpiredException
  if the certificate has expired.
- @throws CertificateNotYetValidException
+ @throw CertificateNotYetValidException
  if the certificate is not yet valid.
  - seealso: #checkValidity()
  */
@@ -86,43 +91,42 @@
 
 /*!
  @brief Creates a new <code>X509Certificate</code> and initializes it from the
- specified byte array.
- @param certData
- byte array containing data to initialize the certificate.
+  specified byte array.
+ @param certData byte array containing data to initialize the certificate.
  @return the certificate initialized from the specified byte array
- @throws CertificateException
+ @throw CertificateException
  if the certificate cannot be created or initialized.
  */
 + (JavaxSecurityCertX509Certificate *)getInstanceWithByteArray:(IOSByteArray *)certData;
 
 /*!
  @brief Creates a new <code>X509Certificate</code> and initializes it from the
- specified input stream.
- @param inStream
- input stream containing data to initialize the certificate.
+  specified input stream.
+ @param inStream input stream containing data to initialize the certificate.
  @return the certificate initialized from the specified input stream
- @throws CertificateException
+ @throw CertificateException
  if the certificate cannot be created or initialized.
  */
 + (JavaxSecurityCertX509Certificate *)getInstanceWithJavaIoInputStream:(JavaIoInputStream *)inStream;
 
 /*!
  @brief Returns the <code>issuer</code> (issuer distinguished name) as an
- implementation specific <code>Principal</code> object.
+  implementation specific <code>Principal</code> object.
  <p>
- The ASN.1 definition of <code>issuer</code>:
+  The ASN.1 definition of <code>issuer</code>:
+  
  @code
 
-  issuer      Name
-  Name ::= CHOICE {
-      RDNSequence }
-    RDNSequence ::= SEQUENCE OF RelativeDistinguishedName
-    RelativeDistinguishedName ::= SET OF AttributeTypeAndValue
-    AttributeTypeAndValue ::= SEQUENCE {
-      type     AttributeType,
-      value    AttributeValue }
-    AttributeType ::= OBJECT IDENTIFIER
-    AttributeValue ::= ANY DEFINED BY AttributeType
+   issuer      Name
+   Name ::= CHOICE {
+       RDNSequence }
+     RDNSequence ::= SEQUENCE OF RelativeDistinguishedName
+     RelativeDistinguishedName ::= SET OF AttributeTypeAndValue
+     AttributeTypeAndValue ::= SEQUENCE {
+       type     AttributeType,
+       value    AttributeValue }
+     AttributeType ::= OBJECT IDENTIFIER
+     AttributeValue ::= ANY DEFINED BY AttributeType 
   
 @endcode
  @return the <code>issuer</code> as an implementation specific <code>Principal</code>
@@ -132,14 +136,14 @@
 
 /*!
  @brief Returns the <code>notAfter</code> date of the validity period of the
- certificate.
+  certificate.
  @return the end of the validity period.
  */
 - (JavaUtilDate *)getNotAfter;
 
 /*!
  @brief Returns the <code>notBefore</code> date from the validity period of the
- certificate.
+  certificate.
  @return the start of the validity period.
  */
 - (JavaUtilDate *)getNotBefore;
@@ -147,10 +151,11 @@
 /*!
  @brief Returns the <code>serialNumber</code> of the certificate.
  <p>
- The ASN.1 definition of <code>serialNumber</code>:
+  The ASN.1 definition of <code>serialNumber</code>:
+  
  @code
 
-  CertificateSerialNumber  ::=  INTEGER
+  CertificateSerialNumber  ::=  INTEGER 
   
 @endcode
  @return the serial number.
@@ -172,27 +177,28 @@
 /*!
  @brief Returns the parameters of the signature algorithm in DER-encoded format.
  @return the parameters of the signature algorithm, or null if none are
- used.
+          used.
  */
 - (IOSByteArray *)getSigAlgParams;
 
 /*!
  @brief Returns the <code>subject</code> (subject distinguished name) as an
- implementation specific <code>Principal</code> object.
+  implementation specific <code>Principal</code> object.
  <p>
- The ASN.1 definition of <code>subject</code>:
+  The ASN.1 definition of <code>subject</code>:
+  
  @code
 
   subject      Name
-  Name ::= CHOICE {
-      RDNSequence }
-    RDNSequence ::= SEQUENCE OF RelativeDistinguishedName
-    RelativeDistinguishedName ::= SET OF AttributeTypeAndValue
-    AttributeTypeAndValue ::= SEQUENCE {
-      type     AttributeType,
-      value    AttributeValue }
-    AttributeType ::= OBJECT IDENTIFIER
-    AttributeValue ::= ANY DEFINED BY AttributeType
+   Name ::= CHOICE {
+       RDNSequence }
+     RDNSequence ::= SEQUENCE OF RelativeDistinguishedName
+     RelativeDistinguishedName ::= SET OF AttributeTypeAndValue
+     AttributeTypeAndValue ::= SEQUENCE {
+       type     AttributeType,
+       value    AttributeValue }
+     AttributeType ::= OBJECT IDENTIFIER
+     AttributeValue ::= ANY DEFINED BY AttributeType 
   
 @endcode
  @return the <code>subject</code> (subject distinguished name).
@@ -202,10 +208,10 @@
 /*!
  @brief Returns the certificates <code>version</code> (version number).
  <p>
- The version defined is ASN.1:
+  The version defined is ASN.1: 
  @code
 
-  Version ::=  INTEGER  {  v1(0), v2(1), v3(2)  }
+  Version ::=  INTEGER  {  v1(0), v2(1), v3(2)  } 
   
 @endcode
  @return the version number.
@@ -226,6 +232,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityCertX509Certificate)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxSecurityCertX509Certificate")

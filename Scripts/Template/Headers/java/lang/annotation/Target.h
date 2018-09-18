@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/annotation/Target.java
 //
 
-#include "../../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangAnnotationTarget")
 #ifdef RESTRICT_JavaLangAnnotationTarget
@@ -16,60 +16,77 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangAnnotationTarget_) && (INCLUDE_ALL_JavaLangAnnotationTarget || defined(INCLUDE_JavaLangAnnotationTarget))
 #define JavaLangAnnotationTarget_
 
 #define RESTRICT_JavaLangAnnotationAnnotation 1
 #define INCLUDE_JavaLangAnnotationAnnotation 1
-#include "../../../java/lang/annotation/Annotation.h"
+#include "java/lang/annotation/Annotation.h"
 
 @class IOSClass;
 @class IOSObjectArray;
 
 /*!
- @brief Indicates the kinds of program element to which an annotation type
- is applicable.
- If a Target meta-annotation is not present on an
- annotation type declaration, the declared type may be used on any
- program element.  If such a meta-annotation is present, the compiler
- will enforce the specified usage restriction.
- For example, this meta-annotation indicates that the declared type is
- itself a meta-annotation type.  It can only be used on annotation type
- declarations:
+ @brief Indicates the contexts in which an annotation type is applicable.The
+  declaration contexts and type contexts in which an annotation type may be
+  applicable are specified in JLS 9.6.4.1, and denoted in source code by enum
+  constants of <code>java.lang.annotation.ElementType</code>.
+ <p>If an <code>@@Target</code> meta-annotation is not present on an annotation type 
+ <code>T</code> , then an annotation of type <code>T</code> may be written as a
+  modifier for any declaration except a type parameter declaration. 
+ <p>If an <code>@@Target</code> meta-annotation is present, the compiler will enforce
+  the usage restrictions indicated by <code>ElementType</code>
+  enum constants, in line with JLS 9.7.4. 
+ <p>For example, this <code>@@Target</code> meta-annotation indicates that the
+  declared type is itself a meta-annotation type.  It can only be used on
+  annotation type declarations: 
  @code
 
-    &#064;Target(ElementType.ANNOTATION_TYPE)
-    public &#064;interface MetaAnnotationType {
-        ...
-    }
+        &#064;Target(ElementType.ANNOTATION_TYPE)
+     public &#064;interface MetaAnnotationType {
+         ...
+     } 
   
 @endcode
- This meta-annotation indicates that the declared type is intended solely
- for use as a member type in complex annotation type declarations.  It
- cannot be used to annotate anything directly:
+  
+ <p>This <code>@@Target</code> meta-annotation indicates that the declared type is
+  intended solely for use as a member type in complex annotation type
+  declarations.  It cannot be used to annotate anything directly: 
  @code
 
-    &#064;Target({})
-    public &#064;interface MemberType {
-        ...
-    }
+        &#064;Target({})
+     public &#064;interface MemberType {
+         ...
+     } 
   
 @endcode
- It is a compile-time error for a single ElementType constant to
- appear more than once in a Target annotation.  For example, the
- following meta-annotation is illegal:
+  
+ <p>It is a compile-time error for a single <code>ElementType</code> constant to
+  appear more than once in an <code>@@Target</code> annotation.  For example, the
+  following <code>@@Target</code> meta-annotation is illegal: 
  @code
 
-    &#064;Target({ElementType.FIELD, ElementType.METHOD, ElementType.FIELD})
-    public &#064;interface Bogus {
-        ...
-    }
+        &#064;Target({ElementType.FIELD, ElementType.METHOD, ElementType.FIELD})
+     public &#064;interface Bogus {
+         ...
+     } 
   
 @endcode
+ @since 1.5
  */
 @protocol JavaLangAnnotationTarget < JavaLangAnnotationAnnotation >
 
 @property (readonly) IOSObjectArray *value;
+
+- (jboolean)isEqual:(id)obj;
+
+- (NSUInteger)hash;
 
 @end
 
@@ -88,6 +105,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangAnnotationTarget)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangAnnotationTarget")

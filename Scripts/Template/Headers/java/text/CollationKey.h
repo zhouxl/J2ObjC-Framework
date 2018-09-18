@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/text/CollationKey.java
 //
 
-#include "../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaTextCollationKey")
 #ifdef RESTRICT_JavaTextCollationKey
@@ -16,47 +16,54 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaTextCollationKey_) && (INCLUDE_ALL_JavaTextCollationKey || defined(INCLUDE_JavaTextCollationKey))
 #define JavaTextCollationKey_
 
 #define RESTRICT_JavaLangComparable 1
 #define INCLUDE_JavaLangComparable 1
-#include "../../java/lang/Comparable.h"
+#include "java/lang/Comparable.h"
 
 @class IOSByteArray;
 
 /*!
  @brief Represents a string under the rules of a specific <code>Collator</code> object.
  Comparing two <code>CollationKey</code> instances returns the relative order of
- the strings they represent.
+  the strings they represent. 
  <p>
- Since the rule set of collators can differ, the sort orders of the same
- string under two different <code>Collator</code> instances might differ. Hence
- comparing collation keys generated from different <code>Collator</code> instances
- can give incorrect results.
+  Since the rule set of collators can differ, the sort orders of the same
+  string under two different <code>Collator</code> instances might differ. Hence
+  comparing collation keys generated from different <code>Collator</code> instances
+  can give incorrect results. 
  <p>
- Both the method <code>CollationKey.compareTo(CollationKey)</code> and the method
+  Both the method <code>CollationKey.compareTo(CollationKey)</code> and the method 
  <code>Collator.compare(String, String)</code> compares two strings and returns
- their relative order. The performance characteristics of these two approaches
- can differ.
+  their relative order. The performance characteristics of these two approaches
+  can differ. 
  <p>
- During the construction of a <code>CollationKey</code>, the entire source string
- is examined and processed into a series of bits terminated by a null, that
- are stored in the <code>CollationKey</code>. When
+  During the construction of a <code>CollationKey</code>, the entire source string
+  is examined and processed into a series of bits terminated by a null, that
+  are stored in the <code>CollationKey</code>. When 
  <code>CollationKey.compareTo(CollationKey)</code> executes, it performs bitwise
- comparison on the bit sequences. This can incur startup cost when creating
- the <code>CollationKey</code>, but once the key is created, binary comparisons
- are fast. This approach is recommended when the same strings are to be
- compared over and over again.
+  comparison on the bit sequences. This can incur startup cost when creating the 
+ <code>CollationKey</code>, but once the key is created, binary comparisons
+  are fast. This approach is recommended when the same strings are to be
+  compared over and over again. 
  <p>
- On the other hand, implementations of
+  On the other hand, implementations of 
  <code>Collator.compare(String, String)</code> can examine and process the strings
- only until the first characters differ in order. This approach is
- recommended if the strings are to be compared only once.
+  only until the first characters differ in order. This approach is
+  recommended if the strings are to be compared only once. 
  <p>
- The following example shows how collation keys can be used to sort a
- list of strings:
+  The following example shows how collation keys can be used to sort a
+  list of strings: 
  <blockquote>
+  
  @code
 
   // Create an array of CollationKeys for the Strings to be sorted.
@@ -65,22 +72,23 @@
   keys[0] = myCollator.getCollationKey(&quot;Tom&quot;);
   keys[1] = myCollator.getCollationKey(&quot;Dick&quot;);
   keys[2] = myCollator.getCollationKey(&quot;Harry&quot;);
-  sort(keys);
+  sort(keys); 
   <br>
-  //...
+  //... 
   <br>
   // Inside body of sort routine, compare keys this way
   if( keys[i].compareTo( keys[j] ) &gt; 0 )
-    // swap keys[i] and keys[j]
+     // swap keys[i] and keys[j] 
   <br>
-  //...
+  //... 
   <br>
   // Finally, when we've returned from sort.
   System.out.println(keys[0].getSourceString());
   System.out.println(keys[1].getSourceString());
-  System.out.println(keys[2].getSourceString());
+  System.out.println(keys[2].getSourceString()); 
   
 @endcode
+  
  </blockquote>
  - seealso: Collator
  */
@@ -92,7 +100,7 @@
  @brief Compares this collation key to the given collation key.
  @param value the other collation key.
  @return a negative value if this key is less than <code>value</code>,
- 0 if they are equal, and a positive value if this key is greater.
+          0 if they are equal, and a positive value if this key is greater.
  */
 - (jint)compareToWithId:(JavaTextCollationKey *)value;
 
@@ -110,7 +118,7 @@
 
 #pragma mark Protected
 
-- (instancetype)initWithNSString:(NSString *)source;
+- (instancetype __nonnull)initWithNSString:(NSString *)source;
 
 @end
 
@@ -122,6 +130,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextCollationKey)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextCollationKey")

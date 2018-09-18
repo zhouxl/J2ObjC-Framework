@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/javax/security/cert/CertificateExpiredException.java
 //
 
-#include "../../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxSecurityCertCertificateExpiredException")
 #ifdef RESTRICT_JavaxSecurityCertCertificateExpiredException
@@ -16,21 +16,27 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxSecurityCertCertificateExpiredException_) && (INCLUDE_ALL_JavaxSecurityCertCertificateExpiredException || defined(INCLUDE_JavaxSecurityCertCertificateExpiredException))
 #define JavaxSecurityCertCertificateExpiredException_
 
 #define RESTRICT_JavaxSecurityCertCertificateException 1
 #define INCLUDE_JavaxSecurityCertCertificateException 1
-#include "../../../javax/security/cert/CertificateException.h"
+#include "javax/security/cert/CertificateException.h"
 
 /*!
  @brief The exception that is thrown when a <code>Certificate</code> has expired.
  <p>
- Note: This package is provided only for compatibility reasons. It contains a
- simplified version of the java.security.cert package that was previously used
- by JSSE (Java SSL package). All applications that do not have to be
- compatible with older versions of JSSE (that is before Java SDK 1.5) should
- only use java.security.cert.
+  Note: This package is provided only for compatibility reasons. It contains a
+  simplified version of the java.security.cert package that was previously used
+  by JSSE (Java SSL package). All applications that do not have to be
+  compatible with older versions of JSSE (that is before Java SDK 1.5) should
+  only use java.security.cert.
  */
 @interface JavaxSecurityCertCertificateExpiredException : JavaxSecurityCertCertificateException
 
@@ -39,15 +45,14 @@
 /*!
  @brief Creates a new <code>CertificateExpiredException</code>.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a new <code>CertificateExpiredException</code> with the specified
- message.
- @param msg
- the detail message for this exception
+  message.
+ @param msg the detail message for this exception
  */
-- (instancetype)initWithNSString:(NSString *)msg;
+- (instancetype __nonnull)initWithNSString:(NSString *)msg;
 
 @end
 
@@ -61,14 +66,18 @@ FOUNDATION_EXPORT JavaxSecurityCertCertificateExpiredException *create_JavaxSecu
 
 FOUNDATION_EXPORT void JavaxSecurityCertCertificateExpiredException_init(JavaxSecurityCertCertificateExpiredException *self);
 
-FOUNDATION_EXPORT JavaxSecurityCertCertificateExpiredException *new_JavaxSecurityCertCertificateExpiredException_init() NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaxSecurityCertCertificateExpiredException *new_JavaxSecurityCertCertificateExpiredException_init(void) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaxSecurityCertCertificateExpiredException *create_JavaxSecurityCertCertificateExpiredException_init();
+FOUNDATION_EXPORT JavaxSecurityCertCertificateExpiredException *create_JavaxSecurityCertCertificateExpiredException_init(void);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityCertCertificateExpiredException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxSecurityCertCertificateExpiredException")

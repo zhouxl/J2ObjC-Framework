@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/io/File.java
 //
 
-#include "../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoFile")
 #ifdef RESTRICT_JavaIoFile
@@ -16,16 +16,22 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoFile_) && (INCLUDE_ALL_JavaIoFile || defined(INCLUDE_JavaIoFile))
 #define JavaIoFile_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "../../java/io/Serializable.h"
+#include "java/io/Serializable.h"
 
 #define RESTRICT_JavaLangComparable 1
 #define INCLUDE_JavaLangComparable 1
-#include "../../java/lang/Comparable.h"
+#include "java/lang/Comparable.h"
 
 @class IOSObjectArray;
 @class JavaNetURI;
@@ -35,23 +41,26 @@
 
 /*!
  @brief An "abstract" representation of a file system entity identified by a
- pathname.
- The pathname may be absolute (relative to the root directory
- of the file system) or relative to the current directory in which the program
- is running.
+  pathname.The pathname may be absolute (relative to the root directory
+  of the file system) or relative to the current directory in which the program
+  is running.
  <p>The actual file referenced by a <code>File</code> may or may not exist. It may
- also, despite the name <code>File</code>, be a directory or other non-regular
- file.
+  also, despite the name <code>File</code>, be a directory or other non-regular
+  file. 
  <p>This class provides limited functionality for getting/setting file
- permissions, file type, and last modified time.
+  permissions, file type, and last modified time. 
  <p>On Android strings are converted to UTF-8 byte sequences when sending filenames to
- the operating system, and byte sequences returned by the operating system (from the
- various <code>list</code> methods) are converted to strings by decoding them as UTF-8
- byte sequences.
+  the operating system, and byte sequences returned by the operating system (from the
+  various <code>list</code> methods) are converted to strings by decoding them as UTF-8
+  byte sequences.
  - seealso: java.io.Serializable
  - seealso: java.lang.Comparable
  */
 @interface JavaIoFile : NSObject < JavaIoSerializable, JavaLangComparable >
+@property (readonly, class) jchar separatorChar NS_SWIFT_NAME(separatorChar);
+@property (readonly, copy, class) NSString *separator NS_SWIFT_NAME(separator);
+@property (readonly, class) jchar pathSeparatorChar NS_SWIFT_NAME(pathSeparatorChar);
+@property (readonly, copy, class) NSString *pathSeparator NS_SWIFT_NAME(pathSeparator);
 
 + (jchar)separatorChar;
 
@@ -65,56 +74,50 @@
 
 /*!
  @brief Constructs a new file using the specified directory and name.
- @param dir
- the directory where the file is stored.
- @param name
- the file's name.
- @throws NullPointerException
+ @param dir the directory where the file is stored.
+ @param name the file's name.
+ @throw NullPointerException
  if <code>name</code> is <code>null</code>.
  */
-- (instancetype)initWithJavaIoFile:(JavaIoFile *)dir
-                      withNSString:(NSString *)name;
+- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)dir
+                                withNSString:(NSString *)name;
 
 /*!
  @brief Constructs a new file using the specified path.
- @param path
- the path to be used for the file.
+ @param path the path to be used for the file.
  */
-- (instancetype)initWithNSString:(NSString *)path;
+- (instancetype __nonnull)initWithNSString:(NSString *)path;
 
 /*!
  @brief Constructs a new File using the specified directory path and file name,
- placing a path separator between the two.
- @param dirPath
- the path to the directory where the file is stored.
- @param name
- the file's name.
- @throws NullPointerException
+  placing a path separator between the two.
+ @param dirPath the path to the directory where the file is stored.
+ @param name the file's name.
+ @throw NullPointerException
  if <code>name == null</code>.
  */
-- (instancetype)initWithNSString:(NSString *)dirPath
-                    withNSString:(NSString *)name;
+- (instancetype __nonnull)initWithNSString:(NSString *)dirPath
+                              withNSString:(NSString *)name;
 
 /*!
  @brief Constructs a new File using the path of the specified URI.
  <code>uri</code>
- needs to be an absolute and hierarchical Unified Resource Identifier with
- file scheme and non-empty path component, but with undefined authority,
- query or fragment components.
- @param uri
- the Unified Resource Identifier that is used to construct this
- file.
- @throws IllegalArgumentException
+  needs to be an absolute and hierarchical Unified Resource Identifier with
+  file scheme and non-empty path component, but with undefined authority,
+  query or fragment components.
+ @param uri the Unified Resource Identifier that is used to construct this
+              file.
+ @throw IllegalArgumentException
  if <code>uri</code> does not comply with the conditions above.
  - seealso: #toURI
  - seealso: java.net.URI
  */
-- (instancetype)initWithJavaNetURI:(JavaNetURI *)uri;
+- (instancetype __nonnull)initWithJavaNetURI:(JavaNetURI *)uri;
 
 /*!
  @brief Tests whether or not this process is allowed to execute this file.
  Note that this is a best-effort result; the only way to be certain is
- to actually attempt the operation.
+  to actually attempt the operation.
  @return <code>true</code> if this file can be executed, <code>false</code> otherwise.
  @since 1.6
  */
@@ -129,53 +132,49 @@
 /*!
  @brief Indicates whether the current context is allowed to write to this file.
  @return <code>true</code> if this file can be written, <code>false</code>
- otherwise.
+          otherwise.
  */
 - (jboolean)canWrite;
 
 /*!
- @brief Returns the relative sort ordering of the paths for this file and the
- file <code>another</code>.
- The ordering is platform dependent.
- @param another
- a file to compare this file to
+ @brief Returns the relative sort ordering of the paths for this file and the file 
+ <code>another</code>.The ordering is platform dependent.
+ @param another a file to compare this file to
  @return an int determined by comparing the two paths. Possible values are
- described in the Comparable interface.
+          described in the Comparable interface.
  - seealso: Comparable
  */
 - (jint)compareToWithId:(JavaIoFile *)another;
 
 /*!
  @brief Creates a new, empty file on the file system according to the path
- information stored in this file.
- This method returns true if it creates
- a file, false if the file already existed. Note that it returns false
- even if the file is not a file (because it's a directory, say).
+  information stored in this file.This method returns true if it creates
+  a file, false if the file already existed.
+ Note that it returns false
+  even if the file is not a file (because it's a directory, say). 
  <p>This method is not generally useful. For creating temporary files,
- use <code>createTempFile</code> instead. For reading/writing files, use <code>FileInputStream</code>,
- <code>FileOutputStream</code>, or <code>RandomAccessFile</code>, all of which can create files.
+  use <code>createTempFile</code> instead. For reading/writing files, use <code>FileInputStream</code>,
+  <code>FileOutputStream</code>, or <code>RandomAccessFile</code>, all of which can create files. 
  <p>Note that this method does <i>not</i> throw <code>IOException</code> if the file
- already exists, even if it's not a regular file. Callers should always check the
- return value, and may additionally want to call <code>isFile</code>.
+  already exists, even if it's not a regular file. Callers should always check the
+  return value, and may additionally want to call <code>isFile</code>.
  @return true if the file has been created, false if it
- already exists.
- @throws IOException if it's not possible to create the file.
+          already exists.
+ @throw IOExceptionif it's not possible to create the file.
  */
 - (jboolean)createNewFile;
 
 /*!
  @brief Creates an empty temporary file using the given prefix and suffix as part
- of the file name.
- If <code>suffix</code> is null, <code>.tmp</code> is used. This
- method is a convenience method that calls
- <code>createTempFile(String,String,File)</code> with the third argument
- being <code>null</code>.
- @param prefix
- the prefix to the temp file name.
- @param suffix
- the suffix to the temp file name.
+  of the file name.If <code>suffix</code> is null, <code>.tmp</code> is used.
+ This
+  method is a convenience method that calls 
+ <code>String, File)</code> with the third argument
+  being <code>null</code>.
+ @param prefix the prefix to the temp file name.
+ @param suffix the suffix to the temp file name.
  @return the temporary file.
- @throws IOException
+ @throw IOException
  if an error occurs when writing the file.
  */
 + (JavaIoFile *)createTempFileWithNSString:(NSString *)prefix
@@ -183,24 +182,20 @@
 
 /*!
  @brief Creates an empty temporary file in the given directory using the given
- prefix and suffix as part of the file name.
- If <code>suffix</code> is null, <code>.tmp</code> is used.
+  prefix and suffix as part of the file name.If <code>suffix</code> is null, <code>.tmp</code> is used.
  <p>Note that this method does <i>not</i> call <code>deleteOnExit</code>, but see the
- documentation for that method before you call it manually.
- @param prefix
- the prefix to the temp file name.
- @param suffix
- the suffix to the temp file name.
- @param directory
- the location to which the temp file is to be written, or
- <code>null</code> for the default location for temporary files,
- which is taken from the "java.io.tmpdir" system property. It
- may be necessary to set this property to an existing, writable
- directory for this method to work properly.
+  documentation for that method before you call it manually.
+ @param prefix the prefix to the temp file name.
+ @param suffix the suffix to the temp file name.
+ @param directory the location to which the temp file is to be written, or
+              <code>null</code>
+   for the default location for temporary files,             which is taken from the "java.io.tmpdir" system property. It
+              may be necessary to set this property to an existing, writable
+              directory for this method to work properly.
  @return the temporary file.
- @throws IllegalArgumentException
+ @throw IllegalArgumentException
  if the length of <code>prefix</code> is less than 3.
- @throws IOException
+ @throw IOException
  if an error occurs when writing the file.
  */
 + (JavaIoFile *)createTempFileWithNSString:(NSString *)prefix
@@ -208,10 +203,9 @@
                             withJavaIoFile:(JavaIoFile *)directory;
 
 /*!
- @brief Deletes this file.
- Directories must be empty before they will be deleted.
+ @brief Deletes this file.Directories must be empty before they will be deleted.
  <p>Note that this method does <i>not</i> throw <code>IOException</code> on failure.
- Callers must check the return value.
+  Callers must check the return value.
  @return <code>true</code> if this file was deleted, <code>false</code> otherwise.
  */
 - (jboolean)delete__;
@@ -219,32 +213,31 @@
 /*!
  @brief Schedules this file to be automatically deleted when the VM terminates normally.
  <p><i>Note that on Android, the application lifecycle does not include VM termination,
- so calling this method will not ensure that files are deleted</i>. Instead, you should
- use the most appropriate out of:
+  so calling this method will not ensure that files are deleted</i>. Instead, you should
+  use the most appropriate out of: 
  <ul>
- <li>Use a <code>finally</code> clause to manually invoke <code>delete</code>.
- <li>Maintain your own set of files to delete, and process it at an appropriate point
- in your application's lifecycle.
+  <li>Use a <code>finally</code> clause to manually invoke <code>delete</code>.
+  <li>Maintain your own set of files to delete, and process it at an appropriate point
+  in your application's lifecycle. 
  <li>Use the Unix trick of deleting the file as soon as all readers and writers have
- opened it. No new readers/writers will be able to access the file, but all existing
- ones will still have access until the last one closes the file.
+  opened it. No new readers/writers will be able to access the file, but all existing
+  ones will still have access until the last one closes the file. 
  </ul>
  */
 - (void)deleteOnExit;
 
 /*!
  @brief Compares <code>obj</code> to this file and returns <code>true</code> if they
- represent the <em>same</em> object using a path specific comparison.
- @param obj
- the object to compare this file with.
+  represent the <em>same</em> object using a path specific comparison.
+ @param obj the object to compare this file with.
  @return <code>true</code> if <code>obj</code> is the same as this object,
- <code>false</code> otherwise.
+          <code>false</code> otherwise.
  */
 - (jboolean)isEqual:(id)obj;
 
 /*!
  @brief Returns a boolean indicating whether this file can be found on the
- underlying file system.
+  underlying file system.
  @return <code>true</code> if this file exists, <code>false</code> otherwise.
  */
 - (jboolean)exists;
@@ -256,12 +249,13 @@
 - (JavaIoFile *)getAbsoluteFile;
 
 /*!
- @brief Returns the absolute path of this file.
- An absolute path is a path that starts at a root
- of the file system. On Android, there is only one root: <code>/</code>.
+ @brief Returns the absolute path of this file.An absolute path is a path that starts at a root
+  of the file system.
+ On Android, there is only one root: <code>/</code>.
+  
  <p>A common use for absolute paths is when passing paths to a <code>Process</code> as
- command-line arguments, to remove the requirement implied by relative paths, that the
- child must have the same working directory as its parent.
+  command-line arguments, to remove the requirement implied by relative paths, that the
+  child must have the same working directory as its parent.
  */
 - (NSString *)getAbsolutePath;
 
@@ -269,7 +263,7 @@
  @brief Returns a new file created using the canonical path of this file.
  Equivalent to <code>new File(this.getCanonicalPath())</code>.
  @return the new file constructed from this file's canonical path.
- @throws IOException
+ @throw IOException
  if an I/O error occurs.
  */
 - (JavaIoFile *)getCanonicalFile;
@@ -277,30 +271,30 @@
 /*!
  @brief Returns the canonical path of this file.
  An <i>absolute</i> path is one that begins at the root of the file system.
- A <i>canonical</i> path is an absolute path with symbolic links
- and references to "." or ".." resolved. If a path element does not exist (or
- is not searchable), there is a conflict between interpreting canonicalization
- as a textual operation (where "a/../b" is "b" even if "a" does not exist) .
+  A <i>canonical</i> path is an absolute path with symbolic links
+  and references to "." or ".." resolved. If a path element does not exist (or
+  is not searchable), there is a conflict between interpreting canonicalization
+  as a textual operation (where "a/../b" is "b" even if "a" does not exist) . 
  <p>Most callers should use <code>getAbsolutePath</code> instead. A canonical path is
- significantly more expensive to compute, and not generally useful. The primary
- use for canonical paths is determining whether two paths point to the same file by
- comparing the canonicalized paths.
+  significantly more expensive to compute, and not generally useful. The primary
+  use for canonical paths is determining whether two paths point to the same file by
+  comparing the canonicalized paths. 
  <p>It can be actively harmful to use a canonical path, specifically because
- canonicalization removes symbolic links. It's wise to assume that a symbolic link
- is present for a reason, and that that reason is because the link may need to change.
- Canonicalization removes this layer of indirection. Good code should generally avoid
- caching canonical paths.
+  canonicalization removes symbolic links. It's wise to assume that a symbolic link
+  is present for a reason, and that that reason is because the link may need to change.
+  Canonicalization removes this layer of indirection. Good code should generally avoid
+  caching canonical paths.
  @return the canonical path of this file.
- @throws IOException
+ @throw IOException
  if an I/O error occurs.
  */
 - (NSString *)getCanonicalPath;
 
 /*!
  @brief Returns the number of free bytes on the partition containing this path.
- Returns 0 if this path does not exist.
+ Returns 0 if this path does not exist. 
  <p>Note that this is likely to be an optimistic over-estimate and should not
- be taken as a guarantee your application can actually write this many bytes.
+  be taken as a guarantee your application can actually write this many bytes.
  @since 1.6
  */
 - (jlong)getFreeSpace;
@@ -308,15 +302,15 @@
 /*!
  @brief Returns the name of the file or directory represented by this file.
  @return this file's name or an empty string if there is no name part in
- the file's path.
+          the file's path.
  */
 - (NSString *)getName;
 
 /*!
- @brief Returns the pathname of the parent of this file.
- This is the path up to
- but not including the last name. <code>null</code> is returned if there is no
- parent.
+ @brief Returns the pathname of the parent of this file.This is the path up to
+  but not including the last name.
+ <code>null</code> is returned if there is no
+  parent.
  @return this file's parent pathname or <code>null</code>.
  */
 - (NSString *)getParent;
@@ -324,7 +318,7 @@
 /*!
  @brief Returns a new file made from the pathname of the parent of this file.
  This is the path up to but not including the last name. <code>null</code> is
- returned when there is no parent.
+  returned when there is no parent.
  @return a new file representing this file's parent or <code>null</code>.
  */
 - (JavaIoFile *)getParentFile;
@@ -343,20 +337,19 @@
 
 /*!
  @brief Returns the number of usable free bytes on the partition containing this path.
- Returns 0 if this path does not exist.
+ Returns 0 if this path does not exist. 
  <p>Note that this is likely to be an optimistic over-estimate and should not
- be taken as a guarantee your application can actually write this many bytes.
- On Android (and other Unix-based systems), this method returns the number of free bytes
- available to non-root users, regardless of whether you're actually running as root,
- and regardless of any quota or other restrictions that might apply to the user.
- (The <code>getFreeSpace</code> method returns the number of bytes potentially available to root.)
+  be taken as a guarantee your application can actually write this many bytes.
+  On Android (and other Unix-based systems), this method returns the number of free bytes
+  available to non-root users, regardless of whether you're actually running as root,
+  and regardless of any quota or other restrictions that might apply to the user.
+  (The <code>getFreeSpace</code> method returns the number of bytes potentially available to root.)
  @since 1.6
  */
 - (jlong)getUsableSpace;
 
 /*!
- @brief Returns an integer hash code for the receiver.
- Any two objects for which
+ @brief Returns an integer hash code for the receiver.Any two objects for which 
  <code>equals</code> returns <code>true</code> must return the same hash code.
  @return this files's hash value.
  - seealso: #equals
@@ -364,45 +357,45 @@
 - (NSUInteger)hash;
 
 /*!
- @brief Indicates if this file's pathname is absolute.
- Whether a pathname is
- absolute is platform specific. On Android, absolute paths start with
- the character '/'.
+ @brief Indicates if this file's pathname is absolute.Whether a pathname is
+  absolute is platform specific.
+ On Android, absolute paths start with
+  the character '/'.
  @return <code>true</code> if this file's pathname is absolute, <code>false</code>
- otherwise.
+          otherwise.
  - seealso: #getPath
  */
 - (jboolean)isAbsolute;
 
 /*!
  @brief Indicates if this file represents a <em>directory</em> on the
- underlying file system.
+  underlying file system.
  @return <code>true</code> if this file is a directory, <code>false</code>
- otherwise.
+          otherwise.
  */
 - (jboolean)isDirectory;
 
 /*!
  @brief Indicates if this file represents a <em>file</em> on the underlying
- file system.
+  file system.
  @return <code>true</code> if this file is a file, <code>false</code> otherwise.
  */
 - (jboolean)isFile;
 
 /*!
  @brief Returns whether or not this file is a hidden file as defined by the
- operating system.
- The notion of "hidden" is system-dependent. For Unix
- systems a file is considered hidden if its name starts with a ".". For
- Windows systems there is an explicit flag in the file system for this
- purpose.
+  operating system.The notion of "hidden" is system-dependent.
+ For Unix
+  systems a file is considered hidden if its name starts with a ".". For
+  Windows systems there is an explicit flag in the file system for this
+  purpose.
  @return <code>true</code> if the file is hidden, <code>false</code> otherwise.
  */
 - (jboolean)isHidden;
 
 /*!
  @brief Returns the time when this file was last modified, measured in
- milliseconds since January 1st, 1970, midnight.
+  milliseconds since January 1st, 1970, midnight.
  Returns 0 if the file does not exist.
  @return the time when this file was last modified.
  */
@@ -411,128 +404,126 @@
 /*!
  @brief Returns the length of this file in bytes.
  Returns 0 if the file does not exist.
- The result for a directory is not defined.
+  The result for a directory is not defined.
  @return the number of bytes in this file.
  */
 - (jlong)length;
 
 /*!
  @brief Returns an array of strings with the file names in the directory
- represented by this file.
- The result is <code>null</code> if this file is not
- a directory.
+  represented by this file.The result is <code>null</code> if this file is not
+  a directory.
  <p>
- The entries <code>.</code> and <code>..</code> representing the current and parent
- directory are not returned as part of the list.
+  The entries <code>.</code> and <code>..</code> representing the current and parent
+  directory are not returned as part of the list.
  @return an array of strings with file names or <code>null</code>.
  */
 - (IOSObjectArray *)list;
 
 /*!
- @brief Gets a list of the files in the directory represented by this file.
- This
- list is then filtered through a FilenameFilter and the names of files
- with matching names are returned as an array of strings. Returns
- <code>null</code> if this file is not a directory. If <code>filter</code> is
- <code>null</code> then all filenames match.
+ @brief Gets a list of the files in the directory represented by this file.This
+  list is then filtered through a FilenameFilter and the names of files
+  with matching names are returned as an array of strings.
+ Returns 
+ <code>null</code> if this file is not a directory. If <code>filter</code> is 
+ <code>null</code> then all filenames match. 
  <p>
- The entries <code>.</code> and <code>..</code> representing the current and parent
- directories are not returned as part of the list.
- @param filter
- the filter to match names against, may be <code>null</code>.
+  The entries <code>.</code> and <code>..</code> representing the current and parent
+  directories are not returned as part of the list.
+ @param filter the filter to match names against, may be 
+ <code>null</code> .
  @return an array of files or <code>null</code>.
  */
 - (IOSObjectArray *)listWithJavaIoFilenameFilter:(id<JavaIoFilenameFilter>)filter;
 
 /*!
  @brief Returns an array of files contained in the directory represented by this
- file.
- The result is <code>null</code> if this file is not a directory. The
- paths of the files in the array are absolute if the path of this file is
- absolute, they are relative otherwise.
+  file.The result is <code>null</code> if this file is not a directory.
+ The
+  paths of the files in the array are absolute if the path of this file is
+  absolute, they are relative otherwise.
  @return an array of files or <code>null</code>.
  */
 - (IOSObjectArray *)listFiles;
 
 /*!
- @brief Gets a list of the files in the directory represented by this file.
- This
- list is then filtered through a FileFilter and matching files are
- returned as an array of files. Returns <code>null</code> if this file is not a
- directory. If <code>filter</code> is <code>null</code> then all files match.
+ @brief Gets a list of the files in the directory represented by this file.This
+  list is then filtered through a FileFilter and matching files are
+  returned as an array of files.
+ Returns <code>null</code> if this file is not a
+  directory. If <code>filter</code> is <code>null</code> then all files match. 
  <p>
- The entries <code>.</code> and <code>..</code> representing the current and parent
- directories are not returned as part of the list.
- @param filter
- the filter to match names against, may be <code>null</code>.
+  The entries <code>.</code> and <code>..</code> representing the current and parent
+  directories are not returned as part of the list.
+ @param filter the filter to match names against, may be 
+ <code>null</code> .
  @return an array of files or <code>null</code>.
  */
 - (IOSObjectArray *)listFilesWithJavaIoFileFilter:(id<JavaIoFileFilter>)filter;
 
 /*!
- @brief Gets a list of the files in the directory represented by this file.
- This
- list is then filtered through a FilenameFilter and files with matching
- names are returned as an array of files. Returns <code>null</code> if this
- file is not a directory. If <code>filter</code> is <code>null</code> then all
- filenames match.
+ @brief Gets a list of the files in the directory represented by this file.This
+  list is then filtered through a FilenameFilter and files with matching
+  names are returned as an array of files.
+ Returns <code>null</code> if this
+  file is not a directory. If <code>filter</code> is <code>null</code> then all
+  filenames match. 
  <p>
- The entries <code>.</code> and <code>..</code> representing the current and parent
- directories are not returned as part of the list.
- @param filter
- the filter to match names against, may be <code>null</code>.
+  The entries <code>.</code> and <code>..</code> representing the current and parent
+  directories are not returned as part of the list.
+ @param filter the filter to match names against, may be 
+ <code>null</code> .
  @return an array of files or <code>null</code>.
  */
 - (IOSObjectArray *)listFilesWithJavaIoFilenameFilter:(id<JavaIoFilenameFilter>)filter;
 
 /*!
- @brief Returns the file system roots.
- On Android and other Unix systems, there is
- a single root, <code>/</code>.
+ @brief Returns the file system roots.On Android and other Unix systems, there is
+  a single root, <code>/</code>.
  */
 + (IOSObjectArray *)listRoots;
 
 /*!
  @brief Creates the directory named by this file, assuming its parents exist.
- Use <code>mkdirs</code> if you also want to create missing parents.
+ Use <code>mkdirs</code> if you also want to create missing parents. 
  <p>Note that this method does <i>not</i> throw <code>IOException</code> on failure.
- Callers must check the return value. Note also that this method returns
- false if the directory already existed. If you want to know whether the
- directory exists on return, either use <code>(f.mkdir() || f.isDirectory())</code>
- or simply ignore the return value from this method and simply call <code>isDirectory</code>.
+  Callers must check the return value. Note also that this method returns
+  false if the directory already existed. If you want to know whether the
+  directory exists on return, either use <code>(f.mkdir() || f.isDirectory())</code>
+  or simply ignore the return value from this method and simply call <code>isDirectory</code>.
  @return <code>true</code> if the directory was created,
- <code>false</code> on failure or if the directory already existed.
+          <code>false</code> on failure or if the directory already existed.
  */
 - (jboolean)mkdir;
 
 /*!
  @brief Creates the directory named by this file, creating missing parent
- directories if necessary.
- Use <code>mkdir</code> if you don't want to create missing parents.
+  directories if necessary.
+ Use <code>mkdir</code> if you don't want to create missing parents. 
  <p>Note that this method does <i>not</i> throw <code>IOException</code> on failure.
- Callers must check the return value. Note also that this method returns
- false if the directory already existed. If you want to know whether the
- directory exists on return, either use <code>(f.mkdirs() || f.isDirectory())</code>
- or simply ignore the return value from this method and simply call <code>isDirectory</code>.
+  Callers must check the return value. Note also that this method returns
+  false if the directory already existed. If you want to know whether the
+  directory exists on return, either use <code>(f.mkdirs() || f.isDirectory())</code>
+  or simply ignore the return value from this method and simply call <code>isDirectory</code>.
  @return <code>true</code> if the directory was created,
- <code>false</code> on failure or if the directory already existed.
+          <code>false</code> on failure or if the directory already existed.
  */
 - (jboolean)mkdirs;
 
 /*!
- @brief Renames this file to <code>newPath</code>.
- This operation is supported for both
- files and directories.
- <p>Many failures are possible. Some of the more likely failures include:
+ @brief Renames this file to <code>newPath</code>.This operation is supported for both
+  files and directories.
+ <p>Many failures are possible. Some of the more likely failures include: 
  <ul>
- <li>Write permission is required on the directories containing both the source and
- destination paths.
- <li>Search permission is required for all parents of both paths.
+  <li>Write permission is required on the directories containing both the source and
+  destination paths. 
+ <li>Search permission is required for all parents of both paths. 
  <li>Both paths be on the same mount point. On Android, applications are most likely to hit
- this restriction when attempting to copy between internal storage and an SD card.
+  this restriction when attempting to copy between internal storage and an SD card. 
  </ul>
+  
  <p>Note that this method does <i>not</i> throw <code>IOException</code> on failure.
- Callers must check the return value.
+  Callers must check the return value.
  @param newPath the new path.
  @return true on success.
  */
@@ -540,28 +531,26 @@
 
 /*!
  @brief Equivalent to setExecutable(executable, true).
- - seealso: #setExecutable(boolean,boolean)
+ - seealso: #setExecutable(boolean, boolean)
  @since 1.6
  */
 - (jboolean)setExecutableWithBoolean:(jboolean)executable;
 
 /*!
  @brief Manipulates the execute permissions for the abstract path designated by
- this file.
+  this file.
  <p>Note that this method does <i>not</i> throw <code>IOException</code> on failure.
- Callers must check the return value.
- @param executable
- To allow execute permission if true, otherwise disallow
- @param ownerOnly
- To manipulate execute permission only for owner if true,
- otherwise for everyone. The manipulation will apply to
- everyone regardless of this value if the underlying system
- does not distinguish owner and other users.
+  Callers must check the return value.
+ @param executable To allow execute permission if true, otherwise disallow
+ @param ownerOnly To manipulate execute permission only for owner if true,
+              otherwise for everyone. The manipulation will apply to
+              everyone regardless of this value if the underlying system
+              does not distinguish owner and other users.
  @return true if and only if the operation succeeded. If the user does not
- have permission to change the access permissions of this abstract
- pathname the operation will fail. If the underlying file system
- does not support execute permission and the value of executable
- is false, this operation will fail.
+          have permission to change the access permissions of this abstract
+          pathname the operation will fail. If the underlying file system
+          does not support execute permission and the value of executable
+          is false, this operation will fail.
  @since 1.6
  */
 - (jboolean)setExecutableWithBoolean:(jboolean)executable
@@ -569,40 +558,37 @@
 
 /*!
  @brief Sets the time this file was last modified, measured in milliseconds since
- January 1st, 1970, midnight.
+  January 1st, 1970, midnight.
  <p>Note that this method does <i>not</i> throw <code>IOException</code> on failure.
- Callers must check the return value.
- @param time
- the last modification time for this file.
+  Callers must check the return value.
+ @param time the last modification time for this file.
  @return <code>true</code> if the operation is successful, <code>false</code>
- otherwise.
- @throws IllegalArgumentException
+          otherwise.
+ @throw IllegalArgumentException
  if <code>time < 0</code>.
  */
 - (jboolean)setLastModifiedWithLong:(jlong)time;
 
 /*!
  @brief Equivalent to setReadable(readable, true).
- - seealso: #setReadable(boolean,boolean)
+ - seealso: #setReadable(boolean, boolean)
  @since 1.6
  */
 - (jboolean)setReadableWithBoolean:(jboolean)readable;
 
 /*!
  @brief Manipulates the read permissions for the abstract path designated by this
- file.
- @param readable
- To allow read permission if true, otherwise disallow
- @param ownerOnly
- To manipulate read permission only for owner if true,
- otherwise for everyone. The manipulation will apply to
- everyone regardless of this value if the underlying system
- does not distinguish owner and other users.
+  file.
+ @param readable To allow read permission if true, otherwise disallow
+ @param ownerOnly To manipulate read permission only for owner if true,
+              otherwise for everyone. The manipulation will apply to
+              everyone regardless of this value if the underlying system
+              does not distinguish owner and other users.
  @return true if and only if the operation succeeded. If the user does not
- have permission to change the access permissions of this abstract
- pathname the operation will fail. If the underlying file system
- does not support read permission and the value of readable is
- false, this operation will fail.
+          have permission to change the access permissions of this abstract
+          pathname the operation will fail. If the underlying file system
+          does not support read permission and the value of readable is
+          false, this operation will fail.
  @since 1.6
  */
 - (jboolean)setReadableWithBoolean:(jboolean)readable
@@ -610,30 +596,28 @@
 
 /*!
  @brief Equivalent to setWritable(false, false).
- - seealso: #setWritable(boolean,boolean)
+ - seealso: #setWritable(boolean, boolean)
  */
 - (jboolean)setReadOnly;
 
 /*!
  @brief Equivalent to setWritable(writable, true).
- - seealso: #setWritable(boolean,boolean)
+ - seealso: #setWritable(boolean, boolean)
  @since 1.6
  */
 - (jboolean)setWritableWithBoolean:(jboolean)writable;
 
 /*!
  @brief Manipulates the write permissions for the abstract path designated by this
- file.
- @param writable
- To allow write permission if true, otherwise disallow
- @param ownerOnly
- To manipulate write permission only for owner if true,
- otherwise for everyone. The manipulation will apply to
- everyone regardless of this value if the underlying system
- does not distinguish owner and other users.
+  file.
+ @param writable To allow write permission if true, otherwise disallow
+ @param ownerOnly To manipulate write permission only for owner if true,
+              otherwise for everyone. The manipulation will apply to
+              everyone regardless of this value if the underlying system
+              does not distinguish owner and other users.
  @return true if and only if the operation succeeded. If the user does not
- have permission to change the access permissions of this abstract
- pathname the operation will fail.
+          have permission to change the access permissions of this abstract
+          pathname the operation will fail.
  @since 1.6
  */
 - (jboolean)setWritableWithBoolean:(jboolean)writable
@@ -641,32 +625,34 @@
 
 /*!
  @brief Returns a string containing a concise, human-readable description of this
- file.
+  file.
  @return a printable representation of this file.
  */
 - (NSString *)description;
 
 /*!
- @brief Returns a Uniform Resource Identifier for this file.
- The URI is system
- dependent and may not be transferable between different operating / file
- systems.
+ @brief Returns a Uniform Resource Identifier for this file.The URI is system
+  dependent and may not be transferable between different operating / file
+  systems.
  @return an URI for this file.
  */
 - (JavaNetURI *)toURI;
 
 /*!
- @brief Returns a Uniform Resource Locator for this file.
- The URL is system
- dependent and may not be transferable between different operating / file
- systems.
+ @brief Returns a Uniform Resource Locator for this file.The URL is system
+  dependent and may not be transferable between different operating / file
+  systems.
  @return a URL for this file.
- @throws java.net.MalformedURLException
+ @throw java.net.MalformedURLException
  if the path cannot be transformed into a URL.
  */
 - (JavaNetURL *)toURL __attribute__((deprecated));
 
 #pragma mark Package-Private
+
+// Disallowed inherited constructors, do not use.
+
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -674,11 +660,11 @@ J2OBJC_STATIC_INIT(JavaIoFile)
 
 /*!
  @brief The system-dependent character used to separate components in filenames ('/').
- Use of this (rather than hard-coding '/') helps portability to other operating systems.
+ Use of this (rather than hard-coding '/') helps portability to other operating systems. 
  <p>This field is initialized from the system property "file.separator".
- Later changes to that property will have no effect on this field or this class.
+  Later changes to that property will have no effect on this field or this class.
  */
-inline jchar JavaIoFile_get_separatorChar();
+inline jchar JavaIoFile_get_separatorChar(void);
 /*! INTERNAL ONLY - Use accessor function from above. */
 FOUNDATION_EXPORT jchar JavaIoFile_separatorChar;
 J2OBJC_STATIC_FIELD_PRIMITIVE_FINAL(JavaIoFile, separatorChar, jchar)
@@ -687,7 +673,7 @@ J2OBJC_STATIC_FIELD_PRIMITIVE_FINAL(JavaIoFile, separatorChar, jchar)
  @brief The system-dependent string used to separate components in filenames ('/').
  See <code>separatorChar</code>.
  */
-inline NSString *JavaIoFile_get_separator();
+inline NSString *JavaIoFile_get_separator(void);
 /*! INTERNAL ONLY - Use accessor function from above. */
 FOUNDATION_EXPORT NSString *JavaIoFile_separator;
 J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaIoFile, separator, NSString *)
@@ -695,11 +681,11 @@ J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaIoFile, separator, NSString *)
 /*!
  @brief The system-dependent character used to separate components in search paths (':').
  This is used to split such things as the PATH environment variable and classpath
- system properties into lists of directories to be searched.
+  system properties into lists of directories to be searched. 
  <p>This field is initialized from the system property "path.separator".
- Later changes to that property will have no effect on this field or this class.
+  Later changes to that property will have no effect on this field or this class.
  */
-inline jchar JavaIoFile_get_pathSeparatorChar();
+inline jchar JavaIoFile_get_pathSeparatorChar(void);
 /*! INTERNAL ONLY - Use accessor function from above. */
 FOUNDATION_EXPORT jchar JavaIoFile_pathSeparatorChar;
 J2OBJC_STATIC_FIELD_PRIMITIVE_FINAL(JavaIoFile, pathSeparatorChar, jchar)
@@ -708,7 +694,7 @@ J2OBJC_STATIC_FIELD_PRIMITIVE_FINAL(JavaIoFile, pathSeparatorChar, jchar)
  @brief The system-dependent string used to separate components in search paths (":").
  See <code>pathSeparatorChar</code>.
  */
-inline NSString *JavaIoFile_get_pathSeparator();
+inline NSString *JavaIoFile_get_pathSeparator(void);
 /*! INTERNAL ONLY - Use accessor function from above. */
 FOUNDATION_EXPORT NSString *JavaIoFile_pathSeparator;
 J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaIoFile, pathSeparator, NSString *)
@@ -737,7 +723,7 @@ FOUNDATION_EXPORT JavaIoFile *new_JavaIoFile_initWithJavaNetURI_(JavaNetURI *uri
 
 FOUNDATION_EXPORT JavaIoFile *create_JavaIoFile_initWithJavaNetURI_(JavaNetURI *uri);
 
-FOUNDATION_EXPORT IOSObjectArray *JavaIoFile_listRoots();
+FOUNDATION_EXPORT IOSObjectArray *JavaIoFile_listRoots(void);
 
 FOUNDATION_EXPORT JavaIoFile *JavaIoFile_createTempFileWithNSString_withNSString_(NSString *prefix, NSString *suffix);
 
@@ -747,6 +733,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFile)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoFile")

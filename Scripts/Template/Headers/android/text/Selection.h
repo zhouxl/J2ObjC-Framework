@@ -3,7 +3,7 @@
 //  source: android/frameworks/base/core/java/android/text/Selection.java
 //
 
-#include "../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_AndroidTextSelection")
 #ifdef RESTRICT_AndroidTextSelection
@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (AndroidTextSelection_) && (INCLUDE_ALL_AndroidTextSelection || defined(INCLUDE_AndroidTextSelection))
 #define AndroidTextSelection_
 
@@ -27,6 +33,8 @@
  A cursor is a selection where the start and end are at the same offset.
  */
 @interface AndroidTextSelection : NSObject
+@property (readonly, class, strong) id SELECTION_START NS_SWIFT_NAME(SELECTION_START);
+@property (readonly, class, strong) id SELECTION_END NS_SWIFT_NAME(SELECTION_END);
 
 + (id)SELECTION_START;
 
@@ -42,13 +50,13 @@
 
 /*!
  @brief Return the offset of the selection edge or cursor, or -1 if
- there is no selection or cursor.
+  there is no selection or cursor.
  */
 + (jint)getSelectionEndWithJavaLangCharSequence:(id<JavaLangCharSequence>)text;
 
 /*!
  @brief Return the offset of the selection anchor or cursor, or -1 if
- there is no selection or cursor.
+  there is no selection or cursor.
  */
 + (jint)getSelectionStartWithJavaLangCharSequence:(id<JavaLangCharSequence>)text;
 
@@ -70,7 +78,7 @@
 
 /*!
  @brief Set the selection anchor to <code>start</code> and the selection edge
- to <code>stop</code>.
+  to <code>stop</code>.
  */
 + (void)setSelectionWithAndroidTextSpannable:(id<AndroidTextSpannable>)text
                                      withInt:(jint)start
@@ -80,12 +88,12 @@
 
 J2OBJC_STATIC_INIT(AndroidTextSelection)
 
-inline id AndroidTextSelection_get_SELECTION_START();
+inline id AndroidTextSelection_get_SELECTION_START(void);
 /*! INTERNAL ONLY - Use accessor function from above. */
 FOUNDATION_EXPORT id AndroidTextSelection_SELECTION_START;
 J2OBJC_STATIC_FIELD_OBJ_FINAL(AndroidTextSelection, SELECTION_START, id)
 
-inline id AndroidTextSelection_get_SELECTION_END();
+inline id AndroidTextSelection_get_SELECTION_END(void);
 /*! INTERNAL ONLY - Use accessor function from above. */
 FOUNDATION_EXPORT id AndroidTextSelection_SELECTION_END;
 J2OBJC_STATIC_FIELD_OBJ_FINAL(AndroidTextSelection, SELECTION_END, id)
@@ -108,6 +116,10 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSelection)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidTextSelection")

@@ -3,7 +3,7 @@
 //  source: apache_harmony/classlib/modules/beans/src/main/java/java/beans/MethodDescriptor.java
 //
 
-#include "../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaBeansMethodDescriptor")
 #ifdef RESTRICT_JavaBeansMethodDescriptor
@@ -16,12 +16,18 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaBeansMethodDescriptor_) && (INCLUDE_ALL_JavaBeansMethodDescriptor || defined(INCLUDE_JavaBeansMethodDescriptor))
 #define JavaBeansMethodDescriptor_
 
 #define RESTRICT_JavaBeansFeatureDescriptor 1
 #define INCLUDE_JavaBeansFeatureDescriptor 1
-#include "../../java/beans/FeatureDescriptor.h"
+#include "java/beans/FeatureDescriptor.h"
 
 @class IOSObjectArray;
 @class JavaLangReflectMethod;
@@ -35,34 +41,31 @@
 
 /*!
  @brief <p>
- Constructs an instance with the given <code>Method</code>.
- The
+  Constructs an instance with the given <code>Method</code>.
+ The 
  <code>getName()</code> is set as the name of the <code>method</code>
- passed.
+  passed. 
  </p>
- @param method
- The Method to set.
+ @param method The Method to set.
  */
-- (instancetype)initWithJavaLangReflectMethod:(JavaLangReflectMethod *)method;
+- (instancetype __nonnull)initWithJavaLangReflectMethod:(JavaLangReflectMethod *)method;
 
 /*!
  @brief <p>
- Constructs an instance with the given <code>Method</code> and
+  Constructs an instance with the given <code>Method</code> and 
  <code>ParameterDescriptor</code>s.
  The <code>getName()</code> is set as the name
- of the <code>method</code> passed.
+  of the <code>method</code> passed. 
  </p>
- @param method
- The Method to set.
- @param parameterDescriptors
- An array of parameter descriptors.
+ @param method The Method to set.
+ @param parameterDescriptors An array of parameter descriptors.
  */
-- (instancetype)initWithJavaLangReflectMethod:(JavaLangReflectMethod *)method
-        withJavaBeansParameterDescriptorArray:(IOSObjectArray *)parameterDescriptors;
+- (instancetype __nonnull)initWithJavaLangReflectMethod:(JavaLangReflectMethod *)method
+                  withJavaBeansParameterDescriptorArray:(IOSObjectArray *)parameterDescriptors;
 
 /*!
  @brief <p>
- Gets the method.
+  Gets the method.
  </p>
  @return A <code>Method</code> instance.
  */
@@ -70,16 +73,20 @@
 
 /*!
  @brief <p>
- Gets the parameter descriptors.
+  Gets the parameter descriptors.
  </p>
  @return An array of <code>ParameterDescriptor</code> instance or
- <code>null</code>.
+          <code>null</code>.
  */
 - (IOSObjectArray *)getParameterDescriptors;
 
 #pragma mark Package-Private
 
 - (void)mergeWithJavaBeansMethodDescriptor:(JavaBeansMethodDescriptor *)anotherMethod;
+
+// Disallowed inherited constructors, do not use.
+
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -101,6 +108,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaBeansMethodDescriptor)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaBeansMethodDescriptor")

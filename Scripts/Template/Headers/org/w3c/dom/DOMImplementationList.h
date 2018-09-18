@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/DOMImplementationList.java
 //
 
-#include "../../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgW3cDomDOMImplementationList")
 #ifdef RESTRICT_OrgW3cDomDOMImplementationList
@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (OrgW3cDomDOMImplementationList_) && (INCLUDE_ALL_OrgW3cDomDOMImplementationList || defined(INCLUDE_OrgW3cDomDOMImplementationList))
 #define OrgW3cDomDOMImplementationList_
 
@@ -23,33 +29,30 @@
 
 /*!
  @brief The <code>DOMImplementationList</code> interface provides the abstraction
- of an ordered collection of DOM implementations, without defining or
- constraining how this collection is implemented.
- The items in the
+  of an ordered collection of DOM implementations, without defining or
+  constraining how this collection is implemented.The items in the 
  <code>DOMImplementationList</code> are accessible via an integral index,
- starting from 0.
+  starting from 0.
  <p>See also the <a href='http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407'>Document Object Model (DOM) Level 3 Core Specification</a>.
  @since DOM Level 3
  */
-@protocol OrgW3cDomDOMImplementationList < NSObject, JavaObject >
+@protocol OrgW3cDomDOMImplementationList < JavaObject >
 
 /*!
- @brief Returns the <code>index</code>th item in the collection.
- If
- <code>index</code> is greater than or equal to the number of
- <code>DOMImplementation</code>s in the list, this returns
+ @brief Returns the <code>index</code>th item in the collection.If
+  <code>index</code> is greater than or equal to the number of 
+ <code>DOMImplementation</code>s in the list, this returns 
  <code>null</code>.
  @param index Index into the collection.
  @return The <code>DOMImplementation</code> at the <code>index</code>
- th position in the <code>DOMImplementationList</code>, or
- <code>null</code> if that is not a valid index.
+    th position in the <code>DOMImplementationList</code>, or
+    <code>null</code> if that is not a valid index.
  */
 - (id<OrgW3cDomDOMImplementation>)itemWithInt:(jint)index;
 
 /*!
- @brief The number of <code>DOMImplementation</code>s in the list.
- The range
- of valid child node indices is 0 to <code>length-1</code> inclusive.
+ @brief The number of <code>DOMImplementation</code>s in the list.The range
+  of valid child node indices is 0 to <code>length-1</code> inclusive.
  */
 - (jint)getLength;
 
@@ -61,6 +64,10 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomDOMImplementationList)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgW3cDomDOMImplementationList")

@@ -3,7 +3,7 @@
 //  source: android/frameworks/base/core/java/android/util/Base64.java
 //
 
-#include "../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_AndroidUtilBase64")
 #ifdef RESTRICT_AndroidUtilBase64
@@ -22,6 +22,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (AndroidUtilBase64_) && (INCLUDE_ALL_AndroidUtilBase64 || defined(INCLUDE_AndroidUtilBase64))
 #define AndroidUtilBase64_
 
@@ -29,12 +35,17 @@
 
 /*!
  @brief Utilities for encoding and decoding the Base64 representation of
- binary data.
- See RFCs <a
- href="http://www.ietf.org/rfc/rfc2045.txt">2045</a> and <a
- href="http://www.ietf.org/rfc/rfc3548.txt">3548</a>.
+  binary data.See RFCs <a href="http://www.ietf.org/rfc/rfc2045.txt">
+ 2045</a> and <a href="http://www.ietf.org/rfc/rfc3548.txt">
+ 3548</a>.
  */
 @interface AndroidUtilBase64 : NSObject
+@property (readonly, class) jint DEFAULT NS_SWIFT_NAME(DEFAULT);
+@property (readonly, class) jint NO_PADDING NS_SWIFT_NAME(NO_PADDING);
+@property (readonly, class) jint NO_WRAP NS_SWIFT_NAME(NO_WRAP);
+@property (readonly, class) jint CRLF NS_SWIFT_NAME(CRLF);
+@property (readonly, class) jint URL_SAFE NS_SWIFT_NAME(URL_SAFE);
+@property (readonly, class) jint NO_CLOSE NS_SWIFT_NAME(NO_CLOSE);
 
 + (jint)DEFAULT;
 
@@ -52,30 +63,30 @@
 
 /*!
  @brief Decode the Base64-encoded data in input and return the data in
- a new byte array.
+  a new byte array.
  <p>The padding '=' characters at the end are considered optional, but
- if any are present, there must be the correct number of them.
+  if any are present, there must be the correct number of them.
  @param input the input array to decode
- @param flags  controls certain features of the decoded output.
- Pass <code>DEFAULT</code> to decode standard Base64.
- @throws IllegalArgumentException if the input contains
- incorrect padding
+ @param flags controls certain features of the decoded output.                Pass 
+ <code>DEFAULT</code>  to decode standard Base64.
+ @throw IllegalArgumentExceptionif the input contains
+  incorrect padding
  */
 + (IOSByteArray *)decodeWithByteArray:(IOSByteArray *)input
                               withInt:(jint)flags;
 
 /*!
  @brief Decode the Base64-encoded data in input and return the data in
- a new byte array.
+  a new byte array.
  <p>The padding '=' characters at the end are considered optional, but
- if any are present, there must be the correct number of them.
- @param input  the data to decode
+  if any are present, there must be the correct number of them.
+ @param input the data to decode
  @param offset the position within the input array at which to start
- @param len    the number of bytes of input to decode
- @param flags  controls certain features of the decoded output.
- Pass <code>DEFAULT</code> to decode standard Base64.
- @throws IllegalArgumentException if the input contains
- incorrect padding
+ @param len the number of bytes of input to decode
+ @param flags controls certain features of the decoded output.                Pass 
+ <code>DEFAULT</code>  to decode standard Base64.
+ @throw IllegalArgumentExceptionif the input contains
+  incorrect padding
  */
 + (IOSByteArray *)decodeWithByteArray:(IOSByteArray *)input
                               withInt:(jint)offset
@@ -84,40 +95,36 @@
 
 /*!
  @brief Decode the Base64-encoded data in input and return the data in
- a new byte array.
+  a new byte array.
  <p>The padding '=' characters at the end are considered optional, but
- if any are present, there must be the correct number of them.
- @param str    the input String to decode, which is converted to
- bytes using the default charset
- @param flags  controls certain features of the decoded output.
- Pass <code>DEFAULT</code> to decode standard Base64.
- @throws IllegalArgumentException if the input contains
- incorrect padding
+  if any are present, there must be the correct number of them.
+ @param str the input String to decode, which is converted to                bytes using the default charset
+ @param flags controls certain features of the decoded output.                Pass 
+ <code>DEFAULT</code>  to decode standard Base64.
+ @throw IllegalArgumentExceptionif the input contains
+  incorrect padding
  */
 + (IOSByteArray *)decodeWithNSString:(NSString *)str
                              withInt:(jint)flags;
 
 /*!
  @brief Base64-encode the given data and return a newly allocated
- byte[] with the result.
- @param input  the data to encode
- @param flags  controls certain features of the encoded output.
- Passing <code>DEFAULT</code> results in output that
- adheres to RFC 2045.
+  byte[] with the result.
+ @param input the data to encode
+ @param flags controls certain features of the encoded output.                Passing 
+ <code>DEFAULT</code>  results in output that                adheres to RFC 2045.
  */
 + (IOSByteArray *)encodeWithByteArray:(IOSByteArray *)input
                               withInt:(jint)flags;
 
 /*!
  @brief Base64-encode the given data and return a newly allocated
- byte[] with the result.
- @param input  the data to encode
- @param offset the position within the input array at which to
- start
- @param len    the number of bytes of input to encode
- @param flags  controls certain features of the encoded output.
- Passing <code>DEFAULT</code> results in output that
- adheres to RFC 2045.
+  byte[] with the result.
+ @param input the data to encode
+ @param offset the position within the input array at which to                start
+ @param len the number of bytes of input to encode
+ @param flags controls certain features of the encoded output.                Passing 
+ <code>DEFAULT</code>  results in output that                adheres to RFC 2045.
  */
 + (IOSByteArray *)encodeWithByteArray:(IOSByteArray *)input
                               withInt:(jint)offset
@@ -126,25 +133,22 @@
 
 /*!
  @brief Base64-encode the given data and return a newly allocated
- String with the result.
- @param input  the data to encode
- @param flags  controls certain features of the encoded output.
- Passing <code>DEFAULT</code> results in output that
- adheres to RFC 2045.
+  String with the result.
+ @param input the data to encode
+ @param flags controls certain features of the encoded output.                Passing 
+ <code>DEFAULT</code>  results in output that                adheres to RFC 2045.
  */
 + (NSString *)encodeToStringWithByteArray:(IOSByteArray *)input
                                   withInt:(jint)flags;
 
 /*!
  @brief Base64-encode the given data and return a newly allocated
- String with the result.
- @param input  the data to encode
- @param offset the position within the input array at which to
- start
- @param len    the number of bytes of input to encode
- @param flags  controls certain features of the encoded output.
- Passing <code>DEFAULT</code> results in output that
- adheres to RFC 2045.
+  String with the result.
+ @param input the data to encode
+ @param offset the position within the input array at which to                start
+ @param len the number of bytes of input to encode
+ @param flags controls certain features of the encoded output.                Passing 
+ <code>DEFAULT</code>  results in output that                adheres to RFC 2045.
  */
 + (NSString *)encodeToStringWithByteArray:(IOSByteArray *)input
                                   withInt:(jint)offset
@@ -158,52 +162,51 @@ J2OBJC_EMPTY_STATIC_INIT(AndroidUtilBase64)
 /*!
  @brief Default values for encoder/decoder flags.
  */
-inline jint AndroidUtilBase64_get_DEFAULT();
+inline jint AndroidUtilBase64_get_DEFAULT(void);
 #define AndroidUtilBase64_DEFAULT 0
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilBase64, DEFAULT, jint)
 
 /*!
  @brief Encoder flag bit to omit the padding '=' characters at the end
- of the output (if any).
+  of the output (if any).
  */
-inline jint AndroidUtilBase64_get_NO_PADDING();
+inline jint AndroidUtilBase64_get_NO_PADDING(void);
 #define AndroidUtilBase64_NO_PADDING 1
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilBase64, NO_PADDING, jint)
 
 /*!
  @brief Encoder flag bit to omit all line terminators (i.e., the output
- will be on one long line).
+  will be on one long line).
  */
-inline jint AndroidUtilBase64_get_NO_WRAP();
+inline jint AndroidUtilBase64_get_NO_WRAP(void);
 #define AndroidUtilBase64_NO_WRAP 2
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilBase64, NO_WRAP, jint)
 
 /*!
  @brief Encoder flag bit to indicate lines should be terminated with a
- CRLF pair instead of just an LF.
- Has no effect if <code>NO_WRAP</code>
+  CRLF pair instead of just an LF.Has no effect if <code>NO_WRAP</code>
   is specified as well.
  */
-inline jint AndroidUtilBase64_get_CRLF();
+inline jint AndroidUtilBase64_get_CRLF(void);
 #define AndroidUtilBase64_CRLF 4
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilBase64, CRLF, jint)
 
 /*!
  @brief Encoder/decoder flag bit to indicate using the "URL and
- filename safe" variant of Base64 (see RFC 3548 section 4) where
- <code>-</code> and <code>_</code> are used in place of <code>+</code> and
+  filename safe" variant of Base64 (see RFC 3548 section 4) where 
+ <code>-</code> and <code>_</code> are used in place of <code>+</code> and 
  <code>/</code>.
  */
-inline jint AndroidUtilBase64_get_URL_SAFE();
+inline jint AndroidUtilBase64_get_URL_SAFE(void);
 #define AndroidUtilBase64_URL_SAFE 8
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilBase64, URL_SAFE, jint)
 
 /*!
  @brief Flag to pass to <code>Base64OutputStream</code> to indicate that it
- should not close the output stream it is wrapping when it
- itself is closed.
+  should not close the output stream it is wrapping when it
+  itself is closed.
  */
-inline jint AndroidUtilBase64_get_NO_CLOSE();
+inline jint AndroidUtilBase64_get_NO_CLOSE(void);
 #define AndroidUtilBase64_NO_CLOSE 16
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilBase64, NO_CLOSE, jint)
 
@@ -240,22 +243,21 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64)
 
 /*!
  @return the maximum number of bytes a call to process()
- could produce for the given number of input bytes.  This may
- be an overestimate.
+  could produce for the given number of input bytes.  This may
+  be an overestimate.
  */
 - (jint)maxOutputSizeWithInt:(jint)len;
 
 /*!
- @brief Encode/decode another block of input data.
- this.output is
- provided by the caller, and must be big enough to hold all
- the coded data.  On exit, this.opwill be set to the length
- of the coded data.
- @param finish true if this is the final call to process for
- this object.  Will finalize the coder state and
- include any final bytes in the output.
+ @brief Encode/decode another block of input data.this.output is
+  provided by the caller, and must be big enough to hold all
+  the coded data.
+ On exit, this.opwill be set to the length
+  of the coded data.
+ @param finish true if this is the final call to process for         this object.  Will finalize the coder state and
+          include any final bytes in the output.
  @return true if the input so far is good; false if some
- error has been detected in the input stream..
+          error has been detected in the input stream..
  */
 - (jboolean)processWithByteArray:(IOSByteArray *)input
                          withInt:(jint)offset
@@ -264,7 +266,7 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64)
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -287,8 +289,8 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64_Coder)
 
 #pragma mark Public
 
-- (instancetype)initWithInt:(jint)flags
-              withByteArray:(IOSByteArray *)output;
+- (instancetype __nonnull)initWithInt:(jint)flags
+                        withByteArray:(IOSByteArray *)output;
 
 /*!
  @return an overestimate for the number of bytes <code>len</code>
@@ -299,12 +301,16 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64_Coder)
 /*!
  @brief Decode another block of input data.
  @return true if the state machine is still healthy.  false if
- bad base-64 data has been detected in the input stream.
+          bad base-64 data has been detected in the input stream.
  */
 - (jboolean)processWithByteArray:(IOSByteArray *)input
                          withInt:(jint)offset
                          withInt:(jint)len
                      withBoolean:(jboolean)finish;
+
+// Disallowed inherited constructors, do not use.
+
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -332,13 +338,14 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64_Decoder)
   jboolean do_newline_;
   jboolean do_cr_;
 }
+@property (readonly, class) jint LINE_GROUPS NS_SWIFT_NAME(LINE_GROUPS);
 
 + (jint)LINE_GROUPS;
 
 #pragma mark Public
 
-- (instancetype)initWithInt:(jint)flags
-              withByteArray:(IOSByteArray *)output;
+- (instancetype __nonnull)initWithInt:(jint)flags
+                        withByteArray:(IOSByteArray *)output;
 
 /*!
  @return an overestimate for the number of bytes <code>len</code>
@@ -351,17 +358,20 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64_Decoder)
                          withInt:(jint)len
                      withBoolean:(jboolean)finish;
 
+// Disallowed inherited constructors, do not use.
+
+- (instancetype __nonnull)init NS_UNAVAILABLE;
+
 @end
 
 J2OBJC_STATIC_INIT(AndroidUtilBase64_Encoder)
 
 /*!
- @brief Emit a new line every this many output tuples.
- Corresponds to
- a 76-character line length (the maximum allowable according to
+ @brief Emit a new line every this many output tuples.Corresponds to
+  a 76-character line length (the maximum allowable according to 
  <a href="http://www.ietf.org/rfc/rfc2045.txt">RFC 2045</a>).
  */
-inline jint AndroidUtilBase64_Encoder_get_LINE_GROUPS();
+inline jint AndroidUtilBase64_Encoder_get_LINE_GROUPS(void);
 #define AndroidUtilBase64_Encoder_LINE_GROUPS 19
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilBase64_Encoder, LINE_GROUPS, jint)
 
@@ -375,6 +385,10 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64_Encoder)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidUtilBase64")

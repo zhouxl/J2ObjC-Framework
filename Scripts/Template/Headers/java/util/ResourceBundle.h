@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/util/ResourceBundle.java
 //
 
-#include "../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilResourceBundle")
 #ifdef RESTRICT_JavaUtilResourceBundle
@@ -19,6 +19,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilResourceBundle_) && (INCLUDE_ALL_JavaUtilResourceBundle || defined(INCLUDE_JavaUtilResourceBundle))
 #define JavaUtilResourceBundle_
 
@@ -31,46 +37,48 @@
 
 /*!
  @brief <code>ResourceBundle</code> is an abstract class which is the superclass of classes which
- provide <code>Locale</code>-specific resources.
- A bundle contains a number of named
- resources, where the names are <code>Strings</code>. A bundle may have a parent bundle,
- and when a resource is not found in a bundle, the parent bundle is searched for
- the resource. If the fallback mechanism reaches the base bundle and still
- can't find the resource it throws a <code>MissingResourceException</code>.
+  provide <code>Locale</code>-specific resources.A bundle contains a number of named
+  resources, where the names are <code>Strings</code>.
+ A bundle may have a parent bundle,
+  and when a resource is not found in a bundle, the parent bundle is searched for
+  the resource. If the fallback mechanism reaches the base bundle and still
+  can't find the resource it throws a <code>MissingResourceException</code>.
+  
  <ul>
- <li>All bundles for the same group of resources share a common base bundle.
- This base bundle acts as the root and is the last fallback in case none of
- its children was able to respond to a request.</li>
- <li>The first level contains changes between different languages. Only the
- differences between a language and the language of the base bundle need to be
- handled by a language-specific <code>ResourceBundle</code>.</li>
- <li>The second level contains changes between different countries that use
- the same language. Only the differences between a country and the country of
- the language bundle need to be handled by a country-specific <code>ResourceBundle</code>.
- </li>
- <li>The third level contains changes that don't have a geographic reason
- (e.g. changes that where made at some point in time like <code>PREEURO</code> where the
- currency of come countries changed. The country bundle would return the
- current currency (Euro) and the <code>PREEURO</code> variant bundle would return the old
- currency (e.g. DM for Germany).</li>
- </ul>
+  <li>All bundles for the same group of resources share a common base bundle.
+  This base bundle acts as the root and is the last fallback in case none of
+  its children was able to respond to a request.</li>
+  <li>The first level contains changes between different languages. Only the
+  differences between a language and the language of the base bundle need to be
+  handled by a language-specific <code>ResourceBundle</code>.</li>
+  <li>The second level contains changes between different countries that use
+  the same language. Only the differences between a country and the country of
+  the language bundle need to be handled by a country-specific <code>ResourceBundle</code>.
+  </li>
+  <li>The third level contains changes that don't have a geographic reason
+  (e.g. changes that where made at some point in time like <code>PREEURO</code> where the
+  currency of come countries changed. The country bundle would return the
+  current currency (Euro) and the <code>PREEURO</code> variant bundle would return the old
+  currency (e.g. DM for Germany).</li>
+  </ul>
+  
  <strong>Examples</strong>
- <ul>
- <li>BaseName (base bundle)
- <li>BaseName_de (german language bundle)
- <li>BaseName_fr (french language bundle)
- <li>BaseName_de_DE (bundle with Germany specific resources in german)
- <li>BaseName_de_CH (bundle with Switzerland specific resources in german)
- <li>BaseName_fr_CH (bundle with Switzerland specific resources in french)
+  <ul>
+  <li>BaseName (base bundle) 
+ <li>BaseName_de (german language bundle) 
+ <li>BaseName_fr (french language bundle) 
+ <li>BaseName_de_DE (bundle with Germany specific resources in german) 
+ <li>BaseName_de_CH (bundle with Switzerland specific resources in german) 
+ <li>BaseName_fr_CH (bundle with Switzerland specific resources in french) 
  <li>BaseName_de_DE_PREEURO (bundle with Germany specific resources in german of
- the time before the Euro)
+  the time before the Euro) 
  <li>BaseName_fr_FR_PREEURO (bundle with France specific resources in french of
- the time before the Euro)
+  the time before the Euro) 
  </ul>
- It's also possible to create variants for languages or countries. This can be
- done by just skipping the country or language abbreviation:
- BaseName_us__POSIX or BaseName__DE_PREEURO. But it's not allowed to
- circumvent both language and country: BaseName___VARIANT is illegal.
+  It's also possible to create variants for languages or countries. This can be
+  done by just skipping the country or language abbreviation:
+  BaseName_us__POSIX or BaseName__DE_PREEURO. But it's not allowed to
+  circumvent both language and country: BaseName___VARIANT is illegal.
  - seealso: Properties
  - seealso: PropertyResourceBundle
  - seealso: ListResourceBundle
@@ -80,7 +88,7 @@
  @public
   /*!
    @brief The parent of this <code>ResourceBundle</code> that is used if this bundle doesn't
- include the requested resource.
+  include the requested resource.
    */
   JavaUtilResourceBundle *parent_;
 }
@@ -90,7 +98,7 @@
 /*!
  @brief Constructs a new instance of this class.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 + (void)clearCache;
 
@@ -99,22 +107,20 @@
 - (jboolean)containsKeyWithNSString:(NSString *)key;
 
 /*!
- @brief Finds the named resource bundle for the default <code>Locale</code> and the caller's
+ @brief Finds the named resource bundle for the default <code>Locale</code> and the caller's 
  <code>ClassLoader</code>.
- @param bundleName
- the name of the <code>ResourceBundle</code>.
+ @param bundleName the name of the 
+ <code>ResourceBundle</code> .
  @return the requested <code>ResourceBundle</code>.
- @throws MissingResourceException
+ @throw MissingResourceException
  if the <code>ResourceBundle</code> cannot be found.
  */
 + (JavaUtilResourceBundle *)getBundleWithNSString:(NSString *)bundleName;
 
 /*!
  @brief Finds the named resource bundle for the specified base name and control.
- @param baseName
- the base name of a resource bundle
- @param control
- the control that control the access sequence
+ @param baseName the base name of a resource bundle
+ @param control the control that control the access sequence
  @return the named resource bundle
  @since 1.6
  */
@@ -122,14 +128,14 @@
                withJavaUtilResourceBundle_Control:(JavaUtilResourceBundle_Control *)control;
 
 /*!
- @brief Finds the named <code>ResourceBundle</code> for the specified <code>Locale</code> and the caller
+ @brief Finds the named <code>ResourceBundle</code> for the specified <code>Locale</code> and the caller 
  <code>ClassLoader</code>.
- @param bundleName
- the name of the <code>ResourceBundle</code>.
- @param locale
- the <code>Locale</code>.
+ @param bundleName the name of the 
+ <code>ResourceBundle</code> .
+ @param locale the 
+ <code>Locale</code> .
  @return the requested resource bundle.
- @throws MissingResourceException
+ @throw MissingResourceException
  if the resource bundle cannot be found.
  */
 + (JavaUtilResourceBundle *)getBundleWithNSString:(NSString *)bundleName
@@ -138,43 +144,43 @@
 /*!
  @brief Finds the named resource bundle for the specified <code>Locale</code> and <code>ClassLoader</code>.
  The passed base name and <code>Locale</code> are used to create resource bundle names.
- The first name is created by concatenating the base name with the result
- of <code>Locale.toString()</code>. From this name all parent bundle names are
- derived. Then the same thing is done for the default <code>Locale</code>. This results
- in a list of possible bundle names.
+  The first name is created by concatenating the base name with the result
+  of <code>Locale.toString()</code>. From this name all parent bundle names are
+  derived. Then the same thing is done for the default <code>Locale</code>. This results
+  in a list of possible bundle names. 
  <strong>Example</strong> For the basename "BaseName", the <code>Locale</code> of the
- German part of Switzerland (de_CH) and the default <code>Locale</code> en_US the list
- would look something like this:
+  German part of Switzerland (de_CH) and the default <code>Locale</code> en_US the list
+  would look something like this: 
  <ol>
- <li>BaseName_de_CH</li>
- <li>BaseName_de</li>
- <li>Basename_en_US</li>
- <li>Basename_en</li>
- <li>BaseName</li>
- </ol>
- This list also shows the order in which the bundles will be searched for a requested
- resource in the German part of Switzerland (de_CH).
- As a first step, this method tries to instantiate
- a <code>ResourceBundle</code> with the names provided.
- If such a class can be instantiated and initialized, it is returned and
- all the parent bundles are instantiated too. If no such class can be
- found this method tries to load a <code>.properties</code> file with the names by
- replacing dots in the base name with a slash and by appending
- "<code>.properties</code>" at the end of the string. If such a resource can be found
- by calling <code>ClassLoader.getResource(String)</code> it is used to
- initialize a <code>PropertyResourceBundle</code>. If this succeeds, it will
- also load the parents of this <code>ResourceBundle</code>.
- For compatibility with older code, the bundle name isn't required to be
- a fully qualified class name. It's also possible to directly pass
- the path to a properties file (without a file extension).
- @param bundleName
- the name of the <code>ResourceBundle</code>.
- @param locale
- the <code>Locale</code>.
- @param loader
- the <code>ClassLoader</code> to use.
+  <li>BaseName_de_CH</li>
+  <li>BaseName_de</li>
+  <li>Basename_en_US</li>
+  <li>Basename_en</li>
+  <li>BaseName</li>
+  </ol>
+  This list also shows the order in which the bundles will be searched for a requested
+  resource in the German part of Switzerland (de_CH).
+  As a first step, this method tries to instantiate a 
+ <code>ResourceBundle</code> with the names provided.
+  If such a class can be instantiated and initialized, it is returned and
+  all the parent bundles are instantiated too. If no such class can be
+  found this method tries to load a <code>.properties</code> file with the names by
+  replacing dots in the base name with a slash and by appending
+  "<code>.properties</code>" at the end of the string. If such a resource can be found
+  by calling <code>ClassLoader.getResource(String)</code> it is used to
+  initialize a <code>PropertyResourceBundle</code>. If this succeeds, it will
+  also load the parents of this <code>ResourceBundle</code>.
+  For compatibility with older code, the bundle name isn't required to be
+  a fully qualified class name. It's also possible to directly pass
+  the path to a properties file (without a file extension).
+ @param bundleName the name of the 
+ <code>ResourceBundle</code> .
+ @param locale the 
+ <code>Locale</code> .
+ @param loader the 
+ <code>ClassLoader</code>  to use.
  @return the requested <code>ResourceBundle</code>.
- @throws MissingResourceException
+ @throw MissingResourceException
  if the <code>ResourceBundle</code> cannot be found.
  */
 + (JavaUtilResourceBundle *)getBundleWithNSString:(NSString *)bundleName
@@ -183,14 +189,10 @@
 
 /*!
  @brief Finds the named resource bundle for the specified base name and control.
- @param baseName
- the base name of a resource bundle
- @param targetLocale
- the target locale of the resource bundle
- @param loader
- the class loader to load resource
- @param control
- the control that control the access sequence
+ @param baseName the base name of a resource bundle
+ @param targetLocale the target locale of the resource bundle
+ @param loader the class loader to load resource
+ @param control the control that control the access sequence
  @return the named resource bundle
  @since 1.6
  */
@@ -201,12 +203,9 @@
 
 /*!
  @brief Finds the named resource bundle for the specified base name and control.
- @param baseName
- the base name of a resource bundle
- @param targetLocale
- the target locale of the resource bundle
- @param control
- the control that control the access sequence
+ @param baseName the base name of a resource bundle
+ @param targetLocale the target locale of the resource bundle
+ @param control the control that control the access sequence
  @return the named resource bundle
  @since 1.6
  */
@@ -221,36 +220,33 @@
 - (id<JavaUtilEnumeration>)getKeys;
 
 /*!
- @brief Gets the <code>Locale</code> of this <code>ResourceBundle</code>.
- In case a bundle was not
- found for the requested <code>Locale</code>, this will return the actual <code>Locale</code> of
- this resource bundle that was found after doing a fallback.
+ @brief Gets the <code>Locale</code> of this <code>ResourceBundle</code>.In case a bundle was not
+  found for the requested <code>Locale</code>, this will return the actual <code>Locale</code> of
+  this resource bundle that was found after doing a fallback.
  @return the <code>Locale</code> of this <code>ResourceBundle</code>.
  */
 - (JavaUtilLocale *)getLocale;
 
 /*!
- @brief Returns the named resource from this <code>ResourceBundle</code>.
- If the resource
- cannot be found in this bundle, it falls back to the parent bundle (if
- it's not null) by calling the <code>handleGetObject</code> method. If the resource still
- can't be found it throws a <code>MissingResourceException</code>.
- @param key
- the name of the resource.
+ @brief Returns the named resource from this <code>ResourceBundle</code>.If the resource
+  cannot be found in this bundle, it falls back to the parent bundle (if
+  it's not null) by calling the <code>handleGetObject</code> method.
+ If the resource still
+  can't be found it throws a <code>MissingResourceException</code>.
+ @param key the name of the resource.
  @return the resource object.
- @throws MissingResourceException
+ @throw MissingResourceException
  if the resource is not found.
  */
 - (id)getObjectWithNSString:(NSString *)key;
 
 /*!
  @brief Returns the named string resource from this <code>ResourceBundle</code>.
- @param key
- the name of the resource.
+ @param key the name of the resource.
  @return the resource string.
- @throws MissingResourceException
+ @throw MissingResourceException
  if the resource is not found.
- @throws ClassCastException
+ @throw ClassCastException
  if the resource found is not a string.
  - seealso: #getObject(String)
  */
@@ -258,12 +254,11 @@
 
 /*!
  @brief Returns the named resource from this <code>ResourceBundle</code>.
- @param key
- the name of the resource.
+ @param key the name of the resource.
  @return the resource string array.
- @throws MissingResourceException
+ @throw MissingResourceException
  if the resource is not found.
- @throws ClassCastException
+ @throw ClassCastException
  if the resource found is not an array of strings.
  - seealso: #getObject(String)
  */
@@ -275,9 +270,8 @@
 
 /*!
  @brief Returns the named resource from this <code>ResourceBundle</code>, or null if the
- resource is not found.
- @param key
- the name of the resource.
+  resource is not found.
+ @param key the name of the resource.
  @return the resource object.
  */
 - (id)handleGetObjectWithNSString:(NSString *)key;
@@ -285,11 +279,10 @@
 - (id<JavaUtilSet>)handleKeySet;
 
 /*!
- @brief Sets the parent resource bundle of this <code>ResourceBundle</code>.
- The parent is
- searched for resources which are not found in this <code>ResourceBundle</code>.
- @param bundle
- the parent <code>ResourceBundle</code>.
+ @brief Sets the parent resource bundle of this <code>ResourceBundle</code>.The parent is
+  searched for resources which are not found in this <code>ResourceBundle</code>.
+ @param bundle the parent 
+ <code>ResourceBundle</code> .
  */
 - (void)setParentWithJavaUtilResourceBundle:(JavaUtilResourceBundle *)bundle;
 
@@ -313,7 +306,7 @@ FOUNDATION_EXPORT JavaUtilResourceBundle *JavaUtilResourceBundle_getBundleWithNS
 
 FOUNDATION_EXPORT JavaUtilResourceBundle *JavaUtilResourceBundle_getBundleWithNSString_withJavaUtilLocale_withJavaLangClassLoader_withJavaUtilResourceBundle_Control_(NSString *baseName, JavaUtilLocale *targetLocale, JavaLangClassLoader *loader, JavaUtilResourceBundle_Control *control);
 
-FOUNDATION_EXPORT void JavaUtilResourceBundle_clearCache();
+FOUNDATION_EXPORT void JavaUtilResourceBundle_clearCache(void);
 
 FOUNDATION_EXPORT void JavaUtilResourceBundle_clearCacheWithJavaLangClassLoader_(JavaLangClassLoader *loader);
 
@@ -336,7 +329,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilResourceBundle)
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -344,9 +337,9 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilResourceBundle_MissingBundle)
 
 FOUNDATION_EXPORT void JavaUtilResourceBundle_MissingBundle_init(JavaUtilResourceBundle_MissingBundle *self);
 
-FOUNDATION_EXPORT JavaUtilResourceBundle_MissingBundle *new_JavaUtilResourceBundle_MissingBundle_init() NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaUtilResourceBundle_MissingBundle *new_JavaUtilResourceBundle_MissingBundle_init(void) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaUtilResourceBundle_MissingBundle *create_JavaUtilResourceBundle_MissingBundle_init();
+FOUNDATION_EXPORT JavaUtilResourceBundle_MissingBundle *create_JavaUtilResourceBundle_MissingBundle_init(void);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilResourceBundle_MissingBundle)
 
@@ -362,7 +355,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilResourceBundle_MissingBundle)
 
 /*!
  @brief ResourceBundle.Control is a static utility class defines ResourceBundle
- load access methods, its default access order is as the same as before.
+  load access methods, its default access order is as the same as before.
  However users can implement their own control.
  @since 1.6
  */
@@ -370,6 +363,16 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilResourceBundle_MissingBundle)
  @public
   id<JavaUtilList> format_;
 }
+@property (class, strong) id<JavaUtilList> listDefault NS_SWIFT_NAME(listDefault);
+@property (class, strong) id<JavaUtilList> listClass NS_SWIFT_NAME(listClass);
+@property (class, strong) id<JavaUtilList> listProperties NS_SWIFT_NAME(listProperties);
+@property (copy, class) NSString *JAVACLASS NS_SWIFT_NAME(JAVACLASS);
+@property (copy, class) NSString *JAVAPROPERTIES NS_SWIFT_NAME(JAVAPROPERTIES);
+@property (readonly, class, strong) id<JavaUtilList> FORMAT_DEFAULT NS_SWIFT_NAME(FORMAT_DEFAULT);
+@property (readonly, class, strong) id<JavaUtilList> FORMAT_CLASS NS_SWIFT_NAME(FORMAT_CLASS);
+@property (readonly, class, strong) id<JavaUtilList> FORMAT_PROPERTIES NS_SWIFT_NAME(FORMAT_PROPERTIES);
+@property (readonly, class) jlong TTL_DONT_CACHE NS_SWIFT_NAME(TTL_DONT_CACHE);
+@property (readonly, class) jlong TTL_NO_EXPIRATION_CONTROL NS_SWIFT_NAME(TTL_NO_EXPIRATION_CONTROL);
 
 + (id<JavaUtilList>)listDefault;
 
@@ -404,7 +407,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilResourceBundle_MissingBundle)
 #pragma mark Public
 
 /*!
- @brief Returns a list of candidate locales according to <code>baseName</code> in
+ @brief Returns a list of candidate locales according to <code>baseName</code> in 
  <code>locale</code>.
  */
 - (id<JavaUtilList>)getCandidateLocalesWithNSString:(NSString *)baseName
@@ -428,31 +431,25 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilResourceBundle_MissingBundle)
 
 /*!
  @brief Returns a control according to <code>formats</code> whose fallback
- locale is null.
+  locale is null.
  */
 + (JavaUtilResourceBundle_Control *)getNoFallbackControlWithJavaUtilList:(id<JavaUtilList>)formats;
 
 /*!
  @brief Returns the time to live of the ResourceBundle <code>baseName</code> in <code>locale</code>,
- default is TTL_NO_EXPIRATION_CONTROL.
+  default is TTL_NO_EXPIRATION_CONTROL.
  */
 - (jlong)getTimeToLiveWithNSString:(NSString *)baseName
                 withJavaUtilLocale:(JavaUtilLocale *)locale;
 
 /*!
  @brief Returns true if the ResourceBundle needs to reload.
- @param baseName
- the base name of the ResourceBundle
- @param locale
- the locale of the ResourceBundle
- @param format
- the format to load
- @param loader
- the ClassLoader to load resource
- @param bundle
- the ResourceBundle
- @param loadTime
- the expired time
+ @param baseName the base name of the ResourceBundle
+ @param locale the locale of the ResourceBundle
+ @param format the format to load
+ @param loader the ClassLoader to load resource
+ @param bundle the ResourceBundle
+ @param loadTime the expired time
  @return if the ResourceBundle needs to reload
  */
 - (jboolean)needsReloadWithNSString:(NSString *)baseName
@@ -464,22 +461,17 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilResourceBundle_MissingBundle)
 
 /*!
  @brief Returns a new ResourceBundle.
- @param baseName
- the base name to use
- @param locale
- the given locale
- @param format
- the format, default is "java.class" or "java.properties"
- @param loader
- the classloader to use
- @param reload
- whether to reload the resource
+ @param baseName the base name to use
+ @param locale the given locale
+ @param format the format, default is "java.class" or "java.properties"
+ @param loader the classloader to use
+ @param reload whether to reload the resource
  @return a new ResourceBundle according to the give parameters
- @throws IllegalAccessException
+ @throw IllegalAccessException
  if we can not access resources
- @throws InstantiationException
+ @throw InstantiationException
  if we can not instantiate a resource class
- @throws IOException
+ @throw IOException
  if other I/O exception happens
  */
 - (JavaUtilResourceBundle *)newBundleWithNSString:(NSString *)baseName
@@ -490,26 +482,22 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilResourceBundle_MissingBundle)
 
 /*!
  @brief a utility method to answer the name of a resource bundle according to
- the given base name and locale
- @param baseName
- the given base name
- @param locale
- the locale to use
+  the given base name and locale
+ @param baseName the given base name
+ @param locale the locale to use
  @return the name of a resource bundle according to the given base
- name and locale
+          name and locale
  */
 - (NSString *)toBundleNameWithNSString:(NSString *)baseName
                     withJavaUtilLocale:(JavaUtilLocale *)locale;
 
 /*!
  @brief a utility method to answer the name of a resource according to the
- given bundleName and suffix
- @param bundleName
- the given bundle name
- @param suffix
- the suffix
+  given bundleName and suffix
+ @param bundleName the given bundle name
+ @param suffix the suffix
  @return the name of a resource according to the given bundleName and
- suffix
+          suffix
  */
 - (NSString *)toResourceNameWithNSString:(NSString *)bundleName
                             withNSString:(NSString *)suffix;
@@ -519,7 +507,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilResourceBundle_MissingBundle)
 /*!
  @brief default constructor
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -527,31 +515,31 @@ J2OBJC_STATIC_INIT(JavaUtilResourceBundle_Control)
 
 J2OBJC_FIELD_SETTER(JavaUtilResourceBundle_Control, format_, id<JavaUtilList>)
 
-inline id<JavaUtilList> JavaUtilResourceBundle_Control_get_listDefault();
+inline id<JavaUtilList> JavaUtilResourceBundle_Control_get_listDefault(void);
 inline id<JavaUtilList> JavaUtilResourceBundle_Control_set_listDefault(id<JavaUtilList> value);
 /*! INTERNAL ONLY - Use accessor function from above. */
 FOUNDATION_EXPORT id<JavaUtilList> JavaUtilResourceBundle_Control_listDefault;
 J2OBJC_STATIC_FIELD_OBJ(JavaUtilResourceBundle_Control, listDefault, id<JavaUtilList>)
 
-inline id<JavaUtilList> JavaUtilResourceBundle_Control_get_listClass();
+inline id<JavaUtilList> JavaUtilResourceBundle_Control_get_listClass(void);
 inline id<JavaUtilList> JavaUtilResourceBundle_Control_set_listClass(id<JavaUtilList> value);
 /*! INTERNAL ONLY - Use accessor function from above. */
 FOUNDATION_EXPORT id<JavaUtilList> JavaUtilResourceBundle_Control_listClass;
 J2OBJC_STATIC_FIELD_OBJ(JavaUtilResourceBundle_Control, listClass, id<JavaUtilList>)
 
-inline id<JavaUtilList> JavaUtilResourceBundle_Control_get_listProperties();
+inline id<JavaUtilList> JavaUtilResourceBundle_Control_get_listProperties(void);
 inline id<JavaUtilList> JavaUtilResourceBundle_Control_set_listProperties(id<JavaUtilList> value);
 /*! INTERNAL ONLY - Use accessor function from above. */
 FOUNDATION_EXPORT id<JavaUtilList> JavaUtilResourceBundle_Control_listProperties;
 J2OBJC_STATIC_FIELD_OBJ(JavaUtilResourceBundle_Control, listProperties, id<JavaUtilList>)
 
-inline NSString *JavaUtilResourceBundle_Control_get_JAVACLASS();
+inline NSString *JavaUtilResourceBundle_Control_get_JAVACLASS(void);
 inline NSString *JavaUtilResourceBundle_Control_set_JAVACLASS(NSString *value);
 /*! INTERNAL ONLY - Use accessor function from above. */
 FOUNDATION_EXPORT NSString *JavaUtilResourceBundle_Control_JAVACLASS;
 J2OBJC_STATIC_FIELD_OBJ(JavaUtilResourceBundle_Control, JAVACLASS, NSString *)
 
-inline NSString *JavaUtilResourceBundle_Control_get_JAVAPROPERTIES();
+inline NSString *JavaUtilResourceBundle_Control_get_JAVAPROPERTIES(void);
 inline NSString *JavaUtilResourceBundle_Control_set_JAVAPROPERTIES(NSString *value);
 /*! INTERNAL ONLY - Use accessor function from above. */
 FOUNDATION_EXPORT NSString *JavaUtilResourceBundle_Control_JAVAPROPERTIES;
@@ -560,7 +548,7 @@ J2OBJC_STATIC_FIELD_OBJ(JavaUtilResourceBundle_Control, JAVAPROPERTIES, NSString
 /*!
  @brief a list defines default format
  */
-inline id<JavaUtilList> JavaUtilResourceBundle_Control_get_FORMAT_DEFAULT();
+inline id<JavaUtilList> JavaUtilResourceBundle_Control_get_FORMAT_DEFAULT(void);
 /*! INTERNAL ONLY - Use accessor function from above. */
 FOUNDATION_EXPORT id<JavaUtilList> JavaUtilResourceBundle_Control_FORMAT_DEFAULT;
 J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilResourceBundle_Control, FORMAT_DEFAULT, id<JavaUtilList>)
@@ -568,7 +556,7 @@ J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilResourceBundle_Control, FORMAT_DEFAULT, id
 /*!
  @brief a list defines java class format
  */
-inline id<JavaUtilList> JavaUtilResourceBundle_Control_get_FORMAT_CLASS();
+inline id<JavaUtilList> JavaUtilResourceBundle_Control_get_FORMAT_CLASS(void);
 /*! INTERNAL ONLY - Use accessor function from above. */
 FOUNDATION_EXPORT id<JavaUtilList> JavaUtilResourceBundle_Control_FORMAT_CLASS;
 J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilResourceBundle_Control, FORMAT_CLASS, id<JavaUtilList>)
@@ -576,7 +564,7 @@ J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilResourceBundle_Control, FORMAT_CLASS, id<J
 /*!
  @brief a list defines property format
  */
-inline id<JavaUtilList> JavaUtilResourceBundle_Control_get_FORMAT_PROPERTIES();
+inline id<JavaUtilList> JavaUtilResourceBundle_Control_get_FORMAT_PROPERTIES(void);
 /*! INTERNAL ONLY - Use accessor function from above. */
 FOUNDATION_EXPORT id<JavaUtilList> JavaUtilResourceBundle_Control_FORMAT_PROPERTIES;
 J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilResourceBundle_Control, FORMAT_PROPERTIES, id<JavaUtilList>)
@@ -584,22 +572,22 @@ J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilResourceBundle_Control, FORMAT_PROPERTIES,
 /*!
  @brief a constant that indicates cache will not be used.
  */
-inline jlong JavaUtilResourceBundle_Control_get_TTL_DONT_CACHE();
+inline jlong JavaUtilResourceBundle_Control_get_TTL_DONT_CACHE(void);
 #define JavaUtilResourceBundle_Control_TTL_DONT_CACHE -1LL
 J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilResourceBundle_Control, TTL_DONT_CACHE, jlong)
 
 /*!
  @brief a constant that indicates cache will not be expired.
  */
-inline jlong JavaUtilResourceBundle_Control_get_TTL_NO_EXPIRATION_CONTROL();
+inline jlong JavaUtilResourceBundle_Control_get_TTL_NO_EXPIRATION_CONTROL(void);
 #define JavaUtilResourceBundle_Control_TTL_NO_EXPIRATION_CONTROL -2LL
 J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilResourceBundle_Control, TTL_NO_EXPIRATION_CONTROL, jlong)
 
 FOUNDATION_EXPORT void JavaUtilResourceBundle_Control_init(JavaUtilResourceBundle_Control *self);
 
-FOUNDATION_EXPORT JavaUtilResourceBundle_Control *new_JavaUtilResourceBundle_Control_init() NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaUtilResourceBundle_Control *new_JavaUtilResourceBundle_Control_init(void) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaUtilResourceBundle_Control *create_JavaUtilResourceBundle_Control_init();
+FOUNDATION_EXPORT JavaUtilResourceBundle_Control *create_JavaUtilResourceBundle_Control_init(void);
 
 FOUNDATION_EXPORT JavaUtilResourceBundle_Control *JavaUtilResourceBundle_Control_getControlWithJavaUtilList_(id<JavaUtilList> formats);
 
@@ -609,6 +597,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilResourceBundle_Control)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilResourceBundle")

@@ -3,7 +3,7 @@
 //  source: apache_harmony/classlib/modules/beans/src/main/java/java/beans/IndexedPropertyDescriptor.java
 //
 
-#include "../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaBeansIndexedPropertyDescriptor")
 #ifdef RESTRICT_JavaBeansIndexedPropertyDescriptor
@@ -16,12 +16,18 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaBeansIndexedPropertyDescriptor_) && (INCLUDE_ALL_JavaBeansIndexedPropertyDescriptor || defined(INCLUDE_JavaBeansIndexedPropertyDescriptor))
 #define JavaBeansIndexedPropertyDescriptor_
 
 #define RESTRICT_JavaBeansPropertyDescriptor 1
 #define INCLUDE_JavaBeansPropertyDescriptor 1
-#include "../../java/beans/PropertyDescriptor.h"
+#include "java/beans/PropertyDescriptor.h"
 
 @class IOSClass;
 @class JavaLangReflectMethod;
@@ -32,67 +38,53 @@
 
 /*!
  @brief Constructs a new instance of <code>IndexedPropertyDescriptor</code>.
- @param propertyName
- the specified indexed property's name.
- @param beanClass
- the bean class.
- @throws IntrospectionException
+ @param propertyName the specified indexed property's name.
+ @param beanClass the bean class.
+ @throw IntrospectionException
  */
-- (instancetype)initWithNSString:(NSString *)propertyName
-                    withIOSClass:(IOSClass *)beanClass;
+- (instancetype __nonnull)initWithNSString:(NSString *)propertyName
+                              withIOSClass:(IOSClass *)beanClass;
 
 /*!
  @brief Constructs a new instance of <code>IndexedPropertyDescriptor</code>.
- @param propertyName
- the specified indexed property's name.
- @param beanClass
- the bean class
- @param getterName
- the name of the array getter
- @param setterName
- the name of the array setter
- @param indexedGetterName
- the name of the indexed getter.
- @param indexedSetterName
- the name of the indexed setter.
- @throws IntrospectionException
+ @param propertyName the specified indexed property's name.
+ @param beanClass the bean class
+ @param getterName the name of the array getter
+ @param setterName the name of the array setter
+ @param indexedGetterName the name of the indexed getter.
+ @param indexedSetterName the name of the indexed setter.
+ @throw IntrospectionException
  */
-- (instancetype)initWithNSString:(NSString *)propertyName
-                    withIOSClass:(IOSClass *)beanClass
-                    withNSString:(NSString *)getterName
-                    withNSString:(NSString *)setterName
-                    withNSString:(NSString *)indexedGetterName
-                    withNSString:(NSString *)indexedSetterName;
+- (instancetype __nonnull)initWithNSString:(NSString *)propertyName
+                              withIOSClass:(IOSClass *)beanClass
+                              withNSString:(NSString *)getterName
+                              withNSString:(NSString *)setterName
+                              withNSString:(NSString *)indexedGetterName
+                              withNSString:(NSString *)indexedSetterName;
 
 /*!
  @brief Constructs a new instance of <code>IndexedPropertyDescriptor</code>.
- @param propertyName
- the specified indexed property's name.
- @param getter
- the array getter
- @param setter
- the array setter
- @param indexedGetter
- the indexed getter
- @param indexedSetter
- the indexed setter
- @throws IntrospectionException
+ @param propertyName the specified indexed property's name.
+ @param getter the array getter
+ @param setter the array setter
+ @param indexedGetter the indexed getter
+ @param indexedSetter the indexed setter
+ @throw IntrospectionException
  */
-- (instancetype)initWithNSString:(NSString *)propertyName
-       withJavaLangReflectMethod:(JavaLangReflectMethod *)getter
-       withJavaLangReflectMethod:(JavaLangReflectMethod *)setter
-       withJavaLangReflectMethod:(JavaLangReflectMethod *)indexedGetter
-       withJavaLangReflectMethod:(JavaLangReflectMethod *)indexedSetter;
+- (instancetype __nonnull)initWithNSString:(NSString *)propertyName
+                 withJavaLangReflectMethod:(JavaLangReflectMethod *)getter
+                 withJavaLangReflectMethod:(JavaLangReflectMethod *)setter
+                 withJavaLangReflectMethod:(JavaLangReflectMethod *)indexedGetter
+                 withJavaLangReflectMethod:(JavaLangReflectMethod *)indexedSetter;
 
 /*!
  @brief Determines if this <code>IndexedPropertyDescriptor</code> is equal to
- the specified object.
- Two <code>IndexedPropertyDescriptor</code> s are
- equal if the reader, indexed reader, writer, indexed writer, property
- types, indexed property type, property editor and flags are equal.
+  the specified object.Two <code>IndexedPropertyDescriptor</code> s are
+  equal if the reader, indexed reader, writer, indexed writer, property
+  types, indexed property type, property editor and flags are equal.
  @param obj
  @return true if this indexed property descriptor is equal to the
- specified object.
+          specified object.
  */
 - (jboolean)isEqual:(id)obj;
 
@@ -121,19 +113,28 @@
 
 /*!
  @brief Sets the indexed getter as the specified method.
- @param indexedGetter
- the specified indexed getter.
- @throws IntrospectionException
+ @param indexedGetter the specified indexed getter.
+ @throw IntrospectionException
  */
 - (void)setIndexedReadMethodWithJavaLangReflectMethod:(JavaLangReflectMethod *)indexedGetter;
 
 /*!
  @brief Sets the indexed setter as the specified method.
- @param indexedSetter
- the specified indexed setter.
- @throws IntrospectionException
+ @param indexedSetter the specified indexed setter.
+ @throw IntrospectionException
  */
 - (void)setIndexedWriteMethodWithJavaLangReflectMethod:(JavaLangReflectMethod *)indexedSetter;
+
+// Disallowed inherited constructors, do not use.
+
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0
+                              withIOSClass:(IOSClass *)arg1
+                              withNSString:(NSString *)arg2
+                              withNSString:(NSString *)arg3 NS_UNAVAILABLE;
+
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0
+                 withJavaLangReflectMethod:(JavaLangReflectMethod *)arg1
+                 withJavaLangReflectMethod:(JavaLangReflectMethod *)arg2 NS_UNAVAILABLE;
 
 @end
 
@@ -161,6 +162,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaBeansIndexedPropertyDescriptor)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaBeansIndexedPropertyDescriptor")

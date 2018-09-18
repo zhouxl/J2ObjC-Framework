@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/annotation/IncompleteAnnotationException.java
 //
 
-#include "../../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangAnnotationIncompleteAnnotationException")
 #ifdef RESTRICT_JavaLangAnnotationIncompleteAnnotationException
@@ -16,23 +16,29 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangAnnotationIncompleteAnnotationException_) && (INCLUDE_ALL_JavaLangAnnotationIncompleteAnnotationException || defined(INCLUDE_JavaLangAnnotationIncompleteAnnotationException))
 #define JavaLangAnnotationIncompleteAnnotationException_
 
 #define RESTRICT_JavaLangRuntimeException 1
 #define INCLUDE_JavaLangRuntimeException 1
-#include "../../../java/lang/RuntimeException.h"
+#include "java/lang/RuntimeException.h"
 
 @class IOSClass;
+@class JavaLangThrowable;
 
 /*!
  @brief Thrown to indicate that a program has attempted to access an element of
- an annotation type that was added to the annotation type definition after
- the annotation was compiled (or serialized).
- This exception will not be
- thrown if the new element has a default value.
- This exception can be thrown by the API used to read annotations
- reflectively
+  an annotation type that was added to the annotation type definition after
+  the annotation was compiled (or serialized).This exception will not be
+  thrown if the new element has a default value.
+ This exception can be thrown by the used to read annotations
+  reflectively
  .
  @author Josh Bloch
  - seealso: java.lang.reflect.AnnotatedElement
@@ -44,18 +50,19 @@
 
 /*!
  @brief Constructs an IncompleteAnnotationException to indicate that
- the named element was missing from the specified annotation type.
+  the named element was missing from the specified annotation type.
  @param annotationType the Class object for the annotation type
  @param elementName the name of the missing element
+ @throw NullPointerExceptionif either parameter is <code>null</code>
  */
-- (instancetype)initWithIOSClass:(IOSClass *)annotationType
-                    withNSString:(NSString *)elementName;
+- (instancetype __nonnull)initWithIOSClass:(IOSClass *)annotationType
+                              withNSString:(NSString *)elementName;
 
 /*!
  @brief Returns the Class object for the annotation type with the
- missing element.
+  missing element.
  @return the Class object for the annotation type with the
- missing element
+      missing element
  */
 - (IOSClass *)annotationType;
 
@@ -64,6 +71,22 @@
  @return the name of the missing element
  */
 - (NSString *)elementName;
+
+// Disallowed inherited constructors, do not use.
+
+- (instancetype __nonnull)init NS_UNAVAILABLE;
+
+- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
+
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0
+                     withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
+
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0
+                     withJavaLangThrowable:(JavaLangThrowable *)arg1
+                               withBoolean:(jboolean)arg2
+                               withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -79,6 +102,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangAnnotationIncompleteAnnotationException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangAnnotationIncompleteAnnotationException")

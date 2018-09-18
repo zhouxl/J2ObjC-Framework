@@ -3,7 +3,7 @@
 //  source: android/frameworks/base/core/java/android/text/SpannedString.java
 //
 
-#include "../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_AndroidTextSpannedString")
 #ifdef RESTRICT_AndroidTextSpannedString
@@ -16,35 +16,41 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (AndroidTextSpannedString_) && (INCLUDE_ALL_AndroidTextSpannedString || defined(INCLUDE_AndroidTextSpannedString))
 #define AndroidTextSpannedString_
 
 #define RESTRICT_AndroidTextSpannableStringInternal 1
 #define INCLUDE_AndroidTextSpannableStringInternal 1
-#include "../../android/text/SpannableStringInternal.h"
+#include "android/text/SpannableStringInternal.h"
 
 #define RESTRICT_JavaLangCharSequence 1
 #define INCLUDE_JavaLangCharSequence 1
-#include "../../java/lang/CharSequence.h"
+#include "java/lang/CharSequence.h"
 
 #define RESTRICT_AndroidTextGetChars 1
 #define INCLUDE_AndroidTextGetChars 1
-#include "../../android/text/GetChars.h"
+#include "android/text/GetChars.h"
 
 #define RESTRICT_AndroidTextSpanned 1
 #define INCLUDE_AndroidTextSpanned 1
-#include "../../android/text/Spanned.h"
+#include "android/text/Spanned.h"
 
 /*!
  @brief This is the class for text whose content and markup are immutable.
  For mutable markup, see <code>SpannableString</code>; for mutable text,
- see <code>SpannableStringBuilder</code>.
+  see <code>SpannableStringBuilder</code>.
  */
 @interface AndroidTextSpannedString : AndroidTextSpannableStringInternal < JavaLangCharSequence, AndroidTextGetChars, AndroidTextSpanned >
 
 #pragma mark Public
 
-- (instancetype)initWithJavaLangCharSequence:(id<JavaLangCharSequence>)source;
+- (instancetype __nonnull)initWithJavaLangCharSequence:(id<JavaLangCharSequence>)source;
 
 - (id<JavaLangCharSequence>)subSequenceFrom:(jint)start
                                          to:(jint)end;
@@ -67,6 +73,10 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannedString)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidTextSpannedString")

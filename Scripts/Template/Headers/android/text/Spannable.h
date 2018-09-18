@@ -3,7 +3,7 @@
 //  source: android/frameworks/base/core/java/android/text/Spannable.java
 //
 
-#include "../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_AndroidTextSpannable")
 #ifdef RESTRICT_AndroidTextSpannable
@@ -16,29 +16,34 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (AndroidTextSpannable_) && (INCLUDE_ALL_AndroidTextSpannable || defined(INCLUDE_AndroidTextSpannable))
 #define AndroidTextSpannable_
 
 #define RESTRICT_AndroidTextSpanned 1
 #define INCLUDE_AndroidTextSpanned 1
-#include "../../android/text/Spanned.h"
+#include "android/text/Spanned.h"
 
 /*!
  @brief This is the interface for text to which markup objects can be
- attached and detached.
- Not all Spannable classes have mutable text;
- see <code>Editable</code> for that.
+  attached and detached.Not all Spannable classes have mutable text;
+  see <code>Editable</code> for that.
  */
-@protocol AndroidTextSpannable < AndroidTextSpanned, NSObject, JavaObject >
+@protocol AndroidTextSpannable < AndroidTextSpanned, JavaObject >
 
 /*!
  @brief Attach the specified markup object to the range <code>start&hellip;end</code>
- of the text, or move the object to that range if it was already
- attached elsewhere.
- See <code>Spanned</code> for an explanation of
- what the flags mean.  The object can be one that has meaning only
- within your application, or it can be one that the text system will
- use to affect text display or behavior.  Some noteworthy ones are
+  of the text, or move the object to that range if it was already
+  attached elsewhere.See <code>Spanned</code> for an explanation of
+  what the flags mean.
+ The object can be one that has meaning only
+  within your application, or it can be one that the text system will
+  use to affect text display or behavior.  Some noteworthy ones are 
  <code>android.text.TextWatcher</code> and <code>android.text.SpanWatcher</code>.
  */
 - (void)setSpanWithId:(id)what
@@ -48,9 +53,8 @@
 
 /*!
  @brief Remove the specified object from the range of text to which it
- was attached, if any.
- It is OK to remove an object that was never
- attached in the first place.
+  was attached, if any.It is OK to remove an object that was never
+  attached in the first place.
  */
 - (void)removeSpanWithId:(id)what;
 
@@ -69,15 +73,14 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannable)
 @protocol JavaLangCharSequence;
 
 /*!
- @brief Factory used by TextView to create new Spannables.
- You can subclass
- it to provide something other than SpannableString.
+ @brief Factory used by TextView to create new Spannables.You can subclass
+  it to provide something other than SpannableString.
  */
 @interface AndroidTextSpannable_Factory : NSObject
 
 #pragma mark Public
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Returns the standard Spannable Factory.
@@ -94,18 +97,22 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannable)
 
 J2OBJC_STATIC_INIT(AndroidTextSpannable_Factory)
 
-FOUNDATION_EXPORT AndroidTextSpannable_Factory *AndroidTextSpannable_Factory_getInstance();
-
 FOUNDATION_EXPORT void AndroidTextSpannable_Factory_init(AndroidTextSpannable_Factory *self);
 
-FOUNDATION_EXPORT AndroidTextSpannable_Factory *new_AndroidTextSpannable_Factory_init() NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT AndroidTextSpannable_Factory *new_AndroidTextSpannable_Factory_init(void) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT AndroidTextSpannable_Factory *create_AndroidTextSpannable_Factory_init();
+FOUNDATION_EXPORT AndroidTextSpannable_Factory *create_AndroidTextSpannable_Factory_init(void);
+
+FOUNDATION_EXPORT AndroidTextSpannable_Factory *AndroidTextSpannable_Factory_getInstance(void);
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannable_Factory)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidTextSpannable")

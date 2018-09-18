@@ -3,7 +3,7 @@
 //  source: android/frameworks/base/core/java/android/text/util/Rfc822Token.java
 //
 
-#include "../../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_AndroidTextUtilRfc822Token")
 #ifdef RESTRICT_AndroidTextUtilRfc822Token
@@ -16,12 +16,18 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (AndroidTextUtilRfc822Token_) && (INCLUDE_ALL_AndroidTextUtilRfc822Token || defined(INCLUDE_AndroidTextUtilRfc822Token))
 #define AndroidTextUtilRfc822Token_
 
 /*!
  @brief This class stores an RFC 822-like name, address, and comment,
- and provides methods to convert them to quoted strings.
+  and provides methods to convert them to quoted strings.
  */
 @interface AndroidTextUtilRfc822Token : NSObject
 
@@ -29,11 +35,11 @@
 
 /*!
  @brief Creates a new Rfc822Token with the specified name, address,
- and comment.
+  and comment.
  */
-- (instancetype)initWithNSString:(NSString *)name
-                    withNSString:(NSString *)address
-                    withNSString:(NSString *)comment;
+- (instancetype __nonnull)initWithNSString:(NSString *)name
+                              withNSString:(NSString *)address
+                              withNSString:(NSString *)comment;
 
 - (jboolean)isEqual:(id)o;
 
@@ -56,24 +62,22 @@
 
 /*!
  @brief Returns the comment, with internal backslashes and parentheses
- preceded by backslashes.
- The outer parentheses themselves are
- not added by this method.
+  preceded by backslashes.The outer parentheses themselves are
+  not added by this method.
  */
 + (NSString *)quoteCommentWithNSString:(NSString *)comment;
 
 /*!
  @brief Returns the name, with internal backslashes and quotation marks
- preceded by backslashes.
- The outer quote marks themselves are not
- added by this method.
+  preceded by backslashes.The outer quote marks themselves are not
+  added by this method.
  */
 + (NSString *)quoteNameWithNSString:(NSString *)name;
 
 /*!
  @brief Returns the name, conservatively quoting it if there are any
- characters that are likely to cause trouble outside of a
- quoted string, or returning it literally if it seems safe.
+  characters that are likely to cause trouble outside of a
+  quoted string, or returning it literally if it seems safe.
  */
 + (NSString *)quoteNameIfNecessaryWithNSString:(NSString *)name;
 
@@ -94,10 +98,14 @@
 
 /*!
  @brief Returns the name (with quoting added if necessary),
- the comment (in parentheses), and the address (in angle brackets).
+  the comment (in parentheses), and the address (in angle brackets).
  This should be suitable for inclusion in an RFC 822 address list.
  */
 - (NSString *)description;
+
+// Disallowed inherited constructors, do not use.
+
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -119,6 +127,10 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextUtilRfc822Token)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidTextUtilRfc822Token")

@@ -3,7 +3,7 @@
 //  source: android/frameworks/base/core/java/android/util/Printer.java
 //
 
-#include "../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_AndroidUtilPrinter")
 #ifdef RESTRICT_AndroidUtilPrinter
@@ -16,19 +16,24 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (AndroidUtilPrinter_) && (INCLUDE_ALL_AndroidUtilPrinter || defined(INCLUDE_AndroidUtilPrinter))
 #define AndroidUtilPrinter_
 
 /*!
  @brief Simple interface for printing text, allowing redirection to various
- targets.
+  targets.
  */
-@protocol AndroidUtilPrinter < NSObject, JavaObject >
+@protocol AndroidUtilPrinter < JavaObject >
 
 /*!
- @brief Write a line of text to the output.
- There is no need to terminate
- the given string with a newline.
+ @brief Write a line of text to the output.There is no need to terminate
+  the given string with a newline.
  */
 - (void)printlnWithNSString:(NSString *)x;
 
@@ -40,6 +45,10 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilPrinter)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidUtilPrinter")

@@ -3,7 +3,7 @@
 //  source: apache_harmony/classlib/modules/beans/src/main/java/java/beans/EventSetDescriptor.java
 //
 
-#include "../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaBeansEventSetDescriptor")
 #ifdef RESTRICT_JavaBeansEventSetDescriptor
@@ -16,12 +16,18 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaBeansEventSetDescriptor_) && (INCLUDE_ALL_JavaBeansEventSetDescriptor || defined(INCLUDE_JavaBeansEventSetDescriptor))
 #define JavaBeansEventSetDescriptor_
 
 #define RESTRICT_JavaBeansFeatureDescriptor 1
 #define INCLUDE_JavaBeansFeatureDescriptor 1
-#include "../../java/beans/FeatureDescriptor.h"
+#include "java/beans/FeatureDescriptor.h"
 
 @class IOSClass;
 @class IOSObjectArray;
@@ -31,44 +37,44 @@
 
 #pragma mark Public
 
-- (instancetype)initWithIOSClass:(IOSClass *)sourceClass
-                    withNSString:(NSString *)eventSetName
-                    withIOSClass:(IOSClass *)listenerType
-                    withNSString:(NSString *)listenerMethodName;
+- (instancetype __nonnull)initWithIOSClass:(IOSClass *)sourceClass
+                              withNSString:(NSString *)eventSetName
+                              withIOSClass:(IOSClass *)listenerType
+                              withNSString:(NSString *)listenerMethodName;
 
-- (instancetype)initWithIOSClass:(IOSClass *)sourceClass
-                    withNSString:(NSString *)eventSetName
-                    withIOSClass:(IOSClass *)listenerType
-               withNSStringArray:(IOSObjectArray *)listenerMethodNames
-                    withNSString:(NSString *)addListenerMethodName
-                    withNSString:(NSString *)removeListenerMethodName;
+- (instancetype __nonnull)initWithIOSClass:(IOSClass *)sourceClass
+                              withNSString:(NSString *)eventSetName
+                              withIOSClass:(IOSClass *)listenerType
+                         withNSStringArray:(IOSObjectArray *)listenerMethodNames
+                              withNSString:(NSString *)addListenerMethodName
+                              withNSString:(NSString *)removeListenerMethodName;
 
-- (instancetype)initWithIOSClass:(IOSClass *)sourceClass
-                    withNSString:(NSString *)eventSetName
-                    withIOSClass:(IOSClass *)listenerType
-               withNSStringArray:(IOSObjectArray *)listenerMethodNames
-                    withNSString:(NSString *)addListenerMethodName
-                    withNSString:(NSString *)removeListenerMethodName
-                    withNSString:(NSString *)getListenerMethodName;
+- (instancetype __nonnull)initWithIOSClass:(IOSClass *)sourceClass
+                              withNSString:(NSString *)eventSetName
+                              withIOSClass:(IOSClass *)listenerType
+                         withNSStringArray:(IOSObjectArray *)listenerMethodNames
+                              withNSString:(NSString *)addListenerMethodName
+                              withNSString:(NSString *)removeListenerMethodName
+                              withNSString:(NSString *)getListenerMethodName;
 
-- (instancetype)initWithNSString:(NSString *)eventSetName
-                    withIOSClass:(IOSClass *)listenerType
-  withJavaLangReflectMethodArray:(IOSObjectArray *)listenerMethods
-       withJavaLangReflectMethod:(JavaLangReflectMethod *)addListenerMethod
-       withJavaLangReflectMethod:(JavaLangReflectMethod *)removeListenerMethod;
+- (instancetype __nonnull)initWithNSString:(NSString *)eventSetName
+                              withIOSClass:(IOSClass *)listenerType
+            withJavaLangReflectMethodArray:(IOSObjectArray *)listenerMethods
+                 withJavaLangReflectMethod:(JavaLangReflectMethod *)addListenerMethod
+                 withJavaLangReflectMethod:(JavaLangReflectMethod *)removeListenerMethod;
 
-- (instancetype)initWithNSString:(NSString *)eventSetName
-                    withIOSClass:(IOSClass *)listenerType
-  withJavaLangReflectMethodArray:(IOSObjectArray *)listenerMethods
-       withJavaLangReflectMethod:(JavaLangReflectMethod *)addListenerMethod
-       withJavaLangReflectMethod:(JavaLangReflectMethod *)removeListenerMethod
-       withJavaLangReflectMethod:(JavaLangReflectMethod *)getListenerMethod;
+- (instancetype __nonnull)initWithNSString:(NSString *)eventSetName
+                              withIOSClass:(IOSClass *)listenerType
+            withJavaLangReflectMethodArray:(IOSObjectArray *)listenerMethods
+                 withJavaLangReflectMethod:(JavaLangReflectMethod *)addListenerMethod
+                 withJavaLangReflectMethod:(JavaLangReflectMethod *)removeListenerMethod
+                 withJavaLangReflectMethod:(JavaLangReflectMethod *)getListenerMethod;
 
-- (instancetype)initWithNSString:(NSString *)eventSetName
-                    withIOSClass:(IOSClass *)listenerType
-withJavaBeansMethodDescriptorArray:(IOSObjectArray *)listenerMethodDescriptors
-       withJavaLangReflectMethod:(JavaLangReflectMethod *)addListenerMethod
-       withJavaLangReflectMethod:(JavaLangReflectMethod *)removeListenerMethod;
+- (instancetype __nonnull)initWithNSString:(NSString *)eventSetName
+                              withIOSClass:(IOSClass *)listenerType
+        withJavaBeansMethodDescriptorArray:(IOSObjectArray *)listenerMethodDescriptors
+                 withJavaLangReflectMethod:(JavaLangReflectMethod *)addListenerMethod
+                 withJavaLangReflectMethod:(JavaLangReflectMethod *)removeListenerMethod;
 
 - (JavaLangReflectMethod *)getAddListenerMethod;
 
@@ -93,6 +99,10 @@ withJavaBeansMethodDescriptorArray:(IOSObjectArray *)listenerMethodDescriptors
 #pragma mark Package-Private
 
 - (void)mergeWithJavaBeansEventSetDescriptor:(JavaBeansEventSetDescriptor *)event;
+
+// Disallowed inherited constructors, do not use.
+
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -138,6 +148,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaBeansEventSetDescriptor)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaBeansEventSetDescriptor")

@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/io/SerialVersionUIDDigest.java
 //
 
-#include "../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoSerialVersionUIDDigest")
 #ifdef RESTRICT_JavaIoSerialVersionUIDDigest
@@ -16,19 +16,24 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoSerialVersionUIDDigest_) && (INCLUDE_ALL_JavaIoSerialVersionUIDDigest || defined(INCLUDE_JavaIoSerialVersionUIDDigest))
 #define JavaIoSerialVersionUIDDigest_
 
 #define RESTRICT_JavaIoObjectStreamClass 1
 #define INCLUDE_JavaIoObjectStreamClass_Digest 1
-#include "../../java/io/ObjectStreamClass.h"
+#include "java/io/ObjectStreamClass.h"
 
 @class IOSByteArray;
 
 /*!
- @brief Dynamically loaded implementation for computing serialVersionUID hashes.
- Public so that users can
- add an explicit dependency to force load this class.
+ @brief Dynamically loaded implementation for computing serialVersionUID hashes.Public so that users can
+  add an explicit dependency to force load this class.
  */
 @interface JavaIoSerialVersionUIDDigest : NSObject < JavaIoObjectStreamClass_Digest >
 
@@ -38,7 +43,7 @@
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -46,14 +51,18 @@ J2OBJC_EMPTY_STATIC_INIT(JavaIoSerialVersionUIDDigest)
 
 FOUNDATION_EXPORT void JavaIoSerialVersionUIDDigest_init(JavaIoSerialVersionUIDDigest *self);
 
-FOUNDATION_EXPORT JavaIoSerialVersionUIDDigest *new_JavaIoSerialVersionUIDDigest_init() NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaIoSerialVersionUIDDigest *new_JavaIoSerialVersionUIDDigest_init(void) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaIoSerialVersionUIDDigest *create_JavaIoSerialVersionUIDDigest_init();
+FOUNDATION_EXPORT JavaIoSerialVersionUIDDigest *create_JavaIoSerialVersionUIDDigest_init(void);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoSerialVersionUIDDigest)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoSerialVersionUIDDigest")

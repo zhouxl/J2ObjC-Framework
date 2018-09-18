@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/io/ObjectStreamField.java
 //
 
-#include "../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoObjectStreamField")
 #ifdef RESTRICT_JavaIoObjectStreamField
@@ -16,22 +16,27 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoObjectStreamField_) && (INCLUDE_ALL_JavaIoObjectStreamField || defined(INCLUDE_JavaIoObjectStreamField))
 #define JavaIoObjectStreamField_
 
 #define RESTRICT_JavaLangComparable 1
 #define INCLUDE_JavaLangComparable 1
-#include "../../java/lang/Comparable.h"
+#include "java/lang/Comparable.h"
 
 @class IOSClass;
 @class JavaIoDataOutputStream;
 @class JavaLangClassLoader;
 
 /*!
- @brief Describes a field for the purpose of serialization.
- Classes can define the
- collection of fields that are serialized, which may be different from the set
- of all declared fields.
+ @brief Describes a field for the purpose of serialization.Classes can define the
+  collection of fields that are serialized, which may be different from the set
+  of all declared fields.
  - seealso: ObjectOutputStream#writeFields()
  - seealso: ObjectInputStream#readFields()
  */
@@ -44,44 +49,39 @@
 
 /*!
  @brief Constructs an ObjectStreamField with the specified name and type.
- @param name
- the name of the field.
- @param cl
- the type of the field.
- @throws NullPointerException
+ @param name the name of the field.
+ @param cl the type of the field.
+ @throw NullPointerException
  if <code>name</code> or <code>cl</code> is <code>null</code>.
  */
-- (instancetype)initWithNSString:(NSString *)name
-                    withIOSClass:(IOSClass *)cl;
+- (instancetype __nonnull)initWithNSString:(NSString *)name
+                              withIOSClass:(IOSClass *)cl;
 
 /*!
  @brief Constructs an ObjectStreamField with the specified name, type and the
- indication if it is unshared.
- @param name
- the name of the field.
- @param cl
- the type of the field.
- @param unshared
- <code>true</code> if the field is written and read unshared;
- <code>false</code> otherwise.
- @throws NullPointerException
+  indication if it is unshared.
+ @param name the name of the field.
+ @param cl the type of the field.
+ @param unshared<code>true</code>
+   if the field is written and read unshared;             <code>false</code>
+   otherwise.
+ @throw NullPointerException
  if <code>name</code> or <code>cl</code> is <code>null</code>.
  - seealso: ObjectOutputStream#writeUnshared(Object)
  */
-- (instancetype)initWithNSString:(NSString *)name
-                    withIOSClass:(IOSClass *)cl
-                     withBoolean:(jboolean)unshared;
+- (instancetype __nonnull)initWithNSString:(NSString *)name
+                              withIOSClass:(IOSClass *)cl
+                               withBoolean:(jboolean)unshared;
 
 /*!
- @brief Compares this field descriptor to the specified one.
- Checks first if one
- of the compared fields has a primitive type and the other one not. If so,
- the field with the primitive type is considered to be "smaller". If both
- fields are equal, their names are compared.
- @param o
- the object to compare with.
+ @brief Compares this field descriptor to the specified one.Checks first if one
+  of the compared fields has a primitive type and the other one not.
+ If so,
+  the field with the primitive type is considered to be "smaller". If both
+  fields are equal, their names are compared.
+ @param o the object to compare with.
  @return -1 if this field is "smaller" than field <code>o</code>, 0 if both
- fields are equal; 1 if this field is "greater" than field <code>o</code>
+          fields are equal; 1 if this field is "greater" than field <code>o</code>
  .
  */
 - (jint)compareToWithId:(id)o;
@@ -105,9 +105,8 @@
 - (IOSClass *)getType;
 
 /*!
- @brief Gets a character code for the type of this field.
- The following codes are
- used:
+ @brief Gets a character code for the type of this field.The following codes are
+  used: 
  @code
 
   B     byte
@@ -119,7 +118,7 @@
   L     class or interface
   S     short
   Z     boolean
-  [     array
+  [     array 
   
 @endcode
  @return the field's type code.
@@ -128,16 +127,16 @@
 
 /*!
  @brief Gets the type signature used by the VM to represent the type of this
- field.
+  field.
  @return the signature of this field's class or <code>null</code> if this
- field's type is primitive.
+          field's type is primitive.
  */
 - (NSString *)getTypeString;
 
 /*!
  @brief Indicates whether this field's type is a primitive type.
  @return <code>true</code> if this field's type is primitive; <code>false</code> if
- the type of this field is a regular class.
+          the type of this field is a regular class.
  */
 - (jboolean)isPrimitive;
 
@@ -149,7 +148,7 @@
 
 /*!
  @brief Returns a string containing a concise, human-readable description of this
- field descriptor.
+  field descriptor.
  @return a printable representation of this descriptor.
  */
 - (NSString *)description;
@@ -158,8 +157,7 @@
 
 /*!
  @brief Sets this field's offset in the object.
- @param newValue
- the field's new offset.
+ @param newValue the field's new offset.
  */
 - (void)setOffsetWithInt:(jint)newValue;
 
@@ -168,17 +166,15 @@
 /*!
  @brief Constructs an ObjectStreamField with the given name and the given type.
  The type may be null.
- @param signature
- A String representing the type of the field
- @param name
- a String, the name of the field, or null
+ @param signature A String representing the type of the field
+ @param name a String, the name of the field, or null
  */
-- (instancetype)initWithNSString:(NSString *)signature
-                    withNSString:(NSString *)name;
+- (instancetype __nonnull)initWithNSString:(NSString *)signature
+                              withNSString:(NSString *)name;
 
 /*!
  @brief Return the type of the field the receiver represents, this is an internal
- method
+  method
  @return A Class object representing the type of the field
  */
 - (IOSClass *)getTypeInternal;
@@ -188,6 +184,10 @@
 - (void)setUnsharedWithBoolean:(jboolean)unshared;
 
 - (jboolean)writeFieldWithJavaIoDataOutputStream:(JavaIoDataOutputStream *)outArg;
+
+// Disallowed inherited constructors, do not use.
+
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -215,6 +215,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectStreamField)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoObjectStreamField")

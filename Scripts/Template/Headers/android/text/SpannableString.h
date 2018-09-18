@@ -3,7 +3,7 @@
 //  source: android/frameworks/base/core/java/android/text/SpannableString.java
 //
 
-#include "../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_AndroidTextSpannableString")
 #ifdef RESTRICT_AndroidTextSpannableString
@@ -16,35 +16,41 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (AndroidTextSpannableString_) && (INCLUDE_ALL_AndroidTextSpannableString || defined(INCLUDE_AndroidTextSpannableString))
 #define AndroidTextSpannableString_
 
 #define RESTRICT_AndroidTextSpannableStringInternal 1
 #define INCLUDE_AndroidTextSpannableStringInternal 1
-#include "../../android/text/SpannableStringInternal.h"
+#include "android/text/SpannableStringInternal.h"
 
 #define RESTRICT_JavaLangCharSequence 1
 #define INCLUDE_JavaLangCharSequence 1
-#include "../../java/lang/CharSequence.h"
+#include "java/lang/CharSequence.h"
 
 #define RESTRICT_AndroidTextGetChars 1
 #define INCLUDE_AndroidTextGetChars 1
-#include "../../android/text/GetChars.h"
+#include "android/text/GetChars.h"
 
 #define RESTRICT_AndroidTextSpannable 1
 #define INCLUDE_AndroidTextSpannable 1
-#include "../../android/text/Spannable.h"
+#include "android/text/Spannable.h"
 
 /*!
  @brief This is the class for text whose content is immutable but to which
- markup objects can be attached and detached.
+  markup objects can be attached and detached.
  For mutable text, see <code>SpannableStringBuilder</code>.
  */
 @interface AndroidTextSpannableString : AndroidTextSpannableStringInternal < JavaLangCharSequence, AndroidTextGetChars, AndroidTextSpannable >
 
 #pragma mark Public
 
-- (instancetype)initWithJavaLangCharSequence:(id<JavaLangCharSequence>)source;
+- (instancetype __nonnull)initWithJavaLangCharSequence:(id<JavaLangCharSequence>)source;
 
 - (void)removeSpanWithId:(id)what;
 
@@ -74,6 +80,10 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannableString)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidTextSpannableString")

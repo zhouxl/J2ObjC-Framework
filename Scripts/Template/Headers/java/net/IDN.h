@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/net/IDN.java
 //
 
-#include "../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetIDN")
 #ifdef RESTRICT_JavaNetIDN
@@ -16,16 +16,24 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNetIDN_) && (INCLUDE_ALL_JavaNetIDN || defined(INCLUDE_JavaNetIDN))
 #define JavaNetIDN_
 
 /*!
  @brief Converts internationalized domain names between Unicode and the ASCII Compatible Encoding
- (ACE) representation.
+  (ACE) representation.
  <p>See <a href="http://www.ietf.org/rfc/rfc3490.txt">RFC 3490</a> for full details.
  @since 1.6
  */
 @interface JavaNetIDN : NSObject
+@property (readonly, class) jint ALLOW_UNASSIGNED NS_SWIFT_NAME(ALLOW_UNASSIGNED);
+@property (readonly, class) jint USE_STD3_ASCII_RULES NS_SWIFT_NAME(USE_STD3_ASCII_RULES);
 
 + (jint)ALLOW_UNASSIGNED;
 
@@ -37,24 +45,24 @@
  @brief Equivalent to <code>toASCII(input, 0)</code>.
  @param input the Unicode name
  @return the ACE name
- @throws IllegalArgumentException if <code>input</code> does not conform to <a href="http://www.ietf.org/rfc/rfc3490.txt">RFC 3490</a>
+ @throw IllegalArgumentExceptionif <code>input</code> does not conform to <a href="http://www.ietf.org/rfc/rfc3490.txt">RFC 3490</a>
  */
 + (NSString *)toASCIIWithNSString:(NSString *)input;
 
 /*!
  @brief Transform a Unicode String to ASCII Compatible Encoding String according
- to the algorithm defined in <a href="http://www.ietf.org/rfc/rfc3490.txt">RFC 3490</a>.
+  to the algorithm defined in <a href="http://www.ietf.org/rfc/rfc3490.txt">RFC 3490</a>.
  <p>If the transformation fails (because the input is not a valid IDN), an
- exception will be thrown.
+  exception will be thrown. 
  <p>This method can handle either an individual label or an entire domain name.
- In the latter case, the separators are: U+002E (full stop), U+3002 (ideographic full stop),
- U+FF0E (fullwidth full stop), and U+FF61 (halfwidth ideographic full stop).
- All of these will become U+002E (full stop) in the result.
+  In the latter case, the separators are: U+002E (full stop), U+3002 (ideographic full stop),
+  U+FF0E (fullwidth full stop), and U+FF61 (halfwidth ideographic full stop).
+  All of these will become U+002E (full stop) in the result.
  @param input the Unicode name
- @param flags 0, <code>ALLOW_UNASSIGNED</code>, <code>USE_STD3_ASCII_RULES</code>,
- or <code>ALLOW_UNASSIGNED | USE_STD3_ASCII_RULES</code>
+ @param flags 0, <code>ALLOW_UNASSIGNED</code> , <code>USE_STD3_ASCII_RULES</code> ,
+           or <code>ALLOW_UNASSIGNED | USE_STD3_ASCII_RULES</code>
  @return the ACE name
- @throws IllegalArgumentException if <code>input</code> does not conform to <a href="http://www.ietf.org/rfc/rfc3490.txt">RFC 3490</a>
+ @throw IllegalArgumentExceptionif <code>input</code> does not conform to <a href="http://www.ietf.org/rfc/rfc3490.txt">RFC 3490</a>
  */
 + (NSString *)toASCIIWithNSString:(NSString *)input
                           withInt:(jint)flags;
@@ -68,15 +76,15 @@
 
 /*!
  @brief Translates a string from ASCII Compatible Encoding (ACE) to Unicode
- according to the algorithm defined in <a href="http://www.ietf.org/rfc/rfc3490.txt">RFC 3490</a>.
- <p>Unlike <code>toASCII</code>, this transformation cannot fail.
+  according to the algorithm defined in <a href="http://www.ietf.org/rfc/rfc3490.txt">RFC 3490</a>.
+ <p>Unlike <code>toASCII</code>, this transformation cannot fail. 
  <p>This method can handle either an individual label or an entire domain name.
- In the latter case, the separators are: U+002E (full stop), U+3002 (ideographic full stop),
- U+FF0E (fullwidth full stop), and U+FF61 (halfwidth ideographic full stop).
+  In the latter case, the separators are: U+002E (full stop), U+3002 (ideographic full stop),
+  U+FF0E (fullwidth full stop), and U+FF61 (halfwidth ideographic full stop).
  @param input the ACE name
  @return the Unicode name
- @param flags 0, <code>ALLOW_UNASSIGNED</code>, <code>USE_STD3_ASCII_RULES</code>,
- or <code>ALLOW_UNASSIGNED | USE_STD3_ASCII_RULES</code>
+ @param flags 0, <code>ALLOW_UNASSIGNED</code> , <code>USE_STD3_ASCII_RULES</code> ,
+           or <code>ALLOW_UNASSIGNED | USE_STD3_ASCII_RULES</code>
  */
 + (NSString *)toUnicodeWithNSString:(NSString *)input
                             withInt:(jint)flags;
@@ -88,16 +96,16 @@ J2OBJC_EMPTY_STATIC_INIT(JavaNetIDN)
 /*!
  @brief When set, allows IDN to process unassigned unicode points.
  */
-inline jint JavaNetIDN_get_ALLOW_UNASSIGNED();
+inline jint JavaNetIDN_get_ALLOW_UNASSIGNED(void);
 #define JavaNetIDN_ALLOW_UNASSIGNED 1
 J2OBJC_STATIC_FIELD_CONSTANT(JavaNetIDN, ALLOW_UNASSIGNED, jint)
 
 /*!
- @brief When set, ASCII strings are checked against
- <a href="http://www.ietf.org/rfc/rfc1122.txt">RFC 1122</a> and
+ @brief When set, ASCII strings are checked against 
+ <a href="http://www.ietf.org/rfc/rfc1122.txt">RFC 1122</a> and 
  <a href="http://www.ietf.org/rfc/rfc1123.txt">RFC 1123</a>.
  */
-inline jint JavaNetIDN_get_USE_STD3_ASCII_RULES();
+inline jint JavaNetIDN_get_USE_STD3_ASCII_RULES(void);
 #define JavaNetIDN_USE_STD3_ASCII_RULES 2
 J2OBJC_STATIC_FIELD_CONSTANT(JavaNetIDN, USE_STD3_ASCII_RULES, jint)
 
@@ -113,6 +121,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetIDN)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetIDN")

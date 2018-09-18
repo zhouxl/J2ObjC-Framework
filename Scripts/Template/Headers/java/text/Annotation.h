@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/text/Annotation.java
 //
 
-#include "../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaTextAnnotation")
 #ifdef RESTRICT_JavaTextAnnotation
@@ -16,25 +16,31 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaTextAnnotation_) && (INCLUDE_ALL_JavaTextAnnotation || defined(INCLUDE_JavaTextAnnotation))
 #define JavaTextAnnotation_
 
 /*!
- @brief Wrapper for a text attribute value which represents an annotation.
- An
- annotation has two special aspects:
+ @brief Wrapper for a text attribute value which represents an annotation.An
+  annotation has two special aspects: 
  <ol>
- <li>it is connected to a range of main text; if this range or the main text
- is changed then the annotation becomes invalid,</li>
- <li>it can not be joined with adjacent annotations even if the text attribute
- value is the same.</li>
- </ol>
+  <li>it is connected to a range of main text; if this range or the main text
+  is changed then the annotation becomes invalid,</li>
+  <li>it can not be joined with adjacent annotations even if the text attribute
+  value is the same.
+ </li>
+  </ol>
+  <p>
+  By wrapping text attribute values into an <code>Annotation</code>, these aspects
+  will be taken into account when handling annotation text and the
+  corresponding main text. 
  <p>
- By wrapping text attribute values into an <code>Annotation</code>, these aspects
- will be taken into account when handling annotation text and the
- corresponding main text.
- <p>
- Note: There is no semantic connection between this annotation class and the
+  Note: There is no semantic connection between this annotation class and the 
  <code>java.lang.annotation</code> package.
  */
 @interface JavaTextAnnotation : NSObject
@@ -43,14 +49,13 @@
 
 /*!
  @brief Constructs a new <code>Annotation</code>.
- @param attribute the attribute attached to this annotation. This may be
- <code>null</code>.
+ @param attribute the attribute attached to this annotation. This may be         
+ <code>null</code> .
  */
-- (instancetype)initWithId:(id)attribute;
+- (instancetype __nonnull)initWithId:(id)attribute;
 
 /*!
- @brief Returns the value of this annotation.
- The value may be <code>null</code>.
+ @brief Returns the value of this annotation.The value may be <code>null</code>.
  @return the value of this annotation or <code>null</code>.
  */
 - (id)getValue;
@@ -60,6 +65,10 @@
  @return the string representation of this annotation.
  */
 - (NSString *)description;
+
+// Disallowed inherited constructors, do not use.
+
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -75,6 +84,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextAnnotation)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextAnnotation")

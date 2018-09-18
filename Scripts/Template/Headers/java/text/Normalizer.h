@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/text/Normalizer.java
 //
 
-#include "../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaTextNormalizer")
 #ifdef RESTRICT_JavaTextNormalizer
@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaTextNormalizer_) && (INCLUDE_ALL_JavaTextNormalizer || defined(INCLUDE_JavaTextNormalizer))
 #define JavaTextNormalizer_
 
@@ -23,11 +29,10 @@
 @protocol JavaLangCharSequence;
 
 /*!
- @brief Provides normalization functions according to
+ @brief Provides normalization functions according to 
  <a href="http://www.unicode.org/unicode/reports/tr15/tr15-23.html">Unicode Standard Annex #15:
- Unicode Normalization Forms</a>.
- Normalization can decompose and compose
- characters for equivalency checking.
+  Unicode Normalization Forms</a>.Normalization can decompose and compose
+  characters for equivalency checking.
  @since 1.6
  */
 @interface JavaTextNormalizer : NSObject
@@ -36,7 +41,7 @@
 
 /*!
  @brief Check whether the given character sequence <code>src</code> is normalized
- according to the normalization method <code>form</code>.
+  according to the normalization method <code>form</code>.
  @param src character sequence to check
  @param form normalization form to check against
  @return true if normalized according to <code>form</code>
@@ -46,7 +51,7 @@
 
 /*!
  @brief Normalize the character sequence <code>src</code> according to the
- normalization method <code>form</code>.
+  normalization method <code>form</code>.
  @param src character sequence to read for normalization
  @param form normalization form
  @return string normalized according to <code>form</code>
@@ -71,7 +76,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextNormalizer)
 
 #define RESTRICT_JavaLangEnum 1
 #define INCLUDE_JavaLangEnum 1
-#include "../../java/lang/Enum.h"
+#include "java/lang/Enum.h"
+
+@class IOSObjectArray;
 
 typedef NS_ENUM(NSUInteger, JavaTextNormalizer_Form_Enum) {
   JavaTextNormalizer_Form_Enum_NFD = 0,
@@ -81,28 +88,32 @@ typedef NS_ENUM(NSUInteger, JavaTextNormalizer_Form_Enum) {
 };
 
 /*!
- @brief The normalization forms supported by the Normalizer.
- These are specified in
+ @brief The normalization forms supported by the Normalizer.These are specified in 
  <a href="http://www.unicode.org/unicode/reports/tr15/tr15-23.html">Unicode Standard
- Annex #15</a>.
+  Annex #15</a>.
  */
-@interface JavaTextNormalizer_Form : JavaLangEnum < NSCopying >
+@interface JavaTextNormalizer_Form : JavaLangEnum
 
-+ (JavaTextNormalizer_Form *)NFD;
+@property (readonly, class, nonnull) JavaTextNormalizer_Form *NFD NS_SWIFT_NAME(NFD);
+@property (readonly, class, nonnull) JavaTextNormalizer_Form *NFC NS_SWIFT_NAME(NFC);
+@property (readonly, class, nonnull) JavaTextNormalizer_Form *NFKD NS_SWIFT_NAME(NFKD);
+@property (readonly, class, nonnull) JavaTextNormalizer_Form *NFKC NS_SWIFT_NAME(NFKC);
++ (JavaTextNormalizer_Form * __nonnull)NFD;
 
-+ (JavaTextNormalizer_Form *)NFC;
++ (JavaTextNormalizer_Form * __nonnull)NFC;
 
-+ (JavaTextNormalizer_Form *)NFKD;
++ (JavaTextNormalizer_Form * __nonnull)NFKD;
 
-+ (JavaTextNormalizer_Form *)NFKC;
++ (JavaTextNormalizer_Form * __nonnull)NFKC;
 
-#pragma mark Package-Private
-
-+ (IOSObjectArray *)values;
+#pragma mark Public
 
 + (JavaTextNormalizer_Form *)valueOfWithNSString:(NSString *)name;
 
-- (id)copyWithZone:(NSZone *)zone;
++ (IOSObjectArray *)values;
+
+#pragma mark Package-Private
+
 - (JavaTextNormalizer_Form_Enum)toNSEnum;
 
 @end
@@ -115,28 +126,28 @@ FOUNDATION_EXPORT JavaTextNormalizer_Form *JavaTextNormalizer_Form_values_[];
 /*!
  @brief Normalization Form D - Canonical Decomposition.
  */
-inline JavaTextNormalizer_Form *JavaTextNormalizer_Form_get_NFD();
+inline JavaTextNormalizer_Form *JavaTextNormalizer_Form_get_NFD(void);
 J2OBJC_ENUM_CONSTANT(JavaTextNormalizer_Form, NFD)
 
 /*!
  @brief Normalization Form C - Canonical Decomposition, followed by Canonical Composition.
  */
-inline JavaTextNormalizer_Form *JavaTextNormalizer_Form_get_NFC();
+inline JavaTextNormalizer_Form *JavaTextNormalizer_Form_get_NFC(void);
 J2OBJC_ENUM_CONSTANT(JavaTextNormalizer_Form, NFC)
 
 /*!
  @brief Normalization Form KD - Compatibility Decomposition.
  */
-inline JavaTextNormalizer_Form *JavaTextNormalizer_Form_get_NFKD();
+inline JavaTextNormalizer_Form *JavaTextNormalizer_Form_get_NFKD(void);
 J2OBJC_ENUM_CONSTANT(JavaTextNormalizer_Form, NFKD)
 
 /*!
  @brief Normalization Form KC - Compatibility Decomposition, followed by Canonical Composition.
  */
-inline JavaTextNormalizer_Form *JavaTextNormalizer_Form_get_NFKC();
+inline JavaTextNormalizer_Form *JavaTextNormalizer_Form_get_NFKC(void);
 J2OBJC_ENUM_CONSTANT(JavaTextNormalizer_Form, NFKC)
 
-FOUNDATION_EXPORT IOSObjectArray *JavaTextNormalizer_Form_values();
+FOUNDATION_EXPORT IOSObjectArray *JavaTextNormalizer_Form_values(void);
 
 FOUNDATION_EXPORT JavaTextNormalizer_Form *JavaTextNormalizer_Form_valueOfWithNSString_(NSString *name);
 
@@ -146,6 +157,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextNormalizer_Form)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextNormalizer")

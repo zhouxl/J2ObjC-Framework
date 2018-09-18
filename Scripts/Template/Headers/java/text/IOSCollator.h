@@ -3,7 +3,7 @@
 //  source: Classes/java/text/IOSCollator.java
 //
 
-#include "../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaTextIOSCollator")
 #ifdef RESTRICT_JavaTextIOSCollator
@@ -16,22 +16,27 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaTextIOSCollator_) && (INCLUDE_ALL_JavaTextIOSCollator || defined(INCLUDE_JavaTextIOSCollator))
 #define JavaTextIOSCollator_
 
 #define RESTRICT_JavaTextCollator 1
 #define INCLUDE_JavaTextCollator 1
-#include "../../java/text/Collator.h"
+#include "java/text/Collator.h"
 
 @class JavaTextCollationKey;
 @class JavaUtilLocale;
 
 /*!
- @brief A concrete implementation class for <code>Collation</code> for iOS.
- Although
- iOS uses ICU, its collation data is not available from any public APIs.
+ @brief A concrete implementation class for <code>Collation</code> for iOS.Although
+  iOS uses ICU, its collation data is not available from any public APIs.
  This class implements collation by invoking the NSString localized
- comparison methods.
+  comparison methods.
  @author Tom Ball
  */
 @interface JavaTextIOSCollator : JavaTextCollator
@@ -63,7 +68,11 @@
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilLocale:(JavaUtilLocale *)locale;
+- (instancetype __nonnull)initWithJavaUtilLocale:(JavaUtilLocale *)locale;
+
+// Disallowed inherited constructors, do not use.
+
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -84,7 +93,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextIOSCollator)
 
 #define RESTRICT_JavaTextCollationKey 1
 #define INCLUDE_JavaTextCollationKey 1
-#include "../../java/text/CollationKey.h"
+#include "java/text/CollationKey.h"
 
 @class IOSByteArray;
 
@@ -98,7 +107,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextIOSCollator)
 
 #pragma mark Protected
 
-- (instancetype)initWithNSString:(NSString *)source;
+- (instancetype __nonnull)initWithNSString:(NSString *)source;
 
 @end
 
@@ -114,6 +123,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextIOSCollator_IOSCollationKey)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextIOSCollator")

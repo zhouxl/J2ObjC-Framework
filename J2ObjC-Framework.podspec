@@ -2,10 +2,10 @@ Pod::Spec.new do |s|
   s.name         		= "J2ObjC-Framework"
   s.version      		= '2.2'
   s.summary      		= "Frameworked version of J2ObjC"
-  s.homepage        = "https://github.com/HoneyLuka/J2ObjC-Framework"
+  s.homepage        = "https://github.com/zhouxl/J2ObjC-Framework.git"
   s.license         = { :type => 'MIT', :file => 'LICENSE' }
   s.author          = { 'Luka' => 'luka@honeyluka.com' }
-  s.source          = { :git => "https://github.com/HoneyLuka/J2ObjC-Framework.git", :tag => s.version.to_s }
+  s.source          = { :git => "https://github.com/zhouxl/J2ObjC-Framework.git", :tag => s.version.to_s }
 
   s.platform     		= :ios, "8.0"
   s.requires_arc 		= true

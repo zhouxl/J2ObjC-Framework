@@ -22,27 +22,22 @@
 #ifndef _JavaLangReflectMethod_H_
 #define _JavaLangReflectMethod_H_
 
-#import "../../../J2ObjC_common.h"
-#import "../../../java/lang/reflect/ExecutableMember.h"
-#import "../../../java/lang/reflect/GenericDeclaration.h"
-#import "../../../java/lang/reflect/Member.h"
+#import "IOSMetadata.h"
+#import "J2ObjC_common.h"
+#import "java/lang/reflect/Executable.h"
+#import "java/lang/reflect/GenericDeclaration.h"
+#import "java/lang/reflect/Member.h"
 
 @class IOSClass;
 @class IOSObjectArray;
-@class JavaMethodMetadata;
 
 // A native implementation of java.lang.reflect.Method.  Its methods are
 // limited to those that can be derived from an Objective-C Method instance,
 // so instances can be created and released as needed.
-@interface JavaLangReflectMethod : ExecutableMember {
-  jboolean isStatic_;
-}
+@interface JavaLangReflectMethod : JavaLangReflectExecutable
 
-+ (instancetype)methodWithMethodSignature:(NSMethodSignature *)methodSignature
-                                 selector:(SEL)selector
-                                    class:(IOSClass *)aClass
-                                 isStatic:(jboolean)isStatic
-                                 metadata:(JavaMethodMetadata *)metadata;
++ (instancetype)methodWithDeclaringClass:(IOSClass *)aClass
+                                metadata:(const J2ObjcMethodInfo *)metadata;
 
 // iOS version of Method.getReturnType();
 - (IOSClass *)getReturnType;
@@ -68,6 +63,15 @@
 
 // Returns default value.
 - (id)getDefaultValue;
+
+// Returns whether this is a default method.
+- (jboolean)isDefault;
+
+// Returns false, since the J2ObjC translator doesn't generate bridge methods.
+- (jboolean)isBridge;
+
+// Internal methods.
+- (NSMethodSignature *)getSignature;
 
 @end
 

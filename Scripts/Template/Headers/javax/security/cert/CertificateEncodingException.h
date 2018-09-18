@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/javax/security/cert/CertificateEncodingException.java
 //
 
-#include "../../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxSecurityCertCertificateEncodingException")
 #ifdef RESTRICT_JavaxSecurityCertCertificateEncodingException
@@ -16,22 +16,28 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxSecurityCertCertificateEncodingException_) && (INCLUDE_ALL_JavaxSecurityCertCertificateEncodingException || defined(INCLUDE_JavaxSecurityCertCertificateEncodingException))
 #define JavaxSecurityCertCertificateEncodingException_
 
 #define RESTRICT_JavaxSecurityCertCertificateException 1
 #define INCLUDE_JavaxSecurityCertCertificateException 1
-#include "../../../javax/security/cert/CertificateException.h"
+#include "javax/security/cert/CertificateException.h"
 
 /*!
  @brief The exception that is thrown when an error occurs while a <code>Certificate</code>
- is being encoded.
+  is being encoded.
  <p>
- Note: This package is provided only for compatibility reasons. It contains a
- simplified version of the java.security.cert package that was previously used
- by JSSE (Java SSL package). All applications that do not have to be
- compatible with older versions of JSSE (that is before Java SDK 1.5) should
- only use java.security.cert.
+  Note: This package is provided only for compatibility reasons. It contains a
+  simplified version of the java.security.cert package that was previously used
+  by JSSE (Java SSL package). All applications that do not have to be
+  compatible with older versions of JSSE (that is before Java SDK 1.5) should
+  only use java.security.cert.
  */
 @interface JavaxSecurityCertCertificateEncodingException : JavaxSecurityCertCertificateException
 
@@ -40,15 +46,14 @@
 /*!
  @brief Creates a new <code>CertificateEncodingException</code>.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a new <code>CertificateEncodingException</code> with the specified
- message.
- @param msg
- the detail message for the exception.
+  message.
+ @param msg the detail message for the exception.
  */
-- (instancetype)initWithNSString:(NSString *)msg;
+- (instancetype __nonnull)initWithNSString:(NSString *)msg;
 
 @end
 
@@ -62,14 +67,18 @@ FOUNDATION_EXPORT JavaxSecurityCertCertificateEncodingException *create_JavaxSec
 
 FOUNDATION_EXPORT void JavaxSecurityCertCertificateEncodingException_init(JavaxSecurityCertCertificateEncodingException *self);
 
-FOUNDATION_EXPORT JavaxSecurityCertCertificateEncodingException *new_JavaxSecurityCertCertificateEncodingException_init() NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaxSecurityCertCertificateEncodingException *new_JavaxSecurityCertCertificateEncodingException_init(void) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaxSecurityCertCertificateEncodingException *create_JavaxSecurityCertCertificateEncodingException_init();
+FOUNDATION_EXPORT JavaxSecurityCertCertificateEncodingException *create_JavaxSecurityCertCertificateEncodingException_init(void);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityCertCertificateEncodingException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxSecurityCertCertificateEncodingException")

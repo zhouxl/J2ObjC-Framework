@@ -3,7 +3,7 @@
 //  source: android/frameworks/base/core/java/android/text/TextUtils.java
 //
 
-#include "../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_AndroidTextTextUtils")
 #ifdef RESTRICT_AndroidTextTextUtils
@@ -19,6 +19,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (AndroidTextTextUtils_) && (INCLUDE_ALL_AndroidTextTextUtils || defined(INCLUDE_AndroidTextTextUtils))
 #define AndroidTextTextUtils_
 
@@ -33,6 +39,34 @@
 @protocol JavaLangIterable;
 
 @interface AndroidTextTextUtils : NSObject
+@property (readonly, class) jint ALIGNMENT_SPAN NS_SWIFT_NAME(ALIGNMENT_SPAN);
+@property (readonly, class) jint FIRST_SPAN NS_SWIFT_NAME(FIRST_SPAN);
+@property (readonly, class) jint FOREGROUND_COLOR_SPAN NS_SWIFT_NAME(FOREGROUND_COLOR_SPAN);
+@property (readonly, class) jint RELATIVE_SIZE_SPAN NS_SWIFT_NAME(RELATIVE_SIZE_SPAN);
+@property (readonly, class) jint SCALE_X_SPAN NS_SWIFT_NAME(SCALE_X_SPAN);
+@property (readonly, class) jint STRIKETHROUGH_SPAN NS_SWIFT_NAME(STRIKETHROUGH_SPAN);
+@property (readonly, class) jint UNDERLINE_SPAN NS_SWIFT_NAME(UNDERLINE_SPAN);
+@property (readonly, class) jint STYLE_SPAN NS_SWIFT_NAME(STYLE_SPAN);
+@property (readonly, class) jint BULLET_SPAN NS_SWIFT_NAME(BULLET_SPAN);
+@property (readonly, class) jint QUOTE_SPAN NS_SWIFT_NAME(QUOTE_SPAN);
+@property (readonly, class) jint LEADING_MARGIN_SPAN NS_SWIFT_NAME(LEADING_MARGIN_SPAN);
+@property (readonly, class) jint URL_SPAN NS_SWIFT_NAME(URL_SPAN);
+@property (readonly, class) jint BACKGROUND_COLOR_SPAN NS_SWIFT_NAME(BACKGROUND_COLOR_SPAN);
+@property (readonly, class) jint TYPEFACE_SPAN NS_SWIFT_NAME(TYPEFACE_SPAN);
+@property (readonly, class) jint SUPERSCRIPT_SPAN NS_SWIFT_NAME(SUPERSCRIPT_SPAN);
+@property (readonly, class) jint SUBSCRIPT_SPAN NS_SWIFT_NAME(SUBSCRIPT_SPAN);
+@property (readonly, class) jint ABSOLUTE_SIZE_SPAN NS_SWIFT_NAME(ABSOLUTE_SIZE_SPAN);
+@property (readonly, class) jint TEXT_APPEARANCE_SPAN NS_SWIFT_NAME(TEXT_APPEARANCE_SPAN);
+@property (readonly, class) jint ANNOTATION NS_SWIFT_NAME(ANNOTATION);
+@property (readonly, class) jint SUGGESTION_SPAN NS_SWIFT_NAME(SUGGESTION_SPAN);
+@property (readonly, class) jint SPELL_CHECK_SPAN NS_SWIFT_NAME(SPELL_CHECK_SPAN);
+@property (readonly, class) jint SUGGESTION_RANGE_SPAN NS_SWIFT_NAME(SUGGESTION_RANGE_SPAN);
+@property (readonly, class) jint EASY_EDIT_SPAN NS_SWIFT_NAME(EASY_EDIT_SPAN);
+@property (readonly, class) jint LOCALE_SPAN NS_SWIFT_NAME(LOCALE_SPAN);
+@property (readonly, class) jint LAST_SPAN NS_SWIFT_NAME(LAST_SPAN);
+@property (readonly, class) jint CAP_MODE_CHARACTERS NS_SWIFT_NAME(CAP_MODE_CHARACTERS);
+@property (readonly, class) jint CAP_MODE_WORDS NS_SWIFT_NAME(CAP_MODE_WORDS);
+@property (readonly, class) jint CAP_MODE_SENTENCES NS_SWIFT_NAME(CAP_MODE_SENTENCES);
 
 + (jint)ALIGNMENT_SPAN;
 
@@ -94,19 +128,19 @@
 
 /*!
  @brief Returns a CharSequence concatenating the specified CharSequences,
- retaining their spans if any.
+  retaining their spans if any.
  */
 + (id<JavaLangCharSequence>)concatWithJavaLangCharSequenceArray:(IOSObjectArray *)text;
 
 /*!
- @brief Copies the spans from the region <code>start...end</code> in
- <code>source</code> to the region
+ @brief Copies the spans from the region <code>start...end</code> in 
+ <code>source</code> to the region 
  <code>destoff...destoff+end-start</code> in <code>dest</code>.
  Spans in <code>source</code> that begin before <code>start</code>
- or end after <code>end</code> but overlap this range are trimmed
- as if they began at <code>start</code> or ended at <code>end</code>.
- @throws IndexOutOfBoundsException if any of the copied spans
- are out of range in <code>dest</code>.
+  or end after <code>end</code> but overlap this range are trimmed
+  as if they began at <code>start</code> or ended at <code>end</code>.
+ @throw IndexOutOfBoundsExceptionif any of the copied spans
+  are out of range in <code>dest</code>.
  */
 + (void)copySpansFromWithAndroidTextSpanned:(id<AndroidTextSpanned>)source
                                     withInt:(jint)start
@@ -124,10 +158,10 @@
                                    withNSString:(NSString *)item;
 
 /*!
- @brief Debugging tool to print the spans in a CharSequence.
- The output will
- be printed one span per line.  If the CharSequence is not a Spanned,
- then the entire string will be printed on a single line.
+ @brief Debugging tool to print the spans in a CharSequence.The output will
+  be printed one span per line.
+ If the CharSequence is not a Spanned,
+  then the entire string will be printed on a single line.
  */
 + (void)dumpSpansWithJavaLangCharSequence:(id<JavaLangCharSequence>)cs
                    withAndroidUtilPrinter:(id<AndroidUtilPrinter>)printer
@@ -136,7 +170,7 @@
 /*!
  @brief Returns true if a and b are equal, including if they are both null.
  <p><i>Note: In platform versions 1.1 and earlier, this method only worked well if
- both the arguments were instances of String.</i></p>
+  both the arguments were instances of String.</i></p>
  @param a first CharSequence to check
  @param b second CharSequence to check
  @return true if a and b are equal
@@ -146,62 +180,59 @@
 
 /*!
  @brief Return a new CharSequence in which each of the source strings is
- replaced by the corresponding element of the destinations.
+  replaced by the corresponding element of the destinations.
  TODO(tball): enable if SpannableStringBuilder is ever implemented,
- which requires android.graphics support.
- public static CharSequence replace(CharSequence template,
- String[] sources,
- CharSequence[] destinations) {
- SpannableStringBuilder tb = new SpannableStringBuilder(template);
- for (int i = 0; i < sources.length; i++) {
- int where = indexOf(tb, sources[i]);
- if (where >= 0)
- tb.setSpan(sources[i], where, where + sources[i].length(),
- Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
- }
- for (int i = 0; i < sources.length; i++) {
- int start = tb.getSpanStart(sources[i]);
- int end = tb.getSpanEnd(sources[i]);
- if (start >= 0) {
- tb.replace(start, end, destinations[i]);
- }
- }
- return tb;
- }
- /
- Replace instances of "^1", "^2", etc. in the
- <code>template</code> CharSequence with the corresponding
+                  which requires android.graphics support.
+     public static CharSequence replace(CharSequence template,
+                                        String[] sources,
+                                        CharSequence[] destinations) {
+         SpannableStringBuilder tb = new SpannableStringBuilder(template);
+         for (int i = 0; i < sources.length; i++) {
+             int where = indexOf(tb, sources[i]);
+             if (where >= 0)
+                 tb.setSpan(sources[i], where, where + sources[i].length(),
+                            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+         }
+         for (int i = 0; i < sources.length; i++) {
+             int start = tb.getSpanStart(sources[i]);
+             int end = tb.getSpanEnd(sources[i]);
+             if (start >= 0) {
+                 tb.replace(start, end, destinations[i]);
+             }        }
+         return tb;
+     }
+     /\**
+  Replace instances of "^1", "^2", etc. in the 
+ <code>template</code> CharSequence with the corresponding 
  <code>values</code>.  "^^" is used to produce a single caret in
- the output.  Only up to 9 replacement values are supported,
- "^10" will be produce the first replacement value followed by a
- '0'.
- @param template_ the input text containing "^1"-style
- placeholder values.  This object is not modified; a copy is
- returned.
- @param values CharSequences substituted into the template.  The
- first is substituted for "^1", the second for "^2", and so on.
+  the output.  Only up to 9 replacement values are supported,
+  "^10" will be produce the first replacement value followed by a
+  '0'.
+ @param template_ the input text containing "^1"-style  placeholder values.  This object is not modified; a copy is
+   returned.
+ @param values CharSequences substituted into the template.  The  first is substituted for "^1", the second for "^2", and so on.
  @return the new CharSequence produced by doing the replacement
- @throws IllegalArgumentException if the template requests a
- value that was not provided, or if more than 9 values are
- provided.
+ @throw IllegalArgumentExceptionif the template requests a
+  value that was not provided, or if more than 9 values are
+  provided.
  */
 + (id<JavaLangCharSequence>)expandTemplateWithJavaLangCharSequence:(id<JavaLangCharSequence>)template_
                                      withJavaLangCharSequenceArray:(IOSObjectArray *)values;
 
 /*!
  @brief Determine what caps mode should be in effect at the current offset in
- the text.
- Only the mode bits set in <var>reqModes</var> will be
- checked.  Note that the caps mode flags here are explicitly defined
- to match those in <code>InputType</code>.
+  the text.Only the mode bits set in <var>reqModes</var> will be
+  checked.
+ Note that the caps mode flags here are explicitly defined
+  to match those in <code>InputType</code>.
  @param cs The text that should be checked for caps modes.
  @param off Location in the text at which to check.
- @param reqModes The modes to be checked: may be any combination of
- <code>CAP_MODE_CHARACTERS</code>, <code>CAP_MODE_WORDS</code>, and
- <code>CAP_MODE_SENTENCES</code>.
+ @param reqModes The modes to be checked: may be any combination of  
+ <code>CAP_MODE_CHARACTERS</code> , <code>CAP_MODE_WORDS</code> , and  <code>CAP_MODE_SENTENCES</code>
+  .
  @return Returns the actual capitalization modes that can be in effect
- at the current position, which is any combination of
- <code>CAP_MODE_CHARACTERS</code>, <code>CAP_MODE_WORDS</code>, and
+  at the current position, which is any combination of 
+ <code>CAP_MODE_CHARACTERS</code>, <code>CAP_MODE_WORDS</code>, and 
  <code>CAP_MODE_SENTENCES</code>.
  */
 + (jint)getCapsModeWithJavaLangCharSequence:(id<JavaLangCharSequence>)cs
@@ -222,8 +253,8 @@
 
 /*!
  @brief Returns the length that the specified CharSequence would have if
- spaces and control characters were trimmed from the start and end,
- as by <code>String.trim</code>.
+  spaces and control characters were trimmed from the start and end,
+  as by <code>String.trim</code>.
  */
 + (jint)getTrimmedLengthWithJavaLangCharSequence:(id<JavaLangCharSequence>)s;
 
@@ -290,22 +321,20 @@
 
 /*!
  @brief Returns a string containing the tokens joined by delimiters.
- @param tokens an array objects to be joined. Strings will be formed from
- the objects by calling object.toString().
+ @param tokens an array objects to be joined. Strings will be formed from      the objects by calling object.toString().
  */
 + (NSString *)joinWithJavaLangCharSequence:(id<JavaLangCharSequence>)delimiter
                       withJavaLangIterable:(id<JavaLangIterable>)tokens;
 
 /*!
  @brief Returns a string containing the tokens joined by delimiters.
- @param tokens an array objects to be joined. Strings will be formed from
- the objects by calling object.toString().
+ @param tokens an array objects to be joined. Strings will be formed from      the objects by calling object.toString().
  */
 + (NSString *)joinWithJavaLangCharSequence:(id<JavaLangCharSequence>)delimiter
                          withNSObjectArray:(IOSObjectArray *)tokens;
 
 /*!
- @brief Returns list of multiple <code>CharSequence</code> joined into a single
+ @brief Returns list of multiple <code>CharSequence</code> joined into a single 
  <code>CharSequence</code> separated by localized delimiter such as ", ".
  */
 + (id<JavaLangCharSequence>)joinWithJavaLangIterable:(id<JavaLangIterable>)list;
@@ -338,15 +367,15 @@
 
 /*!
  @brief Removes empty spans from the <code>spans</code> array.
- When parsing a Spanned using <code>Spanned.nextSpanTransition(int,int,Class)</code>, empty spans
- will (correctly) create span transitions, and calling getSpans on a slice of text bounded by
- one of these transitions will (correctly) include the empty overlapping span.
- However, these empty spans should not be taken into account when layouting or rendering the
- string and this method provides a way to filter getSpans' results accordingly.
- @param spans A list of spans retrieved using <code>Spanned.getSpans(int,int,Class)</code> from
- the <code>spanned</code>
+ When parsing a Spanned using <code>int, Class)</code>, empty spans
+  will (correctly) create span transitions, and calling getSpans on a slice of text bounded by
+  one of these transitions will (correctly) include the empty overlapping span.
+  However, these empty spans should not be taken into account when layouting or rendering the
+  string and this method provides a way to filter getSpans' results accordingly.
+ @param spans A list of spans retrieved using <code>int, Class)</code>  from
+   the  <code> spanned </code>
  @param spanned The Spanned from which spans were extracted
- @return A subset of spans where empty spans (<code>Spanned.getSpanStart(Object)</code>  ==
+ @return A subset of spans where empty spans (<code>Spanned.getSpanStart(Object)</code>  == 
  <code>Spanned.getSpanEnd(Object)</code> have been removed. The initial order is preserved
  */
 + (IOSObjectArray *)removeEmptySpansWithNSObjectArray:(IOSObjectArray *)spans
@@ -354,25 +383,25 @@
                                          withIOSClass:(IOSClass *)klass;
 
 /*!
- @brief Splits a string on a pattern.
- String.split() returns [''] when the string to be
- split is empty. This returns []. This does not remove any empty strings from the result.
+ @brief Splits a string on a pattern.String.split() returns [''] when the string to be
+  split is empty.
+ This returns []. This does not remove any empty strings from the result.
  @param text the string to split
  @param pattern the regular expression to match
  @return an array of strings. The array will be empty if text is empty
- @throws NullPointerException if expression or text is null
+ @throw NullPointerExceptionif expression or text is null
  */
 + (IOSObjectArray *)splitWithNSString:(NSString *)text
              withJavaUtilRegexPattern:(JavaUtilRegexPattern *)pattern;
 
 /*!
- @brief String.split() returns [''] when the string to be split is empty.
- This returns []. This does
- not remove any empty strings from the result. For example split("a,", ","  ) returns {"a", ""}.
+ @brief String.split() returns [''] when the string to be split is empty.This returns [].
+ This does
+  not remove any empty strings from the result. For example split("a,", ","  ) returns {"a", ""}.
  @param text the string to split
  @param expression the regular expression to match
  @return an array of strings. The array will be empty if text is empty
- @throws NullPointerException if expression or text is null
+ @throw NullPointerExceptionif expression or text is null
  */
 + (IOSObjectArray *)splitWithNSString:(NSString *)text
                          withNSString:(NSString *)expression;
@@ -381,27 +410,26 @@
 
 /*!
  @brief Create a new String object containing the given range of characters
- from the source string.
- This is different than simply calling
+  from the source string.This is different than simply calling 
  <code>CharSequence.subSequence</code>
- in that it does not preserve any style runs in the source sequence,
- allowing a more efficient implementation.
+  in that it does not preserve any style runs in the source sequence,
+  allowing a more efficient implementation.
  */
 + (NSString *)substringWithJavaLangCharSequence:(id<JavaLangCharSequence>)source
                                         withInt:(jint)start
                                         withInt:(jint)end;
 
 /*!
- @brief Get the end value from a range packed in a long by <code>packRangeInLong(int,int)</code>
+ @brief Get the end value from a range packed in a long by <code>int)</code>
  - seealso: #unpackRangeStartFromLong(long)
- - seealso: #packRangeInLong(int,int)
+ - seealso: #packRangeInLong(int, int)
  */
 + (jint)unpackRangeEndFromLongWithLong:(jlong)range;
 
 /*!
- @brief Get the start value from a range packed in a long by <code>packRangeInLong(int,int)</code>
+ @brief Get the start value from a range packed in a long by <code>int)</code>
  - seealso: #unpackRangeEndFromLong(long)
- - seealso: #packRangeInLong(int,int)
+ - seealso: #packRangeInLong(int, int)
  */
 + (jint)unpackRangeStartFromLongWithLong:(jlong)range;
 
@@ -424,207 +452,179 @@
 J2OBJC_STATIC_INIT(AndroidTextTextUtils)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_ALIGNMENT_SPAN();
+inline jint AndroidTextTextUtils_get_ALIGNMENT_SPAN(void);
 #define AndroidTextTextUtils_ALIGNMENT_SPAN 1
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, ALIGNMENT_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_FIRST_SPAN();
+inline jint AndroidTextTextUtils_get_FIRST_SPAN(void);
 #define AndroidTextTextUtils_FIRST_SPAN 1
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, FIRST_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_FOREGROUND_COLOR_SPAN();
+inline jint AndroidTextTextUtils_get_FOREGROUND_COLOR_SPAN(void);
 #define AndroidTextTextUtils_FOREGROUND_COLOR_SPAN 2
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, FOREGROUND_COLOR_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_RELATIVE_SIZE_SPAN();
+inline jint AndroidTextTextUtils_get_RELATIVE_SIZE_SPAN(void);
 #define AndroidTextTextUtils_RELATIVE_SIZE_SPAN 3
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, RELATIVE_SIZE_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_SCALE_X_SPAN();
+inline jint AndroidTextTextUtils_get_SCALE_X_SPAN(void);
 #define AndroidTextTextUtils_SCALE_X_SPAN 4
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, SCALE_X_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_STRIKETHROUGH_SPAN();
+inline jint AndroidTextTextUtils_get_STRIKETHROUGH_SPAN(void);
 #define AndroidTextTextUtils_STRIKETHROUGH_SPAN 5
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, STRIKETHROUGH_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_UNDERLINE_SPAN();
+inline jint AndroidTextTextUtils_get_UNDERLINE_SPAN(void);
 #define AndroidTextTextUtils_UNDERLINE_SPAN 6
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, UNDERLINE_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_STYLE_SPAN();
+inline jint AndroidTextTextUtils_get_STYLE_SPAN(void);
 #define AndroidTextTextUtils_STYLE_SPAN 7
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, STYLE_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_BULLET_SPAN();
+inline jint AndroidTextTextUtils_get_BULLET_SPAN(void);
 #define AndroidTextTextUtils_BULLET_SPAN 8
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, BULLET_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_QUOTE_SPAN();
+inline jint AndroidTextTextUtils_get_QUOTE_SPAN(void);
 #define AndroidTextTextUtils_QUOTE_SPAN 9
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, QUOTE_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_LEADING_MARGIN_SPAN();
+inline jint AndroidTextTextUtils_get_LEADING_MARGIN_SPAN(void);
 #define AndroidTextTextUtils_LEADING_MARGIN_SPAN 10
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, LEADING_MARGIN_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_URL_SPAN();
+inline jint AndroidTextTextUtils_get_URL_SPAN(void);
 #define AndroidTextTextUtils_URL_SPAN 11
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, URL_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_BACKGROUND_COLOR_SPAN();
+inline jint AndroidTextTextUtils_get_BACKGROUND_COLOR_SPAN(void);
 #define AndroidTextTextUtils_BACKGROUND_COLOR_SPAN 12
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, BACKGROUND_COLOR_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_TYPEFACE_SPAN();
+inline jint AndroidTextTextUtils_get_TYPEFACE_SPAN(void);
 #define AndroidTextTextUtils_TYPEFACE_SPAN 13
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, TYPEFACE_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_SUPERSCRIPT_SPAN();
+inline jint AndroidTextTextUtils_get_SUPERSCRIPT_SPAN(void);
 #define AndroidTextTextUtils_SUPERSCRIPT_SPAN 14
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, SUPERSCRIPT_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_SUBSCRIPT_SPAN();
+inline jint AndroidTextTextUtils_get_SUBSCRIPT_SPAN(void);
 #define AndroidTextTextUtils_SUBSCRIPT_SPAN 15
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, SUBSCRIPT_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_ABSOLUTE_SIZE_SPAN();
+inline jint AndroidTextTextUtils_get_ABSOLUTE_SIZE_SPAN(void);
 #define AndroidTextTextUtils_ABSOLUTE_SIZE_SPAN 16
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, ABSOLUTE_SIZE_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_TEXT_APPEARANCE_SPAN();
+inline jint AndroidTextTextUtils_get_TEXT_APPEARANCE_SPAN(void);
 #define AndroidTextTextUtils_TEXT_APPEARANCE_SPAN 17
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, TEXT_APPEARANCE_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_ANNOTATION();
+inline jint AndroidTextTextUtils_get_ANNOTATION(void);
 #define AndroidTextTextUtils_ANNOTATION 18
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, ANNOTATION, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_SUGGESTION_SPAN();
+inline jint AndroidTextTextUtils_get_SUGGESTION_SPAN(void);
 #define AndroidTextTextUtils_SUGGESTION_SPAN 19
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, SUGGESTION_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_SPELL_CHECK_SPAN();
+inline jint AndroidTextTextUtils_get_SPELL_CHECK_SPAN(void);
 #define AndroidTextTextUtils_SPELL_CHECK_SPAN 20
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, SPELL_CHECK_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_SUGGESTION_RANGE_SPAN();
+inline jint AndroidTextTextUtils_get_SUGGESTION_RANGE_SPAN(void);
 #define AndroidTextTextUtils_SUGGESTION_RANGE_SPAN 21
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, SUGGESTION_RANGE_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_EASY_EDIT_SPAN();
+inline jint AndroidTextTextUtils_get_EASY_EDIT_SPAN(void);
 #define AndroidTextTextUtils_EASY_EDIT_SPAN 22
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, EASY_EDIT_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_LOCALE_SPAN();
+inline jint AndroidTextTextUtils_get_LOCALE_SPAN(void);
 #define AndroidTextTextUtils_LOCALE_SPAN 23
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, LOCALE_SPAN, jint)
 
 /*!
-  
  */
-inline jint AndroidTextTextUtils_get_LAST_SPAN();
+inline jint AndroidTextTextUtils_get_LAST_SPAN(void);
 #define AndroidTextTextUtils_LAST_SPAN 23
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, LAST_SPAN, jint)
 
 /*!
  @brief Capitalization mode for <code>getCapsMode</code>: capitalize all
- characters.
- This value is explicitly defined to be the same as
+  characters.This value is explicitly defined to be the same as 
  <code>InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS</code>.
  */
-inline jint AndroidTextTextUtils_get_CAP_MODE_CHARACTERS();
+inline jint AndroidTextTextUtils_get_CAP_MODE_CHARACTERS(void);
 #define AndroidTextTextUtils_CAP_MODE_CHARACTERS 4096
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, CAP_MODE_CHARACTERS, jint)
 
 /*!
  @brief Capitalization mode for <code>getCapsMode</code>: capitalize the first
- character of all words.
- This value is explicitly defined to be the same as
+  character of all words.This value is explicitly defined to be the same as 
  <code>InputType.TYPE_TEXT_FLAG_CAP_WORDS</code>.
  */
-inline jint AndroidTextTextUtils_get_CAP_MODE_WORDS();
+inline jint AndroidTextTextUtils_get_CAP_MODE_WORDS(void);
 #define AndroidTextTextUtils_CAP_MODE_WORDS 8192
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, CAP_MODE_WORDS, jint)
 
 /*!
  @brief Capitalization mode for <code>getCapsMode</code>: capitalize the first
- character of each sentence.
- This value is explicitly defined to be the same as
+  character of each sentence.This value is explicitly defined to be the same as 
  <code>InputType.TYPE_TEXT_FLAG_CAP_SENTENCES</code>.
  */
-inline jint AndroidTextTextUtils_get_CAP_MODE_SENTENCES();
+inline jint AndroidTextTextUtils_get_CAP_MODE_SENTENCES(void);
 #define AndroidTextTextUtils_CAP_MODE_SENTENCES 16384
 J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, CAP_MODE_SENTENCES, jint)
 
@@ -723,14 +723,13 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextTextUtils)
 
 #define RESTRICT_JavaLangIterable 1
 #define INCLUDE_JavaLangIterable 1
-#include "../../java/lang/Iterable.h"
+#include "java/lang/Iterable.h"
 
 /*!
  @brief An interface for splitting strings according to rules that are opaque to the user of this
- interface.
- This also has less overhead than split, which uses regular expressions and
- allocates an array to hold the results.
- <p>The most efficient way to use this class is:
+  interface.This also has less overhead than split, which uses regular expressions and
+  allocates an array to hold the results.
+ <p>The most efficient way to use this class is: 
  @code
 
   // Once
@@ -738,12 +737,12 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextTextUtils)
   // Once per string to split
   splitter.setString(string);
   for (String s : splitter) {
-     ...
-  }
+      ...
+  } 
   
 @endcode
  */
-@protocol AndroidTextTextUtils_StringSplitter < JavaLangIterable, NSObject, JavaObject >
+@protocol AndroidTextTextUtils_StringSplitter < JavaLangIterable, JavaObject >
 
 - (void)setStringWithNSString:(NSString *)string;
 
@@ -760,23 +759,26 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextTextUtils_StringSplitter)
 
 #define RESTRICT_JavaUtilIterator 1
 #define INCLUDE_JavaUtilIterator 1
-#include "../../java/util/Iterator.h"
+#include "java/util/Iterator.h"
+
+@protocol JavaUtilFunctionConsumer;
+@protocol JavaUtilSpliterator;
 
 /*!
  @brief A simple string splitter.
  <p>If the final character in the string to split is the delimiter then no empty string will
- be returned for the empty string after that delimeter. That is, splitting <tt>"a,b,"</tt> on
- comma will return <tt>"a", "b"</tt>, not <tt>"a", "b", ""</tt>.
+  be returned for the empty string after that delimeter. That is, splitting <tt>"a,b,"</tt> on
+  comma will return <tt>"a", "b"</tt>, not <tt>"a", "b", ""</tt>.
  */
 @interface AndroidTextTextUtils_SimpleStringSplitter : NSObject < AndroidTextTextUtils_StringSplitter, JavaUtilIterator >
 
 #pragma mark Public
 
 /*!
- @brief Initializes the splitter. setString may be called later.
+ @brief Initializes the splitter.setString may be called later.
  @param delimiter the delimeter on which to split
  */
-- (instancetype)initWithChar:(jchar)delimiter;
+- (instancetype __nonnull)initWithChar:(jchar)delimiter;
 
 - (jboolean)hasNext;
 
@@ -793,6 +795,10 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextTextUtils_StringSplitter)
 - (void)setStringWithNSString:(NSString *)string;
 
 #pragma mark Package-Private
+
+// Disallowed inherited constructors, do not use.
+
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -813,7 +819,9 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextTextUtils_SimpleStringSplitter)
 
 #define RESTRICT_JavaLangEnum 1
 #define INCLUDE_JavaLangEnum 1
-#include "../../java/lang/Enum.h"
+#include "java/lang/Enum.h"
+
+@class IOSObjectArray;
 
 typedef NS_ENUM(NSUInteger, AndroidTextTextUtils_TruncateAt_Enum) {
   AndroidTextTextUtils_TruncateAt_Enum_START = 0,
@@ -823,25 +831,31 @@ typedef NS_ENUM(NSUInteger, AndroidTextTextUtils_TruncateAt_Enum) {
   AndroidTextTextUtils_TruncateAt_Enum_END_SMALL = 4,
 };
 
-@interface AndroidTextTextUtils_TruncateAt : JavaLangEnum < NSCopying >
+@interface AndroidTextTextUtils_TruncateAt : JavaLangEnum
 
-+ (AndroidTextTextUtils_TruncateAt *)START;
+@property (readonly, class, nonnull) AndroidTextTextUtils_TruncateAt *START NS_SWIFT_NAME(START);
+@property (readonly, class, nonnull) AndroidTextTextUtils_TruncateAt *MIDDLE NS_SWIFT_NAME(MIDDLE);
+@property (readonly, class, nonnull) AndroidTextTextUtils_TruncateAt *END NS_SWIFT_NAME(END);
+@property (readonly, class, nonnull) AndroidTextTextUtils_TruncateAt *MARQUEE NS_SWIFT_NAME(MARQUEE);
+@property (readonly, class, nonnull) AndroidTextTextUtils_TruncateAt *END_SMALL NS_SWIFT_NAME(END_SMALL);
++ (AndroidTextTextUtils_TruncateAt * __nonnull)START;
 
-+ (AndroidTextTextUtils_TruncateAt *)MIDDLE;
++ (AndroidTextTextUtils_TruncateAt * __nonnull)MIDDLE;
 
-+ (AndroidTextTextUtils_TruncateAt *)END;
++ (AndroidTextTextUtils_TruncateAt * __nonnull)END;
 
-+ (AndroidTextTextUtils_TruncateAt *)MARQUEE;
++ (AndroidTextTextUtils_TruncateAt * __nonnull)MARQUEE;
 
-+ (AndroidTextTextUtils_TruncateAt *)END_SMALL;
++ (AndroidTextTextUtils_TruncateAt * __nonnull)END_SMALL;
 
-#pragma mark Package-Private
-
-+ (IOSObjectArray *)values;
+#pragma mark Public
 
 + (AndroidTextTextUtils_TruncateAt *)valueOfWithNSString:(NSString *)name;
 
-- (id)copyWithZone:(NSZone *)zone;
++ (IOSObjectArray *)values;
+
+#pragma mark Package-Private
+
 - (AndroidTextTextUtils_TruncateAt_Enum)toNSEnum;
 
 @end
@@ -851,24 +865,24 @@ J2OBJC_STATIC_INIT(AndroidTextTextUtils_TruncateAt)
 /*! INTERNAL ONLY - Use enum accessors declared below. */
 FOUNDATION_EXPORT AndroidTextTextUtils_TruncateAt *AndroidTextTextUtils_TruncateAt_values_[];
 
-inline AndroidTextTextUtils_TruncateAt *AndroidTextTextUtils_TruncateAt_get_START();
+inline AndroidTextTextUtils_TruncateAt *AndroidTextTextUtils_TruncateAt_get_START(void);
 J2OBJC_ENUM_CONSTANT(AndroidTextTextUtils_TruncateAt, START)
 
-inline AndroidTextTextUtils_TruncateAt *AndroidTextTextUtils_TruncateAt_get_MIDDLE();
+inline AndroidTextTextUtils_TruncateAt *AndroidTextTextUtils_TruncateAt_get_MIDDLE(void);
 J2OBJC_ENUM_CONSTANT(AndroidTextTextUtils_TruncateAt, MIDDLE)
 
-inline AndroidTextTextUtils_TruncateAt *AndroidTextTextUtils_TruncateAt_get_END();
+inline AndroidTextTextUtils_TruncateAt *AndroidTextTextUtils_TruncateAt_get_END(void);
 J2OBJC_ENUM_CONSTANT(AndroidTextTextUtils_TruncateAt, END)
 
-inline AndroidTextTextUtils_TruncateAt *AndroidTextTextUtils_TruncateAt_get_MARQUEE();
+inline AndroidTextTextUtils_TruncateAt *AndroidTextTextUtils_TruncateAt_get_MARQUEE(void);
 J2OBJC_ENUM_CONSTANT(AndroidTextTextUtils_TruncateAt, MARQUEE)
 
 /*!
  */
-inline AndroidTextTextUtils_TruncateAt *AndroidTextTextUtils_TruncateAt_get_END_SMALL();
+inline AndroidTextTextUtils_TruncateAt *AndroidTextTextUtils_TruncateAt_get_END_SMALL(void);
 J2OBJC_ENUM_CONSTANT(AndroidTextTextUtils_TruncateAt, END_SMALL)
 
-FOUNDATION_EXPORT IOSObjectArray *AndroidTextTextUtils_TruncateAt_values();
+FOUNDATION_EXPORT IOSObjectArray *AndroidTextTextUtils_TruncateAt_values(void);
 
 FOUNDATION_EXPORT AndroidTextTextUtils_TruncateAt *AndroidTextTextUtils_TruncateAt_valueOfWithNSString_(NSString *name);
 
@@ -878,6 +892,10 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextTextUtils_TruncateAt)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidTextTextUtils")

@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/io/FileOutputStream.java
 //
 
-#include "../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoFileOutputStream")
 #ifdef RESTRICT_JavaIoFileOutputStream
@@ -16,12 +16,18 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoFileOutputStream_) && (INCLUDE_ALL_JavaIoFileOutputStream || defined(INCLUDE_JavaIoFileOutputStream))
 #define JavaIoFileOutputStream_
 
 #define RESTRICT_JavaIoOutputStream 1
 #define INCLUDE_JavaIoOutputStream 1
-#include "../../java/io/OutputStream.h"
+#include "java/io/OutputStream.h"
 
 @class IOSByteArray;
 @class JavaIoFile;
@@ -29,25 +35,26 @@
 @class JavaNioChannelsFileChannel;
 
 /*!
- @brief An output stream that writes bytes to a file.
- If the output file exists, it
- can be replaced or appended to. If it does not exist, a new file will be
- created.
+ @brief An output stream that writes bytes to a file.If the output file exists, it
+  can be replaced or appended to.
+ If it does not exist, a new file will be
+  created. 
  @code
      File file = ...
-   OutputStream out = null;
-   try 
-     out = new BufferedOutputStream(new FileOutputStream(file));
-     ...
-   } finally {
-     if (out != null) {
-       out.close();
-     }
-   }
-  
+    OutputStream out = null;
+    try {
+      out = new BufferedOutputStream(new FileOutputStream(file));
+      ...
+    } finally {
+      if (out != null) {
+        out.close();
+      }    }  
+ 
 @endcode
+  
  <p>This stream is <strong>not buffered</strong>. Most callers should wrap
- this stream with a <code>BufferedOutputStream</code>.
+  this stream with a <code>BufferedOutputStream</code>.
+  
  <p>Use <code>FileWriter</code> to write characters, as opposed to bytes, to a file.
  - seealso: BufferedOutputStream
  - seealso: FileInputStream
@@ -57,50 +64,48 @@
 #pragma mark Public
 
 /*!
- @brief Constructs a new <code>FileOutputStream</code> that writes to <code>file</code>.
- The file will be
- truncated if it exists, and created if it doesn't exist.
- @throws FileNotFoundException if file cannot be opened for writing.
+ @brief Constructs a new <code>FileOutputStream</code> that writes to <code>file</code>.The file will be
+  truncated if it exists, and created if it doesn't exist.
+ @throw FileNotFoundExceptionif file cannot be opened for writing.
  */
-- (instancetype)initWithJavaIoFile:(JavaIoFile *)file;
+- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file;
 
 /*!
  @brief Constructs a new <code>FileOutputStream</code> that writes to <code>file</code>.
  If <code>append</code> is true and the file already exists, it will be appended to; otherwise
- it will be truncated. The file will be created if it does not exist.
- @throws FileNotFoundException if the file cannot be opened for writing.
+  it will be truncated. The file will be created if it does not exist.
+ @throw FileNotFoundExceptionif the file cannot be opened for writing.
  */
-- (instancetype)initWithJavaIoFile:(JavaIoFile *)file
-                       withBoolean:(jboolean)append;
+- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file
+                                 withBoolean:(jboolean)append;
 
 /*!
  @brief Constructs a new <code>FileOutputStream</code> that writes to <code>fd</code>.
- @throws NullPointerException if <code>fd</code> is null.
+ @throw NullPointerExceptionif <code>fd</code> is null.
  */
-- (instancetype)initWithJavaIoFileDescriptor:(JavaIoFileDescriptor *)fd;
+- (instancetype __nonnull)initWithJavaIoFileDescriptor:(JavaIoFileDescriptor *)fd;
 
 /*!
- @brief Constructs a new <code>FileOutputStream</code> that writes to <code>path</code>.
- The file will be
- truncated if it exists, and created if it doesn't exist.
- @throws FileNotFoundException if file cannot be opened for writing.
+ @brief Constructs a new <code>FileOutputStream</code> that writes to <code>path</code>.The file will be
+  truncated if it exists, and created if it doesn't exist.
+ @throw FileNotFoundExceptionif file cannot be opened for writing.
  */
-- (instancetype)initWithNSString:(NSString *)path;
+- (instancetype __nonnull)initWithNSString:(NSString *)path;
 
 /*!
  @brief Constructs a new <code>FileOutputStream</code> that writes to <code>path</code>.
  If <code>append</code> is true and the file already exists, it will be appended to; otherwise
- it will be truncated. The file will be created if it does not exist.
- @throws FileNotFoundException if the file cannot be opened for writing.
+  it will be truncated. The file will be created if it does not exist.
+ @throw FileNotFoundExceptionif the file cannot be opened for writing.
  */
-- (instancetype)initWithNSString:(NSString *)path
-                     withBoolean:(jboolean)append;
+- (instancetype __nonnull)initWithNSString:(NSString *)path
+                               withBoolean:(jboolean)append;
 
 - (void)close;
 
 /*!
  @brief Returns a write-only <code>FileChannel</code> that shares its position with
- this stream.
+  this stream.
  */
 - (JavaNioChannelsFileChannel *)getChannel;
 
@@ -117,7 +122,11 @@
 
 #pragma mark Protected
 
-- (void)javaFinalize;
+- (void)java_finalize;
+
+// Disallowed inherited constructors, do not use.
+
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -157,6 +166,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileOutputStream)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoFileOutputStream")

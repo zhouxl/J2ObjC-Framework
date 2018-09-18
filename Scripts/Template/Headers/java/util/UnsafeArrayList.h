@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/util/UnsafeArrayList.java
 //
 
-#include "../../J2ObjC_header.h"
+#include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilUnsafeArrayList")
 #ifdef RESTRICT_JavaUtilUnsafeArrayList
@@ -16,12 +16,18 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilUnsafeArrayList_) && (INCLUDE_ALL_JavaUtilUnsafeArrayList || defined(INCLUDE_JavaUtilUnsafeArrayList))
 #define JavaUtilUnsafeArrayList_
 
 #define RESTRICT_JavaUtilAbstractList 1
 #define INCLUDE_JavaUtilAbstractList 1
-#include "../../java/util/AbstractList.h"
+#include "java/util/AbstractList.h"
 
 @class IOSClass;
 @class IOSObjectArray;
@@ -33,8 +39,8 @@
 
 #pragma mark Public
 
-- (instancetype)initWithIOSClass:(IOSClass *)elementType
-                         withInt:(jint)initialCapacity;
+- (instancetype __nonnull)initWithIOSClass:(IOSClass *)elementType
+                                   withInt:(jint)initialCapacity;
 
 - (jboolean)addWithId:(id)element;
 
@@ -45,6 +51,10 @@
 - (jint)size;
 
 #pragma mark Package-Private
+
+// Disallowed inherited constructors, do not use.
+
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -60,6 +70,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilUnsafeArrayList)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilUnsafeArrayList")
