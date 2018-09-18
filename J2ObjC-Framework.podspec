@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author          = { 'Luka' => 'luka@honeyluka.com' }
   s.source          = { :git => "https://github.com/HoneyLuka/J2ObjC-Framework.git", :tag => s.version.to_s }
 
-  s.platform     		= :ios, "11.0"
+  s.platform     		= :ios, "9.0"
   s.requires_arc 		= true
 
   s.frameworks      = 'Security'
