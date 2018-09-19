@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/org/xml/sax/helpers/AttributeListImpl.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgXmlSaxHelpersAttributeListImpl")
 #ifdef RESTRICT_OrgXmlSaxHelpersAttributeListImpl
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (OrgXmlSaxHelpersAttributeListImpl_) && (INCLUDE_ALL_OrgXmlSaxHelpersAttributeListImpl || defined(INCLUDE_OrgXmlSaxHelpersAttributeListImpl))
 #define OrgXmlSaxHelpersAttributeListImpl_
 
 #define RESTRICT_OrgXmlSaxAttributeList 1
 #define INCLUDE_OrgXmlSaxAttributeList 1
-#include "org/xml/sax/AttributeList.h"
+#include "../../../../org/xml/sax/AttributeList.h"
 
 /*!
  @brief Default implementation for AttributeList.
@@ -87,7 +81,7 @@ __attribute__((deprecated))
  - seealso: #addAttribute
  - seealso: #clear
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Construct a persistent copy of an existing attribute list.
@@ -97,7 +91,7 @@ __attribute__((deprecated))
  @param atts The attribute list to copy
  - seealso: org.xml.sax.DocumentHandler
  */
-- (instancetype __nonnull)initWithOrgXmlSaxAttributeList:(id<OrgXmlSaxAttributeList>)atts;
+- (instancetype)initWithOrgXmlSaxAttributeList:(id<OrgXmlSaxAttributeList>)atts;
 
 /*!
  @brief Add an attribute to an attribute list.
@@ -221,10 +215,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersAttributeListImpl)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersAttributeListImpl")

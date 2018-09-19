@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/net/DatagramSocket.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetDatagramSocket")
 #ifdef RESTRICT_JavaNetDatagramSocket
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNetDatagramSocket_) && (INCLUDE_ALL_JavaNetDatagramSocket || defined(INCLUDE_JavaNetDatagramSocket))
 #define JavaNetDatagramSocket_
 
 #define RESTRICT_JavaIoCloseable 1
 #define INCLUDE_JavaIoCloseable 1
-#include "java/io/Closeable.h"
+#include "../../java/io/Closeable.h"
 
 @class IOSClass;
 @class JavaIoFileDescriptor;
@@ -80,11 +74,6 @@
   JavaNetInetAddress *connectedAddress_;
   jint connectedPort_;
 }
-@property (readonly, class) jint ST_NOT_CONNECTED NS_SWIFT_NAME(ST_NOT_CONNECTED);
-@property (readonly, class) jint ST_CONNECTED NS_SWIFT_NAME(ST_CONNECTED);
-@property (readonly, class) jint ST_CONNECTED_NO_IMPL NS_SWIFT_NAME(ST_CONNECTED_NO_IMPL);
-@property (class, strong) IOSClass *implClass NS_SWIFT_NAME(implClass);
-@property (class, strong) id<JavaNetDatagramSocketImplFactory> factory NS_SWIFT_NAME(factory);
 
 + (jint)ST_NOT_CONNECTED;
 
@@ -117,7 +106,7 @@
               <code>checkListen</code> method doesn't allow the operation.
  - seealso: SecurityManager#checkListen
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a datagram socket and binds it to the specified port
@@ -136,7 +125,7 @@
               <code>checkListen</code> method doesn't allow the operation.
  - seealso: SecurityManager#checkListen
  */
-- (instancetype __nonnull)initWithInt:(jint)port;
+- (instancetype)initWithInt:(jint)port;
 
 /*!
  @brief Creates a datagram socket, bound to the specified local
@@ -158,8 +147,8 @@
  - seealso: SecurityManager#checkListen
  @since JDK1.1
  */
-- (instancetype __nonnull)initWithInt:(jint)port
-               withJavaNetInetAddress:(JavaNetInetAddress *)laddr;
+- (instancetype)initWithInt:(jint)port
+     withJavaNetInetAddress:(JavaNetInetAddress *)laddr;
 
 /*!
  @brief Creates a datagram socket, bound to the specified local
@@ -181,7 +170,7 @@
  - seealso: SecurityManager#checkListen
  @since 1.4
  */
-- (instancetype __nonnull)initWithJavaNetSocketAddress:(JavaNetSocketAddress *)bindaddr;
+- (instancetype)initWithJavaNetSocketAddress:(JavaNetSocketAddress *)bindaddr;
 
 /*!
  @brief Binds this DatagramSocket to a specific address & port.
@@ -739,7 +728,7 @@
           the subclass wishes to use on the DatagramSocket.
  @since 1.4
  */
-- (instancetype __nonnull)initWithJavaNetDatagramSocketImpl:(JavaNetDatagramSocketImpl *)impl;
+- (instancetype)initWithJavaNetDatagramSocketImpl:(JavaNetDatagramSocketImpl *)impl;
 
 #pragma mark Package-Private
 
@@ -760,7 +749,7 @@
 
 @end
 
-J2OBJC_EMPTY_STATIC_INIT(JavaNetDatagramSocket)
+J2OBJC_STATIC_INIT(JavaNetDatagramSocket)
 
 J2OBJC_FIELD_SETTER(JavaNetDatagramSocket, impl_, JavaNetDatagramSocketImpl *)
 J2OBJC_FIELD_SETTER(JavaNetDatagramSocket, connectedAddress_, JavaNetInetAddress *)
@@ -828,10 +817,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetDatagramSocket)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetDatagramSocket")

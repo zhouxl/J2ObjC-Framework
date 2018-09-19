@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/net/CookiePolicy.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetCookiePolicy")
 #ifdef RESTRICT_JavaNetCookiePolicy
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaNetCookiePolicy_) && (INCLUDE_ALL_JavaNetCookiePolicy || defined(INCLUDE_JavaNetCookiePolicy))
 #define JavaNetCookiePolicy_
@@ -51,9 +45,6 @@
 @end
 
 @interface JavaNetCookiePolicy : NSObject
-@property (readonly, class, strong) id<JavaNetCookiePolicy> ACCEPT_ALL NS_SWIFT_NAME(ACCEPT_ALL);
-@property (readonly, class, strong) id<JavaNetCookiePolicy> ACCEPT_NONE NS_SWIFT_NAME(ACCEPT_NONE);
-@property (readonly, class, strong) id<JavaNetCookiePolicy> ACCEPT_ORIGINAL_SERVER NS_SWIFT_NAME(ACCEPT_ORIGINAL_SERVER);
 
 + (id<JavaNetCookiePolicy>)ACCEPT_ALL;
 
@@ -93,10 +84,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetCookiePolicy)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetCookiePolicy")

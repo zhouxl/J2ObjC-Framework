@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/javax/xml/datatype/XMLGregorianCalendar.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxXmlDatatypeXMLGregorianCalendar")
 #ifdef RESTRICT_JavaxXmlDatatypeXMLGregorianCalendar
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaxXmlDatatypeXMLGregorianCalendar_) && (INCLUDE_ALL_JavaxXmlDatatypeXMLGregorianCalendar || defined(INCLUDE_JavaxXmlDatatypeXMLGregorianCalendar))
 #define JavaxXmlDatatypeXMLGregorianCalendar_
@@ -185,7 +179,7 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief <p>Add <code>duration</code> to this instance.
@@ -971,10 +965,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlDatatypeXMLGregorianCalendar)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlDatatypeXMLGregorianCalendar")

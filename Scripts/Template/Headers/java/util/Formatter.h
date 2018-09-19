@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/Formatter.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilFormatter")
 #ifdef RESTRICT_JavaUtilFormatter
@@ -18,7 +18,6 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -27,11 +26,11 @@
 
 #define RESTRICT_JavaIoCloseable 1
 #define INCLUDE_JavaIoCloseable 1
-#include "java/io/Closeable.h"
+#include "../../java/io/Closeable.h"
 
 #define RESTRICT_JavaIoFlushable 1
 #define INCLUDE_JavaIoFlushable 1
-#include "java/io/Flushable.h"
+#include "../../java/io/Flushable.h"
 
 @class IOSObjectArray;
 @class JavaIoFile;
@@ -1613,7 +1612,7 @@
   for this instance of the Java
   virtual machine.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a new formatter with the specified destination.
@@ -1623,7 +1622,7 @@
  <code>a</code>  is          <code>null</code>
    then a <code>StringBuilder</code>  will be created.
  */
-- (instancetype __nonnull)initWithJavaLangAppendable:(id<JavaLangAppendable>)a;
+- (instancetype)initWithJavaLangAppendable:(id<JavaLangAppendable>)a;
 
 /*!
  @brief Constructs a new formatter with the specified destination and locale.
@@ -1634,8 +1633,8 @@
  locale  to apply during          formatting.  If 
  <code>l</code>  is <code>null</code>  then no localization          is applied.
  */
-- (instancetype __nonnull)initWithJavaLangAppendable:(id<JavaLangAppendable>)a
-                                  withJavaUtilLocale:(JavaUtilLocale *)l;
+- (instancetype)initWithJavaLangAppendable:(id<JavaLangAppendable>)a
+                        withJavaUtilLocale:(JavaUtilLocale *)l;
 
 /*!
  @brief Constructs a new formatter with the specified file.
@@ -1658,7 +1657,7 @@
            created, or if some other error occurs while opening or
            creating the file
  */
-- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file;
+- (instancetype)initWithJavaIoFile:(JavaIoFile *)file;
 
 /*!
  @brief Constructs a new formatter with the specified file and charset.
@@ -1682,8 +1681,8 @@
  @throw UnsupportedEncodingException
  If the named charset is not supported
  */
-- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file
-                                withNSString:(NSString *)csn;
+- (instancetype)initWithJavaIoFile:(JavaIoFile *)file
+                      withNSString:(NSString *)csn;
 
 /*!
  @brief Constructs a new formatter with the specified file, charset, and
@@ -1709,9 +1708,9 @@
  @throw UnsupportedEncodingException
  If the named charset is not supported
  */
-- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file
-                                withNSString:(NSString *)csn
-                          withJavaUtilLocale:(JavaUtilLocale *)l;
+- (instancetype)initWithJavaIoFile:(JavaIoFile *)file
+                      withNSString:(NSString *)csn
+                withJavaUtilLocale:(JavaUtilLocale *)l;
 
 /*!
  @brief Constructs a new formatter with the specified locale.
@@ -1723,7 +1722,7 @@
  locale  to apply during          formatting.  If 
  <code>l</code>  is <code>null</code>  then no localization          is applied.
  */
-- (instancetype __nonnull)initWithJavaUtilLocale:(JavaUtilLocale *)l;
+- (instancetype)initWithJavaUtilLocale:(JavaUtilLocale *)l;
 
 /*!
  @brief Constructs a new formatter with the specified output stream.
@@ -1735,7 +1734,7 @@
  @param os The output stream to use as the destination of this formatter.
            The output will be buffered.
  */
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)os;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)os;
 
 /*!
  @brief Constructs a new formatter with the specified output stream and
@@ -1749,8 +1748,8 @@
  @throw UnsupportedEncodingException
  If the named charset is not supported
  */
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)os
-                                        withNSString:(NSString *)csn;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)os
+                              withNSString:(NSString *)csn;
 
 /*!
  @brief Constructs a new formatter with the specified output stream, charset,
@@ -1765,9 +1764,9 @@
  @throw UnsupportedEncodingException
  If the named charset is not supported
  */
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)os
-                                        withNSString:(NSString *)csn
-                                  withJavaUtilLocale:(JavaUtilLocale *)l;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)os
+                              withNSString:(NSString *)csn
+                        withJavaUtilLocale:(JavaUtilLocale *)l;
 
 /*!
  @brief Constructs a new formatter with the specified print stream.
@@ -1778,7 +1777,7 @@
   charset.
  @param ps The stream to use as the destination of this formatter.
  */
-- (instancetype __nonnull)initWithJavaIoPrintStream:(JavaIoPrintStream *)ps;
+- (instancetype)initWithJavaIoPrintStream:(JavaIoPrintStream *)ps;
 
 /*!
  @brief Constructs a new formatter with the specified file name.
@@ -1801,7 +1800,7 @@
            created, or if some other error occurs while opening or
            creating the file
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)fileName;
+- (instancetype)initWithNSString:(NSString *)fileName;
 
 /*!
  @brief Constructs a new formatter with the specified file name and charset.
@@ -1825,8 +1824,8 @@
  @throw UnsupportedEncodingException
  If the named charset is not supported
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)fileName
-                              withNSString:(NSString *)csn;
+- (instancetype)initWithNSString:(NSString *)fileName
+                    withNSString:(NSString *)csn;
 
 /*!
  @brief Constructs a new formatter with the specified file name, charset, and
@@ -1852,9 +1851,9 @@
  @throw UnsupportedEncodingException
  If the named charset is not supported
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)fileName
-                              withNSString:(NSString *)csn
-                        withJavaUtilLocale:(JavaUtilLocale *)l;
+- (instancetype)initWithNSString:(NSString *)fileName
+                    withNSString:(NSString *)csn
+              withJavaUtilLocale:(JavaUtilLocale *)l;
 
 /*!
  @brief Closes this formatter.If the destination implements the <code>java.io.Closeable</code>
@@ -2098,7 +2097,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilFormatter)
 
 #define RESTRICT_JavaLangEnum 1
 #define INCLUDE_JavaLangEnum 1
-#include "java/lang/Enum.h"
+#include "../../java/lang/Enum.h"
 
 @class IOSObjectArray;
 
@@ -2109,8 +2108,6 @@ typedef NS_ENUM(NSUInteger, JavaUtilFormatter_BigDecimalLayoutForm_Enum) {
 
 @interface JavaUtilFormatter_BigDecimalLayoutForm : JavaLangEnum
 
-@property (readonly, class, nonnull) JavaUtilFormatter_BigDecimalLayoutForm *SCIENTIFIC NS_SWIFT_NAME(SCIENTIFIC);
-@property (readonly, class, nonnull) JavaUtilFormatter_BigDecimalLayoutForm *DECIMAL_FLOAT NS_SWIFT_NAME(DECIMAL_FLOAT);
 + (JavaUtilFormatter_BigDecimalLayoutForm * __nonnull)SCIENTIFIC;
 
 + (JavaUtilFormatter_BigDecimalLayoutForm * __nonnull)DECIMAL_FLOAT;

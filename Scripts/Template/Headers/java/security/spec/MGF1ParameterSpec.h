@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/spec/MGF1ParameterSpec.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecuritySpecMGF1ParameterSpec")
 #ifdef RESTRICT_JavaSecuritySpecMGF1ParameterSpec
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecuritySpecMGF1ParameterSpec_) && (INCLUDE_ALL_JavaSecuritySpecMGF1ParameterSpec || defined(INCLUDE_JavaSecuritySpecMGF1ParameterSpec))
 #define JavaSecuritySpecMGF1ParameterSpec_
 
 #define RESTRICT_JavaSecuritySpecAlgorithmParameterSpec 1
 #define INCLUDE_JavaSecuritySpecAlgorithmParameterSpec 1
-#include "java/security/spec/AlgorithmParameterSpec.h"
+#include "../../../java/security/spec/AlgorithmParameterSpec.h"
 
 /*!
  @brief This class specifies the set of parameters used with mask generation
@@ -59,10 +53,6 @@
  @since 1.5
  */
 @interface JavaSecuritySpecMGF1ParameterSpec : NSObject < JavaSecuritySpecAlgorithmParameterSpec >
-@property (readonly, class, strong) JavaSecuritySpecMGF1ParameterSpec *SHA1 NS_SWIFT_NAME(SHA1);
-@property (readonly, class, strong) JavaSecuritySpecMGF1ParameterSpec *SHA256 NS_SWIFT_NAME(SHA256);
-@property (readonly, class, strong) JavaSecuritySpecMGF1ParameterSpec *SHA384 NS_SWIFT_NAME(SHA384);
-@property (readonly, class, strong) JavaSecuritySpecMGF1ParameterSpec *SHA512 NS_SWIFT_NAME(SHA512);
 
 + (JavaSecuritySpecMGF1ParameterSpec *)SHA1;
 
@@ -80,7 +70,7 @@
  @param mdName the algorithm name for the message digest  used in this mask generation function MGF1.
  @throw NullPointerExceptionif <code>mdName</code> is null.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)mdName;
+- (instancetype)initWithNSString:(NSString *)mdName;
 
 /*!
  @brief Returns the algorithm name of the message digest used by the mask
@@ -91,7 +81,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -139,10 +129,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecMGF1ParameterSpec)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecMGF1ParameterSpec")

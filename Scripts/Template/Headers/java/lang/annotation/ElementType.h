@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/annotation/ElementType.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangAnnotationElementType")
 #ifdef RESTRICT_JavaLangAnnotationElementType
@@ -18,7 +18,6 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -27,7 +26,7 @@
 
 #define RESTRICT_JavaLangEnum 1
 #define INCLUDE_JavaLangEnum 1
-#include "java/lang/Enum.h"
+#include "../../../java/lang/Enum.h"
 
 @class IOSObjectArray;
 
@@ -55,16 +54,6 @@ typedef NS_ENUM(NSUInteger, JavaLangAnnotationElementType_Enum) {
  */
 @interface JavaLangAnnotationElementType : JavaLangEnum
 
-@property (readonly, class, nonnull) JavaLangAnnotationElementType *TYPE NS_SWIFT_NAME(TYPE);
-@property (readonly, class, nonnull) JavaLangAnnotationElementType *FIELD NS_SWIFT_NAME(FIELD);
-@property (readonly, class, nonnull) JavaLangAnnotationElementType *METHOD NS_SWIFT_NAME(METHOD);
-@property (readonly, class, nonnull) JavaLangAnnotationElementType *PARAMETER NS_SWIFT_NAME(PARAMETER);
-@property (readonly, class, nonnull) JavaLangAnnotationElementType *CONSTRUCTOR NS_SWIFT_NAME(CONSTRUCTOR);
-@property (readonly, class, nonnull) JavaLangAnnotationElementType *LOCAL_VARIABLE NS_SWIFT_NAME(LOCAL_VARIABLE);
-@property (readonly, class, nonnull) JavaLangAnnotationElementType *ANNOTATION_TYPE NS_SWIFT_NAME(ANNOTATION_TYPE);
-@property (readonly, class, nonnull) JavaLangAnnotationElementType *PACKAGE NS_SWIFT_NAME(PACKAGE);
-@property (readonly, class, nonnull) JavaLangAnnotationElementType *TYPE_PARAMETER NS_SWIFT_NAME(TYPE_PARAMETER);
-@property (readonly, class, nonnull) JavaLangAnnotationElementType *TYPE_USE NS_SWIFT_NAME(TYPE_USE);
 + (JavaLangAnnotationElementType * __nonnull)TYPE;
 
 + (JavaLangAnnotationElementType * __nonnull)FIELD;

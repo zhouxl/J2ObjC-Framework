@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer")
 #ifdef RESTRICT_JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_) && (INCLUDE_ALL_JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer || defined(INCLUDE_JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer))
 #define JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_
 
 #define RESTRICT_JavaUtilConcurrentLocksAbstractOwnableSynchronizer 1
 #define INCLUDE_JavaUtilConcurrentLocksAbstractOwnableSynchronizer 1
-#include "java/util/concurrent/locks/AbstractOwnableSynchronizer.h"
+#include "../../../../java/util/concurrent/locks/AbstractOwnableSynchronizer.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../../java/io/Serializable.h"
 
 @class JavaLangThread;
 @class JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_ConditionObject;
@@ -54,7 +48,6 @@
  @author Doug Lea
  */
 @interface JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer : JavaUtilConcurrentLocksAbstractOwnableSynchronizer < JavaIoSerializable >
-@property (readonly, class) jlong SPIN_FOR_TIMEOUT_THRESHOLD NS_SWIFT_NAME(SPIN_FOR_TIMEOUT_THRESHOLD);
 
 + (jlong)SPIN_FOR_TIMEOUT_THRESHOLD;
 
@@ -376,7 +369,7 @@
  @brief Creates a new <code>AbstractQueuedLongSynchronizer</code> instance
   with initial synchronization state of zero.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Atomically sets synchronization state to the given updated
@@ -603,11 +596,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer
 
 #define RESTRICT_JavaUtilConcurrentLocksCondition 1
 #define INCLUDE_JavaUtilConcurrentLocksCondition 1
-#include "java/util/concurrent/locks/Condition.h"
+#include "../../../../java/util/concurrent/locks/Condition.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../../java/io/Serializable.h"
 
 @class JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer;
 @class JavaUtilConcurrentTimeUnit;
@@ -636,7 +629,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer
 /*!
  @brief Creates a new <code>ConditionObject</code> instance.
  */
-- (instancetype __nonnull)initWithJavaUtilConcurrentLocksAbstractQueuedLongSynchronizer:(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer *)outer$;
+- (instancetype)initWithJavaUtilConcurrentLocksAbstractQueuedLongSynchronizer:(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer *)outer$;
 
 /*!
  @brief Implements interruptible condition wait.
@@ -773,7 +766,7 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -789,10 +782,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer")

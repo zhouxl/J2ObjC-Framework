@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/HashSet.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilHashSet")
 #ifdef RESTRICT_JavaUtilHashSet
@@ -16,26 +16,20 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilHashSet_) && (INCLUDE_ALL_JavaUtilHashSet || defined(INCLUDE_JavaUtilHashSet))
 #define JavaUtilHashSet_
 
 #define RESTRICT_JavaUtilAbstractSet 1
 #define INCLUDE_JavaUtilAbstractSet 1
-#include "java/util/AbstractSet.h"
+#include "../../java/util/AbstractSet.h"
 
 #define RESTRICT_JavaUtilSet 1
 #define INCLUDE_JavaUtilSet 1
-#include "java/util/Set.h"
+#include "../../java/util/Set.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @protocol JavaUtilCollection;
 @protocol JavaUtilIterator;
@@ -96,7 +90,6 @@
  @since 1.2
  */
 @interface JavaUtilHashSet : JavaUtilAbstractSet < JavaUtilSet, NSCopying, JavaIoSerializable >
-@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jlong)serialVersionUID;
 
@@ -106,7 +99,7 @@
  @brief Constructs a new, empty set; the backing <tt>HashMap</tt> instance has
   default initial capacity (16) and load factor (0.75).
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a new set containing the elements in the specified
@@ -116,7 +109,7 @@
  @param c the collection whose elements are to be placed into this set
  @throw NullPointerExceptionif the specified collection is null
  */
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Constructs a new, empty set; the backing <tt>HashMap</tt> instance has
@@ -125,7 +118,7 @@
  @throw IllegalArgumentExceptionif the initial capacity is less
               than zero
  */
-- (instancetype __nonnull)initWithInt:(jint)initialCapacity;
+- (instancetype)initWithInt:(jint)initialCapacity;
 
 /*!
  @brief Constructs a new, empty set; the backing <tt>HashMap</tt> instance has
@@ -135,8 +128,8 @@
  @throw IllegalArgumentExceptionif the initial capacity is less
               than zero, or if the load factor is nonpositive
  */
-- (instancetype __nonnull)initWithInt:(jint)initialCapacity
-                            withFloat:(jfloat)loadFactor;
+- (instancetype)initWithInt:(jint)initialCapacity
+                  withFloat:(jfloat)loadFactor;
 
 /*!
  @brief Adds the specified element to this set if it is not already present.
@@ -233,9 +226,9 @@
  @throw IllegalArgumentExceptionif the initial capacity is less
               than zero, or if the load factor is nonpositive
  */
-- (instancetype __nonnull)initWithInt:(jint)initialCapacity
-                            withFloat:(jfloat)loadFactor
-                          withBoolean:(jboolean)dummy;
+- (instancetype)initWithInt:(jint)initialCapacity
+                  withFloat:(jfloat)loadFactor
+                withBoolean:(jboolean)dummy;
 
 @end
 
@@ -279,10 +272,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashSet)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilHashSet")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/annotation/AnnotationFormatError.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangAnnotationAnnotationFormatError")
 #ifdef RESTRICT_JavaLangAnnotationAnnotationFormatError
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangAnnotationAnnotationFormatError_) && (INCLUDE_ALL_JavaLangAnnotationAnnotationFormatError || defined(INCLUDE_JavaLangAnnotationAnnotationFormatError))
 #define JavaLangAnnotationAnnotationFormatError_
 
 #define RESTRICT_JavaLangError 1
 #define INCLUDE_JavaLangError 1
-#include "java/lang/Error.h"
+#include "../../../java/lang/Error.h"
 
 @class JavaLangThrowable;
 
@@ -50,7 +44,7 @@
   detail message.
  @param message the detail message.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message;
+- (instancetype)initWithNSString:(NSString *)message;
 
 /*!
  @brief Constructs a new <tt>AnnotationFormatError</tt> with the specified
@@ -61,8 +55,8 @@
  @param cause the cause (A  <tt> null </tt>  value is permitted, and
        indicates that the cause is nonexistent or unknown.)
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)message
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a new <tt>AnnotationFormatError</tt> with the specified
@@ -73,16 +67,16 @@
  @param cause the cause (A  <tt> null </tt>  value is permitted, and
        indicates that the cause is nonexistent or unknown.)
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1
-                               withBoolean:(jboolean)arg2
-                               withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1
+                     withBoolean:(jboolean)arg2
+                     withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -110,10 +104,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangAnnotationAnnotationFormatError)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangAnnotationAnnotationFormatError")

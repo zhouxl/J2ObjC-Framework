@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/LinkedHashSet.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilLinkedHashSet")
 #ifdef RESTRICT_JavaUtilLinkedHashSet
@@ -16,26 +16,20 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilLinkedHashSet_) && (INCLUDE_ALL_JavaUtilLinkedHashSet || defined(INCLUDE_JavaUtilLinkedHashSet))
 #define JavaUtilLinkedHashSet_
 
 #define RESTRICT_JavaUtilHashSet 1
 #define INCLUDE_JavaUtilHashSet 1
-#include "java/util/HashSet.h"
+#include "../../java/util/HashSet.h"
 
 #define RESTRICT_JavaUtilSet 1
 #define INCLUDE_JavaUtilSet 1
-#include "java/util/Set.h"
+#include "../../java/util/Set.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @protocol JavaUtilCollection;
 @protocol JavaUtilSpliterator;
@@ -134,7 +128,7 @@
  @brief Constructs a new, empty linked hash set with the default initial
   capacity (16) and load factor (0.75).
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a new linked hash set with the same elements as the
@@ -144,7 +138,7 @@
  @param c the collection whose elements are to be placed into            this set
  @throw NullPointerExceptionif the specified collection is null
  */
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Constructs a new, empty linked hash set with the specified initial
@@ -153,7 +147,7 @@
  @throw IllegalArgumentExceptionif the initial capacity is less
                than zero
  */
-- (instancetype __nonnull)initWithInt:(jint)initialCapacity;
+- (instancetype)initWithInt:(jint)initialCapacity;
 
 /*!
  @brief Constructs a new, empty linked hash set with the specified initial
@@ -163,8 +157,8 @@
  @throw IllegalArgumentExceptionif the initial capacity is less
                 than zero, or if the load factor is nonpositive
  */
-- (instancetype __nonnull)initWithInt:(jint)initialCapacity
-                            withFloat:(jfloat)loadFactor;
+- (instancetype)initWithInt:(jint)initialCapacity
+                  withFloat:(jfloat)loadFactor;
 
 /*!
  @brief Creates a <em><a href="Spliterator.html#binding">late-binding</a></em>
@@ -181,9 +175,9 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithInt:(jint)arg0
-                            withFloat:(jfloat)arg1
-                          withBoolean:(jboolean)arg2 NS_UNAVAILABLE;
+- (instancetype)initWithInt:(jint)arg0
+                  withFloat:(jfloat)arg1
+                withBoolean:(jboolean)arg2 NS_UNAVAILABLE;
 
 @end
 
@@ -217,10 +211,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedHashSet)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilLinkedHashSet")

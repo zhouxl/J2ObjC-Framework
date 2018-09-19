@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/crypto/spec/SecretKeySpec.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxCryptoSpecSecretKeySpec")
 #ifdef RESTRICT_JavaxCryptoSpecSecretKeySpec
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxCryptoSpecSecretKeySpec_) && (INCLUDE_ALL_JavaxCryptoSpecSecretKeySpec || defined(INCLUDE_JavaxCryptoSpecSecretKeySpec))
 #define JavaxCryptoSpecSecretKeySpec_
 
 #define RESTRICT_JavaSecuritySpecKeySpec 1
 #define INCLUDE_JavaSecuritySpecKeySpec 1
-#include "java/security/spec/KeySpec.h"
+#include "../../../java/security/spec/KeySpec.h"
 
 #define RESTRICT_JavaxCryptoSecretKey 1
 #define INCLUDE_JavaxCryptoSecretKey 1
-#include "javax/crypto/SecretKey.h"
+#include "../../../javax/crypto/SecretKey.h"
 
 @class IOSByteArray;
 
@@ -86,10 +80,10 @@
  <code>offset</code> or <code>len</code> index bytes outside the 
  <code>key</code>.
  */
-- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)key
-                                    withInt:(jint)offset
-                                    withInt:(jint)len
-                               withNSString:(NSString *)algorithm;
+- (instancetype)initWithByteArray:(IOSByteArray *)key
+                          withInt:(jint)offset
+                          withInt:(jint)len
+                     withNSString:(NSString *)algorithm;
 
 /*!
  @brief Constructs a secret key from the given byte array.
@@ -110,8 +104,8 @@
  @throw IllegalArgumentExceptionif <code>algorithm</code>
   is null or <code>key</code> is null or empty.
  */
-- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)key
-                               withNSString:(NSString *)algorithm;
+- (instancetype)initWithByteArray:(IOSByteArray *)key
+                     withNSString:(NSString *)algorithm;
 
 /*!
  @brief Tests for equality between the specified object and this
@@ -151,7 +145,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -173,10 +167,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoSpecSecretKeySpec)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxCryptoSpecSecretKeySpec")

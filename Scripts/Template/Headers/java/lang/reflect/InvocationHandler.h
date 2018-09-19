@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/reflect/InvocationHandler.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangReflectInvocationHandler")
 #ifdef RESTRICT_JavaLangReflectInvocationHandler
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaLangReflectInvocationHandler_) && (INCLUDE_ALL_JavaLangReflectInvocationHandler || defined(INCLUDE_JavaLangReflectInvocationHandler))
 #define JavaLangReflectInvocationHandler_
@@ -96,10 +90,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectInvocationHandler)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangReflectInvocationHandler")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/BufferedOutputStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoBufferedOutputStream")
 #ifdef RESTRICT_JavaIoBufferedOutputStream
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoBufferedOutputStream_) && (INCLUDE_ALL_JavaIoBufferedOutputStream || defined(INCLUDE_JavaIoBufferedOutputStream))
 #define JavaIoBufferedOutputStream_
 
 #define RESTRICT_JavaIoFilterOutputStream 1
 #define INCLUDE_JavaIoFilterOutputStream 1
-#include "java/io/FilterOutputStream.h"
+#include "../../java/io/FilterOutputStream.h"
 
 @class IOSByteArray;
 @class JavaIoOutputStream;
@@ -62,7 +56,7 @@
   specified underlying output stream.
  @param outArg the underlying output stream.
  */
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg;
 
 /*!
  @brief Creates a new buffered output stream to write data to the
@@ -72,8 +66,8 @@
  @param size the buffer size.
  @throw IllegalArgumentExceptionif size &lt;= 0.
  */
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-                                             withInt:(jint)size;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+                                   withInt:(jint)size;
 
 /*!
  @brief Flushes this buffered output stream.This forces any buffered
@@ -130,10 +124,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoBufferedOutputStream)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoBufferedOutputStream")

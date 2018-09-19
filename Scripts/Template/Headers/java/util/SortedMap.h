@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/SortedMap.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilSortedMap")
 #ifdef RESTRICT_JavaUtilSortedMap
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilSortedMap_) && (INCLUDE_ALL_JavaUtilSortedMap || defined(INCLUDE_JavaUtilSortedMap))
 #define JavaUtilSortedMap_
 
 #define RESTRICT_JavaUtilMap 1
 #define INCLUDE_JavaUtilMap 1
-#include "java/util/Map.h"
+#include "../../java/util/Map.h"
 
 @protocol JavaUtilCollection;
 @protocol JavaUtilComparator;
@@ -288,10 +282,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSortedMap)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilSortedMap")

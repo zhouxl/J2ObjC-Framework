@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/javax/xml/transform/dom/DOMResult.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxXmlTransformDomDOMResult")
 #ifdef RESTRICT_JavaxXmlTransformDomDOMResult
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxXmlTransformDomDOMResult_) && (INCLUDE_ALL_JavaxXmlTransformDomDOMResult || defined(INCLUDE_JavaxXmlTransformDomDOMResult))
 #define JavaxXmlTransformDomDOMResult_
 
 #define RESTRICT_JavaxXmlTransformResult 1
 #define INCLUDE_JavaxXmlTransformResult 1
-#include "javax/xml/transform/Result.h"
+#include "../../../../javax/xml/transform/Result.h"
 
 @protocol OrgW3cDomNode;
 
@@ -41,7 +35,6 @@
  @version $Revision: 569995 $, $Date: 2007-08-26 21:31:06 -0700 (Sun, 26 Aug 2007) $
  */
 @interface JavaxXmlTransformDomDOMResult : NSObject < JavaxXmlTransformResult >
-@property (readonly, copy, class) NSString *FEATURE NS_SWIFT_NAME(FEATURE);
 
 + (NSString *)FEATURE;
 
@@ -56,7 +49,7 @@
  <code>systemId</code>
   will be set to <code>null</code>.</p>
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief <p>Use a DOM node to create a new output target.
@@ -73,7 +66,7 @@
   will be set to <code>null</code>.</p>
  @param node The DOM node that will contain the result tree.
  */
-- (instancetype __nonnull)initWithOrgW3cDomNode:(id<OrgW3cDomNode>)node;
+- (instancetype)initWithOrgW3cDomNode:(id<OrgW3cDomNode>)node;
 
 /*!
  @brief <p>Use a DOM node to create a new output target specifying the child node where the result nodes should be inserted before.
@@ -102,8 +95,8 @@
  @throw IllegalArgumentExceptionIf <code>node</code> is <code>null</code> and <code>nextSibling</code> is not <code>null</code>.
  @since 1.5
  */
-- (instancetype __nonnull)initWithOrgW3cDomNode:(id<OrgW3cDomNode>)node
-                              withOrgW3cDomNode:(id<OrgW3cDomNode>)nextSibling;
+- (instancetype)initWithOrgW3cDomNode:(id<OrgW3cDomNode>)node
+                    withOrgW3cDomNode:(id<OrgW3cDomNode>)nextSibling;
 
 /*!
  @brief <p>Use a DOM node to create a new output target specifying the child node where the result nodes should be inserted before and
@@ -132,9 +125,9 @@
  @throw IllegalArgumentExceptionIf <code>node</code> is <code>null</code> and <code>nextSibling</code> is not <code>null</code>.
  @since 1.5
  */
-- (instancetype __nonnull)initWithOrgW3cDomNode:(id<OrgW3cDomNode>)node
-                              withOrgW3cDomNode:(id<OrgW3cDomNode>)nextSibling
-                                   withNSString:(NSString *)systemId;
+- (instancetype)initWithOrgW3cDomNode:(id<OrgW3cDomNode>)node
+                    withOrgW3cDomNode:(id<OrgW3cDomNode>)nextSibling
+                         withNSString:(NSString *)systemId;
 
 /*!
  @brief <p>Use a DOM node to create a new output target with the specified System ID.
@@ -150,8 +143,8 @@
  @param node The DOM node that will contain the result tree.
  @param systemId The system identifier which may be used in association with this node.
  */
-- (instancetype __nonnull)initWithOrgW3cDomNode:(id<OrgW3cDomNode>)node
-                                   withNSString:(NSString *)systemId;
+- (instancetype)initWithOrgW3cDomNode:(id<OrgW3cDomNode>)node
+                         withNSString:(NSString *)systemId;
 
 /*!
  @brief <p>Get the child node before which the result nodes will be inserted.
@@ -294,10 +287,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformDomDOMResult)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformDomDOMResult")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/sql/ClientInfoStatus.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSqlClientInfoStatus")
 #ifdef RESTRICT_JavaSqlClientInfoStatus
@@ -18,7 +18,6 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -27,7 +26,7 @@
 
 #define RESTRICT_JavaLangEnum 1
 #define INCLUDE_JavaLangEnum 1
-#include "java/lang/Enum.h"
+#include "../../java/lang/Enum.h"
 
 @class IOSObjectArray;
 
@@ -45,10 +44,6 @@ typedef NS_ENUM(NSUInteger, JavaSqlClientInfoStatus_Enum) {
  */
 @interface JavaSqlClientInfoStatus : JavaLangEnum
 
-@property (readonly, class, nonnull) JavaSqlClientInfoStatus *REASON_UNKNOWN NS_SWIFT_NAME(REASON_UNKNOWN);
-@property (readonly, class, nonnull) JavaSqlClientInfoStatus *REASON_UNKNOWN_PROPERTY NS_SWIFT_NAME(REASON_UNKNOWN_PROPERTY);
-@property (readonly, class, nonnull) JavaSqlClientInfoStatus *REASON_VALUE_INVALID NS_SWIFT_NAME(REASON_VALUE_INVALID);
-@property (readonly, class, nonnull) JavaSqlClientInfoStatus *REASON_VALUE_TRUNCATED NS_SWIFT_NAME(REASON_VALUE_TRUNCATED);
 + (JavaSqlClientInfoStatus * __nonnull)REASON_UNKNOWN;
 
 + (JavaSqlClientInfoStatus * __nonnull)REASON_UNKNOWN_PROPERTY;

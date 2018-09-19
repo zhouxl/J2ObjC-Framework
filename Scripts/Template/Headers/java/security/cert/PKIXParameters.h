@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/cert/PKIXParameters.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityCertPKIXParameters")
 #ifdef RESTRICT_JavaSecurityCertPKIXParameters
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityCertPKIXParameters_) && (INCLUDE_ALL_JavaSecurityCertPKIXParameters || defined(INCLUDE_JavaSecurityCertPKIXParameters))
 #define JavaSecurityCertPKIXParameters_
 
 #define RESTRICT_JavaSecurityCertCertPathParameters 1
 #define INCLUDE_JavaSecurityCertCertPathParameters 1
-#include "java/security/cert/CertPathParameters.h"
+#include "../../../java/security/cert/CertPathParameters.h"
 
 @class JavaSecurityCertCertStore;
 @class JavaSecurityCertPKIXCertPathChecker;
@@ -97,7 +91,7 @@
   not contain at least one trusted certificate entry
  @throw NullPointerExceptionif the keystore is <code>null</code>
  */
-- (instancetype __nonnull)initWithJavaSecurityKeyStore:(JavaSecurityKeyStore *)keystore;
+- (instancetype)initWithJavaSecurityKeyStore:(JavaSecurityKeyStore *)keystore;
 
 /*!
  @brief Creates an instance of <code>PKIXParameters</code> with the specified 
@@ -115,7 +109,7 @@
  @throw ClassCastExceptionif any of the elements in the <code>Set</code>
   are not of type <code>java.security.cert.TrustAnchor</code>
  */
-- (instancetype __nonnull)initWithJavaUtilSet:(id<JavaUtilSet>)trustAnchors;
+- (instancetype)initWithJavaUtilSet:(id<JavaUtilSet>)trustAnchors;
 
 /*!
  @brief Adds a <code>PKIXCertPathChecker</code> to the list of certification
@@ -480,7 +474,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -502,10 +496,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertPKIXParameters)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertPKIXParameters")

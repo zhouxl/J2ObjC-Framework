@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/cert/PKIXRevocationChecker.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityCertPKIXRevocationChecker")
 #ifdef RESTRICT_JavaSecurityCertPKIXRevocationChecker
@@ -18,7 +18,6 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -27,7 +26,7 @@
 
 #define RESTRICT_JavaSecurityCertPKIXCertPathChecker 1
 #define INCLUDE_JavaSecurityCertPKIXCertPathChecker 1
-#include "java/security/cert/PKIXCertPathChecker.h"
+#include "../../../java/security/cert/PKIXCertPathChecker.h"
 
 @class JavaNetURI;
 @class JavaSecurityCertX509Certificate;
@@ -197,7 +196,7 @@
 /*!
  @brief Default constructor.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -214,7 +213,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertPKIXRevocationChecker)
 
 #define RESTRICT_JavaLangEnum 1
 #define INCLUDE_JavaLangEnum 1
-#include "java/lang/Enum.h"
+#include "../../../java/lang/Enum.h"
 
 @class IOSObjectArray;
 
@@ -231,10 +230,6 @@ typedef NS_ENUM(NSUInteger, JavaSecurityCertPKIXRevocationChecker_Option_Enum) {
  */
 @interface JavaSecurityCertPKIXRevocationChecker_Option : JavaLangEnum
 
-@property (readonly, class, nonnull) JavaSecurityCertPKIXRevocationChecker_Option *ONLY_END_ENTITY NS_SWIFT_NAME(ONLY_END_ENTITY);
-@property (readonly, class, nonnull) JavaSecurityCertPKIXRevocationChecker_Option *PREFER_CRLS NS_SWIFT_NAME(PREFER_CRLS);
-@property (readonly, class, nonnull) JavaSecurityCertPKIXRevocationChecker_Option *NO_FALLBACK NS_SWIFT_NAME(NO_FALLBACK);
-@property (readonly, class, nonnull) JavaSecurityCertPKIXRevocationChecker_Option *SOFT_FAIL NS_SWIFT_NAME(SOFT_FAIL);
 + (JavaSecurityCertPKIXRevocationChecker_Option * __nonnull)ONLY_END_ENTITY;
 
 + (JavaSecurityCertPKIXRevocationChecker_Option * __nonnull)PREFER_CRLS;

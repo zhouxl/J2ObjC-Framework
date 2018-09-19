@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/org/xml/sax/helpers/ParserAdapter.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgXmlSaxHelpersParserAdapter")
 #ifdef RESTRICT_OrgXmlSaxHelpersParserAdapter
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (OrgXmlSaxHelpersParserAdapter_) && (INCLUDE_ALL_OrgXmlSaxHelpersParserAdapter || defined(INCLUDE_OrgXmlSaxHelpersParserAdapter))
 #define OrgXmlSaxHelpersParserAdapter_
 
 #define RESTRICT_OrgXmlSaxXMLReader 1
 #define INCLUDE_OrgXmlSaxXMLReader 1
-#include "org/xml/sax/XMLReader.h"
+#include "../../../../org/xml/sax/XMLReader.h"
 
 #define RESTRICT_OrgXmlSaxDocumentHandler 1
 #define INCLUDE_OrgXmlSaxDocumentHandler 1
-#include "org/xml/sax/DocumentHandler.h"
+#include "../../../../org/xml/sax/DocumentHandler.h"
 
 @class IOSCharArray;
 @class OrgXmlSaxInputSource;
@@ -86,7 +80,7 @@
              cannot be instantiated or if the
              org.xml.sax.parser property is not specified.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Construct a new parser adapter.
@@ -97,7 +91,7 @@
  @throw java.lang.NullPointerExceptionIf the parser parameter
              is null.
  */
-- (instancetype __nonnull)initWithOrgXmlSaxParser:(id<OrgXmlSaxParser>)parser;
+- (instancetype)initWithOrgXmlSaxParser:(id<OrgXmlSaxParser>)parser;
 
 /*!
  @brief Adapter implementation method; do not call.
@@ -364,7 +358,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersParserAdapter)
 
 #define RESTRICT_OrgXmlSaxAttributes 1
 #define INCLUDE_OrgXmlSaxAttributes 1
-#include "org/xml/sax/Attributes.h"
+#include "../../../../org/xml/sax/Attributes.h"
 
 @class OrgXmlSaxHelpersParserAdapter;
 @protocol OrgXmlSaxAttributeList;
@@ -482,7 +476,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersParserAdapter)
 /*!
  @brief Construct a new adapter.
  */
-- (instancetype __nonnull)initWithOrgXmlSaxHelpersParserAdapter:(OrgXmlSaxHelpersParserAdapter *)outer$;
+- (instancetype)initWithOrgXmlSaxHelpersParserAdapter:(OrgXmlSaxHelpersParserAdapter *)outer$;
 
 /*!
  @brief Set the embedded AttributeList.
@@ -494,7 +488,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersParserAdapter)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -510,10 +504,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersParserAdapter_AttributeListAdapter)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersParserAdapter")

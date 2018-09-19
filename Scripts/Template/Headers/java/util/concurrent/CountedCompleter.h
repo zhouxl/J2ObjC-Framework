@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/CountedCompleter.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentCountedCompleter")
 #ifdef RESTRICT_JavaUtilConcurrentCountedCompleter
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentCountedCompleter_) && (INCLUDE_ALL_JavaUtilConcurrentCountedCompleter || defined(INCLUDE_JavaUtilConcurrentCountedCompleter))
 #define JavaUtilConcurrentCountedCompleter_
 
 #define RESTRICT_JavaUtilConcurrentForkJoinTask 1
 #define INCLUDE_JavaUtilConcurrentForkJoinTask 1
-#include "java/util/concurrent/ForkJoinTask.h"
+#include "../../../java/util/concurrent/ForkJoinTask.h"
 
 @class JavaLangThrowable;
 
@@ -580,14 +574,14 @@
  @brief Creates a new CountedCompleter with no completer
   and an initial pending count of zero.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a new CountedCompleter with the given completer
   and an initial pending count of zero.
  @param completer this task's completer, or <code>null</code>  if none
  */
-- (instancetype __nonnull)initWithJavaUtilConcurrentCountedCompleter:(JavaUtilConcurrentCountedCompleter *)completer;
+- (instancetype)initWithJavaUtilConcurrentCountedCompleter:(JavaUtilConcurrentCountedCompleter *)completer;
 
 /*!
  @brief Creates a new CountedCompleter with the given completer
@@ -595,8 +589,8 @@
  @param completer this task's completer, or <code>null</code>  if none
  @param initialPendingCount the initial pending count
  */
-- (instancetype __nonnull)initWithJavaUtilConcurrentCountedCompleter:(JavaUtilConcurrentCountedCompleter *)completer
-                                                             withInt:(jint)initialPendingCount;
+- (instancetype)initWithJavaUtilConcurrentCountedCompleter:(JavaUtilConcurrentCountedCompleter *)completer
+                                                   withInt:(jint)initialPendingCount;
 
 /*!
  @brief Implements execution conventions for CountedCompleters.
@@ -635,10 +629,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCountedCompleter)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentCountedCompleter")

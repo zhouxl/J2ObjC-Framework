@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/annotation/Target.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangAnnotationTarget")
 #ifdef RESTRICT_JavaLangAnnotationTarget
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangAnnotationTarget_) && (INCLUDE_ALL_JavaLangAnnotationTarget || defined(INCLUDE_JavaLangAnnotationTarget))
 #define JavaLangAnnotationTarget_
 
 #define RESTRICT_JavaLangAnnotationAnnotation 1
 #define INCLUDE_JavaLangAnnotationAnnotation 1
-#include "java/lang/annotation/Annotation.h"
+#include "../../../java/lang/annotation/Annotation.h"
 
 @class IOSClass;
 @class IOSObjectArray;
@@ -84,10 +78,6 @@
 
 @property (readonly) IOSObjectArray *value;
 
-- (jboolean)isEqual:(id)obj;
-
-- (NSUInteger)hash;
-
 @end
 
 @interface JavaLangAnnotationTarget : NSObject < JavaLangAnnotationTarget > {
@@ -105,10 +95,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangAnnotationTarget)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangAnnotationTarget")

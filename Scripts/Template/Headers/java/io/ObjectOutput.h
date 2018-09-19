@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/io/ObjectOutput.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoObjectOutput")
 #ifdef RESTRICT_JavaIoObjectOutput
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoObjectOutput_) && (INCLUDE_ALL_JavaIoObjectOutput || defined(INCLUDE_JavaIoObjectOutput))
 #define JavaIoObjectOutput_
 
 #define RESTRICT_JavaIoDataOutput 1
 #define INCLUDE_JavaIoDataOutput 1
-#include "java/io/DataOutput.h"
+#include "../../java/io/DataOutput.h"
 
 #define RESTRICT_JavaLangAutoCloseable 1
 #define INCLUDE_JavaLangAutoCloseable 1
-#include "java/lang/AutoCloseable.h"
+#include "../../java/lang/AutoCloseable.h"
 
 @class IOSByteArray;
 
@@ -110,10 +104,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectOutput)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoObjectOutput")

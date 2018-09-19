@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/nio/channels/FileLock.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNioChannelsFileLock")
 #ifdef RESTRICT_JavaNioChannelsFileLock
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNioChannelsFileLock_) && (INCLUDE_ALL_JavaNioChannelsFileLock || defined(INCLUDE_JavaNioChannelsFileLock))
 #define JavaNioChannelsFileLock_
 
 #define RESTRICT_JavaLangAutoCloseable 1
 #define INCLUDE_JavaLangAutoCloseable 1
-#include "java/lang/AutoCloseable.h"
+#include "../../../java/lang/AutoCloseable.h"
 
 @class JavaNioChannelsFileChannel;
 @protocol JavaNioChannelsChannel;
@@ -209,10 +203,10 @@
  @throw IllegalArgumentException
  If the preconditions on the parameters do not hold
  */
-- (instancetype __nonnull)initWithJavaNioChannelsFileChannel:(JavaNioChannelsFileChannel *)channel
-                                                    withLong:(jlong)position
-                                                    withLong:(jlong)size
-                                                 withBoolean:(jboolean)shared;
+- (instancetype)initWithJavaNioChannelsFileChannel:(JavaNioChannelsFileChannel *)channel
+                                          withLong:(jlong)position
+                                          withLong:(jlong)size
+                                       withBoolean:(jboolean)shared;
 
 @end
 
@@ -224,10 +218,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsFileLock)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioChannelsFileLock")

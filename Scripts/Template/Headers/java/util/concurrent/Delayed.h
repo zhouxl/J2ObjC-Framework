@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/Delayed.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentDelayed")
 #ifdef RESTRICT_JavaUtilConcurrentDelayed
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentDelayed_) && (INCLUDE_ALL_JavaUtilConcurrentDelayed || defined(INCLUDE_JavaUtilConcurrentDelayed))
 #define JavaUtilConcurrentDelayed_
 
 #define RESTRICT_JavaLangComparable 1
 #define INCLUDE_JavaLangComparable 1
-#include "java/lang/Comparable.h"
+#include "../../../java/lang/Comparable.h"
 
 @class JavaUtilConcurrentTimeUnit;
 
@@ -59,10 +53,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentDelayed)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentDelayed")

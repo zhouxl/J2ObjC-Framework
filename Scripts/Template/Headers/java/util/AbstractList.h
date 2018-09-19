@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/AbstractList.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilAbstractList")
 #ifdef RESTRICT_JavaUtilAbstractList
@@ -22,22 +22,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilAbstractList_) && (INCLUDE_ALL_JavaUtilAbstractList || defined(INCLUDE_JavaUtilAbstractList))
 #define JavaUtilAbstractList_
 
 #define RESTRICT_JavaUtilAbstractCollection 1
 #define INCLUDE_JavaUtilAbstractCollection 1
-#include "java/util/AbstractCollection.h"
+#include "../../java/util/AbstractCollection.h"
 
 #define RESTRICT_JavaUtilList 1
 #define INCLUDE_JavaUtilList 1
-#include "java/util/List.h"
+#include "../../java/util/List.h"
 
 @protocol JavaUtilCollection;
 @protocol JavaUtilComparator;
@@ -348,7 +342,7 @@
  (For invocation by subclass constructors, typically
   implicit.)
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Removes from this list all of the elements whose index is between 
@@ -428,13 +422,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractList)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilAbstractList:(JavaUtilAbstractList *)list
-                                               withInt:(jint)fromIndex
-                                               withInt:(jint)toIndex;
+- (instancetype)initWithJavaUtilAbstractList:(JavaUtilAbstractList *)list
+                                     withInt:(jint)fromIndex
+                                     withInt:(jint)toIndex;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -455,7 +449,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSubList)
 
 #define RESTRICT_JavaUtilRandomAccess 1
 #define INCLUDE_JavaUtilRandomAccess 1
-#include "java/util/RandomAccess.h"
+#include "../../java/util/RandomAccess.h"
 
 @class JavaUtilAbstractList;
 @protocol JavaUtilList;
@@ -469,9 +463,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSubList)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilAbstractList:(JavaUtilAbstractList *)list
-                                               withInt:(jint)fromIndex
-                                               withInt:(jint)toIndex;
+- (instancetype)initWithJavaUtilAbstractList:(JavaUtilAbstractList *)list
+                                     withInt:(jint)fromIndex
+                                     withInt:(jint)toIndex;
 
 @end
 
@@ -487,10 +481,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRandomAccessSubList)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilAbstractList")

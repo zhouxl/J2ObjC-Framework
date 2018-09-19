@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/org/xml/sax/helpers/XMLFilterImpl.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgXmlSaxHelpersXMLFilterImpl")
 #ifdef RESTRICT_OrgXmlSaxHelpersXMLFilterImpl
@@ -16,34 +16,28 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (OrgXmlSaxHelpersXMLFilterImpl_) && (INCLUDE_ALL_OrgXmlSaxHelpersXMLFilterImpl || defined(INCLUDE_OrgXmlSaxHelpersXMLFilterImpl))
 #define OrgXmlSaxHelpersXMLFilterImpl_
 
 #define RESTRICT_OrgXmlSaxXMLFilter 1
 #define INCLUDE_OrgXmlSaxXMLFilter 1
-#include "org/xml/sax/XMLFilter.h"
+#include "../../../../org/xml/sax/XMLFilter.h"
 
 #define RESTRICT_OrgXmlSaxEntityResolver 1
 #define INCLUDE_OrgXmlSaxEntityResolver 1
-#include "org/xml/sax/EntityResolver.h"
+#include "../../../../org/xml/sax/EntityResolver.h"
 
 #define RESTRICT_OrgXmlSaxDTDHandler 1
 #define INCLUDE_OrgXmlSaxDTDHandler 1
-#include "org/xml/sax/DTDHandler.h"
+#include "../../../../org/xml/sax/DTDHandler.h"
 
 #define RESTRICT_OrgXmlSaxContentHandler 1
 #define INCLUDE_OrgXmlSaxContentHandler 1
-#include "org/xml/sax/ContentHandler.h"
+#include "../../../../org/xml/sax/ContentHandler.h"
 
 #define RESTRICT_OrgXmlSaxErrorHandler 1
 #define INCLUDE_OrgXmlSaxErrorHandler 1
-#include "org/xml/sax/ErrorHandler.h"
+#include "../../../../org/xml/sax/ErrorHandler.h"
 
 @class IOSCharArray;
 @class OrgXmlSaxInputSource;
@@ -91,7 +85,7 @@
  - seealso: org.xml.sax.XMLReader
  - seealso: #setParent
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Construct an XML filter with the specified parent.
@@ -99,7 +93,7 @@
  - seealso: #setParent
  - seealso: #getParent
  */
-- (instancetype __nonnull)initWithOrgXmlSaxXMLReader:(id<OrgXmlSaxXMLReader>)parent;
+- (instancetype)initWithOrgXmlSaxXMLReader:(id<OrgXmlSaxXMLReader>)parent;
 
 /*!
  @brief Filter a character data event.
@@ -434,10 +428,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersXMLFilterImpl)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersXMLFilterImpl")

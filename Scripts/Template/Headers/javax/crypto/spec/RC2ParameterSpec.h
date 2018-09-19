@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/crypto/spec/RC2ParameterSpec.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxCryptoSpecRC2ParameterSpec")
 #ifdef RESTRICT_JavaxCryptoSpecRC2ParameterSpec
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxCryptoSpecRC2ParameterSpec_) && (INCLUDE_ALL_JavaxCryptoSpecRC2ParameterSpec || defined(INCLUDE_JavaxCryptoSpecRC2ParameterSpec))
 #define JavaxCryptoSpecRC2ParameterSpec_
 
 #define RESTRICT_JavaSecuritySpecAlgorithmParameterSpec 1
 #define INCLUDE_JavaSecuritySpecAlgorithmParameterSpec 1
-#include "java/security/spec/AlgorithmParameterSpec.h"
+#include "../../../java/security/spec/AlgorithmParameterSpec.h"
 
 @class IOSByteArray;
 
@@ -51,7 +45,7 @@
   (in bits).
  @param effectiveKeyBits the effective key size in bits.
  */
-- (instancetype __nonnull)initWithInt:(jint)effectiveKeyBits;
+- (instancetype)initWithInt:(jint)effectiveKeyBits;
 
 /*!
  @brief Constructs a parameter set for RC2 from the given effective key size
@@ -62,8 +56,8 @@
  @param iv the buffer with the 8-byte IV. The first 8 bytes of  the buffer are copied to protect against subsequent modification.
  @throw IllegalArgumentExceptionif <code>iv</code> is null.
  */
-- (instancetype __nonnull)initWithInt:(jint)effectiveKeyBits
-                        withByteArray:(IOSByteArray *)iv;
+- (instancetype)initWithInt:(jint)effectiveKeyBits
+              withByteArray:(IOSByteArray *)iv;
 
 /*!
  @brief Constructs a parameter set for RC2 from the given effective key size
@@ -79,9 +73,9 @@
    starts.
  @throw IllegalArgumentExceptionif <code>iv</code> is null.
  */
-- (instancetype __nonnull)initWithInt:(jint)effectiveKeyBits
-                        withByteArray:(IOSByteArray *)iv
-                              withInt:(jint)offset;
+- (instancetype)initWithInt:(jint)effectiveKeyBits
+              withByteArray:(IOSByteArray *)iv
+                    withInt:(jint)offset;
 
 /*!
  @brief Tests for equality between the specified object and this
@@ -115,7 +109,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -143,10 +137,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoSpecRC2ParameterSpec)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxCryptoSpecRC2ParameterSpec")

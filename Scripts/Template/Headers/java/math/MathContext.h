@@ -3,7 +3,7 @@
 //  source: openjdk/src/share/classes/java/math/MathContext.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaMathMathContext")
 #ifdef RESTRICT_JavaMathMathContext
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaMathMathContext_) && (INCLUDE_ALL_JavaMathMathContext || defined(INCLUDE_JavaMathMathContext))
 #define JavaMathMathContext_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class JavaMathRoundingMode;
 
@@ -67,10 +61,6 @@
    */
   JavaMathRoundingMode *roundingMode_;
 }
-@property (readonly, class, strong) JavaMathMathContext *UNLIMITED NS_SWIFT_NAME(UNLIMITED);
-@property (readonly, class, strong) JavaMathMathContext *DECIMAL32 NS_SWIFT_NAME(DECIMAL32);
-@property (readonly, class, strong) JavaMathMathContext *DECIMAL64 NS_SWIFT_NAME(DECIMAL64);
-@property (readonly, class, strong) JavaMathMathContext *DECIMAL128 NS_SWIFT_NAME(DECIMAL128);
 
 + (JavaMathMathContext *)UNLIMITED;
 
@@ -90,7 +80,7 @@
  @throw IllegalArgumentExceptionif the <code>setPrecision</code> parameter is less
           than zero.
  */
-- (instancetype __nonnull)initWithInt:(jint)setPrecision;
+- (instancetype)initWithInt:(jint)setPrecision;
 
 /*!
  @brief Constructs a new <code>MathContext</code> with a specified
@@ -101,8 +91,8 @@
           than zero.
  @throw NullPointerExceptionif the rounding mode argument is <code>null</code>
  */
-- (instancetype __nonnull)initWithInt:(jint)setPrecision
-             withJavaMathRoundingMode:(JavaMathRoundingMode *)setRoundingMode;
+- (instancetype)initWithInt:(jint)setPrecision
+   withJavaMathRoundingMode:(JavaMathRoundingMode *)setRoundingMode;
 
 /*!
  @brief Constructs a new <code>MathContext</code> from a string.
@@ -116,7 +106,7 @@
   or of incorrect format
  @throw NullPointerExceptionif the argument is <code>null</code>
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)val;
+- (instancetype)initWithNSString:(NSString *)val;
 
 /*!
  @brief Compares this <code>MathContext</code> with the specified 
@@ -194,7 +184,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -270,10 +260,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaMathMathContext)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaMathMathContext")

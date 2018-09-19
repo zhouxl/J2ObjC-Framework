@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/SynchronousQueue.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentSynchronousQueue")
 #ifdef RESTRICT_JavaUtilConcurrentSynchronousQueue
@@ -28,26 +28,20 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentSynchronousQueue_) && (INCLUDE_ALL_JavaUtilConcurrentSynchronousQueue || defined(INCLUDE_JavaUtilConcurrentSynchronousQueue))
 #define JavaUtilConcurrentSynchronousQueue_
 
 #define RESTRICT_JavaUtilAbstractQueue 1
 #define INCLUDE_JavaUtilAbstractQueue 1
-#include "java/util/AbstractQueue.h"
+#include "../../../java/util/AbstractQueue.h"
 
 #define RESTRICT_JavaUtilConcurrentBlockingQueue 1
 #define INCLUDE_JavaUtilConcurrentBlockingQueue 1
-#include "java/util/concurrent/BlockingQueue.h"
+#include "../../../java/util/concurrent/BlockingQueue.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaUtilConcurrentTimeUnit;
@@ -88,9 +82,6 @@
  @author Doug Lea and Bill Scherer and Michael Scott
  */
 @interface JavaUtilConcurrentSynchronousQueue : JavaUtilAbstractQueue < JavaUtilConcurrentBlockingQueue, JavaIoSerializable >
-@property (readonly, class) jint MAX_TIMED_SPINS NS_SWIFT_NAME(MAX_TIMED_SPINS);
-@property (readonly, class) jint MAX_UNTIMED_SPINS NS_SWIFT_NAME(MAX_UNTIMED_SPINS);
-@property (readonly, class) jlong SPIN_FOR_TIMEOUT_THRESHOLD NS_SWIFT_NAME(SPIN_FOR_TIMEOUT_THRESHOLD);
 
 + (jint)MAX_TIMED_SPINS;
 
@@ -103,13 +94,13 @@
 /*!
  @brief Creates a <code>SynchronousQueue</code> with nonfair access policy.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a <code>SynchronousQueue</code> with the specified fairness policy.
  @param fair if true, waiting threads contend in FIFO order for         access; otherwise the order is unspecified.
  */
-- (instancetype __nonnull)initWithBoolean:(jboolean)fair;
+- (instancetype)initWithBoolean:(jboolean)fair;
 
 /*!
  @brief Does nothing.
@@ -358,7 +349,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Performs a put or take.
@@ -400,9 +391,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_Transferer)
    */
   volatile_id head_;
 }
-@property (readonly, class) jint REQUEST NS_SWIFT_NAME(REQUEST);
-@property (readonly, class) jint DATA NS_SWIFT_NAME(DATA);
-@property (readonly, class) jint FULFILLING NS_SWIFT_NAME(FULFILLING);
 
 + (jint)REQUEST;
 
@@ -412,7 +400,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_Transferer)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Spins/blocks until node s is matched by a fulfill operation.
@@ -523,7 +511,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_TransferStack)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithId:(id)item;
+- (instancetype)initWithId:(id)item;
 
 - (jboolean)casNextWithJavaUtilConcurrentSynchronousQueue_TransferStack_SNode:(JavaUtilConcurrentSynchronousQueue_TransferStack_SNode *)cmp
                    withJavaUtilConcurrentSynchronousQueue_TransferStack_SNode:(JavaUtilConcurrentSynchronousQueue_TransferStack_SNode *)val;
@@ -546,7 +534,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_TransferStack)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -595,7 +583,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_TransferStack_SNod
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Tries to cas nh as new head; if successful, unlink
@@ -678,8 +666,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_TransferQueue)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithId:(id)item
-                         withBoolean:(jboolean)isData;
+- (instancetype)initWithId:(id)item
+               withBoolean:(jboolean)isData;
 
 - (jboolean)casItemWithId:(id)cmp
                    withId:(id)val;
@@ -703,7 +691,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_TransferQueue)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -728,13 +716,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_TransferQueue_QNod
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 @interface JavaUtilConcurrentSynchronousQueue_WaitQueue : NSObject < JavaIoSerializable >
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -757,7 +745,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_WaitQueue)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -780,7 +768,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_LifoWaitQueue)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -796,10 +784,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_FifoWaitQueue)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentSynchronousQueue")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/IllegalStateException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangIllegalStateException")
 #ifdef RESTRICT_JavaLangIllegalStateException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangIllegalStateException_) && (INCLUDE_ALL_JavaLangIllegalStateException || defined(INCLUDE_JavaLangIllegalStateException))
 #define JavaLangIllegalStateException_
 
 #define RESTRICT_JavaLangRuntimeException 1
 #define INCLUDE_JavaLangRuntimeException 1
-#include "java/lang/RuntimeException.h"
+#include "../../java/lang/RuntimeException.h"
 
 @class JavaLangThrowable;
 
@@ -40,7 +34,6 @@
  @since JDK1.1
  */
 @interface JavaLangIllegalStateException : JavaLangRuntimeException
-@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jlong)serialVersionUID;
 
@@ -50,7 +43,7 @@
  @brief Constructs an IllegalStateException with no detail message.
  A detail message is a String that describes this particular exception.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs an IllegalStateException with the specified detail
@@ -58,7 +51,7 @@
   exception.
  @param s the String that contains a detailed message
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s;
+- (instancetype)initWithNSString:(NSString *)s;
 
 /*!
  @brief Constructs a new exception with the specified detail message and
@@ -73,8 +66,8 @@
            unknown.)
  @since 1.5
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)message
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a new exception with the specified cause and a detail
@@ -89,14 +82,14 @@
            unknown.)
  @since 1.5
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1
-                               withBoolean:(jboolean)arg2
-                               withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1
+                     withBoolean:(jboolean)arg2
+                     withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -134,10 +127,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangIllegalStateException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangIllegalStateException")

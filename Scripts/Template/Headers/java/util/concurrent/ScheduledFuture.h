@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/ScheduledFuture.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentScheduledFuture")
 #ifdef RESTRICT_JavaUtilConcurrentScheduledFuture
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentScheduledFuture_) && (INCLUDE_ALL_JavaUtilConcurrentScheduledFuture || defined(INCLUDE_JavaUtilConcurrentScheduledFuture))
 #define JavaUtilConcurrentScheduledFuture_
 
 #define RESTRICT_JavaUtilConcurrentDelayed 1
 #define INCLUDE_JavaUtilConcurrentDelayed 1
-#include "java/util/concurrent/Delayed.h"
+#include "../../../java/util/concurrent/Delayed.h"
 
 #define RESTRICT_JavaUtilConcurrentFuture 1
 #define INCLUDE_JavaUtilConcurrentFuture 1
-#include "java/util/concurrent/Future.h"
+#include "../../../java/util/concurrent/Future.h"
 
 /*!
  @brief A delayed result-bearing action that can be cancelled.
@@ -50,10 +44,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentScheduledFuture)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentScheduledFuture")

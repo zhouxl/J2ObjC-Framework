@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/org/xml/sax/helpers/NewInstance.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgXmlSaxHelpersNewInstance")
 #ifdef RESTRICT_OrgXmlSaxHelpersNewInstance
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (OrgXmlSaxHelpersNewInstance_) && (INCLUDE_ALL_OrgXmlSaxHelpersNewInstance || defined(INCLUDE_OrgXmlSaxHelpersNewInstance))
 #define OrgXmlSaxHelpersNewInstance_
@@ -50,7 +44,7 @@
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Figure out which ClassLoader to use.For JDK 1.2 and later use
@@ -83,10 +77,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersNewInstance)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersNewInstance")

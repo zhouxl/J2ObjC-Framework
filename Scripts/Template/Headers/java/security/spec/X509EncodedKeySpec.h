@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/spec/X509EncodedKeySpec.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecuritySpecX509EncodedKeySpec")
 #ifdef RESTRICT_JavaSecuritySpecX509EncodedKeySpec
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecuritySpecX509EncodedKeySpec_) && (INCLUDE_ALL_JavaSecuritySpecX509EncodedKeySpec || defined(INCLUDE_JavaSecuritySpecX509EncodedKeySpec))
 #define JavaSecuritySpecX509EncodedKeySpec_
 
 #define RESTRICT_JavaSecuritySpecEncodedKeySpec 1
 #define INCLUDE_JavaSecuritySpecEncodedKeySpec 1
-#include "java/security/spec/EncodedKeySpec.h"
+#include "../../../java/security/spec/EncodedKeySpec.h"
 
 @class IOSByteArray;
 
@@ -62,7 +56,7 @@
  @throw NullPointerExceptionif <code>encodedKey</code>
   is null.
  */
-- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)encodedKey;
+- (instancetype)initWithByteArray:(IOSByteArray *)encodedKey;
 
 /*!
  @brief Returns the key bytes, encoded according to the X.509 standard.
@@ -92,10 +86,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecX509EncodedKeySpec)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecX509EncodedKeySpec")

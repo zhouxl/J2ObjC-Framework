@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/StringBuilder.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangStringBuilder")
 #ifdef RESTRICT_JavaLangStringBuilder
@@ -16,26 +16,20 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangStringBuilder_) && (INCLUDE_ALL_JavaLangStringBuilder || defined(INCLUDE_JavaLangStringBuilder))
 #define JavaLangStringBuilder_
 
 #define RESTRICT_JavaLangAbstractStringBuilder 1
 #define INCLUDE_JavaLangAbstractStringBuilder 1
-#include "java/lang/AbstractStringBuilder.h"
+#include "../../java/lang/AbstractStringBuilder.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 #define RESTRICT_JavaLangCharSequence 1
 #define INCLUDE_JavaLangCharSequence 1
-#include "java/lang/CharSequence.h"
+#include "../../java/lang/CharSequence.h"
 
 @class IOSCharArray;
 @class JavaLangStringBuffer;
@@ -84,7 +78,6 @@
  @since 1.5
  */
 @interface JavaLangStringBuilder : JavaLangAbstractStringBuilder < JavaIoSerializable, JavaLangCharSequence >
-@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jlong)serialVersionUID;
 
@@ -94,7 +87,7 @@
  @brief Constructs a string builder with no characters in it and an
   initial capacity of 16 characters.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a string builder that contains the same characters
@@ -103,7 +96,7 @@
  <code>CharSequence</code> argument.
  @param seq the sequence to copy.
  */
-- (instancetype __nonnull)initWithJavaLangCharSequence:(id<JavaLangCharSequence>)seq;
+- (instancetype)initWithJavaLangCharSequence:(id<JavaLangCharSequence>)seq;
 
 /*!
  @brief Constructs a string builder with no characters in it and an
@@ -112,7 +105,7 @@
  @throw NegativeArraySizeExceptionif the <code>capacity</code>
                 argument is less than <code>0</code>.
  */
-- (instancetype __nonnull)initWithInt:(jint)capacity;
+- (instancetype)initWithInt:(jint)capacity;
 
 /*!
  @brief Constructs a string builder initialized to the contents of the
@@ -120,41 +113,41 @@
  <code>16</code> plus the length of the string argument.
  @param str the initial contents of the buffer.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)str;
+- (instancetype)initWithNSString:(NSString *)str;
 
-- (JavaLangStringBuilder * __nonnull)appendWithBoolean:(jboolean)b;
+- (JavaLangStringBuilder *)appendWithBoolean:(jboolean)b;
 
-- (JavaLangStringBuilder * __nonnull)appendWithChar:(jchar)c;
+- (JavaLangStringBuilder *)appendWithChar:(jchar)c;
 
-- (JavaLangStringBuilder * __nonnull)appendWithCharArray:(IOSCharArray *)str;
-
-/*!
- @throw IndexOutOfBoundsException
- */
-- (JavaLangStringBuilder * __nonnull)appendWithCharArray:(IOSCharArray *)str
-                                                 withInt:(jint)offset
-                                                 withInt:(jint)len;
-
-- (JavaLangStringBuilder * __nonnull)appendWithJavaLangCharSequence:(id<JavaLangCharSequence>)s;
+- (JavaLangStringBuilder *)appendWithCharArray:(IOSCharArray *)str;
 
 /*!
  @throw IndexOutOfBoundsException
  */
-- (JavaLangStringBuilder * __nonnull)appendWithJavaLangCharSequence:(id<JavaLangCharSequence>)s
-                                                            withInt:(jint)start
-                                                            withInt:(jint)end;
+- (JavaLangStringBuilder *)appendWithCharArray:(IOSCharArray *)str
+                                       withInt:(jint)offset
+                                       withInt:(jint)len;
 
-- (JavaLangStringBuilder * __nonnull)appendWithDouble:(jdouble)d;
+- (JavaLangStringBuilder *)appendWithJavaLangCharSequence:(id<JavaLangCharSequence>)s;
 
-- (JavaLangStringBuilder * __nonnull)appendWithFloat:(jfloat)f;
+/*!
+ @throw IndexOutOfBoundsException
+ */
+- (JavaLangStringBuilder *)appendWithJavaLangCharSequence:(id<JavaLangCharSequence>)s
+                                                  withInt:(jint)start
+                                                  withInt:(jint)end;
 
-- (JavaLangStringBuilder * __nonnull)appendWithInt:(jint)i;
+- (JavaLangStringBuilder *)appendWithDouble:(jdouble)d;
 
-- (JavaLangStringBuilder * __nonnull)appendWithLong:(jlong)lng;
+- (JavaLangStringBuilder *)appendWithFloat:(jfloat)f;
 
-- (JavaLangStringBuilder * __nonnull)appendWithId:(id)obj;
+- (JavaLangStringBuilder *)appendWithInt:(jint)i;
 
-- (JavaLangStringBuilder * __nonnull)appendWithNSString:(NSString *)str;
+- (JavaLangStringBuilder *)appendWithLong:(jlong)lng;
+
+- (JavaLangStringBuilder *)appendWithId:(id)obj;
+
+- (JavaLangStringBuilder *)appendWithNSString:(NSString *)str;
 
 /*!
  @brief Appends the specified <code>StringBuffer</code> to this sequence.
@@ -174,110 +167,110 @@
  @param sb the <code>StringBuffer</code>  to append.
  @return a reference to this object.
  */
-- (JavaLangStringBuilder * __nonnull)appendWithJavaLangStringBuffer:(JavaLangStringBuffer *)sb;
+- (JavaLangStringBuilder *)appendWithJavaLangStringBuffer:(JavaLangStringBuffer *)sb;
 
 /*!
  @since 1.5
  */
-- (JavaLangStringBuilder * __nonnull)appendCodePointWithInt:(jint)codePoint;
+- (JavaLangStringBuilder *)appendCodePointWithInt:(jint)codePoint;
 
 /*!
  @throw StringIndexOutOfBoundsException
  */
-- (JavaLangStringBuilder * __nonnull)delete__WithInt:(jint)start
-                                             withInt:(jint)end;
+- (JavaLangStringBuilder *)delete__WithInt:(jint)start
+                                   withInt:(jint)end;
 
 /*!
  @throw StringIndexOutOfBoundsException
  */
-- (JavaLangStringBuilder * __nonnull)deleteCharAtWithInt:(jint)index;
+- (JavaLangStringBuilder *)deleteCharAtWithInt:(jint)index;
 
 /*!
  @throw StringIndexOutOfBoundsException
  */
-- (JavaLangStringBuilder * __nonnull)insertWithInt:(jint)offset
-                                       withBoolean:(jboolean)b;
+- (JavaLangStringBuilder *)insertWithInt:(jint)offset
+                             withBoolean:(jboolean)b;
 
 /*!
  @throw IndexOutOfBoundsException
  */
-- (JavaLangStringBuilder * __nonnull)insertWithInt:(jint)offset
-                                          withChar:(jchar)c;
+- (JavaLangStringBuilder *)insertWithInt:(jint)offset
+                                withChar:(jchar)c;
 
 /*!
  @throw StringIndexOutOfBoundsException
  */
-- (JavaLangStringBuilder * __nonnull)insertWithInt:(jint)offset
-                                     withCharArray:(IOSCharArray *)str;
+- (JavaLangStringBuilder *)insertWithInt:(jint)offset
+                           withCharArray:(IOSCharArray *)str;
 
 /*!
  @throw StringIndexOutOfBoundsException
  */
-- (JavaLangStringBuilder * __nonnull)insertWithInt:(jint)index
-                                     withCharArray:(IOSCharArray *)str
-                                           withInt:(jint)offset
-                                           withInt:(jint)len;
+- (JavaLangStringBuilder *)insertWithInt:(jint)index
+                           withCharArray:(IOSCharArray *)str
+                                 withInt:(jint)offset
+                                 withInt:(jint)len;
 
 /*!
  @throw IndexOutOfBoundsException
  */
-- (JavaLangStringBuilder * __nonnull)insertWithInt:(jint)dstOffset
-                          withJavaLangCharSequence:(id<JavaLangCharSequence>)s;
+- (JavaLangStringBuilder *)insertWithInt:(jint)dstOffset
+                withJavaLangCharSequence:(id<JavaLangCharSequence>)s;
 
 /*!
  @throw IndexOutOfBoundsException
  */
-- (JavaLangStringBuilder * __nonnull)insertWithInt:(jint)dstOffset
-                          withJavaLangCharSequence:(id<JavaLangCharSequence>)s
-                                           withInt:(jint)start
-                                           withInt:(jint)end;
+- (JavaLangStringBuilder *)insertWithInt:(jint)dstOffset
+                withJavaLangCharSequence:(id<JavaLangCharSequence>)s
+                                 withInt:(jint)start
+                                 withInt:(jint)end;
 
 /*!
  @throw StringIndexOutOfBoundsException
  */
-- (JavaLangStringBuilder * __nonnull)insertWithInt:(jint)offset
-                                        withDouble:(jdouble)d;
+- (JavaLangStringBuilder *)insertWithInt:(jint)offset
+                              withDouble:(jdouble)d;
 
 /*!
  @throw StringIndexOutOfBoundsException
  */
-- (JavaLangStringBuilder * __nonnull)insertWithInt:(jint)offset
-                                         withFloat:(jfloat)f;
+- (JavaLangStringBuilder *)insertWithInt:(jint)offset
+                               withFloat:(jfloat)f;
 
 /*!
  @throw StringIndexOutOfBoundsException
  */
-- (JavaLangStringBuilder * __nonnull)insertWithInt:(jint)offset
-                                           withInt:(jint)i;
+- (JavaLangStringBuilder *)insertWithInt:(jint)offset
+                                 withInt:(jint)i;
 
 /*!
  @throw StringIndexOutOfBoundsException
  */
-- (JavaLangStringBuilder * __nonnull)insertWithInt:(jint)offset
-                                          withLong:(jlong)l;
+- (JavaLangStringBuilder *)insertWithInt:(jint)offset
+                                withLong:(jlong)l;
 
 /*!
  @throw StringIndexOutOfBoundsException
  */
-- (JavaLangStringBuilder * __nonnull)insertWithInt:(jint)offset
-                                            withId:(id)obj;
+- (JavaLangStringBuilder *)insertWithInt:(jint)offset
+                                  withId:(id)obj;
 
 /*!
  @throw StringIndexOutOfBoundsException
  */
-- (JavaLangStringBuilder * __nonnull)insertWithInt:(jint)offset
-                                      withNSString:(NSString *)str;
+- (JavaLangStringBuilder *)insertWithInt:(jint)offset
+                            withNSString:(NSString *)str;
 
 /*!
  @throw StringIndexOutOfBoundsException
  */
-- (JavaLangStringBuilder * __nonnull)replaceWithInt:(jint)start
-                                            withInt:(jint)end
-                                       withNSString:(NSString *)str;
+- (JavaLangStringBuilder *)replaceWithInt:(jint)start
+                                  withInt:(jint)end
+                             withNSString:(NSString *)str;
 
-- (JavaLangStringBuilder * __nonnull)reverse;
+- (JavaLangStringBuilder *)reverse;
 
-- (NSString * __nonnull)description;
+- (NSString *)description;
 
 @end
 
@@ -318,10 +311,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangStringBuilder)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangStringBuilder")

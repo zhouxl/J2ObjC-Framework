@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/org/xml/sax/SAXException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgXmlSaxSAXException")
 #ifdef RESTRICT_OrgXmlSaxSAXException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (OrgXmlSaxSAXException_) && (INCLUDE_ALL_OrgXmlSaxSAXException || defined(INCLUDE_OrgXmlSaxSAXException))
 #define OrgXmlSaxSAXException_
 
 #define RESTRICT_JavaLangException 1
 #define INCLUDE_JavaLangException 1
-#include "java/lang/Exception.h"
+#include "../../../java/lang/Exception.h"
 
 @class JavaLangThrowable;
 
@@ -65,7 +59,7 @@
 /*!
  @brief Create a new SAXException.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Create a new SAXException wrapping an existing exception.
@@ -74,13 +68,13 @@
   the SAXException.</p>
  @param e The exception to be wrapped in a SAXException.
  */
-- (instancetype __nonnull)initWithJavaLangException:(JavaLangException *)e;
+- (instancetype)initWithJavaLangException:(JavaLangException *)e;
 
 /*!
  @brief Create a new SAXException.
  @param message The error or warning message.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message;
+- (instancetype)initWithNSString:(NSString *)message;
 
 /*!
  @brief Create a new SAXException from an existing exception.
@@ -89,8 +83,8 @@
  @param message The detail message.
  @param e The exception to be wrapped in a SAXException.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                     withJavaLangException:(JavaLangException *)e;
+- (instancetype)initWithNSString:(NSString *)message
+           withJavaLangException:(JavaLangException *)e;
 
 /*!
  @brief Return the embedded exception, if any.
@@ -115,15 +109,15 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1
-                               withBoolean:(jboolean)arg2
-                               withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1
+                     withBoolean:(jboolean)arg2
+                     withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -157,10 +151,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxSAXException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxSAXException")

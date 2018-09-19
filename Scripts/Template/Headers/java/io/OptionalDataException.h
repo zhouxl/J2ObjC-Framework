@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/OptionalDataException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoOptionalDataException")
 #ifdef RESTRICT_JavaIoOptionalDataException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoOptionalDataException_) && (INCLUDE_ALL_JavaIoOptionalDataException || defined(INCLUDE_JavaIoOptionalDataException))
 #define JavaIoOptionalDataException_
 
 #define RESTRICT_JavaIoObjectStreamException 1
 #define INCLUDE_JavaIoObjectStreamException 1
-#include "java/io/ObjectStreamException.h"
+#include "../../java/io/ObjectStreamException.h"
 
 /*!
  @brief Exception indicating the failure of an object read operation due to
@@ -63,15 +57,15 @@
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithBoolean:(jboolean)end;
+- (instancetype)initWithBoolean:(jboolean)end;
 
-- (instancetype __nonnull)initWithInt:(jint)len;
+- (instancetype)initWithInt:(jint)len;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -93,10 +87,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoOptionalDataException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoOptionalDataException")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/spec/ECPublicKeySpec.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecuritySpecECPublicKeySpec")
 #ifdef RESTRICT_JavaSecuritySpecECPublicKeySpec
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecuritySpecECPublicKeySpec_) && (INCLUDE_ALL_JavaSecuritySpecECPublicKeySpec || defined(INCLUDE_JavaSecuritySpecECPublicKeySpec))
 #define JavaSecuritySpecECPublicKeySpec_
 
 #define RESTRICT_JavaSecuritySpecKeySpec 1
 #define INCLUDE_JavaSecuritySpecKeySpec 1
-#include "java/security/spec/KeySpec.h"
+#include "../../../java/security/spec/KeySpec.h"
 
 @class JavaSecuritySpecECParameterSpec;
 @class JavaSecuritySpecECPoint;
@@ -55,8 +49,8 @@
  @throw IllegalArgumentExceptionif <code>w</code>
   is point at infinity, i.e. ECPoint.POINT_INFINITY
  */
-- (instancetype __nonnull)initWithJavaSecuritySpecECPoint:(JavaSecuritySpecECPoint *)w
-                      withJavaSecuritySpecECParameterSpec:(JavaSecuritySpecECParameterSpec *)params;
+- (instancetype)initWithJavaSecuritySpecECPoint:(JavaSecuritySpecECPoint *)w
+            withJavaSecuritySpecECParameterSpec:(JavaSecuritySpecECParameterSpec *)params;
 
 /*!
  @brief Returns the associated elliptic curve domain
@@ -73,7 +67,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -89,10 +83,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecECPublicKeySpec)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecECPublicKeySpec")

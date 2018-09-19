@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/javax/xml/xpath/XPathFunctionResolver.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxXmlXpathXPathFunctionResolver")
 #ifdef RESTRICT_JavaxXmlXpathXPathFunctionResolver
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaxXmlXpathXPathFunctionResolver_) && (INCLUDE_ALL_JavaxXmlXpathXPathFunctionResolver || defined(INCLUDE_JavaxXmlXpathXPathFunctionResolver))
 #define JavaxXmlXpathXPathFunctionResolver_
@@ -74,10 +68,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathFunctionResolver)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlXpathXPathFunctionResolver")

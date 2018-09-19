@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/ref/WeakReference.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangRefWeakReference")
 #ifdef RESTRICT_JavaLangRefWeakReference
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangRefWeakReference_) && (INCLUDE_ALL_JavaLangRefWeakReference || defined(INCLUDE_JavaLangRefWeakReference))
 #define JavaLangRefWeakReference_
 
 #define RESTRICT_JavaLangRefReference 1
 #define INCLUDE_JavaLangRefReference 1
-#include "java/lang/ref/Reference.h"
+#include "../../../java/lang/ref/Reference.h"
 
 @class JavaLangRefReferenceQueue;
 
@@ -56,7 +50,7 @@
   reference is not registered with any queue.
  @param referent object the new weak reference will refer to
  */
-- (instancetype __nonnull)initWithId:(id)referent;
+- (instancetype)initWithId:(id)referent;
 
 /*!
  @brief Creates a new weak reference that refers to the given object and is
@@ -65,8 +59,8 @@
  @param q the queue with which the reference is to be registered,           or 
   <tt> null </tt>  if registration is not required
  */
-- (instancetype __nonnull)initWithId:(id)referent
-       withJavaLangRefReferenceQueue:(JavaLangRefReferenceQueue *)q;
+- (instancetype)initWithId:(id)referent
+withJavaLangRefReferenceQueue:(JavaLangRefReferenceQueue *)q;
 
 @end
 
@@ -88,10 +82,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangRefWeakReference)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangRefWeakReference")

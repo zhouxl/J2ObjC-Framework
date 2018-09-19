@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/IllformedLocaleException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilIllformedLocaleException")
 #ifdef RESTRICT_JavaUtilIllformedLocaleException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilIllformedLocaleException_) && (INCLUDE_ALL_JavaUtilIllformedLocaleException || defined(INCLUDE_JavaUtilIllformedLocaleException))
 #define JavaUtilIllformedLocaleException_
 
 #define RESTRICT_JavaLangRuntimeException 1
 #define INCLUDE_JavaLangRuntimeException 1
-#include "java/lang/RuntimeException.h"
+#include "../../java/lang/RuntimeException.h"
 
 @class JavaLangThrowable;
 
@@ -45,14 +39,14 @@
  @brief Constructs a new <code>IllformedLocaleException</code> with no
   detail message and -1 as the error index.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a new <code>IllformedLocaleException</code> with the
   given message and -1 as the error index.
  @param message the message
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message;
+- (instancetype)initWithNSString:(NSString *)message;
 
 /*!
  @brief Constructs a new <code>IllformedLocaleException</code> with the
@@ -64,8 +58,8 @@
  @param message the message
  @param errorIndex the index
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                                   withInt:(jint)errorIndex;
+- (instancetype)initWithNSString:(NSString *)message
+                         withInt:(jint)errorIndex;
 
 /*!
  @brief Returns the index where the error was found.A negative value indicates
@@ -76,15 +70,15 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1
-                               withBoolean:(jboolean)arg2
-                               withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1
+                     withBoolean:(jboolean)arg2
+                     withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -112,10 +106,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIllformedLocaleException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilIllformedLocaleException")

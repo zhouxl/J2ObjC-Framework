@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/zip/InflaterOutputStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilZipInflaterOutputStream")
 #ifdef RESTRICT_JavaUtilZipInflaterOutputStream
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilZipInflaterOutputStream_) && (INCLUDE_ALL_JavaUtilZipInflaterOutputStream || defined(INCLUDE_JavaUtilZipInflaterOutputStream))
 #define JavaUtilZipInflaterOutputStream_
 
 #define RESTRICT_JavaIoFilterOutputStream 1
 #define INCLUDE_JavaIoFilterOutputStream 1
-#include "java/io/FilterOutputStream.h"
+#include "../../../java/io/FilterOutputStream.h"
 
 @class IOSByteArray;
 @class JavaIoOutputStream;
@@ -62,7 +56,7 @@
  @param outArg output stream to write the uncompressed data to
  @throw NullPointerExceptionif <code>out</code> is null
  */
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg;
 
 /*!
  @brief Creates a new output stream with the specified decompressor and a
@@ -71,8 +65,8 @@
  @param infl decompressor ("inflater") for this stream
  @throw NullPointerExceptionif <code>out</code> or <code>infl</code> is null
  */
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-                             withJavaUtilZipInflater:(JavaUtilZipInflater *)infl;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+                   withJavaUtilZipInflater:(JavaUtilZipInflater *)infl;
 
 /*!
  @brief Creates a new output stream with the specified decompressor and
@@ -83,9 +77,9 @@
  @throw IllegalArgumentExceptionif <code>bufLen</code> is <= 0
  @throw NullPointerExceptionif <code>out</code> or <code>infl</code> is null
  */
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-                             withJavaUtilZipInflater:(JavaUtilZipInflater *)infl
-                                             withInt:(jint)bufLen;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+                   withJavaUtilZipInflater:(JavaUtilZipInflater *)infl
+                                   withInt:(jint)bufLen;
 
 /*!
  @brief Writes any remaining uncompressed data to the output stream and closes
@@ -165,10 +159,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipInflaterOutputStream)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilZipInflaterOutputStream")

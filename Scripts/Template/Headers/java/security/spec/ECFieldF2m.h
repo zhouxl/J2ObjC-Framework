@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/spec/ECFieldF2m.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecuritySpecECFieldF2m")
 #ifdef RESTRICT_JavaSecuritySpecECFieldF2m
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecuritySpecECFieldF2m_) && (INCLUDE_ALL_JavaSecuritySpecECFieldF2m || defined(INCLUDE_JavaSecuritySpecECFieldF2m))
 #define JavaSecuritySpecECFieldF2m_
 
 #define RESTRICT_JavaSecuritySpecECField 1
 #define INCLUDE_JavaSecuritySpecECField 1
-#include "java/security/spec/ECField.h"
+#include "../../../java/security/spec/ECField.h"
 
 @class IOSIntArray;
 @class JavaMathBigInteger;
@@ -50,7 +44,7 @@
  @throw IllegalArgumentExceptionif <code>m</code>
   is not positive.
  */
-- (instancetype __nonnull)initWithInt:(jint)m;
+- (instancetype)initWithInt:(jint)m;
 
 /*!
  @brief Creates an elliptic curve characteristic 2 finite
@@ -73,8 +67,8 @@
   is not positive, or <code>rp</code> does not represent
   a valid reduction polynomial.
  */
-- (instancetype __nonnull)initWithInt:(jint)m
-               withJavaMathBigInteger:(JavaMathBigInteger *)rp;
+- (instancetype)initWithInt:(jint)m
+     withJavaMathBigInteger:(JavaMathBigInteger *)rp;
 
 /*!
  @brief Creates an elliptic curve characteristic 2 finite
@@ -101,8 +95,8 @@
   are not between <code>m</code>-1 and 1 (inclusive)
   and in descending order.
  */
-- (instancetype __nonnull)initWithInt:(jint)m
-                         withIntArray:(IOSIntArray *)ks;
+- (instancetype)initWithInt:(jint)m
+               withIntArray:(IOSIntArray *)ks;
 
 /*!
  @brief Compares this finite field for equality with the
@@ -159,7 +153,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -187,10 +181,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecECFieldF2m)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecECFieldF2m")

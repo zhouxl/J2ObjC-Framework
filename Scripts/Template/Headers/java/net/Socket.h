@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/net/Socket.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetSocket")
 #ifdef RESTRICT_JavaNetSocket
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNetSocket_) && (INCLUDE_ALL_JavaNetSocket || defined(INCLUDE_JavaNetSocket))
 #define JavaNetSocket_
 
 #define RESTRICT_JavaIoCloseable 1
 #define INCLUDE_JavaIoCloseable 1
-#include "java/io/Closeable.h"
+#include "../../java/io/Closeable.h"
 
 @class JavaIoFileDescriptor;
 @class JavaIoInputStream;
@@ -70,7 +64,7 @@
   system-default type of SocketImpl.
  @since JDK1.1
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a stream socket and connects it to the specified port
@@ -98,8 +92,8 @@
  - seealso: java.net.SocketImplFactory
  - seealso: SecurityManager#checkConnect
  */
-- (instancetype __nonnull)initWithJavaNetInetAddress:(JavaNetInetAddress *)address
-                                             withInt:(jint)port;
+- (instancetype)initWithJavaNetInetAddress:(JavaNetInetAddress *)address
+                                   withInt:(jint)port;
 
 /*!
  @brief Creates a socket and connects it to the specified port number at
@@ -134,9 +128,9 @@
  - seealso: java.net.SocketImplFactory
  - seealso: SecurityManager#checkConnect
  */
-- (instancetype __nonnull)initWithJavaNetInetAddress:(JavaNetInetAddress *)host
-                                             withInt:(jint)port
-                                         withBoolean:(jboolean)stream __attribute__((deprecated));
+- (instancetype)initWithJavaNetInetAddress:(JavaNetInetAddress *)host
+                                   withInt:(jint)port
+                               withBoolean:(jboolean)stream __attribute__((deprecated));
 
 /*!
  @brief Creates a socket and connects it to the specified remote address on
@@ -169,10 +163,10 @@
  - seealso: SecurityManager#checkConnect
  @since JDK1.1
  */
-- (instancetype __nonnull)initWithJavaNetInetAddress:(JavaNetInetAddress *)address
-                                             withInt:(jint)port
-                              withJavaNetInetAddress:(JavaNetInetAddress *)localAddr
-                                             withInt:(jint)localPort;
+- (instancetype)initWithJavaNetInetAddress:(JavaNetInetAddress *)address
+                                   withInt:(jint)port
+                    withJavaNetInetAddress:(JavaNetInetAddress *)localAddr
+                                   withInt:(jint)localPort;
 
 /*!
  @brief Creates an unconnected socket, specifying the type of proxy, if any,
@@ -200,7 +194,7 @@
  - seealso: java.net.Proxy
  @since 1.5
  */
-- (instancetype __nonnull)initWithJavaNetProxy:(JavaNetProxy *)proxy;
+- (instancetype)initWithJavaNetProxy:(JavaNetProxy *)proxy;
 
 /*!
  @brief Creates a stream socket and connects it to the specified port
@@ -234,8 +228,8 @@
  - seealso: java.net.SocketImplFactory
  - seealso: SecurityManager#checkConnect
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)host
-                                   withInt:(jint)port;
+- (instancetype)initWithNSString:(NSString *)host
+                         withInt:(jint)port;
 
 /*!
  @brief Creates a stream socket and connects it to the specified port
@@ -275,9 +269,9 @@
  - seealso: java.net.SocketImplFactory
  - seealso: SecurityManager#checkConnect
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)host
-                                   withInt:(jint)port
-                               withBoolean:(jboolean)stream __attribute__((deprecated));
+- (instancetype)initWithNSString:(NSString *)host
+                         withInt:(jint)port
+                     withBoolean:(jboolean)stream __attribute__((deprecated));
 
 /*!
  @brief Creates a socket and connects it to the specified remote host on
@@ -311,10 +305,10 @@
  - seealso: SecurityManager#checkConnect
  @since JDK1.1
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)host
-                                   withInt:(jint)port
-                    withJavaNetInetAddress:(JavaNetInetAddress *)localAddr
-                                   withInt:(jint)localPort;
+- (instancetype)initWithNSString:(NSString *)host
+                         withInt:(jint)port
+          withJavaNetInetAddress:(JavaNetInetAddress *)localAddr
+                         withInt:(jint)localPort;
 
 /*!
  @brief Binds the socket to a local address.
@@ -1020,7 +1014,7 @@
   such as a TCP error.
  @since JDK1.1
  */
-- (instancetype __nonnull)initWithJavaNetSocketImpl:(JavaNetSocketImpl *)impl;
+- (instancetype)initWithJavaNetSocketImpl:(JavaNetSocketImpl *)impl;
 
 #pragma mark Package-Private
 
@@ -1061,7 +1055,7 @@
 
 @end
 
-J2OBJC_EMPTY_STATIC_INIT(JavaNetSocket)
+J2OBJC_STATIC_INIT(JavaNetSocket)
 
 J2OBJC_FIELD_SETTER(JavaNetSocket, impl_, JavaNetSocketImpl *)
 
@@ -1125,10 +1119,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetSocket)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetSocket")

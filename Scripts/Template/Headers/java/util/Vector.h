@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/Vector.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilVector")
 #ifdef RESTRICT_JavaUtilVector
@@ -19,30 +19,24 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilVector_) && (INCLUDE_ALL_JavaUtilVector || defined(INCLUDE_JavaUtilVector))
 #define JavaUtilVector_
 
 #define RESTRICT_JavaUtilAbstractList 1
 #define INCLUDE_JavaUtilAbstractList 1
-#include "java/util/AbstractList.h"
+#include "../../java/util/AbstractList.h"
 
 #define RESTRICT_JavaUtilList 1
 #define INCLUDE_JavaUtilList 1
-#include "java/util/List.h"
+#include "../../java/util/List.h"
 
 #define RESTRICT_JavaUtilRandomAccess 1
 #define INCLUDE_JavaUtilRandomAccess 1
-#include "java/util/RandomAccess.h"
+#include "../../java/util/RandomAccess.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilCollection;
@@ -134,7 +128,7 @@
   has size <code>10</code> and its standard capacity increment is
   zero.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a vector containing the elements of the specified
@@ -144,7 +138,7 @@
  @throw NullPointerExceptionif the specified collection is null
  @since 1.2
  */
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Constructs an empty vector with the specified initial capacity and
@@ -153,7 +147,7 @@
  @throw IllegalArgumentExceptionif the specified initial capacity
           is negative
  */
-- (instancetype __nonnull)initWithInt:(jint)initialCapacity;
+- (instancetype)initWithInt:(jint)initialCapacity;
 
 /*!
  @brief Constructs an empty vector with the specified initial capacity and
@@ -163,8 +157,8 @@
  @throw IllegalArgumentExceptionif the specified initial capacity
           is negative
  */
-- (instancetype __nonnull)initWithInt:(jint)initialCapacity
-                              withInt:(jint)capacityIncrement;
+- (instancetype)initWithInt:(jint)initialCapacity
+                    withInt:(jint)capacityIncrement;
 
 /*!
  @brief Appends the specified element to the end of this Vector.
@@ -803,7 +797,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilVector)
 
 #define RESTRICT_JavaUtilIterator 1
 #define INCLUDE_JavaUtilIterator 1
-#include "java/util/Iterator.h"
+#include "../../java/util/Iterator.h"
 
 @protocol JavaUtilFunctionConsumer;
 
@@ -845,7 +839,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilVector_Itr)
 
 #define RESTRICT_JavaUtilListIterator 1
 #define INCLUDE_JavaUtilListIterator 1
-#include "java/util/ListIterator.h"
+#include "../../java/util/ListIterator.h"
 
 @class JavaUtilVector;
 
@@ -870,8 +864,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilVector_Itr)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilVector:(JavaUtilVector *)outer$
-                                         withInt:(jint)index;
+- (instancetype)initWithJavaUtilVector:(JavaUtilVector *)outer$
+                               withInt:(jint)index;
 
 @end
 
@@ -892,7 +886,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilVector_ListItr)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator 1
-#include "java/util/Spliterator.h"
+#include "../../java/util/Spliterator.h"
 
 @class IOSObjectArray;
 @class JavaUtilVector;
@@ -921,15 +915,15 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilVector_ListItr)
 /*!
  @brief Create new spliterator covering the given  range
  */
-- (instancetype __nonnull)initWithJavaUtilVector:(JavaUtilVector *)list
-                               withNSObjectArray:(IOSObjectArray *)array
-                                         withInt:(jint)origin
-                                         withInt:(jint)fence
-                                         withInt:(jint)expectedModCount;
+- (instancetype)initWithJavaUtilVector:(JavaUtilVector *)list
+                     withNSObjectArray:(IOSObjectArray *)array
+                               withInt:(jint)origin
+                               withInt:(jint)fence
+                               withInt:(jint)expectedModCount;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -945,10 +939,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilVector_VectorSpliterator)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilVector")

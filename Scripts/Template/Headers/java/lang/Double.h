@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/Double.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangDouble")
 #ifdef RESTRICT_JavaLangDouble
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangDouble_) && (INCLUDE_ALL_JavaLangDouble || defined(INCLUDE_JavaLangDouble))
 #define JavaLangDouble_
 
 #define RESTRICT_JavaLangComparable 1
 #define INCLUDE_JavaLangComparable 1
-#include "java/lang/Comparable.h"
+#include "../../java/lang/Comparable.h"
 
 @class IOSClass;
 
@@ -47,17 +41,6 @@
  @since JDK1.0
  */
 @interface JavaLangDouble : NSNumber < JavaLangComparable >
-@property (readonly, class) jdouble POSITIVE_INFINITY NS_SWIFT_NAME(POSITIVE_INFINITY);
-@property (readonly, class) jdouble NEGATIVE_INFINITY NS_SWIFT_NAME(NEGATIVE_INFINITY);
-@property (readonly, class) jdouble NaN NS_SWIFT_NAME(NaN);
-@property (readonly, class) jdouble MAX_VALUE NS_SWIFT_NAME(MAX_VALUE);
-@property (readonly, class) jdouble MIN_NORMAL NS_SWIFT_NAME(MIN_NORMAL);
-@property (readonly, class) jdouble MIN_VALUE NS_SWIFT_NAME(MIN_VALUE);
-@property (readonly, class) jint MAX_EXPONENT NS_SWIFT_NAME(MAX_EXPONENT);
-@property (readonly, class) jint MIN_EXPONENT NS_SWIFT_NAME(MIN_EXPONENT);
-@property (readonly, class) jint SIZE NS_SWIFT_NAME(SIZE);
-@property (readonly, class) jint BYTES NS_SWIFT_NAME(BYTES);
-@property (readonly, class, strong) IOSClass *TYPE NS_SWIFT_NAME(TYPE);
 
 + (jdouble)POSITIVE_INFINITY;
 
@@ -88,7 +71,7 @@
   represents the primitive <code>double</code> argument.
  @param value the value to be represented by the <code>Double</code> .
  */
-- (instancetype __nonnull)initWithDouble:(jdouble)value;
+- (instancetype)initWithDouble:(jdouble)value;
 
 /*!
  @brief Constructs a newly allocated <code>Double</code> object that
@@ -100,7 +83,7 @@
              parsable number.
  - seealso: java.lang.Double
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s;
+- (instancetype)initWithNSString:(NSString *)s;
 
 /*!
  @brief Returns the value of this <code>Double</code> as a <code>byte</code>
@@ -562,7 +545,7 @@
  @since 1.5
  @author Joseph D. Darcy
  */
-+ (NSString * __nonnull)toHexStringWithDouble:(jdouble)d;
++ (NSString *)toHexStringWithDouble:(jdouble)d;
 
 /*!
  @brief Returns a string representation of this <code>Double</code> object.
@@ -572,7 +555,7 @@
  @return a <code>String</code> representation of this object.
  - seealso: java.lang.Double
  */
-- (NSString * __nonnull)description;
+- (NSString *)description;
 
 /*!
  @brief Returns a string representation of the <code>double</code>
@@ -635,7 +618,7 @@
  @param d the <code>double</code>  to be converted.
  @return a string representation of the argument.
  */
-+ (NSString * __nonnull)toStringWithDouble:(jdouble)d;
++ (NSString *)toStringWithDouble:(jdouble)d;
 
 /*!
  @brief Returns a <code>Double</code> instance representing the specified 
@@ -649,7 +632,7 @@
  @return a <code>Double</code> instance representing <code>d</code>.
  @since 1.5
  */
-+ (JavaLangDouble * __nonnull)valueOfWithDouble:(jdouble)d;
++ (JavaLangDouble *)valueOfWithDouble:(jdouble)d;
 
 /*!
  @brief Returns a <code>Double</code> object holding the 
@@ -796,13 +779,13 @@
  @throw NumberFormatExceptionif the string does not contain a
               parsable number.
  */
-+ (JavaLangDouble * __nonnull)valueOfWithNSString:(NSString *)s;
++ (JavaLangDouble *)valueOfWithNSString:(NSString *)s;
 
 #pragma mark Package-Private
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -967,10 +950,6 @@ BOXED_COMPOUND_ASSIGN_FPMOD(Double, doubleValue, jdouble, JavaLangDouble)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangDouble")

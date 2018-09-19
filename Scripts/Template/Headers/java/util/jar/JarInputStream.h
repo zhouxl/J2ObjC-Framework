@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/jar/JarInputStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilJarJarInputStream")
 #ifdef RESTRICT_JavaUtilJarJarInputStream
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilJarJarInputStream_) && (INCLUDE_ALL_JavaUtilJarJarInputStream || defined(INCLUDE_JavaUtilJarJarInputStream))
 #define JavaUtilJarJarInputStream_
 
 #define RESTRICT_JavaUtilZipZipInputStream 1
 #define INCLUDE_JavaUtilZipZipInputStream 1
-#include "java/util/zip/ZipInputStream.h"
+#include "../../../java/util/zip/ZipInputStream.h"
 
 @class IOSByteArray;
 @class JavaIoInputStream;
@@ -59,7 +53,7 @@
  @param inArg the actual input stream
  @throw IOExceptionif an I/O error has occurred
  */
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
 
 /*!
  @brief Creates a new <code>JarInputStream</code> and reads the optional
@@ -69,8 +63,8 @@
  @param verify whether or not to verify the JarInputStream if  it is signed.
  @throw IOExceptionif an I/O error has occurred
  */
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
-                                        withBoolean:(jboolean)verify;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
+                              withBoolean:(jboolean)verify;
 
 /*!
  @brief Returns the <code>Manifest</code> for this JAR file, or 
@@ -145,8 +139,8 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)arg0
-                          withJavaNioCharsetCharset:(JavaNioCharsetCharset *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)arg0
+                withJavaNioCharsetCharset:(JavaNioCharsetCharset *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -168,10 +162,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarInputStream)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilJarJarInputStream")

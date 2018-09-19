@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/text/AttributedCharacterIterator.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaTextAttributedCharacterIterator")
 #ifdef RESTRICT_JavaTextAttributedCharacterIterator
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaTextAttributedCharacterIterator_) && (INCLUDE_ALL_JavaTextAttributedCharacterIterator || defined(INCLUDE_JavaTextAttributedCharacterIterator))
 #define JavaTextAttributedCharacterIterator_
 
 #define RESTRICT_JavaTextCharacterIterator 1
 #define INCLUDE_JavaTextCharacterIterator 1
-#include "java/text/CharacterIterator.h"
+#include "../../java/text/CharacterIterator.h"
 
 @class JavaTextAttributedCharacterIterator_Attribute;
 @protocol JavaUtilMap;
@@ -129,15 +123,12 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributedCharacterIterator)
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 /*!
  @brief Defines keys for text attributes.
  */
 @interface JavaTextAttributedCharacterIterator_Attribute : NSObject < JavaIoSerializable >
-@property (readonly, class, strong) JavaTextAttributedCharacterIterator_Attribute *INPUT_METHOD_SEGMENT NS_SWIFT_NAME(INPUT_METHOD_SEGMENT);
-@property (readonly, class, strong) JavaTextAttributedCharacterIterator_Attribute *LANGUAGE NS_SWIFT_NAME(LANGUAGE);
-@property (readonly, class, strong) JavaTextAttributedCharacterIterator_Attribute *READING NS_SWIFT_NAME(READING);
 
 + (JavaTextAttributedCharacterIterator_Attribute *)INPUT_METHOD_SEGMENT;
 
@@ -180,7 +171,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributedCharacterIterator)
  @param name the name of the new 
  <code>Attribute</code> .
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)name;
+- (instancetype)initWithNSString:(NSString *)name;
 
 /*!
  @brief Returns the name of this attribute.
@@ -199,7 +190,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributedCharacterIterator)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -246,10 +237,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributedCharacterIterator_Attribute)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextAttributedCharacterIterator")

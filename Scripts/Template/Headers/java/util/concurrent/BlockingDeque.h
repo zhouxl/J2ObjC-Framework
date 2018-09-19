@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/BlockingDeque.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentBlockingDeque")
 #ifdef RESTRICT_JavaUtilConcurrentBlockingDeque
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentBlockingDeque_) && (INCLUDE_ALL_JavaUtilConcurrentBlockingDeque || defined(INCLUDE_JavaUtilConcurrentBlockingDeque))
 #define JavaUtilConcurrentBlockingDeque_
 
 #define RESTRICT_JavaUtilConcurrentBlockingQueue 1
 #define INCLUDE_JavaUtilConcurrentBlockingQueue 1
-#include "java/util/concurrent/BlockingQueue.h"
+#include "../../../java/util/concurrent/BlockingQueue.h"
 
 #define RESTRICT_JavaUtilDeque 1
 #define INCLUDE_JavaUtilDeque 1
-#include "java/util/Deque.h"
+#include "../../../java/util/Deque.h"
 
 @class JavaUtilConcurrentTimeUnit;
 @protocol JavaUtilIterator;
@@ -603,10 +597,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentBlockingDeque)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentBlockingDeque")

@@ -3,7 +3,7 @@
 //  source: apache_harmony/classlib/modules/beans/src/main/java/java/beans/MethodDescriptor.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaBeansMethodDescriptor")
 #ifdef RESTRICT_JavaBeansMethodDescriptor
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaBeansMethodDescriptor_) && (INCLUDE_ALL_JavaBeansMethodDescriptor || defined(INCLUDE_JavaBeansMethodDescriptor))
 #define JavaBeansMethodDescriptor_
 
 #define RESTRICT_JavaBeansFeatureDescriptor 1
 #define INCLUDE_JavaBeansFeatureDescriptor 1
-#include "java/beans/FeatureDescriptor.h"
+#include "../../java/beans/FeatureDescriptor.h"
 
 @class IOSObjectArray;
 @class JavaLangReflectMethod;
@@ -48,7 +42,7 @@
  </p>
  @param method The Method to set.
  */
-- (instancetype __nonnull)initWithJavaLangReflectMethod:(JavaLangReflectMethod *)method;
+- (instancetype)initWithJavaLangReflectMethod:(JavaLangReflectMethod *)method;
 
 /*!
  @brief <p>
@@ -60,8 +54,8 @@
  @param method The Method to set.
  @param parameterDescriptors An array of parameter descriptors.
  */
-- (instancetype __nonnull)initWithJavaLangReflectMethod:(JavaLangReflectMethod *)method
-                  withJavaBeansParameterDescriptorArray:(IOSObjectArray *)parameterDescriptors;
+- (instancetype)initWithJavaLangReflectMethod:(JavaLangReflectMethod *)method
+        withJavaBeansParameterDescriptorArray:(IOSObjectArray *)parameterDescriptors;
 
 /*!
  @brief <p>
@@ -86,7 +80,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -108,10 +102,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaBeansMethodDescriptor)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaBeansMethodDescriptor")

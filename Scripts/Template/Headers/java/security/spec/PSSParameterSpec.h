@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/spec/PSSParameterSpec.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecuritySpecPSSParameterSpec")
 #ifdef RESTRICT_JavaSecuritySpecPSSParameterSpec
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecuritySpecPSSParameterSpec_) && (INCLUDE_ALL_JavaSecuritySpecPSSParameterSpec || defined(INCLUDE_JavaSecuritySpecPSSParameterSpec))
 #define JavaSecuritySpecPSSParameterSpec_
 
 #define RESTRICT_JavaSecuritySpecAlgorithmParameterSpec 1
 #define INCLUDE_JavaSecuritySpecAlgorithmParameterSpec 1
-#include "java/security/spec/AlgorithmParameterSpec.h"
+#include "../../../java/security/spec/AlgorithmParameterSpec.h"
 
 /*!
  @brief This class specifies a parameter spec for RSA-PSS signature scheme,
@@ -74,7 +68,6 @@
  @since 1.4
  */
 @interface JavaSecuritySpecPSSParameterSpec : NSObject < JavaSecuritySpecAlgorithmParameterSpec >
-@property (readonly, class, strong) JavaSecuritySpecPSSParameterSpec *DEFAULT NS_SWIFT_NAME(DEFAULT);
 
 + (JavaSecuritySpecPSSParameterSpec *)DEFAULT;
 
@@ -88,7 +81,7 @@
  @throw IllegalArgumentExceptionif <code>saltLen</code> is
   less than 0.
  */
-- (instancetype __nonnull)initWithInt:(jint)saltLen;
+- (instancetype)initWithInt:(jint)saltLen;
 
 /*!
  @brief Creates a new <code>PSSParameterSpec</code> as defined in
@@ -107,11 +100,11 @@
   or <code>trailerField</code> is less than 0.
  @since 1.5
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)mdName
-                              withNSString:(NSString *)mgfName
+- (instancetype)initWithNSString:(NSString *)mdName
+                    withNSString:(NSString *)mgfName
 withJavaSecuritySpecAlgorithmParameterSpec:(id<JavaSecuritySpecAlgorithmParameterSpec>)mgfSpec
-                                   withInt:(jint)saltLen
-                                   withInt:(jint)trailerField;
+                         withInt:(jint)saltLen
+                         withInt:(jint)trailerField;
 
 /*!
  @brief Returns the message digest algorithm name.
@@ -176,10 +169,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecPSSParameterSpec)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecPSSParameterSpec")

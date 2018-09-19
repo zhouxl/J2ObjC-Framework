@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/spec/ECPoint.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecuritySpecECPoint")
 #ifdef RESTRICT_JavaSecuritySpecECPoint
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaSecuritySpecECPoint_) && (INCLUDE_ALL_JavaSecuritySpecECPoint || defined(INCLUDE_JavaSecuritySpecECPoint))
 #define JavaSecuritySpecECPoint_
@@ -36,7 +30,6 @@
  @since 1.5
  */
 @interface JavaSecuritySpecECPoint : NSObject
-@property (readonly, class, strong) JavaSecuritySpecECPoint *POINT_INFINITY NS_SWIFT_NAME(POINT_INFINITY);
 
 + (JavaSecuritySpecECPoint *)POINT_INFINITY;
 
@@ -50,8 +43,8 @@
  @throw NullPointerExceptionif <code>x</code> or 
  <code>y</code> is null.
  */
-- (instancetype __nonnull)initWithJavaMathBigInteger:(JavaMathBigInteger *)x
-                              withJavaMathBigInteger:(JavaMathBigInteger *)y;
+- (instancetype)initWithJavaMathBigInteger:(JavaMathBigInteger *)x
+                    withJavaMathBigInteger:(JavaMathBigInteger *)y;
 
 /*!
  @brief Compares this elliptic curve point for equality with
@@ -104,10 +97,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecECPoint)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecECPoint")

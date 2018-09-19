@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/LinkedTransferQueue.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentLinkedTransferQueue")
 #ifdef RESTRICT_JavaUtilConcurrentLinkedTransferQueue
@@ -16,26 +16,20 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentLinkedTransferQueue_) && (INCLUDE_ALL_JavaUtilConcurrentLinkedTransferQueue || defined(INCLUDE_JavaUtilConcurrentLinkedTransferQueue))
 #define JavaUtilConcurrentLinkedTransferQueue_
 
 #define RESTRICT_JavaUtilAbstractQueue 1
 #define INCLUDE_JavaUtilAbstractQueue 1
-#include "java/util/AbstractQueue.h"
+#include "../../../java/util/AbstractQueue.h"
 
 #define RESTRICT_JavaUtilConcurrentTransferQueue 1
 #define INCLUDE_JavaUtilConcurrentTransferQueue 1
-#include "java/util/concurrent/TransferQueue.h"
+#include "../../../java/util/concurrent/TransferQueue.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaUtilConcurrentLinkedTransferQueue_Node;
@@ -81,7 +75,6 @@
    */
   volatile_id head_;
 }
-@property (readonly, class) jint SWEEP_THRESHOLD NS_SWIFT_NAME(SWEEP_THRESHOLD);
 
 + (jint)SWEEP_THRESHOLD;
 
@@ -90,7 +83,7 @@
 /*!
  @brief Creates an initially empty <code>LinkedTransferQueue</code>.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a <code>LinkedTransferQueue</code>
@@ -100,7 +93,7 @@
  @throw NullPointerExceptionif the specified collection or any
           of its elements are null
  */
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Inserts the specified element at the tail of this queue.
@@ -405,8 +398,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedTransferQueue)
  @brief Constructs a new node.Uses relaxed write because item can
   only be seen after publication via casNext.
  */
-- (instancetype __nonnull)initWithId:(id)item
-                         withBoolean:(jboolean)isData;
+- (instancetype)initWithId:(id)item
+               withBoolean:(jboolean)isData;
 
 /*!
  @brief Returns true if a node with the given mode cannot be
@@ -457,7 +450,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedTransferQueue)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -482,7 +475,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedTransferQueue_Node)
 
 #define RESTRICT_JavaUtilIterator 1
 #define INCLUDE_JavaUtilIterator 1
-#include "java/util/Iterator.h"
+#include "../../../java/util/Iterator.h"
 
 @class JavaUtilConcurrentLinkedTransferQueue;
 @protocol JavaUtilFunctionConsumer;
@@ -499,11 +492,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedTransferQueue_Node)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentLinkedTransferQueue:(JavaUtilConcurrentLinkedTransferQueue *)outer$;
+- (instancetype)initWithJavaUtilConcurrentLinkedTransferQueue:(JavaUtilConcurrentLinkedTransferQueue *)outer$;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -524,7 +517,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedTransferQueue_Itr)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator 1
-#include "java/util/Spliterator.h"
+#include "../../../java/util/Spliterator.h"
 
 @class JavaUtilConcurrentLinkedTransferQueue;
 @class JavaUtilConcurrentLinkedTransferQueue_Node;
@@ -540,7 +533,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedTransferQueue_Itr)
   jint batch_;
   jboolean exhausted_;
 }
-@property (readonly, class) jint MAX_BATCH NS_SWIFT_NAME(MAX_BATCH);
 
 + (jint)MAX_BATCH;
 
@@ -558,11 +550,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedTransferQueue_Itr)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentLinkedTransferQueue:(JavaUtilConcurrentLinkedTransferQueue *)outer$;
+- (instancetype)initWithJavaUtilConcurrentLinkedTransferQueue:(JavaUtilConcurrentLinkedTransferQueue *)outer$;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -584,10 +576,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedTransferQueue_LTQSpliterator)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentLinkedTransferQueue")

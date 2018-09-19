@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/NotSerializableException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoNotSerializableException")
 #ifdef RESTRICT_JavaIoNotSerializableException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoNotSerializableException_) && (INCLUDE_ALL_JavaIoNotSerializableException || defined(INCLUDE_JavaIoNotSerializableException))
 #define JavaIoNotSerializableException_
 
 #define RESTRICT_JavaIoObjectStreamException 1
 #define INCLUDE_JavaIoObjectStreamException 1
-#include "java/io/ObjectStreamException.h"
+#include "../../java/io/ObjectStreamException.h"
 
 /*!
  @brief Thrown when an instance is required to have a Serializable interface.
@@ -43,13 +37,13 @@
 /*!
  @brief Constructs a NotSerializableException object.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a NotSerializableException object with message string.
  @param classname Class of the instance being serialized/deserialized.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)classname;
+- (instancetype)initWithNSString:(NSString *)classname;
 
 @end
 
@@ -71,10 +65,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoNotSerializableException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoNotSerializableException")

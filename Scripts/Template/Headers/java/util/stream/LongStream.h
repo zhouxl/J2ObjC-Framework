@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/stream/LongStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilStreamLongStream")
 #ifdef RESTRICT_JavaUtilStreamLongStream
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilStreamLongStream_) && (INCLUDE_ALL_JavaUtilStreamLongStream || defined(INCLUDE_JavaUtilStreamLongStream))
 #define JavaUtilStreamLongStream_
 
 #define RESTRICT_JavaUtilStreamBaseStream 1
 #define INCLUDE_JavaUtilStreamBaseStream 1
-#include "java/util/stream/BaseStream.h"
+#include "../../../java/util/stream/BaseStream.h"
 
 @class IOSLongArray;
 @class JavaUtilLongSummaryStatistics;
@@ -669,7 +663,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamLongStream)
 
 #define RESTRICT_JavaUtilFunctionLongConsumer 1
 #define INCLUDE_JavaUtilFunctionLongConsumer 1
-#include "java/util/function/LongConsumer.h"
+#include "../../../java/util/function/LongConsumer.h"
 
 @protocol JavaUtilStreamLongStream;
 
@@ -723,10 +717,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamLongStream_Builder)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilStreamLongStream")

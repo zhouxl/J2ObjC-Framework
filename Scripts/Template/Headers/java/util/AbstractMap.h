@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/AbstractMap.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilAbstractMap")
 #ifdef RESTRICT_JavaUtilAbstractMap
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilAbstractMap_) && (INCLUDE_ALL_JavaUtilAbstractMap || defined(INCLUDE_JavaUtilAbstractMap))
 #define JavaUtilAbstractMap_
 
 #define RESTRICT_JavaUtilMap 1
 #define INCLUDE_JavaUtilMap 1
-#include "java/util/Map.h"
+#include "../../java/util/Map.h"
 
 @protocol JavaUtilCollection;
 @protocol JavaUtilFunctionBiConsumer;
@@ -272,7 +266,7 @@
  (For invocation by subclass constructors, typically
   implicit.)
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Returns a shallow copy of this <tt>AbstractMap</tt> instance: the keys
@@ -299,11 +293,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractMap)
 
 #define RESTRICT_JavaUtilMap 1
 #define INCLUDE_JavaUtilMap_Entry 1
-#include "java/util/Map.h"
+#include "../../java/util/Map.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 /*!
  @brief An Entry maintaining a key and a value.The value may be
@@ -324,7 +318,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractMap)
   specified entry.
  @param entry_ the entry to copy
  */
-- (instancetype __nonnull)initWithJavaUtilMap_Entry:(id<JavaUtilMap_Entry>)entry_;
+- (instancetype)initWithJavaUtilMap_Entry:(id<JavaUtilMap_Entry>)entry_;
 
 /*!
  @brief Creates an entry representing a mapping from the specified
@@ -332,8 +326,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractMap)
  @param key the key represented by this entry
  @param value the value represented by this entry
  */
-- (instancetype __nonnull)initWithId:(id)key
-                              withId:(id)value;
+- (instancetype)initWithId:(id)key
+                    withId:(id)value;
 
 /*!
  @brief Compares the specified object with this entry for equality.
@@ -407,7 +401,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractMap)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -434,11 +428,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractMap_SimpleEntry)
 
 #define RESTRICT_JavaUtilMap 1
 #define INCLUDE_JavaUtilMap_Entry 1
-#include "java/util/Map.h"
+#include "../../java/util/Map.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 /*!
  @brief An Entry maintaining an immutable key and value.This class
@@ -457,7 +451,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractMap_SimpleEntry)
   specified entry.
  @param entry_ the entry to copy
  */
-- (instancetype __nonnull)initWithJavaUtilMap_Entry:(id<JavaUtilMap_Entry>)entry_;
+- (instancetype)initWithJavaUtilMap_Entry:(id<JavaUtilMap_Entry>)entry_;
 
 /*!
  @brief Creates an entry representing a mapping from the specified
@@ -465,8 +459,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractMap_SimpleEntry)
  @param key the key represented by this entry
  @param value the value represented by this entry
  */
-- (instancetype __nonnull)initWithId:(id)key
-                              withId:(id)value;
+- (instancetype)initWithId:(id)key
+                    withId:(id)value;
 
 /*!
  @brief Compares the specified object with this entry for equality.
@@ -543,7 +537,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractMap_SimpleEntry)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -565,10 +559,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractMap_SimpleImmutableEntry)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilAbstractMap")

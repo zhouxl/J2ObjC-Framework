@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/ArrayBlockingQueue.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentArrayBlockingQueue")
 #ifdef RESTRICT_JavaUtilConcurrentArrayBlockingQueue
@@ -16,26 +16,20 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentArrayBlockingQueue_) && (INCLUDE_ALL_JavaUtilConcurrentArrayBlockingQueue || defined(INCLUDE_JavaUtilConcurrentArrayBlockingQueue))
 #define JavaUtilConcurrentArrayBlockingQueue_
 
 #define RESTRICT_JavaUtilAbstractQueue 1
 #define INCLUDE_JavaUtilAbstractQueue 1
-#include "java/util/AbstractQueue.h"
+#include "../../../java/util/AbstractQueue.h"
 
 #define RESTRICT_JavaUtilConcurrentBlockingQueue 1
 #define INCLUDE_JavaUtilConcurrentBlockingQueue 1
-#include "java/util/concurrent/BlockingQueue.h"
+#include "../../../java/util/concurrent/BlockingQueue.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaUtilConcurrentArrayBlockingQueue_Itrs;
@@ -110,7 +104,7 @@
  @param capacity the capacity of this queue
  @throw IllegalArgumentExceptionif <code>capacity < 1</code>
  */
-- (instancetype __nonnull)initWithInt:(jint)capacity;
+- (instancetype)initWithInt:(jint)capacity;
 
 /*!
  @brief Creates an <code>ArrayBlockingQueue</code> with the given (fixed)
@@ -121,8 +115,8 @@
  <code>false</code>  the access order is unspecified.
  @throw IllegalArgumentExceptionif <code>capacity < 1</code>
  */
-- (instancetype __nonnull)initWithInt:(jint)capacity
-                          withBoolean:(jboolean)fair;
+- (instancetype)initWithInt:(jint)capacity
+                withBoolean:(jboolean)fair;
 
 /*!
  @brief Creates an <code>ArrayBlockingQueue</code> with the given (fixed)
@@ -139,9 +133,9 @@
  @throw NullPointerExceptionif the specified collection or any
           of its elements are null
  */
-- (instancetype __nonnull)initWithInt:(jint)capacity
-                          withBoolean:(jboolean)fair
-               withJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype)initWithInt:(jint)capacity
+                withBoolean:(jboolean)fair
+     withJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Inserts the specified element at the tail of this queue if it is
@@ -351,7 +345,7 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -441,8 +435,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentArrayBlockingQueue)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentArrayBlockingQueue:(JavaUtilConcurrentArrayBlockingQueue *)outer$
-                          withJavaUtilConcurrentArrayBlockingQueue_Itr:(JavaUtilConcurrentArrayBlockingQueue_Itr *)initial;
+- (instancetype)initWithJavaUtilConcurrentArrayBlockingQueue:(JavaUtilConcurrentArrayBlockingQueue *)outer$
+                withJavaUtilConcurrentArrayBlockingQueue_Itr:(JavaUtilConcurrentArrayBlockingQueue_Itr *)initial;
 
 /*!
  @brief Sweeps itrs, looking for and expunging stale iterators.
@@ -483,7 +477,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentArrayBlockingQueue)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -499,10 +493,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentArrayBlockingQueue_Itrs)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentArrayBlockingQueue")

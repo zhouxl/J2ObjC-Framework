@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/VirtualMachineError.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangVirtualMachineError")
 #ifdef RESTRICT_JavaLangVirtualMachineError
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangVirtualMachineError_) && (INCLUDE_ALL_JavaLangVirtualMachineError || defined(INCLUDE_JavaLangVirtualMachineError))
 #define JavaLangVirtualMachineError_
 
 #define RESTRICT_JavaLangError 1
 #define INCLUDE_JavaLangError 1
-#include "java/lang/Error.h"
+#include "../../java/lang/Error.h"
 
 @class JavaLangThrowable;
 
@@ -44,14 +38,14 @@
 /*!
  @brief Constructs a <code>VirtualMachineError</code> with no detail message.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a <code>VirtualMachineError</code> with the specified
   detail message.
  @param message the detail message.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message;
+- (instancetype)initWithNSString:(NSString *)message;
 
 /*!
  @brief Constructs a <code>VirtualMachineError</code> with the specified
@@ -66,8 +60,8 @@
            unknown.)
  @since 1.8
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)message
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs an a <code>VirtualMachineError</code> with the specified
@@ -81,7 +75,7 @@
            unknown.)
  @since 1.8
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 @end
 
@@ -99,10 +93,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangVirtualMachineError)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangVirtualMachineError")

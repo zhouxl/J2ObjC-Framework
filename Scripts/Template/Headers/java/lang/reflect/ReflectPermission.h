@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/reflect/ReflectPermission.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangReflectReflectPermission")
 #ifdef RESTRICT_JavaLangReflectReflectPermission
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangReflectReflectPermission_) && (INCLUDE_ALL_JavaLangReflectReflectPermission || defined(INCLUDE_JavaLangReflectReflectPermission))
 #define JavaLangReflectReflectPermission_
 
 #define RESTRICT_JavaSecurityBasicPermission 1
 #define INCLUDE_JavaSecurityBasicPermission 1
-#include "java/security/BasicPermission.h"
+#include "../../../java/security/BasicPermission.h"
 
 /*!
  @brief Legacy security code; do not use.
@@ -36,10 +30,10 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)initWithNSString:(NSString *)name;
+- (instancetype)initWithNSString:(NSString *)name;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)name
-                              withNSString:(NSString *)actions;
+- (instancetype)initWithNSString:(NSString *)name
+                    withNSString:(NSString *)actions;
 
 @end
 
@@ -61,10 +55,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectReflectPermission)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangReflectReflectPermission")

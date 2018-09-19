@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/org/xml/sax/Locator.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgXmlSaxLocator")
 #ifdef RESTRICT_OrgXmlSaxLocator
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (OrgXmlSaxLocator_) && (INCLUDE_ALL_OrgXmlSaxLocator || defined(INCLUDE_OrgXmlSaxLocator))
 #define OrgXmlSaxLocator_
@@ -144,10 +138,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxLocator)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxLocator")

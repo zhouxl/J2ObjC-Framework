@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/org/xml/sax/ext/Attributes2.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgXmlSaxExtAttributes2")
 #ifdef RESTRICT_OrgXmlSaxExtAttributes2
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (OrgXmlSaxExtAttributes2_) && (INCLUDE_ALL_OrgXmlSaxExtAttributes2 || defined(INCLUDE_OrgXmlSaxExtAttributes2))
 #define OrgXmlSaxExtAttributes2_
 
 #define RESTRICT_OrgXmlSaxAttributes 1
 #define INCLUDE_OrgXmlSaxAttributes 1
-#include "org/xml/sax/Attributes.h"
+#include "../../../../org/xml/sax/Attributes.h"
 
 /*!
  @brief SAX2 extension to augment the per-attribute information
@@ -150,10 +144,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtAttributes2)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxExtAttributes2")

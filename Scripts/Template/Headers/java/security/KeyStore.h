@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/KeyStore.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityKeyStore")
 #ifdef RESTRICT_JavaSecurityKeyStore
@@ -33,12 +33,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaSecurityKeyStore_) && (INCLUDE_ALL_JavaSecurityKeyStore || defined(INCLUDE_JavaSecurityKeyStore))
 #define JavaSecurityKeyStore_
@@ -714,13 +708,13 @@ withJavaSecurityCertCertificateArray:(IOSObjectArray *)chain;
  @param provider the provider.
  @param type the keystore type.
  */
-- (instancetype __nonnull)initWithJavaSecurityKeyStoreSpi:(JavaSecurityKeyStoreSpi *)keyStoreSpi
-                                 withJavaSecurityProvider:(JavaSecurityProvider *)provider
-                                             withNSString:(NSString *)type;
+- (instancetype)initWithJavaSecurityKeyStoreSpi:(JavaSecurityKeyStoreSpi *)keyStoreSpi
+                       withJavaSecurityProvider:(JavaSecurityProvider *)provider
+                                   withNSString:(NSString *)type;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -801,7 +795,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_ProtectionParameter)
 
 #define RESTRICT_JavaxSecurityAuthDestroyable 1
 #define INCLUDE_JavaxSecurityAuthDestroyable 1
-#include "javax/security/auth/Destroyable.h"
+#include "../../javax/security/auth/Destroyable.h"
 
 @class IOSCharArray;
 
@@ -819,7 +813,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_ProtectionParameter)
   in the new <code>PasswordProtection</code> object.
  @param password the password, which may be  <code> null </code>
  */
-- (instancetype __nonnull)initWithCharArray:(IOSCharArray *)password;
+- (instancetype)initWithCharArray:(IOSCharArray *)password;
 
 /*!
  @brief Clears the password.
@@ -849,7 +843,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_ProtectionParameter)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -884,7 +878,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_PasswordProtection)
  @param handler the CallbackHandler
  @throw NullPointerExceptionif handler is null
  */
-- (instancetype __nonnull)initWithJavaxSecurityAuthCallbackCallbackHandler:(id<JavaxSecurityAuthCallbackCallbackHandler>)handler;
+- (instancetype)initWithJavaxSecurityAuthCallbackCallbackHandler:(id<JavaxSecurityAuthCallbackCallbackHandler>)handler;
 
 /*!
  @brief Returns the CallbackHandler.
@@ -894,7 +888,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_PasswordProtection)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -963,8 +957,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_Entry)
        does not match the algorithm of the <code>PublicKey</code>
        in the end entity <code>Certificate</code> (at index 0)
  */
-- (instancetype __nonnull)initWithJavaSecurityPrivateKey:(id<JavaSecurityPrivateKey>)privateKey
-                    withJavaSecurityCertCertificateArray:(IOSObjectArray *)chain;
+- (instancetype)initWithJavaSecurityPrivateKey:(id<JavaSecurityPrivateKey>)privateKey
+          withJavaSecurityCertCertificateArray:(IOSObjectArray *)chain;
 
 /*!
  @brief Gets the end entity <code>Certificate</code>
@@ -1002,7 +996,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_Entry)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -1038,7 +1032,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_PrivateKeyEntry)
  @throw NullPointerExceptionif <code>secretKey</code>
        is <code>null</code>
  */
-- (instancetype __nonnull)initWithJavaxCryptoSecretKey:(id<JavaxCryptoSecretKey>)secretKey;
+- (instancetype)initWithJavaxCryptoSecretKey:(id<JavaxCryptoSecretKey>)secretKey;
 
 /*!
  @brief Gets the <code>SecretKey</code> from this entry.
@@ -1054,7 +1048,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_PrivateKeyEntry)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -1091,7 +1085,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_SecretKeyEntry)
  @throw NullPointerExceptionif
        <code>trustedCert</code> is <code>null</code>
  */
-- (instancetype __nonnull)initWithJavaSecurityCertCertificate:(JavaSecurityCertCertificate *)trustedCert;
+- (instancetype)initWithJavaSecurityCertCertificate:(JavaSecurityCertCertificate *)trustedCert;
 
 /*!
  @brief Gets the trusted <code>Certficate</code> from this entry.
@@ -1107,7 +1101,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_SecretKeyEntry)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -1144,7 +1138,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_TrustedCertificateEntry)
  @since 1.5
  */
 @interface JavaSecurityKeyStore_Builder : NSObject
-@property (readonly, class) jint MAX_CALLBACK_TRIES NS_SWIFT_NAME(MAX_CALLBACK_TRIES);
 
 + (jint)MAX_CALLBACK_TRIES;
 
@@ -1267,7 +1260,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_TrustedCertificateEntry)
 /*!
  @brief Construct a new Builder.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -1302,11 +1295,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_Builder)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaSecurityKeyStore_ProtectionParameter:(id<JavaSecurityKeyStore_ProtectionParameter>)protection;
+- (instancetype)initWithJavaSecurityKeyStore_ProtectionParameter:(id<JavaSecurityKeyStore_ProtectionParameter>)protection;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -1322,10 +1315,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_SimpleLoadStoreParameter)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityKeyStore")

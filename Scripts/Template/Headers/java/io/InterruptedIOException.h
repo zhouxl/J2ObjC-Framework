@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/InterruptedIOException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoInterruptedIOException")
 #ifdef RESTRICT_JavaIoInterruptedIOException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoInterruptedIOException_) && (INCLUDE_ALL_JavaIoInterruptedIOException || defined(INCLUDE_JavaIoInterruptedIOException))
 #define JavaIoInterruptedIOException_
 
 #define RESTRICT_JavaIoIOException 1
 #define INCLUDE_JavaIoIOException 1
-#include "java/io/IOException.h"
+#include "../../java/io/IOException.h"
 
 @class JavaLangThrowable;
 
@@ -60,7 +54,7 @@
  @brief Constructs an <code>InterruptedIOException</code> with 
  <code>null</code> as its error detail message.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs an <code>InterruptedIOException</code> with the
@@ -70,17 +64,17 @@
   method of class <code>java.lang.Throwable</code>.
  @param s the detail message.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s;
+- (instancetype)initWithNSString:(NSString *)s;
 
 /*!
  @brief Constructs a new instance with given detail message and cause.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)detailMessage
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)detailMessage
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 @end
 
@@ -114,10 +108,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoInterruptedIOException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoInterruptedIOException")

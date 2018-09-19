@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/DOMImplementationList.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgW3cDomDOMImplementationList")
 #ifdef RESTRICT_OrgW3cDomDOMImplementationList
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (OrgW3cDomDOMImplementationList_) && (INCLUDE_ALL_OrgW3cDomDOMImplementationList || defined(INCLUDE_OrgW3cDomDOMImplementationList))
 #define OrgW3cDomDOMImplementationList_
@@ -64,10 +58,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomDOMImplementationList)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgW3cDomDOMImplementationList")

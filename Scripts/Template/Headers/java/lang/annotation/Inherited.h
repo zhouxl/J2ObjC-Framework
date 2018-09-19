@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/annotation/Inherited.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangAnnotationInherited")
 #ifdef RESTRICT_JavaLangAnnotationInherited
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangAnnotationInherited_) && (INCLUDE_ALL_JavaLangAnnotationInherited || defined(INCLUDE_JavaLangAnnotationInherited))
 #define JavaLangAnnotationInherited_
 
 #define RESTRICT_JavaLangAnnotationAnnotation 1
 #define INCLUDE_JavaLangAnnotationAnnotation 1
-#include "java/lang/annotation/Annotation.h"
+#include "../../../java/lang/annotation/Annotation.h"
 
 @class IOSClass;
 
@@ -52,10 +46,6 @@
  */
 @protocol JavaLangAnnotationInherited < JavaLangAnnotationAnnotation >
 
-- (jboolean)isEqual:(id)obj;
-
-- (NSUInteger)hash;
-
 @end
 
 @interface JavaLangAnnotationInherited : NSObject < JavaLangAnnotationInherited >
@@ -70,10 +60,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangAnnotationInherited)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangAnnotationInherited")

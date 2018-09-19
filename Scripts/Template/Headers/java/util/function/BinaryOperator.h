@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/function/BinaryOperator.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilFunctionBinaryOperator")
 #ifdef RESTRICT_JavaUtilFunctionBinaryOperator
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilFunctionBinaryOperator_) && (INCLUDE_ALL_JavaUtilFunctionBinaryOperator || defined(INCLUDE_JavaUtilFunctionBinaryOperator))
 #define JavaUtilFunctionBinaryOperator_
 
 #define RESTRICT_JavaUtilFunctionBiFunction 1
 #define INCLUDE_JavaUtilFunctionBiFunction 1
-#include "java/util/function/BiFunction.h"
+#include "../../../java/util/function/BiFunction.h"
 
 @protocol JavaUtilComparator;
 
@@ -80,10 +74,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilFunctionBinaryOperator)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilFunctionBinaryOperator")

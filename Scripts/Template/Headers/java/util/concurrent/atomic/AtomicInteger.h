@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/atomic/AtomicInteger.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicInteger")
 #ifdef RESTRICT_JavaUtilConcurrentAtomicAtomicInteger
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentAtomicAtomicInteger_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicInteger || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicInteger))
 #define JavaUtilConcurrentAtomicAtomicInteger_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../../java/io/Serializable.h"
 
 @protocol JavaUtilFunctionIntBinaryOperator;
 @protocol JavaUtilFunctionIntUnaryOperator;
@@ -52,13 +46,13 @@
 /*!
  @brief Creates a new AtomicInteger with initial value <code>0</code>.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a new AtomicInteger with the given initial value.
  @param initialValue the initial value
  */
-- (instancetype __nonnull)initWithInt:(jint)initialValue;
+- (instancetype)initWithInt:(jint)initialValue;
 
 /*!
  @brief Atomically updates the current value with the results of
@@ -260,10 +254,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicInteger)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicInteger")

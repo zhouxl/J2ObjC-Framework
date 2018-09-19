@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/CountDownLatch.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentCountDownLatch")
 #ifdef RESTRICT_JavaUtilConcurrentCountDownLatch
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaUtilConcurrentCountDownLatch_) && (INCLUDE_ALL_JavaUtilConcurrentCountDownLatch || defined(INCLUDE_JavaUtilConcurrentCountDownLatch))
 #define JavaUtilConcurrentCountDownLatch_
@@ -140,7 +134,7 @@
           before threads can pass through <code>await</code>
  @throw IllegalArgumentExceptionif <code>count</code> is negative
  */
-- (instancetype __nonnull)initWithInt:(jint)count;
+- (instancetype)initWithInt:(jint)count;
 
 /*!
  @brief Causes the current thread to wait until the latch has counted down to
@@ -236,7 +230,7 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -252,10 +246,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCountDownLatch)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentCountDownLatch")

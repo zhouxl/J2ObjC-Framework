@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/Semaphore.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentSemaphore")
 #ifdef RESTRICT_JavaUtilConcurrentSemaphore
@@ -22,18 +22,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentSemaphore_) && (INCLUDE_ALL_JavaUtilConcurrentSemaphore || defined(INCLUDE_JavaUtilConcurrentSemaphore))
 #define JavaUtilConcurrentSemaphore_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 @class JavaUtilConcurrentTimeUnit;
 @protocol JavaUtilCollection;
@@ -156,7 +150,7 @@
  @param permits the initial number of permits available.         This value may be negative, in which case releases
           must occur before any acquires will be granted.
  */
-- (instancetype __nonnull)initWithInt:(jint)permits;
+- (instancetype)initWithInt:(jint)permits;
 
 /*!
  @brief Creates a <code>Semaphore</code> with the given number of
@@ -167,8 +161,8 @@
           else 
  <code>false</code>
  */
-- (instancetype __nonnull)initWithInt:(jint)permits
-                          withBoolean:(jboolean)fair;
+- (instancetype)initWithInt:(jint)permits
+                withBoolean:(jboolean)fair;
 
 /*!
  @brief Acquires a permit from this semaphore, blocking until one is
@@ -520,7 +514,7 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -547,7 +541,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSemaphore)
 
 #define RESTRICT_JavaUtilConcurrentLocksAbstractQueuedSynchronizer 1
 #define INCLUDE_JavaUtilConcurrentLocksAbstractQueuedSynchronizer 1
-#include "java/util/concurrent/locks/AbstractQueuedSynchronizer.h"
+#include "../../../java/util/concurrent/locks/AbstractQueuedSynchronizer.h"
 
 /*!
  @brief Synchronization implementation for semaphore.Uses AQS state
@@ -563,7 +557,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSemaphore)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithInt:(jint)permits;
+- (instancetype)initWithInt:(jint)permits;
 
 - (jint)drainPermits;
 
@@ -597,7 +591,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSemaphore_Sync)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithInt:(jint)permits;
+- (instancetype)initWithInt:(jint)permits;
 
 @end
 
@@ -627,7 +621,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSemaphore_NonfairSync)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithInt:(jint)permits;
+- (instancetype)initWithInt:(jint)permits;
 
 @end
 
@@ -643,10 +637,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSemaphore_FairSync)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentSemaphore")

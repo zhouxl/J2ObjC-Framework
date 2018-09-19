@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/javax/xml/parsers/ParserConfigurationException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxXmlParsersParserConfigurationException")
 #ifdef RESTRICT_JavaxXmlParsersParserConfigurationException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxXmlParsersParserConfigurationException_) && (INCLUDE_ALL_JavaxXmlParsersParserConfigurationException || defined(INCLUDE_JavaxXmlParsersParserConfigurationException))
 #define JavaxXmlParsersParserConfigurationException_
 
 #define RESTRICT_JavaLangException 1
 #define INCLUDE_JavaLangException 1
-#include "java/lang/Exception.h"
+#include "../../../java/lang/Exception.h"
 
 @class JavaLangThrowable;
 
@@ -44,26 +38,26 @@
  @brief Create a new <code>ParserConfigurationException</code> with no
   detail message.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Create a new <code>ParserConfigurationException</code> with
   the <code>String</code> specified as an error message.
  @param msg The error message for the exception.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)msg;
+- (instancetype)initWithNSString:(NSString *)msg;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1
-                               withBoolean:(jboolean)arg2
-                               withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1
+                     withBoolean:(jboolean)arg2
+                     withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -85,10 +79,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlParsersParserConfigurationException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlParsersParserConfigurationException")

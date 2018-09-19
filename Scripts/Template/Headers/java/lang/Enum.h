@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/Enum.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangEnum")
 #ifdef RESTRICT_JavaLangEnum
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #ifndef JavaLangEnum_H
 #define JavaLangEnum_H
@@ -34,11 +28,11 @@
 
 #define RESTRICT_JavaLangComparable 1
 #define INCLUDE_JavaLangComparable 1
-#include "java/lang/Comparable.h"
+#include "../../java/lang/Comparable.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSClass;
 @class IOSObjectArray;
@@ -167,8 +161,8 @@
           is null
  @since 1.5
  */
-+ (JavaLangEnum * __nonnull)valueOfWithIOSClass:(IOSClass *)enumType
-                                   withNSString:(NSString *)name;
++ (JavaLangEnum *)valueOfWithIOSClass:(IOSClass *)enumType
+                         withNSString:(NSString *)name;
 
 #pragma mark Protected
 
@@ -180,8 +174,8 @@
  @param ordinal - The ordinal of this enumeration constant (its position          in the enum declaration, where the initial constant is assigned
            an ordinal of zero).
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)name
-                                   withInt:(jint)ordinal;
+- (instancetype)initWithNSString:(NSString *)name
+                         withInt:(jint)ordinal;
 
 /*!
  @brief Throws CloneNotSupportedException.This guarantees that enums
@@ -212,10 +206,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangEnum)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangEnum")

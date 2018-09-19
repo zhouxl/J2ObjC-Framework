@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/PipedReader.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoPipedReader")
 #ifdef RESTRICT_JavaIoPipedReader
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoPipedReader_) && (INCLUDE_ALL_JavaIoPipedReader || defined(INCLUDE_JavaIoPipedReader))
 #define JavaIoPipedReader_
 
 #define RESTRICT_JavaIoReader 1
 #define INCLUDE_JavaIoReader 1
-#include "java/io/Reader.h"
+#include "../../java/io/Reader.h"
 
 @class IOSCharArray;
 @class JavaIoPipedWriter;
@@ -73,7 +67,7 @@
   to a <code>PipedWriter</code>
   before being used.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a <code>PipedReader</code> so that it is not yet 
@@ -86,7 +80,7 @@
  @throw IllegalArgumentExceptionif <code>pipeSize <= 0</code>.
  @since 1.6
  */
-- (instancetype __nonnull)initWithInt:(jint)pipeSize;
+- (instancetype)initWithInt:(jint)pipeSize;
 
 /*!
  @brief Creates a <code>PipedReader</code> so
@@ -96,7 +90,7 @@
  @param src the stream to connect to.
  @throw IOExceptionif an I/O error occurs.
  */
-- (instancetype __nonnull)initWithJavaIoPipedWriter:(JavaIoPipedWriter *)src;
+- (instancetype)initWithJavaIoPipedWriter:(JavaIoPipedWriter *)src;
 
 /*!
  @brief Creates a <code>PipedReader</code> so that it is connected
@@ -109,8 +103,8 @@
  @throw IllegalArgumentExceptionif <code>pipeSize <= 0</code>.
  @since 1.6
  */
-- (instancetype __nonnull)initWithJavaIoPipedWriter:(JavaIoPipedWriter *)src
-                                            withInt:(jint)pipeSize;
+- (instancetype)initWithJavaIoPipedWriter:(JavaIoPipedWriter *)src
+                                  withInt:(jint)pipeSize;
 
 /*!
  @brief Closes this piped stream and releases any system resources
@@ -215,7 +209,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithId:(id)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithId:(id)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -253,10 +247,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoPipedReader)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoPipedReader")

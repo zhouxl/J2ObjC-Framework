@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/cert/CertPathBuilderException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityCertCertPathBuilderException")
 #ifdef RESTRICT_JavaSecurityCertCertPathBuilderException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityCertCertPathBuilderException_) && (INCLUDE_ALL_JavaSecurityCertCertPathBuilderException || defined(INCLUDE_JavaSecurityCertCertPathBuilderException))
 #define JavaSecurityCertCertPathBuilderException_
 
 #define RESTRICT_JavaSecurityGeneralSecurityException 1
 #define INCLUDE_JavaSecurityGeneralSecurityException 1
-#include "java/security/GeneralSecurityException.h"
+#include "../../../java/security/GeneralSecurityException.h"
 
 @class JavaLangThrowable;
 
@@ -58,7 +52,7 @@
  @brief Creates a <code>CertPathBuilderException</code> with <code>null</code>
   as its detail message.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a <code>CertPathBuilderException</code> with the given
@@ -66,7 +60,7 @@
   describes this particular exception in more detail.
  @param msg the detail message
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)msg;
+- (instancetype)initWithNSString:(NSString *)msg;
 
 /*!
  @brief Creates a <code>CertPathBuilderException</code> with the specified
@@ -75,8 +69,8 @@
  @param cause the cause (which is saved for later retrieval by the  
  <code>getCause()</code>  method). (A <code>null</code>  value is  permitted, and indicates that the cause is nonexistent or unknown.)
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)msg
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)msg
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Creates a <code>CertPathBuilderException</code> that wraps the specified
@@ -90,7 +84,7 @@
  @param cause the cause (which is saved for later retrieval by the  
  <code>getCause()</code>  method). (A <code>null</code>  value is  permitted, and indicates that the cause is nonexistent or unknown.)
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 @end
 
@@ -124,10 +118,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertPathBuilderException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCertPathBuilderException")

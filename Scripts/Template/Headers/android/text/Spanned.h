@@ -3,7 +3,7 @@
 //  source: android/frameworks/base/core/java/android/text/Spanned.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_AndroidTextSpanned")
 #ifdef RESTRICT_AndroidTextSpanned
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (AndroidTextSpanned_) && (INCLUDE_ALL_AndroidTextSpanned || defined(INCLUDE_AndroidTextSpanned))
 #define AndroidTextSpanned_
 
 #define RESTRICT_JavaLangCharSequence 1
 #define INCLUDE_JavaLangCharSequence 1
-#include "java/lang/CharSequence.h"
+#include "../../java/lang/CharSequence.h"
 
 @class IOSClass;
 @class IOSObjectArray;
@@ -84,22 +78,6 @@
 @end
 
 @interface AndroidTextSpanned : NSObject
-@property (readonly, class) jint SPAN_POINT_MARK_MASK NS_SWIFT_NAME(SPAN_POINT_MARK_MASK);
-@property (readonly, class) jint SPAN_MARK_MARK NS_SWIFT_NAME(SPAN_MARK_MARK);
-@property (readonly, class) jint SPAN_MARK_POINT NS_SWIFT_NAME(SPAN_MARK_POINT);
-@property (readonly, class) jint SPAN_POINT_MARK NS_SWIFT_NAME(SPAN_POINT_MARK);
-@property (readonly, class) jint SPAN_POINT_POINT NS_SWIFT_NAME(SPAN_POINT_POINT);
-@property (readonly, class) jint SPAN_PARAGRAPH NS_SWIFT_NAME(SPAN_PARAGRAPH);
-@property (readonly, class) jint SPAN_INCLUSIVE_EXCLUSIVE NS_SWIFT_NAME(SPAN_INCLUSIVE_EXCLUSIVE);
-@property (readonly, class) jint SPAN_INCLUSIVE_INCLUSIVE NS_SWIFT_NAME(SPAN_INCLUSIVE_INCLUSIVE);
-@property (readonly, class) jint SPAN_EXCLUSIVE_EXCLUSIVE NS_SWIFT_NAME(SPAN_EXCLUSIVE_EXCLUSIVE);
-@property (readonly, class) jint SPAN_EXCLUSIVE_INCLUSIVE NS_SWIFT_NAME(SPAN_EXCLUSIVE_INCLUSIVE);
-@property (readonly, class) jint SPAN_COMPOSING NS_SWIFT_NAME(SPAN_COMPOSING);
-@property (readonly, class) jint SPAN_INTERMEDIATE NS_SWIFT_NAME(SPAN_INTERMEDIATE);
-@property (readonly, class) jint SPAN_USER_SHIFT NS_SWIFT_NAME(SPAN_USER_SHIFT);
-@property (readonly, class) jint SPAN_USER NS_SWIFT_NAME(SPAN_USER);
-@property (readonly, class) jint SPAN_PRIORITY_SHIFT NS_SWIFT_NAME(SPAN_PRIORITY_SHIFT);
-@property (readonly, class) jint SPAN_PRIORITY NS_SWIFT_NAME(SPAN_PRIORITY);
 
 + (jint)SPAN_POINT_MARK_MASK;
 
@@ -307,10 +285,6 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpanned)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidTextSpanned")

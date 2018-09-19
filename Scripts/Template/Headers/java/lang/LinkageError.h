@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/LinkageError.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangLinkageError")
 #ifdef RESTRICT_JavaLangLinkageError
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangLinkageError_) && (INCLUDE_ALL_JavaLangLinkageError || defined(INCLUDE_JavaLangLinkageError))
 #define JavaLangLinkageError_
 
 #define RESTRICT_JavaLangError 1
 #define INCLUDE_JavaLangError 1
-#include "java/lang/Error.h"
+#include "../../java/lang/Error.h"
 
 @class JavaLangThrowable;
 
@@ -45,14 +39,14 @@
 /*!
  @brief Constructs a <code>LinkageError</code> with no detail message.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a <code>LinkageError</code> with the specified detail
   message.
  @param s the detail message.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s;
+- (instancetype)initWithNSString:(NSString *)s;
 
 /*!
  @brief Constructs a <code>LinkageError</code> with the specified detail
@@ -61,17 +55,17 @@
  @param cause the cause, may be <code>null</code>
  @since 1.7
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)s
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1
-                               withBoolean:(jboolean)arg2
-                               withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1
+                     withBoolean:(jboolean)arg2
+                     withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -99,10 +93,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangLinkageError)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangLinkageError")

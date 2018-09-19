@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/Hashtable.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilHashtable")
 #ifdef RESTRICT_JavaUtilHashtable
@@ -16,26 +16,20 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilHashtable_) && (INCLUDE_ALL_JavaUtilHashtable || defined(INCLUDE_JavaUtilHashtable))
 #define JavaUtilHashtable_
 
 #define RESTRICT_JavaUtilDictionary 1
 #define INCLUDE_JavaUtilDictionary 1
-#include "java/util/Dictionary.h"
+#include "../../java/util/Dictionary.h"
 
 #define RESTRICT_JavaUtilMap 1
 #define INCLUDE_JavaUtilMap 1
-#include "java/util/Map.h"
+#include "../../java/util/Map.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @protocol JavaUtilCollection;
 @protocol JavaUtilEnumeration;
@@ -144,7 +138,7 @@
  @brief Constructs a new, empty hashtable with a default initial capacity (11)
   and load factor (0.75).
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a new, empty hashtable with the specified initial capacity
@@ -153,7 +147,7 @@
  @throw IllegalArgumentExceptionif the initial capacity is less
                than zero.
  */
-- (instancetype __nonnull)initWithInt:(jint)initialCapacity;
+- (instancetype)initWithInt:(jint)initialCapacity;
 
 /*!
  @brief Constructs a new, empty hashtable with the specified initial
@@ -163,8 +157,8 @@
  @throw IllegalArgumentExceptionif the initial capacity is less
               than zero, or if the load factor is nonpositive.
  */
-- (instancetype __nonnull)initWithInt:(jint)initialCapacity
-                            withFloat:(jfloat)loadFactor;
+- (instancetype)initWithInt:(jint)initialCapacity
+                  withFloat:(jfloat)loadFactor;
 
 /*!
  @brief Constructs a new hashtable with the same mappings as the given
@@ -174,7 +168,7 @@
  @throw NullPointerExceptionif the specified map is null.
  @since 1.2
  */
-- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)t;
+- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)t;
 
 /*!
  @brief Clears this hashtable so that it contains no keys.
@@ -476,7 +470,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashtable)
 
 #define RESTRICT_JavaUtilMap 1
 #define INCLUDE_JavaUtilMap_Entry 1
-#include "java/util/Map.h"
+#include "../../java/util/Map.h"
 
 /*!
  @brief Hashtable bucket collision list entry
@@ -505,16 +499,16 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashtable)
 
 #pragma mark Protected
 
-- (instancetype __nonnull)initWithInt:(jint)hash_
-                               withId:(id)key
-                               withId:(id)value
- withJavaUtilHashtable_HashtableEntry:(JavaUtilHashtable_HashtableEntry *)next;
+- (instancetype)initWithInt:(jint)hash_
+                     withId:(id)key
+                     withId:(id)value
+withJavaUtilHashtable_HashtableEntry:(JavaUtilHashtable_HashtableEntry *)next;
 
 - (id)java_clone;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -534,10 +528,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashtable_HashtableEntry)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilHashtable")

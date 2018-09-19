@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/zip/DeflaterOutputStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilZipDeflaterOutputStream")
 #ifdef RESTRICT_JavaUtilZipDeflaterOutputStream
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilZipDeflaterOutputStream_) && (INCLUDE_ALL_JavaUtilZipDeflaterOutputStream || defined(INCLUDE_JavaUtilZipDeflaterOutputStream))
 #define JavaUtilZipDeflaterOutputStream_
 
 #define RESTRICT_JavaIoFilterOutputStream 1
 #define INCLUDE_JavaIoFilterOutputStream 1
-#include "java/io/FilterOutputStream.h"
+#include "../../../java/io/FilterOutputStream.h"
 
 @class IOSByteArray;
 @class JavaIoOutputStream;
@@ -61,7 +55,7 @@
   the 2-argument constructor DeflaterOutputStream(out, false).
  @param outArg the output stream
  */
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg;
 
 /*!
  @brief Creates a new output stream with a default compressor, a default
@@ -73,8 +67,8 @@
    before flushing the output         stream, otherwise only flushes the output stream
  @since 1.7
  */
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-                                         withBoolean:(jboolean)syncFlush;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+                               withBoolean:(jboolean)syncFlush;
 
 /*!
  @brief Creates a new output stream with the specified compressor and
@@ -84,8 +78,8 @@
  @param outArg the output stream
  @param def the compressor ("deflater")
  */
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-                             withJavaUtilZipDeflater:(JavaUtilZipDeflater *)def;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+                   withJavaUtilZipDeflater:(JavaUtilZipDeflater *)def;
 
 /*!
  @brief Creates a new output stream with the specified compressor, flush
@@ -98,9 +92,9 @@
    before flushing the output         stream, otherwise only flushes the output stream
  @since 1.7
  */
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-                             withJavaUtilZipDeflater:(JavaUtilZipDeflater *)def
-                                         withBoolean:(jboolean)syncFlush;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+                   withJavaUtilZipDeflater:(JavaUtilZipDeflater *)def
+                               withBoolean:(jboolean)syncFlush;
 
 /*!
  @brief Creates a new output stream with the specified compressor and
@@ -112,9 +106,9 @@
  @param size the output buffer size
  @throw IllegalArgumentExceptionif size is <= 0
  */
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-                             withJavaUtilZipDeflater:(JavaUtilZipDeflater *)def
-                                             withInt:(jint)size;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+                   withJavaUtilZipDeflater:(JavaUtilZipDeflater *)def
+                                   withInt:(jint)size;
 
 /*!
  @brief Creates a new output stream with the specified compressor,
@@ -129,10 +123,10 @@
  @throw IllegalArgumentExceptionif size is <= 0
  @since 1.7
  */
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-                             withJavaUtilZipDeflater:(JavaUtilZipDeflater *)def
-                                             withInt:(jint)size
-                                         withBoolean:(jboolean)syncFlush;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+                   withJavaUtilZipDeflater:(JavaUtilZipDeflater *)def
+                                   withInt:(jint)size
+                               withBoolean:(jboolean)syncFlush;
 
 /*!
  @brief Writes remaining compressed data to the output stream and closes the
@@ -238,10 +232,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipDeflaterOutputStream)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilZipDeflaterOutputStream")

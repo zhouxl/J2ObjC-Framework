@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/EnumSet.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilEnumSet")
 #ifdef RESTRICT_JavaUtilEnumSet
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilEnumSet_) && (INCLUDE_ALL_JavaUtilEnumSet || defined(INCLUDE_JavaUtilEnumSet))
 #define JavaUtilEnumSet_
 
 #define RESTRICT_JavaUtilAbstractSet 1
 #define INCLUDE_JavaUtilAbstractSet 1
-#include "java/util/AbstractSet.h"
+#include "../../java/util/AbstractSet.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSClass;
 @class IOSObjectArray;
@@ -267,8 +261,8 @@
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithIOSClass:(IOSClass *)elementType
-                     withJavaLangEnumArray:(IOSObjectArray *)universe;
+- (instancetype)initWithIOSClass:(IOSClass *)elementType
+           withJavaLangEnumArray:(IOSObjectArray *)universe;
 
 /*!
  @brief Adds all of the elements from the appropriate enum type to this enum
@@ -332,10 +326,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilEnumSet)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilEnumSet")

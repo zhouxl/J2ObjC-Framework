@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/org/xml/sax/helpers/AttributesImpl.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgXmlSaxHelpersAttributesImpl")
 #ifdef RESTRICT_OrgXmlSaxHelpersAttributesImpl
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (OrgXmlSaxHelpersAttributesImpl_) && (INCLUDE_ALL_OrgXmlSaxHelpersAttributesImpl || defined(INCLUDE_OrgXmlSaxHelpersAttributesImpl))
 #define OrgXmlSaxHelpersAttributesImpl_
 
 #define RESTRICT_OrgXmlSaxAttributes 1
 #define INCLUDE_OrgXmlSaxAttributes 1
-#include "org/xml/sax/Attributes.h"
+#include "../../../../org/xml/sax/Attributes.h"
 
 @class IOSObjectArray;
 
@@ -73,7 +67,7 @@
 /*!
  @brief Construct a new, empty AttributesImpl object.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Copy an existing Attributes object.
@@ -81,7 +75,7 @@
  <code>startElement</code> event.</p>
  @param atts The existing Attributes object.
  */
-- (instancetype __nonnull)initWithOrgXmlSaxAttributes:(id<OrgXmlSaxAttributes>)atts;
+- (instancetype)initWithOrgXmlSaxAttributes:(id<OrgXmlSaxAttributes>)atts;
 
 /*!
  @brief Add an attribute to the end of the list.
@@ -338,10 +332,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersAttributesImpl)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersAttributesImpl")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/net/BindException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetBindException")
 #ifdef RESTRICT_JavaNetBindException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNetBindException_) && (INCLUDE_ALL_JavaNetBindException || defined(INCLUDE_JavaNetBindException))
 #define JavaNetBindException_
 
 #define RESTRICT_JavaNetSocketException 1
 #define INCLUDE_JavaNetSocketException 1
-#include "java/net/SocketException.h"
+#include "../../java/net/SocketException.h"
 
 @class JavaLangThrowable;
 
@@ -44,7 +38,7 @@
 /*!
  @brief Construct a new BindException with no detailed message.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a new BindException with the specified detail
@@ -53,16 +47,16 @@
   description of this error.
  @param msg the detail message
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)msg;
+- (instancetype)initWithNSString:(NSString *)msg;
 
 /*!
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)msg
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)msg
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -90,10 +84,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetBindException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetBindException")

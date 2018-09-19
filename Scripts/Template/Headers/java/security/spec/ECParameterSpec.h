@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/spec/ECParameterSpec.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecuritySpecECParameterSpec")
 #ifdef RESTRICT_JavaSecuritySpecECParameterSpec
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecuritySpecECParameterSpec_) && (INCLUDE_ALL_JavaSecuritySpecECParameterSpec || defined(INCLUDE_JavaSecuritySpecECParameterSpec))
 #define JavaSecuritySpecECParameterSpec_
 
 #define RESTRICT_JavaSecuritySpecAlgorithmParameterSpec 1
 #define INCLUDE_JavaSecuritySpecAlgorithmParameterSpec 1
-#include "java/security/spec/AlgorithmParameterSpec.h"
+#include "../../../java/security/spec/AlgorithmParameterSpec.h"
 
 @class JavaMathBigInteger;
 @class JavaSecuritySpecECPoint;
@@ -57,10 +51,10 @@
  @throw IllegalArgumentExceptionif <code>n</code>
   or <code>h</code> is not positive.
  */
-- (instancetype __nonnull)initWithJavaSecuritySpecEllipticCurve:(JavaSecuritySpecEllipticCurve *)curve
-                                    withJavaSecuritySpecECPoint:(JavaSecuritySpecECPoint *)g
-                                         withJavaMathBigInteger:(JavaMathBigInteger *)n
-                                                        withInt:(jint)h;
+- (instancetype)initWithJavaSecuritySpecEllipticCurve:(JavaSecuritySpecEllipticCurve *)curve
+                          withJavaSecuritySpecECPoint:(JavaSecuritySpecECPoint *)g
+                               withJavaMathBigInteger:(JavaMathBigInteger *)n
+                                              withInt:(jint)h;
 
 /*!
  @brief Returns the cofactor.
@@ -99,7 +93,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -115,10 +109,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecECParameterSpec)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecECParameterSpec")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/text/Format.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaTextFormat")
 #ifdef RESTRICT_JavaTextFormat
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaTextFormat_) && (INCLUDE_ALL_JavaTextFormat || defined(INCLUDE_JavaTextFormat))
 #define JavaTextFormat_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaLangStringBuffer;
@@ -230,7 +224,7 @@
  (For invocation by subclass constructors, typically
   implicit.)
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 #pragma mark Package-Private
 
@@ -293,7 +287,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextFormat)
 
 #define RESTRICT_JavaTextAttributedCharacterIterator 1
 #define INCLUDE_JavaTextAttributedCharacterIterator_Attribute 1
-#include "java/text/AttributedCharacterIterator.h"
+#include "../../java/text/AttributedCharacterIterator.h"
 
 /*!
  @brief Defines constants that are used as attribute keys in the 
@@ -310,7 +304,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextFormat)
  @brief Creates a Field with the specified name.
  @param name Name of the attribute
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)name;
+- (instancetype)initWithNSString:(NSString *)name;
 
 @end
 
@@ -386,10 +380,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextFormat_FieldDelegate)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextFormat")

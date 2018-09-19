@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/crypto/Cipher.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxCryptoCipher")
 #ifdef RESTRICT_JavaxCryptoCipher
@@ -18,7 +18,6 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -609,13 +608,6 @@
  @since 1.4
  */
 @interface JavaxCryptoCipher : NSObject
-@property (readonly, class) jint ENCRYPT_MODE NS_SWIFT_NAME(ENCRYPT_MODE);
-@property (readonly, class) jint DECRYPT_MODE NS_SWIFT_NAME(DECRYPT_MODE);
-@property (readonly, class) jint WRAP_MODE NS_SWIFT_NAME(WRAP_MODE);
-@property (readonly, class) jint UNWRAP_MODE NS_SWIFT_NAME(UNWRAP_MODE);
-@property (readonly, class) jint PUBLIC_KEY NS_SWIFT_NAME(PUBLIC_KEY);
-@property (readonly, class) jint PRIVATE_KEY NS_SWIFT_NAME(PRIVATE_KEY);
-@property (readonly, class) jint SECRET_KEY NS_SWIFT_NAME(SECRET_KEY);
 
 + (jint)ENCRYPT_MODE;
 
@@ -1850,9 +1842,9 @@ withJavaSecuritySecureRandom:(JavaSecuritySecureRandom *)random OBJC_METHOD_FAMI
  @param provider the provider
  @param transformation the transformation
  */
-- (instancetype __nonnull)initWithJavaxCryptoCipherSpi:(JavaxCryptoCipherSpi *)cipherSpi
-                              withJavaSecurityProvider:(JavaSecurityProvider *)provider
-                                          withNSString:(NSString *)transformation;
+- (instancetype)initWithJavaxCryptoCipherSpi:(JavaxCryptoCipherSpi *)cipherSpi
+                    withJavaSecurityProvider:(JavaSecurityProvider *)provider
+                                withNSString:(NSString *)transformation;
 
 #pragma mark Package-Private
 
@@ -1913,7 +1905,7 @@ withJavaSecuritySecureRandom:(JavaSecuritySecureRandom *)random OBJC_METHOD_FAMI
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -2001,7 +1993,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoCipher)
 
 #define RESTRICT_JavaLangEnum 1
 #define INCLUDE_JavaLangEnum 1
-#include "java/lang/Enum.h"
+#include "../../java/lang/Enum.h"
 
 @class IOSObjectArray;
 
@@ -2017,10 +2009,6 @@ typedef NS_ENUM(NSUInteger, JavaxCryptoCipher_NeedToSet_Enum) {
  */
 @interface JavaxCryptoCipher_NeedToSet : JavaLangEnum
 
-@property (readonly, class, nonnull) JavaxCryptoCipher_NeedToSet *NONE NS_SWIFT_NAME(NONE);
-@property (readonly, class, nonnull) JavaxCryptoCipher_NeedToSet *MODE NS_SWIFT_NAME(MODE);
-@property (readonly, class, nonnull) JavaxCryptoCipher_NeedToSet *PADDING NS_SWIFT_NAME(PADDING);
-@property (readonly, class, nonnull) JavaxCryptoCipher_NeedToSet *BOTH NS_SWIFT_NAME(BOTH);
 + (JavaxCryptoCipher_NeedToSet * __nonnull)NONE;
 
 + (JavaxCryptoCipher_NeedToSet * __nonnull)MODE;
@@ -2081,12 +2069,12 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoCipher_NeedToSet)
 
 #pragma mark Public
 
-- (instancetype __nonnull)initWithNSString:(NSString *)name
-           withJavaxCryptoCipher_NeedToSet:(JavaxCryptoCipher_NeedToSet *)needToSet;
+- (instancetype)initWithNSString:(NSString *)name
+ withJavaxCryptoCipher_NeedToSet:(JavaxCryptoCipher_NeedToSet *)needToSet;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -2127,16 +2115,16 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoCipher_Transform)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaxCryptoCipher_InitType:(JavaxCryptoCipher_InitType *)initType
-                                                     withInt:(jint)opmode
-                                         withJavaSecurityKey:(id<JavaSecurityKey>)key
-                                withJavaSecuritySecureRandom:(JavaSecuritySecureRandom *)random
-                  withJavaSecuritySpecAlgorithmParameterSpec:(id<JavaSecuritySpecAlgorithmParameterSpec>)spec
-                         withJavaSecurityAlgorithmParameters:(JavaSecurityAlgorithmParameters *)params;
+- (instancetype)initWithJavaxCryptoCipher_InitType:(JavaxCryptoCipher_InitType *)initType
+                                           withInt:(jint)opmode
+                               withJavaSecurityKey:(id<JavaSecurityKey>)key
+                      withJavaSecuritySecureRandom:(JavaSecuritySecureRandom *)random
+        withJavaSecuritySpecAlgorithmParameterSpec:(id<JavaSecuritySpecAlgorithmParameterSpec>)spec
+               withJavaSecurityAlgorithmParameters:(JavaSecurityAlgorithmParameters *)params;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -2163,7 +2151,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoCipher_InitParams)
 
 #define RESTRICT_JavaLangEnum 1
 #define INCLUDE_JavaLangEnum 1
-#include "java/lang/Enum.h"
+#include "../../java/lang/Enum.h"
 
 @class IOSObjectArray;
 
@@ -2180,9 +2168,6 @@ typedef NS_ENUM(NSUInteger, JavaxCryptoCipher_InitType_Enum) {
  */
 @interface JavaxCryptoCipher_InitType : JavaLangEnum
 
-@property (readonly, class, nonnull) JavaxCryptoCipher_InitType *KEY NS_SWIFT_NAME(KEY);
-@property (readonly, class, nonnull) JavaxCryptoCipher_InitType *ALGORITHM_PARAMS NS_SWIFT_NAME(ALGORITHM_PARAMS);
-@property (readonly, class, nonnull) JavaxCryptoCipher_InitType *ALGORITHM_PARAM_SPEC NS_SWIFT_NAME(ALGORITHM_PARAM_SPEC);
 + (JavaxCryptoCipher_InitType * __nonnull)KEY;
 
 + (JavaxCryptoCipher_InitType * __nonnull)ALGORITHM_PARAMS;
@@ -2238,9 +2223,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoCipher_InitType)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaxCryptoCipher:(JavaxCryptoCipher *)outer$
-                           withJavaSecurityProvider:(JavaSecurityProvider *)specifiedProvider
-                           withJavaxCryptoCipherSpi:(JavaxCryptoCipherSpi *)specifiedSpi;
+- (instancetype)initWithJavaxCryptoCipher:(JavaxCryptoCipher *)outer$
+                 withJavaSecurityProvider:(JavaSecurityProvider *)specifiedProvider
+                 withJavaxCryptoCipherSpi:(JavaxCryptoCipherSpi *)specifiedSpi;
 
 - (JavaxCryptoCipherSpi *)getCurrentSpiWithJavaxCryptoCipherSpi:(JavaxCryptoCipherSpi *)spiImpl;
 
@@ -2268,7 +2253,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoCipher_InitType)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -2298,12 +2283,12 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoCipher_SpiAndProviderUpdater)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaxCryptoCipherSpi:(JavaxCryptoCipherSpi *)cipherSpi
-                              withJavaSecurityProvider:(JavaSecurityProvider *)provider;
+- (instancetype)initWithJavaxCryptoCipherSpi:(JavaxCryptoCipherSpi *)cipherSpi
+                    withJavaSecurityProvider:(JavaSecurityProvider *)provider;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 

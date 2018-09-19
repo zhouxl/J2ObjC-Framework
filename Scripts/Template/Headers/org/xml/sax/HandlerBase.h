@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/org/xml/sax/HandlerBase.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgXmlSaxHandlerBase")
 #ifdef RESTRICT_OrgXmlSaxHandlerBase
@@ -16,30 +16,24 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (OrgXmlSaxHandlerBase_) && (INCLUDE_ALL_OrgXmlSaxHandlerBase || defined(INCLUDE_OrgXmlSaxHandlerBase))
 #define OrgXmlSaxHandlerBase_
 
 #define RESTRICT_OrgXmlSaxEntityResolver 1
 #define INCLUDE_OrgXmlSaxEntityResolver 1
-#include "org/xml/sax/EntityResolver.h"
+#include "../../../org/xml/sax/EntityResolver.h"
 
 #define RESTRICT_OrgXmlSaxDTDHandler 1
 #define INCLUDE_OrgXmlSaxDTDHandler 1
-#include "org/xml/sax/DTDHandler.h"
+#include "../../../org/xml/sax/DTDHandler.h"
 
 #define RESTRICT_OrgXmlSaxDocumentHandler 1
 #define INCLUDE_OrgXmlSaxDocumentHandler 1
-#include "org/xml/sax/DocumentHandler.h"
+#include "../../../org/xml/sax/DocumentHandler.h"
 
 #define RESTRICT_OrgXmlSaxErrorHandler 1
 #define INCLUDE_OrgXmlSaxErrorHandler 1
-#include "org/xml/sax/ErrorHandler.h"
+#include "../../../org/xml/sax/ErrorHandler.h"
 
 @class IOSCharArray;
 @class OrgXmlSaxInputSource;
@@ -82,7 +76,7 @@ __attribute__((deprecated))
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Receive notification of character data inside an element.
@@ -303,10 +297,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHandlerBase)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHandlerBase")

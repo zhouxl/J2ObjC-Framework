@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/io/ObjectInput.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoObjectInput")
 #ifdef RESTRICT_JavaIoObjectInput
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoObjectInput_) && (INCLUDE_ALL_JavaIoObjectInput || defined(INCLUDE_JavaIoObjectInput))
 #define JavaIoObjectInput_
 
 #define RESTRICT_JavaIoDataInput 1
 #define INCLUDE_JavaIoDataInput 1
-#include "java/io/DataInput.h"
+#include "../../java/io/DataInput.h"
 
 #define RESTRICT_JavaLangAutoCloseable 1
 #define INCLUDE_JavaLangAutoCloseable 1
-#include "java/lang/AutoCloseable.h"
+#include "../../java/lang/AutoCloseable.h"
 
 @class IOSByteArray;
 
@@ -127,10 +121,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectInput)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoObjectInput")

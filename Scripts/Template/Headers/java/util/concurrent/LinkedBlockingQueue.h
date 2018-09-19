@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/LinkedBlockingQueue.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentLinkedBlockingQueue")
 #ifdef RESTRICT_JavaUtilConcurrentLinkedBlockingQueue
@@ -16,26 +16,20 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentLinkedBlockingQueue_) && (INCLUDE_ALL_JavaUtilConcurrentLinkedBlockingQueue || defined(INCLUDE_JavaUtilConcurrentLinkedBlockingQueue))
 #define JavaUtilConcurrentLinkedBlockingQueue_
 
 #define RESTRICT_JavaUtilAbstractQueue 1
 #define INCLUDE_JavaUtilAbstractQueue 1
-#include "java/util/AbstractQueue.h"
+#include "../../../java/util/AbstractQueue.h"
 
 #define RESTRICT_JavaUtilConcurrentBlockingQueue 1
 #define INCLUDE_JavaUtilConcurrentBlockingQueue 1
-#include "java/util/concurrent/BlockingQueue.h"
+#include "../../../java/util/concurrent/BlockingQueue.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaUtilConcurrentLinkedBlockingQueue_Node;
@@ -82,7 +76,7 @@
  @brief Creates a <code>LinkedBlockingQueue</code> with a capacity of 
  <code>Integer.MAX_VALUE</code>.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a <code>LinkedBlockingQueue</code> with a capacity of 
@@ -93,7 +87,7 @@
  @throw NullPointerExceptionif the specified collection or any
           of its elements are null
  */
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Creates a <code>LinkedBlockingQueue</code> with the given (fixed) capacity.
@@ -101,7 +95,7 @@
  @throw IllegalArgumentExceptionif <code>capacity</code> is not greater
           than zero
  */
-- (instancetype __nonnull)initWithInt:(jint)capacity;
+- (instancetype)initWithInt:(jint)capacity;
 
 /*!
  @brief Atomically removes all of the elements from this queue.
@@ -346,11 +340,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingQueue)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithId:(id)x;
+- (instancetype)initWithId:(id)x;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -374,7 +368,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingQueue_Node)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator 1
-#include "java/util/Spliterator.h"
+#include "../../../java/util/Spliterator.h"
 
 @class JavaUtilConcurrentLinkedBlockingQueue;
 @class JavaUtilConcurrentLinkedBlockingQueue_Node;
@@ -392,7 +386,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingQueue_Node)
   jboolean exhausted_;
   jlong est_;
 }
-@property (readonly, class) jint MAX_BATCH NS_SWIFT_NAME(MAX_BATCH);
 
 + (jint)MAX_BATCH;
 
@@ -410,11 +403,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingQueue_Node)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentLinkedBlockingQueue:(JavaUtilConcurrentLinkedBlockingQueue *)queue;
+- (instancetype)initWithJavaUtilConcurrentLinkedBlockingQueue:(JavaUtilConcurrentLinkedBlockingQueue *)queue;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -437,10 +430,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingQueue_LBQSpliterator)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentLinkedBlockingQueue")

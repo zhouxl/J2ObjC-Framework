@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/UUID.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilUUID")
 #ifdef RESTRICT_JavaUtilUUID
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilUUID_) && (INCLUDE_ALL_JavaUtilUUID || defined(INCLUDE_JavaUtilUUID))
 #define JavaUtilUUID_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 #define RESTRICT_JavaLangComparable 1
 #define INCLUDE_JavaLangComparable 1
-#include "java/lang/Comparable.h"
+#include "../../java/lang/Comparable.h"
 
 @class IOSByteArray;
 
@@ -88,8 +82,8 @@
  @param leastSigBits The least significant bits of the 
  <code>UUID</code>
  */
-- (instancetype __nonnull)initWithLong:(jlong)mostSigBits
-                              withLong:(jlong)leastSigBits;
+- (instancetype)initWithLong:(jlong)mostSigBits
+                    withLong:(jlong)leastSigBits;
 
 /*!
  @brief The clock sequence value associated with this UUID.
@@ -259,7 +253,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -281,10 +275,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilUUID)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilUUID")

@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/javax/security/cert/X509Certificate.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxSecurityCertX509Certificate")
 #ifdef RESTRICT_JavaxSecurityCertX509Certificate
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxSecurityCertX509Certificate_) && (INCLUDE_ALL_JavaxSecurityCertX509Certificate || defined(INCLUDE_JavaxSecurityCertX509Certificate))
 #define JavaxSecurityCertX509Certificate_
 
 #define RESTRICT_JavaxSecurityCertCertificate 1
 #define INCLUDE_JavaxSecurityCertCertificate 1
-#include "javax/security/cert/Certificate.h"
+#include "../../../javax/security/cert/Certificate.h"
 
 @class IOSByteArray;
 @class JavaIoInputStream;
@@ -54,7 +48,7 @@
 /*!
  @brief Creates a new <code>X509Certificate</code>.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Checks whether the certificate is currently valid.
@@ -232,10 +226,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityCertX509Certificate)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxSecurityCertX509Certificate")

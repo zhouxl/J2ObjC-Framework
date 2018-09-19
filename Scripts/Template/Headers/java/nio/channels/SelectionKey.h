@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/nio/channels/SelectionKey.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNioChannelsSelectionKey")
 #ifdef RESTRICT_JavaNioChannelsSelectionKey
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaNioChannelsSelectionKey_) && (INCLUDE_ALL_JavaNioChannelsSelectionKey || defined(INCLUDE_JavaNioChannelsSelectionKey))
 #define JavaNioChannelsSelectionKey_
@@ -95,10 +89,6 @@
  - seealso: Selector
  */
 @interface JavaNioChannelsSelectionKey : NSObject
-@property (readonly, class) jint OP_READ NS_SWIFT_NAME(OP_READ);
-@property (readonly, class) jint OP_WRITE NS_SWIFT_NAME(OP_WRITE);
-@property (readonly, class) jint OP_CONNECT NS_SWIFT_NAME(OP_CONNECT);
-@property (readonly, class) jint OP_ACCEPT NS_SWIFT_NAME(OP_ACCEPT);
 
 + (jint)OP_READ;
 
@@ -291,7 +281,7 @@
 /*!
  @brief Constructs an instance of this class.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -365,10 +355,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSelectionKey)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioChannelsSelectionKey")

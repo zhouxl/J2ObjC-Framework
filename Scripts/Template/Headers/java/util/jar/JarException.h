@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/jar/JarException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilJarJarException")
 #ifdef RESTRICT_JavaUtilJarJarException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilJarJarException_) && (INCLUDE_ALL_JavaUtilJarJarException || defined(INCLUDE_JavaUtilJarJarException))
 #define JavaUtilJarJarException_
 
 #define RESTRICT_JavaUtilZipZipException 1
 #define INCLUDE_JavaUtilZipZipException 1
-#include "java/util/zip/ZipException.h"
+#include "../../../java/util/zip/ZipException.h"
 
 /*!
  @brief Signals that an error of some sort has occurred while reading from
@@ -42,13 +36,13 @@
 /*!
  @brief Constructs a JarException with no detail message.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a JarException with the specified detail message.
  @param s the detail message
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s;
+- (instancetype)initWithNSString:(NSString *)s;
 
 @end
 
@@ -70,10 +64,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilJarJarException")

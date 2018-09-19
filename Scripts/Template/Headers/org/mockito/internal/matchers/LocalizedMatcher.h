@@ -3,7 +3,7 @@
 //  source: src/main/java/org/mockito/internal/matchers/LocalizedMatcher.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgMockitoInternalMatchersLocalizedMatcher")
 #ifdef RESTRICT_OrgMockitoInternalMatchersLocalizedMatcher
@@ -16,34 +16,28 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (OrgMockitoInternalMatchersLocalizedMatcher_) && (INCLUDE_ALL_OrgMockitoInternalMatchersLocalizedMatcher || defined(INCLUDE_OrgMockitoInternalMatchersLocalizedMatcher))
 #define OrgMockitoInternalMatchersLocalizedMatcher_
 
 #define RESTRICT_OrgHamcrestMatcher 1
 #define INCLUDE_OrgHamcrestMatcher 1
-#include "org/hamcrest/Matcher.h"
+#include "../../../../org/hamcrest/Matcher.h"
 
 #define RESTRICT_OrgMockitoInternalMatchersContainsExtraTypeInformation 1
 #define INCLUDE_OrgMockitoInternalMatchersContainsExtraTypeInformation 1
-#include "org/mockito/internal/matchers/ContainsExtraTypeInformation.h"
+#include "../../../../org/mockito/internal/matchers/ContainsExtraTypeInformation.h"
 
 #define RESTRICT_OrgMockitoInternalMatchersCapturesArguments 1
 #define INCLUDE_OrgMockitoInternalMatchersCapturesArguments 1
-#include "org/mockito/internal/matchers/CapturesArguments.h"
+#include "../../../../org/mockito/internal/matchers/CapturesArguments.h"
 
 #define RESTRICT_OrgMockitoInternalMatchersMatcherDecorator 1
 #define INCLUDE_OrgMockitoInternalMatchersMatcherDecorator 1
-#include "org/mockito/internal/matchers/MatcherDecorator.h"
+#include "../../../../org/mockito/internal/matchers/MatcherDecorator.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../../java/io/Serializable.h"
 
 @protocol OrgHamcrestDescription;
 @protocol OrgHamcrestSelfDescribing;
@@ -53,7 +47,7 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)initWithOrgHamcrestMatcher:(id<OrgHamcrestMatcher>)actualMatcher;
+- (instancetype)initWithOrgHamcrestMatcher:(id<OrgHamcrestMatcher>)actualMatcher;
 
 - (void)_dont_implement_Matcher___instead_extend_BaseMatcher_;
 
@@ -78,7 +72,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -94,10 +88,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgMockitoInternalMatchersLocalizedMatcher)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgMockitoInternalMatchersLocalizedMatcher")

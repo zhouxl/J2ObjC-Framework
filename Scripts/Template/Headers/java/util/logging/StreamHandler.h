@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/logging/StreamHandler.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilLoggingStreamHandler")
 #ifdef RESTRICT_JavaUtilLoggingStreamHandler
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilLoggingStreamHandler_) && (INCLUDE_ALL_JavaUtilLoggingStreamHandler || defined(INCLUDE_JavaUtilLoggingStreamHandler))
 #define JavaUtilLoggingStreamHandler_
 
 #define RESTRICT_JavaUtilLoggingHandler 1
 #define INCLUDE_JavaUtilLoggingHandler 1
-#include "java/util/logging/Handler.h"
+#include "../../../java/util/logging/Handler.h"
 
 @class JavaIoOutputStream;
 @class JavaUtilLoggingFormatter;
@@ -68,7 +62,7 @@
 /*!
  @brief Create a <tt>StreamHandler</tt>, with no current output stream.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Create a <tt>StreamHandler</tt> with a given <tt>Formatter</tt>
@@ -77,8 +71,8 @@
  @param outArg the target output stream
  @param formatter Formatter to be used to format output
  */
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-                        withJavaUtilLoggingFormatter:(JavaUtilLoggingFormatter *)formatter;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+              withJavaUtilLoggingFormatter:(JavaUtilLoggingFormatter *)formatter;
 
 /*!
  @brief Close the current output stream.
@@ -173,10 +167,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingStreamHandler)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingStreamHandler")

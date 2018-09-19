@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/interfaces/RSAPrivateCrtKey.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityInterfacesRSAPrivateCrtKey")
 #ifdef RESTRICT_JavaSecurityInterfacesRSAPrivateCrtKey
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityInterfacesRSAPrivateCrtKey_) && (INCLUDE_ALL_JavaSecurityInterfacesRSAPrivateCrtKey || defined(INCLUDE_JavaSecurityInterfacesRSAPrivateCrtKey))
 #define JavaSecurityInterfacesRSAPrivateCrtKey_
 
 #define RESTRICT_JavaSecurityInterfacesRSAPrivateKey 1
 #define INCLUDE_JavaSecurityInterfacesRSAPrivateKey 1
-#include "java/security/interfaces/RSAPrivateKey.h"
+#include "../../../java/security/interfaces/RSAPrivateKey.h"
 
 @class JavaMathBigInteger;
 
@@ -78,7 +72,6 @@
 @end
 
 @interface JavaSecurityInterfacesRSAPrivateCrtKey : NSObject
-@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jlong)serialVersionUID;
 
@@ -94,10 +87,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInterfacesRSAPrivateCrtKey)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityInterfacesRSAPrivateCrtKey")

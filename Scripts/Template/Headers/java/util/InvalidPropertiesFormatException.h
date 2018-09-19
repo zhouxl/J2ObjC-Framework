@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/InvalidPropertiesFormatException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilInvalidPropertiesFormatException")
 #ifdef RESTRICT_JavaUtilInvalidPropertiesFormatException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilInvalidPropertiesFormatException_) && (INCLUDE_ALL_JavaUtilInvalidPropertiesFormatException || defined(INCLUDE_JavaUtilInvalidPropertiesFormatException))
 #define JavaUtilInvalidPropertiesFormatException_
 
 #define RESTRICT_JavaIoIOException 1
 #define INCLUDE_JavaIoIOException 1
-#include "java/io/IOException.h"
+#include "../../java/io/IOException.h"
 
 @class JavaLangThrowable;
 
@@ -53,7 +47,7 @@
  @param message the detail message. The detail message is saved for           later retrieval by the 
  <code>Throwable.getMessage()</code>  method.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message;
+- (instancetype)initWithNSString:(NSString *)message;
 
 /*!
  @brief Constructs an InvalidPropertiesFormatException with the specified
@@ -61,14 +55,14 @@
  @param cause the cause (which is saved for later retrieval by the          
  <code>Throwable.getCause()</code>  method).
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -90,10 +84,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilInvalidPropertiesFormatException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilInvalidPropertiesFormatException")

@@ -3,7 +3,7 @@
 //  source: src/main/java/org/mockito/internal/creation/ios/InvocationHandlerAdapter.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgMockitoInternalCreationIosInvocationHandlerAdapter")
 #ifdef RESTRICT_OrgMockitoInternalCreationIosInvocationHandlerAdapter
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (OrgMockitoInternalCreationIosInvocationHandlerAdapter_) && (INCLUDE_ALL_OrgMockitoInternalCreationIosInvocationHandlerAdapter || defined(INCLUDE_OrgMockitoInternalCreationIosInvocationHandlerAdapter))
 #define OrgMockitoInternalCreationIosInvocationHandlerAdapter_
 
 #define RESTRICT_JavaLangReflectInvocationHandler 1
 #define INCLUDE_JavaLangReflectInvocationHandler 1
-#include "java/lang/reflect/InvocationHandler.h"
+#include "../../../../../java/lang/reflect/InvocationHandler.h"
 
 @class IOSObjectArray;
 @class JavaLangReflectMethod;
@@ -41,7 +35,7 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)initWithOrgMockitoInvocationMockHandler:(id<OrgMockitoInvocationMockHandler>)handler;
+- (instancetype)initWithOrgMockitoInvocationMockHandler:(id<OrgMockitoInvocationMockHandler>)handler;
 
 - (id<OrgMockitoInvocationMockHandler>)getHandler;
 
@@ -53,7 +47,7 @@ withJavaLangReflectMethod:(JavaLangReflectMethod *)method
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -69,10 +63,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgMockitoInternalCreationIosInvocationHandlerAdapter
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgMockitoInternalCreationIosInvocationHandlerAdapter")

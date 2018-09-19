@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/io/FileInputStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoFileInputStream")
 #ifdef RESTRICT_JavaIoFileInputStream
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoFileInputStream_) && (INCLUDE_ALL_JavaIoFileInputStream || defined(INCLUDE_JavaIoFileInputStream))
 #define JavaIoFileInputStream_
 
 #define RESTRICT_JavaIoInputStream 1
 #define INCLUDE_JavaIoInputStream 1
-#include "java/io/InputStream.h"
+#include "../../java/io/InputStream.h"
 
 @class IOSByteArray;
 @class JavaIoFile;
@@ -67,7 +61,7 @@
  @throw FileNotFoundException
  if <code>file</code> does not exist.
  */
-- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file;
+- (instancetype)initWithJavaIoFile:(JavaIoFile *)file;
 
 /*!
  @brief Constructs a new <code>FileInputStream</code> that reads from <code>fd</code>.
@@ -75,12 +69,12 @@
  @throw NullPointerException
  if <code>fd</code> is <code>null</code>.
  */
-- (instancetype __nonnull)initWithJavaIoFileDescriptor:(JavaIoFileDescriptor *)fd;
+- (instancetype)initWithJavaIoFileDescriptor:(JavaIoFileDescriptor *)fd;
 
 /*!
  @brief Equivalent to <code>new FileInputStream(new File(path))</code>.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)path;
+- (instancetype)initWithNSString:(NSString *)path;
 
 - (jint)available;
 
@@ -117,7 +111,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -145,10 +139,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileInputStream)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoFileInputStream")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/locks/ReentrantLock.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentLocksReentrantLock")
 #ifdef RESTRICT_JavaUtilConcurrentLocksReentrantLock
@@ -22,22 +22,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentLocksReentrantLock_) && (INCLUDE_ALL_JavaUtilConcurrentLocksReentrantLock || defined(INCLUDE_JavaUtilConcurrentLocksReentrantLock))
 #define JavaUtilConcurrentLocksReentrantLock_
 
 #define RESTRICT_JavaUtilConcurrentLocksLock 1
 #define INCLUDE_JavaUtilConcurrentLocksLock 1
-#include "java/util/concurrent/locks/Lock.h"
+#include "../../../../java/util/concurrent/locks/Lock.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../../java/io/Serializable.h"
 
 @class JavaLangThread;
 @class JavaUtilConcurrentTimeUnit;
@@ -111,14 +105,14 @@
  @brief Creates an instance of <code>ReentrantLock</code>.
  This is equivalent to using <code>ReentrantLock(false)</code>.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates an instance of <code>ReentrantLock</code> with the
   given fairness policy.
  @param fair<code>true</code>  if this lock should use a fair ordering policy
  */
-- (instancetype __nonnull)initWithBoolean:(jboolean)fair;
+- (instancetype)initWithBoolean:(jboolean)fair;
 
 /*!
  @brief Queries the number of holds on this lock by the current thread.
@@ -532,7 +526,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantLock)
 
 #define RESTRICT_JavaUtilConcurrentLocksAbstractQueuedSynchronizer 1
 #define INCLUDE_JavaUtilConcurrentLocksAbstractQueuedSynchronizer 1
-#include "java/util/concurrent/locks/AbstractQueuedSynchronizer.h"
+#include "../../../../java/util/concurrent/locks/AbstractQueuedSynchronizer.h"
 
 @class JavaLangThread;
 @class JavaUtilConcurrentLocksAbstractQueuedSynchronizer_ConditionObject;
@@ -553,7 +547,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantLock)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 - (jint)getHoldCount;
 
@@ -599,7 +593,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantLock_Sync)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Performs lock.Try immediate barge, backing up to normal
@@ -639,7 +633,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantLock_NonfairSync)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 - (void)lock;
 
@@ -657,10 +651,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantLock_FairSync)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentLocksReentrantLock")

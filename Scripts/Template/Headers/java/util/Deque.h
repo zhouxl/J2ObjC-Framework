@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/Deque.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilDeque")
 #ifdef RESTRICT_JavaUtilDeque
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilDeque_) && (INCLUDE_ALL_JavaUtilDeque || defined(INCLUDE_JavaUtilDeque))
 #define JavaUtilDeque_
 
 #define RESTRICT_JavaUtilQueue 1
 #define INCLUDE_JavaUtilQueue 1
-#include "java/util/Queue.h"
+#include "../../java/util/Queue.h"
 
 @protocol JavaUtilIterator;
 
@@ -524,10 +518,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilDeque)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilDeque")

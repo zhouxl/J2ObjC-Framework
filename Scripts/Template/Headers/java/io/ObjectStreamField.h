@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/io/ObjectStreamField.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoObjectStreamField")
 #ifdef RESTRICT_JavaIoObjectStreamField
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoObjectStreamField_) && (INCLUDE_ALL_JavaIoObjectStreamField || defined(INCLUDE_JavaIoObjectStreamField))
 #define JavaIoObjectStreamField_
 
 #define RESTRICT_JavaLangComparable 1
 #define INCLUDE_JavaLangComparable 1
-#include "java/lang/Comparable.h"
+#include "../../java/lang/Comparable.h"
 
 @class IOSClass;
 @class JavaIoDataOutputStream;
@@ -54,8 +48,8 @@
  @throw NullPointerException
  if <code>name</code> or <code>cl</code> is <code>null</code>.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)name
-                              withIOSClass:(IOSClass *)cl;
+- (instancetype)initWithNSString:(NSString *)name
+                    withIOSClass:(IOSClass *)cl;
 
 /*!
  @brief Constructs an ObjectStreamField with the specified name, type and the
@@ -69,9 +63,9 @@
  if <code>name</code> or <code>cl</code> is <code>null</code>.
  - seealso: ObjectOutputStream#writeUnshared(Object)
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)name
-                              withIOSClass:(IOSClass *)cl
-                               withBoolean:(jboolean)unshared;
+- (instancetype)initWithNSString:(NSString *)name
+                    withIOSClass:(IOSClass *)cl
+                     withBoolean:(jboolean)unshared;
 
 /*!
  @brief Compares this field descriptor to the specified one.Checks first if one
@@ -169,8 +163,8 @@
  @param signature A String representing the type of the field
  @param name a String, the name of the field, or null
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)signature
-                              withNSString:(NSString *)name;
+- (instancetype)initWithNSString:(NSString *)signature
+                    withNSString:(NSString *)name;
 
 /*!
  @brief Return the type of the field the receiver represents, this is an internal
@@ -187,7 +181,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -215,10 +209,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectStreamField)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoObjectStreamField")

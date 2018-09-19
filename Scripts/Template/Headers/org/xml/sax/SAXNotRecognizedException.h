@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/org/xml/sax/SAXNotRecognizedException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgXmlSaxSAXNotRecognizedException")
 #ifdef RESTRICT_OrgXmlSaxSAXNotRecognizedException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (OrgXmlSaxSAXNotRecognizedException_) && (INCLUDE_ALL_OrgXmlSaxSAXNotRecognizedException || defined(INCLUDE_OrgXmlSaxSAXNotRecognizedException))
 #define OrgXmlSaxSAXNotRecognizedException_
 
 #define RESTRICT_OrgXmlSaxSAXException 1
 #define INCLUDE_OrgXmlSaxSAXException 1
-#include "org/xml/sax/SAXException.h"
+#include "../../../org/xml/sax/SAXException.h"
 
 @class JavaLangException;
 
@@ -55,20 +49,20 @@
 /*!
  @brief Default constructor.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Construct a new exception with the given message.
  @param message The text message of the exception.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message;
+- (instancetype)initWithNSString:(NSString *)message;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaLangException:(JavaLangException *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangException:(JavaLangException *)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangException:(JavaLangException *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangException:(JavaLangException *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -90,10 +84,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxSAXNotRecognizedException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxSAXNotRecognizedException")

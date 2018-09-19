@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/Provider.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityProvider")
 #ifdef RESTRICT_JavaSecurityProvider
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityProvider_) && (INCLUDE_ALL_JavaSecurityProvider || defined(INCLUDE_JavaSecurityProvider))
 #define JavaSecurityProvider_
 
 #define RESTRICT_JavaUtilProperties 1
 #define INCLUDE_JavaUtilProperties 1
-#include "java/util/Properties.h"
+#include "../../java/util/Properties.h"
 
 @class JavaIoInputStream;
 @class JavaSecurityProvider_Service;
@@ -81,7 +75,6 @@
  @author Andreas Sterbenz
  */
 @interface JavaSecurityProvider : JavaUtilProperties
-@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jlong)serialVersionUID;
 
@@ -292,9 +285,9 @@
  @param version_ the provider version number.
  @param info a description of the provider and its services.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)name
-                                withDouble:(jdouble)version_
-                              withNSString:(NSString *)info;
+- (instancetype)initWithNSString:(NSString *)name
+                      withDouble:(jdouble)version_
+                    withNSString:(NSString *)info;
 
 /*!
  @brief Add a service.If a service of the same type with the same algorithm
@@ -410,12 +403,12 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityProvider)
  @throw NullPointerExceptionif provider, type, algorithm, or
   className is null
  */
-- (instancetype __nonnull)initWithJavaSecurityProvider:(JavaSecurityProvider *)provider
-                                          withNSString:(NSString *)type
-                                          withNSString:(NSString *)algorithm
-                                          withNSString:(NSString *)className_
-                                      withJavaUtilList:(id<JavaUtilList>)aliases
-                                       withJavaUtilMap:(id<JavaUtilMap>)attributes;
+- (instancetype)initWithJavaSecurityProvider:(JavaSecurityProvider *)provider
+                                withNSString:(NSString *)type
+                                withNSString:(NSString *)algorithm
+                                withNSString:(NSString *)className_
+                            withJavaUtilList:(id<JavaUtilList>)aliases
+                             withJavaUtilMap:(id<JavaUtilMap>)attributes;
 
 /*!
  @brief Return the name of the algorithm of this service.For example, 
@@ -513,7 +506,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityProvider)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -529,10 +522,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityProvider_Service)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityProvider")

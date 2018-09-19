@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/logging/MemoryHandler.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilLoggingMemoryHandler")
 #ifdef RESTRICT_JavaUtilLoggingMemoryHandler
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilLoggingMemoryHandler_) && (INCLUDE_ALL_JavaUtilLoggingMemoryHandler || defined(INCLUDE_JavaUtilLoggingMemoryHandler))
 #define JavaUtilLoggingMemoryHandler_
 
 #define RESTRICT_JavaUtilLoggingHandler 1
 #define INCLUDE_JavaUtilLoggingHandler 1
-#include "java/util/logging/Handler.h"
+#include "../../../java/util/logging/Handler.h"
 
 @class JavaUtilLoggingLevel;
 @class JavaUtilLoggingLogRecord;
@@ -89,7 +83,7 @@
  @brief Create a <tt>MemoryHandler</tt> and configure it based on 
  <tt>LogManager</tt> configuration properties.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Create a <tt>MemoryHandler</tt>.
@@ -102,9 +96,9 @@
  @param pushLevel message level to push on
  @throw IllegalArgumentExceptionif size is <= 0
  */
-- (instancetype __nonnull)initWithJavaUtilLoggingHandler:(JavaUtilLoggingHandler *)target
-                                                 withInt:(jint)size
-                                withJavaUtilLoggingLevel:(JavaUtilLoggingLevel *)pushLevel;
+- (instancetype)initWithJavaUtilLoggingHandler:(JavaUtilLoggingHandler *)target
+                                       withInt:(jint)size
+                      withJavaUtilLoggingLevel:(JavaUtilLoggingLevel *)pushLevel;
 
 /*!
  @brief Close the <tt>Handler</tt> and free all associated resources.
@@ -194,10 +188,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingMemoryHandler)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingMemoryHandler")

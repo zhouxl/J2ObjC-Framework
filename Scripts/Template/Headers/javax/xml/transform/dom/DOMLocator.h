@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/javax/xml/transform/dom/DOMLocator.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxXmlTransformDomDOMLocator")
 #ifdef RESTRICT_JavaxXmlTransformDomDOMLocator
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxXmlTransformDomDOMLocator_) && (INCLUDE_ALL_JavaxXmlTransformDomDOMLocator || defined(INCLUDE_JavaxXmlTransformDomDOMLocator))
 #define JavaxXmlTransformDomDOMLocator_
 
 #define RESTRICT_JavaxXmlTransformSourceLocator 1
 #define INCLUDE_JavaxXmlTransformSourceLocator 1
-#include "javax/xml/transform/SourceLocator.h"
+#include "../../../../javax/xml/transform/SourceLocator.h"
 
 @protocol OrgW3cDomNode;
 
@@ -56,10 +50,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformDomDOMLocator)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformDomDOMLocator")

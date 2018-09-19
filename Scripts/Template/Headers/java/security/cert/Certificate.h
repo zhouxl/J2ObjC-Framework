@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/cert/Certificate.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityCertCertificate")
 #ifdef RESTRICT_JavaSecurityCertCertificate
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityCertCertificate_) && (INCLUDE_ALL_JavaSecurityCertCertificate || defined(INCLUDE_JavaSecurityCertCertificate))
 #define JavaSecurityCertCertificate_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 @class IOSByteArray;
 @protocol JavaSecurityPublicKey;
@@ -142,7 +136,7 @@
    Java Cryptography Architecture Standard Algorithm Name Documentation
   </a>  for information about standard certificate types.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)type;
+- (instancetype)initWithNSString:(NSString *)type;
 
 /*!
  @brief Replace the Certificate to be serialized.
@@ -168,7 +162,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertificate)
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 @class IOSByteArray;
 
@@ -187,8 +181,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertificate)
  @param type the standard name of the Certificate type.  <p>
  @param data the Certificate data.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)type
-                             withByteArray:(IOSByteArray *)data;
+- (instancetype)initWithNSString:(NSString *)type
+                   withByteArray:(IOSByteArray *)data;
 
 /*!
  @brief Resolve the Certificate Object.
@@ -201,7 +195,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertificate)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -217,10 +211,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertificate_CertificateRep)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCertificate")

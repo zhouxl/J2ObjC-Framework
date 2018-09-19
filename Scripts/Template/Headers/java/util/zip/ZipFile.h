@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/zip/ZipFile.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilZipZipFile")
 #ifdef RESTRICT_JavaUtilZipZipFile
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilZipZipFile_) && (INCLUDE_ALL_JavaUtilZipZipFile || defined(INCLUDE_JavaUtilZipZipFile))
 #define JavaUtilZipZipFile_
 
 #define RESTRICT_JavaUtilZipZipConstants 1
 #define INCLUDE_JavaUtilZipZipConstants 1
-#include "java/util/zip/ZipConstants.h"
+#include "../../../java/util/zip/ZipConstants.h"
 
 #define RESTRICT_JavaIoCloseable 1
 #define INCLUDE_JavaIoCloseable 1
-#include "java/io/Closeable.h"
+#include "../../../java/io/Closeable.h"
 
 @class JavaIoFile;
 @class JavaIoInputStream;
@@ -50,8 +44,6 @@
  @public
   jlong jzfile_;
 }
-@property (readonly, class) jint OPEN_READ NS_SWIFT_NAME(OPEN_READ);
-@property (readonly, class) jint OPEN_DELETE NS_SWIFT_NAME(OPEN_DELETE);
 
 + (jint)OPEN_READ;
 
@@ -67,7 +59,7 @@
  @throw ZipExceptionif a ZIP format error has occurred
  @throw IOExceptionif an I/O error has occurred
  */
-- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file;
+- (instancetype)initWithJavaIoFile:(JavaIoFile *)file;
 
 /*!
  @brief Opens a ZIP file for reading given the specified File object.
@@ -81,8 +73,8 @@
  @throw IOExceptionif an I/O error has occurred
  @since 1.7
  */
-- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file
-                   withJavaNioCharsetCharset:(JavaNioCharsetCharset *)charset;
+- (instancetype)initWithJavaIoFile:(JavaIoFile *)file
+         withJavaNioCharsetCharset:(JavaNioCharsetCharset *)charset;
 
 /*!
  @brief Opens a new <code>ZipFile</code> to read from the specified 
@@ -106,8 +98,8 @@
  - seealso: SecurityManager#checkRead(java.lang.String)
  @since 1.3
  */
-- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file
-                                     withInt:(jint)mode;
+- (instancetype)initWithJavaIoFile:(JavaIoFile *)file
+                           withInt:(jint)mode;
 
 /*!
  @brief Opens a new <code>ZipFile</code> to read from the specified 
@@ -133,9 +125,9 @@
  - seealso: SecurityManager#checkRead(java.lang.String)
  @since 1.7
  */
-- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file
-                                     withInt:(jint)mode
-                   withJavaNioCharsetCharset:(JavaNioCharsetCharset *)charset;
+- (instancetype)initWithJavaIoFile:(JavaIoFile *)file
+                           withInt:(jint)mode
+         withJavaNioCharsetCharset:(JavaNioCharsetCharset *)charset;
 
 /*!
  @brief Opens a zip file for reading.
@@ -151,7 +143,7 @@
           <code>checkRead</code> method doesn't allow read access to the file.
  - seealso: SecurityManager#checkRead(java.lang.String)
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)name;
+- (instancetype)initWithNSString:(NSString *)name;
 
 /*!
  @brief Opens a zip file for reading.
@@ -171,8 +163,8 @@
  - seealso: SecurityManager#checkRead(java.lang.String)
  @since 1.7
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)name
-                 withJavaNioCharsetCharset:(JavaNioCharsetCharset *)charset;
+- (instancetype)initWithNSString:(NSString *)name
+       withJavaNioCharsetCharset:(JavaNioCharsetCharset *)charset;
 
 /*!
  @brief Closes the ZIP file.
@@ -258,7 +250,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -322,10 +314,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipFile)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilZipZipFile")

@@ -3,7 +3,7 @@
 //  source: Classes/java/lang/Thread.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangThread")
 #ifdef RESTRICT_JavaLangThread
@@ -18,7 +18,6 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -27,7 +26,7 @@
 
 #define RESTRICT_JavaLangRunnable 1
 #define INCLUDE_JavaLangRunnable 1
-#include "java/lang/Runnable.h"
+#include "../../java/lang/Runnable.h"
 
 @class IOSObjectArray;
 @class JavaLangClassLoader;
@@ -61,15 +60,6 @@
   jint threadLocalRandomProbe_;
   jint threadLocalRandomSecondarySeed_;
 }
-@property (readonly, class) jint STATE_NEW NS_SWIFT_NAME(STATE_NEW);
-@property (readonly, class) jint STATE_RUNNABLE NS_SWIFT_NAME(STATE_RUNNABLE);
-@property (readonly, class) jint STATE_BLOCKED NS_SWIFT_NAME(STATE_BLOCKED);
-@property (readonly, class) jint STATE_WAITING NS_SWIFT_NAME(STATE_WAITING);
-@property (readonly, class) jint STATE_TIMED_WAITING NS_SWIFT_NAME(STATE_TIMED_WAITING);
-@property (readonly, class) jint STATE_TERMINATED NS_SWIFT_NAME(STATE_TERMINATED);
-@property (readonly, class) jint MAX_PRIORITY NS_SWIFT_NAME(MAX_PRIORITY);
-@property (readonly, class) jint MIN_PRIORITY NS_SWIFT_NAME(MIN_PRIORITY);
-@property (readonly, class) jint NORM_PRIORITY NS_SWIFT_NAME(NORM_PRIORITY);
 
 + (jint)STATE_NEW;
 
@@ -97,7 +87,7 @@
   calling this constructor.
  - seealso: java.lang.ThreadGroup
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a new Thread with a runnable object and a newly generated
@@ -108,7 +98,7 @@
  - seealso: java.lang.ThreadGroup
  - seealso: java.lang.Runnable
  */
-- (instancetype __nonnull)initWithJavaLangRunnable:(id<JavaLangRunnable>)runnable;
+- (instancetype)initWithJavaLangRunnable:(id<JavaLangRunnable>)runnable;
 
 /*!
  @brief Constructs a new Thread with a runnable object and name provided.The new
@@ -120,8 +110,8 @@
  - seealso: java.lang.ThreadGroup
  - seealso: java.lang.Runnable
  */
-- (instancetype __nonnull)initWithJavaLangRunnable:(id<JavaLangRunnable>)runnable
-                                      withNSString:(NSString *)threadName;
+- (instancetype)initWithJavaLangRunnable:(id<JavaLangRunnable>)runnable
+                            withNSString:(NSString *)threadName;
 
 /*!
  @brief Constructs a new Thread with no runnable object and the name provided.
@@ -131,7 +121,7 @@
  - seealso: java.lang.ThreadGroup
  - seealso: java.lang.Runnable
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)threadName;
+- (instancetype)initWithNSString:(NSString *)threadName;
 
 /*!
  @brief Constructs a new Thread with a runnable object and a newly generated
@@ -148,8 +138,8 @@
  - seealso: java.lang.SecurityException
  - seealso: java.lang.SecurityManager
  */
-- (instancetype __nonnull)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)group
-                                 withJavaLangRunnable:(id<JavaLangRunnable>)runnable;
+- (instancetype)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)group
+                       withJavaLangRunnable:(id<JavaLangRunnable>)runnable;
 
 /*!
  @brief Constructs a new Thread with a runnable object, the given name and
@@ -167,9 +157,9 @@
  - seealso: java.lang.SecurityException
  - seealso: java.lang.SecurityManager
  */
-- (instancetype __nonnull)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)group
-                                 withJavaLangRunnable:(id<JavaLangRunnable>)runnable
-                                         withNSString:(NSString *)threadName;
+- (instancetype)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)group
+                       withJavaLangRunnable:(id<JavaLangRunnable>)runnable
+                               withNSString:(NSString *)threadName;
 
 /*!
  @brief Constructs a new Thread with a runnable object, the given name and
@@ -188,10 +178,10 @@
  - seealso: java.lang.SecurityException
  - seealso: java.lang.SecurityManager
  */
-- (instancetype __nonnull)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)group
-                                 withJavaLangRunnable:(id<JavaLangRunnable>)runnable
-                                         withNSString:(NSString *)threadName
-                                             withLong:(jlong)stack;
+- (instancetype)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)group
+                       withJavaLangRunnable:(id<JavaLangRunnable>)runnable
+                               withNSString:(NSString *)threadName
+                                   withLong:(jlong)stack;
 
 /*!
  @brief Constructs a new Thread with no runnable object, the given name and
@@ -206,8 +196,8 @@
  - seealso: java.lang.SecurityException
  - seealso: java.lang.SecurityManager
  */
-- (instancetype __nonnull)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)group
-                                         withNSString:(NSString *)threadName;
+- (instancetype)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)group
+                               withNSString:(NSString *)threadName;
 
 + (jint)activeCount;
 
@@ -220,7 +210,7 @@
 
 - (jint)countStackFrames __attribute__((deprecated));
 
-+ (JavaLangThread * __nonnull)currentThread;
++ (JavaLangThread *)currentThread;
 
 - (void)destroy __attribute__((deprecated));
 
@@ -484,7 +474,7 @@
 
 - (void)suspend __attribute__((deprecated));
 
-- (NSString * __nonnull)description;
+- (NSString *)description;
 
 /*!
  @brief Unparks this thread.This unblocks the thread it if it was
@@ -648,7 +638,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangThread)
 
 #define RESTRICT_JavaLangEnum 1
 #define INCLUDE_JavaLangEnum 1
-#include "java/lang/Enum.h"
+#include "../../java/lang/Enum.h"
 
 @class IOSObjectArray;
 
@@ -667,12 +657,6 @@ typedef NS_ENUM(NSUInteger, JavaLangThread_State_Enum) {
  */
 @interface JavaLangThread_State : JavaLangEnum
 
-@property (readonly, class, nonnull) JavaLangThread_State *NEW NS_SWIFT_NAME(NEW);
-@property (readonly, class, nonnull) JavaLangThread_State *RUNNABLE NS_SWIFT_NAME(RUNNABLE);
-@property (readonly, class, nonnull) JavaLangThread_State *BLOCKED NS_SWIFT_NAME(BLOCKED);
-@property (readonly, class, nonnull) JavaLangThread_State *WAITING NS_SWIFT_NAME(WAITING);
-@property (readonly, class, nonnull) JavaLangThread_State *TIMED_WAITING NS_SWIFT_NAME(TIMED_WAITING);
-@property (readonly, class, nonnull) JavaLangThread_State *TERMINATED NS_SWIFT_NAME(TERMINATED);
 + (JavaLangThread_State * __nonnull)NEW;
 
 + (JavaLangThread_State * __nonnull)RUNNABLE;

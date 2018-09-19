@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/NavigableSet.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilNavigableSet")
 #ifdef RESTRICT_JavaUtilNavigableSet
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilNavigableSet_) && (INCLUDE_ALL_JavaUtilNavigableSet || defined(INCLUDE_JavaUtilNavigableSet))
 #define JavaUtilNavigableSet_
 
 #define RESTRICT_JavaUtilSortedSet 1
 #define INCLUDE_JavaUtilSortedSet 1
-#include "java/util/SortedSet.h"
+#include "../../java/util/SortedSet.h"
 
 @protocol JavaUtilIterator;
 
@@ -296,10 +290,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilNavigableSet)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilNavigableSet")

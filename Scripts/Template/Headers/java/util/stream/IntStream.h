@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/stream/IntStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilStreamIntStream")
 #ifdef RESTRICT_JavaUtilStreamIntStream
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilStreamIntStream_) && (INCLUDE_ALL_JavaUtilStreamIntStream || defined(INCLUDE_JavaUtilStreamIntStream))
 #define JavaUtilStreamIntStream_
 
 #define RESTRICT_JavaUtilStreamBaseStream 1
 #define INCLUDE_JavaUtilStreamBaseStream 1
-#include "java/util/stream/BaseStream.h"
+#include "../../../java/util/stream/BaseStream.h"
 
 @class IOSIntArray;
 @class JavaUtilIntSummaryStatistics;
@@ -679,7 +673,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamIntStream)
 
 #define RESTRICT_JavaUtilFunctionIntConsumer 1
 #define INCLUDE_JavaUtilFunctionIntConsumer 1
-#include "java/util/function/IntConsumer.h"
+#include "../../../java/util/function/IntConsumer.h"
 
 @protocol JavaUtilStreamIntStream;
 
@@ -733,10 +727,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamIntStream_Builder)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilStreamIntStream")

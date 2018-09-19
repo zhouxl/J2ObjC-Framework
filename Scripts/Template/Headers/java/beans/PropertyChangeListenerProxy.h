@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/beans/PropertyChangeListenerProxy.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaBeansPropertyChangeListenerProxy")
 #ifdef RESTRICT_JavaBeansPropertyChangeListenerProxy
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaBeansPropertyChangeListenerProxy_) && (INCLUDE_ALL_JavaBeansPropertyChangeListenerProxy || defined(INCLUDE_JavaBeansPropertyChangeListenerProxy))
 #define JavaBeansPropertyChangeListenerProxy_
 
 #define RESTRICT_JavaUtilEventListenerProxy 1
 #define INCLUDE_JavaUtilEventListenerProxy 1
-#include "java/util/EventListenerProxy.h"
+#include "../../java/util/EventListenerProxy.h"
 
 #define RESTRICT_JavaBeansPropertyChangeListener 1
 #define INCLUDE_JavaBeansPropertyChangeListener 1
-#include "java/beans/PropertyChangeListener.h"
+#include "../../java/beans/PropertyChangeListener.h"
 
 @class JavaBeansPropertyChangeEvent;
 @protocol JavaUtilEventListener;
@@ -61,8 +55,8 @@
  @param propertyName the name of the property to listen on
  @param listener the listener object
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)propertyName
-       withJavaBeansPropertyChangeListener:(id<JavaBeansPropertyChangeListener>)listener;
+- (instancetype)initWithNSString:(NSString *)propertyName
+withJavaBeansPropertyChangeListener:(id<JavaBeansPropertyChangeListener>)listener;
 
 - (id<JavaBeansPropertyChangeListener>)getListener;
 
@@ -80,7 +74,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilEventListener:(id<JavaUtilEventListener>)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilEventListener:(id<JavaUtilEventListener>)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -96,10 +90,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaBeansPropertyChangeListenerProxy)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaBeansPropertyChangeListenerProxy")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/zip/Inflater.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilZipInflater")
 #ifdef RESTRICT_JavaUtilZipInflater
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaUtilZipInflater_) && (INCLUDE_ALL_JavaUtilZipInflater || defined(INCLUDE_JavaUtilZipInflater))
 #define JavaUtilZipInflater_
@@ -83,7 +77,7 @@
 /*!
  @brief Creates a new decompressor.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a new decompressor.If the parameter 'nowrap' is true then
@@ -96,7 +90,7 @@
   library in order to support certain optimizations.
  @param nowrap if true then support GZIP compatible compression
  */
-- (instancetype __nonnull)initWithBoolean:(jboolean)nowrap;
+- (instancetype)initWithBoolean:(jboolean)nowrap;
 
 /*!
  @brief Closes the decompressor and discards any unprocessed input.
@@ -302,10 +296,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipInflater)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilZipInflater")

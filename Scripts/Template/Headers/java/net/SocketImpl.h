@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/net/SocketImpl.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetSocketImpl")
 #ifdef RESTRICT_JavaNetSocketImpl
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNetSocketImpl_) && (INCLUDE_ALL_JavaNetSocketImpl || defined(INCLUDE_JavaNetSocketImpl))
 #define JavaNetSocketImpl_
 
 #define RESTRICT_JavaNetSocketOptions 1
 #define INCLUDE_JavaNetSocketOptions 1
-#include "java/net/SocketOptions.h"
+#include "../../java/net/SocketOptions.h"
 
 @class JavaIoFileDescriptor;
 @class JavaIoInputStream;
@@ -74,7 +68,7 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  */
@@ -325,10 +319,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetSocketImpl)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetSocketImpl")

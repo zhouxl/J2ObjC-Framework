@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/reflect/AnnotatedElement.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangReflectAnnotatedElement")
 #ifdef RESTRICT_JavaLangReflectAnnotatedElement
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaLangReflectAnnotatedElement_) && (INCLUDE_ALL_JavaLangReflectAnnotatedElement || defined(INCLUDE_JavaLangReflectAnnotatedElement))
 #define JavaLangReflectAnnotatedElement_
@@ -91,7 +85,7 @@
   <caption>Overview of kind of presence detected by different AnnotatedElement methods</caption>
   <tr><th colspan="2"></th><th colspan="4">Kind of Presence</th>
   <tr><th colspan="2">Method</th><th>Directly Present</th><th>Indirectly Present</th><th>Present</th><th>Associated</th>
-  <tr><td align="right"><code>T</code></td><td><code>getAnnotation(Class&lt;T&gt;)</code>
+  <tr><td align=right><code>T</code></td><td><code>getAnnotation(Class&lt;T&gt;)</code>
   <td></td><td></td><td>X</td><td></td>
   </tr>
   <tr><td align="right"><code>Annotation[]</code></td><td><code>getAnnotations()</code>
@@ -246,7 +240,7 @@
  @return annotations present on this element
  @since 1.5
  */
-- (IOSObjectArray * __nonnull)getAnnotations;
+- (IOSObjectArray *)getAnnotations;
 
 /*!
  @brief Returns annotations that are <em>associated</em> with this element.
@@ -313,7 +307,7 @@
  @return annotations directly present on this element
  @since 1.5
  */
-- (IOSObjectArray * __nonnull)getDeclaredAnnotations;
+- (IOSObjectArray *)getDeclaredAnnotations;
 
 @end
 
@@ -331,10 +325,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectAnnotatedElement)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangReflectAnnotatedElement")

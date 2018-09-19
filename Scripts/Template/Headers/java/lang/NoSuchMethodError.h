@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/NoSuchMethodError.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangNoSuchMethodError")
 #ifdef RESTRICT_JavaLangNoSuchMethodError
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangNoSuchMethodError_) && (INCLUDE_ALL_JavaLangNoSuchMethodError || defined(INCLUDE_JavaLangNoSuchMethodError))
 #define JavaLangNoSuchMethodError_
 
 #define RESTRICT_JavaLangIncompatibleClassChangeError 1
 #define INCLUDE_JavaLangIncompatibleClassChangeError 1
-#include "java/lang/IncompatibleClassChangeError.h"
+#include "../../java/lang/IncompatibleClassChangeError.h"
 
 /*!
  @brief Thrown if an application tries to call a specified method of a
@@ -47,14 +41,14 @@
 /*!
  @brief Constructs a <code>NoSuchMethodError</code> with no detail message.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a <code>NoSuchMethodError</code> with the
   specified detail message.
  @param s the detail message.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s;
+- (instancetype)initWithNSString:(NSString *)s;
 
 @end
 
@@ -76,10 +70,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangNoSuchMethodError)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangNoSuchMethodError")

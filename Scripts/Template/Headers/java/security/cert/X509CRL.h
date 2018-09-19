@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/cert/X509CRL.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityCertX509CRL")
 #ifdef RESTRICT_JavaSecurityCertX509CRL
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityCertX509CRL_) && (INCLUDE_ALL_JavaSecurityCertX509CRL || defined(INCLUDE_JavaSecurityCertX509CRL))
 #define JavaSecurityCertX509CRL_
 
 #define RESTRICT_JavaSecurityCertCRL 1
 #define INCLUDE_JavaSecurityCertCRL 1
-#include "java/security/cert/CRL.h"
+#include "../../../java/security/cert/CRL.h"
 
 #define RESTRICT_JavaSecurityCertX509Extension 1
 #define INCLUDE_JavaSecurityCertX509Extension 1
-#include "java/security/cert/X509Extension.h"
+#include "../../../java/security/cert/X509Extension.h"
 
 @class IOSByteArray;
 @class JavaMathBigInteger;
@@ -378,7 +372,7 @@
 /*!
  @brief Constructor for X.509 CRLs.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -390,10 +384,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertX509CRL)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertX509CRL")

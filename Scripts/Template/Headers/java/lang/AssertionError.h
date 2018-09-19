@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/AssertionError.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangAssertionError")
 #ifdef RESTRICT_JavaLangAssertionError
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangAssertionError_) && (INCLUDE_ALL_JavaLangAssertionError || defined(INCLUDE_JavaLangAssertionError))
 #define JavaLangAssertionError_
 
 #define RESTRICT_JavaLangError 1
 #define INCLUDE_JavaLangError 1
-#include "java/lang/Error.h"
+#include "../../java/lang/Error.h"
 
 @class JavaLangThrowable;
 
@@ -53,7 +47,7 @@
 /*!
  @brief Constructs an AssertionError with no detail message.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs an AssertionError with its detail message derived
@@ -62,7 +56,7 @@
  <cite>The Java&trade; Language Specification</cite>.
  @param detailMessage value to be used in constructing detail message
  */
-- (instancetype __nonnull)initWithBoolean:(jboolean)detailMessage;
+- (instancetype)initWithBoolean:(jboolean)detailMessage;
 
 /*!
  @brief Constructs an AssertionError with its detail message derived
@@ -71,7 +65,7 @@
  <cite>The Java&trade; Language Specification</cite>.
  @param detailMessage value to be used in constructing detail message
  */
-- (instancetype __nonnull)initWithChar:(jchar)detailMessage;
+- (instancetype)initWithChar:(jchar)detailMessage;
 
 /*!
  @brief Constructs an AssertionError with its detail message derived
@@ -80,7 +74,7 @@
  <cite>The Java&trade; Language Specification</cite>.
  @param detailMessage value to be used in constructing detail message
  */
-- (instancetype __nonnull)initWithDouble:(jdouble)detailMessage;
+- (instancetype)initWithDouble:(jdouble)detailMessage;
 
 /*!
  @brief Constructs an AssertionError with its detail message derived
@@ -89,7 +83,7 @@
  <cite>The Java&trade; Language Specification</cite>.
  @param detailMessage value to be used in constructing detail message
  */
-- (instancetype __nonnull)initWithFloat:(jfloat)detailMessage;
+- (instancetype)initWithFloat:(jfloat)detailMessage;
 
 /*!
  @brief Constructs an AssertionError with its detail message derived
@@ -98,7 +92,7 @@
  <cite>The Java&trade; Language Specification</cite>.
  @param detailMessage value to be used in constructing detail message
  */
-- (instancetype __nonnull)initWithInt:(jint)detailMessage;
+- (instancetype)initWithInt:(jint)detailMessage;
 
 /*!
  @brief Constructs an AssertionError with its detail message derived
@@ -107,7 +101,7 @@
  <cite>The Java&trade; Language Specification</cite>.
  @param detailMessage value to be used in constructing detail message
  */
-- (instancetype __nonnull)initWithLong:(jlong)detailMessage;
+- (instancetype)initWithLong:(jlong)detailMessage;
 
 /*!
  @brief Constructs an AssertionError with its detail message derived
@@ -120,7 +114,7 @@
  @param detailMessage value to be used in constructing detail message
  - seealso: Throwable#getCause()
  */
-- (instancetype __nonnull)initWithId:(id)detailMessage;
+- (instancetype)initWithId:(id)detailMessage;
 
 /*!
  @brief Constructs a new <code>AssertionError</code> with the specified
@@ -132,17 +126,17 @@
  @param cause the cause, may be <code>null</code>
  @since 1.7
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)message
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1
-                               withBoolean:(jboolean)arg2
-                               withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1
+                     withBoolean:(jboolean)arg2
+                     withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -206,10 +200,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangAssertionError)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangAssertionError")

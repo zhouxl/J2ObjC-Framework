@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/io/File.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoFile")
 #ifdef RESTRICT_JavaIoFile
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoFile_) && (INCLUDE_ALL_JavaIoFile || defined(INCLUDE_JavaIoFile))
 #define JavaIoFile_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 #define RESTRICT_JavaLangComparable 1
 #define INCLUDE_JavaLangComparable 1
-#include "java/lang/Comparable.h"
+#include "../../java/lang/Comparable.h"
 
 @class IOSObjectArray;
 @class JavaNetURI;
@@ -57,10 +51,6 @@
  - seealso: java.lang.Comparable
  */
 @interface JavaIoFile : NSObject < JavaIoSerializable, JavaLangComparable >
-@property (readonly, class) jchar separatorChar NS_SWIFT_NAME(separatorChar);
-@property (readonly, copy, class) NSString *separator NS_SWIFT_NAME(separator);
-@property (readonly, class) jchar pathSeparatorChar NS_SWIFT_NAME(pathSeparatorChar);
-@property (readonly, copy, class) NSString *pathSeparator NS_SWIFT_NAME(pathSeparator);
 
 + (jchar)separatorChar;
 
@@ -79,14 +69,14 @@
  @throw NullPointerException
  if <code>name</code> is <code>null</code>.
  */
-- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)dir
-                                withNSString:(NSString *)name;
+- (instancetype)initWithJavaIoFile:(JavaIoFile *)dir
+                      withNSString:(NSString *)name;
 
 /*!
  @brief Constructs a new file using the specified path.
  @param path the path to be used for the file.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)path;
+- (instancetype)initWithNSString:(NSString *)path;
 
 /*!
  @brief Constructs a new File using the specified directory path and file name,
@@ -96,8 +86,8 @@
  @throw NullPointerException
  if <code>name == null</code>.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)dirPath
-                              withNSString:(NSString *)name;
+- (instancetype)initWithNSString:(NSString *)dirPath
+                    withNSString:(NSString *)name;
 
 /*!
  @brief Constructs a new File using the path of the specified URI.
@@ -112,7 +102,7 @@
  - seealso: #toURI
  - seealso: java.net.URI
  */
-- (instancetype __nonnull)initWithJavaNetURI:(JavaNetURI *)uri;
+- (instancetype)initWithJavaNetURI:(JavaNetURI *)uri;
 
 /*!
  @brief Tests whether or not this process is allowed to execute this file.
@@ -652,7 +642,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -733,10 +723,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFile)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoFile")

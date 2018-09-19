@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/EnumMap.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilEnumMap")
 #ifdef RESTRICT_JavaUtilEnumMap
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilEnumMap_) && (INCLUDE_ALL_JavaUtilEnumMap || defined(INCLUDE_JavaUtilEnumMap))
 #define JavaUtilEnumMap_
 
 #define RESTRICT_JavaUtilAbstractMap 1
 #define INCLUDE_JavaUtilAbstractMap 1
-#include "java/util/AbstractMap.h"
+#include "../../java/util/AbstractMap.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSClass;
 @class JavaLangEnum;
@@ -93,7 +87,7 @@
  @param keyType the class object of the key type for this enum map
  @throw NullPointerExceptionif <tt>keyType</tt> is null
  */
-- (instancetype __nonnull)initWithIOSClass:(IOSClass *)keyType;
+- (instancetype)initWithIOSClass:(IOSClass *)keyType;
 
 /*!
  @brief Creates an enum map with the same key type as the specified enum
@@ -101,7 +95,7 @@
  @param m the enum map from which to initialize this enum map
  @throw NullPointerExceptionif <tt>m</tt> is null
  */
-- (instancetype __nonnull)initWithJavaUtilEnumMap:(JavaUtilEnumMap *)m;
+- (instancetype)initWithJavaUtilEnumMap:(JavaUtilEnumMap *)m;
 
 /*!
  @brief Creates an enum map initialized from the specified map.If the
@@ -115,7 +109,7 @@
       <tt>EnumMap</tt> instance and contains no mappings
  @throw NullPointerExceptionif <tt>m</tt> is null
  */
-- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)m;
+- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)m;
 
 /*!
  @brief Removes all mappings from this map.
@@ -252,7 +246,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -280,10 +274,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilEnumMap)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilEnumMap")

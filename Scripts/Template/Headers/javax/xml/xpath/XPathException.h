@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/javax/xml/xpath/XPathException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxXmlXpathXPathException")
 #ifdef RESTRICT_JavaxXmlXpathXPathException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxXmlXpathXPathException_) && (INCLUDE_ALL_JavaxXmlXpathXPathException || defined(INCLUDE_JavaxXmlXpathXPathException))
 #define JavaxXmlXpathXPathException_
 
 #define RESTRICT_JavaLangException 1
 #define INCLUDE_JavaLangException 1
-#include "java/lang/Exception.h"
+#include "../../../java/lang/Exception.h"
 
 @class JavaIoPrintStream;
 @class JavaIoPrintWriter;
@@ -54,7 +48,7 @@
  <p>If <code>message</code> is <code>null</code>, then a <code>NullPointerException</code> is thrown.</p>
  @param message The detail message.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message;
+- (instancetype)initWithNSString:(NSString *)message;
 
 /*!
  @brief <p>Constructs a new <code>XPathException</code> with the specified <code>cause</code>.
@@ -64,7 +58,7 @@
  @param cause The cause.
  @throw NullPointerExceptionif <code>cause</code> is <code>null</code>.
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 - (JavaLangThrowable *)getCause;
 
@@ -76,15 +70,15 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1
-                               withBoolean:(jboolean)arg2
-                               withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1
+                     withBoolean:(jboolean)arg2
+                     withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -106,10 +100,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlXpathXPathException")

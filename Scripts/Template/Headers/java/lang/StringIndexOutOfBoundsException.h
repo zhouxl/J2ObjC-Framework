@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/StringIndexOutOfBoundsException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangStringIndexOutOfBoundsException")
 #ifdef RESTRICT_JavaLangStringIndexOutOfBoundsException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangStringIndexOutOfBoundsException_) && (INCLUDE_ALL_JavaLangStringIndexOutOfBoundsException || defined(INCLUDE_JavaLangStringIndexOutOfBoundsException))
 #define JavaLangStringIndexOutOfBoundsException_
 
 #define RESTRICT_JavaLangIndexOutOfBoundsException 1
 #define INCLUDE_JavaLangIndexOutOfBoundsException 1
-#include "java/lang/IndexOutOfBoundsException.h"
+#include "../../java/lang/IndexOutOfBoundsException.h"
 
 /*!
  @brief Thrown by <code>String</code> methods to indicate that an index
@@ -47,47 +41,47 @@
   detail message.
  @since JDK1.0.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a new <code>StringIndexOutOfBoundsException</code>
   class with an argument indicating the illegal index.
  @param index the illegal index.
  */
-- (instancetype __nonnull)initWithInt:(jint)index;
+- (instancetype)initWithInt:(jint)index;
 
 /*!
  @brief Used internally for consistent high-quality error reporting.
  */
-- (instancetype __nonnull)initWithInt:(jint)sourceLength
-                              withInt:(jint)index;
+- (instancetype)initWithInt:(jint)sourceLength
+                    withInt:(jint)index;
 
 /*!
  @brief Used internally for consistent high-quality error reporting.
  */
-- (instancetype __nonnull)initWithInt:(jint)sourceLength
-                              withInt:(jint)offset
-                              withInt:(jint)count;
+- (instancetype)initWithInt:(jint)sourceLength
+                    withInt:(jint)offset
+                    withInt:(jint)count;
 
 /*!
  @brief Constructs a <code>StringIndexOutOfBoundsException</code> with
   the specified detail message.
  @param s the detail message.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s;
+- (instancetype)initWithNSString:(NSString *)s;
 
 /*!
  @brief Used internally for consistent high-quality error reporting.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s
-                                   withInt:(jint)index;
+- (instancetype)initWithNSString:(NSString *)s
+                         withInt:(jint)index;
 
 /*!
  @brief Used internally for consistent high-quality error reporting.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s
-                                   withInt:(jint)offset
-                                   withInt:(jint)count;
+- (instancetype)initWithNSString:(NSString *)s
+                         withInt:(jint)offset
+                         withInt:(jint)count;
 
 @end
 
@@ -139,10 +133,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangStringIndexOutOfBoundsException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangStringIndexOutOfBoundsException")

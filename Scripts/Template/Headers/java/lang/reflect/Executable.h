@@ -22,10 +22,10 @@
 #ifndef _JavaLangReflectExecutable_H_
 #define _JavaLangReflectExecutable_H_
 
-#include "IOSMetadata.h"
-#include "java/lang/reflect/AccessibleObject.h"
-#include "java/lang/reflect/GenericDeclaration.h"
-#include "java/lang/reflect/Member.h"
+#include "../../../IOSMetadata.h"
+#include "../../../java/lang/reflect/AccessibleObject.h"
+#include "../../../java/lang/reflect/GenericDeclaration.h"
+#include "../../../java/lang/reflect/Member.h"
 
 // The first arguments all messages have are self and _cmd.
 // These are unmodified when specifying method-specific arguments.
@@ -79,10 +79,6 @@
 - (IOSObjectArray *)getAnnotationsByTypeWithIOSClass:(IOSClass *)cls;
 - (IOSObjectArray *)getDeclaredAnnotations;
 - (IOSObjectArray *)getParameterAnnotations;
-
-// Empty implementations.
-- (id<JavaLangReflectAnnotatedType>)getAnnotatedReturnType;
-- (IOSObjectArray *)getAnnotatedParameterTypes;
 
 - (NSString *)toGenericString;
 - (IOSObjectArray *)getAllGenericParameterTypes;

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/beans/IndexedPropertyChangeEvent.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaBeansIndexedPropertyChangeEvent")
 #ifdef RESTRICT_JavaBeansIndexedPropertyChangeEvent
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaBeansIndexedPropertyChangeEvent_) && (INCLUDE_ALL_JavaBeansIndexedPropertyChangeEvent || defined(INCLUDE_JavaBeansIndexedPropertyChangeEvent))
 #define JavaBeansIndexedPropertyChangeEvent_
 
 #define RESTRICT_JavaBeansPropertyChangeEvent 1
 #define INCLUDE_JavaBeansPropertyChangeEvent 1
-#include "java/beans/PropertyChangeEvent.h"
+#include "../../java/beans/PropertyChangeEvent.h"
 
 @class JavaLangStringBuilder;
 
@@ -58,11 +52,11 @@
  @param newValue The new value of the property.
  @param index index of the property element that was changed.
  */
-- (instancetype __nonnull)initWithId:(id)source
-                        withNSString:(NSString *)propertyName
-                              withId:(id)oldValue
-                              withId:(id)newValue
-                             withInt:(jint)index;
+- (instancetype)initWithId:(id)source
+              withNSString:(NSString *)propertyName
+                    withId:(id)oldValue
+                    withId:(id)newValue
+                   withInt:(jint)index;
 
 /*!
  @brief Gets the index of the property that was changed.
@@ -77,10 +71,10 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithId:(id)arg0
-                        withNSString:(NSString *)arg1
-                              withId:(id)arg2
-                              withId:(id)arg3 NS_UNAVAILABLE;
+- (instancetype)initWithId:(id)arg0
+              withNSString:(NSString *)arg1
+                    withId:(id)arg2
+                    withId:(id)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -96,10 +90,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaBeansIndexedPropertyChangeEvent)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaBeansIndexedPropertyChangeEvent")

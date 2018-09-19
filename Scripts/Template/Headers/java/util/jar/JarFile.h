@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/jar/JarFile.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilJarJarFile")
 #ifdef RESTRICT_JavaUtilJarJarFile
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilJarJarFile_) && (INCLUDE_ALL_JavaUtilJarJarFile || defined(INCLUDE_JavaUtilJarJarFile))
 #define JavaUtilJarJarFile_
 
 #define RESTRICT_JavaUtilZipZipFile 1
 #define INCLUDE_JavaUtilZipZipFile 1
-#include "java/util/zip/ZipFile.h"
+#include "../../../java/util/zip/ZipFile.h"
 
 @class JavaIoFile;
 @class JavaIoInputStream;
@@ -54,8 +48,6 @@
  @since 1.2
  */
 @interface JavaUtilJarJarFile : JavaUtilZipZipFile
-@property (readonly, copy, class) NSString *META_DIR NS_SWIFT_NAME(META_DIR);
-@property (readonly, copy, class) NSString *MANIFEST_NAME NS_SWIFT_NAME(MANIFEST_NAME);
 
 + (NSString *)META_DIR;
 
@@ -72,7 +64,7 @@
  @throw SecurityExceptionif access to the file is denied
           by the SecurityManager
  */
-- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file;
+- (instancetype)initWithJavaIoFile:(JavaIoFile *)file;
 
 /*!
  @brief Creates a new <code>JarFile</code> to read from the specified 
@@ -83,8 +75,8 @@
  @throw SecurityExceptionif access to the file is denied
           by the SecurityManager.
  */
-- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file
-                                 withBoolean:(jboolean)verify;
+- (instancetype)initWithJavaIoFile:(JavaIoFile *)file
+                       withBoolean:(jboolean)verify;
 
 /*!
  @brief Creates a new <code>JarFile</code> to read from the specified 
@@ -100,9 +92,9 @@
           by the SecurityManager
  @since 1.3
  */
-- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file
-                                 withBoolean:(jboolean)verify
-                                     withInt:(jint)mode;
+- (instancetype)initWithJavaIoFile:(JavaIoFile *)file
+                       withBoolean:(jboolean)verify
+                           withInt:(jint)mode;
 
 /*!
  @brief Creates a new <code>JarFile</code> to read from the specified
@@ -113,7 +105,7 @@
  @throw SecurityExceptionif access to the file is denied
           by the SecurityManager
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)name;
+- (instancetype)initWithNSString:(NSString *)name;
 
 /*!
  @brief Creates a new <code>JarFile</code> to read from the specified
@@ -124,8 +116,8 @@
  @throw SecurityExceptionif access to the file is denied
           by the SecurityManager
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)name
-                               withBoolean:(jboolean)verify;
+- (instancetype)initWithNSString:(NSString *)name
+                     withBoolean:(jboolean)verify;
 
 /*!
  @brief Returns an enumeration of the zip file entries.
@@ -189,18 +181,18 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)arg0
-                                     withInt:(jint)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoFile:(JavaIoFile *)arg0
+                           withInt:(jint)arg1 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)arg0
-                                     withInt:(jint)arg1
-                   withJavaNioCharsetCharset:(JavaNioCharsetCharset *)arg2 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoFile:(JavaIoFile *)arg0
+                           withInt:(jint)arg1
+         withJavaNioCharsetCharset:(JavaNioCharsetCharset *)arg2 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)arg0
-                   withJavaNioCharsetCharset:(JavaNioCharsetCharset *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoFile:(JavaIoFile *)arg0
+         withJavaNioCharsetCharset:(JavaNioCharsetCharset *)arg1 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                 withJavaNioCharsetCharset:(JavaNioCharsetCharset *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+       withJavaNioCharsetCharset:(JavaNioCharsetCharset *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -253,10 +245,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarFile)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilJarJarFile")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/cert/PKIXCertPathChecker.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityCertPKIXCertPathChecker")
 #ifdef RESTRICT_JavaSecurityCertPKIXCertPathChecker
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityCertPKIXCertPathChecker_) && (INCLUDE_ALL_JavaSecurityCertPKIXCertPathChecker || defined(INCLUDE_JavaSecurityCertPKIXCertPathChecker))
 #define JavaSecurityCertPKIXCertPathChecker_
 
 #define RESTRICT_JavaSecurityCertCertPathChecker 1
 #define INCLUDE_JavaSecurityCertCertPathChecker 1
-#include "java/security/cert/CertPathChecker.h"
+#include "../../../java/security/cert/CertPathChecker.h"
 
 @class JavaSecurityCertCertificate;
 @protocol JavaUtilCollection;
@@ -174,7 +168,7 @@
 /*!
  @brief Default constructor.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -186,10 +180,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertPKIXCertPathChecker)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertPKIXCertPathChecker")

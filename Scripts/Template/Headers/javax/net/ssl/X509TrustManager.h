@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/net/ssl/X509TrustManager.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxNetSslX509TrustManager")
 #ifdef RESTRICT_JavaxNetSslX509TrustManager
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxNetSslX509TrustManager_) && (INCLUDE_ALL_JavaxNetSslX509TrustManager || defined(INCLUDE_JavaxNetSslX509TrustManager))
 #define JavaxNetSslX509TrustManager_
 
 #define RESTRICT_JavaxNetSslTrustManager 1
 #define INCLUDE_JavaxNetSslTrustManager 1
-#include "javax/net/ssl/TrustManager.h"
+#include "../../../javax/net/ssl/TrustManager.h"
 
 @class IOSObjectArray;
 
@@ -102,10 +96,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslX509TrustManager)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxNetSslX509TrustManager")

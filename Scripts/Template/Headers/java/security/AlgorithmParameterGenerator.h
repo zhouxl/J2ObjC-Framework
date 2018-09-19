@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/AlgorithmParameterGenerator.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityAlgorithmParameterGenerator")
 #ifdef RESTRICT_JavaSecurityAlgorithmParameterGenerator
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaSecurityAlgorithmParameterGenerator_) && (INCLUDE_ALL_JavaSecurityAlgorithmParameterGenerator || defined(INCLUDE_JavaSecurityAlgorithmParameterGenerator))
 #define JavaSecurityAlgorithmParameterGenerator_
@@ -259,13 +253,13 @@ withJavaSecuritySecureRandom:(JavaSecuritySecureRandom *)random OBJC_METHOD_FAMI
  @param provider the provider
  @param algorithm the algorithm
  */
-- (instancetype __nonnull)initWithJavaSecurityAlgorithmParameterGeneratorSpi:(JavaSecurityAlgorithmParameterGeneratorSpi *)paramGenSpi
-                                                    withJavaSecurityProvider:(JavaSecurityProvider *)provider
-                                                                withNSString:(NSString *)algorithm;
+- (instancetype)initWithJavaSecurityAlgorithmParameterGeneratorSpi:(JavaSecurityAlgorithmParameterGeneratorSpi *)paramGenSpi
+                                          withJavaSecurityProvider:(JavaSecurityProvider *)provider
+                                                      withNSString:(NSString *)algorithm;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -287,10 +281,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityAlgorithmParameterGenerator)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityAlgorithmParameterGenerator")

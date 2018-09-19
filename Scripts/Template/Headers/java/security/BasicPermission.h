@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/BasicPermission.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityBasicPermission")
 #ifdef RESTRICT_JavaSecurityBasicPermission
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityBasicPermission_) && (INCLUDE_ALL_JavaSecurityBasicPermission || defined(INCLUDE_JavaSecurityBasicPermission))
 #define JavaSecurityBasicPermission_
 
 #define RESTRICT_JavaSecurityPermission 1
 #define INCLUDE_JavaSecurityPermission 1
-#include "java/security/Permission.h"
+#include "../../java/security/Permission.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 /*!
  @brief Legacy security code; do not use.
@@ -40,10 +34,10 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)initWithNSString:(NSString *)name;
+- (instancetype)initWithNSString:(NSString *)name;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)name
-                              withNSString:(NSString *)actions;
+- (instancetype)initWithNSString:(NSString *)name
+                    withNSString:(NSString *)actions;
 
 - (NSString *)getActions;
 
@@ -61,10 +55,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityBasicPermission)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityBasicPermission")

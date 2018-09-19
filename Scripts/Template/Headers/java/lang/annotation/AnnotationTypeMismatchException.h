@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/annotation/AnnotationTypeMismatchException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangAnnotationAnnotationTypeMismatchException")
 #ifdef RESTRICT_JavaLangAnnotationAnnotationTypeMismatchException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangAnnotationAnnotationTypeMismatchException_) && (INCLUDE_ALL_JavaLangAnnotationAnnotationTypeMismatchException || defined(INCLUDE_JavaLangAnnotationAnnotationTypeMismatchException))
 #define JavaLangAnnotationAnnotationTypeMismatchException_
 
 #define RESTRICT_JavaLangRuntimeException 1
 #define INCLUDE_JavaLangRuntimeException 1
-#include "java/lang/RuntimeException.h"
+#include "../../../java/lang/RuntimeException.h"
 
 @class JavaLangReflectMethod;
 @class JavaLangThrowable;
@@ -54,8 +48,8 @@
  @param foundType the (erroneous) type of data found in the annotation.         This string may, but is not required to, contain the value
           as well.  The exact format of the string is unspecified.
  */
-- (instancetype __nonnull)initWithJavaLangReflectMethod:(JavaLangReflectMethod *)element
-                                           withNSString:(NSString *)foundType;
+- (instancetype)initWithJavaLangReflectMethod:(JavaLangReflectMethod *)element
+                                 withNSString:(NSString *)foundType;
 
 /*!
  @brief Returns the <tt>Method</tt> object for the incorrectly typed element.
@@ -73,19 +67,19 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1
-                               withBoolean:(jboolean)arg2
-                               withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1
+                     withBoolean:(jboolean)arg2
+                     withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -101,10 +95,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangAnnotationAnnotationTypeMismatchException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangAnnotationAnnotationTypeMismatchException")

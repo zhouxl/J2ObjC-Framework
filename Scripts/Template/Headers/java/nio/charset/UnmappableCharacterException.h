@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/nio/charset/UnmappableCharacterException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNioCharsetUnmappableCharacterException")
 #ifdef RESTRICT_JavaNioCharsetUnmappableCharacterException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNioCharsetUnmappableCharacterException_) && (INCLUDE_ALL_JavaNioCharsetUnmappableCharacterException || defined(INCLUDE_JavaNioCharsetUnmappableCharacterException))
 #define JavaNioCharsetUnmappableCharacterException_
 
 #define RESTRICT_JavaNioCharsetCharacterCodingException 1
 #define INCLUDE_JavaNioCharsetCharacterCodingException 1
-#include "java/nio/charset/CharacterCodingException.h"
+#include "../../../java/nio/charset/CharacterCodingException.h"
 
 /*!
  @brief Checked exception thrown when an input character (or byte) sequence
@@ -44,7 +38,7 @@
   given length.
  @param inputLength the length of the input
  */
-- (instancetype __nonnull)initWithInt:(jint)inputLength;
+- (instancetype)initWithInt:(jint)inputLength;
 
 /*!
  @brief Returns the length of the input.
@@ -60,7 +54,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -76,10 +70,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetUnmappableCharacterException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioCharsetUnmappableCharacterException")

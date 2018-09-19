@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/nio/channels/SocketChannel.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNioChannelsSocketChannel")
 #ifdef RESTRICT_JavaNioChannelsSocketChannel
@@ -16,34 +16,28 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNioChannelsSocketChannel_) && (INCLUDE_ALL_JavaNioChannelsSocketChannel || defined(INCLUDE_JavaNioChannelsSocketChannel))
 #define JavaNioChannelsSocketChannel_
 
 #define RESTRICT_JavaNioChannelsSpiAbstractSelectableChannel 1
 #define INCLUDE_JavaNioChannelsSpiAbstractSelectableChannel 1
-#include "java/nio/channels/spi/AbstractSelectableChannel.h"
+#include "../../../java/nio/channels/spi/AbstractSelectableChannel.h"
 
 #define RESTRICT_JavaNioChannelsByteChannel 1
 #define INCLUDE_JavaNioChannelsByteChannel 1
-#include "java/nio/channels/ByteChannel.h"
+#include "../../../java/nio/channels/ByteChannel.h"
 
 #define RESTRICT_JavaNioChannelsScatteringByteChannel 1
 #define INCLUDE_JavaNioChannelsScatteringByteChannel 1
-#include "java/nio/channels/ScatteringByteChannel.h"
+#include "../../../java/nio/channels/ScatteringByteChannel.h"
 
 #define RESTRICT_JavaNioChannelsGatheringByteChannel 1
 #define INCLUDE_JavaNioChannelsGatheringByteChannel 1
-#include "java/nio/channels/GatheringByteChannel.h"
+#include "../../../java/nio/channels/GatheringByteChannel.h"
 
 #define RESTRICT_JavaNioChannelsNetworkChannel 1
 #define INCLUDE_JavaNioChannelsNetworkChannel 1
-#include "java/nio/channels/NetworkChannel.h"
+#include "../../../java/nio/channels/NetworkChannel.h"
 
 @class IOSObjectArray;
 @class JavaNetSocket;
@@ -414,7 +408,7 @@
 /*!
  @brief Initializes a new instance of this class.
  */
-- (instancetype __nonnull)initWithJavaNioChannelsSpiSelectorProvider:(JavaNioChannelsSpiSelectorProvider *)provider;
+- (instancetype)initWithJavaNioChannelsSpiSelectorProvider:(JavaNioChannelsSpiSelectorProvider *)provider;
 
 @end
 
@@ -430,10 +424,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSocketChannel)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioChannelsSocketChannel")

@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/ls/LSParser.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgW3cDomLsLSParser")
 #ifdef RESTRICT_OrgW3cDomLsLSParser
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (OrgW3cDomLsLSParser_) && (INCLUDE_ALL_OrgW3cDomLsLSParser || defined(INCLUDE_OrgW3cDomLsLSParser))
 #define OrgW3cDomLsLSParser_
@@ -448,11 +442,6 @@
 @end
 
 @interface OrgW3cDomLsLSParser : NSObject
-@property (readonly, class) jshort ACTION_APPEND_AS_CHILDREN NS_SWIFT_NAME(ACTION_APPEND_AS_CHILDREN);
-@property (readonly, class) jshort ACTION_REPLACE_CHILDREN NS_SWIFT_NAME(ACTION_REPLACE_CHILDREN);
-@property (readonly, class) jshort ACTION_INSERT_BEFORE NS_SWIFT_NAME(ACTION_INSERT_BEFORE);
-@property (readonly, class) jshort ACTION_INSERT_AFTER NS_SWIFT_NAME(ACTION_INSERT_AFTER);
-@property (readonly, class) jshort ACTION_REPLACE NS_SWIFT_NAME(ACTION_REPLACE);
 
 + (jshort)ACTION_APPEND_AS_CHILDREN;
 
@@ -521,10 +510,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomLsLSParser)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgW3cDomLsLSParser")

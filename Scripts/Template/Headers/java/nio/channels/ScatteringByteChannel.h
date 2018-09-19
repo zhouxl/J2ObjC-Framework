@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/nio/channels/ScatteringByteChannel.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNioChannelsScatteringByteChannel")
 #ifdef RESTRICT_JavaNioChannelsScatteringByteChannel
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNioChannelsScatteringByteChannel_) && (INCLUDE_ALL_JavaNioChannelsScatteringByteChannel || defined(INCLUDE_JavaNioChannelsScatteringByteChannel))
 #define JavaNioChannelsScatteringByteChannel_
 
 #define RESTRICT_JavaNioChannelsReadableByteChannel 1
 #define INCLUDE_JavaNioChannelsReadableByteChannel 1
-#include "java/nio/channels/ReadableByteChannel.h"
+#include "../../../java/nio/channels/ReadableByteChannel.h"
 
 @class IOSObjectArray;
 
@@ -142,10 +136,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsScatteringByteChannel)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioChannelsScatteringByteChannel")

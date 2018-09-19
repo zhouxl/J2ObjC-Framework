@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/crypto/ExemptionMechanism.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxCryptoExemptionMechanism")
 #ifdef RESTRICT_JavaxCryptoExemptionMechanism
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaxCryptoExemptionMechanism_) && (INCLUDE_ALL_JavaxCryptoExemptionMechanism || defined(INCLUDE_JavaxCryptoExemptionMechanism))
 #define JavaxCryptoExemptionMechanism_
@@ -289,9 +283,9 @@ withJavaSecuritySpecAlgorithmParameterSpec:(id<JavaSecuritySpecAlgorithmParamete
  @param provider the provider
  @param mechanism the exemption mechanism
  */
-- (instancetype __nonnull)initWithJavaxCryptoExemptionMechanismSpi:(JavaxCryptoExemptionMechanismSpi *)exmechSpi
-                                          withJavaSecurityProvider:(JavaSecurityProvider *)provider
-                                                      withNSString:(NSString *)mechanism;
+- (instancetype)initWithJavaxCryptoExemptionMechanismSpi:(JavaxCryptoExemptionMechanismSpi *)exmechSpi
+                                withJavaSecurityProvider:(JavaSecurityProvider *)provider
+                                            withNSString:(NSString *)mechanism;
 
 /*!
  @brief Ensures that the key stored away by this ExemptionMechanism
@@ -301,7 +295,7 @@ withJavaSecuritySpecAlgorithmParameterSpec:(id<JavaSecuritySpecAlgorithmParamete
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -323,10 +317,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoExemptionMechanism)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxCryptoExemptionMechanism")

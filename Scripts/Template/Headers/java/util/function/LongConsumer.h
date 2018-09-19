@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/function/LongConsumer.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilFunctionLongConsumer")
 #ifdef RESTRICT_JavaUtilFunctionLongConsumer
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaUtilFunctionLongConsumer_) && (INCLUDE_ALL_JavaUtilFunctionLongConsumer || defined(INCLUDE_JavaUtilFunctionLongConsumer))
 #define JavaUtilFunctionLongConsumer_
@@ -68,10 +62,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilFunctionLongConsumer)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilFunctionLongConsumer")

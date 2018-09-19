@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/xml/src/main/java/org/xmlpull/v1/XmlPullParserException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgXmlpullV1XmlPullParserException")
 #ifdef RESTRICT_OrgXmlpullV1XmlPullParserException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (OrgXmlpullV1XmlPullParserException_) && (INCLUDE_ALL_OrgXmlpullV1XmlPullParserException || defined(INCLUDE_OrgXmlpullV1XmlPullParserException))
 #define OrgXmlpullV1XmlPullParserException_
 
 #define RESTRICT_JavaLangException 1
 #define INCLUDE_JavaLangException 1
-#include "java/lang/Exception.h"
+#include "../../../java/lang/Exception.h"
 
 @class JavaLangThrowable;
 @protocol OrgXmlpullV1XmlPullParser;
@@ -45,11 +39,11 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)initWithNSString:(NSString *)s;
+- (instancetype)initWithNSString:(NSString *)s;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)msg
-             withOrgXmlpullV1XmlPullParser:(id<OrgXmlpullV1XmlPullParser>)parser
-                     withJavaLangThrowable:(JavaLangThrowable *)chain;
+- (instancetype)initWithNSString:(NSString *)msg
+   withOrgXmlpullV1XmlPullParser:(id<OrgXmlpullV1XmlPullParser>)parser
+           withJavaLangThrowable:(JavaLangThrowable *)chain;
 
 - (jint)getColumnNumber;
 
@@ -61,17 +55,17 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1
-                               withBoolean:(jboolean)arg2
-                               withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1
+                     withBoolean:(jboolean)arg2
+                     withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -95,10 +89,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlpullV1XmlPullParserException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlpullV1XmlPullParserException")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/net/URLClassLoader.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetURLClassLoader")
 #ifdef RESTRICT_JavaNetURLClassLoader
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNetURLClassLoader_) && (INCLUDE_ALL_JavaNetURLClassLoader || defined(INCLUDE_JavaNetURLClassLoader))
 #define JavaNetURLClassLoader_
 
 #define RESTRICT_JavaSecuritySecureClassLoader 1
 #define INCLUDE_JavaSecuritySecureClassLoader 1
-#include "java/security/SecureClassLoader.h"
+#include "../../java/security/SecureClassLoader.h"
 
 @class IOSObjectArray;
 @class JavaLangClassLoader;
@@ -61,7 +55,7 @@
  @param urls the list of URLs where a specific class or file could be
               found.
  */
-- (instancetype __nonnull)initWithJavaNetURLArray:(IOSObjectArray *)urls;
+- (instancetype)initWithJavaNetURLArray:(IOSObjectArray *)urls;
 
 /*!
  @brief Constructs a new URLClassLoader instance.The newly created instance will
@@ -72,8 +66,8 @@
               found.
  @param parent the class loader to assign as this loader's parent.
  */
-- (instancetype __nonnull)initWithJavaNetURLArray:(IOSObjectArray *)urls
-                          withJavaLangClassLoader:(JavaLangClassLoader *)parent;
+- (instancetype)initWithJavaNetURLArray:(IOSObjectArray *)urls
+                withJavaLangClassLoader:(JavaLangClassLoader *)parent;
 
 /*!
  @brief Constructs a new <code>URLClassLoader</code> instance.The newly created
@@ -89,9 +83,9 @@
  @param factory the factory that will be used to create protocol-specific
               stream handlers.
  */
-- (instancetype __nonnull)initWithJavaNetURLArray:(IOSObjectArray *)searchUrls
-                          withJavaLangClassLoader:(JavaLangClassLoader *)parent
-               withJavaNetURLStreamHandlerFactory:(id<JavaNetURLStreamHandlerFactory>)factory;
+- (instancetype)initWithJavaNetURLArray:(IOSObjectArray *)searchUrls
+                withJavaLangClassLoader:(JavaLangClassLoader *)parent
+     withJavaNetURLStreamHandlerFactory:(id<JavaNetURLStreamHandlerFactory>)factory;
 
 /*!
  @brief Closes this classLoader, so it can't be used to load new classes or resources.
@@ -145,9 +139,9 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaLangClassLoader:(JavaLangClassLoader *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangClassLoader:(JavaLangClassLoader *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -181,10 +175,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetURLClassLoader)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetURLClassLoader")

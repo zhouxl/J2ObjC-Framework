@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/ConcurrentNavigableMap.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentConcurrentNavigableMap")
 #ifdef RESTRICT_JavaUtilConcurrentConcurrentNavigableMap
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentConcurrentNavigableMap_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentNavigableMap || defined(INCLUDE_JavaUtilConcurrentConcurrentNavigableMap))
 #define JavaUtilConcurrentConcurrentNavigableMap_
 
 #define RESTRICT_JavaUtilConcurrentConcurrentMap 1
 #define INCLUDE_JavaUtilConcurrentConcurrentMap 1
-#include "java/util/concurrent/ConcurrentMap.h"
+#include "../../../java/util/concurrent/ConcurrentMap.h"
 
 #define RESTRICT_JavaUtilNavigableMap 1
 #define INCLUDE_JavaUtilNavigableMap 1
-#include "java/util/NavigableMap.h"
+#include "../../../java/util/NavigableMap.h"
 
 @protocol JavaUtilNavigableSet;
 
@@ -161,10 +155,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentNavigableMap)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentConcurrentNavigableMap")

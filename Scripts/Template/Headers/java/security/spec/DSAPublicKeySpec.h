@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/spec/DSAPublicKeySpec.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecuritySpecDSAPublicKeySpec")
 #ifdef RESTRICT_JavaSecuritySpecDSAPublicKeySpec
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecuritySpecDSAPublicKeySpec_) && (INCLUDE_ALL_JavaSecuritySpecDSAPublicKeySpec || defined(INCLUDE_JavaSecuritySpecDSAPublicKeySpec))
 #define JavaSecuritySpecDSAPublicKeySpec_
 
 #define RESTRICT_JavaSecuritySpecKeySpec 1
 #define INCLUDE_JavaSecuritySpecKeySpec 1
-#include "java/security/spec/KeySpec.h"
+#include "../../../java/security/spec/KeySpec.h"
 
 @class JavaMathBigInteger;
 
@@ -52,10 +46,10 @@
  @param q the sub-prime.
  @param g the base.
  */
-- (instancetype __nonnull)initWithJavaMathBigInteger:(JavaMathBigInteger *)y
-                              withJavaMathBigInteger:(JavaMathBigInteger *)p
-                              withJavaMathBigInteger:(JavaMathBigInteger *)q
-                              withJavaMathBigInteger:(JavaMathBigInteger *)g;
+- (instancetype)initWithJavaMathBigInteger:(JavaMathBigInteger *)y
+                    withJavaMathBigInteger:(JavaMathBigInteger *)p
+                    withJavaMathBigInteger:(JavaMathBigInteger *)q
+                    withJavaMathBigInteger:(JavaMathBigInteger *)g;
 
 /*!
  @brief Returns the base <code>g</code>.
@@ -83,7 +77,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -99,10 +93,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecDSAPublicKeySpec)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecDSAPublicKeySpec")

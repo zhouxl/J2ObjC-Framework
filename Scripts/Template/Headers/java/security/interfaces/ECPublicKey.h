@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/interfaces/ECPublicKey.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityInterfacesECPublicKey")
 #ifdef RESTRICT_JavaSecurityInterfacesECPublicKey
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityInterfacesECPublicKey_) && (INCLUDE_ALL_JavaSecurityInterfacesECPublicKey || defined(INCLUDE_JavaSecurityInterfacesECPublicKey))
 #define JavaSecurityInterfacesECPublicKey_
 
 #define RESTRICT_JavaSecurityPublicKey 1
 #define INCLUDE_JavaSecurityPublicKey 1
-#include "java/security/PublicKey.h"
+#include "../../../java/security/PublicKey.h"
 
 #define RESTRICT_JavaSecurityInterfacesECKey 1
 #define INCLUDE_JavaSecurityInterfacesECKey 1
-#include "java/security/interfaces/ECKey.h"
+#include "../../../java/security/interfaces/ECKey.h"
 
 @class JavaSecuritySpecECPoint;
 
@@ -54,7 +48,6 @@
 @end
 
 @interface JavaSecurityInterfacesECPublicKey : NSObject
-@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jlong)serialVersionUID;
 
@@ -74,10 +67,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInterfacesECPublicKey)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityInterfacesECPublicKey")

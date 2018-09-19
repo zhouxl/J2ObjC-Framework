@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/cert/X509CRLSelector.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityCertX509CRLSelector")
 #ifdef RESTRICT_JavaSecurityCertX509CRLSelector
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityCertX509CRLSelector_) && (INCLUDE_ALL_JavaSecurityCertX509CRLSelector || defined(INCLUDE_JavaSecurityCertX509CRLSelector))
 #define JavaSecurityCertX509CRLSelector_
 
 #define RESTRICT_JavaSecurityCertCRLSelector 1
 #define INCLUDE_JavaSecurityCertCRLSelector 1
-#include "java/security/cert/CRLSelector.h"
+#include "../../../java/security/cert/CRLSelector.h"
 
 @class IOSByteArray;
 @class JavaMathBigInteger;
@@ -77,7 +71,7 @@
  @brief Creates an <code>X509CRLSelector</code>.Initially, no criteria are set
   so any <code>X509CRL</code> will match.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Adds a name to the issuerNames criterion.The issuer distinguished
@@ -413,10 +407,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertX509CRLSelector)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertX509CRLSelector")

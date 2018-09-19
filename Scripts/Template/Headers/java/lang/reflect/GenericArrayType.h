@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/reflect/GenericArrayType.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangReflectGenericArrayType")
 #ifdef RESTRICT_JavaLangReflectGenericArrayType
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangReflectGenericArrayType_) && (INCLUDE_ALL_JavaLangReflectGenericArrayType || defined(INCLUDE_JavaLangReflectGenericArrayType))
 #define JavaLangReflectGenericArrayType_
 
 #define RESTRICT_JavaLangReflectType 1
 #define INCLUDE_JavaLangReflectType 1
-#include "java/lang/reflect/Type.h"
+#include "../../../java/lang/reflect/Type.h"
 
 /*!
  @brief <code>GenericArrayType</code> represents an array type whose component
@@ -53,7 +47,7 @@
       underlying array type's component type refers to a
       parameterized type that cannot be instantiated for any reason
  */
-- (id<JavaLangReflectType> __nonnull)getGenericComponentType;
+- (id<JavaLangReflectType>)getGenericComponentType;
 
 @end
 
@@ -63,10 +57,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectGenericArrayType)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangReflectGenericArrayType")

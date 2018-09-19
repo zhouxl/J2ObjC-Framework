@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/net/SocketFactory.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxNetSocketFactory")
 #ifdef RESTRICT_JavaxNetSocketFactory
@@ -18,12 +18,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaxNetSocketFactory_) && (INCLUDE_ALL_JavaxNetSocketFactory || defined(INCLUDE_JavaxNetSocketFactory))
 #define JavaxNetSocketFactory_
@@ -199,7 +193,7 @@
 /*!
  @brief Creates a <code>SocketFactory</code>.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -245,7 +239,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSocketFactory)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -261,10 +255,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetDefaultSocketFactory)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxNetSocketFactory")

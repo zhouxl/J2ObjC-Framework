@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/UnrecoverableKeyException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityUnrecoverableKeyException")
 #ifdef RESTRICT_JavaSecurityUnrecoverableKeyException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityUnrecoverableKeyException_) && (INCLUDE_ALL_JavaSecurityUnrecoverableKeyException || defined(INCLUDE_JavaSecurityUnrecoverableKeyException))
 #define JavaSecurityUnrecoverableKeyException_
 
 #define RESTRICT_JavaSecurityUnrecoverableEntryException 1
 #define INCLUDE_JavaSecurityUnrecoverableEntryException 1
-#include "java/security/UnrecoverableEntryException.h"
+#include "../../java/security/UnrecoverableEntryException.h"
 
 /*!
  @brief This exception is thrown if a key in the keystore cannot be recovered.
@@ -40,7 +34,7 @@
 /*!
  @brief Constructs an UnrecoverableKeyException with no detail message.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs an UnrecoverableKeyException with the specified detail
@@ -48,7 +42,7 @@
   has been thrown.
  @param msg the detail message.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)msg;
+- (instancetype)initWithNSString:(NSString *)msg;
 
 @end
 
@@ -70,10 +64,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityUnrecoverableKeyException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityUnrecoverableKeyException")

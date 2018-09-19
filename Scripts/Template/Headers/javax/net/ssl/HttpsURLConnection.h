@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/net/ssl/HttpsURLConnection.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxNetSslHttpsURLConnection")
 #ifdef RESTRICT_JavaxNetSslHttpsURLConnection
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxNetSslHttpsURLConnection_) && (INCLUDE_ALL_JavaxNetSslHttpsURLConnection || defined(INCLUDE_JavaxNetSslHttpsURLConnection))
 #define JavaxNetSslHttpsURLConnection_
 
 #define RESTRICT_JavaNetHttpURLConnection 1
 #define INCLUDE_JavaNetHttpURLConnection 1
-#include "java/net/HttpURLConnection.h"
+#include "../../../java/net/HttpURLConnection.h"
 
 @class IOSObjectArray;
 @class JavaNetURL;
@@ -259,7 +253,7 @@
   URL specified.
  @param url the URL
  */
-- (instancetype __nonnull)initWithJavaNetURL:(JavaNetURL *)url;
+- (instancetype)initWithJavaNetURL:(JavaNetURL *)url;
 
 @end
 
@@ -281,10 +275,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslHttpsURLConnection)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxNetSslHttpsURLConnection")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/FilterWriter.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoFilterWriter")
 #ifdef RESTRICT_JavaIoFilterWriter
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoFilterWriter_) && (INCLUDE_ALL_JavaIoFilterWriter || defined(INCLUDE_JavaIoFilterWriter))
 #define JavaIoFilterWriter_
 
 #define RESTRICT_JavaIoWriter 1
 #define INCLUDE_JavaIoWriter 1
-#include "java/io/Writer.h"
+#include "../../java/io/Writer.h"
 
 @class IOSCharArray;
 
@@ -94,7 +88,7 @@
  @param outArg a Writer object to provide the underlying stream.
  @throw NullPointerExceptionif <code>out</code> is <code>null</code>
  */
-- (instancetype __nonnull)initWithJavaIoWriter:(JavaIoWriter *)outArg;
+- (instancetype)initWithJavaIoWriter:(JavaIoWriter *)outArg;
 
 @end
 
@@ -108,10 +102,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFilterWriter)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoFilterWriter")

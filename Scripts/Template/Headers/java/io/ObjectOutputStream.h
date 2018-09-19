@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/io/ObjectOutputStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoObjectOutputStream")
 #ifdef RESTRICT_JavaIoObjectOutputStream
@@ -16,26 +16,20 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoObjectOutputStream_) && (INCLUDE_ALL_JavaIoObjectOutputStream || defined(INCLUDE_JavaIoObjectOutputStream))
 #define JavaIoObjectOutputStream_
 
 #define RESTRICT_JavaIoOutputStream 1
 #define INCLUDE_JavaIoOutputStream 1
-#include "java/io/OutputStream.h"
+#include "../../java/io/OutputStream.h"
 
 #define RESTRICT_JavaIoObjectOutput 1
 #define INCLUDE_JavaIoObjectOutput 1
-#include "java/io/ObjectOutput.h"
+#include "../../java/io/ObjectOutput.h"
 
 #define RESTRICT_JavaIoObjectStreamConstants 1
 #define INCLUDE_JavaIoObjectStreamConstants 1
-#include "java/io/ObjectStreamConstants.h"
+#include "../../java/io/ObjectStreamConstants.h"
 
 @class IOSByteArray;
 @class IOSClass;
@@ -63,7 +57,7 @@
  if an error occurs while writing the object stream
               header
  */
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)output;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)output;
 
 /*!
  @brief Closes this stream.Any buffered data is flushed.
@@ -300,7 +294,7 @@
  @throw IOException
  if an error occurs when creating this stream.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Writes optional information for class <code>aClass</code> to the output
@@ -422,7 +416,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectOutputStream)
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Puts the value of the boolean field identified by <code>name</code> to the
@@ -523,10 +517,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectOutputStream_PutField)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoObjectOutputStream")

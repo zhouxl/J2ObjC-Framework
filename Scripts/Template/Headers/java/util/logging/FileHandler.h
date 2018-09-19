@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/logging/FileHandler.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilLoggingFileHandler")
 #ifdef RESTRICT_JavaUtilLoggingFileHandler
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilLoggingFileHandler_) && (INCLUDE_ALL_JavaUtilLoggingFileHandler || defined(INCLUDE_JavaUtilLoggingFileHandler))
 #define JavaUtilLoggingFileHandler_
 
 #define RESTRICT_JavaUtilLoggingStreamHandler 1
 #define INCLUDE_JavaUtilLoggingStreamHandler 1
-#include "java/util/logging/StreamHandler.h"
+#include "../../../java/util/logging/StreamHandler.h"
 
 @class JavaIoOutputStream;
 @class JavaUtilLoggingFormatter;
@@ -131,7 +125,7 @@
               the caller does not have <tt>LoggingPermission("control"))</tt>.
  @throw NullPointerExceptionif pattern property is an empty String.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Initialize a <tt>FileHandler</tt> to write to the given filename.
@@ -149,7 +143,7 @@
               the caller does not have <tt>LoggingPermission("control")</tt>.
  @throw IllegalArgumentExceptionif pattern is an empty string
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)pattern;
+- (instancetype)initWithNSString:(NSString *)pattern;
 
 /*!
  @brief Initialize a <tt>FileHandler</tt> to write to the given filename,
@@ -170,8 +164,8 @@
               the caller does not have <tt>LoggingPermission("control")</tt>.
  @throw IllegalArgumentExceptionif pattern is an empty string
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)pattern
-                               withBoolean:(jboolean)append;
+- (instancetype)initWithNSString:(NSString *)pattern
+                     withBoolean:(jboolean)append;
 
 /*!
  @brief Initialize a <tt>FileHandler</tt> to write to a set of files.When
@@ -196,9 +190,9 @@
  @throw IllegalArgumentExceptionif limit < 0, or count < 1.
  @throw IllegalArgumentExceptionif pattern is an empty string
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)pattern
-                                   withInt:(jint)limit
-                                   withInt:(jint)count;
+- (instancetype)initWithNSString:(NSString *)pattern
+                         withInt:(jint)limit
+                         withInt:(jint)count;
 
 /*!
  @brief Initialize a <tt>FileHandler</tt> to write to a set of files
@@ -225,10 +219,10 @@
  @throw IllegalArgumentExceptionif limit < 0, or count < 1.
  @throw IllegalArgumentExceptionif pattern is an empty string
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)pattern
-                                   withInt:(jint)limit
-                                   withInt:(jint)count
-                               withBoolean:(jboolean)append;
+- (instancetype)initWithNSString:(NSString *)pattern
+                         withInt:(jint)limit
+                         withInt:(jint)count
+                     withBoolean:(jboolean)append;
 
 /*!
  @brief Close all the files.
@@ -245,8 +239,8 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
-                        withJavaUtilLoggingFormatter:(JavaUtilLoggingFormatter *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
+              withJavaUtilLoggingFormatter:(JavaUtilLoggingFormatter *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -286,10 +280,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingFileHandler)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingFileHandler")

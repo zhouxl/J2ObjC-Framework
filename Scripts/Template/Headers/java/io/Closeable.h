@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/Closeable.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoCloseable")
 #ifdef RESTRICT_JavaIoCloseable
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoCloseable_) && (INCLUDE_ALL_JavaIoCloseable || defined(INCLUDE_JavaIoCloseable))
 #define JavaIoCloseable_
 
 #define RESTRICT_JavaLangAutoCloseable 1
 #define INCLUDE_JavaLangAutoCloseable 1
-#include "java/lang/AutoCloseable.h"
+#include "../../java/lang/AutoCloseable.h"
 
 /*!
  @brief A <code>Closeable</code> is a source or destination of data that can be closed.
@@ -53,10 +47,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoCloseable)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoCloseable")

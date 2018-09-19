@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/nio/Buffer.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNioBuffer")
 #ifdef RESTRICT_JavaNioBuffer
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaNioBuffer_) && (INCLUDE_ALL_JavaNioBuffer || defined(INCLUDE_JavaNioBuffer))
 #define JavaNioBuffer_
@@ -166,7 +160,6 @@
    */
   jint _elementSizeShift_;
 }
-@property (readonly, class) jint SPLITERATOR_CHARACTERISTICS NS_SWIFT_NAME(SPLITERATOR_CHARACTERISTICS);
 
 + (jint)SPLITERATOR_CHARACTERISTICS;
 
@@ -374,11 +367,11 @@
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithInt:(jint)mark
-                              withInt:(jint)pos
-                              withInt:(jint)lim
-                              withInt:(jint)cap
-                              withInt:(jint)elementSizeShift;
+- (instancetype)initWithInt:(jint)mark
+                    withInt:(jint)pos
+                    withInt:(jint)lim
+                    withInt:(jint)cap
+                    withInt:(jint)elementSizeShift;
 
 + (void)checkBoundsWithInt:(jint)off
                    withInt:(jint)len
@@ -442,10 +435,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioBuffer)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioBuffer")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/SequenceInputStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoSequenceInputStream")
 #ifdef RESTRICT_JavaIoSequenceInputStream
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoSequenceInputStream_) && (INCLUDE_ALL_JavaIoSequenceInputStream || defined(INCLUDE_JavaIoSequenceInputStream))
 #define JavaIoSequenceInputStream_
 
 #define RESTRICT_JavaIoInputStream 1
 #define INCLUDE_JavaIoInputStream 1
-#include "java/io/InputStream.h"
+#include "../../java/io/InputStream.h"
 
 @class IOSByteArray;
 @protocol JavaUtilEnumeration;
@@ -67,7 +61,7 @@
  @param e an enumeration of input streams.
  - seealso: java.util.Enumeration
  */
-- (instancetype __nonnull)initWithJavaUtilEnumeration:(id<JavaUtilEnumeration>)e;
+- (instancetype)initWithJavaUtilEnumeration:(id<JavaUtilEnumeration>)e;
 
 /*!
  @brief Initializes a newly
@@ -79,8 +73,8 @@
  @param s1 the first input stream to read.
  @param s2 the second input stream to read.
  */
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)s1
-                              withJavaIoInputStream:(JavaIoInputStream *)s2;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)s1
+                    withJavaIoInputStream:(JavaIoInputStream *)s2;
 
 /*!
  @brief Returns an estimate of the number of bytes that can be read (or
@@ -172,7 +166,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -197,10 +191,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoSequenceInputStream)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoSequenceInputStream")

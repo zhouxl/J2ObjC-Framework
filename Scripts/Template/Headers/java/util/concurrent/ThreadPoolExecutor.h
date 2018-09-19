@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/ThreadPoolExecutor.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentThreadPoolExecutor")
 #ifdef RESTRICT_JavaUtilConcurrentThreadPoolExecutor
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentThreadPoolExecutor_) && (INCLUDE_ALL_JavaUtilConcurrentThreadPoolExecutor || defined(INCLUDE_JavaUtilConcurrentThreadPoolExecutor))
 #define JavaUtilConcurrentThreadPoolExecutor_
 
 #define RESTRICT_JavaUtilConcurrentAbstractExecutorService 1
 #define INCLUDE_JavaUtilConcurrentAbstractExecutorService 1
-#include "java/util/concurrent/AbstractExecutorService.h"
+#include "../../../java/util/concurrent/AbstractExecutorService.h"
 
 @class JavaLangThread;
 @class JavaLangThrowable;
@@ -64,11 +58,11 @@
           <code>maximumPoolSize < corePoolSize</code>
  @throw NullPointerExceptionif <code>workQueue</code> is null
  */
-- (instancetype __nonnull)initWithInt:(jint)corePoolSize
-                              withInt:(jint)maximumPoolSize
-                             withLong:(jlong)keepAliveTime
-       withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit
-  withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)workQueue;
+- (instancetype)initWithInt:(jint)corePoolSize
+                    withInt:(jint)maximumPoolSize
+                   withLong:(jlong)keepAliveTime
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit
+withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)workQueue;
 
 /*!
  @brief Creates a new <code>ThreadPoolExecutor</code> with the given initial
@@ -91,11 +85,11 @@
  @throw NullPointerExceptionif <code>workQueue</code>
           or <code>handler</code> is null
  */
-- (instancetype __nonnull)initWithInt:(jint)corePoolSize
-                              withInt:(jint)maximumPoolSize
-                             withLong:(jlong)keepAliveTime
-       withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit
-  withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)workQueue
+- (instancetype)initWithInt:(jint)corePoolSize
+                    withInt:(jint)maximumPoolSize
+                   withLong:(jlong)keepAliveTime
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit
+withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)workQueue
 withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExecutionHandler>)handler;
 
 /*!
@@ -119,12 +113,12 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
  @throw NullPointerExceptionif <code>workQueue</code>
           or <code>threadFactory</code> is null
  */
-- (instancetype __nonnull)initWithInt:(jint)corePoolSize
-                              withInt:(jint)maximumPoolSize
-                             withLong:(jlong)keepAliveTime
-       withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit
-  withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)workQueue
-  withJavaUtilConcurrentThreadFactory:(id<JavaUtilConcurrentThreadFactory>)threadFactory;
+- (instancetype)initWithInt:(jint)corePoolSize
+                    withInt:(jint)maximumPoolSize
+                   withLong:(jlong)keepAliveTime
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit
+withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)workQueue
+withJavaUtilConcurrentThreadFactory:(id<JavaUtilConcurrentThreadFactory>)threadFactory;
 
 /*!
  @brief Creates a new <code>ThreadPoolExecutor</code> with the given initial
@@ -148,12 +142,12 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
  @throw NullPointerExceptionif <code>workQueue</code>
           or <code>threadFactory</code> or <code>handler</code> is null
  */
-- (instancetype __nonnull)initWithInt:(jint)corePoolSize
-                              withInt:(jint)maximumPoolSize
-                             withLong:(jlong)keepAliveTime
-       withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit
-  withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)workQueue
-  withJavaUtilConcurrentThreadFactory:(id<JavaUtilConcurrentThreadFactory>)threadFactory
+- (instancetype)initWithInt:(jint)corePoolSize
+                    withInt:(jint)maximumPoolSize
+                   withLong:(jlong)keepAliveTime
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit
+withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)workQueue
+withJavaUtilConcurrentThreadFactory:(id<JavaUtilConcurrentThreadFactory>)threadFactory
 withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExecutionHandler>)handler;
 
 /*!
@@ -612,7 +606,7 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -651,7 +645,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor)
 
 #define RESTRICT_JavaUtilConcurrentRejectedExecutionHandler 1
 #define INCLUDE_JavaUtilConcurrentRejectedExecutionHandler 1
-#include "java/util/concurrent/RejectedExecutionHandler.h"
+#include "../../../java/util/concurrent/RejectedExecutionHandler.h"
 
 @class JavaUtilConcurrentThreadPoolExecutor;
 @protocol JavaLangRunnable;
@@ -669,7 +663,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor)
 /*!
  @brief Creates a <code>CallerRunsPolicy</code>.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Executes task r in the caller's thread, unless the executor
@@ -699,7 +693,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor_CallerRunsPolicy
 
 #define RESTRICT_JavaUtilConcurrentRejectedExecutionHandler 1
 #define INCLUDE_JavaUtilConcurrentRejectedExecutionHandler 1
-#include "java/util/concurrent/RejectedExecutionHandler.h"
+#include "../../../java/util/concurrent/RejectedExecutionHandler.h"
 
 @class JavaUtilConcurrentThreadPoolExecutor;
 @protocol JavaLangRunnable;
@@ -715,7 +709,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor_CallerRunsPolicy
 /*!
  @brief Creates an <code>AbortPolicy</code>.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Always throws RejectedExecutionException.
@@ -745,7 +739,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor_AbortPolicy)
 
 #define RESTRICT_JavaUtilConcurrentRejectedExecutionHandler 1
 #define INCLUDE_JavaUtilConcurrentRejectedExecutionHandler 1
-#include "java/util/concurrent/RejectedExecutionHandler.h"
+#include "../../../java/util/concurrent/RejectedExecutionHandler.h"
 
 @class JavaUtilConcurrentThreadPoolExecutor;
 @protocol JavaLangRunnable;
@@ -761,7 +755,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor_AbortPolicy)
 /*!
  @brief Creates a <code>DiscardPolicy</code>.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Does nothing, which has the effect of discarding task r.
@@ -790,7 +784,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor_DiscardPolicy)
 
 #define RESTRICT_JavaUtilConcurrentRejectedExecutionHandler 1
 #define INCLUDE_JavaUtilConcurrentRejectedExecutionHandler 1
-#include "java/util/concurrent/RejectedExecutionHandler.h"
+#include "../../../java/util/concurrent/RejectedExecutionHandler.h"
 
 @class JavaUtilConcurrentThreadPoolExecutor;
 @protocol JavaLangRunnable;
@@ -807,7 +801,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor_DiscardPolicy)
 /*!
  @brief Creates a <code>DiscardOldestPolicy</code> for the given executor.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Obtains and ignores the next task that the executor
@@ -834,10 +828,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor_DiscardOldestPol
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentThreadPoolExecutor")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/sun/misc/Unsafe.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_SunMiscUnsafe")
 #ifdef RESTRICT_SunMiscUnsafe
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (SunMiscUnsafe_) && (INCLUDE_ALL_SunMiscUnsafe || defined(INCLUDE_SunMiscUnsafe))
 #define SunMiscUnsafe_
@@ -36,7 +30,6 @@
  - seealso: #getUnsafe
  */
 @interface SunMiscUnsafe : NSObject
-@property (readonly, class) jint INVALID_FIELD_OFFSET NS_SWIFT_NAME(INVALID_FIELD_OFFSET);
 
 + (jint)INVALID_FIELD_OFFSET;
 
@@ -638,10 +631,6 @@ J2OBJC_TYPE_LITERAL_HEADER(SunMiscUnsafe)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_SunMiscUnsafe")

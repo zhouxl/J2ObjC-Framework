@@ -3,7 +3,7 @@
 //  source: android/frameworks/base/core/java/android/text/InputFilter.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_AndroidTextInputFilter")
 #ifdef RESTRICT_AndroidTextInputFilter
@@ -21,12 +21,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (AndroidTextInputFilter_) && (INCLUDE_ALL_AndroidTextInputFilter || defined(INCLUDE_AndroidTextInputFilter))
 #define AndroidTextInputFilter_
@@ -86,7 +80,7 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextInputFilter)
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 - (id<JavaLangCharSequence>)filterWithJavaLangCharSequence:(id<JavaLangCharSequence>)source
                                                    withInt:(jint)start
@@ -123,7 +117,7 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextInputFilter_AllCaps)
 
 #pragma mark Public
 
-- (instancetype __nonnull)initWithInt:(jint)max;
+- (instancetype)initWithInt:(jint)max;
 
 - (id<JavaLangCharSequence>)filterWithJavaLangCharSequence:(id<JavaLangCharSequence>)source
                                                    withInt:(jint)start
@@ -134,7 +128,7 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextInputFilter_AllCaps)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -150,10 +144,6 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextInputFilter_LengthFilter)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidTextInputFilter")

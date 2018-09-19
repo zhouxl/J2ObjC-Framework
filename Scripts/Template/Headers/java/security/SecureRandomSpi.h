@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/SecureRandomSpi.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecuritySecureRandomSpi")
 #ifdef RESTRICT_JavaSecuritySecureRandomSpi
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecuritySecureRandomSpi_) && (INCLUDE_ALL_JavaSecuritySecureRandomSpi || defined(INCLUDE_JavaSecuritySecureRandomSpi))
 #define JavaSecuritySecureRandomSpi_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSByteArray;
 
@@ -44,7 +38,7 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 #pragma mark Protected
 
@@ -85,10 +79,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySecureRandomSpi)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySecureRandomSpi")

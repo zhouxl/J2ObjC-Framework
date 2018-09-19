@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/text/SimpleDateFormat.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaTextSimpleDateFormat")
 #ifdef RESTRICT_JavaTextSimpleDateFormat
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaTextSimpleDateFormat_) && (INCLUDE_ALL_JavaTextSimpleDateFormat || defined(INCLUDE_JavaTextSimpleDateFormat))
 #define JavaTextSimpleDateFormat_
 
 #define RESTRICT_JavaTextDateFormat 1
 #define INCLUDE_JavaTextDateFormat 1
-#include "java/text/DateFormat.h"
+#include "../../java/text/DateFormat.h"
 
 @class JavaLangStringBuffer;
 @class JavaTextDateFormatSymbols;
@@ -395,8 +389,6 @@
    */
   jboolean useDateFormatSymbols_;
 }
-@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
-@property (readonly, class) jint currentSerialVersion NS_SWIFT_NAME(currentSerialVersion);
 
 + (jlong)serialVersionUID;
 
@@ -411,7 +403,7 @@
   For full coverage, use the factory methods in the <code>DateFormat</code>
   class.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a <code>SimpleDateFormat</code> using the given pattern and
@@ -423,7 +415,7 @@
  @throw NullPointerExceptionif the given pattern is null
  @throw IllegalArgumentExceptionif the given pattern is invalid
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)pattern;
+- (instancetype)initWithNSString:(NSString *)pattern;
 
 /*!
  @brief Constructs a <code>SimpleDateFormat</code> using the given pattern and
@@ -433,8 +425,8 @@
  @throw NullPointerExceptionif the given pattern or formatSymbols is null
  @throw IllegalArgumentExceptionif the given pattern is invalid
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)pattern
-             withJavaTextDateFormatSymbols:(JavaTextDateFormatSymbols *)formatSymbols;
+- (instancetype)initWithNSString:(NSString *)pattern
+   withJavaTextDateFormatSymbols:(JavaTextDateFormatSymbols *)formatSymbols;
 
 /*!
  @brief Constructs a <code>SimpleDateFormat</code> using the given pattern and
@@ -447,8 +439,8 @@
  @throw NullPointerExceptionif the given pattern or locale is null
  @throw IllegalArgumentExceptionif the given pattern is invalid
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)pattern
-                        withJavaUtilLocale:(JavaUtilLocale *)locale;
+- (instancetype)initWithNSString:(NSString *)pattern
+              withJavaUtilLocale:(JavaUtilLocale *)locale;
 
 /*!
  @brief Applies the given localized pattern string to this date format.
@@ -603,9 +595,9 @@
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithInt:(jint)timeStyle
-                              withInt:(jint)dateStyle
-                   withJavaUtilLocale:(JavaUtilLocale *)loc;
+- (instancetype)initWithInt:(jint)timeStyle
+                    withInt:(jint)dateStyle
+         withJavaUtilLocale:(JavaUtilLocale *)loc;
 
 @end
 
@@ -653,10 +645,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextSimpleDateFormat)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextSimpleDateFormat")

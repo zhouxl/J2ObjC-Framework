@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/Phaser.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentPhaser")
 #ifdef RESTRICT_JavaUtilConcurrentPhaser
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaUtilConcurrentPhaser_) && (INCLUDE_ALL_JavaUtilConcurrentPhaser || defined(INCLUDE_JavaUtilConcurrentPhaser))
 #define JavaUtilConcurrentPhaser_
@@ -235,7 +229,6 @@
  @author Doug Lea
  */
 @interface JavaUtilConcurrentPhaser : NSObject
-@property (readonly, class) jint SPINS_PER_ARRIVAL NS_SWIFT_NAME(SPINS_PER_ARRIVAL);
 
 + (jint)SPINS_PER_ARRIVAL;
 
@@ -246,7 +239,7 @@
   parent, and initial phase number 0.Any thread using this
   phaser will need to first register for it.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a new phaser with the given number of registered
@@ -255,13 +248,13 @@
  @throw IllegalArgumentExceptionif parties less than zero
   or greater than the maximum number of parties supported
  */
-- (instancetype __nonnull)initWithInt:(jint)parties;
+- (instancetype)initWithInt:(jint)parties;
 
 /*!
  @brief Equivalent to <code>0)</code>.
  @param parent the parent phaser
  */
-- (instancetype __nonnull)initWithJavaUtilConcurrentPhaser:(JavaUtilConcurrentPhaser *)parent;
+- (instancetype)initWithJavaUtilConcurrentPhaser:(JavaUtilConcurrentPhaser *)parent;
 
 /*!
  @brief Creates a new phaser with the given parent and number of
@@ -273,8 +266,8 @@
  @throw IllegalArgumentExceptionif parties less than zero
   or greater than the maximum number of parties supported
  */
-- (instancetype __nonnull)initWithJavaUtilConcurrentPhaser:(JavaUtilConcurrentPhaser *)parent
-                                                   withInt:(jint)parties;
+- (instancetype)initWithJavaUtilConcurrentPhaser:(JavaUtilConcurrentPhaser *)parent
+                                         withInt:(jint)parties;
 
 /*!
  @brief Arrives at this phaser, without waiting for others to arrive.
@@ -583,7 +576,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentPhaser)
 
 #define RESTRICT_JavaUtilConcurrentForkJoinPool 1
 #define INCLUDE_JavaUtilConcurrentForkJoinPool_ManagedBlocker 1
-#include "java/util/concurrent/ForkJoinPool.h"
+#include "../../../java/util/concurrent/ForkJoinPool.h"
 
 @class JavaLangThread;
 @class JavaUtilConcurrentPhaser;
@@ -612,15 +605,15 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentPhaser)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentPhaser:(JavaUtilConcurrentPhaser *)phaser
-                                                   withInt:(jint)phase
-                                               withBoolean:(jboolean)interruptible
-                                               withBoolean:(jboolean)timed
-                                                  withLong:(jlong)nanos;
+- (instancetype)initWithJavaUtilConcurrentPhaser:(JavaUtilConcurrentPhaser *)phaser
+                                         withInt:(jint)phase
+                                     withBoolean:(jboolean)interruptible
+                                     withBoolean:(jboolean)timed
+                                        withLong:(jlong)nanos;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -640,10 +633,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentPhaser_QNode)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentPhaser")

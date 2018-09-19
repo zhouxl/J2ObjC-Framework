@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/atomic/AtomicReference.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicReference")
 #ifdef RESTRICT_JavaUtilConcurrentAtomicAtomicReference
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentAtomicAtomicReference_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicReference || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicReference))
 #define JavaUtilConcurrentAtomicAtomicReference_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../../java/io/Serializable.h"
 
 @protocol JavaUtilFunctionBinaryOperator;
 @protocol JavaUtilFunctionUnaryOperator;
@@ -46,13 +40,13 @@
 /*!
  @brief Creates a new AtomicReference with null initial value.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a new AtomicReference with the given initial value.
  @param initialValue the initial value
  */
-- (instancetype __nonnull)initWithId:(id)initialValue;
+- (instancetype)initWithId:(id)initialValue;
 
 /*!
  @brief Atomically updates the current value with the results of
@@ -186,10 +180,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicReference)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicReference")

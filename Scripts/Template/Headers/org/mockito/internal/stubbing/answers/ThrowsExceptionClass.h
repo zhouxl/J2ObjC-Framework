@@ -3,7 +3,7 @@
 //  source: src/main/java/org/mockito/internal/stubbing/answers/ThrowsExceptionClass.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgMockitoInternalStubbingAnswersThrowsExceptionClass")
 #ifdef RESTRICT_OrgMockitoInternalStubbingAnswersThrowsExceptionClass
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (OrgMockitoInternalStubbingAnswersThrowsExceptionClass_) && (INCLUDE_ALL_OrgMockitoInternalStubbingAnswersThrowsExceptionClass || defined(INCLUDE_OrgMockitoInternalStubbingAnswersThrowsExceptionClass))
 #define OrgMockitoInternalStubbingAnswersThrowsExceptionClass_
 
 #define RESTRICT_OrgMockitoStubbingAnswer 1
 #define INCLUDE_OrgMockitoStubbingAnswer 1
-#include "org/mockito/stubbing/Answer.h"
+#include "../../../../../org/mockito/stubbing/Answer.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../../../java/io/Serializable.h"
 
 @class IOSClass;
 @protocol OrgMockitoInvocationInvocationOnMock;
@@ -40,7 +34,7 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)initWithIOSClass:(IOSClass *)throwableClass;
+- (instancetype)initWithIOSClass:(IOSClass *)throwableClass;
 
 - (id)answerWithOrgMockitoInvocationInvocationOnMock:(id<OrgMockitoInvocationInvocationOnMock>)invocation;
 
@@ -48,7 +42,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -64,10 +58,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgMockitoInternalStubbingAnswersThrowsExceptionClass
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgMockitoInternalStubbingAnswersThrowsExceptionClass")

@@ -3,7 +3,7 @@
 //  source: android/frameworks/base/core/java/android/text/Spannable.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_AndroidTextSpannable")
 #ifdef RESTRICT_AndroidTextSpannable
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (AndroidTextSpannable_) && (INCLUDE_ALL_AndroidTextSpannable || defined(INCLUDE_AndroidTextSpannable))
 #define AndroidTextSpannable_
 
 #define RESTRICT_AndroidTextSpanned 1
 #define INCLUDE_AndroidTextSpanned 1
-#include "android/text/Spanned.h"
+#include "../../android/text/Spanned.h"
 
 /*!
  @brief This is the interface for text to which markup objects can be
@@ -80,7 +74,7 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannable)
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Returns the standard Spannable Factory.
@@ -109,10 +103,6 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannable_Factory)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidTextSpannable")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/nio/channels/FileChannel.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNioChannelsFileChannel")
 #ifdef RESTRICT_JavaNioChannelsFileChannel
@@ -16,30 +16,24 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNioChannelsFileChannel_) && (INCLUDE_ALL_JavaNioChannelsFileChannel || defined(INCLUDE_JavaNioChannelsFileChannel))
 #define JavaNioChannelsFileChannel_
 
 #define RESTRICT_JavaNioChannelsSpiAbstractInterruptibleChannel 1
 #define INCLUDE_JavaNioChannelsSpiAbstractInterruptibleChannel 1
-#include "java/nio/channels/spi/AbstractInterruptibleChannel.h"
+#include "../../../java/nio/channels/spi/AbstractInterruptibleChannel.h"
 
 #define RESTRICT_JavaNioChannelsSeekableByteChannel 1
 #define INCLUDE_JavaNioChannelsSeekableByteChannel 1
-#include "java/nio/channels/SeekableByteChannel.h"
+#include "../../../java/nio/channels/SeekableByteChannel.h"
 
 #define RESTRICT_JavaNioChannelsGatheringByteChannel 1
 #define INCLUDE_JavaNioChannelsGatheringByteChannel 1
-#include "java/nio/channels/GatheringByteChannel.h"
+#include "../../../java/nio/channels/GatheringByteChannel.h"
 
 #define RESTRICT_JavaNioChannelsScatteringByteChannel 1
 #define INCLUDE_JavaNioChannelsScatteringByteChannel 1
-#include "java/nio/channels/ScatteringByteChannel.h"
+#include "../../../java/nio/channels/ScatteringByteChannel.h"
 
 @class IOSObjectArray;
 @class JavaNioByteBuffer;
@@ -768,7 +762,7 @@ withJavaNioChannelsWritableByteChannel:(id<JavaNioChannelsWritableByteChannel>)t
 /*!
  @brief Initializes a new instance of this class.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -789,9 +783,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsFileChannel)
  - seealso: java.nio.channels.FileChannel
  */
 @interface JavaNioChannelsFileChannel_MapMode : NSObject
-@property (readonly, class, strong) JavaNioChannelsFileChannel_MapMode *READ_ONLY NS_SWIFT_NAME(READ_ONLY);
-@property (readonly, class, strong) JavaNioChannelsFileChannel_MapMode *READ_WRITE NS_SWIFT_NAME(READ_WRITE);
-@property (readonly, class, strong) JavaNioChannelsFileChannel_MapMode *PRIVATE NS_SWIFT_NAME(PRIVATE);
 
 + (JavaNioChannelsFileChannel_MapMode *)READ_ONLY;
 
@@ -809,7 +800,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsFileChannel)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -843,10 +834,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsFileChannel_MapMode)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioChannelsFileChannel")

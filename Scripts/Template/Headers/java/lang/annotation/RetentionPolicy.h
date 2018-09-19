@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/annotation/RetentionPolicy.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangAnnotationRetentionPolicy")
 #ifdef RESTRICT_JavaLangAnnotationRetentionPolicy
@@ -18,7 +18,6 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -27,7 +26,7 @@
 
 #define RESTRICT_JavaLangEnum 1
 #define INCLUDE_JavaLangEnum 1
-#include "java/lang/Enum.h"
+#include "../../../java/lang/Enum.h"
 
 @class IOSObjectArray;
 
@@ -48,9 +47,6 @@ typedef NS_ENUM(NSUInteger, JavaLangAnnotationRetentionPolicy_Enum) {
  */
 @interface JavaLangAnnotationRetentionPolicy : JavaLangEnum
 
-@property (readonly, class, nonnull) JavaLangAnnotationRetentionPolicy *SOURCE NS_SWIFT_NAME(SOURCE);
-@property (readonly, class, nonnull) JavaLangAnnotationRetentionPolicy *CLASS NS_SWIFT_NAME(CLASS);
-@property (readonly, class, nonnull) JavaLangAnnotationRetentionPolicy *RUNTIME NS_SWIFT_NAME(RUNTIME);
 + (JavaLangAnnotationRetentionPolicy * __nonnull)SOURCE;
 
 + (JavaLangAnnotationRetentionPolicy * __nonnull)CLASS;

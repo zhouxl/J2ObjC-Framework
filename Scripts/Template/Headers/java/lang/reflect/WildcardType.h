@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/reflect/WildcardType.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangReflectWildcardType")
 #ifdef RESTRICT_JavaLangReflectWildcardType
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangReflectWildcardType_) && (INCLUDE_ALL_JavaLangReflectWildcardType || defined(INCLUDE_JavaLangReflectWildcardType))
 #define JavaLangReflectWildcardType_
 
 #define RESTRICT_JavaLangReflectType 1
 #define INCLUDE_JavaLangReflectType 1
-#include "java/lang/reflect/Type.h"
+#include "../../../java/lang/reflect/Type.h"
 
 @class IOSObjectArray;
 
@@ -58,7 +52,7 @@
       bounds refer to a parameterized type that cannot be instantiated
       for any reason
  */
-- (IOSObjectArray * __nonnull)getUpperBounds;
+- (IOSObjectArray *)getUpperBounds;
 
 /*!
  @brief Returns an array of <code>Type</code> objects representing the
@@ -80,7 +74,7 @@
       bounds refer to a parameterized type that cannot be instantiated
       for any reason
  */
-- (IOSObjectArray * __nonnull)getLowerBounds;
+- (IOSObjectArray *)getLowerBounds;
 
 @end
 
@@ -90,10 +84,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectWildcardType)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangReflectWildcardType")

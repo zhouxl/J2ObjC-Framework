@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/org/xml/sax/XMLFilter.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgXmlSaxXMLFilter")
 #ifdef RESTRICT_OrgXmlSaxXMLFilter
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (OrgXmlSaxXMLFilter_) && (INCLUDE_ALL_OrgXmlSaxXMLFilter || defined(INCLUDE_OrgXmlSaxXMLFilter))
 #define OrgXmlSaxXMLFilter_
 
 #define RESTRICT_OrgXmlSaxXMLReader 1
 #define INCLUDE_OrgXmlSaxXMLReader 1
-#include "org/xml/sax/XMLReader.h"
+#include "../../../org/xml/sax/XMLReader.h"
 
 /*!
  @brief Interface for an XML filter.
@@ -82,10 +76,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxXMLFilter)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxXMLFilter")

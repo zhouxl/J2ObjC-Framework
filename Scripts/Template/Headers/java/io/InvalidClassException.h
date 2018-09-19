@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/InvalidClassException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoInvalidClassException")
 #ifdef RESTRICT_JavaIoInvalidClassException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoInvalidClassException_) && (INCLUDE_ALL_JavaIoInvalidClassException || defined(INCLUDE_JavaIoInvalidClassException))
 #define JavaIoInvalidClassException_
 
 #define RESTRICT_JavaIoObjectStreamException 1
 #define INCLUDE_JavaIoObjectStreamException 1
-#include "java/io/ObjectStreamException.h"
+#include "../../java/io/ObjectStreamException.h"
 
 /*!
  @brief Thrown when the Serialization runtime detects one of the following
@@ -55,15 +49,15 @@
  @brief Report an InvalidClassException for the reason specified.
  @param reason String describing the reason for the exception.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)reason;
+- (instancetype)initWithNSString:(NSString *)reason;
 
 /*!
  @brief Constructs an InvalidClassException object.
  @param cname a String naming the invalid class.
  @param reason a String describing the reason for the exception.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)cname
-                              withNSString:(NSString *)reason;
+- (instancetype)initWithNSString:(NSString *)cname
+                    withNSString:(NSString *)reason;
 
 /*!
  @brief Produce the message and include the classname, if present.
@@ -72,7 +66,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -96,10 +90,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoInvalidClassException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoInvalidClassException")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/spec/ECPrivateKeySpec.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecuritySpecECPrivateKeySpec")
 #ifdef RESTRICT_JavaSecuritySpecECPrivateKeySpec
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecuritySpecECPrivateKeySpec_) && (INCLUDE_ALL_JavaSecuritySpecECPrivateKeySpec || defined(INCLUDE_JavaSecuritySpecECPrivateKeySpec))
 #define JavaSecuritySpecECPrivateKeySpec_
 
 #define RESTRICT_JavaSecuritySpecKeySpec 1
 #define INCLUDE_JavaSecuritySpecKeySpec 1
-#include "java/security/spec/KeySpec.h"
+#include "../../../java/security/spec/KeySpec.h"
 
 @class JavaMathBigInteger;
 @class JavaSecuritySpecECParameterSpec;
@@ -52,8 +46,8 @@
  @throw NullPointerExceptionif <code>s</code>
   or <code>params</code> is null.
  */
-- (instancetype __nonnull)initWithJavaMathBigInteger:(JavaMathBigInteger *)s
-                 withJavaSecuritySpecECParameterSpec:(JavaSecuritySpecECParameterSpec *)params;
+- (instancetype)initWithJavaMathBigInteger:(JavaMathBigInteger *)s
+       withJavaSecuritySpecECParameterSpec:(JavaSecuritySpecECParameterSpec *)params;
 
 /*!
  @brief Returns the associated elliptic curve domain
@@ -70,7 +64,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -86,10 +80,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecECPrivateKeySpec)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecECPrivateKeySpec")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/Writer.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoWriter")
 #ifdef RESTRICT_JavaIoWriter
@@ -16,26 +16,20 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoWriter_) && (INCLUDE_ALL_JavaIoWriter || defined(INCLUDE_JavaIoWriter))
 #define JavaIoWriter_
 
 #define RESTRICT_JavaLangAppendable 1
 #define INCLUDE_JavaLangAppendable 1
-#include "java/lang/Appendable.h"
+#include "../../java/lang/Appendable.h"
 
 #define RESTRICT_JavaIoCloseable 1
 #define INCLUDE_JavaIoCloseable 1
-#include "java/io/Closeable.h"
+#include "../../java/io/Closeable.h"
 
 #define RESTRICT_JavaIoFlushable 1
 #define INCLUDE_JavaIoFlushable 1
-#include "java/io/Flushable.h"
+#include "../../java/io/Flushable.h"
 
 @class IOSCharArray;
 @protocol JavaLangCharSequence;
@@ -219,14 +213,14 @@
  @brief Creates a new character-stream writer whose critical sections will
   synchronize on the writer itself.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a new character-stream writer whose critical sections will
   synchronize on the given object.
  @param lock Object to synchronize on
  */
-- (instancetype __nonnull)initWithId:(id)lock;
+- (instancetype)initWithId:(id)lock;
 
 @end
 
@@ -242,10 +236,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoWriter)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoWriter")

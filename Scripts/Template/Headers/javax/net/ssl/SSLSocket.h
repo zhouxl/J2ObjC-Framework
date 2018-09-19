@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/net/ssl/SSLSocket.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxNetSslSSLSocket")
 #ifdef RESTRICT_JavaxNetSslSSLSocket
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxNetSslSSLSocket_) && (INCLUDE_ALL_JavaxNetSslSSLSocket || defined(INCLUDE_JavaxNetSslSSLSocket))
 #define JavaxNetSslSSLSocket_
 
 #define RESTRICT_JavaNetSocket 1
 #define INCLUDE_JavaNetSocket 1
-#include "java/net/Socket.h"
+#include "../../../java/net/Socket.h"
 
 @class IOSObjectArray;
 @class JavaNetInetAddress;
@@ -1190,7 +1184,7 @@
  @brief Used only by subclasses.
  Constructs an uninitialized, unconnected TCP socket.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Used only by subclasses.
@@ -1211,8 +1205,8 @@
  @throw NullPointerExceptionif <code>address</code> is null.
  - seealso: SecurityManager#checkConnect
  */
-- (instancetype __nonnull)initWithJavaNetInetAddress:(JavaNetInetAddress *)address
-                                             withInt:(jint)port;
+- (instancetype)initWithJavaNetInetAddress:(JavaNetInetAddress *)address
+                                   withInt:(jint)port;
 
 /*!
  @brief Used only by subclasses.
@@ -1238,10 +1232,10 @@
  @throw NullPointerExceptionif <code>address</code> is null.
  - seealso: SecurityManager#checkConnect
  */
-- (instancetype __nonnull)initWithJavaNetInetAddress:(JavaNetInetAddress *)address
-                                             withInt:(jint)port
-                              withJavaNetInetAddress:(JavaNetInetAddress *)clientAddress
-                                             withInt:(jint)clientPort;
+- (instancetype)initWithJavaNetInetAddress:(JavaNetInetAddress *)address
+                                   withInt:(jint)port
+                    withJavaNetInetAddress:(JavaNetInetAddress *)clientAddress
+                                   withInt:(jint)clientPort;
 
 /*!
  @brief Used only by subclasses.
@@ -1263,8 +1257,8 @@
           65535, inclusive.
  - seealso: SecurityManager#checkConnect
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)host
-                                   withInt:(jint)port;
+- (instancetype)initWithNSString:(NSString *)host
+                         withInt:(jint)port;
 
 /*!
  @brief Used only by subclasses.
@@ -1291,10 +1285,10 @@
           which is between 0 and 65535, inclusive.
  - seealso: SecurityManager#checkConnect
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)host
-                                   withInt:(jint)port
-                    withJavaNetInetAddress:(JavaNetInetAddress *)clientAddress
-                                   withInt:(jint)clientPort;
+- (instancetype)initWithNSString:(NSString *)host
+                         withInt:(jint)port
+          withJavaNetInetAddress:(JavaNetInetAddress *)clientAddress
+                         withInt:(jint)clientPort;
 
 @end
 
@@ -1314,10 +1308,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLSocket)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxNetSslSSLSocket")

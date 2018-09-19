@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/org/xml/sax/ext/EntityResolver2.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgXmlSaxExtEntityResolver2")
 #ifdef RESTRICT_OrgXmlSaxExtEntityResolver2
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (OrgXmlSaxExtEntityResolver2_) && (INCLUDE_ALL_OrgXmlSaxExtEntityResolver2 || defined(INCLUDE_OrgXmlSaxExtEntityResolver2))
 #define OrgXmlSaxExtEntityResolver2_
 
 #define RESTRICT_OrgXmlSaxEntityResolver 1
 #define INCLUDE_OrgXmlSaxEntityResolver 1
-#include "org/xml/sax/EntityResolver.h"
+#include "../../../../org/xml/sax/EntityResolver.h"
 
 @class OrgXmlSaxInputSource;
 
@@ -204,10 +198,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtEntityResolver2)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxExtEntityResolver2")

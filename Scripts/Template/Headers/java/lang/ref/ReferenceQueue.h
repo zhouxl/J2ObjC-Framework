@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/ref/ReferenceQueue.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangRefReferenceQueue")
 #ifdef RESTRICT_JavaLangRefReferenceQueue
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaLangRefReferenceQueue_) && (INCLUDE_ALL_JavaLangRefReferenceQueue || defined(INCLUDE_JavaLangRefReferenceQueue))
 #define JavaLangRefReferenceQueue_
@@ -40,7 +34,7 @@
 /*!
  @brief Constructs a new reference-object queue.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Polls this queue to see if a reference object is available.If one is
@@ -105,10 +99,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangRefReferenceQueue)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangRefReferenceQueue")

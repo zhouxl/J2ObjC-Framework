@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/net/ssl/StandardConstants.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxNetSslStandardConstants")
 #ifdef RESTRICT_JavaxNetSslStandardConstants
@@ -16,12 +16,6 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxNetSslStandardConstants_) && (INCLUDE_ALL_JavaxNetSslStandardConstants || defined(INCLUDE_JavaxNetSslStandardConstants))
 #define JavaxNetSslStandardConstants_
 
@@ -30,7 +24,6 @@
  @since 1.8
  */
 @interface JavaxNetSslStandardConstants : NSObject
-@property (readonly, class) jint SNI_HOST_NAME NS_SWIFT_NAME(SNI_HOST_NAME);
 
 + (jint)SNI_HOST_NAME;
 
@@ -59,10 +52,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslStandardConstants)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxNetSslStandardConstants")

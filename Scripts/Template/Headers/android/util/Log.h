@@ -3,7 +3,7 @@
 //  source: android/frameworks/base/core/java/android/util/Log.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_AndroidUtilLog")
 #ifdef RESTRICT_AndroidUtilLog
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (AndroidUtilLog_) && (INCLUDE_ALL_AndroidUtilLog || defined(INCLUDE_AndroidUtilLog))
 #define AndroidUtilLog_
@@ -56,16 +50,6 @@ Log.v(TAG, "index=" + i);
   significant work and incurring significant overhead.
  */
 @interface AndroidUtilLog : NSObject
-@property (readonly, class) jint VERBOSE NS_SWIFT_NAME(VERBOSE);
-@property (readonly, class) jint DEBUG_ NS_SWIFT_NAME(DEBUG_);
-@property (readonly, class) jint INFO NS_SWIFT_NAME(INFO);
-@property (readonly, class) jint WARN NS_SWIFT_NAME(WARN);
-@property (readonly, class) jint ERROR NS_SWIFT_NAME(ERROR);
-@property (readonly, class) jint ASSERT NS_SWIFT_NAME(ASSERT);
-@property (readonly, class) jint LOG_ID_MAIN NS_SWIFT_NAME(LOG_ID_MAIN);
-@property (readonly, class) jint LOG_ID_RADIO NS_SWIFT_NAME(LOG_ID_RADIO);
-@property (readonly, class) jint LOG_ID_EVENTS NS_SWIFT_NAME(LOG_ID_EVENTS);
-@property (readonly, class) jint LOG_ID_SYSTEM NS_SWIFT_NAME(LOG_ID_SYSTEM);
 
 + (jint)VERBOSE;
 
@@ -412,10 +396,6 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilLog_TerribleFailureHandler)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidUtilLog")

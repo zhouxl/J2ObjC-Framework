@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/GuardedObject.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityGuardedObject")
 #ifdef RESTRICT_JavaSecurityGuardedObject
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityGuardedObject_) && (INCLUDE_ALL_JavaSecurityGuardedObject || defined(INCLUDE_JavaSecurityGuardedObject))
 #define JavaSecurityGuardedObject_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @protocol JavaSecurityGuard;
 
@@ -59,8 +53,8 @@
  @param object the object to be guarded.
  @param guard the Guard object that guards access to the object.
  */
-- (instancetype __nonnull)initWithId:(id)object
-               withJavaSecurityGuard:(id<JavaSecurityGuard>)guard;
+- (instancetype)initWithId:(id)object
+     withJavaSecurityGuard:(id<JavaSecurityGuard>)guard;
 
 /*!
  @brief Retrieves the guarded object, or throws an exception if access
@@ -73,7 +67,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -89,10 +83,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityGuardedObject)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityGuardedObject")

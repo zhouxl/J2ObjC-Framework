@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/FilterReader.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoFilterReader")
 #ifdef RESTRICT_JavaIoFilterReader
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoFilterReader_) && (INCLUDE_ALL_JavaIoFilterReader || defined(INCLUDE_JavaIoFilterReader))
 #define JavaIoFilterReader_
 
 #define RESTRICT_JavaIoReader 1
 #define INCLUDE_JavaIoReader 1
-#include "java/io/Reader.h"
+#include "../../java/io/Reader.h"
 
 @class IOSCharArray;
 
@@ -103,7 +97,7 @@
  @param inArg a Reader object providing the underlying stream.
  @throw NullPointerExceptionif <code>in</code> is <code>null</code>
  */
-- (instancetype __nonnull)initWithJavaIoReader:(JavaIoReader *)inArg;
+- (instancetype)initWithJavaIoReader:(JavaIoReader *)inArg;
 
 @end
 
@@ -117,10 +111,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFilterReader)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoFilterReader")

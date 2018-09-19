@@ -3,7 +3,7 @@
 //  source: android/frameworks/base/core/java/android/text/SpannableStringBuilder.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_AndroidTextSpannableStringBuilder")
 #ifdef RESTRICT_AndroidTextSpannableStringBuilder
@@ -16,34 +16,28 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (AndroidTextSpannableStringBuilder_) && (INCLUDE_ALL_AndroidTextSpannableStringBuilder || defined(INCLUDE_AndroidTextSpannableStringBuilder))
 #define AndroidTextSpannableStringBuilder_
 
 #define RESTRICT_JavaLangCharSequence 1
 #define INCLUDE_JavaLangCharSequence 1
-#include "java/lang/CharSequence.h"
+#include "../../java/lang/CharSequence.h"
 
 #define RESTRICT_AndroidTextGetChars 1
 #define INCLUDE_AndroidTextGetChars 1
-#include "android/text/GetChars.h"
+#include "../../android/text/GetChars.h"
 
 #define RESTRICT_AndroidTextSpannable 1
 #define INCLUDE_AndroidTextSpannable 1
-#include "android/text/Spannable.h"
+#include "../../android/text/Spannable.h"
 
 #define RESTRICT_AndroidTextEditable 1
 #define INCLUDE_AndroidTextEditable 1
-#include "android/text/Editable.h"
+#include "../../android/text/Editable.h"
 
 #define RESTRICT_JavaLangAppendable 1
 #define INCLUDE_JavaLangAppendable 1
-#include "java/lang/Appendable.h"
+#include "../../java/lang/Appendable.h"
 
 @class IOSCharArray;
 @class IOSClass;
@@ -60,21 +54,21 @@
 /*!
  @brief Create a new SpannableStringBuilder with empty contents
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Create a new SpannableStringBuilder containing a copy of the
   specified text, including its spans if any.
  */
-- (instancetype __nonnull)initWithJavaLangCharSequence:(id<JavaLangCharSequence>)text;
+- (instancetype)initWithJavaLangCharSequence:(id<JavaLangCharSequence>)text;
 
 /*!
  @brief Create a new SpannableStringBuilder containing a copy of the
   specified slice of the specified text, including its spans if any.
  */
-- (instancetype __nonnull)initWithJavaLangCharSequence:(id<JavaLangCharSequence>)text
-                                               withInt:(jint)start
-                                               withInt:(jint)end;
+- (instancetype)initWithJavaLangCharSequence:(id<JavaLangCharSequence>)text
+                                     withInt:(jint)start
+                                     withInt:(jint)end;
 
 - (AndroidTextSpannableStringBuilder *)appendWithChar:(jchar)text;
 
@@ -236,10 +230,6 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannableStringBuilder)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidTextSpannableStringBuilder")

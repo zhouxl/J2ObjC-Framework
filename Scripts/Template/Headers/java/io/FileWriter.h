@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/io/FileWriter.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoFileWriter")
 #ifdef RESTRICT_JavaIoFileWriter
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoFileWriter_) && (INCLUDE_ALL_JavaIoFileWriter || defined(INCLUDE_JavaIoFileWriter))
 #define JavaIoFileWriter_
 
 #define RESTRICT_JavaIoOutputStreamWriter 1
 #define INCLUDE_JavaIoOutputStreamWriter 1
-#include "java/io/OutputStreamWriter.h"
+#include "../../java/io/OutputStreamWriter.h"
 
 @class JavaIoFile;
 @class JavaIoFileDescriptor;
@@ -55,7 +49,7 @@
  @throw IOException
  if <code>file</code> cannot be opened for writing.
  */
-- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file;
+- (instancetype)initWithJavaIoFile:(JavaIoFile *)file;
 
 /*!
  @brief Creates a FileWriter using the File <code>file</code>.The parameter 
@@ -66,14 +60,14 @@
  @throw IOException
  if the <code>file</code> cannot be opened for writing.
  */
-- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file
-                                 withBoolean:(jboolean)append;
+- (instancetype)initWithJavaIoFile:(JavaIoFile *)file
+                       withBoolean:(jboolean)append;
 
 /*!
  @brief Creates a FileWriter using the existing FileDescriptor <code>fd</code>.
  @param fd the non-null FileDescriptor to write bytes to.
  */
-- (instancetype __nonnull)initWithJavaIoFileDescriptor:(JavaIoFileDescriptor *)fd;
+- (instancetype)initWithJavaIoFileDescriptor:(JavaIoFileDescriptor *)fd;
 
 /*!
  @brief Creates a FileWriter using the platform dependent <code>filename</code>.
@@ -81,7 +75,7 @@
  @throw IOException
  if the file cannot be opened for writing.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)filename;
+- (instancetype)initWithNSString:(NSString *)filename;
 
 /*!
  @brief Creates a FileWriter using the platform dependent <code>filename</code>.The
@@ -92,21 +86,21 @@
  @throw IOException
  if the <code>file</code> cannot be opened for writing.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)filename
-                               withBoolean:(jboolean)append;
+- (instancetype)initWithNSString:(NSString *)filename
+                     withBoolean:(jboolean)append;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
-                           withJavaNioCharsetCharset:(JavaNioCharsetCharset *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
+                 withJavaNioCharsetCharset:(JavaNioCharsetCharset *)arg1 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
-                    withJavaNioCharsetCharsetEncoder:(JavaNioCharsetCharsetEncoder *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
+          withJavaNioCharsetCharsetEncoder:(JavaNioCharsetCharsetEncoder *)arg1 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
-                                        withNSString:(NSString *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
+                              withNSString:(NSString *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -146,10 +140,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileWriter)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoFileWriter")

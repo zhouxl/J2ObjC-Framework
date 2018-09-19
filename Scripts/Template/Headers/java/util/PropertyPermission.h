@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/PropertyPermission.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilPropertyPermission")
 #ifdef RESTRICT_JavaUtilPropertyPermission
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilPropertyPermission_) && (INCLUDE_ALL_JavaUtilPropertyPermission || defined(INCLUDE_JavaUtilPropertyPermission))
 #define JavaUtilPropertyPermission_
 
 #define RESTRICT_JavaSecurityBasicPermission 1
 #define INCLUDE_JavaSecurityBasicPermission 1
-#include "java/security/BasicPermission.h"
+#include "../../java/security/BasicPermission.h"
 
 /*!
  @brief Legacy security code; do not use.
@@ -36,12 +30,12 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)initWithNSString:(NSString *)name
-                              withNSString:(NSString *)actions;
+- (instancetype)initWithNSString:(NSString *)name
+                    withNSString:(NSString *)actions;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -57,10 +51,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilPropertyPermission)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilPropertyPermission")

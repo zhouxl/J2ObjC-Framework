@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/lambda/java/java/lang/invoke/LambdaConversionException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangInvokeLambdaConversionException")
 #ifdef RESTRICT_JavaLangInvokeLambdaConversionException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangInvokeLambdaConversionException_) && (INCLUDE_ALL_JavaLangInvokeLambdaConversionException || defined(INCLUDE_JavaLangInvokeLambdaConversionException))
 #define JavaLangInvokeLambdaConversionException_
 
 #define RESTRICT_JavaLangException 1
 #define INCLUDE_JavaLangException 1
-#include "java/lang/Exception.h"
+#include "../../../java/lang/Exception.h"
 
 @class JavaLangThrowable;
 
@@ -41,21 +35,21 @@
 /*!
  @brief Constructs a <code>LambdaConversionException</code>.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a <code>LambdaConversionException</code> with a message.
  @param message the detail message
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message;
+- (instancetype)initWithNSString:(NSString *)message;
 
 /*!
  @brief Constructs a <code>LambdaConversionException</code> with a message and cause.
  @param message the detail message
  @param cause the cause
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)message
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a <code>LambdaConversionException</code> with a message,
@@ -65,16 +59,16 @@
  @param enableSuppression whether or not suppressed exceptions are enabled
  @param writableStackTrace whether or not the stack trace is writable
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                     withJavaLangThrowable:(JavaLangThrowable *)cause
-                               withBoolean:(jboolean)enableSuppression
-                               withBoolean:(jboolean)writableStackTrace;
+- (instancetype)initWithNSString:(NSString *)message
+           withJavaLangThrowable:(JavaLangThrowable *)cause
+                     withBoolean:(jboolean)enableSuppression
+                     withBoolean:(jboolean)writableStackTrace;
 
 /*!
  @brief Constructs a <code>LambdaConversionException</code> with a cause.
  @param cause the cause
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 @end
 
@@ -114,10 +108,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangInvokeLambdaConversionException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangInvokeLambdaConversionException")

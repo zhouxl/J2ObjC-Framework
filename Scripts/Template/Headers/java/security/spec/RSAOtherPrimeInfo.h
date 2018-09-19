@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/spec/RSAOtherPrimeInfo.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecuritySpecRSAOtherPrimeInfo")
 #ifdef RESTRICT_JavaSecuritySpecRSAOtherPrimeInfo
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaSecuritySpecRSAOtherPrimeInfo_) && (INCLUDE_ALL_JavaSecuritySpecRSAOtherPrimeInfo || defined(INCLUDE_JavaSecuritySpecRSAOtherPrimeInfo))
 #define JavaSecuritySpecRSAOtherPrimeInfo_
@@ -60,9 +54,9 @@
  <code>prime</code>, <code>primeExponent</code>,
   <code>crtCoefficient</code>, is null.
  */
-- (instancetype __nonnull)initWithJavaMathBigInteger:(JavaMathBigInteger *)prime
-                              withJavaMathBigInteger:(JavaMathBigInteger *)primeExponent
-                              withJavaMathBigInteger:(JavaMathBigInteger *)crtCoefficient;
+- (instancetype)initWithJavaMathBigInteger:(JavaMathBigInteger *)prime
+                    withJavaMathBigInteger:(JavaMathBigInteger *)primeExponent
+                    withJavaMathBigInteger:(JavaMathBigInteger *)crtCoefficient;
 
 /*!
  @brief Returns the prime's crtCoefficient.
@@ -84,7 +78,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -100,10 +94,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecRSAOtherPrimeInfo)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecRSAOtherPrimeInfo")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/PushbackReader.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoPushbackReader")
 #ifdef RESTRICT_JavaIoPushbackReader
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoPushbackReader_) && (INCLUDE_ALL_JavaIoPushbackReader || defined(INCLUDE_JavaIoPushbackReader))
 #define JavaIoPushbackReader_
 
 #define RESTRICT_JavaIoFilterReader 1
 #define INCLUDE_JavaIoFilterReader 1
-#include "java/io/FilterReader.h"
+#include "../../java/io/FilterReader.h"
 
 @class IOSCharArray;
 @class JavaIoReader;
@@ -46,7 +40,7 @@
  @brief Creates a new pushback reader with a one-character pushback buffer.
  @param inArg The reader from which characters will be read
  */
-- (instancetype __nonnull)initWithJavaIoReader:(JavaIoReader *)inArg;
+- (instancetype)initWithJavaIoReader:(JavaIoReader *)inArg;
 
 /*!
  @brief Creates a new pushback reader with a pushback buffer of the given size.
@@ -54,8 +48,8 @@
  @param size The size of the pushback buffer
  @throw IllegalArgumentExceptionif size is <= 0
  */
-- (instancetype __nonnull)initWithJavaIoReader:(JavaIoReader *)inArg
-                                       withInt:(jint)size;
+- (instancetype)initWithJavaIoReader:(JavaIoReader *)inArg
+                             withInt:(jint)size;
 
 /*!
  @brief Closes the stream and releases any system resources associated with
@@ -180,10 +174,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoPushbackReader)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoPushbackReader")

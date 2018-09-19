@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/cert/CertPathValidatorSpi.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityCertCertPathValidatorSpi")
 #ifdef RESTRICT_JavaSecurityCertCertPathValidatorSpi
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaSecurityCertCertPathValidatorSpi_) && (INCLUDE_ALL_JavaSecurityCertCertPathValidatorSpi || defined(INCLUDE_JavaSecurityCertCertPathValidatorSpi))
 #define JavaSecurityCertCertPathValidatorSpi_
@@ -62,7 +56,7 @@
 /*!
  @brief The default constructor.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Returns a <code>CertPathChecker</code> that this implementation uses to
@@ -113,10 +107,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertPathValidatorSpi)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCertPathValidatorSpi")

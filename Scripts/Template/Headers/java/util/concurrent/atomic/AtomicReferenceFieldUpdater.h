@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/atomic/AtomicReferenceFieldUpdater.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater")
 #ifdef RESTRICT_JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater))
 #define JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater_
@@ -225,7 +219,7 @@ withJavaUtilFunctionUnaryOperator:(id<JavaUtilFunctionUnaryOperator>)updateFunct
 /*!
  @brief Protected do-nothing constructor for use by subclasses.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -239,10 +233,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater")

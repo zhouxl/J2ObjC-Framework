@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/BlockingQueue.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentBlockingQueue")
 #ifdef RESTRICT_JavaUtilConcurrentBlockingQueue
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentBlockingQueue_) && (INCLUDE_ALL_JavaUtilConcurrentBlockingQueue || defined(INCLUDE_JavaUtilConcurrentBlockingQueue))
 #define JavaUtilConcurrentBlockingQueue_
 
 #define RESTRICT_JavaUtilQueue 1
 #define INCLUDE_JavaUtilQueue 1
-#include "java/util/Queue.h"
+#include "../../../java/util/Queue.h"
 
 @class JavaUtilConcurrentTimeUnit;
 @protocol JavaUtilCollection;
@@ -353,10 +347,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentBlockingQueue)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentBlockingQueue")

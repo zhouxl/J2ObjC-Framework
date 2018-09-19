@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/net/JarURLConnection.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetJarURLConnection")
 #ifdef RESTRICT_JavaNetJarURLConnection
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNetJarURLConnection_) && (INCLUDE_ALL_JavaNetJarURLConnection || defined(INCLUDE_JavaNetJarURLConnection))
 #define JavaNetJarURLConnection_
 
 #define RESTRICT_JavaNetURLConnection 1
 #define INCLUDE_JavaNetURLConnection 1
-#include "java/net/URLConnection.h"
+#include "../../java/net/URLConnection.h"
 
 @class IOSObjectArray;
 @class JavaNetURL;
@@ -240,7 +234,7 @@
   could be found in a specification string or the
   string could not be parsed.
  */
-- (instancetype __nonnull)initWithJavaNetURL:(JavaNetURL *)url;
+- (instancetype)initWithJavaNetURL:(JavaNetURL *)url;
 
 @end
 
@@ -254,10 +248,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetJarURLConnection)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetJarURLConnection")

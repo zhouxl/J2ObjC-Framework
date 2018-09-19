@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/function/ToIntFunction.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilFunctionToIntFunction")
 #ifdef RESTRICT_JavaUtilFunctionToIntFunction
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaUtilFunctionToIntFunction_) && (INCLUDE_ALL_JavaUtilFunctionToIntFunction || defined(INCLUDE_JavaUtilFunctionToIntFunction))
 #define JavaUtilFunctionToIntFunction_
@@ -50,10 +44,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilFunctionToIntFunction)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilFunctionToIntFunction")

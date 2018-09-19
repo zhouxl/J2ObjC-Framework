@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/FutureTask.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentFutureTask")
 #ifdef RESTRICT_JavaUtilConcurrentFutureTask
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentFutureTask_) && (INCLUDE_ALL_JavaUtilConcurrentFutureTask || defined(INCLUDE_JavaUtilConcurrentFutureTask))
 #define JavaUtilConcurrentFutureTask_
 
 #define RESTRICT_JavaUtilConcurrentRunnableFuture 1
 #define INCLUDE_JavaUtilConcurrentRunnableFuture 1
-#include "java/util/concurrent/RunnableFuture.h"
+#include "../../../java/util/concurrent/RunnableFuture.h"
 
 @class JavaLangThrowable;
 @class JavaUtilConcurrentTimeUnit;
@@ -66,7 +60,7 @@
  @param callable the callable task
  @throw NullPointerExceptionif the callable is null
  */
-- (instancetype __nonnull)initWithJavaUtilConcurrentCallable:(id<JavaUtilConcurrentCallable>)callable;
+- (instancetype)initWithJavaUtilConcurrentCallable:(id<JavaUtilConcurrentCallable>)callable;
 
 /*!
  @brief Creates a <code>FutureTask</code> that will, upon running, execute the
@@ -78,8 +72,8 @@
    <code>Future<?> f = new FutureTask<Void>(runnable, null)</code>
  @throw NullPointerExceptionif the runnable is null
  */
-- (instancetype __nonnull)initWithJavaLangRunnable:(id<JavaLangRunnable>)runnable
-                                            withId:(id)result;
+- (instancetype)initWithJavaLangRunnable:(id<JavaLangRunnable>)runnable
+                                  withId:(id)result;
 
 - (jboolean)cancelWithBoolean:(jboolean)mayInterruptIfRunning;
 
@@ -145,7 +139,7 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -185,7 +179,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentFutureTask)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -204,10 +198,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentFutureTask_WaitNode)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentFutureTask")

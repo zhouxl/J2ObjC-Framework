@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/lambda/java/java/lang/invoke/SerializedLambda.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangInvokeSerializedLambda")
 #ifdef RESTRICT_JavaLangInvokeSerializedLambda
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangInvokeSerializedLambda_) && (INCLUDE_ALL_JavaLangInvokeSerializedLambda || defined(INCLUDE_JavaLangInvokeSerializedLambda))
 #define JavaLangInvokeSerializedLambda_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 @class IOSClass;
 @class IOSObjectArray;
@@ -36,16 +30,16 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)initWithIOSClass:(IOSClass *)capturingClass
-                              withNSString:(NSString *)functionalInterfaceClass
-                              withNSString:(NSString *)functionalInterfaceMethodName
-                              withNSString:(NSString *)functionalInterfaceMethodSignature
-                                   withInt:(jint)implMethodKind
-                              withNSString:(NSString *)implClass
-                              withNSString:(NSString *)implMethodName
-                              withNSString:(NSString *)implMethodSignature
-                              withNSString:(NSString *)instantiatedMethodType
-                         withNSObjectArray:(IOSObjectArray *)capturedArgs;
+- (instancetype)initWithIOSClass:(IOSClass *)capturingClass
+                    withNSString:(NSString *)functionalInterfaceClass
+                    withNSString:(NSString *)functionalInterfaceMethodName
+                    withNSString:(NSString *)functionalInterfaceMethodSignature
+                         withInt:(jint)implMethodKind
+                    withNSString:(NSString *)implClass
+                    withNSString:(NSString *)implMethodName
+                    withNSString:(NSString *)implMethodSignature
+                    withNSString:(NSString *)instantiatedMethodType
+               withNSObjectArray:(IOSObjectArray *)capturedArgs;
 
 - (id)getCapturedArgWithInt:(jint)i;
 
@@ -71,7 +65,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -87,10 +81,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangInvokeSerializedLambda)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangInvokeSerializedLambda")

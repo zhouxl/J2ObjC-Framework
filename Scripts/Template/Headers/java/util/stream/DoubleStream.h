@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/stream/DoubleStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilStreamDoubleStream")
 #ifdef RESTRICT_JavaUtilStreamDoubleStream
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilStreamDoubleStream_) && (INCLUDE_ALL_JavaUtilStreamDoubleStream || defined(INCLUDE_JavaUtilStreamDoubleStream))
 #define JavaUtilStreamDoubleStream_
 
 #define RESTRICT_JavaUtilStreamBaseStream 1
 #define INCLUDE_JavaUtilStreamBaseStream 1
-#include "java/util/stream/BaseStream.h"
+#include "../../../java/util/stream/BaseStream.h"
 
 @class IOSDoubleArray;
 @class JavaUtilDoubleSummaryStatistics;
@@ -670,7 +664,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamDoubleStream)
 
 #define RESTRICT_JavaUtilFunctionDoubleConsumer 1
 #define INCLUDE_JavaUtilFunctionDoubleConsumer 1
-#include "java/util/function/DoubleConsumer.h"
+#include "../../../java/util/function/DoubleConsumer.h"
 
 @protocol JavaUtilStreamDoubleStream;
 
@@ -724,10 +718,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamDoubleStream_Builder)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilStreamDoubleStream")

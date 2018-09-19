@@ -3,7 +3,7 @@
 //  source: android/frameworks/base/core/java/android/util/Base64InputStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_AndroidUtilBase64InputStream")
 #ifdef RESTRICT_AndroidUtilBase64InputStream
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (AndroidUtilBase64InputStream_) && (INCLUDE_ALL_AndroidUtilBase64InputStream || defined(INCLUDE_AndroidUtilBase64InputStream))
 #define AndroidUtilBase64InputStream_
 
 #define RESTRICT_JavaIoFilterInputStream 1
 #define INCLUDE_JavaIoFilterInputStream 1
-#include "java/io/FilterInputStream.h"
+#include "../../java/io/FilterInputStream.h"
 
 @class IOSByteArray;
 @class JavaIoInputStream;
@@ -47,8 +41,8 @@
  @param flags bit flags for controlling the decoder; see the         constants in 
  <code>Base64</code>
  */
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
-                                            withInt:(jint)flags;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
+                                  withInt:(jint)flags;
 
 /*!
  @brief Performs Base64 encoding or decoding on the data read from the
@@ -58,9 +52,9 @@
  <code>Base64</code>
  @param encode true to encode, false to decode
  */
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
-                                            withInt:(jint)flags
-                                        withBoolean:(jboolean)encode;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
+                                  withInt:(jint)flags
+                              withBoolean:(jboolean)encode;
 
 - (jint)available;
 
@@ -82,7 +76,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -104,10 +98,6 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64InputStream)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidUtilBase64InputStream")

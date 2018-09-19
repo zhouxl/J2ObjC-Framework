@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/atomic/AtomicLongArray.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLongArray")
 #ifdef RESTRICT_JavaUtilConcurrentAtomicAtomicLongArray
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentAtomicAtomicLongArray_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLongArray || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicLongArray))
 #define JavaUtilConcurrentAtomicAtomicLongArray_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../../java/io/Serializable.h"
 
 @class IOSLongArray;
 @protocol JavaUtilFunctionLongBinaryOperator;
@@ -49,7 +43,7 @@
   elements initially zero.
  @param length the length of the array
  */
-- (instancetype __nonnull)initWithInt:(jint)length;
+- (instancetype)initWithInt:(jint)length;
 
 /*!
  @brief Creates a new AtomicLongArray with the same length as, and
@@ -57,7 +51,7 @@
  @param array the array to copy elements from
  @throw NullPointerExceptionif array is null
  */
-- (instancetype __nonnull)initWithLongArray:(IOSLongArray *)array;
+- (instancetype)initWithLongArray:(IOSLongArray *)array;
 
 /*!
  @brief Atomically updates the element at index <code>i</code> with the
@@ -247,7 +241,7 @@ withJavaUtilFunctionLongUnaryOperator:(id<JavaUtilFunctionLongUnaryOperator>)upd
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -269,10 +263,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicLongArray)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLongArray")

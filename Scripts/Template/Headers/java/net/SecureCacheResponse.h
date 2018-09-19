@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/net/SecureCacheResponse.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetSecureCacheResponse")
 #ifdef RESTRICT_JavaNetSecureCacheResponse
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNetSecureCacheResponse_) && (INCLUDE_ALL_JavaNetSecureCacheResponse || defined(INCLUDE_JavaNetSecureCacheResponse))
 #define JavaNetSecureCacheResponse_
 
 #define RESTRICT_JavaNetCacheResponse 1
 #define INCLUDE_JavaNetCacheResponse 1
-#include "java/net/CacheResponse.h"
+#include "../../java/net/CacheResponse.h"
 
 @protocol JavaSecurityPrincipal;
 @protocol JavaUtilList;
@@ -41,7 +35,7 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Returns the cipher suite in use on the original connection that
@@ -112,10 +106,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetSecureCacheResponse)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetSecureCacheResponse")

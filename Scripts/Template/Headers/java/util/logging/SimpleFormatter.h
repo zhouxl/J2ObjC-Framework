@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/logging/SimpleFormatter.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilLoggingSimpleFormatter")
 #ifdef RESTRICT_JavaUtilLoggingSimpleFormatter
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilLoggingSimpleFormatter_) && (INCLUDE_ALL_JavaUtilLoggingSimpleFormatter || defined(INCLUDE_JavaUtilLoggingSimpleFormatter))
 #define JavaUtilLoggingSimpleFormatter_
 
 #define RESTRICT_JavaUtilLoggingFormatter 1
 #define INCLUDE_JavaUtilLoggingFormatter 1
-#include "java/util/logging/Formatter.h"
+#include "../../../java/util/logging/Formatter.h"
 
 @class JavaUtilLoggingLogRecord;
 
@@ -57,7 +51,7 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Format the given LogRecord.
@@ -158,10 +152,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingSimpleFormatter)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingSimpleFormatter")

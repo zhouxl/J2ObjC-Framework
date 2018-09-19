@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/cert/CertStoreSpi.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityCertCertStoreSpi")
 #ifdef RESTRICT_JavaSecurityCertCertStoreSpi
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaSecurityCertCertStoreSpi_) && (INCLUDE_ALL_JavaSecurityCertCertStoreSpi || defined(INCLUDE_JavaSecurityCertCertStoreSpi))
 #define JavaSecurityCertCertStoreSpi_
@@ -68,7 +62,7 @@
  @throw InvalidAlgorithmParameterExceptionif the initialization
   parameters are inappropriate for this <code>CertStoreSpi</code>
  */
-- (instancetype __nonnull)initWithJavaSecurityCertCertStoreParameters:(id<JavaSecurityCertCertStoreParameters>)params;
+- (instancetype)initWithJavaSecurityCertCertStoreParameters:(id<JavaSecurityCertCertStoreParameters>)params;
 
 /*!
  @brief Returns a <code>Collection</code> of <code>Certificate</code>s that
@@ -132,10 +126,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertStoreSpi)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCertStoreSpi")

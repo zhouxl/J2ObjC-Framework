@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/org/xml/sax/helpers/LocatorImpl.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgXmlSaxHelpersLocatorImpl")
 #ifdef RESTRICT_OrgXmlSaxHelpersLocatorImpl
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (OrgXmlSaxHelpersLocatorImpl_) && (INCLUDE_ALL_OrgXmlSaxHelpersLocatorImpl || defined(INCLUDE_OrgXmlSaxHelpersLocatorImpl))
 #define OrgXmlSaxHelpersLocatorImpl_
 
 #define RESTRICT_OrgXmlSaxLocator 1
 #define INCLUDE_OrgXmlSaxLocator 1
-#include "org/xml/sax/Locator.h"
+#include "../../../../org/xml/sax/Locator.h"
 
 /*!
  @brief Provide an optional convenience implementation of Locator.
@@ -77,7 +71,7 @@
  <p>This will not normally be useful, since the main purpose
   of this class is to make a snapshot of an existing Locator.</p>
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Copy constructor.
@@ -87,7 +81,7 @@
   DocumentHandler methods).</p>
  @param locator The locator to copy.
  */
-- (instancetype __nonnull)initWithOrgXmlSaxLocator:(id<OrgXmlSaxLocator>)locator;
+- (instancetype)initWithOrgXmlSaxLocator:(id<OrgXmlSaxLocator>)locator;
 
 /*!
  @brief Return the saved column number (1-based).
@@ -171,10 +165,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersLocatorImpl)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersLocatorImpl")

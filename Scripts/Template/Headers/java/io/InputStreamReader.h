@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/InputStreamReader.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoInputStreamReader")
 #ifdef RESTRICT_JavaIoInputStreamReader
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoInputStreamReader_) && (INCLUDE_ALL_JavaIoInputStreamReader || defined(INCLUDE_JavaIoInputStreamReader))
 #define JavaIoInputStreamReader_
 
 #define RESTRICT_JavaIoReader 1
 #define INCLUDE_JavaIoReader 1
-#include "java/io/Reader.h"
+#include "../../java/io/Reader.h"
 
 @class IOSCharArray;
 @class JavaIoInputStream;
@@ -67,7 +61,7 @@
  @brief Creates an InputStreamReader that uses the default charset.
  @param inArg An InputStream
  */
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
 
 /*!
  @brief Creates an InputStreamReader that uses the given charset.
@@ -76,8 +70,8 @@
  @param cs A charset
  @since 1.4
  */
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
-                          withJavaNioCharsetCharset:(JavaNioCharsetCharset *)cs;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
+                withJavaNioCharsetCharset:(JavaNioCharsetCharset *)cs;
 
 /*!
  @brief Creates an InputStreamReader that uses the given charset decoder.
@@ -86,8 +80,8 @@
  @param dec A charset decoder
  @since 1.4
  */
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
-                   withJavaNioCharsetCharsetDecoder:(JavaNioCharsetCharsetDecoder *)dec;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
+         withJavaNioCharsetCharsetDecoder:(JavaNioCharsetCharsetDecoder *)dec;
 
 /*!
  @brief Creates an InputStreamReader that uses the named charset.
@@ -97,8 +91,8 @@
  @throw UnsupportedEncodingException
  If the named charset is not supported
  */
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
-                                       withNSString:(NSString *)charsetName;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
+                             withNSString:(NSString *)charsetName;
 
 - (void)close;
 
@@ -149,9 +143,9 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithId:(id)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithId:(id)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -185,10 +179,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoInputStreamReader)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoInputStreamReader")

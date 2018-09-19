@@ -3,7 +3,7 @@
 //  source: android/frameworks/base/core/java/android/test/suitebuilder/annotation/Suppress.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_AndroidTestSuitebuilderAnnotationSuppress")
 #ifdef RESTRICT_AndroidTestSuitebuilderAnnotationSuppress
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (AndroidTestSuitebuilderAnnotationSuppress_) && (INCLUDE_ALL_AndroidTestSuitebuilderAnnotationSuppress || defined(INCLUDE_AndroidTestSuitebuilderAnnotationSuppress))
 #define AndroidTestSuitebuilderAnnotationSuppress_
 
 #define RESTRICT_JavaLangAnnotationAnnotation 1
 #define INCLUDE_JavaLangAnnotationAnnotation 1
-#include "java/lang/annotation/Annotation.h"
+#include "../../../../java/lang/annotation/Annotation.h"
 
 @class IOSClass;
 
@@ -38,10 +32,6 @@
   the annotation appears only on a test method then only that method will be excluded.
  */
 @protocol AndroidTestSuitebuilderAnnotationSuppress < JavaLangAnnotationAnnotation >
-
-- (jboolean)isEqual:(id)obj;
-
-- (NSUInteger)hash;
 
 @end
 
@@ -57,10 +47,6 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTestSuitebuilderAnnotationSuppress)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidTestSuitebuilderAnnotationSuppress")

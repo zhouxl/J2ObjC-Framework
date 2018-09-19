@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/ExecutorService.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentExecutorService")
 #ifdef RESTRICT_JavaUtilConcurrentExecutorService
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentExecutorService_) && (INCLUDE_ALL_JavaUtilConcurrentExecutorService || defined(INCLUDE_JavaUtilConcurrentExecutorService))
 #define JavaUtilConcurrentExecutorService_
 
 #define RESTRICT_JavaUtilConcurrentExecutor 1
 #define INCLUDE_JavaUtilConcurrentExecutor 1
-#include "java/util/concurrent/Executor.h"
+#include "../../../java/util/concurrent/Executor.h"
 
 @class JavaUtilConcurrentTimeUnit;
 @protocol JavaLangRunnable;
@@ -326,10 +320,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExecutorService)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentExecutorService")

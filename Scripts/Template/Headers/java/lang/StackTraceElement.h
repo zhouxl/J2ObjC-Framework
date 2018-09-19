@@ -3,7 +3,7 @@
 //  source: Classes/java/lang/StackTraceElement.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangStackTraceElement")
 #ifdef RESTRICT_JavaLangStackTraceElement
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangStackTraceElement_) && (INCLUDE_ALL_JavaLangStackTraceElement || defined(INCLUDE_JavaLangStackTraceElement))
 #define JavaLangStackTraceElement_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 /*!
  @brief Simple iOS version of java.lang.StackTraceElement.
@@ -37,10 +31,10 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)initWithNSString:(NSString *)className_
-                              withNSString:(NSString *)methodName
-                              withNSString:(NSString *)fileName
-                                   withInt:(jint)lineNumber;
+- (instancetype)initWithNSString:(NSString *)className_
+                    withNSString:(NSString *)methodName
+                    withNSString:(NSString *)fileName
+                         withInt:(jint)lineNumber;
 
 /*!
  @brief Returns true if the specified object is another 
@@ -81,11 +75,11 @@
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithLong:(jlong)address;
+- (instancetype)initWithLong:(jlong)address;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -107,10 +101,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangStackTraceElement)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangStackTraceElement")

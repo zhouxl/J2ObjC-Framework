@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/org/xml/sax/helpers/XMLReaderAdapter.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgXmlSaxHelpersXMLReaderAdapter")
 #ifdef RESTRICT_OrgXmlSaxHelpersXMLReaderAdapter
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (OrgXmlSaxHelpersXMLReaderAdapter_) && (INCLUDE_ALL_OrgXmlSaxHelpersXMLReaderAdapter || defined(INCLUDE_OrgXmlSaxHelpersXMLReaderAdapter))
 #define OrgXmlSaxHelpersXMLReaderAdapter_
 
 #define RESTRICT_OrgXmlSaxParser 1
 #define INCLUDE_OrgXmlSaxParser 1
-#include "org/xml/sax/Parser.h"
+#include "../../../../org/xml/sax/Parser.h"
 
 #define RESTRICT_OrgXmlSaxContentHandler 1
 #define INCLUDE_OrgXmlSaxContentHandler 1
-#include "org/xml/sax/ContentHandler.h"
+#include "../../../../org/xml/sax/ContentHandler.h"
 
 @class IOSCharArray;
 @class JavaUtilLocale;
@@ -84,7 +78,7 @@
              cannot be instantiated or if the
              org.xml.sax.driver property is not specified.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Create a new adapter.
@@ -94,7 +88,7 @@
  @param xmlReader The SAX2 XMLReader to wrap.
  @throw java.lang.NullPointerExceptionIf the argument is null.
  */
-- (instancetype __nonnull)initWithOrgXmlSaxXMLReader:(id<OrgXmlSaxXMLReader>)xmlReader;
+- (instancetype)initWithOrgXmlSaxXMLReader:(id<OrgXmlSaxXMLReader>)xmlReader;
 
 /*!
  @brief Adapt a SAX2 characters event.
@@ -307,7 +301,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersXMLReaderAdapter)
 
 #define RESTRICT_OrgXmlSaxAttributeList 1
 #define INCLUDE_OrgXmlSaxAttributeList 1
-#include "org/xml/sax/AttributeList.h"
+#include "../../../../org/xml/sax/AttributeList.h"
 
 @protocol OrgXmlSaxAttributes;
 
@@ -362,7 +356,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersXMLReaderAdapter)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Set the embedded Attributes object.
@@ -384,10 +378,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersXMLReaderAdapter_AttributesAdapter)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersXMLReaderAdapter")

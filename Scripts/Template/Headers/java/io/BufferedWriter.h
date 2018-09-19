@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/BufferedWriter.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoBufferedWriter")
 #ifdef RESTRICT_JavaIoBufferedWriter
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoBufferedWriter_) && (INCLUDE_ALL_JavaIoBufferedWriter || defined(INCLUDE_JavaIoBufferedWriter))
 #define JavaIoBufferedWriter_
 
 #define RESTRICT_JavaIoWriter 1
 #define INCLUDE_JavaIoWriter 1
-#include "java/io/Writer.h"
+#include "../../java/io/Writer.h"
 
 @class IOSCharArray;
 
@@ -71,7 +65,7 @@
   output buffer.
  @param outArg A Writer
  */
-- (instancetype __nonnull)initWithJavaIoWriter:(JavaIoWriter *)outArg;
+- (instancetype)initWithJavaIoWriter:(JavaIoWriter *)outArg;
 
 /*!
  @brief Creates a new buffered character-output stream that uses an output
@@ -80,8 +74,8 @@
  @param sz Output-buffer size, a positive integer
  @throw IllegalArgumentExceptionIf sz is <= 0
  */
-- (instancetype __nonnull)initWithJavaIoWriter:(JavaIoWriter *)outArg
-                                       withInt:(jint)sz;
+- (instancetype)initWithJavaIoWriter:(JavaIoWriter *)outArg
+                             withInt:(jint)sz;
 
 - (void)close;
 
@@ -149,9 +143,9 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithId:(id)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithId:(id)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -173,10 +167,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoBufferedWriter)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoBufferedWriter")

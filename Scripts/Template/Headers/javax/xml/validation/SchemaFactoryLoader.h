@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/javax/xml/validation/SchemaFactoryLoader.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxXmlValidationSchemaFactoryLoader")
 #ifdef RESTRICT_JavaxXmlValidationSchemaFactoryLoader
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaxXmlValidationSchemaFactoryLoader_) && (INCLUDE_ALL_JavaxXmlValidationSchemaFactoryLoader || defined(INCLUDE_JavaxXmlValidationSchemaFactoryLoader))
 #define JavaxXmlValidationSchemaFactoryLoader_
@@ -41,7 +35,7 @@
 
 #pragma mark Protected
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -53,10 +47,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlValidationSchemaFactoryLoader)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlValidationSchemaFactoryLoader")

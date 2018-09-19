@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/regex/Pattern.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilRegexPattern")
 #ifdef RESTRICT_JavaUtilRegexPattern
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilRegexPattern_) && (INCLUDE_ALL_JavaUtilRegexPattern || defined(INCLUDE_JavaUtilRegexPattern))
 #define JavaUtilRegexPattern_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaUtilRegexMatcher;
@@ -675,15 +669,6 @@
  @public
   jlong address_;
 }
-@property (readonly, class) jint UNIX_LINES NS_SWIFT_NAME(UNIX_LINES);
-@property (readonly, class) jint CASE_INSENSITIVE NS_SWIFT_NAME(CASE_INSENSITIVE);
-@property (readonly, class) jint COMMENTS NS_SWIFT_NAME(COMMENTS);
-@property (readonly, class) jint MULTILINE NS_SWIFT_NAME(MULTILINE);
-@property (readonly, class) jint LITERAL NS_SWIFT_NAME(LITERAL);
-@property (readonly, class) jint DOTALL NS_SWIFT_NAME(DOTALL);
-@property (readonly, class) jint UNICODE_CASE NS_SWIFT_NAME(UNICODE_CASE);
-@property (readonly, class) jint CANON_EQ NS_SWIFT_NAME(CANON_EQ);
-@property (readonly, class) jint UNICODE_CHARACTER_CLASS NS_SWIFT_NAME(UNICODE_CHARACTER_CLASS);
 
 + (jint)UNIX_LINES;
 
@@ -937,7 +922,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -1084,10 +1069,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRegexPattern)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilRegexPattern")

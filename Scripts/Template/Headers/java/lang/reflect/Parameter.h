@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/reflect/Parameter.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangReflectParameter")
 #ifdef RESTRICT_JavaLangReflectParameter
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangReflectParameter_) && (INCLUDE_ALL_JavaLangReflectParameter || defined(INCLUDE_JavaLangReflectParameter))
 #define JavaLangReflectParameter_
 
 #define RESTRICT_JavaLangReflectAnnotatedElement 1
 #define INCLUDE_JavaLangReflectAnnotatedElement 1
-#include "java/lang/reflect/AnnotatedElement.h"
+#include "../../../java/lang/reflect/AnnotatedElement.h"
 
 @class IOSClass;
 @class IOSObjectArray;
@@ -60,7 +54,7 @@
 
 /*!
  */
-- (IOSObjectArray * __nonnull)getAnnotations;
+- (IOSObjectArray *)getAnnotations;
 
 /*!
  @throw NullPointerException
@@ -74,7 +68,7 @@
 
 /*!
  */
-- (IOSObjectArray * __nonnull)getDeclaredAnnotations;
+- (IOSObjectArray *)getDeclaredAnnotations;
 
 /*!
  @throw NullPointerException
@@ -85,7 +79,7 @@
  @brief Return the <code>Executable</code> which declares this parameter.
  @return The <code>Executable</code> declaring this parameter.
  */
-- (JavaLangReflectExecutable * __nonnull)getDeclaringExecutable;
+- (JavaLangReflectExecutable *)getDeclaringExecutable;
 
 /*!
  @brief Get the modifier flags for this the parameter represented by this 
@@ -115,7 +109,7 @@
  @return a <code>Type</code> object identifying the parameterized
   type of the parameter represented by this object
  */
-- (id<JavaLangReflectType> __nonnull)getParameterizedType;
+- (id<JavaLangReflectType>)getParameterizedType;
 
 /*!
  @brief Returns a <code>Class</code> object that identifies the
@@ -124,7 +118,7 @@
  @return a <code>Class</code> object identifying the declared
   type of the parameter represented by this object
  */
-- (IOSClass * __nonnull)getType;
+- (IOSClass *)getType;
 
 /*!
  @brief Returns a hash code based on the executable's hash code and the
@@ -180,7 +174,7 @@
  @return A string representation of the parameter and associated
   information.
  */
-- (NSString * __nonnull)description;
+- (NSString *)description;
 
 #pragma mark Package-Private
 
@@ -195,16 +189,16 @@
  @param executable The executable which defines this parameter.
  @param index The index of the parameter.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)name
-                                   withInt:(jint)modifiers
-             withJavaLangReflectExecutable:(JavaLangReflectExecutable *)executable
-                                   withInt:(jint)index;
+- (instancetype)initWithNSString:(NSString *)name
+                         withInt:(jint)modifiers
+   withJavaLangReflectExecutable:(JavaLangReflectExecutable *)executable
+                         withInt:(jint)index;
 
-- (NSString * __nonnull)getRealName;
+- (NSString *)getRealName;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -220,10 +214,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectParameter)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangReflectParameter")

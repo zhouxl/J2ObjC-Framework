@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/sql/Date.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSqlDate")
 #ifdef RESTRICT_JavaSqlDate
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSqlDate_) && (INCLUDE_ALL_JavaSqlDate || defined(INCLUDE_JavaSqlDate))
 #define JavaSqlDate_
 
 #define RESTRICT_JavaUtilDate 1
 #define INCLUDE_JavaUtilDate 1
-#include "java/util/Date.h"
+#include "../../java/util/Date.h"
 
 /*!
  @brief <P>A thin wrapper around a millisecond value that allows
@@ -43,7 +37,6 @@
   time zone with which the instance is associated.
  */
 @interface JavaSqlDate : JavaUtilDate
-@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jlong)serialVersionUID;
 
@@ -58,9 +51,9 @@
  @param month 0 to 11
  @param day 1 to 31
  */
-- (instancetype __nonnull)initWithInt:(jint)year
-                              withInt:(jint)month
-                              withInt:(jint)day __attribute__((deprecated));
+- (instancetype)initWithInt:(jint)year
+                    withInt:(jint)month
+                    withInt:(jint)day __attribute__((deprecated));
 
 /*!
  @brief Constructs a <code>Date</code> object using the given milliseconds
@@ -72,7 +65,7 @@
           A negative number indicates the number of milliseconds
           before January 1, 1970, 00:00:00 GMT.
  */
-- (instancetype __nonnull)initWithLong:(jlong)date;
+- (instancetype)initWithLong:(jlong)date;
 
 /*!
  @throw java.lang.IllegalArgumentExceptionif this method is invoked
@@ -145,22 +138,22 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithInt:(jint)arg0
-                              withInt:(jint)arg1
-                              withInt:(jint)arg2
-                              withInt:(jint)arg3
-                              withInt:(jint)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithInt:(jint)arg0
+                    withInt:(jint)arg1
+                    withInt:(jint)arg2
+                    withInt:(jint)arg3
+                    withInt:(jint)arg4 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithInt:(jint)arg0
-                              withInt:(jint)arg1
-                              withInt:(jint)arg2
-                              withInt:(jint)arg3
-                              withInt:(jint)arg4
-                              withInt:(jint)arg5 NS_UNAVAILABLE;
+- (instancetype)initWithInt:(jint)arg0
+                    withInt:(jint)arg1
+                    withInt:(jint)arg2
+                    withInt:(jint)arg3
+                    withInt:(jint)arg4
+                    withInt:(jint)arg5 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -192,10 +185,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlDate)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSqlDate")

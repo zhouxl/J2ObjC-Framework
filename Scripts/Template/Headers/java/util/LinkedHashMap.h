@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/LinkedHashMap.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilLinkedHashMap")
 #ifdef RESTRICT_JavaUtilLinkedHashMap
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilLinkedHashMap_) && (INCLUDE_ALL_JavaUtilLinkedHashMap || defined(INCLUDE_JavaUtilLinkedHashMap))
 #define JavaUtilLinkedHashMap_
 
 #define RESTRICT_JavaUtilHashMap 1
 #define INCLUDE_JavaUtilHashMap 1
-#include "java/util/HashMap.h"
+#include "../../java/util/HashMap.h"
 
 #define RESTRICT_JavaUtilMap 1
 #define INCLUDE_JavaUtilMap 1
-#include "java/util/Map.h"
+#include "../../java/util/Map.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilFunctionBiConsumer;
@@ -165,7 +159,7 @@
  @brief Constructs an empty insertion-ordered <tt>LinkedHashMap</tt> instance
   with the default initial capacity (16) and load factor (0.75).
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs an empty insertion-ordered <tt>LinkedHashMap</tt> instance
@@ -173,7 +167,7 @@
  @param initialCapacity the initial capacity
  @throw IllegalArgumentExceptionif the initial capacity is negative
  */
-- (instancetype __nonnull)initWithInt:(jint)initialCapacity;
+- (instancetype)initWithInt:(jint)initialCapacity;
 
 /*!
  @brief Constructs an empty insertion-ordered <tt>LinkedHashMap</tt> instance
@@ -183,8 +177,8 @@
  @throw IllegalArgumentExceptionif the initial capacity is negative
           or the load factor is nonpositive
  */
-- (instancetype __nonnull)initWithInt:(jint)initialCapacity
-                            withFloat:(jfloat)loadFactor;
+- (instancetype)initWithInt:(jint)initialCapacity
+                  withFloat:(jfloat)loadFactor;
 
 /*!
  @brief Constructs an empty <tt>LinkedHashMap</tt> instance with the
@@ -196,9 +190,9 @@
  @throw IllegalArgumentExceptionif the initial capacity is negative
           or the load factor is nonpositive
  */
-- (instancetype __nonnull)initWithInt:(jint)initialCapacity
-                            withFloat:(jfloat)loadFactor
-                          withBoolean:(jboolean)accessOrder;
+- (instancetype)initWithInt:(jint)initialCapacity
+                  withFloat:(jfloat)loadFactor
+                withBoolean:(jboolean)accessOrder;
 
 /*!
  @brief Constructs an insertion-ordered <tt>LinkedHashMap</tt> instance with
@@ -208,7 +202,7 @@
  @param m the map whose mappings are to be placed in this map
  @throw NullPointerExceptionif the specified map is null
  */
-- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)m;
+- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)m;
 
 /*!
  @brief Removes all of the mappings from this map.
@@ -335,10 +329,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedHashMap)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilLinkedHashMap")

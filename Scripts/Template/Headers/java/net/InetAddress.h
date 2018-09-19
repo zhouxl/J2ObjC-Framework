@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/net/InetAddress.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetInetAddress")
 #ifdef RESTRICT_JavaNetInetAddress
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNetInetAddress_) && (INCLUDE_ALL_JavaNetInetAddress || defined(INCLUDE_JavaNetInetAddress))
 #define JavaNetInetAddress_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSByteArray;
 @class IOSObjectArray;
@@ -158,8 +152,6 @@
  @public
   JavaNetInetAddress_InetAddressHolder *holder_;
 }
-@property (readonly, class, strong) id<JavaNetInetAddressImpl> impl NS_SWIFT_NAME(impl);
-@property (readonly, class) jint NETID_UNSET NS_SWIFT_NAME(NETID_UNSET);
 
 + (id<JavaNetInetAddressImpl>)impl;
 
@@ -586,7 +578,7 @@
   the accept() method.  This InetAddress, however, is not
   put in the address cache, since it is not created by name.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 + (JavaNetInetAddress *)anyLocalAddress;
 
@@ -678,11 +670,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetInetAddress)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)hostName
-                                   withInt:(jint)address
-                                   withInt:(jint)family;
+- (instancetype)initWithNSString:(NSString *)hostName
+                         withInt:(jint)address
+                         withInt:(jint)family;
 
 - (jint)getAddress;
 
@@ -712,10 +704,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetInetAddress_InetAddressHolder)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetInetAddress")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/reflect/Proxy.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangReflectProxy")
 #ifdef RESTRICT_JavaLangReflectProxy
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangReflectProxy_) && (INCLUDE_ALL_JavaLangReflectProxy || defined(INCLUDE_JavaLangReflectProxy))
 #define JavaLangReflectProxy_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 @class IOSClass;
 @class IOSObjectArray;
@@ -216,8 +210,6 @@
 
 #pragma mark Public
 
-- (jboolean)isEqual:(id)obj;
-
 /*!
  @brief Returns the invocation handler for the specified proxy instance.
  @param proxy the proxy instance to return the invocation handler for
@@ -225,7 +217,7 @@
  @throw IllegalArgumentExceptionif the argument is not a
            proxy instance
  */
-+ (id<JavaLangReflectInvocationHandler> __nonnull)getInvocationHandlerWithId:(id)proxy;
++ (id<JavaLangReflectInvocationHandler>)getInvocationHandlerWithId:(id)proxy;
 
 /*!
  @brief Returns the <code>java.lang.Class</code> object for a proxy class
@@ -297,10 +289,8 @@
  @throw NullPointerExceptionif the <code>interfaces</code> array
            argument or any of its elements are <code>null</code>
  */
-+ (IOSClass * __nonnull)getProxyClassWithJavaLangClassLoader:(JavaLangClassLoader *)loader
-                                           withIOSClassArray:(IOSObjectArray *)interfaces;
-
-- (NSUInteger)hash;
++ (IOSClass *)getProxyClassWithJavaLangClassLoader:(JavaLangClassLoader *)loader
+                                 withIOSClassArray:(IOSObjectArray *)interfaces;
 
 /*!
  @brief Returns true if and only if the specified class was dynamically
@@ -345,11 +335,9 @@
            if the invocation handler, <code>h</code>, is
            <code>null</code>
  */
-+ (id __nonnull)newProxyInstanceWithJavaLangClassLoader:(JavaLangClassLoader *)loader
-                                      withIOSClassArray:(IOSObjectArray *)interfaces
-                   withJavaLangReflectInvocationHandler:(id<JavaLangReflectInvocationHandler>)h OBJC_METHOD_FAMILY_NONE;
-
-- (NSString *)description;
++ (id)newProxyInstanceWithJavaLangClassLoader:(JavaLangClassLoader *)loader
+                            withIOSClassArray:(IOSObjectArray *)interfaces
+         withJavaLangReflectInvocationHandler:(id<JavaLangReflectInvocationHandler>)h OBJC_METHOD_FAMILY_NONE;
 
 #pragma mark Protected
 
@@ -359,15 +347,9 @@
   for its invocation handler.
  @param h the invocation handler for this proxy instance
  */
-- (instancetype __nonnull)initWithJavaLangReflectInvocationHandler:(id<JavaLangReflectInvocationHandler>)h;
+- (instancetype)initWithJavaLangReflectInvocationHandler:(id<JavaLangReflectInvocationHandler>)h;
 
 #pragma mark Package-Private
-
-- (jboolean)proxy_equalsWithId:(id)obj;
-
-- (jint)proxy_hashCode;
-
-- (NSString *)proxy_toString;
 
 @end
 
@@ -393,10 +375,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectProxy)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangReflectProxy")

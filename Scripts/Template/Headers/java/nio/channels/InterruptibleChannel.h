@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/nio/channels/InterruptibleChannel.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNioChannelsInterruptibleChannel")
 #ifdef RESTRICT_JavaNioChannelsInterruptibleChannel
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNioChannelsInterruptibleChannel_) && (INCLUDE_ALL_JavaNioChannelsInterruptibleChannel || defined(INCLUDE_JavaNioChannelsInterruptibleChannel))
 #define JavaNioChannelsInterruptibleChannel_
 
 #define RESTRICT_JavaNioChannelsChannel 1
 #define INCLUDE_JavaNioChannelsChannel 1
-#include "java/nio/channels/Channel.h"
+#include "../../../java/nio/channels/Channel.h"
 
 /*!
  @brief A channel that can be asynchronously closed and interrupted.
@@ -75,10 +69,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsInterruptibleChannel)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioChannelsInterruptibleChannel")

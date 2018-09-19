@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/javax/xml/transform/dom/DOMSource.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxXmlTransformDomDOMSource")
 #ifdef RESTRICT_JavaxXmlTransformDomDOMSource
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxXmlTransformDomDOMSource_) && (INCLUDE_ALL_JavaxXmlTransformDomDOMSource || defined(INCLUDE_JavaxXmlTransformDomDOMSource))
 #define JavaxXmlTransformDomDOMSource_
 
 #define RESTRICT_JavaxXmlTransformSource 1
 #define INCLUDE_JavaxXmlTransformSource 1
-#include "javax/xml/transform/Source.h"
+#include "../../../../javax/xml/transform/Source.h"
 
 @protocol OrgW3cDomNode;
 
@@ -45,7 +39,6 @@
  - seealso: <a href="http://www.w3.org/TR/DOM-Level-2">Document Object Model (DOM) Level 2 Specification</a>
  */
 @interface JavaxXmlTransformDomDOMSource : NSObject < JavaxXmlTransformSource >
-@property (readonly, copy, class) NSString *FEATURE NS_SWIFT_NAME(FEATURE);
 
 + (NSString *)FEATURE;
 
@@ -60,7 +53,7 @@
  <code>javax.xml.parsers.DocumentBuilder</code>.</p>
  - seealso: javax.xml.transform.Transformer
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Create a new input source with a DOM node.The operation
@@ -71,7 +64,7 @@
   from the root node also.
  @param n The DOM node that will contain the Source tree.
  */
-- (instancetype __nonnull)initWithOrgW3cDomNode:(id<OrgW3cDomNode>)n;
+- (instancetype)initWithOrgW3cDomNode:(id<OrgW3cDomNode>)n;
 
 /*!
  @brief Create a new input source with a DOM node, and with the
@@ -79,8 +72,8 @@
  @param node The DOM node that will contain the Source tree.
  @param systemID Specifies the base URI associated with node.
  */
-- (instancetype __nonnull)initWithOrgW3cDomNode:(id<OrgW3cDomNode>)node
-                                   withNSString:(NSString *)systemID;
+- (instancetype)initWithOrgW3cDomNode:(id<OrgW3cDomNode>)node
+                         withNSString:(NSString *)systemID;
 
 /*!
  @brief Get the node that represents a Source DOM tree.
@@ -144,10 +137,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformDomDOMSource)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformDomDOMSource")

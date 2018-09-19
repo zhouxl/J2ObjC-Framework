@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/ConcurrentHashMap.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap")
 #ifdef RESTRICT_JavaUtilConcurrentConcurrentHashMap
@@ -151,26 +151,20 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentConcurrentHashMap_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap || defined(INCLUDE_JavaUtilConcurrentConcurrentHashMap))
 #define JavaUtilConcurrentConcurrentHashMap_
 
 #define RESTRICT_JavaUtilAbstractMap 1
 #define INCLUDE_JavaUtilAbstractMap 1
-#include "java/util/AbstractMap.h"
+#include "../../../java/util/AbstractMap.h"
 
 #define RESTRICT_JavaUtilConcurrentConcurrentMap 1
 #define INCLUDE_JavaUtilConcurrentConcurrentMap 1
-#include "java/util/concurrent/ConcurrentMap.h"
+#include "../../../java/util/concurrent/ConcurrentMap.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 @class IOSClass;
 @class IOSObjectArray;
@@ -374,15 +368,6 @@
    */
   volatile_id table_;
 }
-@property (readonly, class) jint MAX_ARRAY_SIZE NS_SWIFT_NAME(MAX_ARRAY_SIZE);
-@property (readonly, class) jint TREEIFY_THRESHOLD NS_SWIFT_NAME(TREEIFY_THRESHOLD);
-@property (readonly, class) jint UNTREEIFY_THRESHOLD NS_SWIFT_NAME(UNTREEIFY_THRESHOLD);
-@property (readonly, class) jint MIN_TREEIFY_CAPACITY NS_SWIFT_NAME(MIN_TREEIFY_CAPACITY);
-@property (readonly, class) jint MOVED NS_SWIFT_NAME(MOVED);
-@property (readonly, class) jint TREEBIN NS_SWIFT_NAME(TREEBIN);
-@property (readonly, class) jint RESERVED NS_SWIFT_NAME(RESERVED);
-@property (readonly, class) jint HASH_BITS NS_SWIFT_NAME(HASH_BITS);
-@property (readonly, class) jint NCPU NS_SWIFT_NAME(NCPU);
 
 + (jint)MAX_ARRAY_SIZE;
 
@@ -407,7 +392,7 @@
 /*!
  @brief Creates a new, empty map with the default initial table size (16).
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a new, empty map with an initial table size
@@ -417,7 +402,7 @@
  @throw IllegalArgumentExceptionif the initial capacity of
   elements is negative
  */
-- (instancetype __nonnull)initWithInt:(jint)initialCapacity;
+- (instancetype)initWithInt:(jint)initialCapacity;
 
 /*!
  @brief Creates a new, empty map with an initial table size based on
@@ -430,8 +415,8 @@
   elements is negative or the load factor is nonpositive
  @since 1.6
  */
-- (instancetype __nonnull)initWithInt:(jint)initialCapacity
-                            withFloat:(jfloat)loadFactor;
+- (instancetype)initWithInt:(jint)initialCapacity
+                  withFloat:(jfloat)loadFactor;
 
 /*!
  @brief Creates a new, empty map with an initial table size based on
@@ -447,15 +432,15 @@
   negative or the load factor or concurrencyLevel are
   nonpositive
  */
-- (instancetype __nonnull)initWithInt:(jint)initialCapacity
-                            withFloat:(jfloat)loadFactor
-                              withInt:(jint)concurrencyLevel;
+- (instancetype)initWithInt:(jint)initialCapacity
+                  withFloat:(jfloat)loadFactor
+                    withInt:(jint)concurrencyLevel;
 
 /*!
  @brief Creates a new map with the same mappings as the given map.
  @param m the map
  */
-- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)m;
+- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)m;
 
 /*!
  @brief Removes all of the mappings from this map.
@@ -1514,7 +1499,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap)
 
 #define RESTRICT_JavaUtilMap 1
 #define INCLUDE_JavaUtilMap_Entry 1
-#include "java/util/Map.h"
+#include "../../../java/util/Map.h"
 
 /*!
  @brief Key-value entry.This class is never exported out as a
@@ -1549,9 +1534,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithInt:(jint)hash_
-                               withId:(id)key
-                               withId:(id)val
+- (instancetype)initWithInt:(jint)hash_
+                     withId:(id)key
+                     withId:(id)val
 withJavaUtilConcurrentConcurrentHashMap_Node:(JavaUtilConcurrentConcurrentHashMap_Node *)next;
 
 /*!
@@ -1562,7 +1547,7 @@ withJavaUtilConcurrentConcurrentHashMap_Node:(JavaUtilConcurrentConcurrentHashMa
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -1587,11 +1572,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_Node)
 
 #define RESTRICT_JavaUtilConcurrentLocksReentrantLock 1
 #define INCLUDE_JavaUtilConcurrentLocksReentrantLock 1
-#include "java/util/concurrent/locks/ReentrantLock.h"
+#include "../../../java/util/concurrent/locks/ReentrantLock.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 /*!
  @brief Stripped-down version of helper class used in previous version,
@@ -1604,13 +1589,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_Node)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithFloat:(jfloat)lf;
+- (instancetype)initWithFloat:(jfloat)lf;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithBoolean:(jboolean)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithBoolean:(jboolean)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -1642,16 +1627,16 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_Segment)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)tab;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)tab;
 
 - (JavaUtilConcurrentConcurrentHashMap_Node *)findWithInt:(jint)h
                                                    withId:(id)k;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithInt:(jint)arg0
-                               withId:(id)arg1
-                               withId:(id)arg2
+- (instancetype)initWithInt:(jint)arg0
+                     withId:(id)arg1
+                     withId:(id)arg2
 withJavaUtilConcurrentConcurrentHashMap_Node:(JavaUtilConcurrentConcurrentHashMap_Node *)arg3 NS_UNAVAILABLE;
 
 @end
@@ -1682,16 +1667,16 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_ForwardingNode)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 - (JavaUtilConcurrentConcurrentHashMap_Node *)findWithInt:(jint)h
                                                    withId:(id)k;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithInt:(jint)arg0
-                               withId:(id)arg1
-                               withId:(id)arg2
+- (instancetype)initWithInt:(jint)arg0
+                     withId:(id)arg1
+                     withId:(id)arg2
 withJavaUtilConcurrentConcurrentHashMap_Node:(JavaUtilConcurrentConcurrentHashMap_Node *)arg3 NS_UNAVAILABLE;
 
 @end
@@ -1723,11 +1708,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_ReservationNode)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithLong:(jlong)x;
+- (instancetype)initWithLong:(jlong)x;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -1763,9 +1748,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_CounterCell)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithInt:(jint)hash_
-                               withId:(id)key
-                               withId:(id)val
+- (instancetype)initWithInt:(jint)hash_
+                     withId:(id)key
+                     withId:(id)val
 withJavaUtilConcurrentConcurrentHashMap_Node:(JavaUtilConcurrentConcurrentHashMap_Node *)next
 withJavaUtilConcurrentConcurrentHashMap_TreeNode:(JavaUtilConcurrentConcurrentHashMap_TreeNode *)parent;
 
@@ -1782,9 +1767,9 @@ withJavaUtilConcurrentConcurrentHashMap_TreeNode:(JavaUtilConcurrentConcurrentHa
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithInt:(jint)arg0
-                               withId:(id)arg1
-                               withId:(id)arg2
+- (instancetype)initWithInt:(jint)arg0
+                     withId:(id)arg1
+                     withId:(id)arg2
 withJavaUtilConcurrentConcurrentHashMap_Node:(JavaUtilConcurrentConcurrentHashMap_Node *)arg3 NS_UNAVAILABLE;
 
 @end
@@ -1828,9 +1813,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_TreeNode)
   volatile_id waiter_;
   volatile_jint lockState_;
 }
-@property (readonly, class) jint WRITER NS_SWIFT_NAME(WRITER);
-@property (readonly, class) jint WAITER NS_SWIFT_NAME(WAITER);
-@property (readonly, class) jint READER NS_SWIFT_NAME(READER);
 
 + (jint)WRITER;
 
@@ -1843,7 +1825,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_TreeNode)
 /*!
  @brief Creates bin with initial set of nodes headed by b.
  */
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_TreeNode:(JavaUtilConcurrentConcurrentHashMap_TreeNode *)b;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_TreeNode:(JavaUtilConcurrentConcurrentHashMap_TreeNode *)b;
 
 + (JavaUtilConcurrentConcurrentHashMap_TreeNode *)balanceDeletionWithJavaUtilConcurrentConcurrentHashMap_TreeNode:(JavaUtilConcurrentConcurrentHashMap_TreeNode *)root
                                                                  withJavaUtilConcurrentConcurrentHashMap_TreeNode:(JavaUtilConcurrentConcurrentHashMap_TreeNode *)x;
@@ -1903,9 +1885,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_TreeNode)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithInt:(jint)arg0
-                               withId:(id)arg1
-                               withId:(id)arg2
+- (instancetype)initWithInt:(jint)arg0
+                     withId:(id)arg1
+                     withId:(id)arg2
 withJavaUtilConcurrentConcurrentHashMap_Node:(JavaUtilConcurrentConcurrentHashMap_Node *)arg3 NS_UNAVAILABLE;
 
 @end
@@ -1970,7 +1952,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_TreeBin)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -2029,10 +2011,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_TableStack)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)tab
-                                                                        withInt:(jint)size
-                                                                        withInt:(jint)index
-                                                                        withInt:(jint)limit;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)tab
+                                                              withInt:(jint)size
+                                                              withInt:(jint)index
+                                                              withInt:(jint)limit;
 
 /*!
  @brief Advances if possible, returning next valid node, or null if none.
@@ -2041,7 +2023,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_TableStack)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -2089,18 +2071,18 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_Traverser)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)tab
-                                                                        withInt:(jint)size
-                                                                        withInt:(jint)index
-                                                                        withInt:(jint)limit
-                                        withJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)tab
+                                                              withInt:(jint)size
+                                                              withInt:(jint)index
+                                                              withInt:(jint)limit
+                              withJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg0
-                                                                        withInt:(jint)arg1
-                                                                        withInt:(jint)arg2
-                                                                        withInt:(jint)arg3 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg0
+                                                              withInt:(jint)arg1
+                                                              withInt:(jint)arg2
+                                                              withInt:(jint)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -2124,11 +2106,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_BaseIterator)
 
 #define RESTRICT_JavaUtilIterator 1
 #define INCLUDE_JavaUtilIterator 1
-#include "java/util/Iterator.h"
+#include "../../../java/util/Iterator.h"
 
 #define RESTRICT_JavaUtilEnumeration 1
 #define INCLUDE_JavaUtilEnumeration 1
-#include "java/util/Enumeration.h"
+#include "../../../java/util/Enumeration.h"
 
 @class IOSObjectArray;
 @class JavaUtilConcurrentConcurrentHashMap;
@@ -2144,11 +2126,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_BaseIterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)tab
-                                                                        withInt:(jint)index
-                                                                        withInt:(jint)size
-                                                                        withInt:(jint)limit
-                                        withJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)tab
+                                                              withInt:(jint)index
+                                                              withInt:(jint)size
+                                                              withInt:(jint)limit
+                              withJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map;
 
 @end
 
@@ -2169,11 +2151,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_KeyIterator)
 
 #define RESTRICT_JavaUtilIterator 1
 #define INCLUDE_JavaUtilIterator 1
-#include "java/util/Iterator.h"
+#include "../../../java/util/Iterator.h"
 
 #define RESTRICT_JavaUtilEnumeration 1
 #define INCLUDE_JavaUtilEnumeration 1
-#include "java/util/Enumeration.h"
+#include "../../../java/util/Enumeration.h"
 
 @class IOSObjectArray;
 @class JavaUtilConcurrentConcurrentHashMap;
@@ -2189,11 +2171,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_KeyIterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)tab
-                                                                        withInt:(jint)index
-                                                                        withInt:(jint)size
-                                                                        withInt:(jint)limit
-                                        withJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)tab
+                                                              withInt:(jint)index
+                                                              withInt:(jint)size
+                                                              withInt:(jint)limit
+                              withJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map;
 
 @end
 
@@ -2214,7 +2196,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_ValueIterator)
 
 #define RESTRICT_JavaUtilIterator 1
 #define INCLUDE_JavaUtilIterator 1
-#include "java/util/Iterator.h"
+#include "../../../java/util/Iterator.h"
 
 @class IOSObjectArray;
 @class JavaUtilConcurrentConcurrentHashMap;
@@ -2229,11 +2211,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_ValueIterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)tab
-                                                                        withInt:(jint)index
-                                                                        withInt:(jint)size
-                                                                        withInt:(jint)limit
-                                        withJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)tab
+                                                              withInt:(jint)index
+                                                              withInt:(jint)size
+                                                              withInt:(jint)limit
+                              withJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map;
 
 @end
 
@@ -2254,7 +2236,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_EntryIterator)
 
 #define RESTRICT_JavaUtilMap 1
 #define INCLUDE_JavaUtilMap_Entry 1
-#include "java/util/Map.h"
+#include "../../../java/util/Map.h"
 
 @class JavaUtilConcurrentConcurrentHashMap;
 
@@ -2293,13 +2275,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_EntryIterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithId:(id)key
-                              withId:(id)val
+- (instancetype)initWithId:(id)key
+                    withId:(id)val
 withJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -2324,7 +2306,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_MapEntry)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator 1
-#include "java/util/Spliterator.h"
+#include "../../../java/util/Spliterator.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilComparator;
@@ -2349,18 +2331,18 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_MapEntry)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)tab
-                                                                        withInt:(jint)size
-                                                                        withInt:(jint)index
-                                                                        withInt:(jint)limit
-                                                                       withLong:(jlong)est;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)tab
+                                                              withInt:(jint)size
+                                                              withInt:(jint)index
+                                                              withInt:(jint)limit
+                                                             withLong:(jlong)est;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg0
-                                                                        withInt:(jint)arg1
-                                                                        withInt:(jint)arg2
-                                                                        withInt:(jint)arg3 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg0
+                                                              withInt:(jint)arg1
+                                                              withInt:(jint)arg2
+                                                              withInt:(jint)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -2381,7 +2363,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_KeySpliterator)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator 1
-#include "java/util/Spliterator.h"
+#include "../../../java/util/Spliterator.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilComparator;
@@ -2406,18 +2388,18 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_KeySpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)tab
-                                                                        withInt:(jint)size
-                                                                        withInt:(jint)index
-                                                                        withInt:(jint)limit
-                                                                       withLong:(jlong)est;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)tab
+                                                              withInt:(jint)size
+                                                              withInt:(jint)index
+                                                              withInt:(jint)limit
+                                                             withLong:(jlong)est;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg0
-                                                                        withInt:(jint)arg1
-                                                                        withInt:(jint)arg2
-                                                                        withInt:(jint)arg3 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg0
+                                                              withInt:(jint)arg1
+                                                              withInt:(jint)arg2
+                                                              withInt:(jint)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -2438,7 +2420,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_ValueSpliterator)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator 1
-#include "java/util/Spliterator.h"
+#include "../../../java/util/Spliterator.h"
 
 @class IOSObjectArray;
 @class JavaUtilConcurrentConcurrentHashMap;
@@ -2465,19 +2447,19 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_ValueSpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)tab
-                                                                        withInt:(jint)size
-                                                                        withInt:(jint)index
-                                                                        withInt:(jint)limit
-                                                                       withLong:(jlong)est
-                                        withJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)tab
+                                                              withInt:(jint)size
+                                                              withInt:(jint)index
+                                                              withInt:(jint)limit
+                                                             withLong:(jlong)est
+                              withJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg0
-                                                                        withInt:(jint)arg1
-                                                                        withInt:(jint)arg2
-                                                                        withInt:(jint)arg3 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg0
+                                                              withInt:(jint)arg1
+                                                              withInt:(jint)arg2
+                                                              withInt:(jint)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -2500,11 +2482,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_EntrySpliterator)
 
 #define RESTRICT_JavaUtilCollection 1
 #define INCLUDE_JavaUtilCollection 1
-#include "java/util/Collection.h"
+#include "../../../java/util/Collection.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaUtilConcurrentConcurrentHashMap;
@@ -2576,7 +2558,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_EntrySpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map;
 
 @end
 
@@ -2595,11 +2577,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_CollectionView)
 
 #define RESTRICT_JavaUtilSet 1
 #define INCLUDE_JavaUtilSet 1
-#include "java/util/Set.h"
+#include "../../../java/util/Set.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 @class JavaUtilConcurrentConcurrentHashMap;
 @protocol JavaUtilCollection;
@@ -2681,12 +2663,12 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_CollectionView)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map
-                                                               withId:(id)value;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map
+                                                     withId:(id)value;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -2707,11 +2689,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_KeySetView)
 
 #define RESTRICT_JavaUtilCollection 1
 #define INCLUDE_JavaUtilCollection 1
-#include "java/util/Collection.h"
+#include "../../../java/util/Collection.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 @class JavaUtilConcurrentConcurrentHashMap;
 @protocol JavaUtilFunctionConsumer;
@@ -2747,7 +2729,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_KeySetView)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map;
 
 @end
 
@@ -2768,11 +2750,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_ValuesView)
 
 #define RESTRICT_JavaUtilSet 1
 #define INCLUDE_JavaUtilSet 1
-#include "java/util/Set.h"
+#include "../../../java/util/Set.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 @class JavaUtilConcurrentConcurrentHashMap;
 @protocol JavaUtilCollection;
@@ -2817,7 +2799,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_ValuesView)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map;
 
 @end
 
@@ -2838,7 +2820,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_EntrySetView)
 
 #define RESTRICT_JavaUtilConcurrentCountedCompleter 1
 #define INCLUDE_JavaUtilConcurrentCountedCompleter 1
-#include "java/util/concurrent/CountedCompleter.h"
+#include "../../../java/util/concurrent/CountedCompleter.h"
 
 @class IOSObjectArray;
 @class JavaUtilConcurrentConcurrentHashMap_Node;
@@ -2863,11 +2845,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_EntrySetView)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)par
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)par
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t;
 
 /*!
  @brief Same as Traverser version.
@@ -2920,20 +2902,20 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)arg1;
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-                                                  withJavaUtilFunctionConsumer:(id<JavaUtilFunctionConsumer>)action;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+                                        withJavaUtilFunctionConsumer:(id<JavaUtilFunctionConsumer>)action;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -2982,20 +2964,20 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)arg1;
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-                                                  withJavaUtilFunctionConsumer:(id<JavaUtilFunctionConsumer>)action;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+                                        withJavaUtilFunctionConsumer:(id<JavaUtilFunctionConsumer>)action;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -3044,20 +3026,20 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)arg1;
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-                                                  withJavaUtilFunctionConsumer:(id<JavaUtilFunctionConsumer>)action;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+                                        withJavaUtilFunctionConsumer:(id<JavaUtilFunctionConsumer>)action;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -3106,20 +3088,20 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)arg1;
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-                                                withJavaUtilFunctionBiConsumer:(id<JavaUtilFunctionBiConsumer>)action;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+                                      withJavaUtilFunctionBiConsumer:(id<JavaUtilFunctionBiConsumer>)action;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -3170,21 +3152,21 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)arg1;
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-                                                  withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)transformer
-                                                  withJavaUtilFunctionConsumer:(id<JavaUtilFunctionConsumer>)action;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+                                        withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)transformer
+                                        withJavaUtilFunctionConsumer:(id<JavaUtilFunctionConsumer>)action;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -3236,21 +3218,21 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)arg1;
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-                                                  withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)transformer
-                                                  withJavaUtilFunctionConsumer:(id<JavaUtilFunctionConsumer>)action;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+                                        withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)transformer
+                                        withJavaUtilFunctionConsumer:(id<JavaUtilFunctionConsumer>)action;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -3302,21 +3284,21 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)arg1;
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-                                                  withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)transformer
-                                                  withJavaUtilFunctionConsumer:(id<JavaUtilFunctionConsumer>)action;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+                                        withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)transformer
+                                        withJavaUtilFunctionConsumer:(id<JavaUtilFunctionConsumer>)action;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -3368,21 +3350,21 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)arg1;
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-                                                withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)transformer
-                                                  withJavaUtilFunctionConsumer:(id<JavaUtilFunctionConsumer>)action;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+                                      withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)transformer
+                                        withJavaUtilFunctionConsumer:(id<JavaUtilFunctionConsumer>)action;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -3423,21 +3405,21 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_ForEachTransforme
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-                                                  withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)searchFunction
-                                   withJavaUtilConcurrentAtomicAtomicReference:(JavaUtilConcurrentAtomicAtomicReference *)result;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+                                        withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)searchFunction
+                         withJavaUtilConcurrentAtomicAtomicReference:(JavaUtilConcurrentAtomicAtomicReference *)result;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -3478,21 +3460,21 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_SearchKeysTask)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-                                                  withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)searchFunction
-                                   withJavaUtilConcurrentAtomicAtomicReference:(JavaUtilConcurrentAtomicAtomicReference *)result;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+                                        withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)searchFunction
+                         withJavaUtilConcurrentAtomicAtomicReference:(JavaUtilConcurrentAtomicAtomicReference *)result;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -3533,21 +3515,21 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_SearchValuesTask)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-                                                  withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)searchFunction
-                                   withJavaUtilConcurrentAtomicAtomicReference:(JavaUtilConcurrentAtomicAtomicReference *)result;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+                                        withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)searchFunction
+                         withJavaUtilConcurrentAtomicAtomicReference:(JavaUtilConcurrentAtomicAtomicReference *)result;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -3588,21 +3570,21 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_SearchEntriesTask
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-                                                withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)searchFunction
-                                   withJavaUtilConcurrentAtomicAtomicReference:(JavaUtilConcurrentAtomicAtomicReference *)result;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+                                      withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)searchFunction
+                         withJavaUtilConcurrentAtomicAtomicReference:(JavaUtilConcurrentAtomicAtomicReference *)result;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -3644,21 +3626,21 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_SearchMappingsTas
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-                        withJavaUtilConcurrentConcurrentHashMap_ReduceKeysTask:(JavaUtilConcurrentConcurrentHashMap_ReduceKeysTask *)nextRight
-                                                withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)reducer;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+              withJavaUtilConcurrentConcurrentHashMap_ReduceKeysTask:(JavaUtilConcurrentConcurrentHashMap_ReduceKeysTask *)nextRight
+                                      withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)reducer;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -3702,21 +3684,21 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_ReduceKeysTask)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-                      withJavaUtilConcurrentConcurrentHashMap_ReduceValuesTask:(JavaUtilConcurrentConcurrentHashMap_ReduceValuesTask *)nextRight
-                                                withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)reducer;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+            withJavaUtilConcurrentConcurrentHashMap_ReduceValuesTask:(JavaUtilConcurrentConcurrentHashMap_ReduceValuesTask *)nextRight
+                                      withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)reducer;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -3771,21 +3753,21 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_ReduceValuesTask)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-                     withJavaUtilConcurrentConcurrentHashMap_ReduceEntriesTask:(JavaUtilConcurrentConcurrentHashMap_ReduceEntriesTask *)nextRight
-                                                withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)reducer;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+           withJavaUtilConcurrentConcurrentHashMap_ReduceEntriesTask:(JavaUtilConcurrentConcurrentHashMap_ReduceEntriesTask *)nextRight
+                                      withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)reducer;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -3831,22 +3813,22 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_ReduceEntriesTask
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-                     withJavaUtilConcurrentConcurrentHashMap_MapReduceKeysTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceKeysTask *)nextRight
-                                                  withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)transformer
-                                                withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)reducer;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+           withJavaUtilConcurrentConcurrentHashMap_MapReduceKeysTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceKeysTask *)nextRight
+                                        withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)transformer
+                                      withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)reducer;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -3893,22 +3875,22 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_MapReduceKeysTask
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-                   withJavaUtilConcurrentConcurrentHashMap_MapReduceValuesTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceValuesTask *)nextRight
-                                                  withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)transformer
-                                                withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)reducer;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+         withJavaUtilConcurrentConcurrentHashMap_MapReduceValuesTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceValuesTask *)nextRight
+                                        withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)transformer
+                                      withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)reducer;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -3955,22 +3937,22 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_MapReduceValuesTa
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-                  withJavaUtilConcurrentConcurrentHashMap_MapReduceEntriesTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceEntriesTask *)nextRight
-                                                  withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)transformer
-                                                withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)reducer;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+        withJavaUtilConcurrentConcurrentHashMap_MapReduceEntriesTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceEntriesTask *)nextRight
+                                        withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)transformer
+                                      withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)reducer;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -4016,22 +3998,22 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_MapReduceEntriesT
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-                 withJavaUtilConcurrentConcurrentHashMap_MapReduceMappingsTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceMappingsTask *)nextRight
-                                                withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)transformer
-                                                withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)reducer;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+       withJavaUtilConcurrentConcurrentHashMap_MapReduceMappingsTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceMappingsTask *)nextRight
+                                      withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)transformer
+                                      withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)reducer;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -4090,23 +4072,23 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_MapReduceMappings
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-             withJavaUtilConcurrentConcurrentHashMap_MapReduceKeysToDoubleTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceKeysToDoubleTask *)nextRight
-                                          withJavaUtilFunctionToDoubleFunction:(id<JavaUtilFunctionToDoubleFunction>)transformer
-                                                                    withDouble:(jdouble)basis
-                                      withJavaUtilFunctionDoubleBinaryOperator:(id<JavaUtilFunctionDoubleBinaryOperator>)reducer;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+   withJavaUtilConcurrentConcurrentHashMap_MapReduceKeysToDoubleTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceKeysToDoubleTask *)nextRight
+                                withJavaUtilFunctionToDoubleFunction:(id<JavaUtilFunctionToDoubleFunction>)transformer
+                                                          withDouble:(jdouble)basis
+                            withJavaUtilFunctionDoubleBinaryOperator:(id<JavaUtilFunctionDoubleBinaryOperator>)reducer;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -4164,23 +4146,23 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_MapReduceKeysToDo
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-           withJavaUtilConcurrentConcurrentHashMap_MapReduceValuesToDoubleTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceValuesToDoubleTask *)nextRight
-                                          withJavaUtilFunctionToDoubleFunction:(id<JavaUtilFunctionToDoubleFunction>)transformer
-                                                                    withDouble:(jdouble)basis
-                                      withJavaUtilFunctionDoubleBinaryOperator:(id<JavaUtilFunctionDoubleBinaryOperator>)reducer;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+ withJavaUtilConcurrentConcurrentHashMap_MapReduceValuesToDoubleTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceValuesToDoubleTask *)nextRight
+                                withJavaUtilFunctionToDoubleFunction:(id<JavaUtilFunctionToDoubleFunction>)transformer
+                                                          withDouble:(jdouble)basis
+                            withJavaUtilFunctionDoubleBinaryOperator:(id<JavaUtilFunctionDoubleBinaryOperator>)reducer;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -4238,23 +4220,23 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_MapReduceValuesTo
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-          withJavaUtilConcurrentConcurrentHashMap_MapReduceEntriesToDoubleTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceEntriesToDoubleTask *)nextRight
-                                          withJavaUtilFunctionToDoubleFunction:(id<JavaUtilFunctionToDoubleFunction>)transformer
-                                                                    withDouble:(jdouble)basis
-                                      withJavaUtilFunctionDoubleBinaryOperator:(id<JavaUtilFunctionDoubleBinaryOperator>)reducer;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+withJavaUtilConcurrentConcurrentHashMap_MapReduceEntriesToDoubleTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceEntriesToDoubleTask *)nextRight
+                                withJavaUtilFunctionToDoubleFunction:(id<JavaUtilFunctionToDoubleFunction>)transformer
+                                                          withDouble:(jdouble)basis
+                            withJavaUtilFunctionDoubleBinaryOperator:(id<JavaUtilFunctionDoubleBinaryOperator>)reducer;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -4312,23 +4294,23 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_MapReduceEntriesT
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-         withJavaUtilConcurrentConcurrentHashMap_MapReduceMappingsToDoubleTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceMappingsToDoubleTask *)nextRight
-                                        withJavaUtilFunctionToDoubleBiFunction:(id<JavaUtilFunctionToDoubleBiFunction>)transformer
-                                                                    withDouble:(jdouble)basis
-                                      withJavaUtilFunctionDoubleBinaryOperator:(id<JavaUtilFunctionDoubleBinaryOperator>)reducer;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+withJavaUtilConcurrentConcurrentHashMap_MapReduceMappingsToDoubleTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceMappingsToDoubleTask *)nextRight
+                              withJavaUtilFunctionToDoubleBiFunction:(id<JavaUtilFunctionToDoubleBiFunction>)transformer
+                                                          withDouble:(jdouble)basis
+                            withJavaUtilFunctionDoubleBinaryOperator:(id<JavaUtilFunctionDoubleBinaryOperator>)reducer;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -4386,23 +4368,23 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)arg1;
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-               withJavaUtilConcurrentConcurrentHashMap_MapReduceKeysToLongTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceKeysToLongTask *)nextRight
-                                            withJavaUtilFunctionToLongFunction:(id<JavaUtilFunctionToLongFunction>)transformer
-                                                                      withLong:(jlong)basis
-                                        withJavaUtilFunctionLongBinaryOperator:(id<JavaUtilFunctionLongBinaryOperator>)reducer;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+     withJavaUtilConcurrentConcurrentHashMap_MapReduceKeysToLongTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceKeysToLongTask *)nextRight
+                                  withJavaUtilFunctionToLongFunction:(id<JavaUtilFunctionToLongFunction>)transformer
+                                                            withLong:(jlong)basis
+                              withJavaUtilFunctionLongBinaryOperator:(id<JavaUtilFunctionLongBinaryOperator>)reducer;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -4460,23 +4442,23 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)arg1;
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-             withJavaUtilConcurrentConcurrentHashMap_MapReduceValuesToLongTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceValuesToLongTask *)nextRight
-                                            withJavaUtilFunctionToLongFunction:(id<JavaUtilFunctionToLongFunction>)transformer
-                                                                      withLong:(jlong)basis
-                                        withJavaUtilFunctionLongBinaryOperator:(id<JavaUtilFunctionLongBinaryOperator>)reducer;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+   withJavaUtilConcurrentConcurrentHashMap_MapReduceValuesToLongTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceValuesToLongTask *)nextRight
+                                  withJavaUtilFunctionToLongFunction:(id<JavaUtilFunctionToLongFunction>)transformer
+                                                            withLong:(jlong)basis
+                              withJavaUtilFunctionLongBinaryOperator:(id<JavaUtilFunctionLongBinaryOperator>)reducer;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -4534,23 +4516,23 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)arg1;
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-            withJavaUtilConcurrentConcurrentHashMap_MapReduceEntriesToLongTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceEntriesToLongTask *)nextRight
-                                            withJavaUtilFunctionToLongFunction:(id<JavaUtilFunctionToLongFunction>)transformer
-                                                                      withLong:(jlong)basis
-                                        withJavaUtilFunctionLongBinaryOperator:(id<JavaUtilFunctionLongBinaryOperator>)reducer;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+  withJavaUtilConcurrentConcurrentHashMap_MapReduceEntriesToLongTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceEntriesToLongTask *)nextRight
+                                  withJavaUtilFunctionToLongFunction:(id<JavaUtilFunctionToLongFunction>)transformer
+                                                            withLong:(jlong)basis
+                              withJavaUtilFunctionLongBinaryOperator:(id<JavaUtilFunctionLongBinaryOperator>)reducer;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -4608,23 +4590,23 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)arg1;
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-           withJavaUtilConcurrentConcurrentHashMap_MapReduceMappingsToLongTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceMappingsToLongTask *)nextRight
-                                          withJavaUtilFunctionToLongBiFunction:(id<JavaUtilFunctionToLongBiFunction>)transformer
-                                                                      withLong:(jlong)basis
-                                        withJavaUtilFunctionLongBinaryOperator:(id<JavaUtilFunctionLongBinaryOperator>)reducer;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+ withJavaUtilConcurrentConcurrentHashMap_MapReduceMappingsToLongTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceMappingsToLongTask *)nextRight
+                                withJavaUtilFunctionToLongBiFunction:(id<JavaUtilFunctionToLongBiFunction>)transformer
+                                                            withLong:(jlong)basis
+                              withJavaUtilFunctionLongBinaryOperator:(id<JavaUtilFunctionLongBinaryOperator>)reducer;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -4682,23 +4664,23 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_MapReduceMappings
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-                withJavaUtilConcurrentConcurrentHashMap_MapReduceKeysToIntTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceKeysToIntTask *)nextRight
-                                             withJavaUtilFunctionToIntFunction:(id<JavaUtilFunctionToIntFunction>)transformer
-                                                                       withInt:(jint)basis
-                                         withJavaUtilFunctionIntBinaryOperator:(id<JavaUtilFunctionIntBinaryOperator>)reducer;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+      withJavaUtilConcurrentConcurrentHashMap_MapReduceKeysToIntTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceKeysToIntTask *)nextRight
+                                   withJavaUtilFunctionToIntFunction:(id<JavaUtilFunctionToIntFunction>)transformer
+                                                             withInt:(jint)basis
+                               withJavaUtilFunctionIntBinaryOperator:(id<JavaUtilFunctionIntBinaryOperator>)reducer;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -4756,23 +4738,23 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_MapReduceKeysToIn
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-              withJavaUtilConcurrentConcurrentHashMap_MapReduceValuesToIntTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceValuesToIntTask *)nextRight
-                                             withJavaUtilFunctionToIntFunction:(id<JavaUtilFunctionToIntFunction>)transformer
-                                                                       withInt:(jint)basis
-                                         withJavaUtilFunctionIntBinaryOperator:(id<JavaUtilFunctionIntBinaryOperator>)reducer;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+    withJavaUtilConcurrentConcurrentHashMap_MapReduceValuesToIntTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceValuesToIntTask *)nextRight
+                                   withJavaUtilFunctionToIntFunction:(id<JavaUtilFunctionToIntFunction>)transformer
+                                                             withInt:(jint)basis
+                               withJavaUtilFunctionIntBinaryOperator:(id<JavaUtilFunctionIntBinaryOperator>)reducer;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -4830,23 +4812,23 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_MapReduceValuesTo
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-             withJavaUtilConcurrentConcurrentHashMap_MapReduceEntriesToIntTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceEntriesToIntTask *)nextRight
-                                             withJavaUtilFunctionToIntFunction:(id<JavaUtilFunctionToIntFunction>)transformer
-                                                                       withInt:(jint)basis
-                                         withJavaUtilFunctionIntBinaryOperator:(id<JavaUtilFunctionIntBinaryOperator>)reducer;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+   withJavaUtilConcurrentConcurrentHashMap_MapReduceEntriesToIntTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceEntriesToIntTask *)nextRight
+                                   withJavaUtilFunctionToIntFunction:(id<JavaUtilFunctionToIntFunction>)transformer
+                                                             withInt:(jint)basis
+                               withJavaUtilFunctionIntBinaryOperator:(id<JavaUtilFunctionIntBinaryOperator>)reducer;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -4904,23 +4886,23 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_MapReduceEntriesT
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
-                                                                       withInt:(jint)b
-                                                                       withInt:(jint)i
-                                                                       withInt:(jint)f
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
-            withJavaUtilConcurrentConcurrentHashMap_MapReduceMappingsToIntTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceMappingsToIntTask *)nextRight
-                                           withJavaUtilFunctionToIntBiFunction:(id<JavaUtilFunctionToIntBiFunction>)transformer
-                                                                       withInt:(jint)basis
-                                         withJavaUtilFunctionIntBinaryOperator:(id<JavaUtilFunctionIntBinaryOperator>)reducer;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)p
+                                                             withInt:(jint)b
+                                                             withInt:(jint)i
+                                                             withInt:(jint)f
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)t
+  withJavaUtilConcurrentConcurrentHashMap_MapReduceMappingsToIntTask:(JavaUtilConcurrentConcurrentHashMap_MapReduceMappingsToIntTask *)nextRight
+                                 withJavaUtilFunctionToIntBiFunction:(id<JavaUtilFunctionToIntBiFunction>)transformer
+                                                             withInt:(jint)basis
+                               withJavaUtilFunctionIntBinaryOperator:(id<JavaUtilFunctionIntBinaryOperator>)reducer;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
-                                                                       withInt:(jint)arg1
-                                                                       withInt:(jint)arg2
-                                                                       withInt:(jint)arg3
-                             withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilConcurrentConcurrentHashMap_BulkTask:(JavaUtilConcurrentConcurrentHashMap_BulkTask *)arg0
+                                                             withInt:(jint)arg1
+                                                             withInt:(jint)arg2
+                                                             withInt:(jint)arg3
+                   withJavaUtilConcurrentConcurrentHashMap_NodeArray:(IOSObjectArray *)arg4 NS_UNAVAILABLE;
 
 @end
 
@@ -4941,10 +4923,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_MapReduceMappings
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/CyclicBarrier.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentCyclicBarrier")
 #ifdef RESTRICT_JavaUtilConcurrentCyclicBarrier
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaUtilConcurrentCyclicBarrier_) && (INCLUDE_ALL_JavaUtilConcurrentCyclicBarrier || defined(INCLUDE_JavaUtilConcurrentCyclicBarrier))
 #define JavaUtilConcurrentCyclicBarrier_
@@ -126,7 +120,7 @@
  @param parties the number of threads that must invoke <code>await</code>         before the barrier is tripped
  @throw IllegalArgumentExceptionif <code>parties</code> is less than 1
  */
-- (instancetype __nonnull)initWithInt:(jint)parties;
+- (instancetype)initWithInt:(jint)parties;
 
 /*!
  @brief Creates a new <code>CyclicBarrier</code> that will trip when the
@@ -138,8 +132,8 @@
  <code>null</code>  if there is no action
  @throw IllegalArgumentExceptionif <code>parties</code> is less than 1
  */
-- (instancetype __nonnull)initWithInt:(jint)parties
-                 withJavaLangRunnable:(id<JavaLangRunnable>)barrierAction;
+- (instancetype)initWithInt:(jint)parties
+       withJavaLangRunnable:(id<JavaLangRunnable>)barrierAction;
 
 /*!
  @brief Waits until all parties have invoked 
@@ -288,7 +282,7 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -310,10 +304,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCyclicBarrier)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentCyclicBarrier")

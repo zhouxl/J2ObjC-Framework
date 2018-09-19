@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/ConcurrentSkipListSet.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentConcurrentSkipListSet")
 #ifdef RESTRICT_JavaUtilConcurrentConcurrentSkipListSet
@@ -16,26 +16,20 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentConcurrentSkipListSet_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentSkipListSet || defined(INCLUDE_JavaUtilConcurrentConcurrentSkipListSet))
 #define JavaUtilConcurrentConcurrentSkipListSet_
 
 #define RESTRICT_JavaUtilAbstractSet 1
 #define INCLUDE_JavaUtilAbstractSet 1
-#include "java/util/AbstractSet.h"
+#include "../../../java/util/AbstractSet.h"
 
 #define RESTRICT_JavaUtilNavigableSet 1
 #define INCLUDE_JavaUtilNavigableSet 1
-#include "java/util/NavigableSet.h"
+#include "../../../java/util/NavigableSet.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 @protocol JavaUtilCollection;
 @protocol JavaUtilComparator;
@@ -87,7 +81,7 @@
  @brief Constructs a new, empty set that orders its elements according to
   their ordering.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a new set containing the elements in the specified
@@ -99,7 +93,7 @@
  @throw NullPointerExceptionif the specified collection or any
           of its elements are null
  */
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Constructs a new, empty set that orders its elements according to
@@ -108,7 +102,7 @@
  <code>null</code> , the ordering
    of the elements will be used.
  */
-- (instancetype __nonnull)initWithJavaUtilComparator:(id<JavaUtilComparator>)comparator;
+- (instancetype)initWithJavaUtilComparator:(id<JavaUtilComparator>)comparator;
 
 /*!
  @brief Constructs a new set containing the same elements and using the
@@ -117,7 +111,7 @@
  @throw NullPointerExceptionif the specified sorted set or any
           of its elements are null
  */
-- (instancetype __nonnull)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)s;
+- (instancetype)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)s;
 
 /*!
  @brief Adds the specified element to this set if it is not already present.
@@ -361,7 +355,7 @@
 /*!
  @brief For use by submaps
  */
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentNavigableMap:(id<JavaUtilConcurrentConcurrentNavigableMap>)m;
+- (instancetype)initWithJavaUtilConcurrentConcurrentNavigableMap:(id<JavaUtilConcurrentConcurrentNavigableMap>)m;
 
 @end
 
@@ -401,10 +395,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListSet)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentConcurrentSkipListSet")

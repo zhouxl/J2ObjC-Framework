@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/io/PipedInputStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoPipedInputStream")
 #ifdef RESTRICT_JavaIoPipedInputStream
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoPipedInputStream_) && (INCLUDE_ALL_JavaIoPipedInputStream || defined(INCLUDE_JavaIoPipedInputStream))
 #define JavaIoPipedInputStream_
 
 #define RESTRICT_JavaIoInputStream 1
 #define INCLUDE_JavaIoInputStream 1
-#include "java/io/InputStream.h"
+#include "../../java/io/InputStream.h"
 
 @class IOSByteArray;
 @class JavaIoPipedOutputStream;
@@ -76,7 +70,6 @@
    */
   jboolean isConnected_;
 }
-@property (readonly, class) jint PIPE_SIZE NS_SWIFT_NAME(PIPE_SIZE);
 
 + (jint)PIPE_SIZE;
 
@@ -87,7 +80,7 @@
   stream must be connected to a <code>PipedOutputStream</code> before data may
   be read from it.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a new unconnected <code>PipedInputStream</code> with the given
@@ -97,7 +90,7 @@
  @throw IllegalArgumentExceptionif pipeSize is less than or equal to zero.
  @since 1.6
  */
-- (instancetype __nonnull)initWithInt:(jint)pipeSize;
+- (instancetype)initWithInt:(jint)pipeSize;
 
 /*!
  @brief Constructs a new <code>PipedInputStream</code> connected to the 
@@ -107,7 +100,7 @@
  @throw IOException
  if this stream or <code>out</code> are already connected.
  */
-- (instancetype __nonnull)initWithJavaIoPipedOutputStream:(JavaIoPipedOutputStream *)outArg;
+- (instancetype)initWithJavaIoPipedOutputStream:(JavaIoPipedOutputStream *)outArg;
 
 /*!
  @brief Constructs a new <code>PipedInputStream</code> connected to the given <code>PipedOutputStream</code>,
@@ -119,8 +112,8 @@
  @throw IllegalArgumentExceptionif pipeSize is less than or equal to zero.
  @since 1.6
  */
-- (instancetype __nonnull)initWithJavaIoPipedOutputStream:(JavaIoPipedOutputStream *)outArg
-                                                  withInt:(jint)pipeSize;
+- (instancetype)initWithJavaIoPipedOutputStream:(JavaIoPipedOutputStream *)outArg
+                                        withInt:(jint)pipeSize;
 
 /*!
  @brief <p>Unlike most streams, <code>PipedInputStream</code> returns 0 rather than throwing 
@@ -268,10 +261,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoPipedInputStream)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoPipedInputStream")

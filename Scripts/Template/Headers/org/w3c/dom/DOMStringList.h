@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/DOMStringList.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgW3cDomDOMStringList")
 #ifdef RESTRICT_OrgW3cDomDOMStringList
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (OrgW3cDomDOMStringList_) && (INCLUDE_ALL_OrgW3cDomDOMStringList || defined(INCLUDE_OrgW3cDomDOMStringList))
 #define OrgW3cDomDOMStringList_
@@ -69,10 +63,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomDOMStringList)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgW3cDomDOMStringList")

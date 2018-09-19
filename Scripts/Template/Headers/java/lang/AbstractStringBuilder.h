@@ -13,9 +13,9 @@
 #ifndef _JavaLangAbstractStringBuilder_H_
 #define _JavaLangAbstractStringBuilder_H_
 
-#import "J2ObjC_header.h"
-#import "java/lang/Appendable.h"
-#import "java/lang/CharSequence.h"
+#import "../../J2ObjC_header.h"
+#import "../../java/lang/Appendable.h"
+#import "../../java/lang/CharSequence.h"
 
 @class IOSCharArray;
 @class JavaLangStringBuffer;

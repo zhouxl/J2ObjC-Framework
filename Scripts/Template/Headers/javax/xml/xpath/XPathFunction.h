@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/javax/xml/xpath/XPathFunction.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxXmlXpathXPathFunction")
 #ifdef RESTRICT_JavaxXmlXpathXPathFunction
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaxXmlXpathXPathFunction_) && (INCLUDE_ALL_JavaxXmlXpathXPathFunction || defined(INCLUDE_JavaxXmlXpathXPathFunction))
 #define JavaxXmlXpathXPathFunction_
@@ -61,10 +55,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathFunction)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlXpathXPathFunction")

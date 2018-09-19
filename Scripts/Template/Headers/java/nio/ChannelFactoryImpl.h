@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/nio/ChannelFactoryImpl.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNioChannelFactoryImpl")
 #ifdef RESTRICT_JavaNioChannelFactoryImpl
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNioChannelFactoryImpl_) && (INCLUDE_ALL_JavaNioChannelFactoryImpl || defined(INCLUDE_JavaNioChannelFactoryImpl))
 #define JavaNioChannelFactoryImpl_
 
 #define RESTRICT_JavaNioNioUtils 1
 #define INCLUDE_JavaNioNioUtils_ChannelFactory 1
-#include "java/nio/NioUtils.h"
+#include "../../java/nio/NioUtils.h"
 
 @class JavaIoFileDescriptor;
 @class JavaNioChannelsFileChannel;
@@ -36,7 +30,7 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 - (JavaNioChannelsFileChannel *)newFileChannelWithId:(id)ioObject
                             withJavaIoFileDescriptor:(JavaIoFileDescriptor *)fd
@@ -56,10 +50,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelFactoryImpl)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioChannelFactoryImpl")

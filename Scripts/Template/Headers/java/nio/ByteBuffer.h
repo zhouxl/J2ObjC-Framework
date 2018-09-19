@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/nio/ByteBuffer.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNioByteBuffer")
 #ifdef RESTRICT_JavaNioByteBuffer
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNioByteBuffer_) && (INCLUDE_ALL_JavaNioByteBuffer || defined(INCLUDE_JavaNioByteBuffer))
 #define JavaNioByteBuffer_
 
 #define RESTRICT_JavaNioBuffer 1
 #define INCLUDE_JavaNioBuffer 1
-#include "java/nio/Buffer.h"
+#include "../../java/nio/Buffer.h"
 
 #define RESTRICT_JavaLangComparable 1
 #define INCLUDE_JavaLangComparable 1
-#include "java/lang/Comparable.h"
+#include "../../java/lang/Comparable.h"
 
 @class IOSByteArray;
 @class IOSCharArray;
@@ -1085,17 +1079,17 @@
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithInt:(jint)mark
-                              withInt:(jint)pos
-                              withInt:(jint)lim
-                              withInt:(jint)cap;
+- (instancetype)initWithInt:(jint)mark
+                    withInt:(jint)pos
+                    withInt:(jint)lim
+                    withInt:(jint)cap;
 
-- (instancetype __nonnull)initWithInt:(jint)mark
-                              withInt:(jint)pos
-                              withInt:(jint)lim
-                              withInt:(jint)cap
-                        withByteArray:(IOSByteArray *)hb
-                              withInt:(jint)offset;
+- (instancetype)initWithInt:(jint)mark
+                    withInt:(jint)pos
+                    withInt:(jint)lim
+                    withInt:(jint)cap
+              withByteArray:(IOSByteArray *)hb
+                    withInt:(jint)offset;
 
 - (jbyte)_getWithInt:(jint)i;
 
@@ -1214,10 +1208,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioByteBuffer)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioByteBuffer")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/stream/BaseStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilStreamBaseStream")
 #ifdef RESTRICT_JavaUtilStreamBaseStream
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilStreamBaseStream_) && (INCLUDE_ALL_JavaUtilStreamBaseStream || defined(INCLUDE_JavaUtilStreamBaseStream))
 #define JavaUtilStreamBaseStream_
 
 #define RESTRICT_JavaLangAutoCloseable 1
 #define INCLUDE_JavaLangAutoCloseable 1
-#include "java/lang/AutoCloseable.h"
+#include "../../../java/lang/AutoCloseable.h"
 
 @protocol JavaLangRunnable;
 @protocol JavaUtilIterator;
@@ -147,10 +141,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamBaseStream)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilStreamBaseStream")

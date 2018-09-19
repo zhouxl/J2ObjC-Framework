@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/RuntimeException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangRuntimeException")
 #ifdef RESTRICT_JavaLangRuntimeException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangRuntimeException_) && (INCLUDE_ALL_JavaLangRuntimeException || defined(INCLUDE_JavaLangRuntimeException))
 #define JavaLangRuntimeException_
 
 #define RESTRICT_JavaLangException 1
 #define INCLUDE_JavaLangException 1
-#include "java/lang/Exception.h"
+#include "../../java/lang/Exception.h"
 
 @class JavaLangThrowable;
 
@@ -44,7 +38,6 @@
  @since JDK1.0
  */
 @interface JavaLangRuntimeException : JavaLangException
-@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jlong)serialVersionUID;
 
@@ -55,7 +48,7 @@
   detail message.The cause is not initialized, and may subsequently be
   initialized by a call to <code>initCause</code>.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a new runtime exception with the specified detail message.
@@ -64,7 +57,7 @@
  @param message the detail message. The detail message is saved for           later retrieval by the 
  <code>getMessage()</code>  method.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message;
+- (instancetype)initWithNSString:(NSString *)message;
 
 /*!
  @brief Constructs a new runtime exception with the specified detail message and
@@ -79,8 +72,8 @@
            unknown.)
  @since 1.4
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)message
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a new runtime exception with the specified cause and a
@@ -94,7 +87,7 @@
            unknown.)
  @since 1.4
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 #pragma mark Protected
 
@@ -109,10 +102,10 @@
  @param writableStackTrace whether or not the stack trace should                            be writable
  @since 1.7
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                     withJavaLangThrowable:(JavaLangThrowable *)cause
-                               withBoolean:(jboolean)enableSuppression
-                               withBoolean:(jboolean)writableStackTrace;
+- (instancetype)initWithNSString:(NSString *)message
+           withJavaLangThrowable:(JavaLangThrowable *)cause
+                     withBoolean:(jboolean)enableSuppression
+                     withBoolean:(jboolean)writableStackTrace;
 
 @end
 
@@ -156,10 +149,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangRuntimeException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangRuntimeException")

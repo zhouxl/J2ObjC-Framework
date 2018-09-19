@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/net/ssl/SSLSessionBindingEvent.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxNetSslSSLSessionBindingEvent")
 #ifdef RESTRICT_JavaxNetSslSSLSessionBindingEvent
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxNetSslSSLSessionBindingEvent_) && (INCLUDE_ALL_JavaxNetSslSSLSessionBindingEvent || defined(INCLUDE_JavaxNetSslSSLSessionBindingEvent))
 #define JavaxNetSslSSLSessionBindingEvent_
 
 #define RESTRICT_JavaUtilEventObject 1
 #define INCLUDE_JavaUtilEventObject 1
-#include "java/util/EventObject.h"
+#include "../../../java/util/EventObject.h"
 
 @protocol JavaxNetSslSSLSession;
 
@@ -55,8 +49,8 @@
  @param name the name to which the object is being bound or unbound
  @throw IllegalArgumentExceptionif <code>session</code> is null.
  */
-- (instancetype __nonnull)initWithJavaxNetSslSSLSession:(id<JavaxNetSslSSLSession>)session
-                                           withNSString:(NSString *)name;
+- (instancetype)initWithJavaxNetSslSSLSession:(id<JavaxNetSslSSLSession>)session
+                                 withNSString:(NSString *)name;
 
 /*!
  @brief Returns the name to which the object is being bound, or the name
@@ -74,7 +68,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithId:(id)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithId:(id)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -90,10 +84,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLSessionBindingEvent)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxNetSslSSLSessionBindingEvent")

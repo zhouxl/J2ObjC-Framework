@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/List.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilList")
 #ifdef RESTRICT_JavaUtilList
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilList_) && (INCLUDE_ALL_JavaUtilList || defined(INCLUDE_JavaUtilList))
 #define JavaUtilList_
 
 #define RESTRICT_JavaUtilCollection 1
 #define INCLUDE_JavaUtilCollection 1
-#include "java/util/Collection.h"
+#include "../../java/util/Collection.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilComparator;
@@ -141,7 +135,7 @@
  @brief Returns an iterator over the elements in this list in proper sequence.
  @return an iterator over the elements in this list in proper sequence
  */
-- (id<JavaUtilIterator> __nonnull)iterator;
+- (id<JavaUtilIterator>)iterator;
 
 /*!
  @brief Returns an array containing all of the elements in this list in proper
@@ -156,7 +150,7 @@
           sequence
  - seealso: Arrays#asList(Object[])
  */
-- (IOSObjectArray * __nonnull)toArray;
+- (IOSObjectArray *)toArray;
 
 /*!
  @brief Returns an array containing all of the elements in this list in
@@ -193,7 +187,7 @@
           this list
  @throw NullPointerExceptionif the specified array is null
  */
-- (IOSObjectArray * __nonnull)toArrayWithNSObjectArray:(IOSObjectArray *)a;
+- (IOSObjectArray *)toArrayWithNSObjectArray:(IOSObjectArray *)a;
 
 /*!
  @brief Appends the specified element to the end of this list (optional
@@ -503,7 +497,7 @@
  @return a list iterator over the elements in this list (in proper
           sequence)
  */
-- (id<JavaUtilListIterator> __nonnull)listIterator;
+- (id<JavaUtilListIterator>)listIterator;
 
 /*!
  @brief Returns a list iterator over the elements in this list (in proper
@@ -519,7 +513,7 @@
  @throw IndexOutOfBoundsExceptionif the index is out of range
           (<code>index < 0 || index > size()</code>)
  */
-- (id<JavaUtilListIterator> __nonnull)listIteratorWithInt:(jint)index;
+- (id<JavaUtilListIterator>)listIteratorWithInt:(jint)index;
 
 /*!
  @brief Returns a view of the portion of this list between the specified 
@@ -555,8 +549,8 @@
           (<tt>fromIndex &lt; 0 || toIndex &gt; size ||
           fromIndex &gt; toIndex</tt>)
  */
-- (id<JavaUtilList> __nonnull)subListWithInt:(jint)fromIndex
-                                     withInt:(jint)toIndex;
+- (id<JavaUtilList>)subListWithInt:(jint)fromIndex
+                           withInt:(jint)toIndex;
 
 /*!
  @brief Creates a <code>Spliterator</code> over the elements in this list.
@@ -566,7 +560,7 @@
  @return a <code>Spliterator</code> over the elements in this list
  @since 1.8
  */
-- (id<JavaUtilSpliterator> __nonnull)spliterator;
+- (id<JavaUtilSpliterator>)spliterator;
 
 /*!
  @brief Replaces each element of this list with the result of applying the
@@ -616,10 +610,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilList)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilList")

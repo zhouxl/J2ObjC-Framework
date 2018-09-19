@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/security/cert/CertificateParsingException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxSecurityCertCertificateParsingException")
 #ifdef RESTRICT_JavaxSecurityCertCertificateParsingException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxSecurityCertCertificateParsingException_) && (INCLUDE_ALL_JavaxSecurityCertCertificateParsingException || defined(INCLUDE_JavaxSecurityCertCertificateParsingException))
 #define JavaxSecurityCertCertificateParsingException_
 
 #define RESTRICT_JavaxSecurityCertCertificateException 1
 #define INCLUDE_JavaxSecurityCertCertificateException 1
-#include "javax/security/cert/CertificateException.h"
+#include "../../../javax/security/cert/CertificateException.h"
 
 /*!
  @brief Certificate Parsing Exception.This is thrown whenever
@@ -50,7 +44,7 @@
   detail message is a String that describes this particular
   exception.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a CertificateParsingException with the specified detail
@@ -58,7 +52,7 @@
   particular exception.
  @param message the detail message.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message;
+- (instancetype)initWithNSString:(NSString *)message;
 
 @end
 
@@ -80,10 +74,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityCertCertificateParsingException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxSecurityCertCertificateParsingException")

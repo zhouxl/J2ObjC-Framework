@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/io/FileReader.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoFileReader")
 #ifdef RESTRICT_JavaIoFileReader
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoFileReader_) && (INCLUDE_ALL_JavaIoFileReader || defined(INCLUDE_JavaIoFileReader))
 #define JavaIoFileReader_
 
 #define RESTRICT_JavaIoInputStreamReader 1
 #define INCLUDE_JavaIoInputStreamReader 1
-#include "java/io/InputStreamReader.h"
+#include "../../java/io/InputStreamReader.h"
 
 @class JavaIoFile;
 @class JavaIoFileDescriptor;
@@ -55,7 +49,7 @@
  @throw FileNotFoundException
  if <code>file</code> does not exist.
  */
-- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file;
+- (instancetype)initWithJavaIoFile:(JavaIoFile *)file;
 
 /*!
  @brief Construct a new FileReader on the given FileDescriptor <code>fd</code>.Since
@@ -63,7 +57,7 @@
   FileNotFoundException can be thrown.
  @param fd the previously opened file descriptor.
  */
-- (instancetype __nonnull)initWithJavaIoFileDescriptor:(JavaIoFileDescriptor *)fd;
+- (instancetype)initWithJavaIoFileDescriptor:(JavaIoFileDescriptor *)fd;
 
 /*!
  @brief Construct a new FileReader on the given file named <code>filename</code>.
@@ -71,20 +65,20 @@
  @throw FileNotFoundException
  if there is no file named <code>filename</code>.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)filename;
+- (instancetype)initWithNSString:(NSString *)filename;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)arg0
-                          withJavaNioCharsetCharset:(JavaNioCharsetCharset *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)arg0
+                withJavaNioCharsetCharset:(JavaNioCharsetCharset *)arg1 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)arg0
-                   withJavaNioCharsetCharsetDecoder:(JavaNioCharsetCharsetDecoder *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)arg0
+         withJavaNioCharsetCharsetDecoder:(JavaNioCharsetCharsetDecoder *)arg1 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)arg0
-                                       withNSString:(NSString *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)arg0
+                             withNSString:(NSString *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -112,10 +106,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileReader)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoFileReader")

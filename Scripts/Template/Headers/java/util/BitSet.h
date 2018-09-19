@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/BitSet.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilBitSet")
 #ifdef RESTRICT_JavaUtilBitSet
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilBitSet_) && (INCLUDE_ALL_JavaUtilBitSet || defined(INCLUDE_JavaUtilBitSet))
 #define JavaUtilBitSet_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSByteArray;
 @class IOSLongArray;
@@ -70,7 +64,7 @@
 /*!
  @brief Creates a new bit set.All bits are initially <code>false</code>.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a bit set whose initial size is large enough to explicitly
@@ -80,7 +74,7 @@
  @throw NegativeArraySizeExceptionif the specified initial size
           is negative
  */
-- (instancetype __nonnull)initWithInt:(jint)nbits;
+- (instancetype)initWithInt:(jint)nbits;
 
 /*!
  @brief Performs a logical <b>AND</b> of this target bit set with the
@@ -561,10 +555,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilBitSet)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilBitSet")

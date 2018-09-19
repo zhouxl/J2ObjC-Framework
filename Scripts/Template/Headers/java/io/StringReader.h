@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/StringReader.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoStringReader")
 #ifdef RESTRICT_JavaIoStringReader
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoStringReader_) && (INCLUDE_ALL_JavaIoStringReader || defined(INCLUDE_JavaIoStringReader))
 #define JavaIoStringReader_
 
 #define RESTRICT_JavaIoReader 1
 #define INCLUDE_JavaIoReader 1
-#include "java/io/Reader.h"
+#include "../../java/io/Reader.h"
 
 @class IOSCharArray;
 
@@ -44,7 +38,7 @@
  @brief Creates a new string reader.
  @param s String providing the character stream.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s;
+- (instancetype)initWithNSString:(NSString *)s;
 
 /*!
  @brief Closes the stream and releases any system resources associated with
@@ -123,9 +117,9 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithId:(id)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithId:(id)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -141,10 +135,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoStringReader)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoStringReader")

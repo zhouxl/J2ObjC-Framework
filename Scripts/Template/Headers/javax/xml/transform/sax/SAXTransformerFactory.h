@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/javax/xml/transform/sax/SAXTransformerFactory.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxXmlTransformSaxSAXTransformerFactory")
 #ifdef RESTRICT_JavaxXmlTransformSaxSAXTransformerFactory
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxXmlTransformSaxSAXTransformerFactory_) && (INCLUDE_ALL_JavaxXmlTransformSaxSAXTransformerFactory || defined(INCLUDE_JavaxXmlTransformSaxSAXTransformerFactory))
 #define JavaxXmlTransformSaxSAXTransformerFactory_
 
 #define RESTRICT_JavaxXmlTransformTransformerFactory 1
 #define INCLUDE_JavaxXmlTransformTransformerFactory 1
-#include "javax/xml/transform/TransformerFactory.h"
+#include "../../../../javax/xml/transform/TransformerFactory.h"
 
 @protocol JavaxXmlTransformSaxTemplatesHandler;
 @protocol JavaxXmlTransformSaxTransformerHandler;
@@ -46,8 +40,6 @@
   the XMLReader.</p>
  */
 @interface JavaxXmlTransformSaxSAXTransformerFactory : JavaxXmlTransformTransformerFactory
-@property (readonly, copy, class) NSString *FEATURE NS_SWIFT_NAME(FEATURE);
-@property (readonly, copy, class) NSString *FEATURE_XMLFILTER NS_SWIFT_NAME(FEATURE_XMLFILTER);
 
 + (NSString *)FEATURE;
 
@@ -122,7 +114,7 @@
 /*!
  @brief The default constructor is protected on purpose.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -157,10 +149,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformSaxSAXTransformerFactory)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformSaxSAXTransformerFactory")

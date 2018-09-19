@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/crypto/SecretKey.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxCryptoSecretKey")
 #ifdef RESTRICT_JavaxCryptoSecretKey
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxCryptoSecretKey_) && (INCLUDE_ALL_JavaxCryptoSecretKey || defined(INCLUDE_JavaxCryptoSecretKey))
 #define JavaxCryptoSecretKey_
 
 #define RESTRICT_JavaSecurityKey 1
 #define INCLUDE_JavaSecurityKey 1
-#include "java/security/Key.h"
+#include "../../java/security/Key.h"
 
 /*!
  @brief A secret (symmetric) key.
@@ -52,7 +46,6 @@
 @end
 
 @interface JavaxCryptoSecretKey : NSObject
-@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jlong)serialVersionUID;
 
@@ -72,10 +65,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoSecretKey)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxCryptoSecretKey")

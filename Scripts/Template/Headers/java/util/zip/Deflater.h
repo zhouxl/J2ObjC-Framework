@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/zip/Deflater.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilZipDeflater")
 #ifdef RESTRICT_JavaUtilZipDeflater
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaUtilZipDeflater_) && (INCLUDE_ALL_JavaUtilZipDeflater || defined(INCLUDE_JavaUtilZipDeflater))
 #define JavaUtilZipDeflater_
@@ -82,17 +76,6 @@
   jboolean finish_;
   jboolean finished_;
 }
-@property (readonly, class) jint DEFLATED NS_SWIFT_NAME(DEFLATED);
-@property (readonly, class) jint NO_COMPRESSION NS_SWIFT_NAME(NO_COMPRESSION);
-@property (readonly, class) jint BEST_SPEED NS_SWIFT_NAME(BEST_SPEED);
-@property (readonly, class) jint BEST_COMPRESSION NS_SWIFT_NAME(BEST_COMPRESSION);
-@property (readonly, class) jint DEFAULT_COMPRESSION NS_SWIFT_NAME(DEFAULT_COMPRESSION);
-@property (readonly, class) jint FILTERED NS_SWIFT_NAME(FILTERED);
-@property (readonly, class) jint HUFFMAN_ONLY NS_SWIFT_NAME(HUFFMAN_ONLY);
-@property (readonly, class) jint DEFAULT_STRATEGY NS_SWIFT_NAME(DEFAULT_STRATEGY);
-@property (readonly, class) jint NO_FLUSH NS_SWIFT_NAME(NO_FLUSH);
-@property (readonly, class) jint SYNC_FLUSH NS_SWIFT_NAME(SYNC_FLUSH);
-@property (readonly, class) jint FULL_FLUSH NS_SWIFT_NAME(FULL_FLUSH);
 
 + (jint)DEFLATED;
 
@@ -122,14 +105,14 @@
  @brief Creates a new compressor with the default compression level.
  Compressed data will be generated in ZLIB format.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a new compressor using the specified compression level.
  Compressed data will be generated in ZLIB format.
  @param level the compression level (0-9)
  */
-- (instancetype __nonnull)initWithInt:(jint)level;
+- (instancetype)initWithInt:(jint)level;
 
 /*!
  @brief Creates a new compressor using the specified compression level.
@@ -139,8 +122,8 @@
  @param level the compression level (0-9)
  @param nowrap if true then use GZIP compatible compression
  */
-- (instancetype __nonnull)initWithInt:(jint)level
-                          withBoolean:(jboolean)nowrap;
+- (instancetype)initWithInt:(jint)level
+                withBoolean:(jboolean)nowrap;
 
 /*!
  @brief Compresses the input data and fills specified buffer with compressed
@@ -487,10 +470,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipDeflater)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilZipDeflater")

@@ -3,7 +3,7 @@
 //  source: openjdk/src/share/classes/java/math/BigDecimal.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaMathBigDecimal")
 #ifdef RESTRICT_JavaMathBigDecimal
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaMathBigDecimal_) && (INCLUDE_ALL_JavaMathBigDecimal || defined(INCLUDE_JavaMathBigDecimal))
 #define JavaMathBigDecimal_
 
 #define RESTRICT_JavaLangComparable 1
 #define INCLUDE_JavaLangComparable 1
-#include "java/lang/Comparable.h"
+#include "../../java/lang/Comparable.h"
 
 @class IOSCharArray;
 @class IOSObjectArray;
@@ -207,18 +201,6 @@
  @author Sergey V. Kuksenko
  */
 @interface JavaMathBigDecimal : NSNumber < JavaLangComparable >
-@property (readonly, class) jlong INFLATED NS_SWIFT_NAME(INFLATED);
-@property (readonly, class, strong) JavaMathBigDecimal *ZERO NS_SWIFT_NAME(ZERO);
-@property (readonly, class, strong) JavaMathBigDecimal *ONE NS_SWIFT_NAME(ONE);
-@property (readonly, class, strong) JavaMathBigDecimal *TEN NS_SWIFT_NAME(TEN);
-@property (readonly, class) jint ROUND_UP NS_SWIFT_NAME(ROUND_UP);
-@property (readonly, class) jint ROUND_DOWN NS_SWIFT_NAME(ROUND_DOWN);
-@property (readonly, class) jint ROUND_CEILING NS_SWIFT_NAME(ROUND_CEILING);
-@property (readonly, class) jint ROUND_FLOOR NS_SWIFT_NAME(ROUND_FLOOR);
-@property (readonly, class) jint ROUND_HALF_UP NS_SWIFT_NAME(ROUND_HALF_UP);
-@property (readonly, class) jint ROUND_HALF_DOWN NS_SWIFT_NAME(ROUND_HALF_DOWN);
-@property (readonly, class) jint ROUND_HALF_EVEN NS_SWIFT_NAME(ROUND_HALF_EVEN);
-@property (readonly, class) jint ROUND_UNNECESSARY NS_SWIFT_NAME(ROUND_UNNECESSARY);
 
 + (jlong)INFLATED;
 
@@ -252,7 +234,7 @@
  @param val<code>BigInteger</code>  value to be converted to             
  <code>BigDecimal</code> .
  */
-- (instancetype __nonnull)initWithJavaMathBigInteger:(JavaMathBigInteger *)val;
+- (instancetype)initWithJavaMathBigInteger:(JavaMathBigInteger *)val;
 
 /*!
  @brief Translates a <code>BigInteger</code> unscaled value and an 
@@ -262,8 +244,8 @@
  @param unscaledVal unscaled value of the <code>BigDecimal</code> .
  @param scale_ scale of the <code>BigDecimal</code> .
  */
-- (instancetype __nonnull)initWithJavaMathBigInteger:(JavaMathBigInteger *)unscaledVal
-                                             withInt:(jint)scale_;
+- (instancetype)initWithJavaMathBigInteger:(JavaMathBigInteger *)unscaledVal
+                                   withInt:(jint)scale_;
 
 /*!
  @brief Translates a <code>BigInteger</code> unscaled value and an 
@@ -279,9 +261,9 @@
           rounding mode is <code>UNNECESSARY</code>.
  @since 1.5
  */
-- (instancetype __nonnull)initWithJavaMathBigInteger:(JavaMathBigInteger *)unscaledVal
-                                             withInt:(jint)scale_
-                             withJavaMathMathContext:(JavaMathMathContext *)mc;
+- (instancetype)initWithJavaMathBigInteger:(JavaMathBigInteger *)unscaledVal
+                                   withInt:(jint)scale_
+                   withJavaMathMathContext:(JavaMathMathContext *)mc;
 
 /*!
  @brief Translates a <code>BigInteger</code> into a <code>BigDecimal</code>
@@ -294,8 +276,8 @@
           rounding mode is <code>UNNECESSARY</code>.
  @since 1.5
  */
-- (instancetype __nonnull)initWithJavaMathBigInteger:(JavaMathBigInteger *)val
-                             withJavaMathMathContext:(JavaMathMathContext *)mc;
+- (instancetype)initWithJavaMathBigInteger:(JavaMathBigInteger *)val
+                   withJavaMathMathContext:(JavaMathMathContext *)mc;
 
 /*!
  @brief Translates a character array representation of a 
@@ -311,7 +293,7 @@
           representation of a <code>BigDecimal</code>.
  @since 1.5
  */
-- (instancetype __nonnull)initWithCharArray:(IOSCharArray *)inArg;
+- (instancetype)initWithCharArray:(IOSCharArray *)inArg;
 
 /*!
  @brief Translates a character array representation of a 
@@ -330,9 +312,9 @@
           is not wholly within <code>in</code>.
  @since 1.5
  */
-- (instancetype __nonnull)initWithCharArray:(IOSCharArray *)inArg
-                                    withInt:(jint)offset
-                                    withInt:(jint)len;
+- (instancetype)initWithCharArray:(IOSCharArray *)inArg
+                          withInt:(jint)offset
+                          withInt:(jint)len;
 
 /*!
  @brief Translates a character array representation of a 
@@ -355,10 +337,10 @@
           is not wholly within <code>in</code>.
  @since 1.5
  */
-- (instancetype __nonnull)initWithCharArray:(IOSCharArray *)inArg
-                                    withInt:(jint)offset
-                                    withInt:(jint)len
-                    withJavaMathMathContext:(JavaMathMathContext *)mc;
+- (instancetype)initWithCharArray:(IOSCharArray *)inArg
+                          withInt:(jint)offset
+                          withInt:(jint)len
+          withJavaMathMathContext:(JavaMathMathContext *)mc;
 
 /*!
  @brief Translates a character array representation of a 
@@ -378,8 +360,8 @@
           representation of a <code>BigDecimal</code>.
  @since 1.5
  */
-- (instancetype __nonnull)initWithCharArray:(IOSCharArray *)inArg
-                    withJavaMathMathContext:(JavaMathMathContext *)mc;
+- (instancetype)initWithCharArray:(IOSCharArray *)inArg
+          withJavaMathMathContext:(JavaMathMathContext *)mc;
 
 /*!
  @brief Translates a <code>double</code> into a <code>BigDecimal</code> which
@@ -422,7 +404,7 @@
  <code>BigDecimal</code> .
  @throw NumberFormatExceptionif <code>val</code> is infinite or NaN.
  */
-- (instancetype __nonnull)initWithDouble:(jdouble)val;
+- (instancetype)initWithDouble:(jdouble)val;
 
 /*!
  @brief Translates a <code>double</code> into a <code>BigDecimal</code>, with
@@ -440,8 +422,8 @@
  @throw NumberFormatExceptionif <code>val</code> is infinite or NaN.
  @since 1.5
  */
-- (instancetype __nonnull)initWithDouble:(jdouble)val
-                 withJavaMathMathContext:(JavaMathMathContext *)mc;
+- (instancetype)initWithDouble:(jdouble)val
+       withJavaMathMathContext:(JavaMathMathContext *)mc;
 
 /*!
  @brief Translates an <code>int</code> into a <code>BigDecimal</code>.The
@@ -450,7 +432,7 @@
  <code>BigDecimal</code> .
  @since 1.5
  */
-- (instancetype __nonnull)initWithInt:(jint)val;
+- (instancetype)initWithInt:(jint)val;
 
 /*!
  @brief Translates an <code>int</code> into a <code>BigDecimal</code>, with
@@ -462,8 +444,8 @@
           rounding mode is <code>UNNECESSARY</code>.
  @since 1.5
  */
-- (instancetype __nonnull)initWithInt:(jint)val
-              withJavaMathMathContext:(JavaMathMathContext *)mc;
+- (instancetype)initWithInt:(jint)val
+    withJavaMathMathContext:(JavaMathMathContext *)mc;
 
 /*!
  @brief Translates a <code>long</code> into a <code>BigDecimal</code>.The
@@ -471,7 +453,7 @@
  @param val<code>long</code>  value to be converted to <code>BigDecimal</code> .
  @since 1.5
  */
-- (instancetype __nonnull)initWithLong:(jlong)val;
+- (instancetype)initWithLong:(jlong)val;
 
 /*!
  @brief Translates a <code>long</code> into a <code>BigDecimal</code>, with
@@ -483,8 +465,8 @@
           rounding mode is <code>UNNECESSARY</code>.
  @since 1.5
  */
-- (instancetype __nonnull)initWithLong:(jlong)val
-               withJavaMathMathContext:(JavaMathMathContext *)mc;
+- (instancetype)initWithLong:(jlong)val
+     withJavaMathMathContext:(JavaMathMathContext *)mc;
 
 /*!
  @brief Translates the string representation of a <code>BigDecimal</code>
@@ -583,7 +565,7 @@
  @throw NumberFormatExceptionif <code>val</code> is not a valid
           representation of a <code>BigDecimal</code>.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)val;
+- (instancetype)initWithNSString:(NSString *)val;
 
 /*!
  @brief Translates the string representation of a <code>BigDecimal</code>
@@ -598,8 +580,8 @@
           representation of a BigDecimal.
  @since 1.5
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)val
-                   withJavaMathMathContext:(JavaMathMathContext *)mc;
+- (instancetype)initWithNSString:(NSString *)val
+         withJavaMathMathContext:(JavaMathMathContext *)mc;
 
 /*!
  @brief Returns a <code>BigDecimal</code> whose value is the absolute value
@@ -1719,10 +1701,10 @@
  Trusted simply means if val is INFLATED, intVal could not be null and
   if intVal is null, val could not be INFLATED.
  */
-- (instancetype __nonnull)initWithJavaMathBigInteger:(JavaMathBigInteger *)intVal
-                                            withLong:(jlong)val
-                                             withInt:(jint)scale_
-                                             withInt:(jint)prec;
+- (instancetype)initWithJavaMathBigInteger:(JavaMathBigInteger *)intVal
+                                  withLong:(jlong)val
+                                   withInt:(jint)scale_
+                                   withInt:(jint)prec;
 
 /*!
  @brief Returns the length of the absolute value of a <code>long</code>, in decimal
@@ -1748,7 +1730,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -2014,8 +1996,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaMathBigDecimal)
   JavaLangStringBuilder *sb_;
   IOSCharArray *cmpCharArray_;
 }
-@property (readonly, class, strong) IOSCharArray *DIGIT_TENS NS_SWIFT_NAME(DIGIT_TENS);
-@property (readonly, class, strong) IOSCharArray *DIGIT_ONES NS_SWIFT_NAME(DIGIT_ONES);
 
 + (IOSCharArray *)DIGIT_TENS;
 
@@ -2023,7 +2003,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaMathBigDecimal)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 - (IOSCharArray *)getCompactCharArray;
 
@@ -2066,10 +2046,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaMathBigDecimal_StringBuilderHelper)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaMathBigDecimal")

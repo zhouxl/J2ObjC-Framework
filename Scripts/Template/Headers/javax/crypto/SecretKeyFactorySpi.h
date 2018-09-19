@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/crypto/SecretKeyFactorySpi.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxCryptoSecretKeyFactorySpi")
 #ifdef RESTRICT_JavaxCryptoSecretKeyFactorySpi
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaxCryptoSecretKeyFactorySpi_) && (INCLUDE_ALL_JavaxCryptoSecretKeyFactorySpi || defined(INCLUDE_JavaxCryptoSecretKeyFactorySpi))
 #define JavaxCryptoSecretKeyFactorySpi_
@@ -52,7 +46,7 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 #pragma mark Protected
 
@@ -106,10 +100,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoSecretKeyFactorySpi)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxCryptoSecretKeyFactorySpi")

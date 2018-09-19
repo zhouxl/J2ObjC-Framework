@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/nio/channels/ServerSocketChannel.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNioChannelsServerSocketChannel")
 #ifdef RESTRICT_JavaNioChannelsServerSocketChannel
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNioChannelsServerSocketChannel_) && (INCLUDE_ALL_JavaNioChannelsServerSocketChannel || defined(INCLUDE_JavaNioChannelsServerSocketChannel))
 #define JavaNioChannelsServerSocketChannel_
 
 #define RESTRICT_JavaNioChannelsSpiAbstractSelectableChannel 1
 #define INCLUDE_JavaNioChannelsSpiAbstractSelectableChannel 1
-#include "java/nio/channels/spi/AbstractSelectableChannel.h"
+#include "../../../java/nio/channels/spi/AbstractSelectableChannel.h"
 
 #define RESTRICT_JavaNioChannelsNetworkChannel 1
 #define INCLUDE_JavaNioChannelsNetworkChannel 1
-#include "java/nio/channels/NetworkChannel.h"
+#include "../../../java/nio/channels/NetworkChannel.h"
 
 @class JavaNetServerSocket;
 @class JavaNetSocketAddress;
@@ -221,7 +215,7 @@
 /*!
  @brief Initializes a new instance of this class.
  */
-- (instancetype __nonnull)initWithJavaNioChannelsSpiSelectorProvider:(JavaNioChannelsSpiSelectorProvider *)provider;
+- (instancetype)initWithJavaNioChannelsSpiSelectorProvider:(JavaNioChannelsSpiSelectorProvider *)provider;
 
 @end
 
@@ -235,10 +229,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsServerSocketChannel)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioChannelsServerSocketChannel")

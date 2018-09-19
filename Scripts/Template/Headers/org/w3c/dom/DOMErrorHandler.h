@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/DOMErrorHandler.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgW3cDomDOMErrorHandler")
 #ifdef RESTRICT_OrgW3cDomDOMErrorHandler
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (OrgW3cDomDOMErrorHandler_) && (INCLUDE_ALL_OrgW3cDomDOMErrorHandler || defined(INCLUDE_OrgW3cDomDOMErrorHandler))
 #define OrgW3cDomDOMErrorHandler_
@@ -67,10 +61,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomDOMErrorHandler)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgW3cDomDOMErrorHandler")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/reflect/InvocationTargetException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangReflectInvocationTargetException")
 #ifdef RESTRICT_JavaLangReflectInvocationTargetException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangReflectInvocationTargetException_) && (INCLUDE_ALL_JavaLangReflectInvocationTargetException || defined(INCLUDE_JavaLangReflectInvocationTargetException))
 #define JavaLangReflectInvocationTargetException_
 
 #define RESTRICT_JavaLangReflectiveOperationException 1
 #define INCLUDE_JavaLangReflectiveOperationException 1
-#include "java/lang/ReflectiveOperationException.h"
+#include "../../../java/lang/ReflectiveOperationException.h"
 
 @class JavaLangThrowable;
 
@@ -51,7 +45,7 @@
  @brief Constructs a InvocationTargetException with a target exception.
  @param target the target exception
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)target;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)target;
 
 /*!
  @brief Constructs a InvocationTargetException with a target exception
@@ -59,8 +53,8 @@
  @param target the target exception
  @param s the detail message
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)target
-                                       withNSString:(NSString *)s;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)target
+                             withNSString:(NSString *)s;
 
 /*!
  @brief Returns the cause of this exception (the thrown target exception,
@@ -85,14 +79,14 @@
  @brief Constructs an <code>InvocationTargetException</code> with 
  <code>null</code> as the target exception.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -120,10 +114,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectInvocationTargetException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangReflectInvocationTargetException")

@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/text/CharacterIterator.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaTextCharacterIterator")
 #ifdef RESTRICT_JavaTextCharacterIterator
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaTextCharacterIterator_) && (INCLUDE_ALL_JavaTextCharacterIterator || defined(INCLUDE_JavaTextCharacterIterator))
 #define JavaTextCharacterIterator_
@@ -107,7 +101,6 @@
 @end
 
 @interface JavaTextCharacterIterator : NSObject
-@property (readonly, class) jchar DONE NS_SWIFT_NAME(DONE);
 
 + (jchar)DONE;
 
@@ -127,10 +120,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextCharacterIterator)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextCharacterIterator")

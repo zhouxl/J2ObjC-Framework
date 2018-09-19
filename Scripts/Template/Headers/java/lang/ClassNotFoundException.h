@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/ClassNotFoundException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangClassNotFoundException")
 #ifdef RESTRICT_JavaLangClassNotFoundException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangClassNotFoundException_) && (INCLUDE_ALL_JavaLangClassNotFoundException || defined(INCLUDE_JavaLangClassNotFoundException))
 #define JavaLangClassNotFoundException_
 
 #define RESTRICT_JavaLangReflectiveOperationException 1
 #define INCLUDE_JavaLangReflectiveOperationException 1
-#include "java/lang/ReflectiveOperationException.h"
+#include "../../java/lang/ReflectiveOperationException.h"
 
 @class JavaLangThrowable;
 
@@ -61,14 +55,14 @@
 /*!
  @brief Constructs a <code>ClassNotFoundException</code> with no detail message.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a <code>ClassNotFoundException</code> with the
   specified detail message.
  @param s the detail message.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s;
+- (instancetype)initWithNSString:(NSString *)s;
 
 /*!
  @brief Constructs a <code>ClassNotFoundException</code> with the
@@ -78,8 +72,8 @@
  @param ex the exception that was raised while loading the class
  @since 1.2
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s
-                     withJavaLangThrowable:(JavaLangThrowable *)ex;
+- (instancetype)initWithNSString:(NSString *)s
+           withJavaLangThrowable:(JavaLangThrowable *)ex;
 
 /*!
  @brief Returns the cause of this exception (the exception that was raised
@@ -103,7 +97,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -131,10 +125,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangClassNotFoundException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangClassNotFoundException")

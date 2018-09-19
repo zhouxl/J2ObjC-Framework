@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/NoClassDefFoundError.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangNoClassDefFoundError")
 #ifdef RESTRICT_JavaLangNoClassDefFoundError
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangNoClassDefFoundError_) && (INCLUDE_ALL_JavaLangNoClassDefFoundError || defined(INCLUDE_JavaLangNoClassDefFoundError))
 #define JavaLangNoClassDefFoundError_
 
 #define RESTRICT_JavaLangLinkageError 1
 #define INCLUDE_JavaLangLinkageError 1
-#include "java/lang/LinkageError.h"
+#include "../../java/lang/LinkageError.h"
 
 /*!
  @brief Thrown if the Java Virtual Machine or a <code>ClassLoader</code> instance
@@ -48,14 +42,14 @@
 /*!
  @brief Constructs a <code>NoClassDefFoundError</code> with no detail message.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a <code>NoClassDefFoundError</code> with the specified
   detail message.
  @param s the detail message.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s;
+- (instancetype)initWithNSString:(NSString *)s;
 
 @end
 
@@ -77,10 +71,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangNoClassDefFoundError)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangNoClassDefFoundError")

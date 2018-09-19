@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/lambda/java/java/lang/invoke/MethodHandle.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangInvokeMethodHandle")
 #ifdef RESTRICT_JavaLangInvokeMethodHandle
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaLangInvokeMethodHandle_) && (INCLUDE_ALL_JavaLangInvokeMethodHandle || defined(INCLUDE_JavaLangInvokeMethodHandle))
 #define JavaLangInvokeMethodHandle_
@@ -34,7 +28,7 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 - (JavaLangInvokeMethodHandle *)asCollectorWithIOSClass:(IOSClass *)arrayType
                                                 withInt:(jint)arrayLength;
@@ -69,10 +63,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangInvokeMethodHandle)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangInvokeMethodHandle")

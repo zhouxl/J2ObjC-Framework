@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/interfaces/ECPrivateKey.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityInterfacesECPrivateKey")
 #ifdef RESTRICT_JavaSecurityInterfacesECPrivateKey
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityInterfacesECPrivateKey_) && (INCLUDE_ALL_JavaSecurityInterfacesECPrivateKey || defined(INCLUDE_JavaSecurityInterfacesECPrivateKey))
 #define JavaSecurityInterfacesECPrivateKey_
 
 #define RESTRICT_JavaSecurityPrivateKey 1
 #define INCLUDE_JavaSecurityPrivateKey 1
-#include "java/security/PrivateKey.h"
+#include "../../../java/security/PrivateKey.h"
 
 #define RESTRICT_JavaSecurityInterfacesECKey 1
 #define INCLUDE_JavaSecurityInterfacesECKey 1
-#include "java/security/interfaces/ECKey.h"
+#include "../../../java/security/interfaces/ECKey.h"
 
 @class JavaMathBigInteger;
 
@@ -53,7 +47,6 @@
 @end
 
 @interface JavaSecurityInterfacesECPrivateKey : NSObject
-@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jlong)serialVersionUID;
 
@@ -73,10 +66,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInterfacesECPrivateKey)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityInterfacesECPrivateKey")

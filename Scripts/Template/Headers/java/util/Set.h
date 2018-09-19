@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/Set.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilSet")
 #ifdef RESTRICT_JavaUtilSet
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilSet_) && (INCLUDE_ALL_JavaUtilSet || defined(INCLUDE_JavaUtilSet))
 #define JavaUtilSet_
 
 #define RESTRICT_JavaUtilCollection 1
 #define INCLUDE_JavaUtilCollection 1
-#include "java/util/Collection.h"
+#include "../../java/util/Collection.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilIterator;
@@ -120,7 +114,7 @@
   class that provides a guarantee).
  @return an iterator over the elements in this set
  */
-- (id<JavaUtilIterator> __nonnull)iterator;
+- (id<JavaUtilIterator>)iterator;
 
 /*!
  @brief Returns an array containing all of the elements in this set.
@@ -135,7 +129,7 @@
   APIs.
  @return an array containing all the elements in this set
  */
-- (IOSObjectArray * __nonnull)toArray;
+- (IOSObjectArray *)toArray;
 
 /*!
  @brief Returns an array containing all of the elements in this set; the
@@ -174,7 +168,7 @@
           set
  @throw NullPointerExceptionif the specified array is null
  */
-- (IOSObjectArray * __nonnull)toArrayWithNSObjectArray:(IOSObjectArray *)a;
+- (IOSObjectArray *)toArrayWithNSObjectArray:(IOSObjectArray *)a;
 
 /*!
  @brief Adds the specified element to this set if it is not already present
@@ -362,7 +356,7 @@
  @return a <code>Spliterator</code> over the elements in this set
  @since 1.8
  */
-- (id<JavaUtilSpliterator> __nonnull)spliterator;
+- (id<JavaUtilSpliterator>)spliterator;
 
 @end
 
@@ -374,10 +368,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSet)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilSet")

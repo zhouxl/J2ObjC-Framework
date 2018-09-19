@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/atomic/AtomicLongFieldUpdater.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLongFieldUpdater")
 #ifdef RESTRICT_JavaUtilConcurrentAtomicAtomicLongFieldUpdater
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaUtilConcurrentAtomicAtomicLongFieldUpdater_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLongFieldUpdater || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicLongFieldUpdater))
 #define JavaUtilConcurrentAtomicAtomicLongFieldUpdater_
@@ -261,7 +255,7 @@ withJavaUtilFunctionLongUnaryOperator:(id<JavaUtilFunctionLongUnaryOperator>)upd
 /*!
  @brief Protected do-nothing constructor for use by subclasses.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -275,10 +269,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicLongFieldUpdater)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLongFieldUpdater")

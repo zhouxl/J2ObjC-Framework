@@ -3,7 +3,7 @@
 //  source: android/frameworks/base/core/java/android/util/Base64.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_AndroidUtilBase64")
 #ifdef RESTRICT_AndroidUtilBase64
@@ -22,12 +22,6 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (AndroidUtilBase64_) && (INCLUDE_ALL_AndroidUtilBase64 || defined(INCLUDE_AndroidUtilBase64))
 #define AndroidUtilBase64_
 
@@ -40,12 +34,6 @@
  3548</a>.
  */
 @interface AndroidUtilBase64 : NSObject
-@property (readonly, class) jint DEFAULT NS_SWIFT_NAME(DEFAULT);
-@property (readonly, class) jint NO_PADDING NS_SWIFT_NAME(NO_PADDING);
-@property (readonly, class) jint NO_WRAP NS_SWIFT_NAME(NO_WRAP);
-@property (readonly, class) jint CRLF NS_SWIFT_NAME(CRLF);
-@property (readonly, class) jint URL_SAFE NS_SWIFT_NAME(URL_SAFE);
-@property (readonly, class) jint NO_CLOSE NS_SWIFT_NAME(NO_CLOSE);
 
 + (jint)DEFAULT;
 
@@ -266,7 +254,7 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -289,8 +277,8 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64_Coder)
 
 #pragma mark Public
 
-- (instancetype __nonnull)initWithInt:(jint)flags
-                        withByteArray:(IOSByteArray *)output;
+- (instancetype)initWithInt:(jint)flags
+              withByteArray:(IOSByteArray *)output;
 
 /*!
  @return an overestimate for the number of bytes <code>len</code>
@@ -310,7 +298,7 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64_Coder)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -338,14 +326,13 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64_Decoder)
   jboolean do_newline_;
   jboolean do_cr_;
 }
-@property (readonly, class) jint LINE_GROUPS NS_SWIFT_NAME(LINE_GROUPS);
 
 + (jint)LINE_GROUPS;
 
 #pragma mark Public
 
-- (instancetype __nonnull)initWithInt:(jint)flags
-                        withByteArray:(IOSByteArray *)output;
+- (instancetype)initWithInt:(jint)flags
+              withByteArray:(IOSByteArray *)output;
 
 /*!
  @return an overestimate for the number of bytes <code>len</code>
@@ -360,7 +347,7 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64_Decoder)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -385,10 +372,6 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64_Encoder)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidUtilBase64")

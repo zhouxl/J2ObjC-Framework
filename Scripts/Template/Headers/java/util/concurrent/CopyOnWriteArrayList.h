@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/CopyOnWriteArrayList.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentCopyOnWriteArrayList")
 #ifdef RESTRICT_JavaUtilConcurrentCopyOnWriteArrayList
@@ -16,26 +16,20 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentCopyOnWriteArrayList_) && (INCLUDE_ALL_JavaUtilConcurrentCopyOnWriteArrayList || defined(INCLUDE_JavaUtilConcurrentCopyOnWriteArrayList))
 #define JavaUtilConcurrentCopyOnWriteArrayList_
 
 #define RESTRICT_JavaUtilList 1
 #define INCLUDE_JavaUtilList 1
-#include "java/util/List.h"
+#include "../../../java/util/List.h"
 
 #define RESTRICT_JavaUtilRandomAccess 1
 #define INCLUDE_JavaUtilRandomAccess 1
-#include "java/util/RandomAccess.h"
+#include "../../../java/util/RandomAccess.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilCollection;
@@ -75,17 +69,17 @@
 /*!
  @brief Creates a new empty instance.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a new instance containing the elements of <code>collection</code>.
  */
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)collection;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)collection;
 
 /*!
  @brief Creates a new instance containing the elements of <code>array</code>.
  */
-- (instancetype __nonnull)initWithNSObjectArray:(IOSObjectArray *)array;
+- (instancetype)initWithNSObjectArray:(IOSObjectArray *)array;
 
 - (jboolean)addWithId:(id)e;
 
@@ -259,7 +253,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCopyOnWriteArrayList)
 
 #define RESTRICT_JavaUtilAbstractList 1
 #define INCLUDE_JavaUtilAbstractList 1
-#include "java/util/AbstractList.h"
+#include "../../../java/util/AbstractList.h"
 
 @class IOSObjectArray;
 @class JavaUtilConcurrentCopyOnWriteArrayList;
@@ -288,10 +282,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCopyOnWriteArrayList)
 
 #pragma mark Public
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentCopyOnWriteArrayList:(JavaUtilConcurrentCopyOnWriteArrayList *)outer$
-                                                       withNSObjectArray:(IOSObjectArray *)expectedElements
-                                                                 withInt:(jint)from
-                                                                 withInt:(jint)to;
+- (instancetype)initWithJavaUtilConcurrentCopyOnWriteArrayList:(JavaUtilConcurrentCopyOnWriteArrayList *)outer$
+                                             withNSObjectArray:(IOSObjectArray *)expectedElements
+                                                       withInt:(jint)from
+                                                       withInt:(jint)to;
 
 - (jboolean)addWithId:(id)object;
 
@@ -349,7 +343,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCopyOnWriteArrayList)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -374,9 +368,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCopyOnWriteArrayList_CowSubList)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithNSObjectArray:(IOSObjectArray *)expectedElements
-                                        withInt:(jint)from
-                                        withInt:(jint)to;
+- (instancetype)initWithNSObjectArray:(IOSObjectArray *)expectedElements
+                              withInt:(jint)from
+                              withInt:(jint)to;
 
 - (void)checkConcurrentModificationWithNSObjectArray:(IOSObjectArray *)snapshot;
 
@@ -393,7 +387,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCopyOnWriteArrayList_CowSubList)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -414,7 +408,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCopyOnWriteArrayList_Slice)
 
 #define RESTRICT_JavaUtilListIterator 1
 #define INCLUDE_JavaUtilListIterator 1
-#include "java/util/ListIterator.h"
+#include "../../../java/util/ListIterator.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilFunctionConsumer;
@@ -448,13 +442,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCopyOnWriteArrayList_Slice)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithNSObjectArray:(IOSObjectArray *)snapshot
-                                        withInt:(jint)from
-                                        withInt:(jint)to;
+- (instancetype)initWithNSObjectArray:(IOSObjectArray *)snapshot
+                              withInt:(jint)from
+                              withInt:(jint)to;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -470,10 +464,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCopyOnWriteArrayList_CowIterator)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentCopyOnWriteArrayList")

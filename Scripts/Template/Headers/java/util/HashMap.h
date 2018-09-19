@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/HashMap.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilHashMap")
 #ifdef RESTRICT_JavaUtilHashMap
@@ -25,26 +25,20 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilHashMap_) && (INCLUDE_ALL_JavaUtilHashMap || defined(INCLUDE_JavaUtilHashMap))
 #define JavaUtilHashMap_
 
 #define RESTRICT_JavaUtilAbstractMap 1
 #define INCLUDE_JavaUtilAbstractMap 1
-#include "java/util/AbstractMap.h"
+#include "../../java/util/AbstractMap.h"
 
 #define RESTRICT_JavaUtilMap 1
 #define INCLUDE_JavaUtilMap 1
-#include "java/util/Map.h"
+#include "../../java/util/Map.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilCollection;
@@ -164,10 +158,6 @@
    */
   jint modCount_;
 }
-@property (readonly, class) jint DEFAULT_INITIAL_CAPACITY NS_SWIFT_NAME(DEFAULT_INITIAL_CAPACITY);
-@property (readonly, class) jint MAXIMUM_CAPACITY NS_SWIFT_NAME(MAXIMUM_CAPACITY);
-@property (readonly, class) jfloat DEFAULT_LOAD_FACTOR NS_SWIFT_NAME(DEFAULT_LOAD_FACTOR);
-@property (readonly, class, strong) IOSObjectArray *EMPTY_TABLE NS_SWIFT_NAME(EMPTY_TABLE);
 
 + (jint)DEFAULT_INITIAL_CAPACITY;
 
@@ -185,7 +175,7 @@
  @brief Constructs an empty <tt>HashMap</tt> with the default initial capacity
   (16) and the default load factor (0.75).
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs an empty <tt>HashMap</tt> with the specified initial
@@ -193,7 +183,7 @@
  @param initialCapacity the initial capacity.
  @throw IllegalArgumentExceptionif the initial capacity is negative.
  */
-- (instancetype __nonnull)initWithInt:(jint)initialCapacity;
+- (instancetype)initWithInt:(jint)initialCapacity;
 
 /*!
  @brief Constructs an empty <tt>HashMap</tt> with the specified initial
@@ -203,8 +193,8 @@
  @throw IllegalArgumentExceptionif the initial capacity is negative
           or the load factor is nonpositive
  */
-- (instancetype __nonnull)initWithInt:(jint)initialCapacity
-                            withFloat:(jfloat)loadFactor;
+- (instancetype)initWithInt:(jint)initialCapacity
+                  withFloat:(jfloat)loadFactor;
 
 /*!
  @brief Constructs a new <tt>HashMap</tt> with the same mappings as the
@@ -214,7 +204,7 @@
  @param m the map whose mappings are to be placed in this map
  @throw NullPointerExceptionif the specified map is null
  */
-- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)m;
+- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)m;
 
 /*!
  @brief Removes all of the mappings from this map.
@@ -227,7 +217,7 @@
   values themselves are not cloned.
  @return a shallow copy of this map
  */
-- (id __nonnull)java_clone;
+- (id)java_clone;
 
 /*!
  @brief Returns <tt>true</tt> if this map contains a mapping for the
@@ -262,7 +252,7 @@
  <tt>add</tt> or <tt>addAll</tt> operations.
  @return a set view of the mappings contained in this map
  */
-- (id<JavaUtilSet> __nonnull)entrySet;
+- (id<JavaUtilSet>)entrySet;
 
 - (void)forEachWithJavaUtilFunctionBiConsumer:(id<JavaUtilFunctionBiConsumer>)action;
 
@@ -281,7 +271,7 @@
   distinguish these two cases.
  - seealso: #put(Object, Object)
  */
-- (id __nullable)getWithId:(id)key;
+- (id)getWithId:(id)key;
 
 /*!
  @brief Returns <tt>true</tt> if this map contains no key-value mappings.
@@ -302,7 +292,7 @@
   operations.  It does not support the <tt>add</tt> or <tt>addAll</tt>
   operations.
  */
-- (id<JavaUtilSet> __nonnull)keySet;
+- (id<JavaUtilSet>)keySet;
 
 /*!
  @brief Associates the specified value with the specified key in this map.
@@ -315,8 +305,8 @@
           (A <tt>null</tt> return can also indicate that the map
           previously associated <tt>null</tt> with <tt>key</tt>.)
  */
-- (id __nullable)putWithId:(id)key
-                    withId:(id)value;
+- (id)putWithId:(id)key
+         withId:(id)value;
 
 /*!
  @brief Copies all of the mappings from the specified map to this map.
@@ -335,7 +325,7 @@
           (A <tt>null</tt> return can also indicate that the map
           previously associated <tt>null</tt> with <tt>key</tt>.)
  */
-- (id __nullable)removeWithId:(id)key;
+- (id)removeWithId:(id)key;
 
 - (jboolean)replaceWithId:(id)key
                    withId:(id)oldValue
@@ -362,7 +352,7 @@
   <tt>retainAll</tt> and <tt>clear</tt> operations.  It does not
   support the <tt>add</tt> or <tt>addAll</tt> operations.
  */
-- (id<JavaUtilCollection> __nonnull)values;
+- (id<JavaUtilCollection>)values;
 
 #pragma mark Package-Private
 
@@ -532,7 +522,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashMap)
 
 #define RESTRICT_JavaUtilMap 1
 #define INCLUDE_JavaUtilMap_Entry 1
-#include "java/util/Map.h"
+#include "../../java/util/Map.h"
 
 @class JavaUtilHashMap;
 
@@ -565,10 +555,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashMap)
 /*!
  @brief Creates new entry.
  */
-- (instancetype __nonnull)initWithInt:(jint)h
-                               withId:(id)k
-                               withId:(id)v
-     withJavaUtilHashMap_HashMapEntry:(JavaUtilHashMap_HashMapEntry *)n;
+- (instancetype)initWithInt:(jint)h
+                     withId:(id)k
+                     withId:(id)v
+withJavaUtilHashMap_HashMapEntry:(JavaUtilHashMap_HashMapEntry *)n;
 
 /*!
  @brief This method is invoked whenever the value in an entry is
@@ -585,7 +575,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashMap)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -627,17 +617,17 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashMap_HashMapEntry)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilHashMap:(JavaUtilHashMap *)m
-                                          withInt:(jint)origin
-                                          withInt:(jint)fence
-                                          withInt:(jint)est
-                                          withInt:(jint)expectedModCount;
+- (instancetype)initWithJavaUtilHashMap:(JavaUtilHashMap *)m
+                                withInt:(jint)origin
+                                withInt:(jint)fence
+                                withInt:(jint)est
+                                withInt:(jint)expectedModCount;
 
 - (jint)getFence;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -661,7 +651,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashMap_HashMapSpliterator)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator 1
-#include "java/util/Spliterator.h"
+#include "../../java/util/Spliterator.h"
 
 @class JavaUtilHashMap;
 @protocol JavaUtilComparator;
@@ -681,11 +671,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashMap_HashMapSpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilHashMap:(JavaUtilHashMap *)m
-                                          withInt:(jint)origin
-                                          withInt:(jint)fence
-                                          withInt:(jint)est
-                                          withInt:(jint)expectedModCount;
+- (instancetype)initWithJavaUtilHashMap:(JavaUtilHashMap *)m
+                                withInt:(jint)origin
+                                withInt:(jint)fence
+                                withInt:(jint)est
+                                withInt:(jint)expectedModCount;
 
 @end
 
@@ -706,7 +696,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashMap_KeySpliterator)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator 1
-#include "java/util/Spliterator.h"
+#include "../../java/util/Spliterator.h"
 
 @class JavaUtilHashMap;
 @protocol JavaUtilComparator;
@@ -726,11 +716,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashMap_KeySpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilHashMap:(JavaUtilHashMap *)m
-                                          withInt:(jint)origin
-                                          withInt:(jint)fence
-                                          withInt:(jint)est
-                                          withInt:(jint)expectedModCount;
+- (instancetype)initWithJavaUtilHashMap:(JavaUtilHashMap *)m
+                                withInt:(jint)origin
+                                withInt:(jint)fence
+                                withInt:(jint)est
+                                withInt:(jint)expectedModCount;
 
 @end
 
@@ -751,7 +741,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashMap_ValueSpliterator)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator 1
-#include "java/util/Spliterator.h"
+#include "../../java/util/Spliterator.h"
 
 @class JavaUtilHashMap;
 @protocol JavaUtilComparator;
@@ -771,11 +761,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashMap_ValueSpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilHashMap:(JavaUtilHashMap *)m
-                                          withInt:(jint)origin
-                                          withInt:(jint)fence
-                                          withInt:(jint)est
-                                          withInt:(jint)expectedModCount;
+- (instancetype)initWithJavaUtilHashMap:(JavaUtilHashMap *)m
+                                withInt:(jint)origin
+                                withInt:(jint)fence
+                                withInt:(jint)est
+                                withInt:(jint)expectedModCount;
 
 @end
 
@@ -791,10 +781,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashMap_EntrySpliterator)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilHashMap")

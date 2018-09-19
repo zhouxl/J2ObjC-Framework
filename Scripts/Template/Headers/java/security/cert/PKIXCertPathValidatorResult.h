@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/cert/PKIXCertPathValidatorResult.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityCertPKIXCertPathValidatorResult")
 #ifdef RESTRICT_JavaSecurityCertPKIXCertPathValidatorResult
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityCertPKIXCertPathValidatorResult_) && (INCLUDE_ALL_JavaSecurityCertPKIXCertPathValidatorResult || defined(INCLUDE_JavaSecurityCertPKIXCertPathValidatorResult))
 #define JavaSecurityCertPKIXCertPathValidatorResult_
 
 #define RESTRICT_JavaSecurityCertCertPathValidatorResult 1
 #define INCLUDE_JavaSecurityCertCertPathValidatorResult 1
-#include "java/security/cert/CertPathValidatorResult.h"
+#include "../../../java/security/cert/CertPathValidatorResult.h"
 
 @class JavaSecurityCertTrustAnchor;
 @protocol JavaSecurityCertPolicyNode;
@@ -72,9 +66,9 @@
  @throw NullPointerExceptionif the <code>subjectPublicKey</code> or 
  <code>trustAnchor</code> parameters are <code>null</code>
  */
-- (instancetype __nonnull)initWithJavaSecurityCertTrustAnchor:(JavaSecurityCertTrustAnchor *)trustAnchor
-                               withJavaSecurityCertPolicyNode:(id<JavaSecurityCertPolicyNode>)policyTree
-                                    withJavaSecurityPublicKey:(id<JavaSecurityPublicKey>)subjectPublicKey;
+- (instancetype)initWithJavaSecurityCertTrustAnchor:(JavaSecurityCertTrustAnchor *)trustAnchor
+                     withJavaSecurityCertPolicyNode:(id<JavaSecurityCertPolicyNode>)policyTree
+                          withJavaSecurityPublicKey:(id<JavaSecurityPublicKey>)subjectPublicKey;
 
 /*!
  @brief Returns a copy of this object.
@@ -123,7 +117,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -139,10 +133,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertPKIXCertPathValidatorResult)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertPKIXCertPathValidatorResult")

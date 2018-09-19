@@ -3,7 +3,7 @@
 //  source: android/frameworks/base/core/java/android/util/LruCache.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_AndroidUtilLruCache")
 #ifdef RESTRICT_AndroidUtilLruCache
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (AndroidUtilLruCache_) && (INCLUDE_ALL_AndroidUtilLruCache || defined(INCLUDE_AndroidUtilLruCache))
 #define AndroidUtilLruCache_
@@ -75,7 +69,7 @@
  @param maxSize for caches that do not override <code>sizeOf</code> , this is
        the maximum number of entries in the cache. For all other caches,      this is the maximum sum of the sizes of the entries in this cache.
  */
-- (instancetype __nonnull)initWithInt:(jint)maxSize;
+- (instancetype)initWithInt:(jint)maxSize;
 
 /*!
  @brief Returns the number of times <code>create(Object)</code> returned a value.
@@ -214,7 +208,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -230,10 +224,6 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilLruCache)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidUtilLruCache")

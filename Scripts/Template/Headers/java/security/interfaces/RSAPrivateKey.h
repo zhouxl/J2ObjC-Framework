@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/interfaces/RSAPrivateKey.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityInterfacesRSAPrivateKey")
 #ifdef RESTRICT_JavaSecurityInterfacesRSAPrivateKey
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityInterfacesRSAPrivateKey_) && (INCLUDE_ALL_JavaSecurityInterfacesRSAPrivateKey || defined(INCLUDE_JavaSecurityInterfacesRSAPrivateKey))
 #define JavaSecurityInterfacesRSAPrivateKey_
 
 #define RESTRICT_JavaSecurityPrivateKey 1
 #define INCLUDE_JavaSecurityPrivateKey 1
-#include "java/security/PrivateKey.h"
+#include "../../../java/security/PrivateKey.h"
 
 #define RESTRICT_JavaSecurityInterfacesRSAKey 1
 #define INCLUDE_JavaSecurityInterfacesRSAKey 1
-#include "java/security/interfaces/RSAKey.h"
+#include "../../../java/security/interfaces/RSAKey.h"
 
 @class JavaMathBigInteger;
 
@@ -51,7 +45,6 @@
 @end
 
 @interface JavaSecurityInterfacesRSAPrivateKey : NSObject
-@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jlong)serialVersionUID;
 
@@ -67,10 +60,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInterfacesRSAPrivateKey)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityInterfacesRSAPrivateKey")

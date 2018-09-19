@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/cert/PKIXReason.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityCertPKIXReason")
 #ifdef RESTRICT_JavaSecurityCertPKIXReason
@@ -18,7 +18,6 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -27,11 +26,11 @@
 
 #define RESTRICT_JavaLangEnum 1
 #define INCLUDE_JavaLangEnum 1
-#include "java/lang/Enum.h"
+#include "../../../java/lang/Enum.h"
 
 #define RESTRICT_JavaSecurityCertCertPathValidatorException 1
 #define INCLUDE_JavaSecurityCertCertPathValidatorException_Reason 1
-#include "java/security/cert/CertPathValidatorException.h"
+#include "../../../java/security/cert/CertPathValidatorException.h"
 
 @class IOSObjectArray;
 
@@ -55,14 +54,6 @@ typedef NS_ENUM(NSUInteger, JavaSecurityCertPKIXReason_Enum) {
  */
 @interface JavaSecurityCertPKIXReason : JavaLangEnum < JavaSecurityCertCertPathValidatorException_Reason >
 
-@property (readonly, class, nonnull) JavaSecurityCertPKIXReason *NAME_CHAINING NS_SWIFT_NAME(NAME_CHAINING);
-@property (readonly, class, nonnull) JavaSecurityCertPKIXReason *INVALID_KEY_USAGE NS_SWIFT_NAME(INVALID_KEY_USAGE);
-@property (readonly, class, nonnull) JavaSecurityCertPKIXReason *INVALID_POLICY NS_SWIFT_NAME(INVALID_POLICY);
-@property (readonly, class, nonnull) JavaSecurityCertPKIXReason *NO_TRUST_ANCHOR NS_SWIFT_NAME(NO_TRUST_ANCHOR);
-@property (readonly, class, nonnull) JavaSecurityCertPKIXReason *UNRECOGNIZED_CRIT_EXT NS_SWIFT_NAME(UNRECOGNIZED_CRIT_EXT);
-@property (readonly, class, nonnull) JavaSecurityCertPKIXReason *NOT_CA_CERT NS_SWIFT_NAME(NOT_CA_CERT);
-@property (readonly, class, nonnull) JavaSecurityCertPKIXReason *PATH_TOO_LONG NS_SWIFT_NAME(PATH_TOO_LONG);
-@property (readonly, class, nonnull) JavaSecurityCertPKIXReason *INVALID_NAME NS_SWIFT_NAME(INVALID_NAME);
 + (JavaSecurityCertPKIXReason * __nonnull)NAME_CHAINING;
 
 + (JavaSecurityCertPKIXReason * __nonnull)INVALID_KEY_USAGE;

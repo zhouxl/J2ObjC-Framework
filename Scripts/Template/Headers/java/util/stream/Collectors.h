@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/stream/Collectors.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilStreamCollectors")
 #ifdef RESTRICT_JavaUtilStreamCollectors
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaUtilStreamCollectors_) && (INCLUDE_ALL_JavaUtilStreamCollectors || defined(INCLUDE_JavaUtilStreamCollectors))
 #define JavaUtilStreamCollectors_
@@ -74,11 +68,6 @@
  @since 1.8
  */
 @interface JavaUtilStreamCollectors : NSObject
-@property (readonly, class, strong) id<JavaUtilSet> CH_CONCURRENT_ID NS_SWIFT_NAME(CH_CONCURRENT_ID);
-@property (readonly, class, strong) id<JavaUtilSet> CH_CONCURRENT_NOID NS_SWIFT_NAME(CH_CONCURRENT_NOID);
-@property (readonly, class, strong) id<JavaUtilSet> CH_ID NS_SWIFT_NAME(CH_ID);
-@property (readonly, class, strong) id<JavaUtilSet> CH_UNORDERED_ID NS_SWIFT_NAME(CH_UNORDERED_ID);
-@property (readonly, class, strong) id<JavaUtilSet> CH_NOID NS_SWIFT_NAME(CH_NOID);
 
 + (id<JavaUtilSet>)CH_CONCURRENT_ID;
 
@@ -844,7 +833,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamCollectors)
 
 #define RESTRICT_JavaUtilStreamCollector 1
 #define INCLUDE_JavaUtilStreamCollector 1
-#include "java/util/stream/Collector.h"
+#include "../../../java/util/stream/Collector.h"
 
 @protocol JavaUtilFunctionBiConsumer;
 @protocol JavaUtilFunctionBinaryOperator;
@@ -871,20 +860,20 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamCollectors)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilFunctionSupplier:(id<JavaUtilFunctionSupplier>)supplier
-                            withJavaUtilFunctionBiConsumer:(id<JavaUtilFunctionBiConsumer>)accumulator
-                        withJavaUtilFunctionBinaryOperator:(id<JavaUtilFunctionBinaryOperator>)combiner
-                              withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)finisher
-                                           withJavaUtilSet:(id<JavaUtilSet>)characteristics;
+- (instancetype)initWithJavaUtilFunctionSupplier:(id<JavaUtilFunctionSupplier>)supplier
+                  withJavaUtilFunctionBiConsumer:(id<JavaUtilFunctionBiConsumer>)accumulator
+              withJavaUtilFunctionBinaryOperator:(id<JavaUtilFunctionBinaryOperator>)combiner
+                    withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)finisher
+                                 withJavaUtilSet:(id<JavaUtilSet>)characteristics;
 
-- (instancetype __nonnull)initWithJavaUtilFunctionSupplier:(id<JavaUtilFunctionSupplier>)supplier
-                            withJavaUtilFunctionBiConsumer:(id<JavaUtilFunctionBiConsumer>)accumulator
-                        withJavaUtilFunctionBinaryOperator:(id<JavaUtilFunctionBinaryOperator>)combiner
-                                           withJavaUtilSet:(id<JavaUtilSet>)characteristics;
+- (instancetype)initWithJavaUtilFunctionSupplier:(id<JavaUtilFunctionSupplier>)supplier
+                  withJavaUtilFunctionBiConsumer:(id<JavaUtilFunctionBiConsumer>)accumulator
+              withJavaUtilFunctionBinaryOperator:(id<JavaUtilFunctionBinaryOperator>)combiner
+                                 withJavaUtilSet:(id<JavaUtilSet>)characteristics;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -906,10 +895,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamCollectors_CollectorImpl)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilStreamCollectors")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/Calendar.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilCalendar")
 #ifdef RESTRICT_JavaUtilCalendar
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilCalendar_) && (INCLUDE_ALL_JavaUtilCalendar || defined(INCLUDE_JavaUtilCalendar))
 #define JavaUtilCalendar_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 #define RESTRICT_JavaLangComparable 1
 #define INCLUDE_JavaLangComparable 1
-#include "java/lang/Comparable.h"
+#include "../../java/lang/Comparable.h"
 
 @class IOSBooleanArray;
 @class IOSIntArray;
@@ -321,71 +315,6 @@
    */
   jboolean areAllFieldsSet_;
 }
-@property (readonly, class) jint ERA NS_SWIFT_NAME(ERA);
-@property (readonly, class) jint YEAR NS_SWIFT_NAME(YEAR);
-@property (readonly, class) jint MONTH NS_SWIFT_NAME(MONTH);
-@property (readonly, class) jint WEEK_OF_YEAR NS_SWIFT_NAME(WEEK_OF_YEAR);
-@property (readonly, class) jint WEEK_OF_MONTH NS_SWIFT_NAME(WEEK_OF_MONTH);
-@property (readonly, class) jint DATE NS_SWIFT_NAME(DATE);
-@property (readonly, class) jint DAY_OF_MONTH NS_SWIFT_NAME(DAY_OF_MONTH);
-@property (readonly, class) jint DAY_OF_YEAR NS_SWIFT_NAME(DAY_OF_YEAR);
-@property (readonly, class) jint DAY_OF_WEEK NS_SWIFT_NAME(DAY_OF_WEEK);
-@property (readonly, class) jint DAY_OF_WEEK_IN_MONTH NS_SWIFT_NAME(DAY_OF_WEEK_IN_MONTH);
-@property (readonly, class) jint AM_PM NS_SWIFT_NAME(AM_PM);
-@property (readonly, class) jint HOUR NS_SWIFT_NAME(HOUR);
-@property (readonly, class) jint HOUR_OF_DAY NS_SWIFT_NAME(HOUR_OF_DAY);
-@property (readonly, class) jint MINUTE NS_SWIFT_NAME(MINUTE);
-@property (readonly, class) jint SECOND NS_SWIFT_NAME(SECOND);
-@property (readonly, class) jint MILLISECOND NS_SWIFT_NAME(MILLISECOND);
-@property (readonly, class) jint ZONE_OFFSET NS_SWIFT_NAME(ZONE_OFFSET);
-@property (readonly, class) jint DST_OFFSET NS_SWIFT_NAME(DST_OFFSET);
-@property (readonly, class) jint FIELD_COUNT NS_SWIFT_NAME(FIELD_COUNT);
-@property (readonly, class) jint SUNDAY NS_SWIFT_NAME(SUNDAY);
-@property (readonly, class) jint MONDAY NS_SWIFT_NAME(MONDAY);
-@property (readonly, class) jint TUESDAY NS_SWIFT_NAME(TUESDAY);
-@property (readonly, class) jint WEDNESDAY NS_SWIFT_NAME(WEDNESDAY);
-@property (readonly, class) jint THURSDAY NS_SWIFT_NAME(THURSDAY);
-@property (readonly, class) jint FRIDAY NS_SWIFT_NAME(FRIDAY);
-@property (readonly, class) jint SATURDAY NS_SWIFT_NAME(SATURDAY);
-@property (readonly, class) jint JANUARY NS_SWIFT_NAME(JANUARY);
-@property (readonly, class) jint FEBRUARY NS_SWIFT_NAME(FEBRUARY);
-@property (readonly, class) jint MARCH NS_SWIFT_NAME(MARCH);
-@property (readonly, class) jint APRIL NS_SWIFT_NAME(APRIL);
-@property (readonly, class) jint MAY NS_SWIFT_NAME(MAY);
-@property (readonly, class) jint JUNE NS_SWIFT_NAME(JUNE);
-@property (readonly, class) jint JULY NS_SWIFT_NAME(JULY);
-@property (readonly, class) jint AUGUST NS_SWIFT_NAME(AUGUST);
-@property (readonly, class) jint SEPTEMBER NS_SWIFT_NAME(SEPTEMBER);
-@property (readonly, class) jint OCTOBER NS_SWIFT_NAME(OCTOBER);
-@property (readonly, class) jint NOVEMBER NS_SWIFT_NAME(NOVEMBER);
-@property (readonly, class) jint DECEMBER NS_SWIFT_NAME(DECEMBER);
-@property (readonly, class) jint UNDECIMBER NS_SWIFT_NAME(UNDECIMBER);
-@property (readonly, class) jint AM NS_SWIFT_NAME(AM);
-@property (readonly, class) jint PM NS_SWIFT_NAME(PM);
-@property (readonly, class) jint ALL_STYLES NS_SWIFT_NAME(ALL_STYLES);
-@property (readonly, class) jint SHORT NS_SWIFT_NAME(SHORT);
-@property (readonly, class) jint LONG NS_SWIFT_NAME(LONG);
-@property (readonly, class) jint ALL_FIELDS NS_SWIFT_NAME(ALL_FIELDS);
-@property (readonly, class) jint currentSerialVersion NS_SWIFT_NAME(currentSerialVersion);
-@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
-@property (readonly, class) jint ERA_MASK NS_SWIFT_NAME(ERA_MASK);
-@property (readonly, class) jint YEAR_MASK NS_SWIFT_NAME(YEAR_MASK);
-@property (readonly, class) jint MONTH_MASK NS_SWIFT_NAME(MONTH_MASK);
-@property (readonly, class) jint WEEK_OF_YEAR_MASK NS_SWIFT_NAME(WEEK_OF_YEAR_MASK);
-@property (readonly, class) jint WEEK_OF_MONTH_MASK NS_SWIFT_NAME(WEEK_OF_MONTH_MASK);
-@property (readonly, class) jint DAY_OF_MONTH_MASK NS_SWIFT_NAME(DAY_OF_MONTH_MASK);
-@property (readonly, class) jint DATE_MASK NS_SWIFT_NAME(DATE_MASK);
-@property (readonly, class) jint DAY_OF_YEAR_MASK NS_SWIFT_NAME(DAY_OF_YEAR_MASK);
-@property (readonly, class) jint DAY_OF_WEEK_MASK NS_SWIFT_NAME(DAY_OF_WEEK_MASK);
-@property (readonly, class) jint DAY_OF_WEEK_IN_MONTH_MASK NS_SWIFT_NAME(DAY_OF_WEEK_IN_MONTH_MASK);
-@property (readonly, class) jint AM_PM_MASK NS_SWIFT_NAME(AM_PM_MASK);
-@property (readonly, class) jint HOUR_MASK NS_SWIFT_NAME(HOUR_MASK);
-@property (readonly, class) jint HOUR_OF_DAY_MASK NS_SWIFT_NAME(HOUR_OF_DAY_MASK);
-@property (readonly, class) jint MINUTE_MASK NS_SWIFT_NAME(MINUTE_MASK);
-@property (readonly, class) jint SECOND_MASK NS_SWIFT_NAME(SECOND_MASK);
-@property (readonly, class) jint MILLISECOND_MASK NS_SWIFT_NAME(MILLISECOND_MASK);
-@property (readonly, class) jint ZONE_OFFSET_MASK NS_SWIFT_NAME(ZONE_OFFSET_MASK);
-@property (readonly, class) jint DST_OFFSET_MASK NS_SWIFT_NAME(DST_OFFSET_MASK);
 
 + (jint)ERA;
 
@@ -1267,15 +1196,15 @@
   and locale.
  - seealso: TimeZone#getDefault
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a calendar with the specified time zone and locale.
  @param zone the time zone to use
  @param aLocale the locale for the week data
  */
-- (instancetype __nonnull)initWithJavaUtilTimeZone:(JavaUtilTimeZone *)zone
-                                withJavaUtilLocale:(JavaUtilLocale *)aLocale;
+- (instancetype)initWithJavaUtilTimeZone:(JavaUtilTimeZone *)zone
+                      withJavaUtilLocale:(JavaUtilLocale *)aLocale;
 
 /*!
  @brief Fills in any unset fields in the calendar fields.First, the <code>computeTime()</code>
@@ -2025,10 +1954,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCalendar)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilCalendar")

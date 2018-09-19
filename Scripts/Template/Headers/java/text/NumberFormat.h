@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/text/NumberFormat.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaTextNumberFormat")
 #ifdef RESTRICT_JavaTextNumberFormat
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaTextNumberFormat_) && (INCLUDE_ALL_JavaTextNumberFormat || defined(INCLUDE_JavaTextNumberFormat))
 #define JavaTextNumberFormat_
 
 #define RESTRICT_JavaTextFormat 1
 #define INCLUDE_JavaTextFormat 1
-#include "java/text/Format.h"
+#include "../../java/text/Format.h"
 
 @class IOSObjectArray;
 @class JavaLangStringBuffer;
@@ -162,10 +156,6 @@
  @author Helena Shih
  */
 @interface JavaTextNumberFormat : JavaTextFormat
-@property (readonly, class) jint INTEGER_FIELD NS_SWIFT_NAME(INTEGER_FIELD);
-@property (readonly, class) jint FRACTION_FIELD NS_SWIFT_NAME(FRACTION_FIELD);
-@property (readonly, class) jint currentSerialVersion NS_SWIFT_NAME(currentSerialVersion);
-@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jint)INTEGER_FIELD;
 
@@ -578,7 +568,7 @@
  (For invocation by subclass constructors, typically
   implicit.)
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -643,7 +633,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextNumberFormat)
 
 #define RESTRICT_JavaTextFormat 1
 #define INCLUDE_JavaTextFormat_Field 1
-#include "java/text/Format.h"
+#include "../../java/text/Format.h"
 
 /*!
  @brief Defines constants that are used as attribute keys in the 
@@ -653,17 +643,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextNumberFormat)
  @since 1.4
  */
 @interface JavaTextNumberFormat_Field : JavaTextFormat_Field
-@property (readonly, class, strong) JavaTextNumberFormat_Field *INTEGER NS_SWIFT_NAME(INTEGER);
-@property (readonly, class, strong) JavaTextNumberFormat_Field *FRACTION NS_SWIFT_NAME(FRACTION);
-@property (readonly, class, strong) JavaTextNumberFormat_Field *EXPONENT NS_SWIFT_NAME(EXPONENT);
-@property (readonly, class, strong) JavaTextNumberFormat_Field *DECIMAL_SEPARATOR NS_SWIFT_NAME(DECIMAL_SEPARATOR);
-@property (readonly, class, strong) JavaTextNumberFormat_Field *SIGN NS_SWIFT_NAME(SIGN);
-@property (readonly, class, strong) JavaTextNumberFormat_Field *GROUPING_SEPARATOR NS_SWIFT_NAME(GROUPING_SEPARATOR);
-@property (readonly, class, strong) JavaTextNumberFormat_Field *EXPONENT_SYMBOL NS_SWIFT_NAME(EXPONENT_SYMBOL);
-@property (readonly, class, strong) JavaTextNumberFormat_Field *PERCENT NS_SWIFT_NAME(PERCENT);
-@property (readonly, class, strong) JavaTextNumberFormat_Field *PERMILLE NS_SWIFT_NAME(PERMILLE);
-@property (readonly, class, strong) JavaTextNumberFormat_Field *CURRENCY NS_SWIFT_NAME(CURRENCY);
-@property (readonly, class, strong) JavaTextNumberFormat_Field *EXPONENT_SIGN NS_SWIFT_NAME(EXPONENT_SIGN);
 
 + (JavaTextNumberFormat_Field *)INTEGER;
 
@@ -694,7 +673,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextNumberFormat)
   name.
  @param name Name of the attribute
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)name;
+- (instancetype)initWithNSString:(NSString *)name;
 
 /*!
  @brief Resolves instances being deserialized to the predefined constants.
@@ -805,10 +784,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextNumberFormat_Field)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextNumberFormat")

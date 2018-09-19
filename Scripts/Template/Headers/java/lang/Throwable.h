@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/Throwable.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangThrowable")
 #ifdef RESTRICT_JavaLangThrowable
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangThrowable_) && (INCLUDE_ALL_JavaLangThrowable || defined(INCLUDE_JavaLangThrowable))
 #define JavaLangThrowable_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaIoPrintStream;
@@ -122,7 +116,7 @@
  <p>The <code>fillInStackTrace()</code> method is called to initialize
   the stack trace data in the newly created throwable.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a new throwable with the specified detail message.The
@@ -133,7 +127,7 @@
  @param message the detail message. The detail message is saved for           later retrieval by the 
  <code>getMessage()</code>  method.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message;
+- (instancetype)initWithNSString:(NSString *)message;
 
 /*!
  @brief Constructs a new throwable with the specified detail message and
@@ -150,8 +144,8 @@
            unknown.)
  @since 1.4
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)message
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a new throwable with the specified cause and a detail
@@ -169,7 +163,7 @@
            unknown.)
  @since 1.4
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Appends the specified exception to the exceptions that were
@@ -588,10 +582,10 @@
  - seealso: ArithmeticException
  @since 1.7
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                     withJavaLangThrowable:(JavaLangThrowable *)cause
-                               withBoolean:(jboolean)enableSuppression
-                               withBoolean:(jboolean)writableStackTrace;
+- (instancetype)initWithNSString:(NSString *)message
+           withJavaLangThrowable:(JavaLangThrowable *)cause
+                     withBoolean:(jboolean)enableSuppression
+                     withBoolean:(jboolean)writableStackTrace;
 
 #pragma mark Package-Private
 
@@ -633,10 +627,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangThrowable)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangThrowable")

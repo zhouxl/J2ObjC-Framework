@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/UnknownFormatConversionException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilUnknownFormatConversionException")
 #ifdef RESTRICT_JavaUtilUnknownFormatConversionException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilUnknownFormatConversionException_) && (INCLUDE_ALL_JavaUtilUnknownFormatConversionException || defined(INCLUDE_JavaUtilUnknownFormatConversionException))
 #define JavaUtilUnknownFormatConversionException_
 
 #define RESTRICT_JavaUtilIllegalFormatException 1
 #define INCLUDE_JavaUtilIllegalFormatException 1
-#include "java/util/IllegalFormatException.h"
+#include "../../java/util/IllegalFormatException.h"
 
 /*!
  @brief Unchecked exception thrown when an unknown conversion is given.
@@ -44,7 +38,7 @@
  @brief Constructs an instance of this class with the unknown conversion.
  @param s Unknown conversion
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s;
+- (instancetype)initWithNSString:(NSString *)s;
 
 /*!
  @brief Returns the unknown conversion.
@@ -56,7 +50,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -72,10 +66,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilUnknownFormatConversionException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilUnknownFormatConversionException")

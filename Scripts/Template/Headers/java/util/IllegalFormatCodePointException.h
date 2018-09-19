@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/IllegalFormatCodePointException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilIllegalFormatCodePointException")
 #ifdef RESTRICT_JavaUtilIllegalFormatCodePointException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilIllegalFormatCodePointException_) && (INCLUDE_ALL_JavaUtilIllegalFormatCodePointException || defined(INCLUDE_JavaUtilIllegalFormatCodePointException))
 #define JavaUtilIllegalFormatCodePointException_
 
 #define RESTRICT_JavaUtilIllegalFormatException 1
 #define INCLUDE_JavaUtilIllegalFormatException 1
-#include "java/util/IllegalFormatException.h"
+#include "../../java/util/IllegalFormatException.h"
 
 /*!
  @brief Unchecked exception thrown when a character with an invalid Unicode code
@@ -47,7 +41,7 @@
   point as defined by <code>Character.isValidCodePoint</code>.
  @param c The illegal Unicode code point
  */
-- (instancetype __nonnull)initWithInt:(jint)c;
+- (instancetype)initWithInt:(jint)c;
 
 /*!
  @brief Returns the illegal code point as defined by <code>Character.isValidCodePoint</code>
@@ -60,7 +54,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -76,10 +70,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIllegalFormatCodePointException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilIllegalFormatCodePointException")

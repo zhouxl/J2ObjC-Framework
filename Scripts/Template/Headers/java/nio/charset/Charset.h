@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/nio/charset/Charset.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNioCharsetCharset")
 #ifdef RESTRICT_JavaNioCharsetCharset
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNioCharsetCharset_) && (INCLUDE_ALL_JavaNioCharsetCharset || defined(INCLUDE_JavaNioCharsetCharset))
 #define JavaNioCharsetCharset_
 
 #define RESTRICT_JavaLangComparable 1
 #define INCLUDE_JavaLangComparable 1
-#include "java/lang/Comparable.h"
+#include "../../../java/lang/Comparable.h"
 
 @class IOSObjectArray;
 @class JavaNioByteBuffer;
@@ -333,8 +327,8 @@
               <code>canonicalName</code> or for any element of
               <code>aliases</code>.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)canonicalName
-                         withNSStringArray:(IOSObjectArray *)aliases;
+- (instancetype)initWithNSString:(NSString *)canonicalName
+               withNSStringArray:(IOSObjectArray *)aliases;
 
 @end
 
@@ -356,10 +350,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetCharset)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioCharsetCharset")

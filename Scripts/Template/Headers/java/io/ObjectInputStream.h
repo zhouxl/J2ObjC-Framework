@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/io/ObjectInputStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoObjectInputStream")
 #ifdef RESTRICT_JavaIoObjectInputStream
@@ -16,26 +16,20 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoObjectInputStream_) && (INCLUDE_ALL_JavaIoObjectInputStream || defined(INCLUDE_JavaIoObjectInputStream))
 #define JavaIoObjectInputStream_
 
 #define RESTRICT_JavaIoInputStream 1
 #define INCLUDE_JavaIoInputStream 1
-#include "java/io/InputStream.h"
+#include "../../java/io/InputStream.h"
 
 #define RESTRICT_JavaIoObjectInput 1
 #define INCLUDE_JavaIoObjectInput 1
-#include "java/io/ObjectInput.h"
+#include "../../java/io/ObjectInput.h"
 
 #define RESTRICT_JavaIoObjectStreamConstants 1
 #define INCLUDE_JavaIoObjectStreamConstants 1
-#include "java/io/ObjectStreamConstants.h"
+#include "../../java/io/ObjectStreamConstants.h"
 
 @class IOSByteArray;
 @class IOSClass;
@@ -67,7 +61,7 @@
  if the source stream does not contain serialized objects that
               can be read.
  */
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)input;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)input;
 
 - (jint)available;
 
@@ -375,7 +369,7 @@
  @throw IOException
  if an error occurs when creating this stream.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Enables object replacement for this stream.By default this is not
@@ -502,7 +496,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectInputStream)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -533,7 +527,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectInputStream_InputValidationDesc)
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Indicates if the field identified by <code>name</code> is defaulted.This
@@ -718,10 +712,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectInputStream_GetField)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoObjectInputStream")

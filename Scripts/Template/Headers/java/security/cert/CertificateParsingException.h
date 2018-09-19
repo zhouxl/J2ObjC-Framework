@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/cert/CertificateParsingException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityCertCertificateParsingException")
 #ifdef RESTRICT_JavaSecurityCertCertificateParsingException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityCertCertificateParsingException_) && (INCLUDE_ALL_JavaSecurityCertCertificateParsingException || defined(INCLUDE_JavaSecurityCertCertificateParsingException))
 #define JavaSecurityCertCertificateParsingException_
 
 #define RESTRICT_JavaSecurityCertCertificateException 1
 #define INCLUDE_JavaSecurityCertCertificateException 1
-#include "java/security/cert/CertificateException.h"
+#include "../../../java/security/cert/CertificateException.h"
 
 @class JavaLangThrowable;
 
@@ -46,7 +40,7 @@
   detail message is a String that describes this particular
   exception.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a CertificateParsingException with the specified detail
@@ -54,7 +48,7 @@
   particular exception.
  @param message the detail message.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message;
+- (instancetype)initWithNSString:(NSString *)message;
 
 /*!
  @brief Creates a <code>CertificateParsingException</code> with the specified
@@ -65,8 +59,8 @@
  <code>getCause()</code>  method).  (A <code>null</code>  value is permitted,         and indicates that the cause is nonexistent or unknown.)
  @since 1.5
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)message
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Creates a <code>CertificateParsingException</code> with the
@@ -79,7 +73,7 @@
  <code>getCause()</code>  method).  (A <code>null</code>  value is permitted,         and indicates that the cause is nonexistent or unknown.)
  @since 1.5
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 @end
 
@@ -113,10 +107,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertificateParsingException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCertificateParsingException")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/RecursiveAction.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentRecursiveAction")
 #ifdef RESTRICT_JavaUtilConcurrentRecursiveAction
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentRecursiveAction_) && (INCLUDE_ALL_JavaUtilConcurrentRecursiveAction || defined(INCLUDE_JavaUtilConcurrentRecursiveAction))
 #define JavaUtilConcurrentRecursiveAction_
 
 #define RESTRICT_JavaUtilConcurrentForkJoinTask 1
 #define INCLUDE_JavaUtilConcurrentForkJoinTask 1
-#include "java/util/concurrent/ForkJoinTask.h"
+#include "../../../java/util/concurrent/ForkJoinTask.h"
 
 @class JavaLangVoid;
 @class JavaUtilConcurrentTimeUnit;
@@ -158,7 +152,7 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 - (JavaLangVoid *)get;
 
@@ -202,10 +196,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentRecursiveAction)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentRecursiveAction")

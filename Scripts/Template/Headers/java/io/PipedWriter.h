@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/PipedWriter.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoPipedWriter")
 #ifdef RESTRICT_JavaIoPipedWriter
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoPipedWriter_) && (INCLUDE_ALL_JavaIoPipedWriter || defined(INCLUDE_JavaIoPipedWriter))
 #define JavaIoPipedWriter_
 
 #define RESTRICT_JavaIoWriter 1
 #define INCLUDE_JavaIoWriter 1
-#include "java/io/Writer.h"
+#include "../../java/io/Writer.h"
 
 @class IOSCharArray;
 @class JavaIoPipedReader;
@@ -48,7 +42,7 @@
  - seealso: java.io.PipedReader
  - seealso: java.io.PipedWriter
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a piped writer connected to the specified piped
@@ -57,7 +51,7 @@
  @param snk The piped reader to connect to.
  @throw IOExceptionif an I/O error occurs.
  */
-- (instancetype __nonnull)initWithJavaIoPipedReader:(JavaIoPipedReader *)snk;
+- (instancetype)initWithJavaIoPipedReader:(JavaIoPipedReader *)snk;
 
 /*!
  @brief Closes this piped output stream and releases any system resources
@@ -135,7 +129,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithId:(id)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithId:(id)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -157,10 +151,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoPipedWriter)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoPipedWriter")

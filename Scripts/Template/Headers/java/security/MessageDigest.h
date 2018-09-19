@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/MessageDigest.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityMessageDigest")
 #ifdef RESTRICT_JavaSecurityMessageDigest
@@ -19,18 +19,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityMessageDigest_) && (INCLUDE_ALL_JavaSecurityMessageDigest || defined(INCLUDE_JavaSecurityMessageDigest))
 #define JavaSecurityMessageDigest_
 
 #define RESTRICT_JavaSecurityMessageDigestSpi 1
 #define INCLUDE_JavaSecurityMessageDigestSpi 1
-#include "java/security/MessageDigestSpi.h"
+#include "../../java/security/MessageDigestSpi.h"
 
 @class IOSByteArray;
 @class JavaNioByteBuffer;
@@ -324,7 +318,7 @@
    Java Cryptography Architecture Standard Algorithm Name Documentation
   </a>  for information about standard algorithm names.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)algorithm;
+- (instancetype)initWithNSString:(NSString *)algorithm;
 
 @end
 
@@ -355,8 +349,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityMessageDigest)
 
 #pragma mark Public
 
-- (instancetype __nonnull)initWithJavaSecurityMessageDigestSpi:(JavaSecurityMessageDigestSpi *)digestSpi
-                                                  withNSString:(NSString *)algorithm;
+- (instancetype)initWithJavaSecurityMessageDigestSpi:(JavaSecurityMessageDigestSpi *)digestSpi
+                                        withNSString:(NSString *)algorithm;
 
 /*!
  @brief Returns a clone if the delegate is cloneable.
@@ -388,7 +382,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityMessageDigest)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -404,10 +398,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityMessageDigest_Delegate)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityMessageDigest")

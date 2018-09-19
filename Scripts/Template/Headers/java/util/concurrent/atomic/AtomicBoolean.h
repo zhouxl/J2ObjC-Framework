@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/atomic/AtomicBoolean.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicBoolean")
 #ifdef RESTRICT_JavaUtilConcurrentAtomicAtomicBoolean
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentAtomicAtomicBoolean_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicBoolean || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicBoolean))
 #define JavaUtilConcurrentAtomicAtomicBoolean_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../../java/io/Serializable.h"
 
 /*!
  @brief A <code>boolean</code> value that may be updated atomically.See the 
@@ -47,13 +41,13 @@
 /*!
  @brief Creates a new <code>AtomicBoolean</code> with initial value <code>false</code>.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a new <code>AtomicBoolean</code> with the given initial value.
  @param initialValue the initial value
  */
-- (instancetype __nonnull)initWithBoolean:(jboolean)initialValue;
+- (instancetype)initWithBoolean:(jboolean)initialValue;
 
 /*!
  @brief Atomically sets the value to the given updated value
@@ -131,10 +125,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicBoolean)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicBoolean")

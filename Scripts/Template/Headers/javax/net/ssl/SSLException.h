@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/net/ssl/SSLException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxNetSslSSLException")
 #ifdef RESTRICT_JavaxNetSslSSLException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxNetSslSSLException_) && (INCLUDE_ALL_JavaxNetSslSSLException || defined(INCLUDE_JavaxNetSslSSLException))
 #define JavaxNetSslSSLException_
 
 #define RESTRICT_JavaIoIOException 1
 #define INCLUDE_JavaIoIOException 1
-#include "java/io/IOException.h"
+#include "../../../java/io/IOException.h"
 
 @class JavaLangThrowable;
 
@@ -47,7 +41,7 @@
   an SSL subsystem.
  @param reason describes the problem.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)reason;
+- (instancetype)initWithNSString:(NSString *)reason;
 
 /*!
  @brief Creates a <code>SSLException</code> with the specified
@@ -59,8 +53,8 @@
             unknown.)
  @since 1.5
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)message
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Creates a <code>SSLException</code> with the specified cause
@@ -73,11 +67,11 @@
             unknown.)
  @since 1.5
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -105,10 +99,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxNetSslSSLException")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/stream/Stream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilStreamStream")
 #ifdef RESTRICT_JavaUtilStreamStream
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilStreamStream_) && (INCLUDE_ALL_JavaUtilStreamStream || defined(INCLUDE_JavaUtilStreamStream))
 #define JavaUtilStreamStream_
 
 #define RESTRICT_JavaUtilStreamBaseStream 1
 #define INCLUDE_JavaUtilStreamBaseStream 1
-#include "java/util/stream/BaseStream.h"
+#include "../../../java/util/stream/BaseStream.h"
 
 @class IOSObjectArray;
 @class JavaUtilOptional;
@@ -810,7 +804,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStream)
 
 #define RESTRICT_JavaUtilFunctionConsumer 1
 #define INCLUDE_JavaUtilFunctionConsumer 1
-#include "java/util/function/Consumer.h"
+#include "../../../java/util/function/Consumer.h"
 
 @protocol JavaUtilStreamStream;
 
@@ -866,10 +860,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStream_Builder)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilStreamStream")

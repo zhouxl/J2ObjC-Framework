@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/stream/StreamSupport.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilStreamStreamSupport")
 #ifdef RESTRICT_JavaUtilStreamStreamSupport
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaUtilStreamStreamSupport_) && (INCLUDE_ALL_JavaUtilStreamStreamSupport || defined(INCLUDE_JavaUtilStreamStreamSupport))
 #define JavaUtilStreamStreamSupport_
@@ -274,10 +268,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreamSupport)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilStreamStreamSupport")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/Float.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangFloat")
 #ifdef RESTRICT_JavaLangFloat
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangFloat_) && (INCLUDE_ALL_JavaLangFloat || defined(INCLUDE_JavaLangFloat))
 #define JavaLangFloat_
 
 #define RESTRICT_JavaLangComparable 1
 #define INCLUDE_JavaLangComparable 1
-#include "java/lang/Comparable.h"
+#include "../../java/lang/Comparable.h"
 
 @class IOSClass;
 
@@ -47,17 +41,6 @@
  @since JDK1.0
  */
 @interface JavaLangFloat : NSNumber < JavaLangComparable >
-@property (readonly, class) jfloat POSITIVE_INFINITY NS_SWIFT_NAME(POSITIVE_INFINITY);
-@property (readonly, class) jfloat NEGATIVE_INFINITY NS_SWIFT_NAME(NEGATIVE_INFINITY);
-@property (readonly, class) jfloat NaN NS_SWIFT_NAME(NaN);
-@property (readonly, class) jfloat MAX_VALUE NS_SWIFT_NAME(MAX_VALUE);
-@property (readonly, class) jfloat MIN_NORMAL NS_SWIFT_NAME(MIN_NORMAL);
-@property (readonly, class) jfloat MIN_VALUE NS_SWIFT_NAME(MIN_VALUE);
-@property (readonly, class) jint MAX_EXPONENT NS_SWIFT_NAME(MAX_EXPONENT);
-@property (readonly, class) jint MIN_EXPONENT NS_SWIFT_NAME(MIN_EXPONENT);
-@property (readonly, class) jint SIZE NS_SWIFT_NAME(SIZE);
-@property (readonly, class) jint BYTES NS_SWIFT_NAME(BYTES);
-@property (readonly, class, strong) IOSClass *TYPE NS_SWIFT_NAME(TYPE);
 
 + (jfloat)POSITIVE_INFINITY;
 
@@ -88,14 +71,14 @@
   represents the argument converted to type <code>float</code>.
  @param value the value to be represented by the <code>Float</code> .
  */
-- (instancetype __nonnull)initWithDouble:(jdouble)value;
+- (instancetype)initWithDouble:(jdouble)value;
 
 /*!
  @brief Constructs a newly allocated <code>Float</code> object that
   represents the primitive <code>float</code> argument.
  @param value the value to be represented by the <code>Float</code> .
  */
-- (instancetype __nonnull)initWithFloat:(jfloat)value;
+- (instancetype)initWithFloat:(jfloat)value;
 
 /*!
  @brief Constructs a newly allocated <code>Float</code> object that
@@ -107,7 +90,7 @@
                 parsable number.
  - seealso: java.lang.Float
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s;
+- (instancetype)initWithNSString:(NSString *)s;
 
 /*!
  @brief Returns the value of this <code>Float</code> as a <code>byte</code> after
@@ -552,7 +535,7 @@
  @since 1.5
  @author Joseph D. Darcy
  */
-+ (NSString * __nonnull)toHexStringWithFloat:(jfloat)f;
++ (NSString *)toHexStringWithFloat:(jfloat)f;
 
 /*!
  @brief Returns a string representation of this <code>Float</code> object.
@@ -562,7 +545,7 @@
  @return a <code>String</code> representation of this object.
  - seealso: java.lang.Float
  */
-- (NSString * __nonnull)description;
+- (NSString *)description;
 
 /*!
  @brief Returns a string representation of the <code>float</code>
@@ -629,7 +612,7 @@
  @param f the float to be converted.
  @return a string representation of the argument.
  */
-+ (NSString * __nonnull)toStringWithFloat:(jfloat)f;
++ (NSString *)toStringWithFloat:(jfloat)f;
 
 /*!
  @brief Returns a <code>Float</code> instance representing the specified 
@@ -643,7 +626,7 @@
  @return a <code>Float</code> instance representing <code>f</code>.
  @since 1.5
  */
-+ (JavaLangFloat * __nonnull)valueOfWithFloat:(jfloat)f;
++ (JavaLangFloat *)valueOfWithFloat:(jfloat)f;
 
 /*!
  @brief Returns a <code>Float</code> object holding the 
@@ -752,13 +735,13 @@
  @throw NumberFormatExceptionif the string does not contain a
            parsable number.
  */
-+ (JavaLangFloat * __nonnull)valueOfWithNSString:(NSString *)s;
++ (JavaLangFloat *)valueOfWithNSString:(NSString *)s;
 
 #pragma mark Package-Private
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -927,10 +910,6 @@ BOXED_COMPOUND_ASSIGN_FPMOD(Float, floatValue, jfloat, JavaLangFloat)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangFloat")

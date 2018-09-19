@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/InheritableThreadLocal.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangInheritableThreadLocal")
 #ifdef RESTRICT_JavaLangInheritableThreadLocal
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangInheritableThreadLocal_) && (INCLUDE_ALL_JavaLangInheritableThreadLocal || defined(INCLUDE_JavaLangInheritableThreadLocal))
 #define JavaLangInheritableThreadLocal_
 
 #define RESTRICT_JavaLangThreadLocal 1
 #define INCLUDE_JavaLangThreadLocal 1
-#include "java/lang/ThreadLocal.h"
+#include "../../java/lang/ThreadLocal.h"
 
 @class JavaLangThread;
 @class JavaLangThreadLocal_ThreadLocalMap;
@@ -52,7 +46,7 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 #pragma mark Protected
 
@@ -100,10 +94,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangInheritableThreadLocal)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangInheritableThreadLocal")

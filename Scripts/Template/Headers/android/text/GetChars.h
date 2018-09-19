@@ -3,7 +3,7 @@
 //  source: android/frameworks/base/core/java/android/text/GetChars.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_AndroidTextGetChars")
 #ifdef RESTRICT_AndroidTextGetChars
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (AndroidTextGetChars_) && (INCLUDE_ALL_AndroidTextGetChars || defined(INCLUDE_AndroidTextGetChars))
 #define AndroidTextGetChars_
 
 #define RESTRICT_JavaLangCharSequence 1
 #define INCLUDE_JavaLangCharSequence 1
-#include "java/lang/CharSequence.h"
+#include "../../java/lang/CharSequence.h"
 
 @class IOSCharArray;
 
@@ -56,10 +50,6 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextGetChars)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidTextGetChars")

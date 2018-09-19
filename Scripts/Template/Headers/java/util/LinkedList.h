@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/LinkedList.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilLinkedList")
 #ifdef RESTRICT_JavaUtilLinkedList
@@ -16,30 +16,24 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilLinkedList_) && (INCLUDE_ALL_JavaUtilLinkedList || defined(INCLUDE_JavaUtilLinkedList))
 #define JavaUtilLinkedList_
 
 #define RESTRICT_JavaUtilAbstractSequentialList 1
 #define INCLUDE_JavaUtilAbstractSequentialList 1
-#include "java/util/AbstractSequentialList.h"
+#include "../../java/util/AbstractSequentialList.h"
 
 #define RESTRICT_JavaUtilList 1
 #define INCLUDE_JavaUtilList 1
-#include "java/util/List.h"
+#include "../../java/util/List.h"
 
 #define RESTRICT_JavaUtilDeque 1
 #define INCLUDE_JavaUtilDeque 1
-#include "java/util/Deque.h"
+#include "../../java/util/Deque.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaUtilLinkedList_Node;
@@ -118,7 +112,7 @@
 /*!
  @brief Constructs an empty list.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a list containing the elements of the specified
@@ -127,7 +121,7 @@
  @param c the collection whose elements are to be placed into this list
  @throw NullPointerExceptionif the specified collection is null
  */
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Appends the specified element to the end of this list.
@@ -598,9 +592,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedList)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilLinkedList_Node:(JavaUtilLinkedList_Node *)prev
-                                                   withId:(id)element
-                              withJavaUtilLinkedList_Node:(JavaUtilLinkedList_Node *)next;
+- (instancetype)initWithJavaUtilLinkedList_Node:(JavaUtilLinkedList_Node *)prev
+                                         withId:(id)element
+                    withJavaUtilLinkedList_Node:(JavaUtilLinkedList_Node *)next;
 
 @end
 
@@ -624,7 +618,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedList_Node)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator 1
-#include "java/util/Spliterator.h"
+#include "../../java/util/Spliterator.h"
 
 @class JavaUtilLinkedList;
 @class JavaUtilLinkedList_Node;
@@ -642,8 +636,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedList_Node)
   jint expectedModCount_;
   jint batch_;
 }
-@property (readonly, class) jint BATCH_UNIT NS_SWIFT_NAME(BATCH_UNIT);
-@property (readonly, class) jint MAX_BATCH NS_SWIFT_NAME(MAX_BATCH);
 
 + (jint)BATCH_UNIT;
 
@@ -663,15 +655,15 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedList_Node)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilLinkedList:(JavaUtilLinkedList *)list
-                                             withInt:(jint)est
-                                             withInt:(jint)expectedModCount;
+- (instancetype)initWithJavaUtilLinkedList:(JavaUtilLinkedList *)list
+                                   withInt:(jint)est
+                                   withInt:(jint)expectedModCount;
 
 - (jint)getEst;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -698,10 +690,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedList_LLSpliterator)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilLinkedList")

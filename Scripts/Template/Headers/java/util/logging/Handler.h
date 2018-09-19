@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/logging/Handler.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilLoggingHandler")
 #ifdef RESTRICT_JavaUtilLoggingHandler
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaUtilLoggingHandler_) && (INCLUDE_ALL_JavaUtilLoggingHandler || defined(INCLUDE_JavaUtilLoggingHandler))
 #define JavaUtilLoggingHandler_
@@ -203,7 +197,7 @@
  A default <tt>ErrorManager</tt> instance is installed
   as the <tt>ErrorManager</tt>.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Protected convenience method to report an error to this Handler's
@@ -233,10 +227,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingHandler)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingHandler")

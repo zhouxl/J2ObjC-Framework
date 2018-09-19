@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/net/IDN.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetIDN")
 #ifdef RESTRICT_JavaNetIDN
@@ -16,12 +16,6 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNetIDN_) && (INCLUDE_ALL_JavaNetIDN || defined(INCLUDE_JavaNetIDN))
 #define JavaNetIDN_
 
@@ -32,8 +26,6 @@
  @since 1.6
  */
 @interface JavaNetIDN : NSObject
-@property (readonly, class) jint ALLOW_UNASSIGNED NS_SWIFT_NAME(ALLOW_UNASSIGNED);
-@property (readonly, class) jint USE_STD3_ASCII_RULES NS_SWIFT_NAME(USE_STD3_ASCII_RULES);
 
 + (jint)ALLOW_UNASSIGNED;
 
@@ -121,10 +113,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetIDN)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetIDN")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/Signature.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecuritySignature")
 #ifdef RESTRICT_JavaSecuritySignature
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecuritySignature_) && (INCLUDE_ALL_JavaSecuritySignature || defined(INCLUDE_JavaSecuritySignature))
 #define JavaSecuritySignature_
 
 #define RESTRICT_JavaSecuritySignatureSpi 1
 #define INCLUDE_JavaSecuritySignatureSpi 1
-#include "java/security/SignatureSpi.h"
+#include "../../java/security/SignatureSpi.h"
 
 @class IOSByteArray;
 @class JavaNioByteBuffer;
@@ -198,9 +192,6 @@
    */
   jint state_;
 }
-@property (readonly, class) jint UNINITIALIZED NS_SWIFT_NAME(UNINITIALIZED);
-@property (readonly, class) jint SIGN NS_SWIFT_NAME(SIGN);
-@property (readonly, class) jint VERIFY NS_SWIFT_NAME(VERIFY);
 
 + (jint)UNINITIALIZED;
 
@@ -562,7 +553,7 @@
    Java Cryptography Architecture Standard Algorithm Name Documentation
   </a>  for information about standard algorithm names.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)algorithm;
+- (instancetype)initWithNSString:(NSString *)algorithm;
 
 #pragma mark Package-Private
 
@@ -610,10 +601,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySignature)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySignature")

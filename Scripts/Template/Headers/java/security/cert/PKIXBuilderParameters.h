@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/cert/PKIXBuilderParameters.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityCertPKIXBuilderParameters")
 #ifdef RESTRICT_JavaSecurityCertPKIXBuilderParameters
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityCertPKIXBuilderParameters_) && (INCLUDE_ALL_JavaSecurityCertPKIXBuilderParameters || defined(INCLUDE_JavaSecurityCertPKIXBuilderParameters))
 #define JavaSecurityCertPKIXBuilderParameters_
 
 #define RESTRICT_JavaSecurityCertPKIXParameters 1
 #define INCLUDE_JavaSecurityCertPKIXParameters 1
-#include "java/security/cert/PKIXParameters.h"
+#include "../../../java/security/cert/PKIXParameters.h"
 
 @class JavaSecurityKeyStore;
 @protocol JavaSecurityCertCertSelector;
@@ -94,8 +88,8 @@
  @throw NullPointerExceptionif <code>keystore</code> is 
  <code>null</code>
  */
-- (instancetype __nonnull)initWithJavaSecurityKeyStore:(JavaSecurityKeyStore *)keystore
-                      withJavaSecurityCertCertSelector:(id<JavaSecurityCertCertSelector>)targetConstraints;
+- (instancetype)initWithJavaSecurityKeyStore:(JavaSecurityKeyStore *)keystore
+            withJavaSecurityCertCertSelector:(id<JavaSecurityCertCertSelector>)targetConstraints;
 
 /*!
  @brief Creates an instance of <code>PKIXBuilderParameters</code> with
@@ -116,8 +110,8 @@
  <code>trustAnchors</code> are not of type 
  <code>java.security.cert.TrustAnchor</code>
  */
-- (instancetype __nonnull)initWithJavaUtilSet:(id<JavaUtilSet>)trustAnchors
-             withJavaSecurityCertCertSelector:(id<JavaSecurityCertCertSelector>)targetConstraints;
+- (instancetype)initWithJavaUtilSet:(id<JavaUtilSet>)trustAnchors
+   withJavaSecurityCertCertSelector:(id<JavaSecurityCertCertSelector>)targetConstraints;
 
 /*!
  @brief Returns the value of the maximum number of intermediate non-self-issued
@@ -165,9 +159,9 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaSecurityKeyStore:(JavaSecurityKeyStore *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaSecurityKeyStore:(JavaSecurityKeyStore *)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaUtilSet:(id<JavaUtilSet>)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilSet:(id<JavaUtilSet>)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -189,10 +183,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertPKIXBuilderParameters)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertPKIXBuilderParameters")

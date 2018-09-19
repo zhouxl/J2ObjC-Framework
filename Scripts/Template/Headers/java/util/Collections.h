@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/Collections.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilCollections")
 #ifdef RESTRICT_JavaUtilCollections
@@ -60,12 +60,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaUtilCollections_) && (INCLUDE_ALL_JavaUtilCollections || defined(INCLUDE_JavaUtilCollections))
 #define JavaUtilCollections_
@@ -125,9 +119,6 @@
  @since 1.2
  */
 @interface JavaUtilCollections : NSObject
-@property (readonly, class, strong) id<JavaUtilSet> EMPTY_SET NS_SWIFT_NAME(EMPTY_SET);
-@property (readonly, class, strong) id<JavaUtilList> EMPTY_LIST NS_SWIFT_NAME(EMPTY_LIST);
-@property (readonly, class, strong) id<JavaUtilMap> EMPTY_MAP NS_SWIFT_NAME(EMPTY_MAP);
 
 + (id<JavaUtilSet>)EMPTY_SET;
 
@@ -1665,11 +1656,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections)
 
 #define RESTRICT_JavaUtilCollection 1
 #define INCLUDE_JavaUtilCollection 1
-#include "java/util/Collection.h"
+#include "../../java/util/Collection.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilFunctionConsumer;
@@ -1727,11 +1718,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -1754,11 +1745,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_UnmodifiableCollection)
 
 #define RESTRICT_JavaUtilSet 1
 #define INCLUDE_JavaUtilSet 1
-#include "java/util/Set.h"
+#include "../../java/util/Set.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @protocol JavaUtilCollection;
 
@@ -1774,11 +1765,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_UnmodifiableCollection)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilSet:(id<JavaUtilSet>)s;
+- (instancetype)initWithJavaUtilSet:(id<JavaUtilSet>)s;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -1799,11 +1790,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_UnmodifiableSet)
 
 #define RESTRICT_JavaUtilSortedSet 1
 #define INCLUDE_JavaUtilSortedSet 1
-#include "java/util/SortedSet.h"
+#include "../../java/util/SortedSet.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @protocol JavaUtilComparator;
 @protocol JavaUtilSet;
@@ -1829,11 +1820,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_UnmodifiableSet)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)s;
+- (instancetype)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)s;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilSet:(id<JavaUtilSet>)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilSet:(id<JavaUtilSet>)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -1854,7 +1845,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_UnmodifiableSortedSet)
 
 #define RESTRICT_JavaUtilList 1
 #define INCLUDE_JavaUtilList 1
-#include "java/util/List.h"
+#include "../../java/util/List.h"
 
 @protocol JavaUtilCollection;
 @protocol JavaUtilComparator;
@@ -1904,11 +1895,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_UnmodifiableSortedSet)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilList:(id<JavaUtilList>)list;
+- (instancetype)initWithJavaUtilList:(id<JavaUtilList>)list;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -1931,7 +1922,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_UnmodifiableList)
 
 #define RESTRICT_JavaUtilRandomAccess 1
 #define INCLUDE_JavaUtilRandomAccess 1
-#include "java/util/RandomAccess.h"
+#include "../../java/util/RandomAccess.h"
 
 @protocol JavaUtilList;
 
@@ -1946,7 +1937,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_UnmodifiableList)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilList:(id<JavaUtilList>)list;
+- (instancetype)initWithJavaUtilList:(id<JavaUtilList>)list;
 
 @end
 
@@ -1967,11 +1958,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_UnmodifiableRandomAccessList)
 
 #define RESTRICT_JavaUtilMap 1
 #define INCLUDE_JavaUtilMap 1
-#include "java/util/Map.h"
+#include "../../java/util/Map.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @protocol JavaUtilCollection;
 @protocol JavaUtilFunctionBiConsumer;
@@ -2051,7 +2042,7 @@ withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)remappingFunction
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)m;
+- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)m;
 
 @end
 
@@ -2072,11 +2063,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_UnmodifiableMap)
 
 #define RESTRICT_JavaUtilSortedMap 1
 #define INCLUDE_JavaUtilSortedMap 1
-#include "java/util/SortedMap.h"
+#include "../../java/util/SortedMap.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @protocol JavaUtilComparator;
 @protocol JavaUtilMap;
@@ -2102,11 +2093,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_UnmodifiableMap)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilSortedMap:(id<JavaUtilSortedMap>)m;
+- (instancetype)initWithJavaUtilSortedMap:(id<JavaUtilSortedMap>)m;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -2127,11 +2118,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_UnmodifiableSortedMap)
 
 #define RESTRICT_JavaUtilCollection 1
 #define INCLUDE_JavaUtilCollection 1
-#include "java/util/Collection.h"
+#include "../../java/util/Collection.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilFunctionConsumer;
@@ -2190,14 +2181,14 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_UnmodifiableSortedMap)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c
-                                              withId:(id)mutex;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c
+                                    withId:(id)mutex;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -2227,7 +2218,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedCollection)
 
 #define RESTRICT_JavaUtilSet 1
 #define INCLUDE_JavaUtilSet 1
-#include "java/util/Set.h"
+#include "../../java/util/Set.h"
 
 @protocol JavaUtilCollection;
 
@@ -2243,17 +2234,17 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedCollection)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilSet:(id<JavaUtilSet>)s;
+- (instancetype)initWithJavaUtilSet:(id<JavaUtilSet>)s;
 
-- (instancetype __nonnull)initWithJavaUtilSet:(id<JavaUtilSet>)s
-                                       withId:(id)mutex;
+- (instancetype)initWithJavaUtilSet:(id<JavaUtilSet>)s
+                             withId:(id)mutex;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0
-                                              withId:(id)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0
+                                    withId:(id)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -2280,7 +2271,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedSet)
 
 #define RESTRICT_JavaUtilSortedSet 1
 #define INCLUDE_JavaUtilSortedSet 1
-#include "java/util/SortedSet.h"
+#include "../../java/util/SortedSet.h"
 
 @protocol JavaUtilComparator;
 @protocol JavaUtilSet;
@@ -2306,17 +2297,17 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedSet)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)s;
+- (instancetype)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)s;
 
-- (instancetype __nonnull)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)s
-                                             withId:(id)mutex;
+- (instancetype)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)s
+                                   withId:(id)mutex;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilSet:(id<JavaUtilSet>)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilSet:(id<JavaUtilSet>)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaUtilSet:(id<JavaUtilSet>)arg0
-                                       withId:(id)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilSet:(id<JavaUtilSet>)arg0
+                             withId:(id)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -2343,7 +2334,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedSortedSet)
 
 #define RESTRICT_JavaUtilList 1
 #define INCLUDE_JavaUtilList 1
-#include "java/util/List.h"
+#include "../../java/util/List.h"
 
 @protocol JavaUtilCollection;
 @protocol JavaUtilComparator;
@@ -2393,17 +2384,17 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedSortedSet)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilList:(id<JavaUtilList>)list;
+- (instancetype)initWithJavaUtilList:(id<JavaUtilList>)list;
 
-- (instancetype __nonnull)initWithJavaUtilList:(id<JavaUtilList>)list
-                                        withId:(id)mutex;
+- (instancetype)initWithJavaUtilList:(id<JavaUtilList>)list
+                              withId:(id)mutex;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0
-                                              withId:(id)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0
+                                    withId:(id)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -2432,7 +2423,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedList)
 
 #define RESTRICT_JavaUtilRandomAccess 1
 #define INCLUDE_JavaUtilRandomAccess 1
-#include "java/util/RandomAccess.h"
+#include "../../java/util/RandomAccess.h"
 
 @protocol JavaUtilList;
 
@@ -2447,10 +2438,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedList)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilList:(id<JavaUtilList>)list;
+- (instancetype)initWithJavaUtilList:(id<JavaUtilList>)list;
 
-- (instancetype __nonnull)initWithJavaUtilList:(id<JavaUtilList>)list
-                                        withId:(id)mutex;
+- (instancetype)initWithJavaUtilList:(id<JavaUtilList>)list
+                              withId:(id)mutex;
 
 @end
 
@@ -2477,11 +2468,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedRandomAccessList)
 
 #define RESTRICT_JavaUtilMap 1
 #define INCLUDE_JavaUtilMap 1
-#include "java/util/Map.h"
+#include "../../java/util/Map.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @protocol JavaUtilCollection;
 @protocol JavaUtilFunctionBiConsumer;
@@ -2564,10 +2555,10 @@ withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)remappingFunction
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)m;
+- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)m;
 
-- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)m
-                                       withId:(id)mutex;
+- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)m
+                             withId:(id)mutex;
 
 @end
 
@@ -2596,7 +2587,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedMap)
 
 #define RESTRICT_JavaUtilSortedMap 1
 #define INCLUDE_JavaUtilSortedMap 1
-#include "java/util/SortedMap.h"
+#include "../../java/util/SortedMap.h"
 
 @protocol JavaUtilComparator;
 @protocol JavaUtilMap;
@@ -2622,17 +2613,17 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedMap)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilSortedMap:(id<JavaUtilSortedMap>)m;
+- (instancetype)initWithJavaUtilSortedMap:(id<JavaUtilSortedMap>)m;
 
-- (instancetype __nonnull)initWithJavaUtilSortedMap:(id<JavaUtilSortedMap>)m
-                                             withId:(id)mutex;
+- (instancetype)initWithJavaUtilSortedMap:(id<JavaUtilSortedMap>)m
+                                   withId:(id)mutex;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)arg0
-                                       withId:(id)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)arg0
+                             withId:(id)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -2659,11 +2650,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedSortedMap)
 
 #define RESTRICT_JavaUtilCollection 1
 #define INCLUDE_JavaUtilCollection 1
-#include "java/util/Collection.h"
+#include "../../java/util/Collection.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSClass;
 @class IOSObjectArray;
@@ -2723,8 +2714,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedSortedMap)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c
-                                        withIOSClass:(IOSClass *)type;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c
+                              withIOSClass:(IOSClass *)type;
 
 - (id<JavaUtilCollection>)checkedCopyOfWithJavaUtilCollection:(id<JavaUtilCollection>)coll;
 
@@ -2732,7 +2723,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedSortedMap)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -2756,11 +2747,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_CheckedCollection)
 
 #define RESTRICT_JavaUtilSet 1
 #define INCLUDE_JavaUtilSet 1
-#include "java/util/Set.h"
+#include "../../java/util/Set.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSClass;
 @protocol JavaUtilCollection;
@@ -2777,13 +2768,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_CheckedCollection)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilSet:(id<JavaUtilSet>)s
-                                 withIOSClass:(IOSClass *)elementType;
+- (instancetype)initWithJavaUtilSet:(id<JavaUtilSet>)s
+                       withIOSClass:(IOSClass *)elementType;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0
-                                        withIOSClass:(IOSClass *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0
+                              withIOSClass:(IOSClass *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -2804,11 +2795,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_CheckedSet)
 
 #define RESTRICT_JavaUtilSortedSet 1
 #define INCLUDE_JavaUtilSortedSet 1
-#include "java/util/SortedSet.h"
+#include "../../java/util/SortedSet.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSClass;
 @protocol JavaUtilComparator;
@@ -2835,13 +2826,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_CheckedSet)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)s
-                                       withIOSClass:(IOSClass *)type;
+- (instancetype)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)s
+                             withIOSClass:(IOSClass *)type;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilSet:(id<JavaUtilSet>)arg0
-                                 withIOSClass:(IOSClass *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilSet:(id<JavaUtilSet>)arg0
+                       withIOSClass:(IOSClass *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -2862,7 +2853,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_CheckedSortedSet)
 
 #define RESTRICT_JavaUtilList 1
 #define INCLUDE_JavaUtilList 1
-#include "java/util/List.h"
+#include "../../java/util/List.h"
 
 @class IOSClass;
 @protocol JavaUtilCollection;
@@ -2919,13 +2910,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_CheckedSortedSet)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilList:(id<JavaUtilList>)list
-                                  withIOSClass:(IOSClass *)type;
+- (instancetype)initWithJavaUtilList:(id<JavaUtilList>)list
+                        withIOSClass:(IOSClass *)type;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0
-                                        withIOSClass:(IOSClass *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0
+                              withIOSClass:(IOSClass *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -2948,7 +2939,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_CheckedList)
 
 #define RESTRICT_JavaUtilRandomAccess 1
 #define INCLUDE_JavaUtilRandomAccess 1
-#include "java/util/RandomAccess.h"
+#include "../../java/util/RandomAccess.h"
 
 @class IOSClass;
 @protocol JavaUtilList;
@@ -2964,8 +2955,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_CheckedList)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilList:(id<JavaUtilList>)list
-                                  withIOSClass:(IOSClass *)type;
+- (instancetype)initWithJavaUtilList:(id<JavaUtilList>)list
+                        withIOSClass:(IOSClass *)type;
 
 @end
 
@@ -2986,11 +2977,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_CheckedRandomAccessList)
 
 #define RESTRICT_JavaUtilMap 1
 #define INCLUDE_JavaUtilMap 1
-#include "java/util/Map.h"
+#include "../../java/util/Map.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSClass;
 @protocol JavaUtilCollection;
@@ -3072,9 +3063,9 @@ withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)remappingFunction
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)m
-                                 withIOSClass:(IOSClass *)keyType
-                                 withIOSClass:(IOSClass *)valueType;
+- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)m
+                       withIOSClass:(IOSClass *)keyType
+                       withIOSClass:(IOSClass *)valueType;
 
 @end
 
@@ -3098,11 +3089,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_CheckedMap)
 
 #define RESTRICT_JavaUtilSortedMap 1
 #define INCLUDE_JavaUtilSortedMap 1
-#include "java/util/SortedMap.h"
+#include "../../java/util/SortedMap.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSClass;
 @protocol JavaUtilComparator;
@@ -3129,15 +3120,15 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_CheckedMap)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilSortedMap:(id<JavaUtilSortedMap>)m
-                                       withIOSClass:(IOSClass *)keyType
-                                       withIOSClass:(IOSClass *)valueType;
+- (instancetype)initWithJavaUtilSortedMap:(id<JavaUtilSortedMap>)m
+                             withIOSClass:(IOSClass *)keyType
+                             withIOSClass:(IOSClass *)valueType;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)arg0
-                                 withIOSClass:(IOSClass *)arg1
-                                 withIOSClass:(IOSClass *)arg2 NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)arg0
+                       withIOSClass:(IOSClass *)arg1
+                       withIOSClass:(IOSClass *)arg2 NS_UNAVAILABLE;
 
 @end
 
@@ -3158,15 +3149,15 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_CheckedSortedMap)
 
 #define RESTRICT_JavaUtilAbstractQueue 1
 #define INCLUDE_JavaUtilAbstractQueue 1
-#include "java/util/AbstractQueue.h"
+#include "../../java/util/AbstractQueue.h"
 
 #define RESTRICT_JavaUtilQueue 1
 #define INCLUDE_JavaUtilQueue 1
-#include "java/util/Queue.h"
+#include "../../java/util/Queue.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilCollection;
@@ -3231,11 +3222,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_CheckedSortedMap)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilDeque:(id<JavaUtilDeque>)q;
+- (instancetype)initWithJavaUtilDeque:(id<JavaUtilDeque>)q;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -3251,10 +3242,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_AsLIFOQueue)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilCollections")

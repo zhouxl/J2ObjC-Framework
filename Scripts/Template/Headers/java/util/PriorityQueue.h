@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/PriorityQueue.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilPriorityQueue")
 #ifdef RESTRICT_JavaUtilPriorityQueue
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilPriorityQueue_) && (INCLUDE_ALL_JavaUtilPriorityQueue || defined(INCLUDE_JavaUtilPriorityQueue))
 #define JavaUtilPriorityQueue_
 
 #define RESTRICT_JavaUtilAbstractQueue 1
 #define INCLUDE_JavaUtilAbstractQueue 1
-#include "java/util/AbstractQueue.h"
+#include "../../java/util/AbstractQueue.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilCollection;
@@ -117,7 +111,7 @@
   capacity (11) that orders its elements according to their 
  ordering.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a <code>PriorityQueue</code> containing the elements in the
@@ -133,7 +127,7 @@
  @throw NullPointerExceptionif the specified collection or any
           of its elements are null
  */
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Creates a <code>PriorityQueue</code> with the default initial capacity and
@@ -143,7 +137,7 @@
    of the elements will be used.
  @since 1.8
  */
-- (instancetype __nonnull)initWithJavaUtilComparator:(id<JavaUtilComparator>)comparator;
+- (instancetype)initWithJavaUtilComparator:(id<JavaUtilComparator>)comparator;
 
 /*!
  @brief Creates a <code>PriorityQueue</code> with the specified initial
@@ -153,7 +147,7 @@
  @throw IllegalArgumentExceptionif <code>initialCapacity</code> is less
           than 1
  */
-- (instancetype __nonnull)initWithInt:(jint)initialCapacity;
+- (instancetype)initWithInt:(jint)initialCapacity;
 
 /*!
  @brief Creates a <code>PriorityQueue</code> with the specified initial capacity
@@ -165,8 +159,8 @@
  @throw IllegalArgumentExceptionif <code>initialCapacity</code> is
           less than 1
  */
-- (instancetype __nonnull)initWithInt:(jint)initialCapacity
-               withJavaUtilComparator:(id<JavaUtilComparator>)comparator;
+- (instancetype)initWithInt:(jint)initialCapacity
+     withJavaUtilComparator:(id<JavaUtilComparator>)comparator;
 
 /*!
  @brief Creates a <code>PriorityQueue</code> containing the elements in the
@@ -180,7 +174,7 @@
  @throw NullPointerExceptionif the specified priority queue or any
           of its elements are null
  */
-- (instancetype __nonnull)initWithJavaUtilPriorityQueue:(JavaUtilPriorityQueue *)c;
+- (instancetype)initWithJavaUtilPriorityQueue:(JavaUtilPriorityQueue *)c;
 
 /*!
  @brief Creates a <code>PriorityQueue</code> containing the elements in the
@@ -193,7 +187,7 @@
  @throw NullPointerExceptionif the specified sorted set or any
           of its elements are null
  */
-- (instancetype __nonnull)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)c;
+- (instancetype)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)c;
 
 /*!
  @brief Inserts the specified element into this priority queue.
@@ -406,7 +400,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilPriorityQueue)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator 1
-#include "java/util/Spliterator.h"
+#include "../../java/util/Spliterator.h"
 
 @class JavaUtilPriorityQueue;
 @protocol JavaUtilComparator;
@@ -431,14 +425,14 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilPriorityQueue)
 /*!
  @brief Creates new spliterator covering the given range.
  */
-- (instancetype __nonnull)initWithJavaUtilPriorityQueue:(JavaUtilPriorityQueue *)pq
-                                                withInt:(jint)origin
-                                                withInt:(jint)fence
-                                                withInt:(jint)expectedModCount;
+- (instancetype)initWithJavaUtilPriorityQueue:(JavaUtilPriorityQueue *)pq
+                                      withInt:(jint)origin
+                                      withInt:(jint)fence
+                                      withInt:(jint)expectedModCount;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -454,10 +448,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilPriorityQueue_PriorityQueueSpliterator)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilPriorityQueue")

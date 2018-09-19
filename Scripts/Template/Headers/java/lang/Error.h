@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/Error.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangError")
 #ifdef RESTRICT_JavaLangError
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangError_) && (INCLUDE_ALL_JavaLangError || defined(INCLUDE_JavaLangError))
 #define JavaLangError_
 
 #define RESTRICT_JavaLangThrowable 1
 #define INCLUDE_JavaLangThrowable 1
-#include "java/lang/Throwable.h"
+#include "../../java/lang/Throwable.h"
 
 /*!
  @brief An <code>Error</code> is a subclass of <code>Throwable</code>
@@ -48,7 +42,6 @@
  @since JDK1.0
  */
 @interface JavaLangError : JavaLangThrowable
-@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jlong)serialVersionUID;
 
@@ -59,7 +52,7 @@
  The cause is not initialized, and may subsequently be initialized by a
   call to <code>initCause</code>.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a new error with the specified detail message.The
@@ -68,7 +61,7 @@
  @param message the detail message. The detail message is saved for           later retrieval by the 
  <code>getMessage()</code>  method.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message;
+- (instancetype)initWithNSString:(NSString *)message;
 
 /*!
  @brief Constructs a new error with the specified detail message and
@@ -83,8 +76,8 @@
            unknown.)
  @since 1.4
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)message
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a new error with the specified cause and a detail
@@ -98,7 +91,7 @@
            unknown.)
  @since 1.4
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 #pragma mark Protected
 
@@ -113,10 +106,10 @@
  @param writableStackTrace whether or not the stack trace should                            be writable
  @since 1.7
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                     withJavaLangThrowable:(JavaLangThrowable *)cause
-                               withBoolean:(jboolean)enableSuppression
-                               withBoolean:(jboolean)writableStackTrace;
+- (instancetype)initWithNSString:(NSString *)message
+           withJavaLangThrowable:(JavaLangThrowable *)cause
+                     withBoolean:(jboolean)enableSuppression
+                     withBoolean:(jboolean)writableStackTrace;
 
 @end
 
@@ -160,10 +153,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangError)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangError")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/Boolean.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangBoolean")
 #ifdef RESTRICT_JavaLangBoolean
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangBoolean_) && (INCLUDE_ALL_JavaLangBoolean || defined(INCLUDE_JavaLangBoolean))
 #define JavaLangBoolean_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 #define RESTRICT_JavaLangComparable 1
 #define INCLUDE_JavaLangComparable 1
-#include "java/lang/Comparable.h"
+#include "../../java/lang/Comparable.h"
 
 @class IOSClass;
 
@@ -50,9 +44,6 @@
  @since JDK1.0
  */
 @interface JavaLangBoolean : NSObject < JavaIoSerializable, JavaLangComparable >
-@property (readonly, class, strong) JavaLangBoolean *TRUE_ NS_SWIFT_NAME(TRUE_);
-@property (readonly, class, strong) JavaLangBoolean *FALSE_ NS_SWIFT_NAME(FALSE_);
-@property (readonly, class, strong) IOSClass *TYPE NS_SWIFT_NAME(TYPE);
 
 + (JavaLangBoolean *)TRUE_;
 
@@ -71,7 +62,7 @@
   likely to yield significantly better space and time performance.</b>
  @param value the value of the <code>Boolean</code> .
  */
-- (instancetype __nonnull)initWithBoolean:(jboolean)value;
+- (instancetype)initWithBoolean:(jboolean)value;
 
 /*!
  @brief Allocates a <code>Boolean</code> object representing the value 
@@ -85,7 +76,7 @@
   that represents <code>false</code>.
  @param s the string to be converted to a <code>Boolean</code> .
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s;
+- (instancetype)initWithNSString:(NSString *)s;
 
 /*!
  @brief Returns the value of this <code>Boolean</code> object as a boolean
@@ -229,7 +220,7 @@
   string equal to <code>"false"</code> is returned.
  @return a string representation of this object.
  */
-- (NSString * __nonnull)description;
+- (NSString *)description;
 
 /*!
  @brief Returns a <code>String</code> object representing the specified
@@ -240,7 +231,7 @@
  @return the string representation of the specified <code>boolean</code>
  @since 1.4
  */
-+ (NSString * __nonnull)toStringWithBoolean:(jboolean)b;
++ (NSString *)toStringWithBoolean:(jboolean)b;
 
 /*!
  @brief Returns a <code>Boolean</code> instance representing the specified 
@@ -255,7 +246,7 @@
  @return a <code>Boolean</code> instance representing <code>b</code>.
  @since 1.4
  */
-+ (JavaLangBoolean * __nonnull)valueOfWithBoolean:(jboolean)b;
++ (JavaLangBoolean *)valueOfWithBoolean:(jboolean)b;
 
 /*!
  @brief Returns a <code>Boolean</code> with a value represented by the
@@ -265,11 +256,11 @@
  @param s a string.
  @return the <code>Boolean</code> value represented by the string.
  */
-+ (JavaLangBoolean * __nonnull)valueOfWithNSString:(NSString *)s;
++ (JavaLangBoolean *)valueOfWithNSString:(NSString *)s;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -340,10 +331,6 @@ BOXED_INC_AND_DEC(Boolean, booleanValue, JavaLangBoolean)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangBoolean")

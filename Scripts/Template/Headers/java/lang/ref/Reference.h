@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/ref/Reference.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangRefReference")
 #ifdef RESTRICT_JavaLangRefReference
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaLangRefReference_) && (INCLUDE_ALL_JavaLangRefReference || defined(INCLUDE_JavaLangRefReference))
 #define JavaLangRefReference_
@@ -98,10 +92,10 @@
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithId:(id)referent;
+- (instancetype)initWithId:(id)referent;
 
-- (instancetype __nonnull)initWithId:(id)referent
-       withJavaLangRefReferenceQueue:(JavaLangRefReferenceQueue *)queue;
+- (instancetype)initWithId:(id)referent
+withJavaLangRefReferenceQueue:(JavaLangRefReferenceQueue *)queue;
 
 @end
 
@@ -118,10 +112,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangRefReference)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangRefReference")

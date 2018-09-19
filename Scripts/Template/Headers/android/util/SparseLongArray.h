@@ -3,7 +3,7 @@
 //  source: android/frameworks/base/core/java/android/util/SparseLongArray.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_AndroidUtilSparseLongArray")
 #ifdef RESTRICT_AndroidUtilSparseLongArray
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (AndroidUtilSparseLongArray_) && (INCLUDE_ALL_AndroidUtilSparseLongArray || defined(INCLUDE_AndroidUtilSparseLongArray))
 #define AndroidUtilSparseLongArray_
@@ -53,7 +47,7 @@
 /*!
  @brief Creates a new SparseLongArray containing no mappings.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a new SparseLongArray containing no mappings that will not
@@ -62,7 +56,7 @@
   sparse array will be initialized with a light-weight representation
   not requiring any additional array allocations.
  */
-- (instancetype __nonnull)initWithInt:(jint)initialCapacity;
+- (instancetype)initWithInt:(jint)initialCapacity;
 
 /*!
  @brief Puts a key/value pair into the array, optimizing for the case where
@@ -180,10 +174,6 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilSparseLongArray)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidUtilSparseLongArray")

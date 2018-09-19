@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/sql/Connection.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSqlConnection")
 #ifdef RESTRICT_JavaSqlConnection
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSqlConnection_) && (INCLUDE_ALL_JavaSqlConnection || defined(INCLUDE_JavaSqlConnection))
 #define JavaSqlConnection_
 
 #define RESTRICT_JavaSqlWrapper 1
 #define INCLUDE_JavaSqlWrapper 1
-#include "java/sql/Wrapper.h"
+#include "../../java/sql/Wrapper.h"
 
 #define RESTRICT_JavaLangAutoCloseable 1
 #define INCLUDE_JavaLangAutoCloseable 1
-#include "java/lang/AutoCloseable.h"
+#include "../../java/lang/AutoCloseable.h"
 
 @class IOSIntArray;
 @class IOSObjectArray;
@@ -1215,11 +1209,6 @@
 @end
 
 @interface JavaSqlConnection : NSObject
-@property (readonly, class) jint TRANSACTION_NONE NS_SWIFT_NAME(TRANSACTION_NONE);
-@property (readonly, class) jint TRANSACTION_READ_UNCOMMITTED NS_SWIFT_NAME(TRANSACTION_READ_UNCOMMITTED);
-@property (readonly, class) jint TRANSACTION_READ_COMMITTED NS_SWIFT_NAME(TRANSACTION_READ_COMMITTED);
-@property (readonly, class) jint TRANSACTION_REPEATABLE_READ NS_SWIFT_NAME(TRANSACTION_REPEATABLE_READ);
-@property (readonly, class) jint TRANSACTION_SERIALIZABLE NS_SWIFT_NAME(TRANSACTION_SERIALIZABLE);
 
 + (jint)TRANSACTION_NONE;
 
@@ -1297,10 +1286,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlConnection)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSqlConnection")

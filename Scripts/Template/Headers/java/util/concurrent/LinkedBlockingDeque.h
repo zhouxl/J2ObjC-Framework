@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/LinkedBlockingDeque.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentLinkedBlockingDeque")
 #ifdef RESTRICT_JavaUtilConcurrentLinkedBlockingDeque
@@ -16,26 +16,20 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentLinkedBlockingDeque_) && (INCLUDE_ALL_JavaUtilConcurrentLinkedBlockingDeque || defined(INCLUDE_JavaUtilConcurrentLinkedBlockingDeque))
 #define JavaUtilConcurrentLinkedBlockingDeque_
 
 #define RESTRICT_JavaUtilAbstractQueue 1
 #define INCLUDE_JavaUtilAbstractQueue 1
-#include "java/util/AbstractQueue.h"
+#include "../../../java/util/AbstractQueue.h"
 
 #define RESTRICT_JavaUtilConcurrentBlockingDeque 1
 #define INCLUDE_JavaUtilConcurrentBlockingDeque 1
-#include "java/util/concurrent/BlockingDeque.h"
+#include "../../../java/util/concurrent/BlockingDeque.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaUtilConcurrentLinkedBlockingDeque_Node;
@@ -91,7 +85,7 @@
  @brief Creates a <code>LinkedBlockingDeque</code> with a capacity of 
  <code>Integer.MAX_VALUE</code>.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a <code>LinkedBlockingDeque</code> with a capacity of 
@@ -102,14 +96,14 @@
  @throw NullPointerExceptionif the specified collection or any
           of its elements are null
  */
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Creates a <code>LinkedBlockingDeque</code> with the given (fixed) capacity.
  @param capacity the capacity of this deque
  @throw IllegalArgumentExceptionif <code>capacity</code> is less than 1
  */
-- (instancetype __nonnull)initWithInt:(jint)capacity;
+- (instancetype)initWithInt:(jint)capacity;
 
 /*!
  @brief Inserts the specified element at the end of this deque unless it would
@@ -483,11 +477,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingDeque)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithId:(id)x;
+- (instancetype)initWithId:(id)x;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -512,7 +506,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingDeque_Node)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator 1
-#include "java/util/Spliterator.h"
+#include "../../../java/util/Spliterator.h"
 
 @class JavaUtilConcurrentLinkedBlockingDeque;
 @class JavaUtilConcurrentLinkedBlockingDeque_Node;
@@ -530,7 +524,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingDeque_Node)
   jboolean exhausted_;
   jlong est_;
 }
-@property (readonly, class) jint MAX_BATCH NS_SWIFT_NAME(MAX_BATCH);
 
 + (jint)MAX_BATCH;
 
@@ -548,11 +541,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingDeque_Node)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentLinkedBlockingDeque:(JavaUtilConcurrentLinkedBlockingDeque *)queue;
+- (instancetype)initWithJavaUtilConcurrentLinkedBlockingDeque:(JavaUtilConcurrentLinkedBlockingDeque *)queue;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -575,10 +568,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingDeque_LBDSpliterator)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentLinkedBlockingDeque")

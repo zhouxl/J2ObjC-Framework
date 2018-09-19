@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/atomic/AtomicStampedReference.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicStampedReference")
 #ifdef RESTRICT_JavaUtilConcurrentAtomicAtomicStampedReference
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaUtilConcurrentAtomicAtomicStampedReference_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicStampedReference || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicStampedReference))
 #define JavaUtilConcurrentAtomicAtomicStampedReference_
@@ -46,8 +40,8 @@
  @param initialRef the initial reference
  @param initialStamp the initial stamp
  */
-- (instancetype __nonnull)initWithId:(id)initialRef
-                             withInt:(jint)initialStamp;
+- (instancetype)initWithId:(id)initialRef
+                   withInt:(jint)initialStamp;
 
 /*!
  @brief Atomically sets the value of the stamp to the given update value
@@ -130,7 +124,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -146,10 +140,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicStampedReference)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicStampedReference")

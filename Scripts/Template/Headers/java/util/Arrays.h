@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/Arrays.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilArrays")
 #ifdef RESTRICT_JavaUtilArrays
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaUtilArrays_) && (INCLUDE_ALL_JavaUtilArrays || defined(INCLUDE_JavaUtilArrays))
 #define JavaUtilArrays_
@@ -77,7 +71,6 @@
  @since 1.2
  */
 @interface JavaUtilArrays : NSObject
-@property (readonly, class) jint MIN_ARRAY_SORT_GRAN NS_SWIFT_NAME(MIN_ARRAY_SORT_GRAN);
 
 + (jint)MIN_ARRAY_SORT_GRAN;
 
@@ -3510,7 +3503,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilArrays)
 
 #define RESTRICT_JavaUtilComparator 1
 #define INCLUDE_JavaUtilComparator 1
-#include "java/util/Comparator.h"
+#include "../../java/util/Comparator.h"
 
 @protocol JavaUtilFunctionFunction;
 @protocol JavaUtilFunctionToDoubleFunction;
@@ -3533,7 +3526,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilArrays)
   based implementation.
  */
 @interface JavaUtilArrays_NaturalOrder : NSObject < JavaUtilComparator >
-@property (readonly, class, strong) JavaUtilArrays_NaturalOrder *INSTANCE NS_SWIFT_NAME(INSTANCE);
 
 + (JavaUtilArrays_NaturalOrder *)INSTANCE;
 
@@ -3544,7 +3536,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilArrays)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -3578,7 +3570,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilArrays_NaturalOrder)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -3594,10 +3586,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilArrays_LegacyMergeSort)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilArrays")

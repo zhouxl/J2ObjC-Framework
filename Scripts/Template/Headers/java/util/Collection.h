@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/Collection.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilCollection")
 #ifdef RESTRICT_JavaUtilCollection
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilCollection_) && (INCLUDE_ALL_JavaUtilCollection || defined(INCLUDE_JavaUtilCollection))
 #define JavaUtilCollection_
 
 #define RESTRICT_JavaLangIterable 1
 #define INCLUDE_JavaLangIterable 1
-#include "java/lang/Iterable.h"
+#include "../../java/lang/Iterable.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilFunctionPredicate;
@@ -506,10 +500,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollection)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilCollection")

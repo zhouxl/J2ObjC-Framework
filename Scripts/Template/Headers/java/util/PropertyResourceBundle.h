@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/PropertyResourceBundle.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilPropertyResourceBundle")
 #ifdef RESTRICT_JavaUtilPropertyResourceBundle
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilPropertyResourceBundle_) && (INCLUDE_ALL_JavaUtilPropertyResourceBundle || defined(INCLUDE_JavaUtilPropertyResourceBundle))
 #define JavaUtilPropertyResourceBundle_
 
 #define RESTRICT_JavaUtilResourceBundle 1
 #define INCLUDE_JavaUtilResourceBundle 1
-#include "java/util/ResourceBundle.h"
+#include "../../java/util/ResourceBundle.h"
 
 @class JavaIoInputStream;
 @class JavaIoReader;
@@ -109,7 +103,7 @@
  @throw IOExceptionif an I/O error occurs
  @throw NullPointerExceptionif <code>stream</code> is null
  */
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)stream;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)stream;
 
 /*!
  @brief Creates a property resource bundle from a <code>Reader</code>
@@ -121,7 +115,7 @@
  @throw NullPointerExceptionif <code>reader</code> is null
  @since 1.6
  */
-- (instancetype __nonnull)initWithJavaIoReader:(JavaIoReader *)reader;
+- (instancetype)initWithJavaIoReader:(JavaIoReader *)reader;
 
 /*!
  @brief Returns an <code>Enumeration</code> of the keys contained in
@@ -148,7 +142,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -170,10 +164,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilPropertyResourceBundle)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilPropertyResourceBundle")

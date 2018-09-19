@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/nio/charset/CharsetDecoder.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNioCharsetCharsetDecoder")
 #ifdef RESTRICT_JavaNioCharsetCharsetDecoder
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaNioCharsetCharsetDecoder_) && (INCLUDE_ALL_JavaNioCharsetCharsetDecoder || defined(INCLUDE_JavaNioCharsetCharsetDecoder))
 #define JavaNioCharsetCharsetDecoder_
@@ -418,9 +412,9 @@
  @throw IllegalArgumentException
  If the preconditions on the parameters do not hold
  */
-- (instancetype __nonnull)initWithJavaNioCharsetCharset:(JavaNioCharsetCharset *)cs
-                                              withFloat:(jfloat)averageCharsPerByte
-                                              withFloat:(jfloat)maxCharsPerByte;
+- (instancetype)initWithJavaNioCharsetCharset:(JavaNioCharsetCharset *)cs
+                                    withFloat:(jfloat)averageCharsPerByte
+                                    withFloat:(jfloat)maxCharsPerByte;
 
 /*!
  @brief Decodes one or more bytes into one or more characters.
@@ -505,10 +499,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetCharsetDecoder)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioCharsetCharsetDecoder")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/IllegalFormatWidthException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilIllegalFormatWidthException")
 #ifdef RESTRICT_JavaUtilIllegalFormatWidthException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilIllegalFormatWidthException_) && (INCLUDE_ALL_JavaUtilIllegalFormatWidthException || defined(INCLUDE_JavaUtilIllegalFormatWidthException))
 #define JavaUtilIllegalFormatWidthException_
 
 #define RESTRICT_JavaUtilIllegalFormatException 1
 #define INCLUDE_JavaUtilIllegalFormatException 1
-#include "java/util/IllegalFormatException.h"
+#include "../../java/util/IllegalFormatException.h"
 
 /*!
  @brief Unchecked exception thrown when the format width is a negative value other
@@ -42,7 +36,7 @@
  @brief Constructs an instance of this class with the specified width.
  @param w The width
  */
-- (instancetype __nonnull)initWithInt:(jint)w;
+- (instancetype)initWithInt:(jint)w;
 
 - (NSString *)getMessage;
 
@@ -54,7 +48,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -70,10 +64,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIllegalFormatWidthException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilIllegalFormatWidthException")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/net/HttpURLConnection.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetHttpURLConnection")
 #ifdef RESTRICT_JavaNetHttpURLConnection
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNetHttpURLConnection_) && (INCLUDE_ALL_JavaNetHttpURLConnection || defined(INCLUDE_JavaNetHttpURLConnection))
 #define JavaNetHttpURLConnection_
 
 #define RESTRICT_JavaNetURLConnection 1
 #define INCLUDE_JavaNetURLConnection 1
-#include "java/net/URLConnection.h"
+#include "../../java/net/URLConnection.h"
 
 @class JavaIoInputStream;
 @class JavaNetURL;
@@ -325,42 +319,6 @@
    */
   jboolean instanceFollowRedirects_;
 }
-@property (readonly, class) jint HTTP_OK NS_SWIFT_NAME(HTTP_OK);
-@property (readonly, class) jint HTTP_CREATED NS_SWIFT_NAME(HTTP_CREATED);
-@property (readonly, class) jint HTTP_ACCEPTED NS_SWIFT_NAME(HTTP_ACCEPTED);
-@property (readonly, class) jint HTTP_NOT_AUTHORITATIVE NS_SWIFT_NAME(HTTP_NOT_AUTHORITATIVE);
-@property (readonly, class) jint HTTP_NO_CONTENT NS_SWIFT_NAME(HTTP_NO_CONTENT);
-@property (readonly, class) jint HTTP_RESET NS_SWIFT_NAME(HTTP_RESET);
-@property (readonly, class) jint HTTP_PARTIAL NS_SWIFT_NAME(HTTP_PARTIAL);
-@property (readonly, class) jint HTTP_MULT_CHOICE NS_SWIFT_NAME(HTTP_MULT_CHOICE);
-@property (readonly, class) jint HTTP_MOVED_PERM NS_SWIFT_NAME(HTTP_MOVED_PERM);
-@property (readonly, class) jint HTTP_MOVED_TEMP NS_SWIFT_NAME(HTTP_MOVED_TEMP);
-@property (readonly, class) jint HTTP_SEE_OTHER NS_SWIFT_NAME(HTTP_SEE_OTHER);
-@property (readonly, class) jint HTTP_NOT_MODIFIED NS_SWIFT_NAME(HTTP_NOT_MODIFIED);
-@property (readonly, class) jint HTTP_USE_PROXY NS_SWIFT_NAME(HTTP_USE_PROXY);
-@property (readonly, class) jint HTTP_BAD_REQUEST NS_SWIFT_NAME(HTTP_BAD_REQUEST);
-@property (readonly, class) jint HTTP_UNAUTHORIZED NS_SWIFT_NAME(HTTP_UNAUTHORIZED);
-@property (readonly, class) jint HTTP_PAYMENT_REQUIRED NS_SWIFT_NAME(HTTP_PAYMENT_REQUIRED);
-@property (readonly, class) jint HTTP_FORBIDDEN NS_SWIFT_NAME(HTTP_FORBIDDEN);
-@property (readonly, class) jint HTTP_NOT_FOUND NS_SWIFT_NAME(HTTP_NOT_FOUND);
-@property (readonly, class) jint HTTP_BAD_METHOD NS_SWIFT_NAME(HTTP_BAD_METHOD);
-@property (readonly, class) jint HTTP_NOT_ACCEPTABLE NS_SWIFT_NAME(HTTP_NOT_ACCEPTABLE);
-@property (readonly, class) jint HTTP_PROXY_AUTH NS_SWIFT_NAME(HTTP_PROXY_AUTH);
-@property (readonly, class) jint HTTP_CLIENT_TIMEOUT NS_SWIFT_NAME(HTTP_CLIENT_TIMEOUT);
-@property (readonly, class) jint HTTP_CONFLICT NS_SWIFT_NAME(HTTP_CONFLICT);
-@property (readonly, class) jint HTTP_GONE NS_SWIFT_NAME(HTTP_GONE);
-@property (readonly, class) jint HTTP_LENGTH_REQUIRED NS_SWIFT_NAME(HTTP_LENGTH_REQUIRED);
-@property (readonly, class) jint HTTP_PRECON_FAILED NS_SWIFT_NAME(HTTP_PRECON_FAILED);
-@property (readonly, class) jint HTTP_ENTITY_TOO_LARGE NS_SWIFT_NAME(HTTP_ENTITY_TOO_LARGE);
-@property (readonly, class) jint HTTP_REQ_TOO_LONG NS_SWIFT_NAME(HTTP_REQ_TOO_LONG);
-@property (readonly, class) jint HTTP_UNSUPPORTED_TYPE NS_SWIFT_NAME(HTTP_UNSUPPORTED_TYPE);
-@property (readonly, class) jint HTTP_SERVER_ERROR NS_SWIFT_NAME(HTTP_SERVER_ERROR);
-@property (readonly, class) jint HTTP_INTERNAL_ERROR NS_SWIFT_NAME(HTTP_INTERNAL_ERROR);
-@property (readonly, class) jint HTTP_NOT_IMPLEMENTED NS_SWIFT_NAME(HTTP_NOT_IMPLEMENTED);
-@property (readonly, class) jint HTTP_BAD_GATEWAY NS_SWIFT_NAME(HTTP_BAD_GATEWAY);
-@property (readonly, class) jint HTTP_UNAVAILABLE NS_SWIFT_NAME(HTTP_UNAVAILABLE);
-@property (readonly, class) jint HTTP_GATEWAY_TIMEOUT NS_SWIFT_NAME(HTTP_GATEWAY_TIMEOUT);
-@property (readonly, class) jint HTTP_VERSION NS_SWIFT_NAME(HTTP_VERSION);
 
 + (jint)HTTP_OK;
 
@@ -715,7 +673,7 @@
  @brief Constructor for the HttpURLConnection.
  @param u the URL
  */
-- (instancetype __nonnull)initWithJavaNetURL:(JavaNetURL *)u;
+- (instancetype)initWithJavaNetURL:(JavaNetURL *)u;
 
 @end
 
@@ -986,10 +944,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetHttpURLConnection)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetHttpURLConnection")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/atomic/AtomicLong.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLong")
 #ifdef RESTRICT_JavaUtilConcurrentAtomicAtomicLong
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentAtomicAtomicLong_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLong || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicLong))
 #define JavaUtilConcurrentAtomicAtomicLong_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../../java/io/Serializable.h"
 
 @protocol JavaUtilFunctionLongBinaryOperator;
 @protocol JavaUtilFunctionLongUnaryOperator;
@@ -46,7 +40,6 @@
  @author Doug Lea
  */
 @interface JavaUtilConcurrentAtomicAtomicLong : NSNumber < JavaIoSerializable >
-@property (readonly, class) jboolean VM_SUPPORTS_LONG_CAS NS_SWIFT_NAME(VM_SUPPORTS_LONG_CAS);
 
 + (jboolean)VM_SUPPORTS_LONG_CAS;
 
@@ -55,13 +48,13 @@
 /*!
  @brief Creates a new AtomicLong with initial value <code>0</code>.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a new AtomicLong with the given initial value.
  @param initialValue the initial value
  */
-- (instancetype __nonnull)initWithLong:(jlong)initialValue;
+- (instancetype)initWithLong:(jlong)initialValue;
 
 /*!
  @brief Atomically updates the current value with the results of
@@ -274,10 +267,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicLong)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLong")

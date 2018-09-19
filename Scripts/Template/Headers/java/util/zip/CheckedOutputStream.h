@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/zip/CheckedOutputStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilZipCheckedOutputStream")
 #ifdef RESTRICT_JavaUtilZipCheckedOutputStream
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilZipCheckedOutputStream_) && (INCLUDE_ALL_JavaUtilZipCheckedOutputStream || defined(INCLUDE_JavaUtilZipCheckedOutputStream))
 #define JavaUtilZipCheckedOutputStream_
 
 #define RESTRICT_JavaIoFilterOutputStream 1
 #define INCLUDE_JavaIoFilterOutputStream 1
-#include "java/io/FilterOutputStream.h"
+#include "../../../java/io/FilterOutputStream.h"
 
 @class IOSByteArray;
 @class JavaIoOutputStream;
@@ -49,8 +43,8 @@
  @param outArg the output stream
  @param cksum the checksum
  */
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-                             withJavaUtilZipChecksum:(id<JavaUtilZipChecksum>)cksum;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+                   withJavaUtilZipChecksum:(id<JavaUtilZipChecksum>)cksum;
 
 /*!
  @brief Returns the Checksum for this output stream.
@@ -79,7 +73,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -95,10 +89,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipCheckedOutputStream)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilZipCheckedOutputStream")

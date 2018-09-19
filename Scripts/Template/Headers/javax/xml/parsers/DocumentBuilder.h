@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/javax/xml/parsers/DocumentBuilder.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxXmlParsersDocumentBuilder")
 #ifdef RESTRICT_JavaxXmlParsersDocumentBuilder
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaxXmlParsersDocumentBuilder_) && (INCLUDE_ALL_JavaxXmlParsersDocumentBuilder || defined(INCLUDE_JavaxXmlParsersDocumentBuilder))
 #define JavaxXmlParsersDocumentBuilder_
@@ -225,7 +219,7 @@
 /*!
  @brief Protected constructor
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -237,10 +231,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlParsersDocumentBuilder)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlParsersDocumentBuilder")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/javax/xml/xpath/XPathFunctionException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxXmlXpathXPathFunctionException")
 #ifdef RESTRICT_JavaxXmlXpathXPathFunctionException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxXmlXpathXPathFunctionException_) && (INCLUDE_ALL_JavaxXmlXpathXPathFunctionException || defined(INCLUDE_JavaxXmlXpathXPathFunctionException))
 #define JavaxXmlXpathXPathFunctionException_
 
 #define RESTRICT_JavaxXmlXpathXPathExpressionException 1
 #define INCLUDE_JavaxXmlXpathXPathExpressionException 1
-#include "javax/xml/xpath/XPathExpressionException.h"
+#include "../../../javax/xml/xpath/XPathExpressionException.h"
 
 @class JavaLangThrowable;
 
@@ -52,7 +46,7 @@
  <p>If <code>message</code> is <code>null</code>, then a <code>NullPointerException</code> is thrown.</p>
  @param message The detail message.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message;
+- (instancetype)initWithNSString:(NSString *)message;
 
 /*!
  @brief <p>Constructs a new <code>XPathFunctionException</code> with the specified <code>cause</code>.
@@ -62,7 +56,7 @@
  @param cause The cause.
  @throw NullPointerExceptionif <code>cause</code> is <code>null</code>.
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 @end
 
@@ -84,10 +78,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathFunctionException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlXpathXPathFunctionException")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/text/DateFormatSymbols.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaTextDateFormatSymbols")
 #ifdef RESTRICT_JavaTextDateFormatSymbols
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaTextDateFormatSymbols_) && (INCLUDE_ALL_JavaTextDateFormatSymbols || defined(INCLUDE_JavaTextDateFormatSymbols))
 #define JavaTextDateFormatSymbols_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaUtilLocale;
@@ -167,34 +161,6 @@
    */
   JavaUtilLocale *locale_;
 }
-@property (readonly, copy, class) NSString *patternChars NS_SWIFT_NAME(patternChars);
-@property (readonly, class) jint PATTERN_ERA NS_SWIFT_NAME(PATTERN_ERA);
-@property (readonly, class) jint PATTERN_YEAR NS_SWIFT_NAME(PATTERN_YEAR);
-@property (readonly, class) jint PATTERN_MONTH NS_SWIFT_NAME(PATTERN_MONTH);
-@property (readonly, class) jint PATTERN_DAY_OF_MONTH NS_SWIFT_NAME(PATTERN_DAY_OF_MONTH);
-@property (readonly, class) jint PATTERN_HOUR_OF_DAY1 NS_SWIFT_NAME(PATTERN_HOUR_OF_DAY1);
-@property (readonly, class) jint PATTERN_HOUR_OF_DAY0 NS_SWIFT_NAME(PATTERN_HOUR_OF_DAY0);
-@property (readonly, class) jint PATTERN_MINUTE NS_SWIFT_NAME(PATTERN_MINUTE);
-@property (readonly, class) jint PATTERN_SECOND NS_SWIFT_NAME(PATTERN_SECOND);
-@property (readonly, class) jint PATTERN_MILLISECOND NS_SWIFT_NAME(PATTERN_MILLISECOND);
-@property (readonly, class) jint PATTERN_DAY_OF_WEEK NS_SWIFT_NAME(PATTERN_DAY_OF_WEEK);
-@property (readonly, class) jint PATTERN_DAY_OF_YEAR NS_SWIFT_NAME(PATTERN_DAY_OF_YEAR);
-@property (readonly, class) jint PATTERN_DAY_OF_WEEK_IN_MONTH NS_SWIFT_NAME(PATTERN_DAY_OF_WEEK_IN_MONTH);
-@property (readonly, class) jint PATTERN_WEEK_OF_YEAR NS_SWIFT_NAME(PATTERN_WEEK_OF_YEAR);
-@property (readonly, class) jint PATTERN_WEEK_OF_MONTH NS_SWIFT_NAME(PATTERN_WEEK_OF_MONTH);
-@property (readonly, class) jint PATTERN_AM_PM NS_SWIFT_NAME(PATTERN_AM_PM);
-@property (readonly, class) jint PATTERN_HOUR1 NS_SWIFT_NAME(PATTERN_HOUR1);
-@property (readonly, class) jint PATTERN_HOUR0 NS_SWIFT_NAME(PATTERN_HOUR0);
-@property (readonly, class) jint PATTERN_ZONE_NAME NS_SWIFT_NAME(PATTERN_ZONE_NAME);
-@property (readonly, class) jint PATTERN_ZONE_VALUE NS_SWIFT_NAME(PATTERN_ZONE_VALUE);
-@property (readonly, class) jint PATTERN_WEEK_YEAR NS_SWIFT_NAME(PATTERN_WEEK_YEAR);
-@property (readonly, class) jint PATTERN_ISO_DAY_OF_WEEK NS_SWIFT_NAME(PATTERN_ISO_DAY_OF_WEEK);
-@property (readonly, class) jint PATTERN_ISO_ZONE NS_SWIFT_NAME(PATTERN_ISO_ZONE);
-@property (readonly, class) jint PATTERN_STANDALONE_MONTH NS_SWIFT_NAME(PATTERN_STANDALONE_MONTH);
-@property (readonly, class) jint PATTERN_STANDALONE_DAY_OF_WEEK NS_SWIFT_NAME(PATTERN_STANDALONE_DAY_OF_WEEK);
-@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
-@property (readonly, class) jint currentSerialVersion NS_SWIFT_NAME(currentSerialVersion);
-@property (readonly, class) jint millisPerHour NS_SWIFT_NAME(millisPerHour);
 
 + (NSString *)patternChars;
 
@@ -268,7 +234,7 @@
  if the resources for the default locale cannot be
               found or cannot be loaded.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Construct a DateFormatSymbols object by loading format data from
@@ -284,7 +250,7 @@
  if the resources for the specified locale cannot be
               found or cannot be loaded.
  */
-- (instancetype __nonnull)initWithJavaUtilLocale:(JavaUtilLocale *)locale;
+- (instancetype)initWithJavaUtilLocale:(JavaUtilLocale *)locale;
 
 /*!
  @brief Overrides Cloneable
@@ -710,10 +676,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextDateFormatSymbols)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextDateFormatSymbols")

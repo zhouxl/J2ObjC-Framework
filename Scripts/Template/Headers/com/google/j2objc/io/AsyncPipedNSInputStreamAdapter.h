@@ -3,7 +3,7 @@
 //  source: Classes/com/google/j2objc/io/AsyncPipedNSInputStreamAdapter.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter")
 #ifdef RESTRICT_ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter_) && (INCLUDE_ALL_ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter || defined(INCLUDE_ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter))
 #define ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter_
@@ -117,7 +111,7 @@ J2OBJC_TYPE_LITERAL_HEADER(ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter_Deleg
 
 #define RESTRICT_JavaIoOutputStream 1
 #define INCLUDE_JavaIoOutputStream 1
-#include "java/io/OutputStream.h"
+#include "../../../../java/io/OutputStream.h"
 
 @class IOSByteArray;
 @protocol ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter_Delegate;
@@ -139,9 +133,9 @@ J2OBJC_TYPE_LITERAL_HEADER(ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter_Deleg
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter_Delegate:(id<ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter_Delegate>)delegate
-                                                                                    withId:(id)nativeInputStream
-                                                                                    withId:(id)nativeOutputStream;
+- (instancetype)initWithComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter_Delegate:(id<ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter_Delegate>)delegate
+                                                                          withId:(id)nativeInputStream
+                                                                          withId:(id)nativeOutputStream;
 
 /*!
  @brief Schedule the actual native close on the dedicated thread.
@@ -160,7 +154,7 @@ J2OBJC_TYPE_LITERAL_HEADER(ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter_Deleg
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -176,10 +170,6 @@ J2OBJC_TYPE_LITERAL_HEADER(ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter_Outpu
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter")

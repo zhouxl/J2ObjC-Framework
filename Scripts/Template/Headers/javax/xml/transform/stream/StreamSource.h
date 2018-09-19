@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/javax/xml/transform/stream/StreamSource.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxXmlTransformStreamStreamSource")
 #ifdef RESTRICT_JavaxXmlTransformStreamStreamSource
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxXmlTransformStreamStreamSource_) && (INCLUDE_ALL_JavaxXmlTransformStreamStreamSource || defined(INCLUDE_JavaxXmlTransformStreamStreamSource))
 #define JavaxXmlTransformStreamStreamSource_
 
 #define RESTRICT_JavaxXmlTransformSource 1
 #define INCLUDE_JavaxXmlTransformSource 1
-#include "javax/xml/transform/Source.h"
+#include "../../../../javax/xml/transform/Source.h"
 
 @class JavaIoFile;
 @class JavaIoInputStream;
@@ -44,7 +38,6 @@
  @version $Revision: 829971 $, $Date: 2009-10-26 14:15:39 -0700 (Mon, 26 Oct 2009) $
  */
 @interface JavaxXmlTransformStreamStreamSource : NSObject < JavaxXmlTransformSource >
-@property (readonly, copy, class) NSString *FEATURE NS_SWIFT_NAME(FEATURE);
 
 + (NSString *)FEATURE;
 
@@ -61,13 +54,13 @@
  <code>InputStream()</code>.</p>
  - seealso: javax.xml.transform.Transformer
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Construct a StreamSource from a File.
  @param f Must a non-null File reference.
  */
-- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)f;
+- (instancetype)initWithJavaIoFile:(JavaIoFile *)f;
 
 /*!
  @brief Construct a StreamSource from a byte stream.Normally,
@@ -79,7 +72,7 @@
   can be resolved.</p>
  @param inputStream A valid InputStream reference to an XML stream.
  */
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inputStream;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inputStream;
 
 /*!
  @brief Construct a StreamSource from a byte stream.Normally,
@@ -92,8 +85,8 @@
  @param inputStream A valid InputStream reference to an XML stream.
  @param systemId Must be a String that conforms to the URI syntax.
  */
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inputStream
-                                       withNSString:(NSString *)systemId;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inputStream
+                             withNSString:(NSString *)systemId;
 
 /*!
  @brief Construct a StreamSource from a character reader.Normally,
@@ -105,7 +98,7 @@
   reading XML from a StringReader.
  @param reader A valid Reader reference to an XML character stream.
  */
-- (instancetype __nonnull)initWithJavaIoReader:(JavaIoReader *)reader;
+- (instancetype)initWithJavaIoReader:(JavaIoReader *)reader;
 
 /*!
  @brief Construct a StreamSource from a character reader.Normally,
@@ -118,14 +111,14 @@
  @param reader A valid Reader reference to an XML character stream.
  @param systemId Must be a String that conforms to the URI syntax.
  */
-- (instancetype __nonnull)initWithJavaIoReader:(JavaIoReader *)reader
-                                  withNSString:(NSString *)systemId;
+- (instancetype)initWithJavaIoReader:(JavaIoReader *)reader
+                        withNSString:(NSString *)systemId;
 
 /*!
  @brief Construct a StreamSource from a URL.
  @param systemId Must be a String that conforms to the URI syntax.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)systemId;
+- (instancetype)initWithNSString:(NSString *)systemId;
 
 /*!
  @brief Get the byte stream that was set with setByteStream.
@@ -266,10 +259,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformStreamStreamSource)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformStreamStreamSource")

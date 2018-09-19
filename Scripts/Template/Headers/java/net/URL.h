@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/net/URL.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetURL")
 #ifdef RESTRICT_JavaNetURL
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNetURL_) && (INCLUDE_ALL_JavaNetURL || defined(INCLUDE_JavaNetURL))
 #define JavaNetURL_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaIoInputStream;
@@ -161,9 +155,6 @@
    */
   JavaNetURLStreamHandler *handler_;
 }
-@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
-@property (class, strong) id<JavaNetURLStreamHandlerFactory> factory NS_SWIFT_NAME(factory);
-@property (class, strong) JavaUtilHashtable *handlers NS_SWIFT_NAME(handlers);
 
 + (jlong)serialVersionUID;
 
@@ -188,7 +179,7 @@
                 unknown protocol is found, or <tt>spec</tt> is <tt>null</tt>.
  - seealso: java.net.URL
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)spec;
+- (instancetype)initWithNSString:(NSString *)spec;
 
 /*!
  @brief Creates a <code>URL</code> object from the specified 
@@ -271,10 +262,10 @@
  - seealso: java.net.URLStreamHandler
  - seealso: java.net.URLStreamHandlerFactory
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)protocol
-                              withNSString:(NSString *)host
-                                   withInt:(jint)port
-                              withNSString:(NSString *)file;
+- (instancetype)initWithNSString:(NSString *)protocol
+                    withNSString:(NSString *)host
+                         withInt:(jint)port
+                    withNSString:(NSString *)file;
 
 /*!
  @brief Creates a <code>URL</code> object from the specified 
@@ -311,11 +302,11 @@
  - seealso: SecurityManager#checkPermission
  - seealso: java.net.NetPermission
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)protocol
-                              withNSString:(NSString *)host
-                                   withInt:(jint)port
-                              withNSString:(NSString *)file
-               withJavaNetURLStreamHandler:(JavaNetURLStreamHandler *)handler;
+- (instancetype)initWithNSString:(NSString *)protocol
+                    withNSString:(NSString *)host
+                         withInt:(jint)port
+                    withNSString:(NSString *)file
+     withJavaNetURLStreamHandler:(JavaNetURLStreamHandler *)handler;
 
 /*!
  @brief Creates a URL from the specified <code>protocol</code>
@@ -332,9 +323,9 @@
  @throw MalformedURLExceptionif an unknown protocol is specified.
  - seealso: java.net.URL
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)protocol
-                              withNSString:(NSString *)host
-                              withNSString:(NSString *)file;
+- (instancetype)initWithNSString:(NSString *)protocol
+                    withNSString:(NSString *)host
+                    withNSString:(NSString *)file;
 
 /*!
  @brief Creates a URL by parsing the given spec within a specified context.
@@ -381,8 +372,8 @@
  - seealso: java.net.URLStreamHandler
  - seealso: java.net.URLStreamHandler
  */
-- (instancetype __nonnull)initWithJavaNetURL:(JavaNetURL *)context
-                                withNSString:(NSString *)spec;
+- (instancetype)initWithJavaNetURL:(JavaNetURL *)context
+                      withNSString:(NSString *)spec;
 
 /*!
  @brief Creates a URL by parsing the given spec with the specified handler
@@ -401,9 +392,9 @@
  - seealso: java.net.URLStreamHandler
  - seealso: java.net.URLStreamHandler
  */
-- (instancetype __nonnull)initWithJavaNetURL:(JavaNetURL *)context
-                                withNSString:(NSString *)spec
-                 withJavaNetURLStreamHandler:(JavaNetURLStreamHandler *)handler;
+- (instancetype)initWithJavaNetURL:(JavaNetURL *)context
+                      withNSString:(NSString *)spec
+       withJavaNetURLStreamHandler:(JavaNetURLStreamHandler *)handler;
 
 /*!
  @brief Compares this URL for equality with another object.
@@ -754,7 +745,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -841,8 +832,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetURL)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithNSString:(NSString *)file
-                              withNSString:(NSString *)host;
+- (instancetype)initWithNSString:(NSString *)file
+                    withNSString:(NSString *)host;
 
 - (NSString *)getPath;
 
@@ -852,7 +843,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetURL)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -872,10 +863,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetParts)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetURL")

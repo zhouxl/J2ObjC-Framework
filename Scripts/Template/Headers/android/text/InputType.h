@@ -3,7 +3,7 @@
 //  source: android/frameworks/base/core/java/android/text/InputType.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_AndroidTextInputType")
 #ifdef RESTRICT_AndroidTextInputType
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (AndroidTextInputType_) && (INCLUDE_ALL_AndroidTextInputType || defined(INCLUDE_AndroidTextInputType))
 #define AndroidTextInputType_
@@ -49,44 +43,6 @@
 @end
 
 @interface AndroidTextInputType : NSObject
-@property (readonly, class) jint TYPE_MASK_CLASS NS_SWIFT_NAME(TYPE_MASK_CLASS);
-@property (readonly, class) jint TYPE_MASK_VARIATION NS_SWIFT_NAME(TYPE_MASK_VARIATION);
-@property (readonly, class) jint TYPE_MASK_FLAGS NS_SWIFT_NAME(TYPE_MASK_FLAGS);
-@property (readonly, class) jint TYPE_NULL NS_SWIFT_NAME(TYPE_NULL);
-@property (readonly, class) jint TYPE_CLASS_TEXT NS_SWIFT_NAME(TYPE_CLASS_TEXT);
-@property (readonly, class) jint TYPE_TEXT_FLAG_CAP_CHARACTERS NS_SWIFT_NAME(TYPE_TEXT_FLAG_CAP_CHARACTERS);
-@property (readonly, class) jint TYPE_TEXT_FLAG_CAP_WORDS NS_SWIFT_NAME(TYPE_TEXT_FLAG_CAP_WORDS);
-@property (readonly, class) jint TYPE_TEXT_FLAG_CAP_SENTENCES NS_SWIFT_NAME(TYPE_TEXT_FLAG_CAP_SENTENCES);
-@property (readonly, class) jint TYPE_TEXT_FLAG_AUTO_CORRECT NS_SWIFT_NAME(TYPE_TEXT_FLAG_AUTO_CORRECT);
-@property (readonly, class) jint TYPE_TEXT_FLAG_AUTO_COMPLETE NS_SWIFT_NAME(TYPE_TEXT_FLAG_AUTO_COMPLETE);
-@property (readonly, class) jint TYPE_TEXT_FLAG_MULTI_LINE NS_SWIFT_NAME(TYPE_TEXT_FLAG_MULTI_LINE);
-@property (readonly, class) jint TYPE_TEXT_FLAG_IME_MULTI_LINE NS_SWIFT_NAME(TYPE_TEXT_FLAG_IME_MULTI_LINE);
-@property (readonly, class) jint TYPE_TEXT_FLAG_NO_SUGGESTIONS NS_SWIFT_NAME(TYPE_TEXT_FLAG_NO_SUGGESTIONS);
-@property (readonly, class) jint TYPE_TEXT_VARIATION_NORMAL NS_SWIFT_NAME(TYPE_TEXT_VARIATION_NORMAL);
-@property (readonly, class) jint TYPE_TEXT_VARIATION_URI NS_SWIFT_NAME(TYPE_TEXT_VARIATION_URI);
-@property (readonly, class) jint TYPE_TEXT_VARIATION_EMAIL_ADDRESS NS_SWIFT_NAME(TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
-@property (readonly, class) jint TYPE_TEXT_VARIATION_EMAIL_SUBJECT NS_SWIFT_NAME(TYPE_TEXT_VARIATION_EMAIL_SUBJECT);
-@property (readonly, class) jint TYPE_TEXT_VARIATION_SHORT_MESSAGE NS_SWIFT_NAME(TYPE_TEXT_VARIATION_SHORT_MESSAGE);
-@property (readonly, class) jint TYPE_TEXT_VARIATION_LONG_MESSAGE NS_SWIFT_NAME(TYPE_TEXT_VARIATION_LONG_MESSAGE);
-@property (readonly, class) jint TYPE_TEXT_VARIATION_PERSON_NAME NS_SWIFT_NAME(TYPE_TEXT_VARIATION_PERSON_NAME);
-@property (readonly, class) jint TYPE_TEXT_VARIATION_POSTAL_ADDRESS NS_SWIFT_NAME(TYPE_TEXT_VARIATION_POSTAL_ADDRESS);
-@property (readonly, class) jint TYPE_TEXT_VARIATION_PASSWORD NS_SWIFT_NAME(TYPE_TEXT_VARIATION_PASSWORD);
-@property (readonly, class) jint TYPE_TEXT_VARIATION_VISIBLE_PASSWORD NS_SWIFT_NAME(TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-@property (readonly, class) jint TYPE_TEXT_VARIATION_WEB_EDIT_TEXT NS_SWIFT_NAME(TYPE_TEXT_VARIATION_WEB_EDIT_TEXT);
-@property (readonly, class) jint TYPE_TEXT_VARIATION_FILTER NS_SWIFT_NAME(TYPE_TEXT_VARIATION_FILTER);
-@property (readonly, class) jint TYPE_TEXT_VARIATION_PHONETIC NS_SWIFT_NAME(TYPE_TEXT_VARIATION_PHONETIC);
-@property (readonly, class) jint TYPE_TEXT_VARIATION_WEB_EMAIL_ADDRESS NS_SWIFT_NAME(TYPE_TEXT_VARIATION_WEB_EMAIL_ADDRESS);
-@property (readonly, class) jint TYPE_TEXT_VARIATION_WEB_PASSWORD NS_SWIFT_NAME(TYPE_TEXT_VARIATION_WEB_PASSWORD);
-@property (readonly, class) jint TYPE_CLASS_NUMBER NS_SWIFT_NAME(TYPE_CLASS_NUMBER);
-@property (readonly, class) jint TYPE_NUMBER_FLAG_SIGNED NS_SWIFT_NAME(TYPE_NUMBER_FLAG_SIGNED);
-@property (readonly, class) jint TYPE_NUMBER_FLAG_DECIMAL NS_SWIFT_NAME(TYPE_NUMBER_FLAG_DECIMAL);
-@property (readonly, class) jint TYPE_NUMBER_VARIATION_NORMAL NS_SWIFT_NAME(TYPE_NUMBER_VARIATION_NORMAL);
-@property (readonly, class) jint TYPE_NUMBER_VARIATION_PASSWORD NS_SWIFT_NAME(TYPE_NUMBER_VARIATION_PASSWORD);
-@property (readonly, class) jint TYPE_CLASS_PHONE NS_SWIFT_NAME(TYPE_CLASS_PHONE);
-@property (readonly, class) jint TYPE_CLASS_DATETIME NS_SWIFT_NAME(TYPE_CLASS_DATETIME);
-@property (readonly, class) jint TYPE_DATETIME_VARIATION_NORMAL NS_SWIFT_NAME(TYPE_DATETIME_VARIATION_NORMAL);
-@property (readonly, class) jint TYPE_DATETIME_VARIATION_DATE NS_SWIFT_NAME(TYPE_DATETIME_VARIATION_DATE);
-@property (readonly, class) jint TYPE_DATETIME_VARIATION_TIME NS_SWIFT_NAME(TYPE_DATETIME_VARIATION_TIME);
 
 + (jint)TYPE_MASK_CLASS;
 
@@ -565,10 +521,6 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextInputType)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidTextInputType")

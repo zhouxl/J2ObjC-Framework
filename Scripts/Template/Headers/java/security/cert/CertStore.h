@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/cert/CertStore.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityCertCertStore")
 #ifdef RESTRICT_JavaSecurityCertCertStore
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaSecurityCertCertStore_) && (INCLUDE_ALL_JavaSecurityCertCertStore || defined(INCLUDE_JavaSecurityCertCertStore))
 #define JavaSecurityCertCertStore_
@@ -303,14 +297,14 @@
  @param params the initialization parameters (may be  <code> null </code>
   )
  */
-- (instancetype __nonnull)initWithJavaSecurityCertCertStoreSpi:(JavaSecurityCertCertStoreSpi *)storeSpi
-                                      withJavaSecurityProvider:(JavaSecurityProvider *)provider
-                                                  withNSString:(NSString *)type
-                       withJavaSecurityCertCertStoreParameters:(id<JavaSecurityCertCertStoreParameters>)params;
+- (instancetype)initWithJavaSecurityCertCertStoreSpi:(JavaSecurityCertCertStoreSpi *)storeSpi
+                            withJavaSecurityProvider:(JavaSecurityProvider *)provider
+                                        withNSString:(NSString *)type
+             withJavaSecurityCertCertStoreParameters:(id<JavaSecurityCertCertStoreParameters>)params;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -334,10 +328,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertStore)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCertStore")

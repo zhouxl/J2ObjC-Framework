@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/StringTokenizer.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilStringTokenizer")
 #ifdef RESTRICT_JavaUtilStringTokenizer
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilStringTokenizer_) && (INCLUDE_ALL_JavaUtilStringTokenizer || defined(INCLUDE_JavaUtilStringTokenizer))
 #define JavaUtilStringTokenizer_
 
 #define RESTRICT_JavaUtilEnumeration 1
 #define INCLUDE_JavaUtilEnumeration 1
-#include "java/util/Enumeration.h"
+#include "../../java/util/Enumeration.h"
 
 /*!
  @brief The string tokenizer class allows an application to break a
@@ -124,7 +118,7 @@
  @param str a string to be parsed.
  @throw NullPointerExceptionif str is <CODE>null</CODE>
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)str;
+- (instancetype)initWithNSString:(NSString *)str;
 
 /*!
  @brief Constructs a string tokenizer for the specified string.The
@@ -141,8 +135,8 @@
  @param delim the delimiters.
  @throw NullPointerExceptionif str is <CODE>null</CODE>
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)str
-                              withNSString:(NSString *)delim;
+- (instancetype)initWithNSString:(NSString *)str
+                    withNSString:(NSString *)delim;
 
 /*!
  @brief Constructs a string tokenizer for the specified string.All
@@ -164,9 +158,9 @@
  @param returnDelims flag indicating whether to return the delimiters                          as tokens.
  @throw NullPointerExceptionif str is <CODE>null</CODE>
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)str
-                              withNSString:(NSString *)delim
-                               withBoolean:(jboolean)returnDelims;
+- (instancetype)initWithNSString:(NSString *)str
+                    withNSString:(NSString *)delim
+                     withBoolean:(jboolean)returnDelims;
 
 /*!
  @brief Calculates the number of times that this tokenizer's 
@@ -239,7 +233,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -267,10 +261,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStringTokenizer)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilStringTokenizer")

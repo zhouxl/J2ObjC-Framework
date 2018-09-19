@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/zip/ZipEntry.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilZipZipEntry")
 #ifdef RESTRICT_JavaUtilZipZipEntry
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilZipZipEntry_) && (INCLUDE_ALL_JavaUtilZipZipEntry || defined(INCLUDE_JavaUtilZipZipEntry))
 #define JavaUtilZipZipEntry_
 
 #define RESTRICT_JavaUtilZipZipConstants 1
 #define INCLUDE_JavaUtilZipZipConstants 1
-#include "java/util/zip/ZipConstants.h"
+#include "../../../java/util/zip/ZipConstants.h"
 
 @class IOSByteArray;
 
@@ -48,8 +42,6 @@
   NSString *comment_;
   jlong dataOffset_;
 }
-@property (readonly, class) jint STORED NS_SWIFT_NAME(STORED);
-@property (readonly, class) jint DEFLATED NS_SWIFT_NAME(DEFLATED);
 
 + (jint)STORED;
 
@@ -64,26 +56,26 @@
  @throw IllegalArgumentExceptionif the entry name is longer than
              0xFFFF bytes
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)name;
+- (instancetype)initWithNSString:(NSString *)name;
 
 /*!
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)name
-                              withNSString:(NSString *)comment
-                                  withLong:(jlong)crc
-                                  withLong:(jlong)compressedSize
-                                  withLong:(jlong)size
-                                   withInt:(jint)compressionMethod
-                                   withInt:(jint)time
-                             withByteArray:(IOSByteArray *)extra
-                                  withLong:(jlong)dataOffset;
+- (instancetype)initWithNSString:(NSString *)name
+                    withNSString:(NSString *)comment
+                        withLong:(jlong)crc
+                        withLong:(jlong)compressedSize
+                        withLong:(jlong)size
+                         withInt:(jint)compressionMethod
+                         withInt:(jint)time
+                   withByteArray:(IOSByteArray *)extra
+                        withLong:(jlong)dataOffset;
 
 /*!
  @brief Creates a new zip entry with fields taken from the specified
   zip entry.
  @param e a zip Entry object
  */
-- (instancetype __nonnull)initWithJavaUtilZipZipEntry:(JavaUtilZipZipEntry *)e;
+- (instancetype)initWithJavaUtilZipZipEntry:(JavaUtilZipZipEntry *)e;
 
 /*!
  @brief Returns a copy of this entry.
@@ -234,7 +226,7 @@
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -286,10 +278,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipEntry)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilZipZipEntry")

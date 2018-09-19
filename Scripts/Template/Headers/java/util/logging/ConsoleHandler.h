@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/logging/ConsoleHandler.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilLoggingConsoleHandler")
 #ifdef RESTRICT_JavaUtilLoggingConsoleHandler
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilLoggingConsoleHandler_) && (INCLUDE_ALL_JavaUtilLoggingConsoleHandler || defined(INCLUDE_JavaUtilLoggingConsoleHandler))
 #define JavaUtilLoggingConsoleHandler_
 
 #define RESTRICT_JavaUtilLoggingStreamHandler 1
 #define INCLUDE_JavaUtilLoggingStreamHandler 1
-#include "java/util/logging/StreamHandler.h"
+#include "../../../java/util/logging/StreamHandler.h"
 
 @class JavaIoOutputStream;
 @class JavaUtilLoggingFormatter;
@@ -68,7 +62,7 @@
   The <tt>ConsoleHandler</tt> is configured based on 
  <tt>LogManager</tt> properties (or their default values).
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Override <tt>StreamHandler.close</tt> to do a flush but not
@@ -89,8 +83,8 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
-                        withJavaUtilLoggingFormatter:(JavaUtilLoggingFormatter *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
+              withJavaUtilLoggingFormatter:(JavaUtilLoggingFormatter *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -106,10 +100,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingConsoleHandler)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingConsoleHandler")

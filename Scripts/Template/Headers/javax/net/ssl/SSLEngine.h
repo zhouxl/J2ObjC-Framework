@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/net/ssl/SSLEngine.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxNetSslSSLEngine")
 #ifdef RESTRICT_JavaxNetSslSSLEngine
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaxNetSslSSLEngine_) && (INCLUDE_ALL_JavaxNetSslSSLEngine || defined(INCLUDE_JavaxNetSslSSLEngine))
 #define JavaxNetSslSSLEngine_
@@ -1741,7 +1735,7 @@
  - seealso: SSLContext#createSSLEngine()
  - seealso: SSLSessionContext
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructor for an <code>SSLEngine</code>.
@@ -1761,8 +1755,8 @@
  - seealso: SSLContext#createSSLEngine(String, int)
  - seealso: SSLSessionContext
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)peerHost
-                                   withInt:(jint)peerPort;
+- (instancetype)initWithNSString:(NSString *)peerHost
+                         withInt:(jint)peerPort;
 
 @end
 
@@ -1776,10 +1770,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLEngine)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxNetSslSSLEngine")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/KeyManagementException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityKeyManagementException")
 #ifdef RESTRICT_JavaSecurityKeyManagementException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityKeyManagementException_) && (INCLUDE_ALL_JavaSecurityKeyManagementException || defined(INCLUDE_JavaSecurityKeyManagementException))
 #define JavaSecurityKeyManagementException_
 
 #define RESTRICT_JavaSecurityKeyException 1
 #define INCLUDE_JavaSecurityKeyException 1
-#include "java/security/KeyException.h"
+#include "../../java/security/KeyException.h"
 
 @class JavaLangThrowable;
 
@@ -54,7 +48,7 @@
   detail message is a String that describes this particular
   exception.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a KeyManagementException with the specified detail
@@ -62,7 +56,7 @@
   particular exception.
  @param msg the detail message.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)msg;
+- (instancetype)initWithNSString:(NSString *)msg;
 
 /*!
  @brief Creates a <code>KeyManagementException</code> with the specified
@@ -73,8 +67,8 @@
  <code>getCause()</code>  method).  (A  <tt> null </tt>  value is permitted,         and indicates that the cause is nonexistent or unknown.)
  @since 1.5
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)message
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Creates a <code>KeyManagementException</code> with the specified cause
@@ -86,7 +80,7 @@
  <code>getCause()</code>  method).  (A  <tt> null </tt>  value is permitted,         and indicates that the cause is nonexistent or unknown.)
  @since 1.5
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 @end
 
@@ -120,10 +114,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyManagementException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityKeyManagementException")

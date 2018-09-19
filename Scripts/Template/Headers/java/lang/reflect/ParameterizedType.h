@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/reflect/ParameterizedType.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangReflectParameterizedType")
 #ifdef RESTRICT_JavaLangReflectParameterizedType
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangReflectParameterizedType_) && (INCLUDE_ALL_JavaLangReflectParameterizedType || defined(INCLUDE_JavaLangReflectParameterizedType))
 #define JavaLangReflectParameterizedType_
 
 #define RESTRICT_JavaLangReflectType 1
 #define INCLUDE_JavaLangReflectType 1
-#include "java/lang/reflect/Type.h"
+#include "../../../java/lang/reflect/Type.h"
 
 @class IOSObjectArray;
 
@@ -63,7 +57,7 @@
       be instantiated for any reason
  @since 1.5
  */
-- (IOSObjectArray * __nonnull)getActualTypeArguments;
+- (IOSObjectArray *)getActualTypeArguments;
 
 /*!
  @brief Returns the <code>Type</code> object representing the class or interface
@@ -72,7 +66,7 @@
       that declared this type
  @since 1.5
  */
-- (id<JavaLangReflectType> __nonnull)getRawType;
+- (id<JavaLangReflectType>)getRawType;
 
 /*!
  @brief Returns a <code>Type</code> object representing the type that this type
@@ -99,10 +93,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectParameterizedType)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangReflectParameterizedType")

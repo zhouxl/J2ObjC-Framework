@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/cert/CertPathValidatorException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityCertCertPathValidatorException")
 #ifdef RESTRICT_JavaSecurityCertCertPathValidatorException
@@ -21,7 +21,6 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -30,7 +29,7 @@
 
 #define RESTRICT_JavaSecurityGeneralSecurityException 1
 #define INCLUDE_JavaSecurityGeneralSecurityException 1
-#include "java/security/GeneralSecurityException.h"
+#include "../../../java/security/GeneralSecurityException.h"
 
 @class JavaLangThrowable;
 @class JavaSecurityCertCertPath;
@@ -70,7 +69,7 @@
  @brief Creates a <code>CertPathValidatorException</code> with
   no detail message.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a <code>CertPathValidatorException</code> with the given
@@ -78,7 +77,7 @@
   describes this particular exception.
  @param msg the detail message
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)msg;
+- (instancetype)initWithNSString:(NSString *)msg;
 
 /*!
  @brief Creates a <code>CertPathValidatorException</code> with the specified
@@ -87,8 +86,8 @@
  @param cause the cause (which is saved for later retrieval by the  
  <code>getCause()</code>  method). (A <code>null</code>  value is  permitted, and indicates that the cause is nonexistent or unknown.)
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)msg
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)msg
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Creates a <code>CertPathValidatorException</code> with the specified
@@ -105,10 +104,10 @@
  @throw IllegalArgumentExceptionif <code>certPath</code> is 
  <code>null</code> and <code>index</code> is not -1
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)msg
-                     withJavaLangThrowable:(JavaLangThrowable *)cause
-              withJavaSecurityCertCertPath:(JavaSecurityCertCertPath *)certPath
-                                   withInt:(jint)index;
+- (instancetype)initWithNSString:(NSString *)msg
+           withJavaLangThrowable:(JavaLangThrowable *)cause
+    withJavaSecurityCertCertPath:(JavaSecurityCertCertPath *)certPath
+                         withInt:(jint)index;
 
 /*!
  @brief Creates a <code>CertPathValidatorException</code> with the specified
@@ -128,10 +127,10 @@
  @throw NullPointerExceptionif <code>reason</code> is <code>null</code>
  @since 1.7
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)msg
-                     withJavaLangThrowable:(JavaLangThrowable *)cause
-              withJavaSecurityCertCertPath:(JavaSecurityCertCertPath *)certPath
-                                   withInt:(jint)index
+- (instancetype)initWithNSString:(NSString *)msg
+           withJavaLangThrowable:(JavaLangThrowable *)cause
+    withJavaSecurityCertCertPath:(JavaSecurityCertCertPath *)certPath
+                         withInt:(jint)index
 withJavaSecurityCertCertPathValidatorException_Reason:(id<JavaSecurityCertCertPathValidatorException_Reason>)reason;
 
 /*!
@@ -146,7 +145,7 @@ withJavaSecurityCertCertPathValidatorException_Reason:(id<JavaSecurityCertCertPa
  @param cause the cause (which is saved for later retrieval by the  
  <code>getCause()</code>  method). (A <code>null</code>  value is  permitted, and indicates that the cause is nonexistent or unknown.)
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Returns the certification path that was being validated when
@@ -226,7 +225,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertPathValidatorException)
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 /*!
  @brief The reason the validation algorithm failed.
@@ -247,7 +246,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertPathValidatorException_Reason)
 
 #define RESTRICT_JavaLangEnum 1
 #define INCLUDE_JavaLangEnum 1
-#include "java/lang/Enum.h"
+#include "../../../java/lang/Enum.h"
 
 @class IOSObjectArray;
 
@@ -268,13 +267,6 @@ typedef NS_ENUM(NSUInteger, JavaSecurityCertCertPathValidatorException_BasicReas
  */
 @interface JavaSecurityCertCertPathValidatorException_BasicReason : JavaLangEnum < JavaSecurityCertCertPathValidatorException_Reason >
 
-@property (readonly, class, nonnull) JavaSecurityCertCertPathValidatorException_BasicReason *UNSPECIFIED NS_SWIFT_NAME(UNSPECIFIED);
-@property (readonly, class, nonnull) JavaSecurityCertCertPathValidatorException_BasicReason *EXPIRED NS_SWIFT_NAME(EXPIRED);
-@property (readonly, class, nonnull) JavaSecurityCertCertPathValidatorException_BasicReason *NOT_YET_VALID NS_SWIFT_NAME(NOT_YET_VALID);
-@property (readonly, class, nonnull) JavaSecurityCertCertPathValidatorException_BasicReason *REVOKED NS_SWIFT_NAME(REVOKED);
-@property (readonly, class, nonnull) JavaSecurityCertCertPathValidatorException_BasicReason *UNDETERMINED_REVOCATION_STATUS NS_SWIFT_NAME(UNDETERMINED_REVOCATION_STATUS);
-@property (readonly, class, nonnull) JavaSecurityCertCertPathValidatorException_BasicReason *INVALID_SIGNATURE NS_SWIFT_NAME(INVALID_SIGNATURE);
-@property (readonly, class, nonnull) JavaSecurityCertCertPathValidatorException_BasicReason *ALGORITHM_CONSTRAINED NS_SWIFT_NAME(ALGORITHM_CONSTRAINED);
 + (JavaSecurityCertCertPathValidatorException_BasicReason * __nonnull)UNSPECIFIED;
 
 + (JavaSecurityCertCertPathValidatorException_BasicReason * __nonnull)EXPIRED;

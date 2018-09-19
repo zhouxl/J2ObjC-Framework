@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/net/ssl/SNIHostName.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxNetSslSNIHostName")
 #ifdef RESTRICT_JavaxNetSslSNIHostName
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxNetSslSNIHostName_) && (INCLUDE_ALL_JavaxNetSslSNIHostName || defined(INCLUDE_JavaxNetSslSNIHostName))
 #define JavaxNetSslSNIHostName_
 
 #define RESTRICT_JavaxNetSslSNIServerName 1
 #define INCLUDE_JavaxNetSslSNIServerName 1
-#include "javax/net/ssl/SNIServerName.h"
+#include "../../../javax/net/ssl/SNIServerName.h"
 
 @class IOSByteArray;
 @class JavaxNetSslSNIMatcher;
@@ -104,7 +98,7 @@
  @throw NullPointerExceptionif <code>encoded</code> is <code>null</code>
  @throw IllegalArgumentExceptionif <code>encoded</code> is illegal
  */
-- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)encoded;
+- (instancetype)initWithByteArray:(IOSByteArray *)encoded;
 
 /*!
  @brief Creates an <code>SNIHostName</code> using the specified hostname.
@@ -136,7 +130,7 @@
  @throw NullPointerExceptionif <code>hostname</code> is <code>null</code>
  @throw IllegalArgumentExceptionif <code>hostname</code> is illegal
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)hostname;
+- (instancetype)initWithNSString:(NSString *)hostname;
 
 /*!
  @brief Creates an <code>SNIMatcher</code> object for <code>SNIHostName</code>s.
@@ -239,8 +233,8 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithInt:(jint)arg0
-                        withByteArray:(IOSByteArray *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithInt:(jint)arg0
+              withByteArray:(IOSByteArray *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -264,10 +258,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSNIHostName)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxNetSslSNIHostName")

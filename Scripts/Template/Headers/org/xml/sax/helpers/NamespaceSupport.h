@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/org/xml/sax/helpers/NamespaceSupport.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgXmlSaxHelpersNamespaceSupport")
 #ifdef RESTRICT_OrgXmlSaxHelpersNamespaceSupport
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (OrgXmlSaxHelpersNamespaceSupport_) && (INCLUDE_ALL_OrgXmlSaxHelpersNamespaceSupport || defined(INCLUDE_OrgXmlSaxHelpersNamespaceSupport))
 #define OrgXmlSaxHelpersNamespaceSupport_
@@ -82,8 +76,6 @@
  @version 2.0.1 (sax2r2)
  */
 @interface OrgXmlSaxHelpersNamespaceSupport : NSObject
-@property (readonly, copy, class) NSString *XMLNS NS_SWIFT_NAME(XMLNS);
-@property (readonly, copy, class) NSString *NSDECL NS_SWIFT_NAME(NSDECL);
 
 + (NSString *)XMLNS;
 
@@ -94,7 +86,7 @@
 /*!
  @brief Create a new Namespace support object.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Declare a Namespace prefix.All prefixes must be declared
@@ -412,7 +404,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersNamespaceSupport)
 /*!
  @brief Create the root-level Namespace context.
  */
-- (instancetype __nonnull)initWithOrgXmlSaxHelpersNamespaceSupport:(OrgXmlSaxHelpersNamespaceSupport *)outer$;
+- (instancetype)initWithOrgXmlSaxHelpersNamespaceSupport:(OrgXmlSaxHelpersNamespaceSupport *)outer$;
 
 /*!
  @brief Makes associated state become collectible,
@@ -489,7 +481,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersNamespaceSupport)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -511,10 +503,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersNamespaceSupport_Context)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersNamespaceSupport")

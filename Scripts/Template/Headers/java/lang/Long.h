@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/Long.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangLong")
 #ifdef RESTRICT_JavaLangLong
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangLong_) && (INCLUDE_ALL_JavaLangLong || defined(INCLUDE_JavaLangLong))
 #define JavaLangLong_
 
 #define RESTRICT_JavaLangComparable 1
 #define INCLUDE_JavaLangComparable 1
-#include "java/lang/Comparable.h"
+#include "../../java/lang/Comparable.h"
 
 @class IOSCharArray;
 @class IOSClass;
@@ -53,11 +47,6 @@
  @since JDK1.0
  */
 @interface JavaLangLong : NSNumber < JavaLangComparable >
-@property (readonly, class) jlong MIN_VALUE NS_SWIFT_NAME(MIN_VALUE);
-@property (readonly, class) jlong MAX_VALUE NS_SWIFT_NAME(MAX_VALUE);
-@property (readonly, class, strong) IOSClass *TYPE NS_SWIFT_NAME(TYPE);
-@property (readonly, class) jint SIZE NS_SWIFT_NAME(SIZE);
-@property (readonly, class) jint BYTES NS_SWIFT_NAME(BYTES);
 
 + (jlong)MIN_VALUE;
 
@@ -77,7 +66,7 @@
  @param value the value to be represented by the           
  <code>Long</code>  object.
  */
-- (instancetype __nonnull)initWithLong:(jlong)value;
+- (instancetype)initWithLong:(jlong)value;
 
 /*!
  @brief Constructs a newly allocated <code>Long</code> object that
@@ -91,7 +80,7 @@
               contain a parsable <code>long</code>.
  - seealso: java.lang.Long
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s;
+- (instancetype)initWithNSString:(NSString *)s;
 
 /*!
  @brief Returns the number of one-bits in the two's complement binary
@@ -181,7 +170,7 @@
  - seealso: java.lang.Long
  @since 1.2
  */
-+ (JavaLangLong * __nonnull)decodeWithNSString:(NSString *)nm;
++ (JavaLangLong *)decodeWithNSString:(NSString *)nm;
 
 /*!
  @brief Returns the value of this <code>Long</code> as a 
@@ -232,7 +221,7 @@
  - seealso: java.lang.System
  - seealso: java.lang.System
  */
-+ (JavaLangLong * __nullable)getLongWithNSString:(NSString *)nm;
++ (JavaLangLong *)getLongWithNSString:(NSString *)nm;
 
 /*!
  @brief Determines the <code>long</code> value of the system property
@@ -270,8 +259,8 @@
  - seealso: java.lang.System
  - seealso: java.lang.System
  */
-+ (JavaLangLong * __nullable)getLongWithNSString:(NSString *)nm
-                                        withLong:(jlong)val;
++ (JavaLangLong *)getLongWithNSString:(NSString *)nm
+                             withLong:(jlong)val;
 
 /*!
  @brief Returns the <code>long</code> value of the system property with
@@ -314,8 +303,8 @@
  - seealso: java.lang.System
  - seealso: java.lang.Long
  */
-+ (JavaLangLong * __nullable)getLongWithNSString:(NSString *)nm
-                                withJavaLangLong:(JavaLangLong *)val;
++ (JavaLangLong *)getLongWithNSString:(NSString *)nm
+                     withJavaLangLong:(JavaLangLong *)val;
 
 /*!
  @brief Returns a hash code for this <code>Long</code>.The result is
@@ -629,7 +618,7 @@
            value represented by the argument in binary (base&nbsp;2).
  @since JDK 1.0.2
  */
-+ (NSString * __nonnull)toBinaryStringWithLong:(jlong)i;
++ (NSString *)toBinaryStringWithLong:(jlong)i;
 
 /*!
  @brief Returns a string representation of the <code>long</code>
@@ -661,7 +650,7 @@
            (base&nbsp;16).
  @since JDK 1.0.2
  */
-+ (NSString * __nonnull)toHexStringWithLong:(jlong)i;
++ (NSString *)toHexStringWithLong:(jlong)i;
 
 /*!
  @brief Returns a string representation of the <code>long</code>
@@ -688,7 +677,7 @@
            value represented by the argument in octal (base&nbsp;8).
  @since JDK 1.0.2
  */
-+ (NSString * __nonnull)toOctalStringWithLong:(jlong)i;
++ (NSString *)toOctalStringWithLong:(jlong)i;
 
 /*!
  @brief Returns a <code>String</code> object representing this 
@@ -699,7 +688,7 @@
  @return a string representation of the value of this object in
            base&nbsp;10.
  */
-- (NSString * __nonnull)description;
+- (NSString *)description;
 
 /*!
  @brief Returns a <code>String</code> object representing the specified 
@@ -710,7 +699,7 @@
  @param i a <code>long</code>  to be converted.
  @return a string representation of the argument in base&nbsp;10.
  */
-+ (NSString * __nonnull)toStringWithLong:(jlong)i;
++ (NSString *)toStringWithLong:(jlong)i;
 
 /*!
  @brief Returns a string representation of the first argument in the
@@ -749,8 +738,8 @@
  - seealso: java.lang.Character
  - seealso: java.lang.Character
  */
-+ (NSString * __nonnull)toStringWithLong:(jlong)i
-                                 withInt:(jint)radix;
++ (NSString *)toStringWithLong:(jlong)i
+                       withInt:(jint)radix;
 
 /*!
  @brief Returns a <code>Long</code> instance representing the specified 
@@ -768,7 +757,7 @@
  @return a <code>Long</code> instance representing <code>l</code>.
  @since 1.5
  */
-+ (JavaLangLong * __nonnull)valueOfWithLong:(jlong)l;
++ (JavaLangLong *)valueOfWithLong:(jlong)l;
 
 /*!
  @brief Returns a <code>Long</code> object holding the value
@@ -790,7 +779,7 @@
  @throw NumberFormatExceptionIf the string cannot be parsed
               as a <code>long</code>.
  */
-+ (JavaLangLong * __nonnull)valueOfWithNSString:(NSString *)s;
++ (JavaLangLong *)valueOfWithNSString:(NSString *)s;
 
 /*!
  @brief Returns a <code>Long</code> object holding the value
@@ -816,8 +805,8 @@
  @throw NumberFormatExceptionIf the <code>String</code> does not
               contain a parsable <code>long</code>.
  */
-+ (JavaLangLong * __nonnull)valueOfWithNSString:(NSString *)s
-                                        withInt:(jint)radix;
++ (JavaLangLong *)valueOfWithNSString:(NSString *)s
+                              withInt:(jint)radix;
 
 #pragma mark Package-Private
 
@@ -837,7 +826,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -971,10 +960,6 @@ BOXED_SHIFT_ASSIGN_64(Long, longLongValue, jlong, JavaLangLong)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangLong")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/net/ssl/SSLSocketFactory.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxNetSslSSLSocketFactory")
 #ifdef RESTRICT_JavaxNetSslSSLSocketFactory
@@ -19,18 +19,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxNetSslSSLSocketFactory_) && (INCLUDE_ALL_JavaxNetSslSSLSocketFactory || defined(INCLUDE_JavaxNetSslSSLSocketFactory))
 #define JavaxNetSslSSLSocketFactory_
 
 #define RESTRICT_JavaxNetSocketFactory 1
 #define INCLUDE_JavaxNetSocketFactory 1
-#include "javax/net/SocketFactory.h"
+#include "../../../javax/net/SocketFactory.h"
 
 @class IOSObjectArray;
 @class JavaNetSocket;
@@ -48,7 +42,7 @@
 /*!
  @brief Constructor is used only by subclasses.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Returns a socket layered over an existing socket connected to the named
@@ -168,11 +162,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLSocketFactory)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaLangException:(JavaLangException *)reason;
+- (instancetype)initWithJavaLangException:(JavaLangException *)reason;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -188,10 +182,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslDefaultSSLSocketFactory)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxNetSslSSLSocketFactory")

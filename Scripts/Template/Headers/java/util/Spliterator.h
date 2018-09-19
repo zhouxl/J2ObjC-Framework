@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/Spliterator.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilSpliterator")
 #ifdef RESTRICT_JavaUtilSpliterator
@@ -27,12 +27,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaUtilSpliterator_) && (INCLUDE_ALL_JavaUtilSpliterator || defined(INCLUDE_JavaUtilSpliterator))
 #define JavaUtilSpliterator_
@@ -250,14 +244,6 @@
 @end
 
 @interface JavaUtilSpliterator : NSObject
-@property (readonly, class) jint ORDERED NS_SWIFT_NAME(ORDERED);
-@property (readonly, class) jint DISTINCT NS_SWIFT_NAME(DISTINCT);
-@property (readonly, class) jint SORTED NS_SWIFT_NAME(SORTED);
-@property (readonly, class) jint SIZED NS_SWIFT_NAME(SIZED);
-@property (readonly, class) jint NONNULL NS_SWIFT_NAME(NONNULL);
-@property (readonly, class) jint IMMUTABLE NS_SWIFT_NAME(IMMUTABLE);
-@property (readonly, class) jint CONCURRENT NS_SWIFT_NAME(CONCURRENT);
-@property (readonly, class) jint SUBSIZED NS_SWIFT_NAME(SUBSIZED);
 
 + (jint)ORDERED;
 
@@ -564,10 +550,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterator_OfDouble)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilSpliterator")

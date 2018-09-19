@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/net/ConnectException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetConnectException")
 #ifdef RESTRICT_JavaNetConnectException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNetConnectException_) && (INCLUDE_ALL_JavaNetConnectException || defined(INCLUDE_JavaNetConnectException))
 #define JavaNetConnectException_
 
 #define RESTRICT_JavaNetSocketException 1
 #define INCLUDE_JavaNetSocketException 1
-#include "java/net/SocketException.h"
+#include "../../java/net/SocketException.h"
 
 @class JavaLangThrowable;
 
@@ -45,7 +39,7 @@
 /*!
  @brief Construct a new ConnectException with no detailed message.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a new ConnectException with the specified detail
@@ -54,16 +48,16 @@
   description of this error.
  @param msg the detail message
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)msg;
+- (instancetype)initWithNSString:(NSString *)msg;
 
 /*!
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)msg
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)msg
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -91,10 +85,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetConnectException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetConnectException")

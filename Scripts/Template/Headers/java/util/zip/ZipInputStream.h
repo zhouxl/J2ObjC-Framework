@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/zip/ZipInputStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilZipZipInputStream")
 #ifdef RESTRICT_JavaUtilZipZipInputStream
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilZipZipInputStream_) && (INCLUDE_ALL_JavaUtilZipZipInputStream || defined(INCLUDE_JavaUtilZipZipInputStream))
 #define JavaUtilZipZipInputStream_
 
 #define RESTRICT_JavaUtilZipInflaterInputStream 1
 #define INCLUDE_JavaUtilZipInflaterInputStream 1
-#include "java/util/zip/InflaterInputStream.h"
+#include "../../../java/util/zip/InflaterInputStream.h"
 
 #define RESTRICT_JavaUtilZipZipConstants 1
 #define INCLUDE_JavaUtilZipZipConstants 1
-#include "java/util/zip/ZipConstants.h"
+#include "../../../java/util/zip/ZipConstants.h"
 
 @class IOSByteArray;
 @class JavaIoInputStream;
@@ -55,7 +49,7 @@
   decode the entry names.
  @param inArg the actual input stream
  */
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
 
 /*!
  @brief Creates a new ZIP input stream.
@@ -67,8 +61,8 @@
    of the ZIP entry's general purpose bit         flag is set).
  @since 1.7
  */
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
-                          withJavaNioCharsetCharset:(JavaNioCharsetCharset *)charset;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
+                withJavaNioCharsetCharset:(JavaNioCharsetCharset *)charset;
 
 /*!
  @brief Returns 0 after EOF has reached for the current entry data,
@@ -148,12 +142,12 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)arg0
-                            withJavaUtilZipInflater:(JavaUtilZipInflater *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)arg0
+                  withJavaUtilZipInflater:(JavaUtilZipInflater *)arg1 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)arg0
-                            withJavaUtilZipInflater:(JavaUtilZipInflater *)arg1
-                                            withInt:(jint)arg2 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)arg0
+                  withJavaUtilZipInflater:(JavaUtilZipInflater *)arg1
+                                  withInt:(jint)arg2 NS_UNAVAILABLE;
 
 @end
 
@@ -175,10 +169,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipInputStream)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilZipZipInputStream")

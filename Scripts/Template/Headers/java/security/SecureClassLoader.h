@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/SecureClassLoader.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecuritySecureClassLoader")
 #ifdef RESTRICT_JavaSecuritySecureClassLoader
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecuritySecureClassLoader_) && (INCLUDE_ALL_JavaSecuritySecureClassLoader || defined(INCLUDE_JavaSecuritySecureClassLoader))
 #define JavaSecuritySecureClassLoader_
 
 #define RESTRICT_JavaLangClassLoader 1
 #define INCLUDE_JavaLangClassLoader 1
-#include "java/lang/ClassLoader.h"
+#include "../../java/lang/ClassLoader.h"
 
 @class IOSByteArray;
 @class IOSClass;
@@ -57,7 +51,7 @@
               creation of a class loader.
  - seealso: SecurityManager#checkCreateClassLoader
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a new SecureClassLoader using the specified parent
@@ -72,7 +66,7 @@
               creation of a class loader.
  - seealso: SecurityManager#checkCreateClassLoader
  */
-- (instancetype __nonnull)initWithJavaLangClassLoader:(JavaLangClassLoader *)parent;
+- (instancetype)initWithJavaLangClassLoader:(JavaLangClassLoader *)parent;
 
 /*!
  @brief Converts an array of bytes into an instance of class Class,
@@ -168,10 +162,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySecureClassLoader)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySecureClassLoader")

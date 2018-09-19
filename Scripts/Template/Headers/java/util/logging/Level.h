@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/logging/Level.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilLoggingLevel")
 #ifdef RESTRICT_JavaUtilLoggingLevel
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilLoggingLevel_) && (INCLUDE_ALL_JavaUtilLoggingLevel || defined(INCLUDE_JavaUtilLoggingLevel))
 #define JavaUtilLoggingLevel_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 /*!
  @brief The Level class defines a set of standard logging levels that
@@ -61,15 +55,6 @@
  @since 1.4
  */
 @interface JavaUtilLoggingLevel : NSObject < JavaIoSerializable >
-@property (readonly, class, strong) JavaUtilLoggingLevel *OFF NS_SWIFT_NAME(OFF);
-@property (readonly, class, strong) JavaUtilLoggingLevel *SEVERE NS_SWIFT_NAME(SEVERE);
-@property (readonly, class, strong) JavaUtilLoggingLevel *WARNING NS_SWIFT_NAME(WARNING);
-@property (readonly, class, strong) JavaUtilLoggingLevel *INFO NS_SWIFT_NAME(INFO);
-@property (readonly, class, strong) JavaUtilLoggingLevel *CONFIG NS_SWIFT_NAME(CONFIG);
-@property (readonly, class, strong) JavaUtilLoggingLevel *FINE NS_SWIFT_NAME(FINE);
-@property (readonly, class, strong) JavaUtilLoggingLevel *FINER NS_SWIFT_NAME(FINER);
-@property (readonly, class, strong) JavaUtilLoggingLevel *FINEST NS_SWIFT_NAME(FINEST);
-@property (readonly, class, strong) JavaUtilLoggingLevel *ALL NS_SWIFT_NAME(ALL);
 
 + (JavaUtilLoggingLevel *)OFF;
 
@@ -181,8 +166,8 @@
  @param value an integer value for the level.
  @throw NullPointerExceptionif the name is null
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)name
-                                   withInt:(jint)value;
+- (instancetype)initWithNSString:(NSString *)name
+                         withInt:(jint)value;
 
 /*!
  @brief Create a named Level with a given integer value and a
@@ -194,9 +179,9 @@
       or an empty string, it is ignored.
  @throw NullPointerExceptionif the name is null
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)name
-                                   withInt:(jint)value
-                              withNSString:(NSString *)resourceBundleName;
+- (instancetype)initWithNSString:(NSString *)name
+                         withInt:(jint)value
+                    withNSString:(NSString *)resourceBundleName;
 
 #pragma mark Package-Private
 
@@ -208,7 +193,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -365,7 +350,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLevel)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilLoggingLevel:(JavaUtilLoggingLevel *)l;
+- (instancetype)initWithJavaUtilLoggingLevel:(JavaUtilLoggingLevel *)l;
 
 + (void)addWithJavaUtilLoggingLevel:(JavaUtilLoggingLevel *)l;
 
@@ -381,7 +366,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLevel)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -412,10 +397,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLevel_KnownLevel)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingLevel")

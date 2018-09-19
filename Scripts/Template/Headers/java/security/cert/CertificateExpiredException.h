@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/cert/CertificateExpiredException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityCertCertificateExpiredException")
 #ifdef RESTRICT_JavaSecurityCertCertificateExpiredException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityCertCertificateExpiredException_) && (INCLUDE_ALL_JavaSecurityCertCertificateExpiredException || defined(INCLUDE_JavaSecurityCertCertificateExpiredException))
 #define JavaSecurityCertCertificateExpiredException_
 
 #define RESTRICT_JavaSecurityCertCertificateException 1
 #define INCLUDE_JavaSecurityCertCertificateException 1
-#include "java/security/cert/CertificateException.h"
+#include "../../../java/security/cert/CertificateException.h"
 
 @class JavaLangThrowable;
 
@@ -47,7 +41,7 @@
   detail message is a String that describes this particular
   exception.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a CertificateExpiredException with the specified detail
@@ -55,14 +49,14 @@
   particular exception.
  @param message the detail message.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message;
+- (instancetype)initWithNSString:(NSString *)message;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -84,10 +78,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertificateExpiredException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCertificateExpiredException")

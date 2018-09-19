@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/function/BooleanSupplier.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilFunctionBooleanSupplier")
 #ifdef RESTRICT_JavaUtilFunctionBooleanSupplier
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaUtilFunctionBooleanSupplier_) && (INCLUDE_ALL_JavaUtilFunctionBooleanSupplier || defined(INCLUDE_JavaUtilFunctionBooleanSupplier))
 #define JavaUtilFunctionBooleanSupplier_
@@ -51,10 +45,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilFunctionBooleanSupplier)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilFunctionBooleanSupplier")

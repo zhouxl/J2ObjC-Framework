@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/ForkJoinTask.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentForkJoinTask")
 #ifdef RESTRICT_JavaUtilConcurrentForkJoinTask
@@ -28,22 +28,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentForkJoinTask_) && (INCLUDE_ALL_JavaUtilConcurrentForkJoinTask || defined(INCLUDE_JavaUtilConcurrentForkJoinTask))
 #define JavaUtilConcurrentForkJoinTask_
 
 #define RESTRICT_JavaUtilConcurrentFuture 1
 #define INCLUDE_JavaUtilConcurrentFuture 1
-#include "java/util/concurrent/Future.h"
+#include "../../../java/util/concurrent/Future.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaLangThrowable;
@@ -208,12 +202,6 @@
    */
   volatile_jint status_;
 }
-@property (readonly, class) jint DONE_MASK NS_SWIFT_NAME(DONE_MASK);
-@property (readonly, class) jint NORMAL NS_SWIFT_NAME(NORMAL);
-@property (readonly, class) jint CANCELLED NS_SWIFT_NAME(CANCELLED);
-@property (readonly, class) jint EXCEPTIONAL NS_SWIFT_NAME(EXCEPTIONAL);
-@property (readonly, class) jint SIGNAL NS_SWIFT_NAME(SIGNAL);
-@property (readonly, class) jint SMASK NS_SWIFT_NAME(SMASK);
 
 + (jint)DONE_MASK;
 
@@ -229,7 +217,7 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Returns a new <code>ForkJoinTask</code> that performs the <code>call</code>
@@ -822,7 +810,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask)
 
 #define RESTRICT_JavaLangRefWeakReference 1
 #define INCLUDE_JavaLangRefWeakReference 1
-#include "java/lang/ref/WeakReference.h"
+#include "../../../java/lang/ref/WeakReference.h"
 
 @class JavaLangRefReferenceQueue;
 @class JavaLangThrowable;
@@ -855,17 +843,17 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentForkJoinTask:(JavaUtilConcurrentForkJoinTask *)task
-                                           withJavaLangThrowable:(JavaLangThrowable *)ex
-                withJavaUtilConcurrentForkJoinTask_ExceptionNode:(JavaUtilConcurrentForkJoinTask_ExceptionNode *)next
-                                   withJavaLangRefReferenceQueue:(JavaLangRefReferenceQueue *)exceptionTableRefQueue;
+- (instancetype)initWithJavaUtilConcurrentForkJoinTask:(JavaUtilConcurrentForkJoinTask *)task
+                                 withJavaLangThrowable:(JavaLangThrowable *)ex
+      withJavaUtilConcurrentForkJoinTask_ExceptionNode:(JavaUtilConcurrentForkJoinTask_ExceptionNode *)next
+                         withJavaLangRefReferenceQueue:(JavaLangRefReferenceQueue *)exceptionTableRefQueue;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithId:(id)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithId:(id)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithId:(id)arg0
-       withJavaLangRefReferenceQueue:(JavaLangRefReferenceQueue *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithId:(id)arg0
+withJavaLangRefReferenceQueue:(JavaLangRefReferenceQueue *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -889,7 +877,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask_ExceptionNode)
 
 #define RESTRICT_JavaUtilConcurrentRunnableFuture 1
 #define INCLUDE_JavaUtilConcurrentRunnableFuture 1
-#include "java/util/concurrent/RunnableFuture.h"
+#include "../../../java/util/concurrent/RunnableFuture.h"
 
 @protocol JavaLangRunnable;
 
@@ -916,12 +904,12 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask_ExceptionNode)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaLangRunnable:(id<JavaLangRunnable>)runnable
-                                            withId:(id)result;
+- (instancetype)initWithJavaLangRunnable:(id<JavaLangRunnable>)runnable
+                                  withId:(id)result;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -945,7 +933,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask_AdaptedRunnable)
 
 #define RESTRICT_JavaUtilConcurrentRunnableFuture 1
 #define INCLUDE_JavaUtilConcurrentRunnableFuture 1
-#include "java/util/concurrent/RunnableFuture.h"
+#include "../../../java/util/concurrent/RunnableFuture.h"
 
 @class JavaLangVoid;
 @class JavaUtilConcurrentTimeUnit;
@@ -980,11 +968,11 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)arg1;
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaLangRunnable:(id<JavaLangRunnable>)runnable;
+- (instancetype)initWithJavaLangRunnable:(id<JavaLangRunnable>)runnable;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -1037,13 +1025,13 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)arg1;
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaLangRunnable:(id<JavaLangRunnable>)runnable;
+- (instancetype)initWithJavaLangRunnable:(id<JavaLangRunnable>)runnable;
 
 - (void)internalPropagateExceptionWithJavaLangThrowable:(JavaLangThrowable *)ex;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -1066,7 +1054,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask_RunnableExecuteAction)
 
 #define RESTRICT_JavaUtilConcurrentRunnableFuture 1
 #define INCLUDE_JavaUtilConcurrentRunnableFuture 1
-#include "java/util/concurrent/RunnableFuture.h"
+#include "../../../java/util/concurrent/RunnableFuture.h"
 
 @protocol JavaUtilConcurrentCallable;
 
@@ -1091,11 +1079,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask_RunnableExecuteAction)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentCallable:(id<JavaUtilConcurrentCallable>)callable;
+- (instancetype)initWithJavaUtilConcurrentCallable:(id<JavaUtilConcurrentCallable>)callable;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -1114,10 +1102,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask_AdaptedCallable)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentForkJoinTask")

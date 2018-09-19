@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/StringWriter.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoStringWriter")
 #ifdef RESTRICT_JavaIoStringWriter
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoStringWriter_) && (INCLUDE_ALL_JavaIoStringWriter || defined(INCLUDE_JavaIoStringWriter))
 #define JavaIoStringWriter_
 
 #define RESTRICT_JavaIoWriter 1
 #define INCLUDE_JavaIoWriter 1
-#include "java/io/Writer.h"
+#include "../../java/io/Writer.h"
 
 @class IOSCharArray;
 @class JavaLangStringBuffer;
@@ -51,7 +45,7 @@
  @brief Create a new string writer using the default initial string-buffer
   size.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Create a new string writer using the specified initial string-buffer
@@ -61,7 +55,7 @@
  @throw IllegalArgumentException
  If <tt>initialSize</tt> is negative
  */
-- (instancetype __nonnull)initWithInt:(jint)initialSize;
+- (instancetype)initWithInt:(jint)initialSize;
 
 /*!
  @brief Appends the specified character to this writer.
@@ -182,7 +176,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithId:(id)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithId:(id)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -204,10 +198,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoStringWriter)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoStringWriter")

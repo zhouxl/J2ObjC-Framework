@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/javax/xml/xpath/XPathFactory.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxXmlXpathXPathFactory")
 #ifdef RESTRICT_JavaxXmlXpathXPathFactory
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaxXmlXpathXPathFactory_) && (INCLUDE_ALL_JavaxXmlXpathXPathFactory || defined(INCLUDE_JavaxXmlXpathXPathFactory))
 #define JavaxXmlXpathXPathFactory_
@@ -41,8 +35,6 @@
  @since 1.5
  */
 @interface JavaxXmlXpathXPathFactory : NSObject
-@property (readonly, copy, class) NSString *DEFAULT_PROPERTY_NAME NS_SWIFT_NAME(DEFAULT_PROPERTY_NAME);
-@property (readonly, copy, class) NSString *DEFAULT_OBJECT_MODEL_URI NS_SWIFT_NAME(DEFAULT_OBJECT_MODEL_URI);
 
 + (NSString *)DEFAULT_PROPERTY_NAME;
 
@@ -232,7 +224,7 @@
   should be used to create a new instance of an <code>XPathFactory</code>.
  </p>
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -268,10 +260,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathFactory)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlXpathXPathFactory")

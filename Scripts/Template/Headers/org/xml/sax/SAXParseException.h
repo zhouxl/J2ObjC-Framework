@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/org/xml/sax/SAXParseException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgXmlSaxSAXParseException")
 #ifdef RESTRICT_OrgXmlSaxSAXParseException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (OrgXmlSaxSAXParseException_) && (INCLUDE_ALL_OrgXmlSaxSAXParseException || defined(INCLUDE_OrgXmlSaxSAXParseException))
 #define OrgXmlSaxSAXParseException_
 
 #define RESTRICT_OrgXmlSaxSAXException 1
 #define INCLUDE_OrgXmlSaxSAXException 1
-#include "org/xml/sax/SAXException.h"
+#include "../../../org/xml/sax/SAXException.h"
 
 @class JavaLangException;
 @protocol OrgXmlSaxLocator;
@@ -72,8 +66,8 @@
  @param locator The locator object for the error or warning (may be         null).
  - seealso: org.xml.sax.Locator
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                      withOrgXmlSaxLocator:(id<OrgXmlSaxLocator>)locator;
+- (instancetype)initWithNSString:(NSString *)message
+            withOrgXmlSaxLocator:(id<OrgXmlSaxLocator>)locator;
 
 /*!
  @brief Wrap an existing exception in a SAXParseException.
@@ -86,9 +80,9 @@
  @param e Any exception.
  - seealso: org.xml.sax.Locator
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                      withOrgXmlSaxLocator:(id<OrgXmlSaxLocator>)locator
-                     withJavaLangException:(JavaLangException *)e;
+- (instancetype)initWithNSString:(NSString *)message
+            withOrgXmlSaxLocator:(id<OrgXmlSaxLocator>)locator
+           withJavaLangException:(JavaLangException *)e;
 
 /*!
  @brief Create a new SAXParseException.
@@ -104,11 +98,11 @@
  @param lineNumber The line number of the end of the text that                    caused the error or warning.
  @param columnNumber The column number of the end of the text that                      cause the error or warning.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                              withNSString:(NSString *)publicId
-                              withNSString:(NSString *)systemId
-                                   withInt:(jint)lineNumber
-                                   withInt:(jint)columnNumber;
+- (instancetype)initWithNSString:(NSString *)message
+                    withNSString:(NSString *)publicId
+                    withNSString:(NSString *)systemId
+                         withInt:(jint)lineNumber
+                         withInt:(jint)columnNumber;
 
 /*!
  @brief Create a new SAXParseException with an embedded exception.
@@ -127,12 +121,12 @@
  @param columnNumber The column number of the end of the text that                      cause the error or warning.
  @param e Another exception to embed in this one.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                              withNSString:(NSString *)publicId
-                              withNSString:(NSString *)systemId
-                                   withInt:(jint)lineNumber
-                                   withInt:(jint)columnNumber
-                     withJavaLangException:(JavaLangException *)e;
+- (instancetype)initWithNSString:(NSString *)message
+                    withNSString:(NSString *)publicId
+                    withNSString:(NSString *)systemId
+                         withInt:(jint)lineNumber
+                         withInt:(jint)columnNumber
+           withJavaLangException:(JavaLangException *)e;
 
 /*!
  @brief The column number of the end of the text where the exception occurred.
@@ -172,14 +166,14 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaLangException:(JavaLangException *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangException:(JavaLangException *)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangException:(JavaLangException *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangException:(JavaLangException *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -213,10 +207,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxSAXParseException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxSAXParseException")

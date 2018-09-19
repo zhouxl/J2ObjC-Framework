@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/AbstractCollection.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilAbstractCollection")
 #ifdef RESTRICT_JavaUtilAbstractCollection
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilAbstractCollection_) && (INCLUDE_ALL_JavaUtilAbstractCollection || defined(INCLUDE_JavaUtilAbstractCollection))
 #define JavaUtilAbstractCollection_
 
 #define RESTRICT_JavaUtilCollection 1
 #define INCLUDE_JavaUtilCollection 1
-#include "java/util/Collection.h"
+#include "../../java/util/Collection.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilFunctionConsumer;
@@ -260,7 +254,7 @@
  (For invocation by subclass constructors, typically
   implicit.)
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 #pragma mark Package-Private
 
@@ -274,10 +268,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractCollection)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilAbstractCollection")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/net/DatagramSocketImpl.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetDatagramSocketImpl")
 #ifdef RESTRICT_JavaNetDatagramSocketImpl
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNetDatagramSocketImpl_) && (INCLUDE_ALL_JavaNetDatagramSocketImpl || defined(INCLUDE_JavaNetDatagramSocketImpl))
 #define JavaNetDatagramSocketImpl_
 
 #define RESTRICT_JavaNetSocketOptions 1
 #define INCLUDE_JavaNetSocketOptions 1
-#include "java/net/SocketOptions.h"
+#include "../../java/net/SocketOptions.h"
 
 @class JavaIoFileDescriptor;
 @class JavaNetDatagramPacket;
@@ -54,7 +48,7 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 #pragma mark Protected
 
@@ -256,10 +250,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetDatagramSocketImpl)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetDatagramSocketImpl")

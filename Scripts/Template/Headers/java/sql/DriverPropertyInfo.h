@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/sql/DriverPropertyInfo.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSqlDriverPropertyInfo")
 #ifdef RESTRICT_JavaSqlDriverPropertyInfo
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaSqlDriverPropertyInfo_) && (INCLUDE_ALL_JavaSqlDriverPropertyInfo || defined(INCLUDE_JavaSqlDriverPropertyInfo))
 #define JavaSqlDriverPropertyInfo_
@@ -77,12 +71,12 @@
  @param name the name of the property
  @param value the current value, which may be null
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)name
-                              withNSString:(NSString *)value;
+- (instancetype)initWithNSString:(NSString *)name
+                    withNSString:(NSString *)value;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -103,10 +97,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlDriverPropertyInfo)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSqlDriverPropertyInfo")

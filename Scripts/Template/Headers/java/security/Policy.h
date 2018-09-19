@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/Policy.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityPolicy")
 #ifdef RESTRICT_JavaSecurityPolicy
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaSecurityPolicy_) && (INCLUDE_ALL_JavaSecurityPolicy || defined(INCLUDE_JavaSecurityPolicy))
 #define JavaSecurityPolicy_
@@ -36,13 +30,12 @@
  @brief Legacy security code; do not use.
  */
 @interface JavaSecurityPolicy : NSObject
-@property (readonly, class, strong) JavaSecurityPermissionCollection *UNSUPPORTED_EMPTY_COLLECTION NS_SWIFT_NAME(UNSUPPORTED_EMPTY_COLLECTION);
 
 + (JavaSecurityPermissionCollection *)UNSUPPORTED_EMPTY_COLLECTION;
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 + (JavaSecurityPolicy *)getInstanceWithNSString:(NSString *)type
               withJavaSecurityPolicy_Parameters:(id<JavaSecurityPolicy_Parameters>)params;
@@ -112,10 +105,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityPolicy_Parameters)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityPolicy")

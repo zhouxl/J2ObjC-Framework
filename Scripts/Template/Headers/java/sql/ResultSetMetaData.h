@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/sql/ResultSetMetaData.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSqlResultSetMetaData")
 #ifdef RESTRICT_JavaSqlResultSetMetaData
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSqlResultSetMetaData_) && (INCLUDE_ALL_JavaSqlResultSetMetaData || defined(INCLUDE_JavaSqlResultSetMetaData))
 #define JavaSqlResultSetMetaData_
 
 #define RESTRICT_JavaSqlWrapper 1
 #define INCLUDE_JavaSqlWrapper 1
-#include "java/sql/Wrapper.h"
+#include "../../java/sql/Wrapper.h"
 
 /*!
  @brief An object that can be used to get information about the types
@@ -242,9 +236,6 @@
 @end
 
 @interface JavaSqlResultSetMetaData : NSObject
-@property (readonly, class) jint columnNoNulls NS_SWIFT_NAME(columnNoNulls);
-@property (readonly, class) jint columnNullable NS_SWIFT_NAME(columnNullable);
-@property (readonly, class) jint columnNullableUnknown NS_SWIFT_NAME(columnNullableUnknown);
 
 + (jint)columnNoNulls;
 
@@ -284,10 +275,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlResultSetMetaData)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSqlResultSetMetaData")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/reflect/Member.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangReflectMember")
 #ifdef RESTRICT_JavaLangReflectMember
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaLangReflectMember_) && (INCLUDE_ALL_JavaLangReflectMember || defined(INCLUDE_JavaLangReflectMember))
 #define JavaLangReflectMember_
@@ -44,14 +38,14 @@
  @return an object representing the declaring class of the
   underlying member
  */
-- (IOSClass * __nonnull)getDeclaringClass;
+- (IOSClass *)getDeclaringClass;
 
 /*!
  @brief Returns the simple name of the underlying member or constructor
   represented by this Member.
  @return the simple name of the underlying member
  */
-- (NSString * __nonnull)getName;
+- (NSString *)getName;
 
 /*!
  @brief Returns the Java language modifiers for the member or
@@ -75,8 +69,6 @@
 @end
 
 @interface JavaLangReflectMember : NSObject
-@property (readonly, class) jint PUBLIC NS_SWIFT_NAME(PUBLIC);
-@property (readonly, class) jint DECLARED NS_SWIFT_NAME(DECLARED);
 
 + (jint)PUBLIC;
 
@@ -108,10 +100,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectMember)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangReflectMember")

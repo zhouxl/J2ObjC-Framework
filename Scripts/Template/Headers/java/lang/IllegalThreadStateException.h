@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/IllegalThreadStateException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangIllegalThreadStateException")
 #ifdef RESTRICT_JavaLangIllegalThreadStateException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangIllegalThreadStateException_) && (INCLUDE_ALL_JavaLangIllegalThreadStateException || defined(INCLUDE_JavaLangIllegalThreadStateException))
 #define JavaLangIllegalThreadStateException_
 
 #define RESTRICT_JavaLangIllegalArgumentException 1
 #define INCLUDE_JavaLangIllegalArgumentException 1
-#include "java/lang/IllegalArgumentException.h"
+#include "../../java/lang/IllegalArgumentException.h"
 
 @class JavaLangThrowable;
 
@@ -49,21 +43,21 @@
  @brief Constructs an <code>IllegalThreadStateException</code> with no
   detail message.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs an <code>IllegalThreadStateException</code> with the
   specified detail message.
  @param s the detail message.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s;
+- (instancetype)initWithNSString:(NSString *)s;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -85,10 +79,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangIllegalThreadStateException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangIllegalThreadStateException")

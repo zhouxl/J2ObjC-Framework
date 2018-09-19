@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/net/Inet6Address.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetInet6Address")
 #ifdef RESTRICT_JavaNetInet6Address
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNetInet6Address_) && (INCLUDE_ALL_JavaNetInet6Address || defined(INCLUDE_JavaNetInet6Address))
 #define JavaNetInet6Address_
 
 #define RESTRICT_JavaNetInetAddress 1
 #define INCLUDE_JavaNetInetAddress 1
-#include "java/net/InetAddress.h"
+#include "../../java/net/InetAddress.h"
 
 @class IOSByteArray;
 @class JavaNetNetworkInterface;
@@ -169,9 +163,6 @@
    */
   __unsafe_unretained JavaNetNetworkInterface *scope_ifname_;
 }
-@property (readonly, class) jint INADDRSZ NS_SWIFT_NAME(INADDRSZ);
-@property (readonly, class, strong) JavaNetInetAddress *ANY NS_SWIFT_NAME(ANY);
-@property (readonly, class, strong) JavaNetInetAddress *LOOPBACK NS_SWIFT_NAME(LOOPBACK);
 
 + (jint)INADDRSZ;
 
@@ -374,22 +365,22 @@
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)hostName
-                             withByteArray:(IOSByteArray *)addr;
+- (instancetype)initWithNSString:(NSString *)hostName
+                   withByteArray:(IOSByteArray *)addr;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)hostName
-                             withByteArray:(IOSByteArray *)addr
-                                   withInt:(jint)scope_id;
+- (instancetype)initWithNSString:(NSString *)hostName
+                   withByteArray:(IOSByteArray *)addr
+                         withInt:(jint)scope_id;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)hostName
-                             withByteArray:(IOSByteArray *)addr
-               withJavaNetNetworkInterface:(JavaNetNetworkInterface *)nif;
+- (instancetype)initWithNSString:(NSString *)hostName
+                   withByteArray:(IOSByteArray *)addr
+     withJavaNetNetworkInterface:(JavaNetNetworkInterface *)nif;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)hostName
-                             withByteArray:(IOSByteArray *)addr
-                              withNSString:(NSString *)ifname;
+- (instancetype)initWithNSString:(NSString *)hostName
+                   withByteArray:(IOSByteArray *)addr
+                    withNSString:(NSString *)ifname;
 
 + (NSString *)numericToTextFormatWithByteArray:(IOSByteArray *)src;
 
@@ -457,10 +448,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetInet6Address)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetInet6Address")

@@ -3,7 +3,7 @@
 //  source: android/libcore/json/src/main/java/org/json/JSONObject.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgJsonJSONObject")
 #ifdef RESTRICT_OrgJsonJSONObject
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (OrgJsonJSONObject_) && (INCLUDE_ALL_OrgJsonJSONObject || defined(INCLUDE_OrgJsonJSONObject))
 #define OrgJsonJSONObject_
@@ -85,7 +79,6 @@
   prohibit it" for further information.
  */
 @interface OrgJsonJSONObject : NSObject
-@property (readonly, class, strong) id NULL_ NS_SWIFT_NAME(NULL_);
 
 + (id)NULL_;
 
@@ -94,15 +87,15 @@
 /*!
  @brief Creates a <code>JSONObject</code> with no name/value mappings.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a new <code>JSONObject</code> by copying mappings for the listed names
   from the given object.Names that aren't present in <code>copyFrom</code> will
   be skipped.
  */
-- (instancetype __nonnull)initWithOrgJsonJSONObject:(OrgJsonJSONObject *)copyFrom
-                                  withNSStringArray:(IOSObjectArray *)names;
+- (instancetype)initWithOrgJsonJSONObject:(OrgJsonJSONObject *)copyFrom
+                        withNSStringArray:(IOSObjectArray *)names;
 
 /*!
  @brief Creates a new <code>JSONObject</code> with name/value mappings from the next
@@ -112,7 +105,7 @@
  @throw JSONExceptionif the parse fails or doesn't yield a
       <code>JSONObject</code>.
  */
-- (instancetype __nonnull)initWithOrgJsonJSONTokener:(OrgJsonJSONTokener *)readFrom;
+- (instancetype)initWithOrgJsonJSONTokener:(OrgJsonJSONTokener *)readFrom;
 
 /*!
  @brief Creates a new <code>JSONObject</code> by copying all name/value mappings from
@@ -121,7 +114,7 @@
        values are of supported types.
  @throw NullPointerExceptionif any of the map's keys are null.
  */
-- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)copyFrom;
+- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)copyFrom;
 
 /*!
  @brief Creates a new <code>JSONObject</code> with name/value mappings from the JSON
@@ -130,7 +123,7 @@
  @throw JSONExceptionif the parse fails or doesn't yield a <code>JSONObject</code>
  .
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)json;
+- (instancetype)initWithNSString:(NSString *)json;
 
 /*!
  @brief Appends <code>value</code> to the array already mapped to <code>name</code>.If
@@ -546,10 +539,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgJsonJSONObject)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgJsonJSONObject")

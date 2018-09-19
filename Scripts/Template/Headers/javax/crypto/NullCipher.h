@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/crypto/NullCipher.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxCryptoNullCipher")
 #ifdef RESTRICT_JavaxCryptoNullCipher
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxCryptoNullCipher_) && (INCLUDE_ALL_JavaxCryptoNullCipher || defined(INCLUDE_JavaxCryptoNullCipher))
 #define JavaxCryptoNullCipher_
 
 #define RESTRICT_JavaxCryptoCipher 1
 #define INCLUDE_JavaxCryptoCipher 1
-#include "javax/crypto/Cipher.h"
+#include "../../javax/crypto/Cipher.h"
 
 @class JavaSecurityProvider;
 @class JavaxCryptoCipherSpi;
@@ -46,13 +40,13 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaxCryptoCipherSpi:(JavaxCryptoCipherSpi *)arg0
-                              withJavaSecurityProvider:(JavaSecurityProvider *)arg1
-                                          withNSString:(NSString *)arg2 NS_UNAVAILABLE;
+- (instancetype)initWithJavaxCryptoCipherSpi:(JavaxCryptoCipherSpi *)arg0
+                    withJavaSecurityProvider:(JavaSecurityProvider *)arg1
+                                withNSString:(NSString *)arg2 NS_UNAVAILABLE;
 
 @end
 
@@ -68,10 +62,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoNullCipher)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxCryptoNullCipher")

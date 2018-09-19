@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/CharArrayReader.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoCharArrayReader")
 #ifdef RESTRICT_JavaIoCharArrayReader
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoCharArrayReader_) && (INCLUDE_ALL_JavaIoCharArrayReader || defined(INCLUDE_JavaIoCharArrayReader))
 #define JavaIoCharArrayReader_
 
 #define RESTRICT_JavaIoReader 1
 #define INCLUDE_JavaIoReader 1
-#include "java/io/Reader.h"
+#include "../../java/io/Reader.h"
 
 @class IOSCharArray;
 
@@ -64,7 +58,7 @@
  @brief Creates a CharArrayReader from the specified array of chars.
  @param buf Input buffer (not copied)
  */
-- (instancetype __nonnull)initWithCharArray:(IOSCharArray *)buf;
+- (instancetype)initWithCharArray:(IOSCharArray *)buf;
 
 /*!
  @brief Creates a CharArrayReader from the specified array of chars.
@@ -80,9 +74,9 @@
  @param offset Offset of the first char to read
  @param length Number of chars to read
  */
-- (instancetype __nonnull)initWithCharArray:(IOSCharArray *)buf
-                                    withInt:(jint)offset
-                                    withInt:(jint)length;
+- (instancetype)initWithCharArray:(IOSCharArray *)buf
+                          withInt:(jint)offset
+                          withInt:(jint)length;
 
 /*!
  @brief Closes the stream and releases any system resources associated with
@@ -155,9 +149,9 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithId:(id)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithId:(id)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -181,10 +175,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoCharArrayReader)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoCharArrayReader")

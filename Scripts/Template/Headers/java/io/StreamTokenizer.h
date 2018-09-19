@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/io/StreamTokenizer.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoStreamTokenizer")
 #ifdef RESTRICT_JavaIoStreamTokenizer
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaIoStreamTokenizer_) && (INCLUDE_ALL_JavaIoStreamTokenizer || defined(INCLUDE_JavaIoStreamTokenizer))
 #define JavaIoStreamTokenizer_
@@ -65,10 +59,6 @@
    */
   jint ttype_;
 }
-@property (readonly, class) jint TT_EOF NS_SWIFT_NAME(TT_EOF);
-@property (readonly, class) jint TT_EOL NS_SWIFT_NAME(TT_EOL);
-@property (readonly, class) jint TT_NUMBER NS_SWIFT_NAME(TT_NUMBER);
-@property (readonly, class) jint TT_WORD NS_SWIFT_NAME(TT_WORD);
 
 + (jint)TT_EOF;
 
@@ -88,7 +78,7 @@
  @throw NullPointerException
  if <code>is</code> is <code>null</code>.
  */
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)is __attribute__((deprecated));
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)is __attribute__((deprecated));
 
 /*!
  @brief Constructs a new <code>StreamTokenizer</code> with <code>r</code> as source reader.
@@ -107,7 +97,7 @@
   </ul>
  @param r the source reader from which to parse tokens.
  */
-- (instancetype __nonnull)initWithJavaIoReader:(JavaIoReader *)r;
+- (instancetype)initWithJavaIoReader:(JavaIoReader *)r;
 
 /*!
  @brief Specifies that the character <code>ch</code> shall be treated as a comment
@@ -286,10 +276,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoStreamTokenizer)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoStreamTokenizer")

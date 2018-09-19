@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/io/DataInputStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoDataInputStream")
 #ifdef RESTRICT_JavaIoDataInputStream
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoDataInputStream_) && (INCLUDE_ALL_JavaIoDataInputStream || defined(INCLUDE_JavaIoDataInputStream))
 #define JavaIoDataInputStream_
 
 #define RESTRICT_JavaIoFilterInputStream 1
 #define INCLUDE_JavaIoFilterInputStream 1
-#include "java/io/FilterInputStream.h"
+#include "../../java/io/FilterInputStream.h"
 
 #define RESTRICT_JavaIoDataInput 1
 #define INCLUDE_JavaIoDataInput 1
-#include "java/io/DataInput.h"
+#include "../../java/io/DataInput.h"
 
 @class IOSByteArray;
 @class JavaIoInputStream;
@@ -60,7 +54,7 @@
  - seealso: DataOutputStream
  - seealso: RandomAccessFile
  */
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
 
 - (jint)readWithByteArray:(IOSByteArray *)buffer;
 
@@ -136,10 +130,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoDataInputStream)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoDataInputStream")

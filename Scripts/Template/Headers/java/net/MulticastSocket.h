@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/net/MulticastSocket.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetMulticastSocket")
 #ifdef RESTRICT_JavaNetMulticastSocket
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNetMulticastSocket_) && (INCLUDE_ALL_JavaNetMulticastSocket || defined(INCLUDE_JavaNetMulticastSocket))
 #define JavaNetMulticastSocket_
 
 #define RESTRICT_JavaNetDatagramSocket 1
 #define INCLUDE_JavaNetDatagramSocket 1
-#include "java/net/DatagramSocket.h"
+#include "../../java/net/DatagramSocket.h"
 
 @class JavaNetDatagramPacket;
 @class JavaNetDatagramSocketImpl;
@@ -107,7 +101,7 @@
  - seealso: SecurityManager#checkListen
  - seealso: java.net.DatagramSocket
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Create a multicast socket and bind it to a specific port.
@@ -128,7 +122,7 @@
  - seealso: SecurityManager#checkListen
  - seealso: java.net.DatagramSocket
  */
-- (instancetype __nonnull)initWithInt:(jint)port;
+- (instancetype)initWithInt:(jint)port;
 
 /*!
  @brief Create a MulticastSocket bound to the specified socket address.
@@ -153,7 +147,7 @@
  - seealso: java.net.DatagramSocket
  @since 1.4
  */
-- (instancetype __nonnull)initWithJavaNetSocketAddress:(JavaNetSocketAddress *)bindaddr;
+- (instancetype)initWithJavaNetSocketAddress:(JavaNetSocketAddress *)bindaddr;
 
 /*!
  @brief Retrieve the address of the network interface used for
@@ -391,10 +385,10 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithInt:(jint)arg0
-               withJavaNetInetAddress:(JavaNetInetAddress *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithInt:(jint)arg0
+     withJavaNetInetAddress:(JavaNetInetAddress *)arg1 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaNetDatagramSocketImpl:(JavaNetDatagramSocketImpl *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaNetDatagramSocketImpl:(JavaNetDatagramSocketImpl *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -422,10 +416,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetMulticastSocket)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetMulticastSocket")

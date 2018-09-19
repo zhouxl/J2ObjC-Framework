@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/cert/X509CertSelector.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityCertX509CertSelector")
 #ifdef RESTRICT_JavaSecurityCertX509CertSelector
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityCertX509CertSelector_) && (INCLUDE_ALL_JavaSecurityCertX509CertSelector || defined(INCLUDE_JavaSecurityCertX509CertSelector))
 #define JavaSecurityCertX509CertSelector_
 
 #define RESTRICT_JavaSecurityCertCertSelector 1
 #define INCLUDE_JavaSecurityCertCertSelector 1
-#include "java/security/cert/CertSelector.h"
+#include "../../../java/security/cert/CertSelector.h"
 
 @class IOSBooleanArray;
 @class IOSByteArray;
@@ -85,15 +79,6 @@
  @author Steve Hanna
  */
 @interface JavaSecurityCertX509CertSelector : NSObject < JavaSecurityCertCertSelector >
-@property (readonly, class) jint NAME_ANY NS_SWIFT_NAME(NAME_ANY);
-@property (readonly, class) jint NAME_RFC822 NS_SWIFT_NAME(NAME_RFC822);
-@property (readonly, class) jint NAME_DNS NS_SWIFT_NAME(NAME_DNS);
-@property (readonly, class) jint NAME_X400 NS_SWIFT_NAME(NAME_X400);
-@property (readonly, class) jint NAME_DIRECTORY NS_SWIFT_NAME(NAME_DIRECTORY);
-@property (readonly, class) jint NAME_EDI NS_SWIFT_NAME(NAME_EDI);
-@property (readonly, class) jint NAME_URI NS_SWIFT_NAME(NAME_URI);
-@property (readonly, class) jint NAME_IP NS_SWIFT_NAME(NAME_IP);
-@property (readonly, class) jint NAME_OID NS_SWIFT_NAME(NAME_OID);
 
 + (jint)NAME_ANY;
 
@@ -119,7 +104,7 @@
  @brief Creates an <code>X509CertSelector</code>.Initially, no criteria are set
   so any <code>X509Certificate</code> will match.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Adds a name to the pathToNames criterion.The <code>X509Certificate</code>
@@ -1310,10 +1295,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertX509CertSelector)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertX509CertSelector")

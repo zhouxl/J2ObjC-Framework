@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/javax/xml/transform/TransformerFactory.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxXmlTransformTransformerFactory")
 #ifdef RESTRICT_JavaxXmlTransformTransformerFactory
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaxXmlTransformTransformerFactory_) && (INCLUDE_ALL_JavaxXmlTransformTransformerFactory || defined(INCLUDE_JavaxXmlTransformTransformerFactory))
 #define JavaxXmlTransformTransformerFactory_
@@ -257,7 +251,7 @@
 /*!
  @brief Default constructor is protected on purpose.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -273,10 +267,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformTransformerFactory)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformTransformerFactory")

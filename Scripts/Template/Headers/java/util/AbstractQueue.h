@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/AbstractQueue.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilAbstractQueue")
 #ifdef RESTRICT_JavaUtilAbstractQueue
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilAbstractQueue_) && (INCLUDE_ALL_JavaUtilAbstractQueue || defined(INCLUDE_JavaUtilAbstractQueue))
 #define JavaUtilAbstractQueue_
 
 #define RESTRICT_JavaUtilAbstractCollection 1
 #define INCLUDE_JavaUtilAbstractCollection 1
-#include "java/util/AbstractCollection.h"
+#include "../../java/util/AbstractCollection.h"
 
 #define RESTRICT_JavaUtilQueue 1
 #define INCLUDE_JavaUtilQueue 1
-#include "java/util/Queue.h"
+#include "../../java/util/Queue.h"
 
 @protocol JavaUtilCollection;
 
@@ -144,7 +138,7 @@
 /*!
  @brief Constructor for use by subclasses.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 #pragma mark Package-Private
 
@@ -158,10 +152,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractQueue)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilAbstractQueue")

@@ -3,7 +3,7 @@
 //  source: Classes/com/google/j2objc/util/logging/IOSLogHandler.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_ComGoogleJ2objcUtilLoggingIOSLogHandler")
 #ifdef RESTRICT_ComGoogleJ2objcUtilLoggingIOSLogHandler
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (ComGoogleJ2objcUtilLoggingIOSLogHandler_) && (INCLUDE_ALL_ComGoogleJ2objcUtilLoggingIOSLogHandler || defined(INCLUDE_ComGoogleJ2objcUtilLoggingIOSLogHandler))
 #define ComGoogleJ2objcUtilLoggingIOSLogHandler_
 
 #define RESTRICT_JavaUtilLoggingHandler 1
 #define INCLUDE_JavaUtilLoggingHandler 1
-#include "java/util/logging/Handler.h"
+#include "../../../../../java/util/logging/Handler.h"
 
 @class JavaUtilLoggingLogRecord;
 
@@ -36,19 +30,20 @@
  @author Tom Ball
  */
 @interface ComGoogleJ2objcUtilLoggingIOSLogHandler : JavaUtilLoggingHandler
-@property (readonly, copy, class) NSString *IOS_LOG_MANAGER_DEFAULTS NS_SWIFT_NAME(IOS_LOG_MANAGER_DEFAULTS);
 
 + (NSString *)IOS_LOG_MANAGER_DEFAULTS;
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 - (void)close;
 
 - (void)flush;
 
 - (void)publishWithJavaUtilLoggingLogRecord:(JavaUtilLoggingLogRecord *)record;
+
+#pragma mark Package-Private
 
 @end
 
@@ -74,7 +69,7 @@ J2OBJC_TYPE_LITERAL_HEADER(ComGoogleJ2objcUtilLoggingIOSLogHandler)
 
 #define RESTRICT_JavaUtilLoggingFormatter 1
 #define INCLUDE_JavaUtilLoggingFormatter 1
-#include "java/util/logging/Formatter.h"
+#include "../../../../../java/util/logging/Formatter.h"
 
 @class JavaUtilLoggingLogRecord;
 
@@ -89,7 +84,7 @@ J2OBJC_TYPE_LITERAL_HEADER(ComGoogleJ2objcUtilLoggingIOSLogHandler)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -105,10 +100,6 @@ J2OBJC_TYPE_LITERAL_HEADER(ComGoogleJ2objcUtilLoggingIOSLogHandler_IOSLogFormatt
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_ComGoogleJ2objcUtilLoggingIOSLogHandler")

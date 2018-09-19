@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/awt/font/NumericShaper.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaAwtFontNumericShaper")
 #ifdef RESTRICT_JavaAwtFontNumericShaper
@@ -18,7 +18,6 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -27,7 +26,7 @@
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 @class IOSCharArray;
 @class JavaAwtFontNumericShaper_Range;
@@ -138,26 +137,6 @@
  @since 1.4
  */
 @interface JavaAwtFontNumericShaper : NSObject < JavaIoSerializable >
-@property (readonly, class) jint EUROPEAN NS_SWIFT_NAME(EUROPEAN);
-@property (readonly, class) jint ARABIC NS_SWIFT_NAME(ARABIC);
-@property (readonly, class) jint EASTERN_ARABIC NS_SWIFT_NAME(EASTERN_ARABIC);
-@property (readonly, class) jint DEVANAGARI NS_SWIFT_NAME(DEVANAGARI);
-@property (readonly, class) jint BENGALI NS_SWIFT_NAME(BENGALI);
-@property (readonly, class) jint GURMUKHI NS_SWIFT_NAME(GURMUKHI);
-@property (readonly, class) jint GUJARATI NS_SWIFT_NAME(GUJARATI);
-@property (readonly, class) jint ORIYA NS_SWIFT_NAME(ORIYA);
-@property (readonly, class) jint TAMIL NS_SWIFT_NAME(TAMIL);
-@property (readonly, class) jint TELUGU NS_SWIFT_NAME(TELUGU);
-@property (readonly, class) jint KANNADA NS_SWIFT_NAME(KANNADA);
-@property (readonly, class) jint MALAYALAM NS_SWIFT_NAME(MALAYALAM);
-@property (readonly, class) jint THAI NS_SWIFT_NAME(THAI);
-@property (readonly, class) jint LAO NS_SWIFT_NAME(LAO);
-@property (readonly, class) jint TIBETAN NS_SWIFT_NAME(TIBETAN);
-@property (readonly, class) jint MYANMAR NS_SWIFT_NAME(MYANMAR);
-@property (readonly, class) jint ETHIOPIC NS_SWIFT_NAME(ETHIOPIC);
-@property (readonly, class) jint KHMER NS_SWIFT_NAME(KHMER);
-@property (readonly, class) jint MONGOLIAN NS_SWIFT_NAME(MONGOLIAN);
-@property (readonly, class) jint ALL_RANGES NS_SWIFT_NAME(ALL_RANGES);
 
 + (jint)EUROPEAN;
 
@@ -421,7 +400,7 @@ withJavaAwtFontNumericShaper_Range:(JavaAwtFontNumericShaper_Range *)context;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -592,7 +571,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaAwtFontNumericShaper)
 
 #define RESTRICT_JavaLangEnum 1
 #define INCLUDE_JavaLangEnum 1
-#include "java/lang/Enum.h"
+#include "../../../java/lang/Enum.h"
 
 @class IOSObjectArray;
 
@@ -663,41 +642,6 @@ typedef NS_ENUM(NSUInteger, JavaAwtFontNumericShaper_Range_Enum) {
  */
 @interface JavaAwtFontNumericShaper_Range : JavaLangEnum
 
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *EUROPEAN NS_SWIFT_NAME(EUROPEAN);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *ARABIC NS_SWIFT_NAME(ARABIC);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *EASTERN_ARABIC NS_SWIFT_NAME(EASTERN_ARABIC);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *DEVANAGARI NS_SWIFT_NAME(DEVANAGARI);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *BENGALI NS_SWIFT_NAME(BENGALI);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *GURMUKHI NS_SWIFT_NAME(GURMUKHI);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *GUJARATI NS_SWIFT_NAME(GUJARATI);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *ORIYA NS_SWIFT_NAME(ORIYA);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *TAMIL NS_SWIFT_NAME(TAMIL);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *TELUGU NS_SWIFT_NAME(TELUGU);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *KANNADA NS_SWIFT_NAME(KANNADA);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *MALAYALAM NS_SWIFT_NAME(MALAYALAM);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *THAI NS_SWIFT_NAME(THAI);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *LAO NS_SWIFT_NAME(LAO);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *TIBETAN NS_SWIFT_NAME(TIBETAN);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *MYANMAR NS_SWIFT_NAME(MYANMAR);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *ETHIOPIC NS_SWIFT_NAME(ETHIOPIC);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *KHMER NS_SWIFT_NAME(KHMER);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *MONGOLIAN NS_SWIFT_NAME(MONGOLIAN);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *NKO NS_SWIFT_NAME(NKO);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *MYANMAR_SHAN NS_SWIFT_NAME(MYANMAR_SHAN);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *LIMBU NS_SWIFT_NAME(LIMBU);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *NEW_TAI_LUE NS_SWIFT_NAME(NEW_TAI_LUE);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *BALINESE NS_SWIFT_NAME(BALINESE);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *SUNDANESE NS_SWIFT_NAME(SUNDANESE);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *LEPCHA NS_SWIFT_NAME(LEPCHA);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *OL_CHIKI NS_SWIFT_NAME(OL_CHIKI);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *VAI NS_SWIFT_NAME(VAI);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *SAURASHTRA NS_SWIFT_NAME(SAURASHTRA);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *KAYAH_LI NS_SWIFT_NAME(KAYAH_LI);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *CHAM NS_SWIFT_NAME(CHAM);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *TAI_THAM_HORA NS_SWIFT_NAME(TAI_THAM_HORA);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *TAI_THAM_THAM NS_SWIFT_NAME(TAI_THAM_THAM);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *JAVANESE NS_SWIFT_NAME(JAVANESE);
-@property (readonly, class, nonnull) JavaAwtFontNumericShaper_Range *MEETEI_MAYEK NS_SWIFT_NAME(MEETEI_MAYEK);
 + (JavaAwtFontNumericShaper_Range * __nonnull)EUROPEAN;
 
 + (JavaAwtFontNumericShaper_Range * __nonnull)ARABIC;

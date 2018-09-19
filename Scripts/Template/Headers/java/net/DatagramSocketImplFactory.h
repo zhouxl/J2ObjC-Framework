@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/net/DatagramSocketImplFactory.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetDatagramSocketImplFactory")
 #ifdef RESTRICT_JavaNetDatagramSocketImplFactory
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaNetDatagramSocketImplFactory_) && (INCLUDE_ALL_JavaNetDatagramSocketImplFactory || defined(INCLUDE_JavaNetDatagramSocketImplFactory))
 #define JavaNetDatagramSocketImplFactory_
@@ -52,10 +46,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetDatagramSocketImplFactory)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetDatagramSocketImplFactory")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/nio/channels/ClosedByInterruptException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNioChannelsClosedByInterruptException")
 #ifdef RESTRICT_JavaNioChannelsClosedByInterruptException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNioChannelsClosedByInterruptException_) && (INCLUDE_ALL_JavaNioChannelsClosedByInterruptException || defined(INCLUDE_JavaNioChannelsClosedByInterruptException))
 #define JavaNioChannelsClosedByInterruptException_
 
 #define RESTRICT_JavaNioChannelsAsynchronousCloseException 1
 #define INCLUDE_JavaNioChannelsAsynchronousCloseException 1
-#include "java/nio/channels/AsynchronousCloseException.h"
+#include "../../../java/nio/channels/AsynchronousCloseException.h"
 
 /*!
  @brief Checked exception received by a thread when another thread interrupts it
@@ -43,7 +37,7 @@
 /*!
  @brief Constructs an instance of this class.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -59,10 +53,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsClosedByInterruptException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioChannelsClosedByInterruptException")

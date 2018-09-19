@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/Reader.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoReader")
 #ifdef RESTRICT_JavaIoReader
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoReader_) && (INCLUDE_ALL_JavaIoReader || defined(INCLUDE_JavaIoReader))
 #define JavaIoReader_
 
 #define RESTRICT_JavaLangReadable 1
 #define INCLUDE_JavaLangReadable 1
-#include "java/lang/Readable.h"
+#include "../../java/lang/Readable.h"
 
 #define RESTRICT_JavaIoCloseable 1
 #define INCLUDE_JavaIoCloseable 1
-#include "java/io/Closeable.h"
+#include "../../java/io/Closeable.h"
 
 @class IOSCharArray;
 @class JavaNioCharBuffer;
@@ -194,14 +188,14 @@
  @brief Creates a new character-stream reader whose critical sections will
   synchronize on the reader itself.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a new character-stream reader whose critical sections will
   synchronize on the given object.
  @param lock The Object to synchronize on.
  */
-- (instancetype __nonnull)initWithId:(id)lock;
+- (instancetype)initWithId:(id)lock;
 
 @end
 
@@ -217,10 +211,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoReader)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoReader")

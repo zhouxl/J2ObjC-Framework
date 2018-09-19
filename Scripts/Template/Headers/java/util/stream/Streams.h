@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/stream/Streams.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilStreamStreams")
 #ifdef RESTRICT_JavaUtilStreamStreams
@@ -43,12 +43,6 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilStreamStreams_) && (INCLUDE_ALL_JavaUtilStreamStreams || defined(INCLUDE_JavaUtilStreamStreams))
 #define JavaUtilStreamStreams_
 
@@ -63,7 +57,6 @@
  @since 1.8
  */
 @interface JavaUtilStreamStreams : NSObject
-@property (readonly, class, strong) id NONE NS_SWIFT_NAME(NONE);
 
 + (id)NONE;
 
@@ -114,7 +107,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator_OfInt 1
-#include "java/util/Spliterator.h"
+#include "../../../java/util/Spliterator.h"
 
 @protocol JavaUtilComparator;
 @protocol JavaUtilFunctionConsumer;
@@ -141,13 +134,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithInt:(jint)from
-                              withInt:(jint)upTo
-                          withBoolean:(jboolean)closed;
+- (instancetype)initWithInt:(jint)from
+                    withInt:(jint)upTo
+                withBoolean:(jboolean)closed;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -168,7 +161,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_RangeIntSpliterator)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator_OfLong 1
-#include "java/util/Spliterator.h"
+#include "../../../java/util/Spliterator.h"
 
 @protocol JavaUtilComparator;
 @protocol JavaUtilFunctionConsumer;
@@ -197,13 +190,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_RangeIntSpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithLong:(jlong)from
-                              withLong:(jlong)upTo
-                           withBoolean:(jboolean)closed;
+- (instancetype)initWithLong:(jlong)from
+                    withLong:(jlong)upTo
+                 withBoolean:(jboolean)closed;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -224,7 +217,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_RangeLongSpliterator)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator 1
-#include "java/util/Spliterator.h"
+#include "../../../java/util/Spliterator.h"
 
 @protocol JavaUtilComparator;
 @protocol JavaUtilFunctionConsumer;
@@ -255,7 +248,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_AbstractStreamBuilderImpl)
 
 #define RESTRICT_JavaUtilStreamStream 1
 #define INCLUDE_JavaUtilStreamStream_Builder 1
-#include "java/util/stream/Stream.h"
+#include "../../../java/util/stream/Stream.h"
 
 @class JavaUtilStreamSpinedBuffer;
 @protocol JavaUtilFunctionConsumer;
@@ -284,13 +277,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_AbstractStreamBuilderImpl)
 /*!
  @brief Constructor for building a stream of 0 or more elements.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructor for a singleton stream.
  @param t the single element
  */
-- (instancetype __nonnull)initWithId:(id)t;
+- (instancetype)initWithId:(id)t;
 
 @end
 
@@ -320,11 +313,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_StreamBuilderImpl)
 
 #define RESTRICT_JavaUtilStreamIntStream 1
 #define INCLUDE_JavaUtilStreamIntStream_Builder 1
-#include "java/util/stream/IntStream.h"
+#include "../../../java/util/stream/IntStream.h"
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator_OfInt 1
-#include "java/util/Spliterator.h"
+#include "../../../java/util/Spliterator.h"
 
 @class JavaUtilStreamSpinedBuffer_OfInt;
 @protocol JavaUtilFunctionConsumer;
@@ -352,13 +345,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_StreamBuilderImpl)
 /*!
  @brief Constructor for building a stream of 0 or more elements.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructor for a singleton stream.
  @param t the single element
  */
-- (instancetype __nonnull)initWithInt:(jint)t;
+- (instancetype)initWithInt:(jint)t;
 
 @end
 
@@ -387,11 +380,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_IntStreamBuilderImpl)
 
 #define RESTRICT_JavaUtilStreamLongStream 1
 #define INCLUDE_JavaUtilStreamLongStream_Builder 1
-#include "java/util/stream/LongStream.h"
+#include "../../../java/util/stream/LongStream.h"
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator_OfLong 1
-#include "java/util/Spliterator.h"
+#include "../../../java/util/Spliterator.h"
 
 @class JavaUtilStreamSpinedBuffer_OfLong;
 @protocol JavaUtilFunctionConsumer;
@@ -419,13 +412,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_IntStreamBuilderImpl)
 /*!
  @brief Constructor for building a stream of 0 or more elements.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructor for a singleton stream.
  @param t the single element
  */
-- (instancetype __nonnull)initWithLong:(jlong)t;
+- (instancetype)initWithLong:(jlong)t;
 
 @end
 
@@ -454,11 +447,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_LongStreamBuilderImpl)
 
 #define RESTRICT_JavaUtilStreamDoubleStream 1
 #define INCLUDE_JavaUtilStreamDoubleStream_Builder 1
-#include "java/util/stream/DoubleStream.h"
+#include "../../../java/util/stream/DoubleStream.h"
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator_OfDouble 1
-#include "java/util/Spliterator.h"
+#include "../../../java/util/Spliterator.h"
 
 @class JavaUtilStreamSpinedBuffer_OfDouble;
 @protocol JavaUtilFunctionConsumer;
@@ -486,13 +479,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_LongStreamBuilderImpl)
 /*!
  @brief Constructor for building a stream of 0 or more elements.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructor for a singleton stream.
  @param t the single element
  */
-- (instancetype __nonnull)initWithDouble:(jdouble)t;
+- (instancetype)initWithDouble:(jdouble)t;
 
 @end
 
@@ -521,7 +514,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_DoubleStreamBuilderImpl)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator 1
-#include "java/util/Spliterator.h"
+#include "../../../java/util/Spliterator.h"
 
 @protocol JavaUtilComparator;
 @protocol JavaUtilFunctionConsumer;
@@ -536,8 +529,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_DoubleStreamBuilderImpl)
 
 #pragma mark Public
 
-- (instancetype __nonnull)initWithJavaUtilSpliterator:(id<JavaUtilSpliterator>)aSpliterator
-                              withJavaUtilSpliterator:(id<JavaUtilSpliterator>)bSpliterator;
+- (instancetype)initWithJavaUtilSpliterator:(id<JavaUtilSpliterator>)aSpliterator
+                    withJavaUtilSpliterator:(id<JavaUtilSpliterator>)bSpliterator;
 
 - (jint)characteristics;
 
@@ -573,8 +566,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_ConcatSpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilSpliterator:(id<JavaUtilSpliterator>)aSpliterator
-                              withJavaUtilSpliterator:(id<JavaUtilSpliterator>)bSpliterator;
+- (instancetype)initWithJavaUtilSpliterator:(id<JavaUtilSpliterator>)aSpliterator
+                    withJavaUtilSpliterator:(id<JavaUtilSpliterator>)bSpliterator;
 
 @end
 
@@ -595,7 +588,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_ConcatSpliterator_OfRef)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator_OfPrimitive 1
-#include "java/util/Spliterator.h"
+#include "../../../java/util/Spliterator.h"
 
 @interface JavaUtilStreamStreams_ConcatSpliterator_OfPrimitive : JavaUtilStreamStreams_ConcatSpliterator < JavaUtilSpliterator_OfPrimitive >
 
@@ -618,14 +611,14 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_ConcatSpliterator_OfPrimitive)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator_OfInt 1
-#include "java/util/Spliterator.h"
+#include "../../../java/util/Spliterator.h"
 
 @interface JavaUtilStreamStreams_ConcatSpliterator_OfInt : JavaUtilStreamStreams_ConcatSpliterator_OfPrimitive < JavaUtilSpliterator_OfInt >
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilSpliterator_OfInt:(id<JavaUtilSpliterator_OfInt>)aSpliterator
-                              withJavaUtilSpliterator_OfInt:(id<JavaUtilSpliterator_OfInt>)bSpliterator;
+- (instancetype)initWithJavaUtilSpliterator_OfInt:(id<JavaUtilSpliterator_OfInt>)aSpliterator
+                    withJavaUtilSpliterator_OfInt:(id<JavaUtilSpliterator_OfInt>)bSpliterator;
 
 @end
 
@@ -646,14 +639,14 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_ConcatSpliterator_OfInt)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator_OfLong 1
-#include "java/util/Spliterator.h"
+#include "../../../java/util/Spliterator.h"
 
 @interface JavaUtilStreamStreams_ConcatSpliterator_OfLong : JavaUtilStreamStreams_ConcatSpliterator_OfPrimitive < JavaUtilSpliterator_OfLong >
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilSpliterator_OfLong:(id<JavaUtilSpliterator_OfLong>)aSpliterator
-                              withJavaUtilSpliterator_OfLong:(id<JavaUtilSpliterator_OfLong>)bSpliterator;
+- (instancetype)initWithJavaUtilSpliterator_OfLong:(id<JavaUtilSpliterator_OfLong>)aSpliterator
+                    withJavaUtilSpliterator_OfLong:(id<JavaUtilSpliterator_OfLong>)bSpliterator;
 
 @end
 
@@ -674,14 +667,14 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_ConcatSpliterator_OfLong)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator_OfDouble 1
-#include "java/util/Spliterator.h"
+#include "../../../java/util/Spliterator.h"
 
 @interface JavaUtilStreamStreams_ConcatSpliterator_OfDouble : JavaUtilStreamStreams_ConcatSpliterator_OfPrimitive < JavaUtilSpliterator_OfDouble >
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilSpliterator_OfDouble:(id<JavaUtilSpliterator_OfDouble>)aSpliterator
-                              withJavaUtilSpliterator_OfDouble:(id<JavaUtilSpliterator_OfDouble>)bSpliterator;
+- (instancetype)initWithJavaUtilSpliterator_OfDouble:(id<JavaUtilSpliterator_OfDouble>)aSpliterator
+                    withJavaUtilSpliterator_OfDouble:(id<JavaUtilSpliterator_OfDouble>)bSpliterator;
 
 @end
 
@@ -697,10 +690,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_ConcatSpliterator_OfDouble)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilStreamStreams")

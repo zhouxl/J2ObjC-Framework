@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/TreeMap.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilTreeMap")
 #ifdef RESTRICT_JavaUtilTreeMap
@@ -64,26 +64,20 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilTreeMap_) && (INCLUDE_ALL_JavaUtilTreeMap || defined(INCLUDE_JavaUtilTreeMap))
 #define JavaUtilTreeMap_
 
 #define RESTRICT_JavaUtilAbstractMap 1
 #define INCLUDE_JavaUtilAbstractMap 1
-#include "java/util/AbstractMap.h"
+#include "../../java/util/AbstractMap.h"
 
 #define RESTRICT_JavaUtilNavigableMap 1
 #define INCLUDE_JavaUtilNavigableMap 1
-#include "java/util/NavigableMap.h"
+#include "../../java/util/NavigableMap.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class JavaIoObjectInputStream;
 @class JavaUtilTreeMap_TreeMapEntry;
@@ -189,7 +183,7 @@
  <code>put(Object key, Object value)</code> call will throw a 
  <code>ClassCastException</code>.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a new, empty tree map, ordered according to the given
@@ -207,7 +201,7 @@
  <code>null</code> , the ordering
    of the keys will be used.
  */
-- (instancetype __nonnull)initWithJavaUtilComparator:(id<JavaUtilComparator>)comparator;
+- (instancetype)initWithJavaUtilComparator:(id<JavaUtilComparator>)comparator;
 
 /*!
  @brief Constructs a new tree map containing the same mappings as the given
@@ -222,7 +216,7 @@
           or are not mutually comparable
  @throw NullPointerExceptionif the specified map is null
  */
-- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)m;
+- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)m;
 
 /*!
  @brief Constructs a new tree map containing the same mappings and
@@ -231,7 +225,7 @@
  @param m the sorted map whose mappings are to be placed in this map,          and whose comparator is to be used to sort this map
  @throw NullPointerExceptionif the specified map is null
  */
-- (instancetype __nonnull)initWithJavaUtilSortedMap:(id<JavaUtilSortedMap>)m;
+- (instancetype)initWithJavaUtilSortedMap:(id<JavaUtilSortedMap>)m;
 
 /*!
  @throw ClassCastException
@@ -793,7 +787,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap)
 
 #define RESTRICT_JavaUtilAbstractCollection 1
 #define INCLUDE_JavaUtilAbstractCollection 1
-#include "java/util/AbstractCollection.h"
+#include "../../java/util/AbstractCollection.h"
 
 @class JavaUtilTreeMap;
 @protocol JavaUtilIterator;
@@ -817,11 +811,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)outer$;
+- (instancetype)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)outer$;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -842,7 +836,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_Values)
 
 #define RESTRICT_JavaUtilAbstractSet 1
 #define INCLUDE_JavaUtilAbstractSet 1
-#include "java/util/AbstractSet.h"
+#include "../../java/util/AbstractSet.h"
 
 @class JavaUtilTreeMap;
 @protocol JavaUtilIterator;
@@ -866,11 +860,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_Values)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)outer$;
+- (instancetype)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)outer$;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -891,11 +885,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_EntrySet)
 
 #define RESTRICT_JavaUtilAbstractSet 1
 #define INCLUDE_JavaUtilAbstractSet 1
-#include "java/util/AbstractSet.h"
+#include "../../java/util/AbstractSet.h"
 
 #define RESTRICT_JavaUtilNavigableSet 1
 #define INCLUDE_JavaUtilNavigableSet 1
-#include "java/util/NavigableSet.h"
+#include "../../java/util/NavigableSet.h"
 
 @protocol JavaUtilComparator;
 @protocol JavaUtilIterator;
@@ -963,11 +957,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_EntrySet)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilNavigableMap:(id<JavaUtilNavigableMap>)map;
+- (instancetype)initWithJavaUtilNavigableMap:(id<JavaUtilNavigableMap>)map;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -988,7 +982,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_KeySet)
 
 #define RESTRICT_JavaUtilIterator 1
 #define INCLUDE_JavaUtilIterator 1
-#include "java/util/Iterator.h"
+#include "../../java/util/Iterator.h"
 
 @class JavaUtilTreeMap;
 @class JavaUtilTreeMap_TreeMapEntry;
@@ -1012,8 +1006,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_KeySet)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)outer$
-                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)first;
+- (instancetype)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)outer$
+       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)first;
 
 - (JavaUtilTreeMap_TreeMapEntry *)nextEntry;
 
@@ -1047,8 +1041,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_PrivateEntryIterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)outer$
-                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)first;
+- (instancetype)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)outer$
+       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)first;
 
 @end
 
@@ -1078,8 +1072,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_EntryIterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)outer$
-                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)first;
+- (instancetype)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)outer$
+       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)first;
 
 @end
 
@@ -1109,8 +1103,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_ValueIterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)outer$
-                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)first;
+- (instancetype)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)outer$
+       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)first;
 
 @end
 
@@ -1142,8 +1136,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_KeyIterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)outer$
-                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)first;
+- (instancetype)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)outer$
+       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)first;
 
 @end
 
@@ -1164,15 +1158,15 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_DescendingKeyIterator)
 
 #define RESTRICT_JavaUtilAbstractMap 1
 #define INCLUDE_JavaUtilAbstractMap 1
-#include "java/util/AbstractMap.h"
+#include "../../java/util/AbstractMap.h"
 
 #define RESTRICT_JavaUtilNavigableMap 1
 #define INCLUDE_JavaUtilNavigableMap 1
-#include "java/util/NavigableMap.h"
+#include "../../java/util/NavigableMap.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class JavaUtilTreeMap;
 @class JavaUtilTreeMap_KeySet;
@@ -1280,13 +1274,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_DescendingKeyIterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)m
-                                      withBoolean:(jboolean)fromStart
-                                           withId:(id)lo
-                                      withBoolean:(jboolean)loInclusive
-                                      withBoolean:(jboolean)toEnd
-                                           withId:(id)hi
-                                      withBoolean:(jboolean)hiInclusive;
+- (instancetype)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)m
+                            withBoolean:(jboolean)fromStart
+                                 withId:(id)lo
+                            withBoolean:(jboolean)loInclusive
+                            withBoolean:(jboolean)toEnd
+                                 withId:(id)hi
+                            withBoolean:(jboolean)hiInclusive;
 
 - (JavaUtilTreeMap_TreeMapEntry *)absCeilingWithId:(id)key;
 
@@ -1367,7 +1361,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_NavigableSubMap)
 
 #define RESTRICT_JavaUtilAbstractSet 1
 #define INCLUDE_JavaUtilAbstractSet 1
-#include "java/util/AbstractSet.h"
+#include "../../java/util/AbstractSet.h"
 
 @class JavaUtilTreeMap_NavigableSubMap;
 
@@ -1385,7 +1379,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_NavigableSubMap)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap_NavigableSubMap:(JavaUtilTreeMap_NavigableSubMap *)outer$;
+- (instancetype)initWithJavaUtilTreeMap_NavigableSubMap:(JavaUtilTreeMap_NavigableSubMap *)outer$;
 
 @end
 
@@ -1402,7 +1396,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_NavigableSubMap_EntrySetView)
 
 #define RESTRICT_JavaUtilIterator 1
 #define INCLUDE_JavaUtilIterator 1
-#include "java/util/Iterator.h"
+#include "../../java/util/Iterator.h"
 
 @class JavaUtilTreeMap_NavigableSubMap;
 @class JavaUtilTreeMap_TreeMapEntry;
@@ -1425,9 +1419,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_NavigableSubMap_EntrySetView)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap_NavigableSubMap:(JavaUtilTreeMap_NavigableSubMap *)outer$
-                                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)first
-                                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)fence;
+- (instancetype)initWithJavaUtilTreeMap_NavigableSubMap:(JavaUtilTreeMap_NavigableSubMap *)outer$
+                       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)first
+                       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)fence;
 
 - (JavaUtilTreeMap_TreeMapEntry *)nextEntry;
 
@@ -1468,9 +1462,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_NavigableSubMap_SubMapIterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap_NavigableSubMap:(JavaUtilTreeMap_NavigableSubMap *)outer$
-                                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)first
-                                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)fence;
+- (instancetype)initWithJavaUtilTreeMap_NavigableSubMap:(JavaUtilTreeMap_NavigableSubMap *)outer$
+                       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)first
+                       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)fence;
 
 @end
 
@@ -1503,9 +1497,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_NavigableSubMap_SubMapEntryIterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap_NavigableSubMap:(JavaUtilTreeMap_NavigableSubMap *)outer$
-                                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)last
-                                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)fence;
+- (instancetype)initWithJavaUtilTreeMap_NavigableSubMap:(JavaUtilTreeMap_NavigableSubMap *)outer$
+                       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)last
+                       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)fence;
 
 @end
 
@@ -1526,7 +1520,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_NavigableSubMap_DescendingSubMapEntry
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator 1
-#include "java/util/Spliterator.h"
+#include "../../java/util/Spliterator.h"
 
 @class JavaUtilTreeMap_NavigableSubMap;
 @class JavaUtilTreeMap_TreeMapEntry;
@@ -1555,9 +1549,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_NavigableSubMap_DescendingSubMapEntry
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap_NavigableSubMap:(JavaUtilTreeMap_NavigableSubMap *)outer$
-                                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)first
-                                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)fence;
+- (instancetype)initWithJavaUtilTreeMap_NavigableSubMap:(JavaUtilTreeMap_NavigableSubMap *)outer$
+                       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)first
+                       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)fence;
 
 @end
 
@@ -1578,7 +1572,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_NavigableSubMap_SubMapKeyIterator)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator 1
-#include "java/util/Spliterator.h"
+#include "../../java/util/Spliterator.h"
 
 @class JavaUtilTreeMap_NavigableSubMap;
 @class JavaUtilTreeMap_TreeMapEntry;
@@ -1605,9 +1599,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_NavigableSubMap_SubMapKeyIterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap_NavigableSubMap:(JavaUtilTreeMap_NavigableSubMap *)outer$
-                                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)last
-                                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)fence;
+- (instancetype)initWithJavaUtilTreeMap_NavigableSubMap:(JavaUtilTreeMap_NavigableSubMap *)outer$
+                       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)last
+                       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)fence;
 
 @end
 
@@ -1659,13 +1653,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_NavigableSubMap_DescendingSubMapKeyIt
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)m
-                                      withBoolean:(jboolean)fromStart
-                                           withId:(id)lo
-                                      withBoolean:(jboolean)loInclusive
-                                      withBoolean:(jboolean)toEnd
-                                           withId:(id)hi
-                                      withBoolean:(jboolean)hiInclusive;
+- (instancetype)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)m
+                            withBoolean:(jboolean)fromStart
+                                 withId:(id)lo
+                            withBoolean:(jboolean)loInclusive
+                            withBoolean:(jboolean)toEnd
+                                 withId:(id)hi
+                            withBoolean:(jboolean)hiInclusive;
 
 - (id<JavaUtilIterator>)descendingKeyIterator;
 
@@ -1713,11 +1707,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_AscendingSubMap)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap_AscendingSubMap:(JavaUtilTreeMap_AscendingSubMap *)outer$;
+- (instancetype)initWithJavaUtilTreeMap_AscendingSubMap:(JavaUtilTreeMap_AscendingSubMap *)outer$;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap_NavigableSubMap:(JavaUtilTreeMap_NavigableSubMap *)outer$ NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilTreeMap_NavigableSubMap:(JavaUtilTreeMap_NavigableSubMap *)outer$ NS_UNAVAILABLE;
 
 @end
 
@@ -1769,13 +1763,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_AscendingSubMap_AscendingEntrySetView
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)m
-                                      withBoolean:(jboolean)fromStart
-                                           withId:(id)lo
-                                      withBoolean:(jboolean)loInclusive
-                                      withBoolean:(jboolean)toEnd
-                                           withId:(id)hi
-                                      withBoolean:(jboolean)hiInclusive;
+- (instancetype)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)m
+                            withBoolean:(jboolean)fromStart
+                                 withId:(id)lo
+                            withBoolean:(jboolean)loInclusive
+                            withBoolean:(jboolean)toEnd
+                                 withId:(id)hi
+                            withBoolean:(jboolean)hiInclusive;
 
 - (id<JavaUtilIterator>)descendingKeyIterator;
 
@@ -1823,11 +1817,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_DescendingSubMap)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap_DescendingSubMap:(JavaUtilTreeMap_DescendingSubMap *)outer$;
+- (instancetype)initWithJavaUtilTreeMap_DescendingSubMap:(JavaUtilTreeMap_DescendingSubMap *)outer$;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap_NavigableSubMap:(JavaUtilTreeMap_NavigableSubMap *)outer$ NS_UNAVAILABLE;
+- (instancetype)initWithJavaUtilTreeMap_NavigableSubMap:(JavaUtilTreeMap_NavigableSubMap *)outer$ NS_UNAVAILABLE;
 
 @end
 
@@ -1848,7 +1842,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_DescendingSubMap_DescendingEntrySetVi
 
 #define RESTRICT_JavaUtilMap 1
 #define INCLUDE_JavaUtilMap_Entry 1
-#include "java/util/Map.h"
+#include "../../java/util/Map.h"
 
 /*!
  @brief Node in the Tree.Doubles as a means to pass key-value pairs back to
@@ -1898,13 +1892,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_DescendingSubMap_DescendingEntrySetVi
  @brief Make a new cell with given key, value, and parent, and with 
  <code>null</code> child links, and BLACK color.
  */
-- (instancetype __nonnull)initWithId:(id)key
-                              withId:(id)value
-    withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)parent;
+- (instancetype)initWithId:(id)key
+                    withId:(id)value
+withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)parent;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -1971,18 +1965,18 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_TreeMapEntry)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)tree
-                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)origin
-                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)fence
-                                          withInt:(jint)side
-                                          withInt:(jint)est
-                                          withInt:(jint)expectedModCount;
+- (instancetype)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)tree
+       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)origin
+       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)fence
+                                withInt:(jint)side
+                                withInt:(jint)est
+                                withInt:(jint)expectedModCount;
 
 - (jint)getEstimate;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -2007,7 +2001,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_TreeMapSpliterator)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator 1
-#include "java/util/Spliterator.h"
+#include "../../java/util/Spliterator.h"
 
 @class JavaUtilTreeMap;
 @class JavaUtilTreeMap_TreeMapEntry;
@@ -2030,12 +2024,12 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_TreeMapSpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)tree
-                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)origin
-                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)fence
-                                          withInt:(jint)side
-                                          withInt:(jint)est
-                                          withInt:(jint)expectedModCount;
+- (instancetype)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)tree
+       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)origin
+       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)fence
+                                withInt:(jint)side
+                                withInt:(jint)est
+                                withInt:(jint)expectedModCount;
 
 @end
 
@@ -2056,7 +2050,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_KeySpliterator)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator 1
-#include "java/util/Spliterator.h"
+#include "../../java/util/Spliterator.h"
 
 @class JavaUtilTreeMap;
 @class JavaUtilTreeMap_TreeMapEntry;
@@ -2077,12 +2071,12 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_KeySpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)tree
-                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)origin
-                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)fence
-                                          withInt:(jint)side
-                                          withInt:(jint)est
-                                          withInt:(jint)expectedModCount;
+- (instancetype)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)tree
+       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)origin
+       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)fence
+                                withInt:(jint)side
+                                withInt:(jint)est
+                                withInt:(jint)expectedModCount;
 
 @end
 
@@ -2103,7 +2097,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_DescendingKeySpliterator)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator 1
-#include "java/util/Spliterator.h"
+#include "../../java/util/Spliterator.h"
 
 @class JavaUtilTreeMap;
 @class JavaUtilTreeMap_TreeMapEntry;
@@ -2124,12 +2118,12 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_DescendingKeySpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)tree
-                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)origin
-                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)fence
-                                          withInt:(jint)side
-                                          withInt:(jint)est
-                                          withInt:(jint)expectedModCount;
+- (instancetype)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)tree
+       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)origin
+       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)fence
+                                withInt:(jint)side
+                                withInt:(jint)est
+                                withInt:(jint)expectedModCount;
 
 @end
 
@@ -2150,7 +2144,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_ValueSpliterator)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator 1
-#include "java/util/Spliterator.h"
+#include "../../java/util/Spliterator.h"
 
 @class JavaUtilTreeMap;
 @class JavaUtilTreeMap_TreeMapEntry;
@@ -2173,12 +2167,12 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_ValueSpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)tree
-                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)origin
-                 withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)fence
-                                          withInt:(jint)side
-                                          withInt:(jint)est
-                                          withInt:(jint)expectedModCount;
+- (instancetype)initWithJavaUtilTreeMap:(JavaUtilTreeMap *)tree
+       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)origin
+       withJavaUtilTreeMap_TreeMapEntry:(JavaUtilTreeMap_TreeMapEntry *)fence
+                                withInt:(jint)side
+                                withInt:(jint)est
+                                withInt:(jint)expectedModCount;
 
 @end
 
@@ -2194,10 +2188,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeMap_EntrySpliterator)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilTreeMap")

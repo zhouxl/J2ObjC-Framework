@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/io/Console.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoConsole")
 #ifdef RESTRICT_JavaIoConsole
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoConsole_) && (INCLUDE_ALL_JavaIoConsole || defined(INCLUDE_JavaIoConsole))
 #define JavaIoConsole_
 
 #define RESTRICT_JavaIoFlushable 1
 #define INCLUDE_JavaIoFlushable 1
-#include "java/io/Flushable.h"
+#include "../../java/io/Flushable.h"
 
 @class IOSCharArray;
 @class IOSObjectArray;
@@ -112,7 +106,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -124,10 +118,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoConsole)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoConsole")

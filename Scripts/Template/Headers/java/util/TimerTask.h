@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/TimerTask.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilTimerTask")
 #ifdef RESTRICT_JavaUtilTimerTask
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilTimerTask_) && (INCLUDE_ALL_JavaUtilTimerTask || defined(INCLUDE_JavaUtilTimerTask))
 #define JavaUtilTimerTask_
 
 #define RESTRICT_JavaLangRunnable 1
 #define INCLUDE_JavaLangRunnable 1
-#include "java/lang/Runnable.h"
+#include "../../java/lang/Runnable.h"
 
 /*!
  @brief A task that can be scheduled for one-time or repeated execution by a Timer.
@@ -59,10 +53,6 @@
    */
   jlong period_;
 }
-@property (readonly, class) jint VIRGIN NS_SWIFT_NAME(VIRGIN);
-@property (readonly, class) jint SCHEDULED NS_SWIFT_NAME(SCHEDULED);
-@property (readonly, class) jint EXECUTED NS_SWIFT_NAME(EXECUTED);
-@property (readonly, class) jint CANCELLED NS_SWIFT_NAME(CANCELLED);
 
 + (jint)VIRGIN;
 
@@ -108,7 +98,7 @@
 /*!
  @brief Creates a new timer task.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -152,10 +142,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTimerTask)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilTimerTask")

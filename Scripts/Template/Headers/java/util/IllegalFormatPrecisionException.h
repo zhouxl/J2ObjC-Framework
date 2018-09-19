@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/IllegalFormatPrecisionException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilIllegalFormatPrecisionException")
 #ifdef RESTRICT_JavaUtilIllegalFormatPrecisionException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilIllegalFormatPrecisionException_) && (INCLUDE_ALL_JavaUtilIllegalFormatPrecisionException || defined(INCLUDE_JavaUtilIllegalFormatPrecisionException))
 #define JavaUtilIllegalFormatPrecisionException_
 
 #define RESTRICT_JavaUtilIllegalFormatException 1
 #define INCLUDE_JavaUtilIllegalFormatException 1
-#include "java/util/IllegalFormatException.h"
+#include "../../java/util/IllegalFormatException.h"
 
 /*!
  @brief Unchecked exception thrown when the precision is a negative value other than 
@@ -43,7 +37,7 @@
  @brief Constructs an instance of this class with the specified precision.
  @param p The precision
  */
-- (instancetype __nonnull)initWithInt:(jint)p;
+- (instancetype)initWithInt:(jint)p;
 
 - (NSString *)getMessage;
 
@@ -55,7 +49,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -71,10 +65,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIllegalFormatPrecisionException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilIllegalFormatPrecisionException")

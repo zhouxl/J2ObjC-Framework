@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/ls/LSSerializer.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgW3cDomLsLSSerializer")
 #ifdef RESTRICT_OrgW3cDomLsLSSerializer
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (OrgW3cDomLsLSSerializer_) && (INCLUDE_ALL_OrgW3cDomLsLSSerializer || defined(INCLUDE_OrgW3cDomLsLSSerializer))
 #define OrgW3cDomLsLSSerializer_
@@ -458,10 +452,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomLsLSSerializer)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgW3cDomLsLSSerializer")

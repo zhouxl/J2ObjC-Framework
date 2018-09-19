@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/locks/AbstractOwnableSynchronizer.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentLocksAbstractOwnableSynchronizer")
 #ifdef RESTRICT_JavaUtilConcurrentLocksAbstractOwnableSynchronizer
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentLocksAbstractOwnableSynchronizer_) && (INCLUDE_ALL_JavaUtilConcurrentLocksAbstractOwnableSynchronizer || defined(INCLUDE_JavaUtilConcurrentLocksAbstractOwnableSynchronizer))
 #define JavaUtilConcurrentLocksAbstractOwnableSynchronizer_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../../java/io/Serializable.h"
 
 @class JavaLangThread;
 
@@ -50,7 +44,7 @@
 /*!
  @brief Empty constructor for use by subclasses.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Returns the thread last set by <code>setExclusiveOwnerThread</code>,
@@ -79,10 +73,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksAbstractOwnableSynchronizer)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentLocksAbstractOwnableSynchronizer")

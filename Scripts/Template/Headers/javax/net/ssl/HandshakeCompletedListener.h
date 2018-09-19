@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/net/ssl/HandshakeCompletedListener.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxNetSslHandshakeCompletedListener")
 #ifdef RESTRICT_JavaxNetSslHandshakeCompletedListener
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxNetSslHandshakeCompletedListener_) && (INCLUDE_ALL_JavaxNetSslHandshakeCompletedListener || defined(INCLUDE_JavaxNetSslHandshakeCompletedListener))
 #define JavaxNetSslHandshakeCompletedListener_
 
 #define RESTRICT_JavaUtilEventListener 1
 #define INCLUDE_JavaUtilEventListener 1
-#include "java/util/EventListener.h"
+#include "../../../java/util/EventListener.h"
 
 @class JavaxNetSslHandshakeCompletedEvent;
 
@@ -60,10 +54,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslHandshakeCompletedListener)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxNetSslHandshakeCompletedListener")

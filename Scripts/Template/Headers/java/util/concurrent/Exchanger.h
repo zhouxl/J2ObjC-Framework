@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/Exchanger.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentExchanger")
 #ifdef RESTRICT_JavaUtilConcurrentExchanger
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaUtilConcurrentExchanger_) && (INCLUDE_ALL_JavaUtilConcurrentExchanger || defined(INCLUDE_JavaUtilConcurrentExchanger))
 #define JavaUtilConcurrentExchanger_
@@ -83,7 +77,6 @@
  @author Doug Lea and Bill Scherer and Michael Scott
  */
 @interface JavaUtilConcurrentExchanger : NSObject
-@property (readonly, class) jint FULL NS_SWIFT_NAME(FULL);
 
 + (jint)FULL;
 
@@ -92,7 +85,7 @@
 /*!
  @brief Creates a new Exchanger.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Waits for another thread to arrive at this exchange point (unless
@@ -214,7 +207,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExchanger)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -239,7 +232,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExchanger_Node)
 
 #define RESTRICT_JavaLangThreadLocal 1
 #define INCLUDE_JavaLangThreadLocal 1
-#include "java/lang/ThreadLocal.h"
+#include "../../../java/lang/ThreadLocal.h"
 
 @class JavaUtilConcurrentExchanger_Node;
 
@@ -256,7 +249,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExchanger_Node)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 - (JavaUtilConcurrentExchanger_Node *)childValueWithId:(JavaUtilConcurrentExchanger_Node *)arg0;
 
@@ -274,10 +267,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExchanger_Participant)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentExchanger")

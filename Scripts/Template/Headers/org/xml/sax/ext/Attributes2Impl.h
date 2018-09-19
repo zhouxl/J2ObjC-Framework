@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/org/xml/sax/ext/Attributes2Impl.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgXmlSaxExtAttributes2Impl")
 #ifdef RESTRICT_OrgXmlSaxExtAttributes2Impl
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (OrgXmlSaxExtAttributes2Impl_) && (INCLUDE_ALL_OrgXmlSaxExtAttributes2Impl || defined(INCLUDE_OrgXmlSaxExtAttributes2Impl))
 #define OrgXmlSaxExtAttributes2Impl_
 
 #define RESTRICT_OrgXmlSaxHelpersAttributesImpl 1
 #define INCLUDE_OrgXmlSaxHelpersAttributesImpl 1
-#include "org/xml/sax/helpers/AttributesImpl.h"
+#include "../../../../org/xml/sax/helpers/AttributesImpl.h"
 
 #define RESTRICT_OrgXmlSaxExtAttributes2 1
 #define INCLUDE_OrgXmlSaxExtAttributes2 1
-#include "org/xml/sax/ext/Attributes2.h"
+#include "../../../../org/xml/sax/ext/Attributes2.h"
 
 @protocol OrgXmlSaxAttributes;
 
@@ -66,7 +60,7 @@
 /*!
  @brief Construct a new, empty Attributes2Impl object.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Copy an existing Attributes or Attributes2 object.
@@ -81,7 +75,7 @@
  <code>startElement</code> event.</p>
  @param atts The existing Attributes object.
  */
-- (instancetype __nonnull)initWithOrgXmlSaxAttributes:(id<OrgXmlSaxAttributes>)atts;
+- (instancetype)initWithOrgXmlSaxAttributes:(id<OrgXmlSaxAttributes>)atts;
 
 /*!
  @brief Add an attribute to the end of the list, setting its
@@ -198,10 +192,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtAttributes2Impl)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxExtAttributes2Impl")

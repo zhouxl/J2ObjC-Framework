@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/sql/RowIdLifetime.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSqlRowIdLifetime")
 #ifdef RESTRICT_JavaSqlRowIdLifetime
@@ -18,7 +18,6 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -27,7 +26,7 @@
 
 #define RESTRICT_JavaLangEnum 1
 #define INCLUDE_JavaLangEnum 1
-#include "java/lang/Enum.h"
+#include "../../java/lang/Enum.h"
 
 @class IOSObjectArray;
 
@@ -45,11 +44,6 @@ typedef NS_ENUM(NSUInteger, JavaSqlRowIdLifetime_Enum) {
  */
 @interface JavaSqlRowIdLifetime : JavaLangEnum
 
-@property (readonly, class, nonnull) JavaSqlRowIdLifetime *ROWID_UNSUPPORTED NS_SWIFT_NAME(ROWID_UNSUPPORTED);
-@property (readonly, class, nonnull) JavaSqlRowIdLifetime *ROWID_VALID_OTHER NS_SWIFT_NAME(ROWID_VALID_OTHER);
-@property (readonly, class, nonnull) JavaSqlRowIdLifetime *ROWID_VALID_SESSION NS_SWIFT_NAME(ROWID_VALID_SESSION);
-@property (readonly, class, nonnull) JavaSqlRowIdLifetime *ROWID_VALID_TRANSACTION NS_SWIFT_NAME(ROWID_VALID_TRANSACTION);
-@property (readonly, class, nonnull) JavaSqlRowIdLifetime *ROWID_VALID_FOREVER NS_SWIFT_NAME(ROWID_VALID_FOREVER);
 + (JavaSqlRowIdLifetime * __nonnull)ROWID_UNSUPPORTED;
 
 + (JavaSqlRowIdLifetime * __nonnull)ROWID_VALID_OTHER;

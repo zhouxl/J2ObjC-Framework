@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/SimpleTimeZone.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilSimpleTimeZone")
 #ifdef RESTRICT_JavaUtilSimpleTimeZone
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilSimpleTimeZone_) && (INCLUDE_ALL_JavaUtilSimpleTimeZone || defined(INCLUDE_JavaUtilSimpleTimeZone))
 #define JavaUtilSimpleTimeZone_
 
 #define RESTRICT_JavaUtilTimeZone 1
 #define INCLUDE_JavaUtilTimeZone 1
-#include "java/util/TimeZone.h"
+#include "../../java/util/TimeZone.h"
 
 @class IOSIntArray;
 @class JavaUtilDate;
@@ -132,11 +126,6 @@
  @author David Goldsmith, Mark Davis, Chen-Lieh Huang, Alan Liu
  */
 @interface JavaUtilSimpleTimeZone : JavaUtilTimeZone
-@property (readonly, class) jint WALL_TIME NS_SWIFT_NAME(WALL_TIME);
-@property (readonly, class) jint STANDARD_TIME NS_SWIFT_NAME(STANDARD_TIME);
-@property (readonly, class) jint UTC_TIME NS_SWIFT_NAME(UTC_TIME);
-@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
-@property (readonly, class) jint currentSerialVersion NS_SWIFT_NAME(currentSerialVersion);
 
 + (jint)WALL_TIME;
 
@@ -156,8 +145,8 @@
  @param rawOffset The base time zone offset in milliseconds to GMT.
  @param ID The time zone name that is given to this instance.
  */
-- (instancetype __nonnull)initWithInt:(jint)rawOffset
-                         withNSString:(NSString *)ID;
+- (instancetype)initWithInt:(jint)rawOffset
+               withNSString:(NSString *)ID;
 
 /*!
  @brief Constructs a SimpleTimeZone with the given base time zone offset from
@@ -201,16 +190,16 @@
  @throw IllegalArgumentExceptionif the month, day, dayOfWeek, or time
   parameters are out of range for the start or end rule
  */
-- (instancetype __nonnull)initWithInt:(jint)rawOffset
-                         withNSString:(NSString *)ID
-                              withInt:(jint)startMonth
-                              withInt:(jint)startDay
-                              withInt:(jint)startDayOfWeek
-                              withInt:(jint)startTime
-                              withInt:(jint)endMonth
-                              withInt:(jint)endDay
-                              withInt:(jint)endDayOfWeek
-                              withInt:(jint)endTime;
+- (instancetype)initWithInt:(jint)rawOffset
+               withNSString:(NSString *)ID
+                    withInt:(jint)startMonth
+                    withInt:(jint)startDay
+                    withInt:(jint)startDayOfWeek
+                    withInt:(jint)startTime
+                    withInt:(jint)endMonth
+                    withInt:(jint)endDay
+                    withInt:(jint)endDayOfWeek
+                    withInt:(jint)endTime;
 
 /*!
  @brief Constructs a SimpleTimeZone with the given base time zone offset from
@@ -252,17 +241,17 @@
   parameters are out of range for the start or end rule
  @since 1.2
  */
-- (instancetype __nonnull)initWithInt:(jint)rawOffset
-                         withNSString:(NSString *)ID
-                              withInt:(jint)startMonth
-                              withInt:(jint)startDay
-                              withInt:(jint)startDayOfWeek
-                              withInt:(jint)startTime
-                              withInt:(jint)endMonth
-                              withInt:(jint)endDay
-                              withInt:(jint)endDayOfWeek
-                              withInt:(jint)endTime
-                              withInt:(jint)dstSavings;
+- (instancetype)initWithInt:(jint)rawOffset
+               withNSString:(NSString *)ID
+                    withInt:(jint)startMonth
+                    withInt:(jint)startDay
+                    withInt:(jint)startDayOfWeek
+                    withInt:(jint)startTime
+                    withInt:(jint)endMonth
+                    withInt:(jint)endDay
+                    withInt:(jint)endDayOfWeek
+                    withInt:(jint)endTime
+                    withInt:(jint)dstSavings;
 
 /*!
  @brief Constructs a SimpleTimeZone with the given base time zone offset from
@@ -298,19 +287,19 @@
  - seealso: #UTC_TIME
  @since 1.4
  */
-- (instancetype __nonnull)initWithInt:(jint)rawOffset
-                         withNSString:(NSString *)ID
-                              withInt:(jint)startMonth
-                              withInt:(jint)startDay
-                              withInt:(jint)startDayOfWeek
-                              withInt:(jint)startTime
-                              withInt:(jint)startTimeMode
-                              withInt:(jint)endMonth
-                              withInt:(jint)endDay
-                              withInt:(jint)endDayOfWeek
-                              withInt:(jint)endTime
-                              withInt:(jint)endTimeMode
-                              withInt:(jint)dstSavings;
+- (instancetype)initWithInt:(jint)rawOffset
+               withNSString:(NSString *)ID
+                    withInt:(jint)startMonth
+                    withInt:(jint)startDay
+                    withInt:(jint)startDayOfWeek
+                    withInt:(jint)startTime
+                    withInt:(jint)startTimeMode
+                    withInt:(jint)endMonth
+                    withInt:(jint)endDay
+                    withInt:(jint)endDayOfWeek
+                    withInt:(jint)endTime
+                    withInt:(jint)endTimeMode
+                    withInt:(jint)dstSavings;
 
 /*!
  @brief Returns a clone of this <code>SimpleTimeZone</code> instance.
@@ -589,7 +578,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -658,43 +647,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSimpleTimeZone)
 
 #endif
 
-#if !defined (JavaUtilSimpleTimeZone_GcalHolder_) && (INCLUDE_ALL_JavaUtilSimpleTimeZone || defined(INCLUDE_JavaUtilSimpleTimeZone_GcalHolder))
-#define JavaUtilSimpleTimeZone_GcalHolder_
-
-@class SunUtilCalendarGregorian;
-
-@interface JavaUtilSimpleTimeZone_GcalHolder : NSObject
-@property (readonly, class, strong) SunUtilCalendarGregorian *INSTANCE NS_SWIFT_NAME(INSTANCE);
-
-+ (SunUtilCalendarGregorian *)INSTANCE;
-
-#pragma mark Package-Private
-
-- (instancetype __nonnull)init;
-
-@end
-
-J2OBJC_STATIC_INIT(JavaUtilSimpleTimeZone_GcalHolder)
-
-inline SunUtilCalendarGregorian *JavaUtilSimpleTimeZone_GcalHolder_get_INSTANCE(void);
-/*! INTERNAL ONLY - Use accessor function from above. */
-FOUNDATION_EXPORT SunUtilCalendarGregorian *JavaUtilSimpleTimeZone_GcalHolder_INSTANCE;
-J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilSimpleTimeZone_GcalHolder, INSTANCE, SunUtilCalendarGregorian *)
-
-FOUNDATION_EXPORT void JavaUtilSimpleTimeZone_GcalHolder_init(JavaUtilSimpleTimeZone_GcalHolder *self);
-
-FOUNDATION_EXPORT JavaUtilSimpleTimeZone_GcalHolder *new_JavaUtilSimpleTimeZone_GcalHolder_init(void) NS_RETURNS_RETAINED;
-
-FOUNDATION_EXPORT JavaUtilSimpleTimeZone_GcalHolder *create_JavaUtilSimpleTimeZone_GcalHolder_init(void);
-
-J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSimpleTimeZone_GcalHolder)
-
-#endif
-
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilSimpleTimeZone")

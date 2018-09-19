@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/spec/KeySpec.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecuritySpecKeySpec")
 #ifdef RESTRICT_JavaSecuritySpecKeySpec
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaSecuritySpecKeySpec_) && (INCLUDE_ALL_JavaSecuritySpecKeySpec || defined(INCLUDE_JavaSecuritySpecKeySpec))
 #define JavaSecuritySpecKeySpec_
@@ -62,10 +56,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecKeySpec)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecKeySpec")

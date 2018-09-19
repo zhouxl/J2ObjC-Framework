@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/javax/xml/transform/stream/StreamResult.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxXmlTransformStreamStreamResult")
 #ifdef RESTRICT_JavaxXmlTransformStreamStreamResult
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxXmlTransformStreamStreamResult_) && (INCLUDE_ALL_JavaxXmlTransformStreamStreamResult || defined(INCLUDE_JavaxXmlTransformStreamStreamResult))
 #define JavaxXmlTransformStreamStreamResult_
 
 #define RESTRICT_JavaxXmlTransformResult 1
 #define INCLUDE_JavaxXmlTransformResult 1
-#include "javax/xml/transform/Result.h"
+#include "../../../../javax/xml/transform/Result.h"
 
 @class JavaIoFile;
 @class JavaIoOutputStream;
@@ -40,7 +34,6 @@
  @author <a href="Jeff.Suttor@@Sun.com">Jeff Suttor</a>
  */
 @interface JavaxXmlTransformStreamStreamResult : NSObject < JavaxXmlTransformResult >
-@property (readonly, copy, class) NSString *FEATURE NS_SWIFT_NAME(FEATURE);
 
 + (NSString *)FEATURE;
 
@@ -49,13 +42,13 @@
 /*!
  @brief Zero-argument default constructor.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Construct a StreamResult from a File.
  @param f Must a non-null File reference.
  */
-- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)f;
+- (instancetype)initWithJavaIoFile:(JavaIoFile *)f;
 
 /*!
  @brief Construct a StreamResult from a byte stream.Normally,
@@ -64,13 +57,13 @@
   transformation instructions to control the encoding.
  @param outputStream A valid OutputStream reference.
  */
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outputStream;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outputStream;
 
 /*!
  @brief Construct a StreamResult from a URL.
  @param systemId Must be a String that conforms to the URI syntax.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)systemId;
+- (instancetype)initWithNSString:(NSString *)systemId;
 
 /*!
  @brief Construct a StreamResult from a character stream.Normally,
@@ -82,7 +75,7 @@
   stream, such as when using a StringWriter.
  @param writer A valid Writer reference.
  */
-- (instancetype __nonnull)initWithJavaIoWriter:(JavaIoWriter *)writer;
+- (instancetype)initWithJavaIoWriter:(JavaIoWriter *)writer;
 
 /*!
  @brief Get the byte stream that was set with setOutputStream.
@@ -195,10 +188,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformStreamStreamResult)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformStreamStreamResult")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/nio/charset/CharsetEncoder.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNioCharsetCharsetEncoder")
 #ifdef RESTRICT_JavaNioCharsetCharsetEncoder
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaNioCharsetCharsetEncoder_) && (INCLUDE_ALL_JavaNioCharsetCharsetEncoder || defined(INCLUDE_JavaNioCharsetCharsetEncoder))
 #define JavaNioCharsetCharsetEncoder_
@@ -422,9 +416,9 @@
  @throw IllegalArgumentException
  If the preconditions on the parameters do not hold
  */
-- (instancetype __nonnull)initWithJavaNioCharsetCharset:(JavaNioCharsetCharset *)cs
-                                              withFloat:(jfloat)averageBytesPerChar
-                                              withFloat:(jfloat)maxBytesPerChar;
+- (instancetype)initWithJavaNioCharsetCharset:(JavaNioCharsetCharset *)cs
+                                    withFloat:(jfloat)averageBytesPerChar
+                                    withFloat:(jfloat)maxBytesPerChar;
 
 /*!
  @brief Initializes a new encoder.The new encoder will have the given
@@ -441,16 +435,16 @@
  @throw IllegalArgumentException
  If the preconditions on the parameters do not hold
  */
-- (instancetype __nonnull)initWithJavaNioCharsetCharset:(JavaNioCharsetCharset *)cs
-                                              withFloat:(jfloat)averageBytesPerChar
-                                              withFloat:(jfloat)maxBytesPerChar
-                                          withByteArray:(IOSByteArray *)replacement;
+- (instancetype)initWithJavaNioCharsetCharset:(JavaNioCharsetCharset *)cs
+                                    withFloat:(jfloat)averageBytesPerChar
+                                    withFloat:(jfloat)maxBytesPerChar
+                                withByteArray:(IOSByteArray *)replacement;
 
-- (instancetype __nonnull)initWithJavaNioCharsetCharset:(JavaNioCharsetCharset *)cs
-                                              withFloat:(jfloat)averageBytesPerChar
-                                              withFloat:(jfloat)maxBytesPerChar
-                                          withByteArray:(IOSByteArray *)replacement
-                                            withBoolean:(jboolean)trusted;
+- (instancetype)initWithJavaNioCharsetCharset:(JavaNioCharsetCharset *)cs
+                                    withFloat:(jfloat)averageBytesPerChar
+                                    withFloat:(jfloat)maxBytesPerChar
+                                withByteArray:(IOSByteArray *)replacement
+                                  withBoolean:(jboolean)trusted;
 
 /*!
  @brief Encodes one or more characters into one or more bytes.
@@ -539,10 +533,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetCharsetEncoder)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioCharsetCharsetEncoder")

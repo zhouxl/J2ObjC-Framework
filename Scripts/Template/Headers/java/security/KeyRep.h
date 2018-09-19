@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/KeyRep.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityKeyRep")
 #ifdef RESTRICT_JavaSecurityKeyRep
@@ -18,7 +18,6 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -27,7 +26,7 @@
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSByteArray;
 @class JavaSecurityKeyRep_Type;
@@ -67,10 +66,10 @@
            if format is <code>null</code>,
            or if encoded is <code>null</code>
  */
-- (instancetype __nonnull)initWithJavaSecurityKeyRep_Type:(JavaSecurityKeyRep_Type *)type
-                                             withNSString:(NSString *)algorithm
-                                             withNSString:(NSString *)format
-                                            withByteArray:(IOSByteArray *)encoded;
+- (instancetype)initWithJavaSecurityKeyRep_Type:(JavaSecurityKeyRep_Type *)type
+                                   withNSString:(NSString *)algorithm
+                                   withNSString:(NSString *)format
+                                  withByteArray:(IOSByteArray *)encoded;
 
 #pragma mark Protected
 
@@ -99,7 +98,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -120,7 +119,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyRep)
 
 #define RESTRICT_JavaLangEnum 1
 #define INCLUDE_JavaLangEnum 1
-#include "java/lang/Enum.h"
+#include "../../java/lang/Enum.h"
 
 @class IOSObjectArray;
 
@@ -136,9 +135,6 @@ typedef NS_ENUM(NSUInteger, JavaSecurityKeyRep_Type_Enum) {
  */
 @interface JavaSecurityKeyRep_Type : JavaLangEnum
 
-@property (readonly, class, nonnull) JavaSecurityKeyRep_Type *SECRET NS_SWIFT_NAME(SECRET);
-@property (readonly, class, nonnull) JavaSecurityKeyRep_Type *PUBLIC NS_SWIFT_NAME(PUBLIC);
-@property (readonly, class, nonnull) JavaSecurityKeyRep_Type *PRIVATE NS_SWIFT_NAME(PRIVATE);
 + (JavaSecurityKeyRep_Type * __nonnull)SECRET;
 
 + (JavaSecurityKeyRep_Type * __nonnull)PUBLIC;

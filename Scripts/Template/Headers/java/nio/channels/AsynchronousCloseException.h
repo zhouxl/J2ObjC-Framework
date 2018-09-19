@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/nio/channels/AsynchronousCloseException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNioChannelsAsynchronousCloseException")
 #ifdef RESTRICT_JavaNioChannelsAsynchronousCloseException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNioChannelsAsynchronousCloseException_) && (INCLUDE_ALL_JavaNioChannelsAsynchronousCloseException || defined(INCLUDE_JavaNioChannelsAsynchronousCloseException))
 #define JavaNioChannelsAsynchronousCloseException_
 
 #define RESTRICT_JavaNioChannelsClosedChannelException 1
 #define INCLUDE_JavaNioChannelsClosedChannelException 1
-#include "java/nio/channels/ClosedChannelException.h"
+#include "../../../java/nio/channels/ClosedChannelException.h"
 
 /*!
  @brief Checked exception received by a thread when another thread closes the
@@ -42,7 +36,7 @@
 /*!
  @brief Constructs an instance of this class.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -58,10 +52,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsAsynchronousCloseException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioChannelsAsynchronousCloseException")

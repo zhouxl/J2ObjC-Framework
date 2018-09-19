@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/AccessControlException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityAccessControlException")
 #ifdef RESTRICT_JavaSecurityAccessControlException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityAccessControlException_) && (INCLUDE_ALL_JavaSecurityAccessControlException || defined(INCLUDE_JavaSecurityAccessControlException))
 #define JavaSecurityAccessControlException_
 
 #define RESTRICT_JavaLangSecurityException 1
 #define INCLUDE_JavaLangSecurityException 1
-#include "java/lang/SecurityException.h"
+#include "../../java/lang/SecurityException.h"
 
 @class JavaLangThrowable;
 @class JavaSecurityPermission;
@@ -53,7 +47,7 @@
   specified, detailed message.
  @param s the detail message.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s;
+- (instancetype)initWithNSString:(NSString *)s;
 
 /*!
  @brief Constructs an <code>AccessControlException</code> with the
@@ -62,8 +56,8 @@
  @param s the detail message.
  @param p the permission that caused the exception.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s
-                withJavaSecurityPermission:(JavaSecurityPermission *)p;
+- (instancetype)initWithNSString:(NSString *)s
+      withJavaSecurityPermission:(JavaSecurityPermission *)p;
 
 /*!
  @brief Gets the Permission object associated with this exeception, or
@@ -74,12 +68,12 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -101,10 +95,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityAccessControlException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityAccessControlException")

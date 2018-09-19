@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/InternalError.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangInternalError")
 #ifdef RESTRICT_JavaLangInternalError
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangInternalError_) && (INCLUDE_ALL_JavaLangInternalError || defined(INCLUDE_JavaLangInternalError))
 #define JavaLangInternalError_
 
 #define RESTRICT_JavaLangVirtualMachineError 1
 #define INCLUDE_JavaLangVirtualMachineError 1
-#include "java/lang/VirtualMachineError.h"
+#include "../../java/lang/VirtualMachineError.h"
 
 @class JavaLangThrowable;
 
@@ -44,14 +38,14 @@
 /*!
  @brief Constructs an <code>InternalError</code> with no detail message.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs an <code>InternalError</code> with the specified
   detail message.
  @param message the detail message.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message;
+- (instancetype)initWithNSString:(NSString *)message;
 
 /*!
  @brief Constructs an <code>InternalError</code> with the specified detail
@@ -66,8 +60,8 @@
            unknown.)
  @since 1.8
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)message
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs an <code>InternalError</code> with the specified cause
@@ -81,7 +75,7 @@
            unknown.)
  @since 1.8
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 @end
 
@@ -115,10 +109,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangInternalError)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangInternalError")

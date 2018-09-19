@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/org/xml/sax/ext/DefaultHandler2.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgXmlSaxExtDefaultHandler2")
 #ifdef RESTRICT_OrgXmlSaxExtDefaultHandler2
@@ -16,30 +16,24 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (OrgXmlSaxExtDefaultHandler2_) && (INCLUDE_ALL_OrgXmlSaxExtDefaultHandler2 || defined(INCLUDE_OrgXmlSaxExtDefaultHandler2))
 #define OrgXmlSaxExtDefaultHandler2_
 
 #define RESTRICT_OrgXmlSaxHelpersDefaultHandler 1
 #define INCLUDE_OrgXmlSaxHelpersDefaultHandler 1
-#include "org/xml/sax/helpers/DefaultHandler.h"
+#include "../../../../org/xml/sax/helpers/DefaultHandler.h"
 
 #define RESTRICT_OrgXmlSaxExtLexicalHandler 1
 #define INCLUDE_OrgXmlSaxExtLexicalHandler 1
-#include "org/xml/sax/ext/LexicalHandler.h"
+#include "../../../../org/xml/sax/ext/LexicalHandler.h"
 
 #define RESTRICT_OrgXmlSaxExtDeclHandler 1
 #define INCLUDE_OrgXmlSaxExtDeclHandler 1
-#include "org/xml/sax/ext/DeclHandler.h"
+#include "../../../../org/xml/sax/ext/DeclHandler.h"
 
 #define RESTRICT_OrgXmlSaxExtEntityResolver2 1
 #define INCLUDE_OrgXmlSaxExtEntityResolver2 1
-#include "org/xml/sax/ext/EntityResolver2.h"
+#include "../../../../org/xml/sax/ext/EntityResolver2.h"
 
 @class IOSCharArray;
 @class OrgXmlSaxInputSource;
@@ -73,7 +67,7 @@
 /*!
  @brief Constructs a handler which ignores all parsing events.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 - (void)attributeDeclWithNSString:(NSString *)eName
                      withNSString:(NSString *)aName
@@ -192,10 +186,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtDefaultHandler2)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxExtDefaultHandler2")

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/sql/BatchUpdateException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSqlBatchUpdateException")
 #ifdef RESTRICT_JavaSqlBatchUpdateException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSqlBatchUpdateException_) && (INCLUDE_ALL_JavaSqlBatchUpdateException || defined(INCLUDE_JavaSqlBatchUpdateException))
 #define JavaSqlBatchUpdateException_
 
 #define RESTRICT_JavaSqlSQLException 1
 #define INCLUDE_JavaSqlSQLException 1
-#include "java/sql/SQLException.h"
+#include "../../java/sql/SQLException.h"
 
 @class IOSIntArray;
 @class JavaLangThrowable;
@@ -71,7 +65,7 @@
  <p>
  @since 1.2
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a <code>BatchUpdateException</code> object initialized with a given 
@@ -90,7 +84,7 @@
    failure
  @since 1.2
  */
-- (instancetype __nonnull)initWithIntArray:(IOSIntArray *)updateCounts;
+- (instancetype)initWithIntArray:(IOSIntArray *)updateCounts;
 
 /*!
  @brief Constructs a <code>BatchUpdateException</code> object initialized with a
@@ -112,8 +106,8 @@
    the cause is non-existent or unknown.
  @since 1.6
  */
-- (instancetype __nonnull)initWithIntArray:(IOSIntArray *)updateCounts
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithIntArray:(IOSIntArray *)updateCounts
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a <code>BatchUpdateException</code> object initialized with a given 
@@ -134,8 +128,8 @@
    failure
  @since 1.2
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)reason
-                              withIntArray:(IOSIntArray *)updateCounts;
+- (instancetype)initWithNSString:(NSString *)reason
+                    withIntArray:(IOSIntArray *)updateCounts;
 
 /*!
  @brief Constructs a <code>BatchUpdateException</code> object initialized with
@@ -155,9 +149,9 @@
    the cause is non-existent or unknown.
  @since 1.6
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)reason
-                              withIntArray:(IOSIntArray *)updateCounts
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)reason
+                    withIntArray:(IOSIntArray *)updateCounts
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a <code>BatchUpdateException</code> object initialized with a given 
@@ -179,10 +173,10 @@
    failure
  @since 1.2
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)reason
-                              withNSString:(NSString *)SQLState
-                                   withInt:(jint)vendorCode
-                              withIntArray:(IOSIntArray *)updateCounts;
+- (instancetype)initWithNSString:(NSString *)reason
+                    withNSString:(NSString *)SQLState
+                         withInt:(jint)vendorCode
+                    withIntArray:(IOSIntArray *)updateCounts;
 
 /*!
  @brief Constructs a <code>BatchUpdateException</code> object initialized with
@@ -203,11 +197,11 @@
    the cause is non-existent or unknown.
  @since 1.6
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)reason
-                              withNSString:(NSString *)SQLState
-                                   withInt:(jint)vendorCode
-                              withIntArray:(IOSIntArray *)updateCounts
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)reason
+                    withNSString:(NSString *)SQLState
+                         withInt:(jint)vendorCode
+                    withIntArray:(IOSIntArray *)updateCounts
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a <code>BatchUpdateException</code> object initialized with a given 
@@ -229,9 +223,9 @@
    failure
  @since 1.2
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)reason
-                              withNSString:(NSString *)SQLState
-                              withIntArray:(IOSIntArray *)updateCounts;
+- (instancetype)initWithNSString:(NSString *)reason
+                    withNSString:(NSString *)SQLState
+                    withIntArray:(IOSIntArray *)updateCounts;
 
 /*!
  @brief Constructs a <code>BatchUpdateException</code> object initialized with
@@ -251,10 +245,10 @@
    the cause is non-existent or unknown.
  @since 1.6
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)reason
-                              withNSString:(NSString *)SQLState
-                              withIntArray:(IOSIntArray *)updateCounts
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)reason
+                    withNSString:(NSString *)SQLState
+                    withIntArray:(IOSIntArray *)updateCounts
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a <code>BatchUpdateException</code> object initialized with
@@ -270,7 +264,7 @@
    may be null indicating the cause is non-existent or unknown.
  @since 1.6
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Retrieves the update count for each update statement in the batch
@@ -307,26 +301,26 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                              withNSString:(NSString *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+                    withNSString:(NSString *)arg1 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                              withNSString:(NSString *)arg1
-                                   withInt:(jint)arg2 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+                    withNSString:(NSString *)arg1
+                         withInt:(jint)arg2 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                              withNSString:(NSString *)arg1
-                                   withInt:(jint)arg2
-                     withJavaLangThrowable:(JavaLangThrowable *)arg3 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+                    withNSString:(NSString *)arg1
+                         withInt:(jint)arg2
+           withJavaLangThrowable:(JavaLangThrowable *)arg3 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                              withNSString:(NSString *)arg1
-                     withJavaLangThrowable:(JavaLangThrowable *)arg2 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+                    withNSString:(NSString *)arg1
+           withJavaLangThrowable:(JavaLangThrowable *)arg2 NS_UNAVAILABLE;
 
 @end
 
@@ -396,10 +390,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlBatchUpdateException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSqlBatchUpdateException")

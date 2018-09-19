@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/ThreadGroup.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangThreadGroup")
 #ifdef RESTRICT_JavaLangThreadGroup
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangThreadGroup_) && (INCLUDE_ALL_JavaLangThreadGroup || defined(INCLUDE_JavaLangThreadGroup))
 #define JavaLangThreadGroup_
 
 #define RESTRICT_JavaLangThread 1
 #define INCLUDE_JavaLangThread_UncaughtExceptionHandler 1
-#include "java/lang/Thread.h"
+#include "../../java/lang/Thread.h"
 
 @class IOSObjectArray;
 @class JavaIoPrintStream;
@@ -60,8 +54,6 @@
   jint ngroups_;
   IOSObjectArray *groups_;
 }
-@property (readonly, class, strong) JavaLangThreadGroup *systemThreadGroup NS_SWIFT_NAME(systemThreadGroup);
-@property (readonly, class, strong) JavaLangThreadGroup *mainThreadGroup NS_SWIFT_NAME(mainThreadGroup);
 
 + (JavaLangThreadGroup *)systemThreadGroup;
 
@@ -81,7 +73,7 @@
  - seealso: java.lang.ThreadGroup
  @since JDK1.0
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)name;
+- (instancetype)initWithNSString:(NSString *)name;
 
 /*!
  @brief Creates a new thread group.The parent of this new group is the
@@ -99,8 +91,8 @@
  - seealso: java.lang.ThreadGroup
  @since JDK1.0
  */
-- (instancetype __nonnull)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)parent
-                                         withNSString:(NSString *)name;
+- (instancetype)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)parent
+                               withNSString:(NSString *)name;
 
 /*!
  @brief Returns an estimate of the number of active threads in this thread
@@ -567,10 +559,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangThreadGroup)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangThreadGroup")

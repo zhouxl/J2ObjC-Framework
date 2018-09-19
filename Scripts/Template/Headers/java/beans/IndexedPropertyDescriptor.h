@@ -3,7 +3,7 @@
 //  source: apache_harmony/classlib/modules/beans/src/main/java/java/beans/IndexedPropertyDescriptor.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaBeansIndexedPropertyDescriptor")
 #ifdef RESTRICT_JavaBeansIndexedPropertyDescriptor
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaBeansIndexedPropertyDescriptor_) && (INCLUDE_ALL_JavaBeansIndexedPropertyDescriptor || defined(INCLUDE_JavaBeansIndexedPropertyDescriptor))
 #define JavaBeansIndexedPropertyDescriptor_
 
 #define RESTRICT_JavaBeansPropertyDescriptor 1
 #define INCLUDE_JavaBeansPropertyDescriptor 1
-#include "java/beans/PropertyDescriptor.h"
+#include "../../java/beans/PropertyDescriptor.h"
 
 @class IOSClass;
 @class JavaLangReflectMethod;
@@ -42,8 +36,8 @@
  @param beanClass the bean class.
  @throw IntrospectionException
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)propertyName
-                              withIOSClass:(IOSClass *)beanClass;
+- (instancetype)initWithNSString:(NSString *)propertyName
+                    withIOSClass:(IOSClass *)beanClass;
 
 /*!
  @brief Constructs a new instance of <code>IndexedPropertyDescriptor</code>.
@@ -55,12 +49,12 @@
  @param indexedSetterName the name of the indexed setter.
  @throw IntrospectionException
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)propertyName
-                              withIOSClass:(IOSClass *)beanClass
-                              withNSString:(NSString *)getterName
-                              withNSString:(NSString *)setterName
-                              withNSString:(NSString *)indexedGetterName
-                              withNSString:(NSString *)indexedSetterName;
+- (instancetype)initWithNSString:(NSString *)propertyName
+                    withIOSClass:(IOSClass *)beanClass
+                    withNSString:(NSString *)getterName
+                    withNSString:(NSString *)setterName
+                    withNSString:(NSString *)indexedGetterName
+                    withNSString:(NSString *)indexedSetterName;
 
 /*!
  @brief Constructs a new instance of <code>IndexedPropertyDescriptor</code>.
@@ -71,11 +65,11 @@
  @param indexedSetter the indexed setter
  @throw IntrospectionException
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)propertyName
-                 withJavaLangReflectMethod:(JavaLangReflectMethod *)getter
-                 withJavaLangReflectMethod:(JavaLangReflectMethod *)setter
-                 withJavaLangReflectMethod:(JavaLangReflectMethod *)indexedGetter
-                 withJavaLangReflectMethod:(JavaLangReflectMethod *)indexedSetter;
+- (instancetype)initWithNSString:(NSString *)propertyName
+       withJavaLangReflectMethod:(JavaLangReflectMethod *)getter
+       withJavaLangReflectMethod:(JavaLangReflectMethod *)setter
+       withJavaLangReflectMethod:(JavaLangReflectMethod *)indexedGetter
+       withJavaLangReflectMethod:(JavaLangReflectMethod *)indexedSetter;
 
 /*!
  @brief Determines if this <code>IndexedPropertyDescriptor</code> is equal to
@@ -127,14 +121,14 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                              withIOSClass:(IOSClass *)arg1
-                              withNSString:(NSString *)arg2
-                              withNSString:(NSString *)arg3 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+                    withIOSClass:(IOSClass *)arg1
+                    withNSString:(NSString *)arg2
+                    withNSString:(NSString *)arg3 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                 withJavaLangReflectMethod:(JavaLangReflectMethod *)arg1
-                 withJavaLangReflectMethod:(JavaLangReflectMethod *)arg2 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+       withJavaLangReflectMethod:(JavaLangReflectMethod *)arg1
+       withJavaLangReflectMethod:(JavaLangReflectMethod *)arg2 NS_UNAVAILABLE;
 
 @end
 
@@ -162,10 +156,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaBeansIndexedPropertyDescriptor)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaBeansIndexedPropertyDescriptor")

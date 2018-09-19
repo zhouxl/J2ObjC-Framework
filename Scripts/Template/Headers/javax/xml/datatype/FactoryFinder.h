@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/javax/xml/datatype/FactoryFinder.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxXmlDatatypeFactoryFinder")
 #ifdef RESTRICT_JavaxXmlDatatypeFactoryFinder
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaxXmlDatatypeFactoryFinder_) && (INCLUDE_ALL_JavaxXmlDatatypeFactoryFinder || defined(INCLUDE_JavaxXmlDatatypeFactoryFinder))
 #define JavaxXmlDatatypeFactoryFinder_
@@ -81,7 +75,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlDatatypeFactoryFinder)
 
 #define RESTRICT_JavaLangError 1
 #define INCLUDE_JavaLangError 1
-#include "java/lang/Error.h"
+#include "../../../java/lang/Error.h"
 
 @class JavaLangException;
 @class JavaLangThrowable;
@@ -101,8 +95,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlDatatypeFactoryFinder)
  @param msg Detail message for this error.
  @param x Exception that caused the error.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)msg
-                     withJavaLangException:(JavaLangException *)x;
+- (instancetype)initWithNSString:(NSString *)msg
+           withJavaLangException:(JavaLangException *)x;
 
 /*!
  @brief <p>Get the Exception that caused the error.
@@ -113,19 +107,19 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlDatatypeFactoryFinder)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0
-                     withJavaLangThrowable:(JavaLangThrowable *)arg1
-                               withBoolean:(jboolean)arg2
-                               withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0
+           withJavaLangThrowable:(JavaLangThrowable *)arg1
+                     withBoolean:(jboolean)arg2
+                     withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -141,10 +135,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlDatatypeFactoryFinder_ConfigurationError)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlDatatypeFactoryFinder")

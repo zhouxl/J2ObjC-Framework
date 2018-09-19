@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/locks/ReentrantReadWriteLock.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentLocksReentrantReadWriteLock")
 #ifdef RESTRICT_JavaUtilConcurrentLocksReentrantReadWriteLock
@@ -22,22 +22,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentLocksReentrantReadWriteLock_) && (INCLUDE_ALL_JavaUtilConcurrentLocksReentrantReadWriteLock || defined(INCLUDE_JavaUtilConcurrentLocksReentrantReadWriteLock))
 #define JavaUtilConcurrentLocksReentrantReadWriteLock_
 
 #define RESTRICT_JavaUtilConcurrentLocksReadWriteLock 1
 #define INCLUDE_JavaUtilConcurrentLocksReadWriteLock 1
-#include "java/util/concurrent/locks/ReadWriteLock.h"
+#include "../../../../java/util/concurrent/locks/ReadWriteLock.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../../java/io/Serializable.h"
 
 @class JavaLangThread;
 @class JavaUtilConcurrentLocksReentrantReadWriteLock_ReadLock;
@@ -218,14 +212,14 @@
  @brief Creates a new <code>ReentrantReadWriteLock</code> with
   default (nonfair) ordering properties.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a new <code>ReentrantReadWriteLock</code> with
   the given fairness policy.
  @param fair<code>true</code>  if this lock should use a fair ordering policy
  */
-- (instancetype __nonnull)initWithBoolean:(jboolean)fair;
+- (instancetype)initWithBoolean:(jboolean)fair;
 
 /*!
  @brief Returns an estimate of the number of threads waiting to acquire
@@ -472,7 +466,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock)
 
 #define RESTRICT_JavaUtilConcurrentLocksAbstractQueuedSynchronizer 1
 #define INCLUDE_JavaUtilConcurrentLocksAbstractQueuedSynchronizer 1
-#include "java/util/concurrent/locks/AbstractQueuedSynchronizer.h"
+#include "../../../../java/util/concurrent/locks/AbstractQueuedSynchronizer.h"
 
 @class JavaLangThread;
 @class JavaUtilConcurrentLocksAbstractQueuedSynchronizer_ConditionObject;
@@ -482,10 +476,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock)
  Subclassed into fair and nonfair versions.
  */
 @interface JavaUtilConcurrentLocksReentrantReadWriteLock_Sync : JavaUtilConcurrentLocksAbstractQueuedSynchronizer
-@property (readonly, class) jint SHARED_SHIFT NS_SWIFT_NAME(SHARED_SHIFT);
-@property (readonly, class) jint SHARED_UNIT NS_SWIFT_NAME(SHARED_UNIT);
-@property (readonly, class) jint MAX_COUNT NS_SWIFT_NAME(MAX_COUNT);
-@property (readonly, class) jint EXCLUSIVE_MASK NS_SWIFT_NAME(EXCLUSIVE_MASK);
 
 + (jint)SHARED_SHIFT;
 
@@ -509,7 +499,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Returns the number of exclusive holds represented in count.
@@ -614,7 +604,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock_Sync)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -635,7 +625,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_Ho
 
 #define RESTRICT_JavaLangThreadLocal 1
 #define INCLUDE_JavaLangThreadLocal 1
-#include "java/lang/ThreadLocal.h"
+#include "../../../../java/lang/ThreadLocal.h"
 
 @class JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_HoldCounter;
 
@@ -653,7 +643,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_Ho
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 - (JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_HoldCounter *)childValueWithId:(JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_HoldCounter *)arg0;
 
@@ -681,7 +671,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_Th
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 - (jboolean)readerShouldBlock;
 
@@ -711,7 +701,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock_Nonfair
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 - (jboolean)readerShouldBlock;
 
@@ -736,11 +726,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock_FairSyn
 
 #define RESTRICT_JavaUtilConcurrentLocksLock 1
 #define INCLUDE_JavaUtilConcurrentLocksLock 1
-#include "java/util/concurrent/locks/Lock.h"
+#include "../../../../java/util/concurrent/locks/Lock.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../../java/io/Serializable.h"
 
 @class JavaUtilConcurrentLocksReentrantReadWriteLock;
 @class JavaUtilConcurrentTimeUnit;
@@ -909,11 +899,11 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
  @param lock the outer lock object
  @throw NullPointerExceptionif the lock is null
  */
-- (instancetype __nonnull)initWithJavaUtilConcurrentLocksReentrantReadWriteLock:(JavaUtilConcurrentLocksReentrantReadWriteLock *)lock;
+- (instancetype)initWithJavaUtilConcurrentLocksReentrantReadWriteLock:(JavaUtilConcurrentLocksReentrantReadWriteLock *)lock;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -934,11 +924,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock_ReadLoc
 
 #define RESTRICT_JavaUtilConcurrentLocksLock 1
 #define INCLUDE_JavaUtilConcurrentLocksLock 1
-#include "java/util/concurrent/locks/Lock.h"
+#include "../../../../java/util/concurrent/locks/Lock.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../../java/io/Serializable.h"
 
 @class JavaUtilConcurrentLocksReentrantReadWriteLock;
 @class JavaUtilConcurrentTimeUnit;
@@ -1190,11 +1180,11 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
  @param lock the outer lock object
  @throw NullPointerExceptionif the lock is null
  */
-- (instancetype __nonnull)initWithJavaUtilConcurrentLocksReentrantReadWriteLock:(JavaUtilConcurrentLocksReentrantReadWriteLock *)lock;
+- (instancetype)initWithJavaUtilConcurrentLocksReentrantReadWriteLock:(JavaUtilConcurrentLocksReentrantReadWriteLock *)lock;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -1210,10 +1200,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock_WriteLo
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentLocksReentrantReadWriteLock")

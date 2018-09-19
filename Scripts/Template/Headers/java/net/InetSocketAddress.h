@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/net/InetSocketAddress.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetInetSocketAddress")
 #ifdef RESTRICT_JavaNetInetSocketAddress
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNetInetSocketAddress_) && (INCLUDE_ALL_JavaNetInetSocketAddress || defined(INCLUDE_JavaNetInetSocketAddress))
 #define JavaNetInetSocketAddress_
 
 #define RESTRICT_JavaNetSocketAddress 1
 #define INCLUDE_JavaNetSocketAddress 1
-#include "java/net/SocketAddress.h"
+#include "../../java/net/SocketAddress.h"
 
 @class JavaNetInetAddress;
 
@@ -53,7 +47,7 @@
 
 /*!
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a socket address from an IP address and a port number.
@@ -69,8 +63,8 @@
  @throw IllegalArgumentExceptionif the port parameter is outside the specified
   range of valid port values.
  */
-- (instancetype __nonnull)initWithJavaNetInetAddress:(JavaNetInetAddress *)addr
-                                             withInt:(jint)port;
+- (instancetype)initWithJavaNetInetAddress:(JavaNetInetAddress *)addr
+                                   withInt:(jint)port;
 
 /*!
  @brief Creates a socket address where the IP address is the wildcard address
@@ -84,7 +78,7 @@
  @throw IllegalArgumentExceptionif the port parameter is outside the specified
   range of valid port values.
  */
-- (instancetype __nonnull)initWithInt:(jint)port;
+- (instancetype)initWithInt:(jint)port;
 
 /*!
  @brief Creates a socket address from a hostname and a port number.
@@ -109,8 +103,8 @@
                             denied.
  - seealso: #isUnresolved()
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)hostname
-                                   withInt:(jint)port;
+- (instancetype)initWithNSString:(NSString *)hostname
+                         withInt:(jint)port;
 
 /*!
  @brief Creates an unresolved socket address from a hostname and a port number.
@@ -240,10 +234,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetInetSocketAddress)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetInetSocketAddress")

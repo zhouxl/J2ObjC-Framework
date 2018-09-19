@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/InvalidAlgorithmParameterException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityInvalidAlgorithmParameterException")
 #ifdef RESTRICT_JavaSecurityInvalidAlgorithmParameterException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityInvalidAlgorithmParameterException_) && (INCLUDE_ALL_JavaSecurityInvalidAlgorithmParameterException || defined(INCLUDE_JavaSecurityInvalidAlgorithmParameterException))
 #define JavaSecurityInvalidAlgorithmParameterException_
 
 #define RESTRICT_JavaSecurityGeneralSecurityException 1
 #define INCLUDE_JavaSecurityGeneralSecurityException 1
-#include "java/security/GeneralSecurityException.h"
+#include "../../java/security/GeneralSecurityException.h"
 
 @class JavaLangThrowable;
 
@@ -48,7 +42,7 @@
  A detail message is a String that describes this particular
   exception.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs an InvalidAlgorithmParameterException with the specified
@@ -57,7 +51,7 @@
   particular exception.
  @param msg the detail message.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)msg;
+- (instancetype)initWithNSString:(NSString *)msg;
 
 /*!
  @brief Creates a <code>InvalidAlgorithmParameterException</code> with the
@@ -68,8 +62,8 @@
  <code>getCause()</code>  method).  (A  <tt> null </tt>  value is permitted,         and indicates that the cause is nonexistent or unknown.)
  @since 1.5
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)message
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)message
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Creates a <code>InvalidAlgorithmParameterException</code> with the
@@ -82,7 +76,7 @@
  <code>getCause()</code>  method).  (A  <tt> null </tt>  value is permitted,         and indicates that the cause is nonexistent or unknown.)
  @since 1.5
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 @end
 
@@ -116,10 +110,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInvalidAlgorithmParameterException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityInvalidAlgorithmParameterException")

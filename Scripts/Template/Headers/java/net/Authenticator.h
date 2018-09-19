@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/net/Authenticator.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetAuthenticator")
 #ifdef RESTRICT_JavaNetAuthenticator
@@ -18,7 +18,6 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -60,7 +59,7 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Ask the authenticator that has been registered with the system
@@ -274,7 +273,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetAuthenticator)
 
 #define RESTRICT_JavaLangEnum 1
 #define INCLUDE_JavaLangEnum 1
-#include "java/lang/Enum.h"
+#include "../../java/lang/Enum.h"
 
 @class IOSObjectArray;
 
@@ -289,8 +288,6 @@ typedef NS_ENUM(NSUInteger, JavaNetAuthenticator_RequestorType_Enum) {
  */
 @interface JavaNetAuthenticator_RequestorType : JavaLangEnum
 
-@property (readonly, class, nonnull) JavaNetAuthenticator_RequestorType *PROXY NS_SWIFT_NAME(PROXY);
-@property (readonly, class, nonnull) JavaNetAuthenticator_RequestorType *SERVER NS_SWIFT_NAME(SERVER);
 + (JavaNetAuthenticator_RequestorType * __nonnull)PROXY;
 
 + (JavaNetAuthenticator_RequestorType * __nonnull)SERVER;

@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/nio/channels/spi/AbstractSelector.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNioChannelsSpiAbstractSelector")
 #ifdef RESTRICT_JavaNioChannelsSpiAbstractSelector
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNioChannelsSpiAbstractSelector_) && (INCLUDE_ALL_JavaNioChannelsSpiAbstractSelector || defined(INCLUDE_JavaNioChannelsSpiAbstractSelector))
 #define JavaNioChannelsSpiAbstractSelector_
 
 #define RESTRICT_JavaNioChannelsSelector 1
 #define INCLUDE_JavaNioChannelsSelector 1
-#include "java/nio/channels/Selector.h"
+#include "../../../../java/nio/channels/Selector.h"
 
 @class JavaNioChannelsSelectionKey;
 @class JavaNioChannelsSpiAbstractSelectableChannel;
@@ -94,7 +88,7 @@
  @brief Initializes a new instance of this class.
  </p>
  */
-- (instancetype __nonnull)initWithJavaNioChannelsSpiSelectorProvider:(JavaNioChannelsSpiSelectorProvider *)provider;
+- (instancetype)initWithJavaNioChannelsSpiSelectorProvider:(JavaNioChannelsSpiSelectorProvider *)provider;
 
 /*!
  @brief Marks the beginning of an I/O operation that might block indefinitely.
@@ -177,10 +171,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSpiAbstractSelector)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioChannelsSpiAbstractSelector")

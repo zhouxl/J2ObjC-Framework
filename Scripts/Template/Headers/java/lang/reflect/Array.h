@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/reflect/Array.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangReflectArray")
 #ifdef RESTRICT_JavaLangReflectArray
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaLangReflectArray_) && (INCLUDE_ALL_JavaLangReflectArray || defined(INCLUDE_JavaLangReflectArray))
 #define JavaLangReflectArray_
@@ -234,8 +228,8 @@
  @throw NegativeArraySizeExceptionif the specified <code>length</code>
   is negative
  */
-+ (id __nonnull)newInstanceWithIOSClass:(IOSClass *)componentType
-                                withInt:(jint)length OBJC_METHOD_FAMILY_NONE;
++ (id)newInstanceWithIOSClass:(IOSClass *)componentType
+                      withInt:(jint)length OBJC_METHOD_FAMILY_NONE;
 
 /*!
  @brief Creates a new array
@@ -269,8 +263,8 @@
  @throw NegativeArraySizeExceptionif any of the components in
   the specified <code>dimensions</code> argument is negative.
  */
-+ (id __nonnull)newInstanceWithIOSClass:(IOSClass *)componentType
-                           withIntArray:(IOSIntArray *)dimensions OBJC_METHOD_FAMILY_NONE;
++ (id)newInstanceWithIOSClass:(IOSClass *)componentType
+                 withIntArray:(IOSIntArray *)dimensions OBJC_METHOD_FAMILY_NONE;
 
 /*!
  @brief Sets the value of the indexed component of the specified array
@@ -511,10 +505,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectArray)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangReflectArray")

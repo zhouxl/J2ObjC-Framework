@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/nio/CharBuffer.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNioCharBuffer")
 #ifdef RESTRICT_JavaNioCharBuffer
@@ -16,34 +16,28 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNioCharBuffer_) && (INCLUDE_ALL_JavaNioCharBuffer || defined(INCLUDE_JavaNioCharBuffer))
 #define JavaNioCharBuffer_
 
 #define RESTRICT_JavaNioBuffer 1
 #define INCLUDE_JavaNioBuffer 1
-#include "java/nio/Buffer.h"
+#include "../../java/nio/Buffer.h"
 
 #define RESTRICT_JavaLangComparable 1
 #define INCLUDE_JavaLangComparable 1
-#include "java/lang/Comparable.h"
+#include "../../java/lang/Comparable.h"
 
 #define RESTRICT_JavaLangAppendable 1
 #define INCLUDE_JavaLangAppendable 1
-#include "java/lang/Appendable.h"
+#include "../../java/lang/Appendable.h"
 
 #define RESTRICT_JavaLangCharSequence 1
 #define INCLUDE_JavaLangCharSequence 1
-#include "java/lang/CharSequence.h"
+#include "../../java/lang/CharSequence.h"
 
 #define RESTRICT_JavaLangReadable 1
 #define INCLUDE_JavaLangReadable 1
-#include "java/lang/Readable.h"
+#include "../../java/lang/Readable.h"
 
 @class IOSCharArray;
 @class JavaNioByteOrder;
@@ -774,17 +768,17 @@
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithInt:(jint)mark
-                              withInt:(jint)pos
-                              withInt:(jint)lim
-                              withInt:(jint)cap;
+- (instancetype)initWithInt:(jint)mark
+                    withInt:(jint)pos
+                    withInt:(jint)lim
+                    withInt:(jint)cap;
 
-- (instancetype __nonnull)initWithInt:(jint)mark
-                              withInt:(jint)pos
-                              withInt:(jint)lim
-                              withInt:(jint)cap
-                        withCharArray:(IOSCharArray *)hb
-                              withInt:(jint)offset;
+- (instancetype)initWithInt:(jint)mark
+                    withInt:(jint)pos
+                    withInt:(jint)lim
+                    withInt:(jint)cap
+              withCharArray:(IOSCharArray *)hb
+                    withInt:(jint)offset;
 
 /*!
  @brief Absolute <i>get</i> method.Reads the char at the given
@@ -821,10 +815,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharBuffer)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioCharBuffer")

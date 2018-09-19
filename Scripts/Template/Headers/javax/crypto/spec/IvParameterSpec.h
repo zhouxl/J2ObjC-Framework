@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/crypto/spec/IvParameterSpec.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxCryptoSpecIvParameterSpec")
 #ifdef RESTRICT_JavaxCryptoSpecIvParameterSpec
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxCryptoSpecIvParameterSpec_) && (INCLUDE_ALL_JavaxCryptoSpecIvParameterSpec || defined(INCLUDE_JavaxCryptoSpecIvParameterSpec))
 #define JavaxCryptoSpecIvParameterSpec_
 
 #define RESTRICT_JavaSecuritySpecAlgorithmParameterSpec 1
 #define INCLUDE_JavaSecuritySpecAlgorithmParameterSpec 1
-#include "java/security/spec/AlgorithmParameterSpec.h"
+#include "../../../java/security/spec/AlgorithmParameterSpec.h"
 
 @class IOSByteArray;
 
@@ -49,7 +43,7 @@
  @param iv the buffer with the IV. The contents of the  buffer are copied to protect against subsequent modification.
  @throw NullPointerExceptionif <code>iv</code> is <code>null</code>
  */
-- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)iv;
+- (instancetype)initWithByteArray:(IOSByteArray *)iv;
 
 /*!
  @brief Creates an IvParameterSpec object using the first <code>len</code>
@@ -68,9 +62,9 @@
  @throw ArrayIndexOutOfBoundsExceptionis thrown if <code>offset</code>
   or <code>len</code> index bytes outside the <code>iv</code>.
  */
-- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)iv
-                                    withInt:(jint)offset
-                                    withInt:(jint)len;
+- (instancetype)initWithByteArray:(IOSByteArray *)iv
+                          withInt:(jint)offset
+                          withInt:(jint)len;
 
 /*!
  @brief Returns the initialization vector (IV).
@@ -81,7 +75,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -103,10 +97,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoSpecIvParameterSpec)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxCryptoSpecIvParameterSpec")

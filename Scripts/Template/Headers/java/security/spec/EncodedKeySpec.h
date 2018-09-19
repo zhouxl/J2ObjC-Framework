@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/spec/EncodedKeySpec.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecuritySpecEncodedKeySpec")
 #ifdef RESTRICT_JavaSecuritySpecEncodedKeySpec
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecuritySpecEncodedKeySpec_) && (INCLUDE_ALL_JavaSecuritySpecEncodedKeySpec || defined(INCLUDE_JavaSecuritySpecEncodedKeySpec))
 #define JavaSecuritySpecEncodedKeySpec_
 
 #define RESTRICT_JavaSecuritySpecKeySpec 1
 #define INCLUDE_JavaSecuritySpecKeySpec 1
-#include "java/security/spec/KeySpec.h"
+#include "../../../java/security/spec/KeySpec.h"
 
 @class IOSByteArray;
 
@@ -51,7 +45,7 @@
  @throw NullPointerExceptionif <code>encodedKey</code>
   is null.
  */
-- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)encodedKey;
+- (instancetype)initWithByteArray:(IOSByteArray *)encodedKey;
 
 /*!
  @brief Returns the encoded key.
@@ -85,10 +79,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecEncodedKeySpec)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecEncodedKeySpec")

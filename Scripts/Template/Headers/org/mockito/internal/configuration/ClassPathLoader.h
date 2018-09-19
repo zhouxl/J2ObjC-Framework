@@ -3,7 +3,7 @@
 //  source: src/main/java/org/mockito/internal/configuration/ClassPathLoader.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgMockitoInternalConfigurationClassPathLoader")
 #ifdef RESTRICT_OrgMockitoInternalConfigurationClassPathLoader
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (OrgMockitoInternalConfigurationClassPathLoader_) && (INCLUDE_ALL_OrgMockitoInternalConfigurationClassPathLoader || defined(INCLUDE_OrgMockitoInternalConfigurationClassPathLoader))
 #define OrgMockitoInternalConfigurationClassPathLoader_
@@ -66,13 +60,12 @@
   </p>
  */
 @interface OrgMockitoInternalConfigurationClassPathLoader : NSObject
-@property (readonly, copy, class) NSString *MOCKITO_CONFIGURATION_CLASS_NAME NS_SWIFT_NAME(MOCKITO_CONFIGURATION_CLASS_NAME);
 
 + (NSString *)MOCKITO_CONFIGURATION_CLASS_NAME;
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Returns the implementation of the mock maker available for the current runtime.
@@ -142,10 +135,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgMockitoInternalConfigurationClassPathLoader)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgMockitoInternalConfigurationClassPathLoader")

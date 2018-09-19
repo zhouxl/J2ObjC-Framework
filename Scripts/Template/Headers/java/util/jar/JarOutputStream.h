@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/jar/JarOutputStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilJarJarOutputStream")
 #ifdef RESTRICT_JavaUtilJarJarOutputStream
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilJarJarOutputStream_) && (INCLUDE_ALL_JavaUtilJarJarOutputStream || defined(INCLUDE_JavaUtilJarJarOutputStream))
 #define JavaUtilJarJarOutputStream_
 
 #define RESTRICT_JavaUtilZipZipOutputStream 1
 #define INCLUDE_JavaUtilZipZipOutputStream 1
-#include "java/util/zip/ZipOutputStream.h"
+#include "../../../java/util/zip/ZipOutputStream.h"
 
 @class JavaIoOutputStream;
 @class JavaNioCharsetCharset;
@@ -56,7 +50,7 @@
  @param outArg the actual output stream
  @throw IOExceptionif an I/O error has occurred
  */
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg;
 
 /*!
  @brief Creates a new <code>JarOutputStream</code> with the specified 
@@ -66,8 +60,8 @@
  @param man the optional  <code> Manifest </code>
  @throw IOExceptionif an I/O error has occurred
  */
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-                             withJavaUtilJarManifest:(JavaUtilJarManifest *)man;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+                   withJavaUtilJarManifest:(JavaUtilJarManifest *)man;
 
 /*!
  @brief Begins writing a new JAR file entry and positions the stream
@@ -85,8 +79,8 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
-                           withJavaNioCharsetCharset:(JavaNioCharsetCharset *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
+                 withJavaNioCharsetCharset:(JavaNioCharsetCharset *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -108,10 +102,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarOutputStream)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilJarJarOutputStream")

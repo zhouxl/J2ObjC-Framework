@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/net/ssl/SNIMatcher.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxNetSslSNIMatcher")
 #ifdef RESTRICT_JavaxNetSslSNIMatcher
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaxNetSslSNIMatcher_) && (INCLUDE_ALL_JavaxNetSslSNIMatcher || defined(INCLUDE_JavaxNetSslSNIMatcher))
 #define JavaxNetSslSNIMatcher_
@@ -80,7 +74,7 @@
  @throw IllegalArgumentExceptionif <code>type</code> is not in the range
           of 0 to 255, inclusive.
  */
-- (instancetype __nonnull)initWithInt:(jint)type;
+- (instancetype)initWithInt:(jint)type;
 
 @end
 
@@ -92,10 +86,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSNIMatcher)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxNetSslSNIMatcher")

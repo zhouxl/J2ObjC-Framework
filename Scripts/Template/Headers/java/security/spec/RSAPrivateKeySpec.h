@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/spec/RSAPrivateKeySpec.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecuritySpecRSAPrivateKeySpec")
 #ifdef RESTRICT_JavaSecuritySpecRSAPrivateKeySpec
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecuritySpecRSAPrivateKeySpec_) && (INCLUDE_ALL_JavaSecuritySpecRSAPrivateKeySpec || defined(INCLUDE_JavaSecuritySpecRSAPrivateKeySpec))
 #define JavaSecuritySpecRSAPrivateKeySpec_
 
 #define RESTRICT_JavaSecuritySpecKeySpec 1
 #define INCLUDE_JavaSecuritySpecKeySpec 1
-#include "java/security/spec/KeySpec.h"
+#include "../../../java/security/spec/KeySpec.h"
 
 @class JavaMathBigInteger;
 
@@ -50,8 +44,8 @@
  @param modulus the modulus
  @param privateExponent the private exponent
  */
-- (instancetype __nonnull)initWithJavaMathBigInteger:(JavaMathBigInteger *)modulus
-                              withJavaMathBigInteger:(JavaMathBigInteger *)privateExponent;
+- (instancetype)initWithJavaMathBigInteger:(JavaMathBigInteger *)modulus
+                    withJavaMathBigInteger:(JavaMathBigInteger *)privateExponent;
 
 /*!
  @brief Returns the modulus.
@@ -67,7 +61,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -83,10 +77,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecRSAPrivateKeySpec)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecRSAPrivateKeySpec")

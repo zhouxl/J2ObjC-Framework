@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/sql/ResultSet.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSqlResultSet")
 #ifdef RESTRICT_JavaSqlResultSet
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSqlResultSet_) && (INCLUDE_ALL_JavaSqlResultSet || defined(INCLUDE_JavaSqlResultSet))
 #define JavaSqlResultSet_
 
 #define RESTRICT_JavaSqlWrapper 1
 #define INCLUDE_JavaSqlWrapper 1
-#include "java/sql/Wrapper.h"
+#include "../../java/sql/Wrapper.h"
 
 #define RESTRICT_JavaLangAutoCloseable 1
 #define INCLUDE_JavaLangAutoCloseable 1
-#include "java/lang/AutoCloseable.h"
+#include "../../java/lang/AutoCloseable.h"
 
 @class IOSByteArray;
 @class JavaIoInputStream;
@@ -3813,16 +3807,6 @@
 @end
 
 @interface JavaSqlResultSet : NSObject
-@property (readonly, class) jint FETCH_FORWARD NS_SWIFT_NAME(FETCH_FORWARD);
-@property (readonly, class) jint FETCH_REVERSE NS_SWIFT_NAME(FETCH_REVERSE);
-@property (readonly, class) jint FETCH_UNKNOWN NS_SWIFT_NAME(FETCH_UNKNOWN);
-@property (readonly, class) jint TYPE_FORWARD_ONLY NS_SWIFT_NAME(TYPE_FORWARD_ONLY);
-@property (readonly, class) jint TYPE_SCROLL_INSENSITIVE NS_SWIFT_NAME(TYPE_SCROLL_INSENSITIVE);
-@property (readonly, class) jint TYPE_SCROLL_SENSITIVE NS_SWIFT_NAME(TYPE_SCROLL_SENSITIVE);
-@property (readonly, class) jint CONCUR_READ_ONLY NS_SWIFT_NAME(CONCUR_READ_ONLY);
-@property (readonly, class) jint CONCUR_UPDATABLE NS_SWIFT_NAME(CONCUR_UPDATABLE);
-@property (readonly, class) jint HOLD_CURSORS_OVER_COMMIT NS_SWIFT_NAME(HOLD_CURSORS_OVER_COMMIT);
-@property (readonly, class) jint CLOSE_CURSORS_AT_COMMIT NS_SWIFT_NAME(CLOSE_CURSORS_AT_COMMIT);
 
 + (jint)FETCH_FORWARD;
 
@@ -3949,10 +3933,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlResultSet)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSqlResultSet")

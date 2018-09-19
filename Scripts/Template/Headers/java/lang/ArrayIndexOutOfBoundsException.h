@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/ArrayIndexOutOfBoundsException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangArrayIndexOutOfBoundsException")
 #ifdef RESTRICT_JavaLangArrayIndexOutOfBoundsException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangArrayIndexOutOfBoundsException_) && (INCLUDE_ALL_JavaLangArrayIndexOutOfBoundsException || defined(INCLUDE_JavaLangArrayIndexOutOfBoundsException))
 #define JavaLangArrayIndexOutOfBoundsException_
 
 #define RESTRICT_JavaLangIndexOutOfBoundsException 1
 #define INCLUDE_JavaLangIndexOutOfBoundsException 1
-#include "java/lang/IndexOutOfBoundsException.h"
+#include "../../java/lang/IndexOutOfBoundsException.h"
 
 /*!
  @brief Thrown to indicate that an array has been accessed with an
@@ -44,34 +38,34 @@
  @brief Constructs an <code>ArrayIndexOutOfBoundsException</code> with no
   detail message.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a new <code>ArrayIndexOutOfBoundsException</code>
   class with an argument indicating the illegal index.
  @param index the illegal index.
  */
-- (instancetype __nonnull)initWithInt:(jint)index;
+- (instancetype)initWithInt:(jint)index;
 
 /*!
  @brief Used internally for consistent high-quality error reporting.
  */
-- (instancetype __nonnull)initWithInt:(jint)sourceLength
-                              withInt:(jint)index;
+- (instancetype)initWithInt:(jint)sourceLength
+                    withInt:(jint)index;
 
 /*!
  @brief Used internally for consistent high-quality error reporting.
  */
-- (instancetype __nonnull)initWithInt:(jint)sourceLength
-                              withInt:(jint)offset
-                              withInt:(jint)count;
+- (instancetype)initWithInt:(jint)sourceLength
+                    withInt:(jint)offset
+                    withInt:(jint)count;
 
 /*!
  @brief Constructs an <code>ArrayIndexOutOfBoundsException</code> class
   with the specified detail message.
  @param s the detail message.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s;
+- (instancetype)initWithNSString:(NSString *)s;
 
 @end
 
@@ -111,10 +105,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangArrayIndexOutOfBoundsException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangArrayIndexOutOfBoundsException")

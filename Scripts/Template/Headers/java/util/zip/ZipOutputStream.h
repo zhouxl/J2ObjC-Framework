@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/zip/ZipOutputStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilZipZipOutputStream")
 #ifdef RESTRICT_JavaUtilZipZipOutputStream
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilZipZipOutputStream_) && (INCLUDE_ALL_JavaUtilZipZipOutputStream || defined(INCLUDE_JavaUtilZipZipOutputStream))
 #define JavaUtilZipZipOutputStream_
 
 #define RESTRICT_JavaUtilZipDeflaterOutputStream 1
 #define INCLUDE_JavaUtilZipDeflaterOutputStream 1
-#include "java/util/zip/DeflaterOutputStream.h"
+#include "../../../java/util/zip/DeflaterOutputStream.h"
 
 #define RESTRICT_JavaUtilZipZipConstants 1
 #define INCLUDE_JavaUtilZipZipConstants 1
-#include "java/util/zip/ZipConstants.h"
+#include "../../../java/util/zip/ZipConstants.h"
 
 @class IOSByteArray;
 @class JavaIoOutputStream;
@@ -46,8 +40,6 @@
  @author David Connelly
  */
 @interface JavaUtilZipZipOutputStream : JavaUtilZipDeflaterOutputStream < JavaUtilZipZipConstants >
-@property (readonly, class) jint STORED NS_SWIFT_NAME(STORED);
-@property (readonly, class) jint DEFLATED NS_SWIFT_NAME(DEFLATED);
 
 + (jint)STORED;
 
@@ -61,7 +53,7 @@
   to encode the entry names and comments.
  @param outArg the actual output stream
  */
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg;
 
 /*!
  @brief Creates a new ZIP output stream.
@@ -69,8 +61,8 @@
  @param charset the charset                 to be used to encode the entry names and comments
  @since 1.7
  */
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-                           withJavaNioCharsetCharset:(JavaNioCharsetCharset *)charset;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+                 withJavaNioCharsetCharset:(JavaNioCharsetCharset *)charset;
 
 /*!
  @brief Closes the ZIP output stream as well as the stream being filtered.
@@ -149,24 +141,24 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
-                                         withBoolean:(jboolean)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
+                               withBoolean:(jboolean)arg1 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
-                             withJavaUtilZipDeflater:(JavaUtilZipDeflater *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
+                   withJavaUtilZipDeflater:(JavaUtilZipDeflater *)arg1 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
-                             withJavaUtilZipDeflater:(JavaUtilZipDeflater *)arg1
-                                         withBoolean:(jboolean)arg2 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
+                   withJavaUtilZipDeflater:(JavaUtilZipDeflater *)arg1
+                               withBoolean:(jboolean)arg2 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
-                             withJavaUtilZipDeflater:(JavaUtilZipDeflater *)arg1
-                                             withInt:(jint)arg2 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
+                   withJavaUtilZipDeflater:(JavaUtilZipDeflater *)arg1
+                                   withInt:(jint)arg2 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
-                             withJavaUtilZipDeflater:(JavaUtilZipDeflater *)arg1
-                                             withInt:(jint)arg2
-                                         withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
+- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
+                   withJavaUtilZipDeflater:(JavaUtilZipDeflater *)arg1
+                                   withInt:(jint)arg2
+                               withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -202,10 +194,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipOutputStream)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilZipZipOutputStream")

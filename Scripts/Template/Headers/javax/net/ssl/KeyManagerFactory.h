@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/net/ssl/KeyManagerFactory.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxNetSslKeyManagerFactory")
 #ifdef RESTRICT_JavaxNetSslKeyManagerFactory
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaxNetSslKeyManagerFactory_) && (INCLUDE_ALL_JavaxNetSslKeyManagerFactory || defined(INCLUDE_JavaxNetSslKeyManagerFactory))
 #define JavaxNetSslKeyManagerFactory_
@@ -200,13 +194,13 @@
  @param provider the provider
  @param algorithm the algorithm
  */
-- (instancetype __nonnull)initWithJavaxNetSslKeyManagerFactorySpi:(JavaxNetSslKeyManagerFactorySpi *)factorySpi
-                                         withJavaSecurityProvider:(JavaSecurityProvider *)provider
-                                                     withNSString:(NSString *)algorithm;
+- (instancetype)initWithJavaxNetSslKeyManagerFactorySpi:(JavaxNetSslKeyManagerFactorySpi *)factorySpi
+                               withJavaSecurityProvider:(JavaSecurityProvider *)provider
+                                           withNSString:(NSString *)algorithm;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -230,10 +224,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslKeyManagerFactory)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxNetSslKeyManagerFactory")

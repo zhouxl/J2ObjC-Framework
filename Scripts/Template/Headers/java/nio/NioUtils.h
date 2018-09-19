@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/nio/NioUtils.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNioNioUtils")
 #ifdef RESTRICT_JavaNioNioUtils
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaNioNioUtils_) && (INCLUDE_ALL_JavaNioNioUtils || defined(INCLUDE_JavaNioNioUtils))
 #define JavaNioNioUtils_
@@ -95,7 +89,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioNioUtils)
 @end
 
 @interface JavaNioNioUtils_ChannelFactory : NSObject
-@property (readonly, class, strong) id<JavaNioNioUtils_ChannelFactory> INSTANCE NS_SWIFT_NAME(INSTANCE);
 
 + (id<JavaNioNioUtils_ChannelFactory>)INSTANCE;
 
@@ -112,10 +105,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioNioUtils_ChannelFactory)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioNioUtils")

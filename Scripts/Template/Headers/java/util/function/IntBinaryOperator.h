@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/function/IntBinaryOperator.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilFunctionIntBinaryOperator")
 #ifdef RESTRICT_JavaUtilFunctionIntBinaryOperator
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaUtilFunctionIntBinaryOperator_) && (INCLUDE_ALL_JavaUtilFunctionIntBinaryOperator || defined(INCLUDE_JavaUtilFunctionIntBinaryOperator))
 #define JavaUtilFunctionIntBinaryOperator_
@@ -54,10 +48,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilFunctionIntBinaryOperator)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilFunctionIntBinaryOperator")

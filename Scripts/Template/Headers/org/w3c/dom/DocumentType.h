@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/DocumentType.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgW3cDomDocumentType")
 #ifdef RESTRICT_OrgW3cDomDocumentType
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (OrgW3cDomDocumentType_) && (INCLUDE_ALL_OrgW3cDomDocumentType || defined(INCLUDE_OrgW3cDomDocumentType))
 #define OrgW3cDomDocumentType_
 
 #define RESTRICT_OrgW3cDomNode 1
 #define INCLUDE_OrgW3cDomNode 1
-#include "org/w3c/dom/Node.h"
+#include "../../../org/w3c/dom/Node.h"
 
 @protocol OrgW3cDomNamedNodeMap;
 
@@ -112,10 +106,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomDocumentType)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgW3cDomDocumentType")

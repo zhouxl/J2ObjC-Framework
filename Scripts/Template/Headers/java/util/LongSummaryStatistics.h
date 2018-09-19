@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/LongSummaryStatistics.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilLongSummaryStatistics")
 #ifdef RESTRICT_JavaUtilLongSummaryStatistics
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilLongSummaryStatistics_) && (INCLUDE_ALL_JavaUtilLongSummaryStatistics || defined(INCLUDE_JavaUtilLongSummaryStatistics))
 #define JavaUtilLongSummaryStatistics_
 
 #define RESTRICT_JavaUtilFunctionLongConsumer 1
 #define INCLUDE_JavaUtilFunctionLongConsumer 1
-#include "java/util/function/LongConsumer.h"
+#include "../../java/util/function/LongConsumer.h"
 
 #define RESTRICT_JavaUtilFunctionIntConsumer 1
 #define INCLUDE_JavaUtilFunctionIntConsumer 1
-#include "java/util/function/IntConsumer.h"
+#include "../../java/util/function/IntConsumer.h"
 
 /*!
  @brief A state object for collecting statistics such as count, min, max, sum, and
@@ -67,7 +61,7 @@
  <code>Long.MAX_VALUE</code> min, <code>Long.MIN_VALUE</code> max and zero
   average.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Records a new <code>int</code> value into the summary information.
@@ -139,10 +133,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLongSummaryStatistics)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilLongSummaryStatistics")

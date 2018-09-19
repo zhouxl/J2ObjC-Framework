@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/CharSequence.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangCharSequence")
 #ifdef RESTRICT_JavaLangCharSequence
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaLangCharSequence_) && (INCLUDE_ALL_JavaLangCharSequence || defined(INCLUDE_JavaLangCharSequence))
 #define JavaLangCharSequence_
@@ -96,7 +90,7 @@
   this sequence.
  @return a string consisting of exactly this sequence of characters
  */
-- (NSString * __nonnull)description;
+- (NSString *)description;
 
 /*!
  @brief Returns a stream of <code>int</code> zero-extending the <code>char</code> values
@@ -137,10 +131,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangCharSequence)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangCharSequence")

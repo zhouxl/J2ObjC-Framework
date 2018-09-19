@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/text/MessageFormat.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaTextMessageFormat")
 #ifdef RESTRICT_JavaTextMessageFormat
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaTextMessageFormat_) && (INCLUDE_ALL_JavaTextMessageFormat || defined(INCLUDE_JavaTextMessageFormat))
 #define JavaTextMessageFormat_
 
 #define RESTRICT_JavaTextFormat 1
 #define INCLUDE_JavaTextFormat 1
-#include "java/text/Format.h"
+#include "../../java/text/Format.h"
 
 @class IOSObjectArray;
 @class JavaLangStringBuffer;
@@ -349,7 +343,7 @@
  @param pattern the pattern for this message format
  @throw IllegalArgumentExceptionif the pattern is invalid
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)pattern;
+- (instancetype)initWithNSString:(NSString *)pattern;
 
 /*!
  @brief Constructs a MessageFormat for the specified locale and
@@ -363,8 +357,8 @@
  @throw IllegalArgumentExceptionif the pattern is invalid
  @since 1.4
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)pattern
-                        withJavaUtilLocale:(JavaUtilLocale *)locale;
+- (instancetype)initWithNSString:(NSString *)pattern
+              withJavaUtilLocale:(JavaUtilLocale *)locale;
 
 /*!
  @brief Sets the pattern used by this message format.
@@ -757,7 +751,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -786,7 +780,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextMessageFormat)
 
 #define RESTRICT_JavaTextFormat 1
 #define INCLUDE_JavaTextFormat_Field 1
-#include "java/text/Format.h"
+#include "../../java/text/Format.h"
 
 /*!
  @brief Defines constants that are used as attribute keys in the 
@@ -795,7 +789,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextMessageFormat)
  @since 1.4
  */
 @interface JavaTextMessageFormat_Field : JavaTextFormat_Field
-@property (readonly, class, strong) JavaTextMessageFormat_Field *ARGUMENT NS_SWIFT_NAME(ARGUMENT);
 
 + (JavaTextMessageFormat_Field *)ARGUMENT;
 
@@ -805,7 +798,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextMessageFormat)
  @brief Creates a Field with the specified name.
  @param name Name of the attribute
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)name;
+- (instancetype)initWithNSString:(NSString *)name;
 
 /*!
  @brief Resolves instances being deserialized to the predefined constants.
@@ -841,10 +834,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextMessageFormat_Field)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextMessageFormat")

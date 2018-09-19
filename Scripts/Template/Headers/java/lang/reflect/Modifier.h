@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/reflect/Modifier.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangReflectModifier")
 #ifdef RESTRICT_JavaLangReflectModifier
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaLangReflectModifier_) && (INCLUDE_ALL_JavaLangReflectModifier || defined(INCLUDE_JavaLangReflectModifier))
 #define JavaLangReflectModifier_
@@ -39,27 +33,6 @@
  @author Kenneth Russell
  */
 @interface JavaLangReflectModifier : NSObject
-@property (readonly, class) jint PUBLIC NS_SWIFT_NAME(PUBLIC);
-@property (readonly, class) jint PRIVATE NS_SWIFT_NAME(PRIVATE);
-@property (readonly, class) jint PROTECTED NS_SWIFT_NAME(PROTECTED);
-@property (readonly, class) jint STATIC NS_SWIFT_NAME(STATIC);
-@property (readonly, class) jint FINAL NS_SWIFT_NAME(FINAL);
-@property (readonly, class) jint SYNCHRONIZED NS_SWIFT_NAME(SYNCHRONIZED);
-@property (readonly, class) jint VOLATILE NS_SWIFT_NAME(VOLATILE);
-@property (readonly, class) jint TRANSIENT NS_SWIFT_NAME(TRANSIENT);
-@property (readonly, class) jint NATIVE NS_SWIFT_NAME(NATIVE);
-@property (readonly, class) jint INTERFACE NS_SWIFT_NAME(INTERFACE);
-@property (readonly, class) jint ABSTRACT NS_SWIFT_NAME(ABSTRACT);
-@property (readonly, class) jint STRICT NS_SWIFT_NAME(STRICT);
-@property (readonly, class) jint BRIDGE NS_SWIFT_NAME(BRIDGE);
-@property (readonly, class) jint VARARGS NS_SWIFT_NAME(VARARGS);
-@property (readonly, class) jint SYNTHETIC NS_SWIFT_NAME(SYNTHETIC);
-@property (readonly, class) jint ANNOTATION NS_SWIFT_NAME(ANNOTATION);
-@property (readonly, class) jint ENUM NS_SWIFT_NAME(ENUM);
-@property (readonly, class) jint MANDATED NS_SWIFT_NAME(MANDATED);
-@property (readonly, class) jint CONSTRUCTOR NS_SWIFT_NAME(CONSTRUCTOR);
-@property (readonly, class) jint DEFAULT NS_SWIFT_NAME(DEFAULT);
-@property (readonly, class) jint ACCESS_MODIFIERS NS_SWIFT_NAME(ACCESS_MODIFIERS);
 
 + (jint)PUBLIC;
 
@@ -105,7 +78,7 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Return an <code>int</code> value OR-ing together the source language
@@ -516,10 +489,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectModifier)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangReflectModifier")

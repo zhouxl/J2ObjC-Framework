@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/nio/channels/spi/AbstractSelectionKey.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNioChannelsSpiAbstractSelectionKey")
 #ifdef RESTRICT_JavaNioChannelsSpiAbstractSelectionKey
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNioChannelsSpiAbstractSelectionKey_) && (INCLUDE_ALL_JavaNioChannelsSpiAbstractSelectionKey || defined(INCLUDE_JavaNioChannelsSpiAbstractSelectionKey))
 #define JavaNioChannelsSpiAbstractSelectionKey_
 
 #define RESTRICT_JavaNioChannelsSelectionKey 1
 #define INCLUDE_JavaNioChannelsSelectionKey 1
-#include "java/nio/channels/SelectionKey.h"
+#include "../../../../java/nio/channels/SelectionKey.h"
 
 /*!
  @brief Base implementation class for selection keys.
@@ -55,7 +49,7 @@
  @brief Initializes a new instance of this class.
  </p>
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 #pragma mark Package-Private
 
@@ -71,10 +65,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSpiAbstractSelectionKey)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioChannelsSpiAbstractSelectionKey")

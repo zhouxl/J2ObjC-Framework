@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/DOMError.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgW3cDomDOMError")
 #ifdef RESTRICT_OrgW3cDomDOMError
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (OrgW3cDomDOMError_) && (INCLUDE_ALL_OrgW3cDomDOMError || defined(INCLUDE_OrgW3cDomDOMError))
 #define OrgW3cDomDOMError_
@@ -78,9 +72,6 @@
 @end
 
 @interface OrgW3cDomDOMError : NSObject
-@property (readonly, class) jshort SEVERITY_WARNING NS_SWIFT_NAME(SEVERITY_WARNING);
-@property (readonly, class) jshort SEVERITY_ERROR NS_SWIFT_NAME(SEVERITY_ERROR);
-@property (readonly, class) jshort SEVERITY_FATAL_ERROR NS_SWIFT_NAME(SEVERITY_FATAL_ERROR);
 
 + (jshort)SEVERITY_WARNING;
 
@@ -129,10 +120,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomDOMError)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgW3cDomDOMError")

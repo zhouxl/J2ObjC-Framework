@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/ByteArrayOutputStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoByteArrayOutputStream")
 #ifdef RESTRICT_JavaIoByteArrayOutputStream
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoByteArrayOutputStream_) && (INCLUDE_ALL_JavaIoByteArrayOutputStream || defined(INCLUDE_JavaIoByteArrayOutputStream))
 #define JavaIoByteArrayOutputStream_
 
 #define RESTRICT_JavaIoOutputStream 1
 #define INCLUDE_JavaIoOutputStream 1
-#include "java/io/OutputStream.h"
+#include "../../java/io/OutputStream.h"
 
 @class IOSByteArray;
 
@@ -62,7 +56,7 @@
  @brief Creates a new byte array output stream.The buffer capacity is
   initially 32 bytes, though its size increases if necessary.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a new byte array output stream, with a buffer capacity of
@@ -70,7 +64,7 @@
  @param size the initial size.
  @throw IllegalArgumentExceptionif size is negative.
  */
-- (instancetype __nonnull)initWithInt:(jint)size;
+- (instancetype)initWithInt:(jint)size;
 
 /*!
  @brief Closing a <tt>ByteArrayOutputStream</tt> has no effect.The methods in
@@ -207,10 +201,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoByteArrayOutputStream)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoByteArrayOutputStream")

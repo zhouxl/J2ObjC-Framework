@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/javax/crypto/spec/DHParameterSpec.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxCryptoSpecDHParameterSpec")
 #ifdef RESTRICT_JavaxCryptoSpecDHParameterSpec
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaxCryptoSpecDHParameterSpec_) && (INCLUDE_ALL_JavaxCryptoSpecDHParameterSpec || defined(INCLUDE_JavaxCryptoSpecDHParameterSpec))
 #define JavaxCryptoSpecDHParameterSpec_
 
 #define RESTRICT_JavaSecuritySpecAlgorithmParameterSpec 1
 #define INCLUDE_JavaSecuritySpecAlgorithmParameterSpec 1
-#include "java/security/spec/AlgorithmParameterSpec.h"
+#include "../../../java/security/spec/AlgorithmParameterSpec.h"
 
 @class JavaMathBigInteger;
 
@@ -61,8 +55,8 @@
  @param p the prime modulus
  @param g the base generator
  */
-- (instancetype __nonnull)initWithJavaMathBigInteger:(JavaMathBigInteger *)p
-                              withJavaMathBigInteger:(JavaMathBigInteger *)g;
+- (instancetype)initWithJavaMathBigInteger:(JavaMathBigInteger *)p
+                    withJavaMathBigInteger:(JavaMathBigInteger *)g;
 
 /*!
  @brief Constructs a parameter set for Diffie-Hellman, using a prime modulus 
@@ -73,9 +67,9 @@
  @param g the base generator
  @param l the size in bits of the random exponent (private value)
  */
-- (instancetype __nonnull)initWithJavaMathBigInteger:(JavaMathBigInteger *)p
-                              withJavaMathBigInteger:(JavaMathBigInteger *)g
-                                             withInt:(jint)l;
+- (instancetype)initWithJavaMathBigInteger:(JavaMathBigInteger *)p
+                    withJavaMathBigInteger:(JavaMathBigInteger *)g
+                                   withInt:(jint)l;
 
 /*!
  @brief Returns the base generator <code>g</code>.
@@ -99,7 +93,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -121,10 +115,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoSpecDHParameterSpec)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxCryptoSpecDHParameterSpec")

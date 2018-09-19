@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/ConcurrentLinkedDeque.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentConcurrentLinkedDeque")
 #ifdef RESTRICT_JavaUtilConcurrentConcurrentLinkedDeque
@@ -16,26 +16,20 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentConcurrentLinkedDeque_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentLinkedDeque || defined(INCLUDE_JavaUtilConcurrentConcurrentLinkedDeque))
 #define JavaUtilConcurrentConcurrentLinkedDeque_
 
 #define RESTRICT_JavaUtilAbstractCollection 1
 #define INCLUDE_JavaUtilAbstractCollection 1
-#include "java/util/AbstractCollection.h"
+#include "../../../java/util/AbstractCollection.h"
 
 #define RESTRICT_JavaUtilDeque 1
 #define INCLUDE_JavaUtilDeque 1
-#include "java/util/Deque.h"
+#include "../../../java/util/Deque.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaUtilConcurrentConcurrentLinkedDeque_Node;
@@ -84,7 +78,7 @@
 /*!
  @brief Constructs an empty deque.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a deque initially containing the elements of
@@ -94,7 +88,7 @@
  @throw NullPointerExceptionif the specified collection or any
           of its elements are null
  */
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Inserts the specified element at the tail of this deque.
@@ -452,13 +446,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentLinkedDeque)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a new node.Uses relaxed write because item can
   only be seen after publication via casNext or casPrev.
  */
-- (instancetype __nonnull)initWithId:(id)item;
+- (instancetype)initWithId:(id)item;
 
 - (jboolean)casItemWithId:(id)cmp
                    withId:(id)val;
@@ -502,7 +496,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentLinkedDeque_Node)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator 1
-#include "java/util/Spliterator.h"
+#include "../../../java/util/Spliterator.h"
 
 @class JavaUtilConcurrentConcurrentLinkedDeque;
 @class JavaUtilConcurrentConcurrentLinkedDeque_Node;
@@ -519,7 +513,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentLinkedDeque_Node)
   jint batch_;
   jboolean exhausted_;
 }
-@property (readonly, class) jint MAX_BATCH NS_SWIFT_NAME(MAX_BATCH);
 
 + (jint)MAX_BATCH;
 
@@ -537,11 +530,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentLinkedDeque_Node)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentLinkedDeque:(JavaUtilConcurrentConcurrentLinkedDeque *)queue;
+- (instancetype)initWithJavaUtilConcurrentConcurrentLinkedDeque:(JavaUtilConcurrentConcurrentLinkedDeque *)queue;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -564,10 +557,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentLinkedDeque_CLDSpliterato
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentConcurrentLinkedDeque")

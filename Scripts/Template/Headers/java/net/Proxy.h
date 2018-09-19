@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/net/Proxy.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetProxy")
 #ifdef RESTRICT_JavaNetProxy
@@ -18,7 +18,6 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -38,7 +37,6 @@
  @since 1.5
  */
 @interface JavaNetProxy : NSObject
-@property (readonly, class, strong) JavaNetProxy *NO_PROXY NS_SWIFT_NAME(NO_PROXY);
 
 + (JavaNetProxy *)NO_PROXY;
 
@@ -56,8 +54,8 @@
  @throw IllegalArgumentExceptionwhen the type and the address are
   incompatible
  */
-- (instancetype __nonnull)initWithJavaNetProxy_Type:(JavaNetProxy_Type *)type
-                           withJavaNetSocketAddress:(JavaNetSocketAddress *)sa;
+- (instancetype)initWithJavaNetProxy_Type:(JavaNetProxy_Type *)type
+                 withJavaNetSocketAddress:(JavaNetSocketAddress *)sa;
 
 /*!
  @brief Returns the socket address of the proxy, or 
@@ -136,7 +134,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetProxy)
 
 #define RESTRICT_JavaLangEnum 1
 #define INCLUDE_JavaLangEnum 1
-#include "java/lang/Enum.h"
+#include "../../java/lang/Enum.h"
 
 @class IOSObjectArray;
 
@@ -152,9 +150,6 @@ typedef NS_ENUM(NSUInteger, JavaNetProxy_Type_Enum) {
  */
 @interface JavaNetProxy_Type : JavaLangEnum
 
-@property (readonly, class, nonnull) JavaNetProxy_Type *DIRECT NS_SWIFT_NAME(DIRECT);
-@property (readonly, class, nonnull) JavaNetProxy_Type *HTTP NS_SWIFT_NAME(HTTP);
-@property (readonly, class, nonnull) JavaNetProxy_Type *SOCKS NS_SWIFT_NAME(SOCKS);
 + (JavaNetProxy_Type * __nonnull)DIRECT;
 
 + (JavaNetProxy_Type * __nonnull)HTTP;

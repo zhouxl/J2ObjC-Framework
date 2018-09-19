@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/ServiceLoader.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilServiceLoader")
 #ifdef RESTRICT_JavaUtilServiceLoader
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilServiceLoader_) && (INCLUDE_ALL_JavaUtilServiceLoader || defined(INCLUDE_JavaUtilServiceLoader))
 #define JavaUtilServiceLoader_
 
 #define RESTRICT_JavaLangIterable 1
 #define INCLUDE_JavaLangIterable 1
-#include "java/lang/Iterable.h"
+#include "../../java/lang/Iterable.h"
 
 @class IOSClass;
 @class JavaLangClassLoader;
@@ -284,7 +278,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -302,10 +296,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilServiceLoader)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilServiceLoader")

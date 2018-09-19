@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/util/Currency.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilCurrency")
 #ifdef RESTRICT_JavaUtilCurrency
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilCurrency_) && (INCLUDE_ALL_JavaUtilCurrency || defined(INCLUDE_JavaUtilCurrency))
 #define JavaUtilCurrency_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class JavaUtilLocale;
 @protocol JavaUtilSet;
@@ -89,13 +83,6 @@
 + (JavaUtilCurrency *)getInstanceWithNSString:(NSString *)currencyCode;
 
 /*!
- @brief Returns the ISO 4217 numeric code of this currency.
- @return the ISO 4217 numeric code of this currency
- @since 1.7
- */
-- (jint)getNumericCode;
-
-/*!
  @brief Equivalent to <code>getSymbol(Locale.getDefault())</code>.
  See "<a href="../util/Locale.html#default_locale">Be wary of the default locale</a>".
  */
@@ -119,7 +106,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -135,10 +122,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCurrency)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilCurrency")

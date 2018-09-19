@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/cert/X509Certificate.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityCertX509Certificate")
 #ifdef RESTRICT_JavaSecurityCertX509Certificate
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityCertX509Certificate_) && (INCLUDE_ALL_JavaSecurityCertX509Certificate || defined(INCLUDE_JavaSecurityCertX509Certificate))
 #define JavaSecurityCertX509Certificate_
 
 #define RESTRICT_JavaSecurityCertCertificate 1
 #define INCLUDE_JavaSecurityCertCertificate 1
-#include "java/security/cert/Certificate.h"
+#include "../../../java/security/cert/Certificate.h"
 
 #define RESTRICT_JavaSecurityCertX509Extension 1
 #define INCLUDE_JavaSecurityCertX509Extension 1
-#include "java/security/cert/X509Extension.h"
+#include "../../../java/security/cert/X509Extension.h"
 
 @class IOSBooleanArray;
 @class IOSByteArray;
@@ -643,7 +637,7 @@
 /*!
  @brief Constructor for X.509 certificates.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 @end
 
@@ -655,10 +649,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertX509Certificate)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertX509Certificate")

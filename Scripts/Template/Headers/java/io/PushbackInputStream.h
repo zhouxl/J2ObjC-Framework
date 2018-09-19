@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/PushbackInputStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoPushbackInputStream")
 #ifdef RESTRICT_JavaIoPushbackInputStream
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoPushbackInputStream_) && (INCLUDE_ALL_JavaIoPushbackInputStream || defined(INCLUDE_JavaIoPushbackInputStream))
 #define JavaIoPushbackInputStream_
 
 #define RESTRICT_JavaIoFilterInputStream 1
 #define INCLUDE_JavaIoFilterInputStream 1
-#include "java/io/FilterInputStream.h"
+#include "../../java/io/FilterInputStream.h"
 
 @class IOSByteArray;
 @class JavaIoInputStream;
@@ -82,7 +76,7 @@
  <code>-1</code>).
  @param inArg the input stream from which bytes will be read.
  */
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
 
 /*!
  @brief Creates a <code>PushbackInputStream</code>
@@ -97,8 +91,8 @@
  @throw IllegalArgumentExceptionif size is <= 0
  @since JDK1.1
  */
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
-                                            withInt:(jint)size;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
+                                  withInt:(jint)size;
 
 /*!
  @brief Returns an estimate of the number of bytes that can be read (or
@@ -297,10 +291,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoPushbackInputStream)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoPushbackInputStream")

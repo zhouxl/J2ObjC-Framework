@@ -3,7 +3,7 @@
 //  source: android/libcore/json/src/main/java/org/json/JSONArray.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_OrgJsonJSONArray")
 #ifdef RESTRICT_OrgJsonJSONArray
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (OrgJsonJSONArray_) && (INCLUDE_ALL_OrgJsonJSONArray || defined(INCLUDE_OrgJsonJSONArray))
 #define OrgJsonJSONArray_
@@ -57,7 +51,7 @@
 /*!
  @brief Creates a <code>JSONArray</code> with no values.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a new <code>JSONArray</code> by copying all values from the given
@@ -65,7 +59,7 @@
  @param copyFrom a collection whose values are of supported types.      Unsupported values are not permitted and will yield an array in an
        inconsistent state.
  */
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)copyFrom;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)copyFrom;
 
 /*!
  @brief Creates a new <code>JSONArray</code> with values from the next array in the
@@ -75,12 +69,12 @@
  @throw JSONExceptionif the parse fails or doesn't yield a
       <code>JSONArray</code>.
  */
-- (instancetype __nonnull)initWithOrgJsonJSONTokener:(OrgJsonJSONTokener *)readFrom;
+- (instancetype)initWithOrgJsonJSONTokener:(OrgJsonJSONTokener *)readFrom;
 
 /*!
  @brief Creates a new <code>JSONArray</code> with values from the given primitive array.
  */
-- (instancetype __nonnull)initWithId:(id)array;
+- (instancetype)initWithId:(id)array;
 
 /*!
  @brief Creates a new <code>JSONArray</code> with values from the JSON string.
@@ -88,7 +82,7 @@
  @throw JSONExceptionif the parse fails or doesn't yield a <code>JSONArray</code>
  .
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)json;
+- (instancetype)initWithNSString:(NSString *)json;
 
 - (jboolean)isEqual:(id)o;
 
@@ -435,10 +429,6 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgJsonJSONArray)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgJsonJSONArray")

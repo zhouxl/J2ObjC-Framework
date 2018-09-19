@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/reflect/GenericSignatureFormatError.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangReflectGenericSignatureFormatError")
 #ifdef RESTRICT_JavaLangReflectGenericSignatureFormatError
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangReflectGenericSignatureFormatError_) && (INCLUDE_ALL_JavaLangReflectGenericSignatureFormatError || defined(INCLUDE_JavaLangReflectGenericSignatureFormatError))
 #define JavaLangReflectGenericSignatureFormatError_
 
 #define RESTRICT_JavaLangClassFormatError 1
 #define INCLUDE_JavaLangClassFormatError 1
-#include "java/lang/ClassFormatError.h"
+#include "../../../java/lang/ClassFormatError.h"
 
 /*!
  @brief Thrown when a syntactically malformed signature attribute is
@@ -39,11 +33,11 @@
 
 #pragma mark Public
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -59,10 +53,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectGenericSignatureFormatError)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangReflectGenericSignatureFormatError")

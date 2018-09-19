@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/io/FilenameFilter.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoFilenameFilter")
 #ifdef RESTRICT_JavaIoFilenameFilter
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaIoFilenameFilter_) && (INCLUDE_ALL_JavaIoFilenameFilter || defined(INCLUDE_JavaIoFilenameFilter))
 #define JavaIoFilenameFilter_
@@ -56,10 +50,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFilenameFilter)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoFilenameFilter")

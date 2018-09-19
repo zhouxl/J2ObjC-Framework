@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/Timer.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilTimer")
 #ifdef RESTRICT_JavaUtilTimer
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaUtilTimer_) && (INCLUDE_ALL_JavaUtilTimer || defined(INCLUDE_JavaUtilTimer))
 #define JavaUtilTimer_
@@ -85,7 +79,7 @@
  @brief Creates a new timer.The associated thread does <i>not</i>
   as a daemon.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a new timer whose associated thread may be specified to 
@@ -96,7 +90,7 @@
   prolong the lifetime of the application.
  @param isDaemon true if the associated thread should run as a daemon.
  */
-- (instancetype __nonnull)initWithBoolean:(jboolean)isDaemon;
+- (instancetype)initWithBoolean:(jboolean)isDaemon;
 
 /*!
  @brief Creates a new timer whose associated thread has the specified name.
@@ -106,7 +100,7 @@
  @throw NullPointerExceptionif <code>name</code> is null
  @since 1.5
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)name;
+- (instancetype)initWithNSString:(NSString *)name;
 
 /*!
  @brief Creates a new timer whose associated thread has the specified name,
@@ -117,8 +111,8 @@
  @throw NullPointerExceptionif <code>name</code> is null
  @since 1.5
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)name
-                               withBoolean:(jboolean)isDaemon;
+- (instancetype)initWithNSString:(NSString *)name
+                     withBoolean:(jboolean)isDaemon;
 
 /*!
  @brief Terminates this timer, discarding any currently scheduled tasks.
@@ -354,7 +348,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTimer)
 
 #define RESTRICT_JavaLangThread 1
 #define INCLUDE_JavaLangThread 1
-#include "java/lang/Thread.h"
+#include "../../java/lang/Thread.h"
 
 @class JavaLangThreadGroup;
 @class JavaUtilTaskQueue;
@@ -385,33 +379,33 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTimer)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)initWithJavaUtilTaskQueue:(JavaUtilTaskQueue *)queue;
+- (instancetype)initWithJavaUtilTaskQueue:(JavaUtilTaskQueue *)queue;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaLangRunnable:(id<JavaLangRunnable>)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangRunnable:(id<JavaLangRunnable>)arg0 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaLangRunnable:(id<JavaLangRunnable>)arg0
-                                      withNSString:(NSString *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangRunnable:(id<JavaLangRunnable>)arg0
+                            withNSString:(NSString *)arg1 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)arg0
-                                 withJavaLangRunnable:(id<JavaLangRunnable>)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)arg0
+                       withJavaLangRunnable:(id<JavaLangRunnable>)arg1 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)arg0
-                                 withJavaLangRunnable:(id<JavaLangRunnable>)arg1
-                                         withNSString:(NSString *)arg2 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)arg0
+                       withJavaLangRunnable:(id<JavaLangRunnable>)arg1
+                               withNSString:(NSString *)arg2 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)arg0
-                                 withJavaLangRunnable:(id<JavaLangRunnable>)arg1
-                                         withNSString:(NSString *)arg2
-                                             withLong:(jlong)arg3 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)arg0
+                       withJavaLangRunnable:(id<JavaLangRunnable>)arg1
+                               withNSString:(NSString *)arg2
+                                   withLong:(jlong)arg3 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)arg0
-                                         withNSString:(NSString *)arg1 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)arg0
+                               withNSString:(NSString *)arg1 NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -444,7 +438,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTimerThread)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Adds a new task to the priority queue.
@@ -518,10 +512,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTaskQueue)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilTimer")

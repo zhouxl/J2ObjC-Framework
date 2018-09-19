@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/javax/xml/XMLConstants.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxXmlXMLConstants")
 #ifdef RESTRICT_JavaxXmlXMLConstants
@@ -15,12 +15,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaxXmlXMLConstants_) && (INCLUDE_ALL_JavaxXmlXMLConstants || defined(INCLUDE_JavaxXmlXMLConstants))
 #define JavaxXmlXMLConstants_
@@ -40,18 +34,6 @@
  @since 1.5
  */
 @interface JavaxXmlXMLConstants : NSObject
-@property (readonly, copy, class) NSString *NULL_NS_URI NS_SWIFT_NAME(NULL_NS_URI);
-@property (readonly, copy, class) NSString *DEFAULT_NS_PREFIX NS_SWIFT_NAME(DEFAULT_NS_PREFIX);
-@property (readonly, copy, class) NSString *XML_NS_URI NS_SWIFT_NAME(XML_NS_URI);
-@property (readonly, copy, class) NSString *XML_NS_PREFIX NS_SWIFT_NAME(XML_NS_PREFIX);
-@property (readonly, copy, class) NSString *XMLNS_ATTRIBUTE_NS_URI NS_SWIFT_NAME(XMLNS_ATTRIBUTE_NS_URI);
-@property (readonly, copy, class) NSString *XMLNS_ATTRIBUTE NS_SWIFT_NAME(XMLNS_ATTRIBUTE);
-@property (readonly, copy, class) NSString *W3C_XML_SCHEMA_NS_URI NS_SWIFT_NAME(W3C_XML_SCHEMA_NS_URI);
-@property (readonly, copy, class) NSString *W3C_XML_SCHEMA_INSTANCE_NS_URI NS_SWIFT_NAME(W3C_XML_SCHEMA_INSTANCE_NS_URI);
-@property (readonly, copy, class) NSString *W3C_XPATH_DATATYPE_NS_URI NS_SWIFT_NAME(W3C_XPATH_DATATYPE_NS_URI);
-@property (readonly, copy, class) NSString *XML_DTD_NS_URI NS_SWIFT_NAME(XML_DTD_NS_URI);
-@property (readonly, copy, class) NSString *RELAXNG_NS_URI NS_SWIFT_NAME(RELAXNG_NS_URI);
-@property (readonly, copy, class) NSString *FEATURE_SECURE_PROCESSING NS_SWIFT_NAME(FEATURE_SECURE_PROCESSING);
 
 + (NSString *)NULL_NS_URI;
 
@@ -255,10 +237,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXMLConstants)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlXMLConstants")

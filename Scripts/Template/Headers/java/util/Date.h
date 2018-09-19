@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/Date.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilDate")
 #ifdef RESTRICT_JavaUtilDate
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilDate_) && (INCLUDE_ALL_JavaUtilDate || defined(INCLUDE_JavaUtilDate))
 #define JavaUtilDate_
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 #define RESTRICT_JavaLangComparable 1
 #define INCLUDE_JavaLangComparable 1
-#include "java/lang/Comparable.h"
+#include "../../java/lang/Comparable.h"
 
 /*!
  @brief The class <code>Date</code> represents a specific instant
@@ -134,7 +128,7 @@
   nearest millisecond.
  - seealso: java.lang.System
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Allocates a <code>Date</code> object and initializes it so that
@@ -146,9 +140,9 @@
  @param date the day of the month between 1-31.
  - seealso: java.util.Calendar
  */
-- (instancetype __nonnull)initWithInt:(jint)year
-                              withInt:(jint)month
-                              withInt:(jint)date __attribute__((deprecated));
+- (instancetype)initWithInt:(jint)year
+                    withInt:(jint)month
+                    withInt:(jint)date __attribute__((deprecated));
 
 /*!
  @brief Allocates a <code>Date</code> object and initializes it so that
@@ -163,11 +157,11 @@
  @param min the minutes between 0-59.
  - seealso: java.util.Calendar
  */
-- (instancetype __nonnull)initWithInt:(jint)year
-                              withInt:(jint)month
-                              withInt:(jint)date
-                              withInt:(jint)hrs
-                              withInt:(jint)min __attribute__((deprecated));
+- (instancetype)initWithInt:(jint)year
+                    withInt:(jint)month
+                    withInt:(jint)date
+                    withInt:(jint)hrs
+                    withInt:(jint)min __attribute__((deprecated));
 
 /*!
  @brief Allocates a <code>Date</code> object and initializes it so that
@@ -183,12 +177,12 @@
  @param sec the seconds between 0-59.
  - seealso: java.util.Calendar
  */
-- (instancetype __nonnull)initWithInt:(jint)year
-                              withInt:(jint)month
-                              withInt:(jint)date
-                              withInt:(jint)hrs
-                              withInt:(jint)min
-                              withInt:(jint)sec __attribute__((deprecated));
+- (instancetype)initWithInt:(jint)year
+                    withInt:(jint)month
+                    withInt:(jint)date
+                    withInt:(jint)hrs
+                    withInt:(jint)min
+                    withInt:(jint)sec __attribute__((deprecated));
 
 /*!
  @brief Allocates a <code>Date</code> object and initializes it to
@@ -198,7 +192,7 @@
  @param date the milliseconds since January 1, 1970, 00:00:00 GMT.
  - seealso: java.lang.System
  */
-- (instancetype __nonnull)initWithLong:(jlong)date;
+- (instancetype)initWithLong:(jlong)date;
 
 /*!
  @brief Allocates a <code>Date</code> object and initializes it so that
@@ -209,7 +203,7 @@
  - seealso: java.text.DateFormat
  - seealso: java.util.Date
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s __attribute__((deprecated));
+- (instancetype)initWithNSString:(NSString *)s __attribute__((deprecated));
 
 /*!
  @brief Tests if this date is after the specified date.
@@ -762,43 +756,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilDate)
 
 #endif
 
-#if !defined (JavaUtilDate_GcalHolder_) && (INCLUDE_ALL_JavaUtilDate || defined(INCLUDE_JavaUtilDate_GcalHolder))
-#define JavaUtilDate_GcalHolder_
-
-@class SunUtilCalendarBaseCalendar;
-
-@interface JavaUtilDate_GcalHolder : NSObject
-@property (readonly, class, strong) SunUtilCalendarBaseCalendar *INSTANCE NS_SWIFT_NAME(INSTANCE);
-
-+ (SunUtilCalendarBaseCalendar *)INSTANCE;
-
-#pragma mark Package-Private
-
-- (instancetype __nonnull)init;
-
-@end
-
-J2OBJC_STATIC_INIT(JavaUtilDate_GcalHolder)
-
-inline SunUtilCalendarBaseCalendar *JavaUtilDate_GcalHolder_get_INSTANCE(void);
-/*! INTERNAL ONLY - Use accessor function from above. */
-FOUNDATION_EXPORT SunUtilCalendarBaseCalendar *JavaUtilDate_GcalHolder_INSTANCE;
-J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilDate_GcalHolder, INSTANCE, SunUtilCalendarBaseCalendar *)
-
-FOUNDATION_EXPORT void JavaUtilDate_GcalHolder_init(JavaUtilDate_GcalHolder *self);
-
-FOUNDATION_EXPORT JavaUtilDate_GcalHolder *new_JavaUtilDate_GcalHolder_init(void) NS_RETURNS_RETAINED;
-
-FOUNDATION_EXPORT JavaUtilDate_GcalHolder *create_JavaUtilDate_GcalHolder_init(void);
-
-J2OBJC_TYPE_LITERAL_HEADER(JavaUtilDate_GcalHolder)
-
-#endif
-
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilDate")

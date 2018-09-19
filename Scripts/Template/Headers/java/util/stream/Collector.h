@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/stream/Collector.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilStreamCollector")
 #ifdef RESTRICT_JavaUtilStreamCollector
@@ -18,7 +18,6 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -239,7 +238,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamCollector)
 
 #define RESTRICT_JavaLangEnum 1
 #define INCLUDE_JavaLangEnum 1
-#include "java/lang/Enum.h"
+#include "../../../java/lang/Enum.h"
 
 @class IOSObjectArray;
 
@@ -255,9 +254,6 @@ typedef NS_ENUM(NSUInteger, JavaUtilStreamCollector_Characteristics_Enum) {
  */
 @interface JavaUtilStreamCollector_Characteristics : JavaLangEnum
 
-@property (readonly, class, nonnull) JavaUtilStreamCollector_Characteristics *CONCURRENT NS_SWIFT_NAME(CONCURRENT);
-@property (readonly, class, nonnull) JavaUtilStreamCollector_Characteristics *UNORDERED NS_SWIFT_NAME(UNORDERED);
-@property (readonly, class, nonnull) JavaUtilStreamCollector_Characteristics *IDENTITY_FINISH NS_SWIFT_NAME(IDENTITY_FINISH);
 + (JavaUtilStreamCollector_Characteristics * __nonnull)CONCURRENT;
 
 + (JavaUtilStreamCollector_Characteristics * __nonnull)UNORDERED;

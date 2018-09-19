@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/sql/SQLFeatureNotSupportedException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSqlSQLFeatureNotSupportedException")
 #ifdef RESTRICT_JavaSqlSQLFeatureNotSupportedException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSqlSQLFeatureNotSupportedException_) && (INCLUDE_ALL_JavaSqlSQLFeatureNotSupportedException || defined(INCLUDE_JavaSqlSQLFeatureNotSupportedException))
 #define JavaSqlSQLFeatureNotSupportedException_
 
 #define RESTRICT_JavaSqlSQLNonTransientException 1
 #define INCLUDE_JavaSqlSQLNonTransientException 1
-#include "java/sql/SQLNonTransientException.h"
+#include "../../java/sql/SQLNonTransientException.h"
 
 @class JavaLangThrowable;
 
@@ -59,7 +53,7 @@
  <p>
  @since 1.6
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a <code>SQLFeatureNotSupportedException</code> object
@@ -73,7 +67,7 @@
  @param reason a description of the exception
  @since 1.6
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)reason;
+- (instancetype)initWithNSString:(NSString *)reason;
 
 /*!
  @brief Constructs a <code>SQLFeatureNotSupportedException</code> object
@@ -87,8 +81,8 @@
  @param SQLState an XOPEN or SQL:2003 code identifying the exception
  @since 1.6
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)reason
-                              withNSString:(NSString *)SQLState;
+- (instancetype)initWithNSString:(NSString *)reason
+                    withNSString:(NSString *)SQLState;
 
 /*!
  @brief Constructs a <code>SQLFeatureNotSupportedException</code> object
@@ -103,9 +97,9 @@
  @param vendorCode a database vendor specific exception code
  @since 1.6
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)reason
-                              withNSString:(NSString *)SQLState
-                                   withInt:(jint)vendorCode;
+- (instancetype)initWithNSString:(NSString *)reason
+                    withNSString:(NSString *)SQLState
+                         withInt:(jint)vendorCode;
 
 /*!
  @brief Constructs a <code>SQLFeatureNotSupportedException</code> object
@@ -120,10 +114,10 @@
        the cause is non-existent or unknown.
  @since 1.6
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)reason
-                              withNSString:(NSString *)SQLState
-                                   withInt:(jint)vendorCode
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)reason
+                    withNSString:(NSString *)SQLState
+                         withInt:(jint)vendorCode
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a <code>SQLFeatureNotSupportedException</code> object
@@ -137,9 +131,9 @@
        the cause is non-existent or unknown.
  @since 1.6
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)reason
-                              withNSString:(NSString *)SQLState
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)reason
+                    withNSString:(NSString *)SQLState
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a <code>SQLFeatureNotSupportedException</code> object
@@ -153,8 +147,8 @@
        the cause is non-existent or unknown.
  @since 1.6
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)reason
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)reason
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a <code>SQLFeatureNotSupportedException</code> object
@@ -169,7 +163,7 @@
        the cause is non-existent or unknown.
  @since 1.6
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 #pragma mark Package-Private
 
@@ -229,10 +223,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLFeatureNotSupportedException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSqlSQLFeatureNotSupportedException")

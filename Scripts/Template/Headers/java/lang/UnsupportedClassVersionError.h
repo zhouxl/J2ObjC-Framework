@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/UnsupportedClassVersionError.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangUnsupportedClassVersionError")
 #ifdef RESTRICT_JavaLangUnsupportedClassVersionError
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaLangUnsupportedClassVersionError_) && (INCLUDE_ALL_JavaLangUnsupportedClassVersionError || defined(INCLUDE_JavaLangUnsupportedClassVersionError))
 #define JavaLangUnsupportedClassVersionError_
 
 #define RESTRICT_JavaLangClassFormatError 1
 #define INCLUDE_JavaLangClassFormatError 1
-#include "java/lang/ClassFormatError.h"
+#include "../../java/lang/ClassFormatError.h"
 
 /*!
  @brief Thrown when the Java Virtual Machine attempts to read a class
@@ -43,14 +37,14 @@
  @brief Constructs a <code>UnsupportedClassVersionError</code>
   with no detail message.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a <code>UnsupportedClassVersionError</code> with
   the specified detail message.
  @param s the detail message.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s;
+- (instancetype)initWithNSString:(NSString *)s;
 
 @end
 
@@ -72,10 +66,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangUnsupportedClassVersionError)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangUnsupportedClassVersionError")

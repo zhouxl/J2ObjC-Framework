@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/util/ArrayDeque.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilArrayDeque")
 #ifdef RESTRICT_JavaUtilArrayDeque
@@ -16,26 +16,20 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilArrayDeque_) && (INCLUDE_ALL_JavaUtilArrayDeque || defined(INCLUDE_JavaUtilArrayDeque))
 #define JavaUtilArrayDeque_
 
 #define RESTRICT_JavaUtilAbstractCollection 1
 #define INCLUDE_JavaUtilAbstractCollection 1
-#include "java/util/AbstractCollection.h"
+#include "../../java/util/AbstractCollection.h"
 
 #define RESTRICT_JavaUtilDeque 1
 #define INCLUDE_JavaUtilDeque 1
-#include "java/util/Deque.h"
+#include "../../java/util/Deque.h"
 
 #define RESTRICT_JavaIoSerializable 1
 #define INCLUDE_JavaIoSerializable 1
-#include "java/io/Serializable.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilCollection;
@@ -113,7 +107,7 @@
  @brief Constructs an empty array deque with an initial capacity
   sufficient to hold 16 elements.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a deque containing the elements of the specified
@@ -125,14 +119,14 @@
  @param c the collection whose elements are to be placed into the deque
  @throw NullPointerExceptionif the specified collection is null
  */
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Constructs an empty array deque with an initial capacity
   sufficient to hold the specified number of elements.
  @param numElements lower bound on initial capacity of the deque
  */
-- (instancetype __nonnull)initWithInt:(jint)numElements;
+- (instancetype)initWithInt:(jint)numElements;
 
 /*!
  @brief Inserts the specified element at the end of this deque.
@@ -459,7 +453,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilArrayDeque)
 
 #define RESTRICT_JavaUtilSpliterator 1
 #define INCLUDE_JavaUtilSpliterator 1
-#include "java/util/Spliterator.h"
+#include "../../java/util/Spliterator.h"
 
 @class JavaUtilArrayDeque;
 @protocol JavaUtilComparator;
@@ -484,13 +478,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilArrayDeque)
 /*!
  @brief Creates new spliterator covering the given array and range.
  */
-- (instancetype __nonnull)initWithJavaUtilArrayDeque:(JavaUtilArrayDeque *)deq
-                                             withInt:(jint)origin
-                                             withInt:(jint)fence;
+- (instancetype)initWithJavaUtilArrayDeque:(JavaUtilArrayDeque *)deq
+                                   withInt:(jint)origin
+                                   withInt:(jint)fence;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -506,10 +500,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilArrayDeque_DeqSpliterator)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilArrayDeque")

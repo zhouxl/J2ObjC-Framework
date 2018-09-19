@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/lang/ClassLoader.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaLangClassLoader")
 #ifdef RESTRICT_JavaLangClassLoader
@@ -18,12 +18,6 @@
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
 
 #if !defined (JavaLangClassLoader_) && (INCLUDE_ALL_JavaLangClassLoader || defined(INCLUDE_JavaLangClassLoader))
 #define JavaLangClassLoader_
@@ -425,7 +419,7 @@
            <tt>checkCreateClassLoader</tt> method doesn't allow creation
            of a new class loader.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a new class loader using the specified parent class loader for
@@ -440,7 +434,7 @@
            of a new class loader.
  @since 1.2
  */
-- (instancetype __nonnull)initWithJavaLangClassLoader:(JavaLangClassLoader *)parent;
+- (instancetype)initWithJavaLangClassLoader:(JavaLangClassLoader *)parent;
 
 /*!
  @brief Converts an array of bytes into an instance of class <tt>Class</tt>.
@@ -898,7 +892,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangClassLoader)
  @brief ClassLoader for iOS and OS X.
  */
 @interface JavaLangSystemClassLoader : JavaLangClassLoader
-@property (class, strong) JavaLangClassLoader *loader NS_SWIFT_NAME(loader);
 
 + (JavaLangClassLoader *)loader;
 
@@ -925,11 +918,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangClassLoader)
 
 #pragma mark Package-Private
 
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)initWithJavaLangClassLoader:(JavaLangClassLoader *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithJavaLangClassLoader:(JavaLangClassLoader *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -951,10 +944,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangSystemClassLoader)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangClassLoader")

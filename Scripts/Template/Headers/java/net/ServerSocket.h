@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/net/ServerSocket.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetServerSocket")
 #ifdef RESTRICT_JavaNetServerSocket
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNetServerSocket_) && (INCLUDE_ALL_JavaNetServerSocket || defined(INCLUDE_JavaNetServerSocket))
 #define JavaNetServerSocket_
 
 #define RESTRICT_JavaIoCloseable 1
 #define INCLUDE_JavaIoCloseable 1
-#include "java/io/Closeable.h"
+#include "../../java/io/Closeable.h"
 
 @class JavaNetInetAddress;
 @class JavaNetSocket;
@@ -61,7 +55,7 @@
  @brief Creates an unbound server socket.
  @throw IOExceptionIO error when opening the socket.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates a server socket, bound to the specified port.A port number
@@ -97,7 +91,7 @@
  - seealso: java.net.ServerSocket
  - seealso: SecurityManager#checkListen
  */
-- (instancetype __nonnull)initWithInt:(jint)port;
+- (instancetype)initWithInt:(jint)port;
 
 /*!
  @brief Creates a server socket and binds it to the specified local port
@@ -142,8 +136,8 @@
  - seealso: java.net.ServerSocket
  - seealso: SecurityManager#checkListen
  */
-- (instancetype __nonnull)initWithInt:(jint)port
-                              withInt:(jint)backlog;
+- (instancetype)initWithInt:(jint)port
+                    withInt:(jint)backlog;
 
 /*!
  @brief Create a server with the specified port, listen backlog, and
@@ -185,9 +179,9 @@
  - seealso: SecurityManager#checkListen
  @since JDK1.1
  */
-- (instancetype __nonnull)initWithInt:(jint)port
-                              withInt:(jint)backlog
-               withJavaNetInetAddress:(JavaNetInetAddress *)bindAddr;
+- (instancetype)initWithInt:(jint)port
+                    withInt:(jint)backlog
+     withJavaNetInetAddress:(JavaNetInetAddress *)bindAddr;
 
 /*!
  @brief Listens for a connection to be made to this socket and accepts
@@ -555,7 +549,7 @@
  @brief Package-private constructor to create a ServerSocket associated with
   the given SocketImpl.
  */
-- (instancetype __nonnull)initWithJavaNetSocketImpl:(JavaNetSocketImpl *)impl;
+- (instancetype)initWithJavaNetSocketImpl:(JavaNetSocketImpl *)impl;
 
 /*!
  @brief Creates the socket implementation.
@@ -570,7 +564,7 @@
 
 @end
 
-J2OBJC_EMPTY_STATIC_INIT(JavaNetServerSocket)
+J2OBJC_STATIC_INIT(JavaNetServerSocket)
 
 FOUNDATION_EXPORT void JavaNetServerSocket_initWithJavaNetSocketImpl_(JavaNetServerSocket *self, JavaNetSocketImpl *impl);
 
@@ -608,10 +602,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetServerSocket)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetServerSocket")

@@ -3,7 +3,7 @@
 //  source: Classes/javax/annotation/Resource.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaxAnnotationResource")
 #ifdef RESTRICT_JavaxAnnotationResource
@@ -18,7 +18,6 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -27,7 +26,7 @@
 
 #define RESTRICT_JavaLangAnnotationAnnotation 1
 #define INCLUDE_JavaLangAnnotationAnnotation 1
-#include "java/lang/annotation/Annotation.h"
+#include "../../java/lang/annotation/Annotation.h"
 
 @class IOSClass;
 @class JavaxAnnotationResource_AuthenticationType;
@@ -44,10 +43,6 @@
 @property (readonly) NSString *name;
 @property (readonly) jboolean shareable;
 @property (readonly) IOSClass *type;
-
-- (jboolean)isEqual:(id)obj;
-
-- (NSUInteger)hash;
 
 @end
 
@@ -76,7 +71,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxAnnotationResource)
 
 #define RESTRICT_JavaLangEnum 1
 #define INCLUDE_JavaLangEnum 1
-#include "java/lang/Enum.h"
+#include "../../java/lang/Enum.h"
 
 @class IOSObjectArray;
 
@@ -87,8 +82,6 @@ typedef NS_ENUM(NSUInteger, JavaxAnnotationResource_AuthenticationType_Enum) {
 
 @interface JavaxAnnotationResource_AuthenticationType : JavaLangEnum
 
-@property (readonly, class, nonnull) JavaxAnnotationResource_AuthenticationType *APPLICATION NS_SWIFT_NAME(APPLICATION);
-@property (readonly, class, nonnull) JavaxAnnotationResource_AuthenticationType *CONTAINER NS_SWIFT_NAME(CONTAINER);
 + (JavaxAnnotationResource_AuthenticationType * __nonnull)APPLICATION;
 
 + (JavaxAnnotationResource_AuthenticationType * __nonnull)CONTAINER;

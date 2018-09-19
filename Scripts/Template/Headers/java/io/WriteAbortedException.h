@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/WriteAbortedException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoWriteAbortedException")
 #ifdef RESTRICT_JavaIoWriteAbortedException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoWriteAbortedException_) && (INCLUDE_ALL_JavaIoWriteAbortedException || defined(INCLUDE_JavaIoWriteAbortedException))
 #define JavaIoWriteAbortedException_
 
 #define RESTRICT_JavaIoObjectStreamException 1
 #define INCLUDE_JavaIoObjectStreamException 1
-#include "java/io/ObjectStreamException.h"
+#include "../../java/io/ObjectStreamException.h"
 
 @class JavaLangException;
 @class JavaLangThrowable;
@@ -68,8 +62,8 @@
  @param s String describing the exception.
  @param ex Exception causing the abort.
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)s
-                     withJavaLangException:(JavaLangException *)ex;
+- (instancetype)initWithNSString:(NSString *)s
+           withJavaLangException:(JavaLangException *)ex;
 
 /*!
  @brief Returns the exception that terminated the operation (the <i>cause</i>).
@@ -87,9 +81,9 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype __nonnull)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+- (instancetype)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -107,10 +101,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoWriteAbortedException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoWriteAbortedException")

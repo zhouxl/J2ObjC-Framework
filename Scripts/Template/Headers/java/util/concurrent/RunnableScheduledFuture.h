@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/luni/src/main/java/java/util/concurrent/RunnableScheduledFuture.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentRunnableScheduledFuture")
 #ifdef RESTRICT_JavaUtilConcurrentRunnableScheduledFuture
@@ -16,22 +16,16 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaUtilConcurrentRunnableScheduledFuture_) && (INCLUDE_ALL_JavaUtilConcurrentRunnableScheduledFuture || defined(INCLUDE_JavaUtilConcurrentRunnableScheduledFuture))
 #define JavaUtilConcurrentRunnableScheduledFuture_
 
 #define RESTRICT_JavaUtilConcurrentRunnableFuture 1
 #define INCLUDE_JavaUtilConcurrentRunnableFuture 1
-#include "java/util/concurrent/RunnableFuture.h"
+#include "../../../java/util/concurrent/RunnableFuture.h"
 
 #define RESTRICT_JavaUtilConcurrentScheduledFuture 1
 #define INCLUDE_JavaUtilConcurrentScheduledFuture 1
-#include "java/util/concurrent/ScheduledFuture.h"
+#include "../../../java/util/concurrent/ScheduledFuture.h"
 
 /*!
  @brief A <code>ScheduledFuture</code> that is <code>Runnable</code>.Successful
@@ -61,10 +55,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentRunnableScheduledFuture)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentRunnableScheduledFuture")

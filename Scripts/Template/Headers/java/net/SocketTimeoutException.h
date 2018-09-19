@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/net/SocketTimeoutException.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaNetSocketTimeoutException")
 #ifdef RESTRICT_JavaNetSocketTimeoutException
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaNetSocketTimeoutException_) && (INCLUDE_ALL_JavaNetSocketTimeoutException || defined(INCLUDE_JavaNetSocketTimeoutException))
 #define JavaNetSocketTimeoutException_
 
 #define RESTRICT_JavaIoInterruptedIOException 1
 #define INCLUDE_JavaIoInterruptedIOException 1
-#include "java/io/InterruptedIOException.h"
+#include "../../java/io/InterruptedIOException.h"
 
 @class JavaLangThrowable;
 
@@ -42,23 +36,23 @@
 /*!
  @brief Construct a new SocketTimeoutException with no detailed message.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a new SocketTimeoutException with a detail
   message.
  @param msg the detail message
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)msg;
+- (instancetype)initWithNSString:(NSString *)msg;
 
 /*!
  */
-- (instancetype __nonnull)initWithNSString:(NSString *)msg
-                     withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSString:(NSString *)msg
+           withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  */
-- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 @end
 
@@ -92,10 +86,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetSocketTimeoutException)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetSocketTimeoutException")

@@ -3,7 +3,7 @@
 //  source: android/libcore/luni/src/main/java/java/io/PipedOutputStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoPipedOutputStream")
 #ifdef RESTRICT_JavaIoPipedOutputStream
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoPipedOutputStream_) && (INCLUDE_ALL_JavaIoPipedOutputStream || defined(INCLUDE_JavaIoPipedOutputStream))
 #define JavaIoPipedOutputStream_
 
 #define RESTRICT_JavaIoOutputStream 1
 #define INCLUDE_JavaIoOutputStream 1
-#include "java/io/OutputStream.h"
+#include "../../java/io/OutputStream.h"
 
 @class IOSByteArray;
 @class JavaIoPipedInputStream;
@@ -47,7 +41,7 @@
   stream must be connected to a <code>PipedInputStream</code> before data can be
   written to it.
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Constructs a new <code>PipedOutputStream</code> connected to the 
@@ -57,7 +51,7 @@
  @throw IOException
  if this stream or <code>target</code> are already connected.
  */
-- (instancetype __nonnull)initWithJavaIoPipedInputStream:(JavaIoPipedInputStream *)target;
+- (instancetype)initWithJavaIoPipedInputStream:(JavaIoPipedInputStream *)target;
 
 /*!
  @brief Closes this stream.If this stream is connected to an input stream, the
@@ -154,10 +148,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoPipedOutputStream)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoPipedOutputStream")

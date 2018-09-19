@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/io/LineNumberInputStream.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaIoLineNumberInputStream")
 #ifdef RESTRICT_JavaIoLineNumberInputStream
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaIoLineNumberInputStream_) && (INCLUDE_ALL_JavaIoLineNumberInputStream || defined(INCLUDE_JavaIoLineNumberInputStream))
 #define JavaIoLineNumberInputStream_
 
 #define RESTRICT_JavaIoFilterInputStream 1
 #define INCLUDE_JavaIoFilterInputStream 1
-#include "java/io/FilterInputStream.h"
+#include "../../java/io/FilterInputStream.h"
 
 @class IOSByteArray;
 @class JavaIoInputStream;
@@ -64,7 +58,7 @@ __attribute__((deprecated))
   from the specified input stream.
  @param inArg the underlying input stream.
  */
-- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
 
 /*!
  @brief Returns the number of bytes that can be read from this input
@@ -216,10 +210,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoLineNumberInputStream)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoLineNumberInputStream")

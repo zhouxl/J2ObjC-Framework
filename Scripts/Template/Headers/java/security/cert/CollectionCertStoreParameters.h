@@ -3,7 +3,7 @@
 //  source: android/platform/libcore/ojluni/src/main/java/java/security/cert/CollectionCertStoreParameters.java
 //
 
-#include "J2ObjC_header.h"
+#include "../../../J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_JavaSecurityCertCollectionCertStoreParameters")
 #ifdef RESTRICT_JavaSecurityCertCollectionCertStoreParameters
@@ -16,18 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if __has_feature(nullability)
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wnullability"
-#pragma GCC diagnostic ignored "-Wnullability-completeness"
-#endif
-
 #if !defined (JavaSecurityCertCollectionCertStoreParameters_) && (INCLUDE_ALL_JavaSecurityCertCollectionCertStoreParameters || defined(INCLUDE_JavaSecurityCertCollectionCertStoreParameters))
 #define JavaSecurityCertCollectionCertStoreParameters_
 
 #define RESTRICT_JavaSecurityCertCertStoreParameters 1
 #define INCLUDE_JavaSecurityCertCertStoreParameters 1
-#include "java/security/cert/CertStoreParameters.h"
+#include "../../../java/security/cert/CertStoreParameters.h"
 
 @protocol JavaUtilCollection;
 
@@ -62,7 +56,7 @@
   the default parameter values (an empty and immutable 
  <code>Collection</code>).
  */
-- (instancetype __nonnull)init;
+- (instancetype)init;
 
 /*!
  @brief Creates an instance of <code>CollectionCertStoreParameters</code>
@@ -90,7 +84,7 @@
  @throw NullPointerExceptionif <code>collection</code> is 
  <code>null</code>
  */
-- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)collection;
+- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)collection;
 
 /*!
  @brief Returns a copy of this object.Note that only a reference to the 
@@ -136,10 +130,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCollectionCertStoreParameters)
 
 #endif
 
-
-#if __has_feature(nullability)
-#pragma clang diagnostic pop
-#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCollectionCertStoreParameters")
