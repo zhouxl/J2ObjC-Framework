@@ -3,7 +3,7 @@ import os
 
 added = set()
 with open('include_framework/j2objc.h', 'w') as umbrella:
-    for root, directories, filenames in os.walk('include/'):
+    for root, directories, filenames in os.walk('Headers/'):
 
         # print includedFile +" @" + str(count) 
         count = len(root.split("/")) - 1
