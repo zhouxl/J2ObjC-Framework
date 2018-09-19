@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater))
 #define JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_
 
@@ -255,7 +261,7 @@ withJavaUtilFunctionIntUnaryOperator:(id<JavaUtilFunctionIntUnaryOperator>)updat
 /*!
  @brief Protected do-nothing constructor for use by subclasses.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -269,6 +275,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater")

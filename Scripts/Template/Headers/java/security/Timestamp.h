@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecurityTimestamp_) && (INCLUDE_ALL_JavaSecurityTimestamp || defined(INCLUDE_JavaSecurityTimestamp))
 #define JavaSecurityTimestamp_
 
@@ -44,8 +50,8 @@
  @param signerCertPath is the TSA's certificate path. It must not be null.
  @throw NullPointerExceptionif timestamp or signerCertPath is null.
  */
-- (instancetype)initWithJavaUtilDate:(JavaUtilDate *)timestamp
-        withJavaSecurityCertCertPath:(JavaSecurityCertCertPath *)signerCertPath;
+- (instancetype __nonnull)initWithJavaUtilDate:(JavaUtilDate *)timestamp
+                  withJavaSecurityCertCertPath:(JavaSecurityCertCertPath *)signerCertPath;
 
 /*!
  @brief Tests for equality between the specified object and this
@@ -85,7 +91,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -101,6 +107,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityTimestamp)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityTimestamp")

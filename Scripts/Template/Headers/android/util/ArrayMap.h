@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (AndroidUtilArrayMap_) && (INCLUDE_ALL_AndroidUtilArrayMap || defined(INCLUDE_AndroidUtilArrayMap))
 #define AndroidUtilArrayMap_
 
@@ -60,6 +66,12 @@
   jint mSize_;
   AndroidUtilMapCollections *mCollections_;
 }
+@property (readonly, class, strong) AndroidUtilArrayMap *EMPTY NS_SWIFT_NAME(EMPTY);
+@property (class, strong) IOSObjectArray *mBaseCache NS_SWIFT_NAME(mBaseCache);
+@property (class) jint mBaseCacheSize NS_SWIFT_NAME(mBaseCacheSize);
+@property (class, strong) IOSObjectArray *mTwiceBaseCache NS_SWIFT_NAME(mTwiceBaseCache);
+@property (class) jint mTwiceBaseCacheSize NS_SWIFT_NAME(mTwiceBaseCacheSize);
+@property (readonly, class, strong) IOSIntArray *EMPTY_IMMUTABLE_INTS NS_SWIFT_NAME(EMPTY_IMMUTABLE_INTS);
 
 + (AndroidUtilArrayMap *)EMPTY;
 
@@ -87,17 +99,17 @@
  @brief Create a new empty ArrayMap.The default capacity of an array map is 0, and
   will grow once items are added to it.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Create a new ArrayMap with the mappings from the given ArrayMap.
  */
-- (instancetype)initWithAndroidUtilArrayMap:(AndroidUtilArrayMap *)map;
+- (instancetype __nonnull)initWithAndroidUtilArrayMap:(AndroidUtilArrayMap *)map;
 
 /*!
  @brief Create a new ArrayMap with a given initial capacity.
  */
-- (instancetype)initWithInt:(jint)capacity;
+- (instancetype __nonnull)initWithInt:(jint)capacity;
 
 /*!
  @brief Special fast path for appending items to the end of the array without validation.
@@ -374,6 +386,10 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilArrayMap)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidUtilArrayMap")

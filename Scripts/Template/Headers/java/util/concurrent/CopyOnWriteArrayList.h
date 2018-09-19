@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentCopyOnWriteArrayList_) && (INCLUDE_ALL_JavaUtilConcurrentCopyOnWriteArrayList || defined(INCLUDE_JavaUtilConcurrentCopyOnWriteArrayList))
 #define JavaUtilConcurrentCopyOnWriteArrayList_
 
@@ -69,17 +75,17 @@
 /*!
  @brief Creates a new empty instance.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a new instance containing the elements of <code>collection</code>.
  */
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)collection;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)collection;
 
 /*!
  @brief Creates a new instance containing the elements of <code>array</code>.
  */
-- (instancetype)initWithNSObjectArray:(IOSObjectArray *)array;
+- (instancetype __nonnull)initWithNSObjectArray:(IOSObjectArray *)array;
 
 - (jboolean)addWithId:(id)e;
 
@@ -282,10 +288,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCopyOnWriteArrayList)
 
 #pragma mark Public
 
-- (instancetype)initWithJavaUtilConcurrentCopyOnWriteArrayList:(JavaUtilConcurrentCopyOnWriteArrayList *)outer$
-                                             withNSObjectArray:(IOSObjectArray *)expectedElements
-                                                       withInt:(jint)from
-                                                       withInt:(jint)to;
+- (instancetype __nonnull)initWithJavaUtilConcurrentCopyOnWriteArrayList:(JavaUtilConcurrentCopyOnWriteArrayList *)outer$
+                                                       withNSObjectArray:(IOSObjectArray *)expectedElements
+                                                                 withInt:(jint)from
+                                                                 withInt:(jint)to;
 
 - (jboolean)addWithId:(id)object;
 
@@ -343,7 +349,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCopyOnWriteArrayList)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -368,9 +374,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCopyOnWriteArrayList_CowSubList)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithNSObjectArray:(IOSObjectArray *)expectedElements
-                              withInt:(jint)from
-                              withInt:(jint)to;
+- (instancetype __nonnull)initWithNSObjectArray:(IOSObjectArray *)expectedElements
+                                        withInt:(jint)from
+                                        withInt:(jint)to;
 
 - (void)checkConcurrentModificationWithNSObjectArray:(IOSObjectArray *)snapshot;
 
@@ -387,7 +393,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCopyOnWriteArrayList_CowSubList)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -442,13 +448,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCopyOnWriteArrayList_Slice)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithNSObjectArray:(IOSObjectArray *)snapshot
-                              withInt:(jint)from
-                              withInt:(jint)to;
+- (instancetype __nonnull)initWithNSObjectArray:(IOSObjectArray *)snapshot
+                                        withInt:(jint)from
+                                        withInt:(jint)to;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -464,6 +470,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCopyOnWriteArrayList_CowIterator)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentCopyOnWriteArrayList")

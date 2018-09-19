@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentConcurrentSkipListSet_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentSkipListSet || defined(INCLUDE_JavaUtilConcurrentConcurrentSkipListSet))
 #define JavaUtilConcurrentConcurrentSkipListSet_
 
@@ -81,7 +87,7 @@
  @brief Constructs a new, empty set that orders its elements according to
   their ordering.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a new set containing the elements in the specified
@@ -93,7 +99,7 @@
  @throw NullPointerExceptionif the specified collection or any
           of its elements are null
  */
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Constructs a new, empty set that orders its elements according to
@@ -102,7 +108,7 @@
  <code>null</code> , the ordering
    of the elements will be used.
  */
-- (instancetype)initWithJavaUtilComparator:(id<JavaUtilComparator>)comparator;
+- (instancetype __nonnull)initWithJavaUtilComparator:(id<JavaUtilComparator>)comparator;
 
 /*!
  @brief Constructs a new set containing the same elements and using the
@@ -111,7 +117,7 @@
  @throw NullPointerExceptionif the specified sorted set or any
           of its elements are null
  */
-- (instancetype)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)s;
+- (instancetype __nonnull)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)s;
 
 /*!
  @brief Adds the specified element to this set if it is not already present.
@@ -355,7 +361,7 @@
 /*!
  @brief For use by submaps
  */
-- (instancetype)initWithJavaUtilConcurrentConcurrentNavigableMap:(id<JavaUtilConcurrentConcurrentNavigableMap>)m;
+- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentNavigableMap:(id<JavaUtilConcurrentConcurrentNavigableMap>)m;
 
 @end
 
@@ -395,6 +401,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListSet)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentConcurrentSkipListSet")

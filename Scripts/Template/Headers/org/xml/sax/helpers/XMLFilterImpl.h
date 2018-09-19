@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (OrgXmlSaxHelpersXMLFilterImpl_) && (INCLUDE_ALL_OrgXmlSaxHelpersXMLFilterImpl || defined(INCLUDE_OrgXmlSaxHelpersXMLFilterImpl))
 #define OrgXmlSaxHelpersXMLFilterImpl_
 
@@ -85,7 +91,7 @@
  - seealso: org.xml.sax.XMLReader
  - seealso: #setParent
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Construct an XML filter with the specified parent.
@@ -93,7 +99,7 @@
  - seealso: #setParent
  - seealso: #getParent
  */
-- (instancetype)initWithOrgXmlSaxXMLReader:(id<OrgXmlSaxXMLReader>)parent;
+- (instancetype __nonnull)initWithOrgXmlSaxXMLReader:(id<OrgXmlSaxXMLReader>)parent;
 
 /*!
  @brief Filter a character data event.
@@ -428,6 +434,10 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersXMLFilterImpl)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersXMLFilterImpl")

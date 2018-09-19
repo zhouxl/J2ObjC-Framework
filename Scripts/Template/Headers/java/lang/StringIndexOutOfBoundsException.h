@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangStringIndexOutOfBoundsException_) && (INCLUDE_ALL_JavaLangStringIndexOutOfBoundsException || defined(INCLUDE_JavaLangStringIndexOutOfBoundsException))
 #define JavaLangStringIndexOutOfBoundsException_
 
@@ -41,47 +47,47 @@
   detail message.
  @since JDK1.0.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a new <code>StringIndexOutOfBoundsException</code>
   class with an argument indicating the illegal index.
  @param index the illegal index.
  */
-- (instancetype)initWithInt:(jint)index;
+- (instancetype __nonnull)initWithInt:(jint)index;
 
 /*!
  @brief Used internally for consistent high-quality error reporting.
  */
-- (instancetype)initWithInt:(jint)sourceLength
-                    withInt:(jint)index;
+- (instancetype __nonnull)initWithInt:(jint)sourceLength
+                              withInt:(jint)index;
 
 /*!
  @brief Used internally for consistent high-quality error reporting.
  */
-- (instancetype)initWithInt:(jint)sourceLength
-                    withInt:(jint)offset
-                    withInt:(jint)count;
+- (instancetype __nonnull)initWithInt:(jint)sourceLength
+                              withInt:(jint)offset
+                              withInt:(jint)count;
 
 /*!
  @brief Constructs a <code>StringIndexOutOfBoundsException</code> with
   the specified detail message.
  @param s the detail message.
  */
-- (instancetype)initWithNSString:(NSString *)s;
+- (instancetype __nonnull)initWithNSString:(NSString *)s;
 
 /*!
  @brief Used internally for consistent high-quality error reporting.
  */
-- (instancetype)initWithNSString:(NSString *)s
-                         withInt:(jint)index;
+- (instancetype __nonnull)initWithNSString:(NSString *)s
+                                   withInt:(jint)index;
 
 /*!
  @brief Used internally for consistent high-quality error reporting.
  */
-- (instancetype)initWithNSString:(NSString *)s
-                         withInt:(jint)offset
-                         withInt:(jint)count;
+- (instancetype __nonnull)initWithNSString:(NSString *)s
+                                   withInt:(jint)offset
+                                   withInt:(jint)count;
 
 @end
 
@@ -133,6 +139,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangStringIndexOutOfBoundsException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangStringIndexOutOfBoundsException")

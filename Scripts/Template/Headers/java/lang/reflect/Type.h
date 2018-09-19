@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangReflectType_) && (INCLUDE_ALL_JavaLangReflectType || defined(INCLUDE_JavaLangReflectType))
 #define JavaLangReflectType_
 
@@ -33,7 +39,7 @@
  @return a string describing this type
  @since 1.8
  */
-- (NSString *)getTypeName;
+- (NSString * __nonnull)getTypeName;
 
 @end
 
@@ -45,6 +51,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectType)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangReflectType")

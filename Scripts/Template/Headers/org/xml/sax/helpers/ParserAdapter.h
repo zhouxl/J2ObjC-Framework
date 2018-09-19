@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (OrgXmlSaxHelpersParserAdapter_) && (INCLUDE_ALL_OrgXmlSaxHelpersParserAdapter || defined(INCLUDE_OrgXmlSaxHelpersParserAdapter))
 #define OrgXmlSaxHelpersParserAdapter_
 
@@ -80,7 +86,7 @@
              cannot be instantiated or if the
              org.xml.sax.parser property is not specified.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Construct a new parser adapter.
@@ -91,7 +97,7 @@
  @throw java.lang.NullPointerExceptionIf the parser parameter
              is null.
  */
-- (instancetype)initWithOrgXmlSaxParser:(id<OrgXmlSaxParser>)parser;
+- (instancetype __nonnull)initWithOrgXmlSaxParser:(id<OrgXmlSaxParser>)parser;
 
 /*!
  @brief Adapter implementation method; do not call.
@@ -476,7 +482,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersParserAdapter)
 /*!
  @brief Construct a new adapter.
  */
-- (instancetype)initWithOrgXmlSaxHelpersParserAdapter:(OrgXmlSaxHelpersParserAdapter *)outer$;
+- (instancetype __nonnull)initWithOrgXmlSaxHelpersParserAdapter:(OrgXmlSaxHelpersParserAdapter *)outer$;
 
 /*!
  @brief Set the embedded AttributeList.
@@ -488,7 +494,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersParserAdapter)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -504,6 +510,10 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersParserAdapter_AttributeListAdapter)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersParserAdapter")

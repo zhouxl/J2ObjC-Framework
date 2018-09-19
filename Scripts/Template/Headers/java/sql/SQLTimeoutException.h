@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSqlSQLTimeoutException_) && (INCLUDE_ALL_JavaSqlSQLTimeoutException || defined(INCLUDE_JavaSqlSQLTimeoutException))
 #define JavaSqlSQLTimeoutException_
 
@@ -45,7 +51,7 @@
  <p>
  @since 1.6
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a <code>SQLTimeoutException</code> object
@@ -59,7 +65,7 @@
  @param reason a description of the exception
  @since 1.6
  */
-- (instancetype)initWithNSString:(NSString *)reason;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason;
 
 /*!
  @brief Constructs a <code>SQLTimeoutException</code> object
@@ -73,8 +79,8 @@
  @param SQLState an XOPEN or SQL:2003 code identifying the exception
  @since 1.6
  */
-- (instancetype)initWithNSString:(NSString *)reason
-                    withNSString:(NSString *)SQLState;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason
+                              withNSString:(NSString *)SQLState;
 
 /*!
  @brief Constructs a <code>SQLTimeoutException</code> object
@@ -89,9 +95,9 @@
  @param vendorCode a database vendor specific exception code
  @since 1.6
  */
-- (instancetype)initWithNSString:(NSString *)reason
-                    withNSString:(NSString *)SQLState
-                         withInt:(jint)vendorCode;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason
+                              withNSString:(NSString *)SQLState
+                                   withInt:(jint)vendorCode;
 
 /*!
  @brief Constructs a <code>SQLTimeoutException</code> object
@@ -106,10 +112,10 @@
        the cause is non-existent or unknown.
  @since 1.6
  */
-- (instancetype)initWithNSString:(NSString *)reason
-                    withNSString:(NSString *)SQLState
-                         withInt:(jint)vendorCode
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason
+                              withNSString:(NSString *)SQLState
+                                   withInt:(jint)vendorCode
+                     withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a <code>SQLTimeoutException</code> object
@@ -123,9 +129,9 @@
        the cause is non-existent or unknown.
  @since 1.6
  */
-- (instancetype)initWithNSString:(NSString *)reason
-                    withNSString:(NSString *)SQLState
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason
+                              withNSString:(NSString *)SQLState
+                     withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a <code>SQLTimeoutException</code> object
@@ -139,8 +145,8 @@
        the cause is non-existent or unknown.
  @since 1.6
  */
-- (instancetype)initWithNSString:(NSString *)reason
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason
+                     withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a <code>SQLTimeoutException</code> object
@@ -155,7 +161,7 @@
        the cause is non-existent or unknown.
  @since 1.6
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 #pragma mark Package-Private
 
@@ -215,6 +221,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLTimeoutException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSqlSQLTimeoutException")

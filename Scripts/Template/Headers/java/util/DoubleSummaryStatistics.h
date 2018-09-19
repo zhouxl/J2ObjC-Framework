@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilDoubleSummaryStatistics_) && (INCLUDE_ALL_JavaUtilDoubleSummaryStatistics || defined(INCLUDE_JavaUtilDoubleSummaryStatistics))
 #define JavaUtilDoubleSummaryStatistics_
 
@@ -57,7 +63,7 @@
  <code>Double.POSITIVE_INFINITY</code> min, <code>Double.NEGATIVE_INFINITY</code>
   max and zero average.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Records another value into the summary information.
@@ -154,6 +160,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilDoubleSummaryStatistics)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilDoubleSummaryStatistics")

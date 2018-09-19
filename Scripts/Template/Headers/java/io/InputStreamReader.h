@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoInputStreamReader_) && (INCLUDE_ALL_JavaIoInputStreamReader || defined(INCLUDE_JavaIoInputStreamReader))
 #define JavaIoInputStreamReader_
 
@@ -61,7 +67,7 @@
  @brief Creates an InputStreamReader that uses the default charset.
  @param inArg An InputStream
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
 
 /*!
  @brief Creates an InputStreamReader that uses the given charset.
@@ -70,8 +76,8 @@
  @param cs A charset
  @since 1.4
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
-                withJavaNioCharsetCharset:(JavaNioCharsetCharset *)cs;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
+                          withJavaNioCharsetCharset:(JavaNioCharsetCharset *)cs;
 
 /*!
  @brief Creates an InputStreamReader that uses the given charset decoder.
@@ -80,8 +86,8 @@
  @param dec A charset decoder
  @since 1.4
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
-         withJavaNioCharsetCharsetDecoder:(JavaNioCharsetCharsetDecoder *)dec;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
+                   withJavaNioCharsetCharsetDecoder:(JavaNioCharsetCharsetDecoder *)dec;
 
 /*!
  @brief Creates an InputStreamReader that uses the named charset.
@@ -91,8 +97,8 @@
  @throw UnsupportedEncodingException
  If the named charset is not supported
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
-                             withNSString:(NSString *)charsetName;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
+                                       withNSString:(NSString *)charsetName;
 
 - (void)close;
 
@@ -143,9 +149,9 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
-- (instancetype)initWithId:(id)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithId:(id)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -179,6 +185,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoInputStreamReader)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoInputStreamReader")

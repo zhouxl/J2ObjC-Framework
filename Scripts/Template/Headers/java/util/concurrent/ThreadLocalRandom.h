@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentThreadLocalRandom_) && (INCLUDE_ALL_JavaUtilConcurrentThreadLocalRandom || defined(INCLUDE_JavaUtilConcurrentThreadLocalRandom))
 #define JavaUtilConcurrentThreadLocalRandom_
 
@@ -63,6 +69,10 @@
    */
   jboolean initialized_;
 }
+@property (readonly, copy, class) NSString *BAD_BOUND NS_SWIFT_NAME(BAD_BOUND);
+@property (readonly, copy, class) NSString *BAD_RANGE NS_SWIFT_NAME(BAD_RANGE);
+@property (readonly, copy, class) NSString *BAD_SIZE NS_SWIFT_NAME(BAD_SIZE);
+@property (readonly, class, strong) JavaUtilConcurrentThreadLocalRandom *instance NS_SWIFT_NAME(instance);
 
 + (NSString *)BAD_BOUND;
 
@@ -419,7 +429,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithLong:(jlong)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithLong:(jlong)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -462,6 +472,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadLocalRandom)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentThreadLocalRandom")

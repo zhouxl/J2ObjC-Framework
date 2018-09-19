@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilJarJarException_) && (INCLUDE_ALL_JavaUtilJarJarException || defined(INCLUDE_JavaUtilJarJarException))
 #define JavaUtilJarJarException_
 
@@ -36,13 +42,13 @@
 /*!
  @brief Constructs a JarException with no detail message.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a JarException with the specified detail message.
  @param s the detail message
  */
-- (instancetype)initWithNSString:(NSString *)s;
+- (instancetype __nonnull)initWithNSString:(NSString *)s;
 
 @end
 
@@ -64,6 +70,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilJarJarException")

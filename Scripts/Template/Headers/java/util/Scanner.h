@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilScanner_) && (INCLUDE_ALL_JavaUtilScanner || defined(INCLUDE_JavaUtilScanner))
 #define JavaUtilScanner_
 
@@ -317,7 +323,7 @@
  @param source A file to be scanned
  @throw FileNotFoundExceptionif source is not found
  */
-- (instancetype)initWithJavaIoFile:(JavaIoFile *)source;
+- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)source;
 
 /*!
  @brief Constructs a new <code>Scanner</code> that produces values scanned
@@ -329,8 +335,8 @@
  @throw IllegalArgumentExceptionif the specified encoding is
           not found
  */
-- (instancetype)initWithJavaIoFile:(JavaIoFile *)source
-                      withNSString:(NSString *)charsetName;
+- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)source
+                                withNSString:(NSString *)charsetName;
 
 /*!
  @brief Constructs a new <code>Scanner</code> that produces values scanned
@@ -339,7 +345,7 @@
  charset.
  @param source An input stream to be scanned
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)source;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)source;
 
 /*!
  @brief Constructs a new <code>Scanner</code> that produces values scanned
@@ -350,15 +356,15 @@
  @throw IllegalArgumentExceptionif the specified character set
           does not exist
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)source
-                             withNSString:(NSString *)charsetName;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)source
+                                       withNSString:(NSString *)charsetName;
 
 /*!
  @brief Constructs a new <code>Scanner</code> that produces values scanned
   from the specified source.
  @param source A character source implementing the <code>Readable</code>          interface
  */
-- (instancetype)initWithJavaLangReadable:(id<JavaLangReadable>)source;
+- (instancetype __nonnull)initWithJavaLangReadable:(id<JavaLangReadable>)source;
 
 /*!
  @brief Constructs a new <code>Scanner</code> that produces values scanned
@@ -367,7 +373,7 @@
  charset.
  @param source A channel to scan
  */
-- (instancetype)initWithJavaNioChannelsReadableByteChannel:(id<JavaNioChannelsReadableByteChannel>)source;
+- (instancetype __nonnull)initWithJavaNioChannelsReadableByteChannel:(id<JavaNioChannelsReadableByteChannel>)source;
 
 /*!
  @brief Constructs a new <code>Scanner</code> that produces values scanned
@@ -378,15 +384,15 @@
  @throw IllegalArgumentExceptionif the specified character set
           does not exist
  */
-- (instancetype)initWithJavaNioChannelsReadableByteChannel:(id<JavaNioChannelsReadableByteChannel>)source
-                                              withNSString:(NSString *)charsetName;
+- (instancetype __nonnull)initWithJavaNioChannelsReadableByteChannel:(id<JavaNioChannelsReadableByteChannel>)source
+                                                        withNSString:(NSString *)charsetName;
 
 /*!
  @brief Constructs a new <code>Scanner</code> that produces values scanned
   from the specified string.
  @param source A string to scan
  */
-- (instancetype)initWithNSString:(NSString *)source;
+- (instancetype __nonnull)initWithNSString:(NSString *)source;
 
 /*!
  @brief Closes this scanner.
@@ -1182,7 +1188,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -1240,6 +1246,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilScanner)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilScanner")

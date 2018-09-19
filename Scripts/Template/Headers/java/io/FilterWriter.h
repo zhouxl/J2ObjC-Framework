@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoFilterWriter_) && (INCLUDE_ALL_JavaIoFilterWriter || defined(INCLUDE_JavaIoFilterWriter))
 #define JavaIoFilterWriter_
 
@@ -88,7 +94,7 @@
  @param outArg a Writer object to provide the underlying stream.
  @throw NullPointerExceptionif <code>out</code> is <code>null</code>
  */
-- (instancetype)initWithJavaIoWriter:(JavaIoWriter *)outArg;
+- (instancetype __nonnull)initWithJavaIoWriter:(JavaIoWriter *)outArg;
 
 @end
 
@@ -102,6 +108,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFilterWriter)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoFilterWriter")

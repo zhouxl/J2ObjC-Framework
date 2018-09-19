@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxCryptoSealedObject_) && (INCLUDE_ALL_JavaxCryptoSealedObject || defined(INCLUDE_JavaxCryptoSealedObject))
 #define JavaxCryptoSealedObject_
 
@@ -84,6 +90,7 @@
    */
   IOSByteArray *encodedParams_;
 }
+@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jlong)serialVersionUID;
 
@@ -104,8 +111,8 @@
   (i.e., the length of the serialized object contents) is not a multiple
   of the cipher's block size
  */
-- (instancetype)initWithJavaIoSerializable:(id<JavaIoSerializable>)object
-                     withJavaxCryptoCipher:(JavaxCryptoCipher *)c;
+- (instancetype __nonnull)initWithJavaIoSerializable:(id<JavaIoSerializable>)object
+                               withJavaxCryptoCipher:(JavaxCryptoCipher *)c;
 
 /*!
  @brief Returns the algorithm that was used to seal this object.
@@ -195,11 +202,11 @@
  @param so a SealedObject object
  @throw NullPointerExceptionif the given sealed object is null.
  */
-- (instancetype)initWithJavaxCryptoSealedObject:(JavaxCryptoSealedObject *)so;
+- (instancetype __nonnull)initWithJavaxCryptoSealedObject:(JavaxCryptoSealedObject *)so;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -246,15 +253,15 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoSealedObject)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
-J2OBJC_STATIC_INIT(JavaxCryptoextObjectInputStream)
+J2OBJC_EMPTY_STATIC_INIT(JavaxCryptoextObjectInputStream)
 
 FOUNDATION_EXPORT void JavaxCryptoextObjectInputStream_initWithJavaIoInputStream_(JavaxCryptoextObjectInputStream *self, JavaIoInputStream *inArg);
 
@@ -268,6 +275,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoextObjectInputStream)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxCryptoSealedObject")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNetMulticastSocket_) && (INCLUDE_ALL_JavaNetMulticastSocket || defined(INCLUDE_JavaNetMulticastSocket))
 #define JavaNetMulticastSocket_
 
@@ -101,7 +107,7 @@
  - seealso: SecurityManager#checkListen
  - seealso: java.net.DatagramSocket
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Create a multicast socket and bind it to a specific port.
@@ -122,7 +128,7 @@
  - seealso: SecurityManager#checkListen
  - seealso: java.net.DatagramSocket
  */
-- (instancetype)initWithInt:(jint)port;
+- (instancetype __nonnull)initWithInt:(jint)port;
 
 /*!
  @brief Create a MulticastSocket bound to the specified socket address.
@@ -147,7 +153,7 @@
  - seealso: java.net.DatagramSocket
  @since 1.4
  */
-- (instancetype)initWithJavaNetSocketAddress:(JavaNetSocketAddress *)bindaddr;
+- (instancetype __nonnull)initWithJavaNetSocketAddress:(JavaNetSocketAddress *)bindaddr;
 
 /*!
  @brief Retrieve the address of the network interface used for
@@ -385,10 +391,10 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithInt:(jint)arg0
-     withJavaNetInetAddress:(JavaNetInetAddress *)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithInt:(jint)arg0
+               withJavaNetInetAddress:(JavaNetInetAddress *)arg1 NS_UNAVAILABLE;
 
-- (instancetype)initWithJavaNetDatagramSocketImpl:(JavaNetDatagramSocketImpl *)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaNetDatagramSocketImpl:(JavaNetDatagramSocketImpl *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -416,6 +422,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetMulticastSocket)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetMulticastSocket")

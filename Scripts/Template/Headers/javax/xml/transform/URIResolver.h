@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxXmlTransformURIResolver_) && (INCLUDE_ALL_JavaxXmlTransformURIResolver || defined(INCLUDE_JavaxXmlTransformURIResolver))
 #define JavaxXmlTransformURIResolver_
 
@@ -48,6 +54,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformURIResolver)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformURIResolver")

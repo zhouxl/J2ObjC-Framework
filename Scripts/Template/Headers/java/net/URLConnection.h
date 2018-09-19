@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNetURLConnection_) && (INCLUDE_ALL_JavaNetURLConnection || defined(INCLUDE_JavaNetURLConnection))
 #define JavaNetURLConnection_
 
@@ -253,6 +259,7 @@
    */
   jboolean connected_;
 }
+@property (class, strong) id<JavaNetContentHandlerFactory> factory NS_SWIFT_NAME(factory);
 
 + (id<JavaNetContentHandlerFactory>)factory;
 
@@ -978,7 +985,7 @@
   the object referenced by the URL is not created.
  @param url the specified URL.
  */
-- (instancetype)initWithJavaNetURL:(JavaNetURL *)url;
+- (instancetype __nonnull)initWithJavaNetURL:(JavaNetURL *)url;
 
 #pragma mark Package-Private
 
@@ -1037,6 +1044,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetURLConnection)
 @class JavaNetURLConnection;
 
 @interface JavaNetUnknownContentHandler : JavaNetContentHandler
+@property (readonly, class, strong) JavaNetContentHandler *INSTANCE NS_SWIFT_NAME(INSTANCE);
 
 + (JavaNetContentHandler *)INSTANCE;
 
@@ -1046,7 +1054,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetURLConnection)
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -1067,6 +1075,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetUnknownContentHandler)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetURLConnection")

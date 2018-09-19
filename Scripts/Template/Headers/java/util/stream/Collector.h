@@ -18,6 +18,7 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -254,6 +255,9 @@ typedef NS_ENUM(NSUInteger, JavaUtilStreamCollector_Characteristics_Enum) {
  */
 @interface JavaUtilStreamCollector_Characteristics : JavaLangEnum
 
+@property (readonly, class, nonnull) JavaUtilStreamCollector_Characteristics *CONCURRENT NS_SWIFT_NAME(CONCURRENT);
+@property (readonly, class, nonnull) JavaUtilStreamCollector_Characteristics *UNORDERED NS_SWIFT_NAME(UNORDERED);
+@property (readonly, class, nonnull) JavaUtilStreamCollector_Characteristics *IDENTITY_FINISH NS_SWIFT_NAME(IDENTITY_FINISH);
 + (JavaUtilStreamCollector_Characteristics * __nonnull)CONCURRENT;
 
 + (JavaUtilStreamCollector_Characteristics * __nonnull)UNORDERED;

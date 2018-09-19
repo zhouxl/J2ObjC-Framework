@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilIterator_) && (INCLUDE_ALL_JavaUtilIterator || defined(INCLUDE_JavaUtilIterator))
 #define JavaUtilIterator_
 
@@ -99,6 +105,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIterator)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilIterator")

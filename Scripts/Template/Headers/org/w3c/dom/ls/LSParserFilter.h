@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (OrgW3cDomLsLSParserFilter_) && (INCLUDE_ALL_OrgW3cDomLsLSParserFilter || defined(INCLUDE_OrgW3cDomLsLSParserFilter))
 #define OrgW3cDomLsLSParserFilter_
 
@@ -159,6 +165,10 @@
 @end
 
 @interface OrgW3cDomLsLSParserFilter : NSObject
+@property (readonly, class) jshort FILTER_ACCEPT NS_SWIFT_NAME(FILTER_ACCEPT);
+@property (readonly, class) jshort FILTER_REJECT NS_SWIFT_NAME(FILTER_REJECT);
+@property (readonly, class) jshort FILTER_SKIP NS_SWIFT_NAME(FILTER_SKIP);
+@property (readonly, class) jshort FILTER_INTERRUPT NS_SWIFT_NAME(FILTER_INTERRUPT);
 
 + (jshort)FILTER_ACCEPT;
 
@@ -205,6 +215,10 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomLsLSParserFilter)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgW3cDomLsLSParserFilter")

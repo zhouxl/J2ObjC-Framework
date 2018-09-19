@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaBeansPropertyChangeSupport_) && (INCLUDE_ALL_JavaBeansPropertyChangeSupport || defined(INCLUDE_JavaBeansPropertyChangeSupport))
 #define JavaBeansPropertyChangeSupport_
 
@@ -70,6 +76,7 @@
  - seealso: VetoableChangeSupport
  */
 @interface JavaBeansPropertyChangeSupport : NSObject < JavaIoSerializable >
+@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jlong)serialVersionUID;
 
@@ -79,7 +86,7 @@
  @brief Constructs a <code>PropertyChangeSupport</code> object.
  @param sourceBean The bean to be given as the source for any events.
  */
-- (instancetype)initWithId:(id)sourceBean;
+- (instancetype __nonnull)initWithId:(id)sourceBean;
 
 /*!
  @brief Add a PropertyChangeListener to the listener list.
@@ -309,7 +316,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -332,6 +339,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaBeansPropertyChangeSupport)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaBeansPropertyChangeSupport")

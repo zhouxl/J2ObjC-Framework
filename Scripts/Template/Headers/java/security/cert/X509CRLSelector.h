@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecurityCertX509CRLSelector_) && (INCLUDE_ALL_JavaSecurityCertX509CRLSelector || defined(INCLUDE_JavaSecurityCertX509CRLSelector))
 #define JavaSecurityCertX509CRLSelector_
 
@@ -71,7 +77,7 @@
  @brief Creates an <code>X509CRLSelector</code>.Initially, no criteria are set
   so any <code>X509CRL</code> will match.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Adds a name to the issuerNames criterion.The issuer distinguished
@@ -407,6 +413,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertX509CRLSelector)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertX509CRLSelector")

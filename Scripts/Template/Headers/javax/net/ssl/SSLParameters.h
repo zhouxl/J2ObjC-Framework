@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxNetSslSSLParameters_) && (INCLUDE_ALL_JavaxNetSslSSLParameters || defined(INCLUDE_JavaxNetSslSSLParameters))
 #define JavaxNetSslSSLParameters_
 
@@ -63,7 +69,7 @@
   server name matchers are set to <code>null</code>, useCipherSuitesOrder,
   wantClientAuth and needClientAuth are set to <code>false</code>.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs SSLParameters from the specified array of ciphersuites.
@@ -73,7 +79,7 @@
  <code>setCipherSuites(cipherSuites);</code>.
  @param cipherSuites the array of ciphersuites (or null)
  */
-- (instancetype)initWithNSStringArray:(IOSObjectArray *)cipherSuites;
+- (instancetype __nonnull)initWithNSStringArray:(IOSObjectArray *)cipherSuites;
 
 /*!
  @brief Constructs SSLParameters from the specified array of ciphersuites
@@ -85,8 +91,8 @@
  @param cipherSuites the array of ciphersuites (or null)
  @param protocols the array of protocols (or null)
  */
-- (instancetype)initWithNSStringArray:(IOSObjectArray *)cipherSuites
-                    withNSStringArray:(IOSObjectArray *)protocols;
+- (instancetype __nonnull)initWithNSStringArray:(IOSObjectArray *)cipherSuites
+                              withNSStringArray:(IOSObjectArray *)protocols;
 
 /*!
  @brief Returns the cryptographic algorithm constraints.
@@ -333,6 +339,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLParameters)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxNetSslSSLParameters")

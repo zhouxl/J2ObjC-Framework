@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangArrayIndexOutOfBoundsException_) && (INCLUDE_ALL_JavaLangArrayIndexOutOfBoundsException || defined(INCLUDE_JavaLangArrayIndexOutOfBoundsException))
 #define JavaLangArrayIndexOutOfBoundsException_
 
@@ -38,34 +44,34 @@
  @brief Constructs an <code>ArrayIndexOutOfBoundsException</code> with no
   detail message.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a new <code>ArrayIndexOutOfBoundsException</code>
   class with an argument indicating the illegal index.
  @param index the illegal index.
  */
-- (instancetype)initWithInt:(jint)index;
+- (instancetype __nonnull)initWithInt:(jint)index;
 
 /*!
  @brief Used internally for consistent high-quality error reporting.
  */
-- (instancetype)initWithInt:(jint)sourceLength
-                    withInt:(jint)index;
+- (instancetype __nonnull)initWithInt:(jint)sourceLength
+                              withInt:(jint)index;
 
 /*!
  @brief Used internally for consistent high-quality error reporting.
  */
-- (instancetype)initWithInt:(jint)sourceLength
-                    withInt:(jint)offset
-                    withInt:(jint)count;
+- (instancetype __nonnull)initWithInt:(jint)sourceLength
+                              withInt:(jint)offset
+                              withInt:(jint)count;
 
 /*!
  @brief Constructs an <code>ArrayIndexOutOfBoundsException</code> class
   with the specified detail message.
  @param s the detail message.
  */
-- (instancetype)initWithNSString:(NSString *)s;
+- (instancetype __nonnull)initWithNSString:(NSString *)s;
 
 @end
 
@@ -105,6 +111,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangArrayIndexOutOfBoundsException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangArrayIndexOutOfBoundsException")

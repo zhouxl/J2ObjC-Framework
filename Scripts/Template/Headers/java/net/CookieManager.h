@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNetCookieManager_) && (INCLUDE_ALL_JavaNetCookieManager || defined(INCLUDE_JavaNetCookieManager))
 #define JavaNetCookieManager_
 
@@ -123,7 +129,7 @@
   cookie store and accept policy. The effect is same as 
  <tt>CookieManager(null, null)</tt>.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Create a new cookie manager with specified cookie store and cookie policy.
@@ -133,8 +139,8 @@
                             if 
   <tt> null </tt> , ACCEPT_ORIGINAL_SERVER will                           be used.
  */
-- (instancetype)initWithJavaNetCookieStore:(id<JavaNetCookieStore>)store
-                   withJavaNetCookiePolicy:(id<JavaNetCookiePolicy>)cookiePolicy;
+- (instancetype __nonnull)initWithJavaNetCookieStore:(id<JavaNetCookieStore>)store
+                             withJavaNetCookiePolicy:(id<JavaNetCookiePolicy>)cookiePolicy;
 
 - (id<JavaUtilMap>)getWithJavaNetURI:(JavaNetURI *)uri
                      withJavaUtilMap:(id<JavaUtilMap>)requestHeaders;
@@ -199,7 +205,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetCookieManager)
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -215,6 +221,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetCookieManager_CookiePathComparator)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetCookieManager")

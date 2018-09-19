@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (AndroidUtilMapCollections_) && (INCLUDE_ALL_AndroidUtilMapCollections || defined(INCLUDE_AndroidUtilMapCollections))
 #define AndroidUtilMapCollections_
 
@@ -88,7 +94,7 @@
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -140,12 +146,12 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilMapCollections)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithAndroidUtilMapCollections:(AndroidUtilMapCollections *)outer$
-                                          withInt:(jint)offset;
+- (instancetype __nonnull)initWithAndroidUtilMapCollections:(AndroidUtilMapCollections *)outer$
+                                                    withInt:(jint)offset;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -204,11 +210,11 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilMapCollections_ArrayIterator)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithAndroidUtilMapCollections:(AndroidUtilMapCollections *)outer$;
+- (instancetype __nonnull)initWithAndroidUtilMapCollections:(AndroidUtilMapCollections *)outer$;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -277,11 +283,11 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilMapCollections_MapIterator)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithAndroidUtilMapCollections:(AndroidUtilMapCollections *)outer$;
+- (instancetype __nonnull)initWithAndroidUtilMapCollections:(AndroidUtilMapCollections *)outer$;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -349,11 +355,11 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilMapCollections_EntrySet)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithAndroidUtilMapCollections:(AndroidUtilMapCollections *)outer$;
+- (instancetype __nonnull)initWithAndroidUtilMapCollections:(AndroidUtilMapCollections *)outer$;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -416,11 +422,11 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilMapCollections_KeySet)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithAndroidUtilMapCollections:(AndroidUtilMapCollections *)outer$;
+- (instancetype __nonnull)initWithAndroidUtilMapCollections:(AndroidUtilMapCollections *)outer$;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -436,6 +442,10 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilMapCollections_ValuesCollection)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidUtilMapCollections")

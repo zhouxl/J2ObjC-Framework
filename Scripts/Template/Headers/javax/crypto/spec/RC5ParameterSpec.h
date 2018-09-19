@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxCryptoSpecRC5ParameterSpec_) && (INCLUDE_ALL_JavaxCryptoSpecRC5ParameterSpec || defined(INCLUDE_JavaxCryptoSpecRC5ParameterSpec))
 #define JavaxCryptoSpecRC5ParameterSpec_
 
@@ -49,9 +55,9 @@
  @param rounds the number of rounds.
  @param wordSize the word size in bits.
  */
-- (instancetype)initWithInt:(jint)version_
-                    withInt:(jint)rounds
-                    withInt:(jint)wordSize;
+- (instancetype __nonnull)initWithInt:(jint)version_
+                              withInt:(jint)rounds
+                              withInt:(jint)wordSize;
 
 /*!
  @brief Constructs a parameter set for RC5 from the given version, number of
@@ -67,10 +73,10 @@
  @throw IllegalArgumentExceptionif <code>iv</code> is 
  <code>null</code> or <code>(iv.length < 2 * (wordSize / 8))</code>
  */
-- (instancetype)initWithInt:(jint)version_
-                    withInt:(jint)rounds
-                    withInt:(jint)wordSize
-              withByteArray:(IOSByteArray *)iv;
+- (instancetype __nonnull)initWithInt:(jint)version_
+                              withInt:(jint)rounds
+                              withInt:(jint)wordSize
+                        withByteArray:(IOSByteArray *)iv;
 
 /*!
  @brief Constructs a parameter set for RC5 from the given version, number of
@@ -93,11 +99,11 @@
  <code>null</code> or 
  <code>(iv.length - offset < 2 * (wordSize / 8))</code>
  */
-- (instancetype)initWithInt:(jint)version_
-                    withInt:(jint)rounds
-                    withInt:(jint)wordSize
-              withByteArray:(IOSByteArray *)iv
-                    withInt:(jint)offset;
+- (instancetype __nonnull)initWithInt:(jint)version_
+                              withInt:(jint)rounds
+                              withInt:(jint)wordSize
+                        withByteArray:(IOSByteArray *)iv
+                              withInt:(jint)offset;
 
 /*!
  @brief Tests for equality between the specified object and this
@@ -143,7 +149,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -171,6 +177,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoSpecRC5ParameterSpec)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxCryptoSpecRC5ParameterSpec")

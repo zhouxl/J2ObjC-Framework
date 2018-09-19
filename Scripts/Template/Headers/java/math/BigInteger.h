@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaMathBigInteger_) && (INCLUDE_ALL_JavaMathBigInteger || defined(INCLUDE_JavaMathBigInteger))
 #define JavaMathBigInteger_
 
@@ -115,6 +121,13 @@
    */
   IOSIntArray *mag_;
 }
+@property (readonly, class) jlong LONG_MASK NS_SWIFT_NAME(LONG_MASK);
+@property (readonly, class) jint BURNIKEL_ZIEGLER_THRESHOLD NS_SWIFT_NAME(BURNIKEL_ZIEGLER_THRESHOLD);
+@property (readonly, class) jint BURNIKEL_ZIEGLER_OFFSET NS_SWIFT_NAME(BURNIKEL_ZIEGLER_OFFSET);
+@property (readonly, class, strong) JavaMathBigInteger *ZERO NS_SWIFT_NAME(ZERO);
+@property (readonly, class, strong) JavaMathBigInteger *ONE NS_SWIFT_NAME(ONE);
+@property (readonly, class, strong) JavaMathBigInteger *TEN NS_SWIFT_NAME(TEN);
+@property (class, strong) IOSIntArray *bnExpModThreshTable NS_SWIFT_NAME(bnExpModThreshTable);
 
 + (jlong)LONG_MASK;
 
@@ -142,7 +155,7 @@
  @param val big-endian two's-complement binary representation of          BigInteger.
  @throw NumberFormatException<code>val</code> is zero bytes long.
  */
-- (instancetype)initWithByteArray:(IOSByteArray *)val;
+- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)val;
 
 /*!
  @brief Translates the sign-magnitude representation of a BigInteger into a
@@ -158,8 +171,8 @@
           legal values (-1, 0, and 1), or <code>signum</code> is 0 and
           <code>magnitude</code> contains one or more non-zero bytes.
  */
-- (instancetype)initWithInt:(jint)signum
-              withByteArray:(IOSByteArray *)magnitude;
+- (instancetype __nonnull)initWithInt:(jint)signum
+                        withByteArray:(IOSByteArray *)magnitude;
 
 /*!
  @brief Constructs a randomly generated positive BigInteger that is probably
@@ -176,9 +189,9 @@
  @throw ArithmeticException<code>bitLength < 2</code> or <code>bitLength</code> is too large.
  - seealso: #bitLength()
  */
-- (instancetype)initWithInt:(jint)bitLength
-                    withInt:(jint)certainty
-         withJavaUtilRandom:(JavaUtilRandom *)rnd;
+- (instancetype __nonnull)initWithInt:(jint)bitLength
+                              withInt:(jint)certainty
+                   withJavaUtilRandom:(JavaUtilRandom *)rnd;
 
 /*!
  @brief Constructs a randomly generated BigInteger, uniformly distributed over
@@ -191,8 +204,8 @@
  @throw IllegalArgumentException<code>numBits</code> is negative.
  - seealso: #bitLength()
  */
-- (instancetype)initWithInt:(jint)numBits
-         withJavaUtilRandom:(JavaUtilRandom *)rnd;
+- (instancetype __nonnull)initWithInt:(jint)numBits
+                   withJavaUtilRandom:(JavaUtilRandom *)rnd;
 
 /*!
  @brief Translates the decimal String representation of a BigInteger into a
@@ -207,7 +220,7 @@
           of a BigInteger.
  - seealso: Character#digit
  */
-- (instancetype)initWithNSString:(NSString *)val;
+- (instancetype __nonnull)initWithNSString:(NSString *)val;
 
 /*!
  @brief Translates the String representation of a BigInteger in the
@@ -226,8 +239,8 @@
           <code>Character.MAX_RADIX</code>, inclusive.
  - seealso: Character#digit
  */
-- (instancetype)initWithNSString:(NSString *)val
-                         withInt:(jint)radix;
+- (instancetype __nonnull)initWithNSString:(NSString *)val
+                                   withInt:(jint)radix;
 
 /*!
  @brief Returns a BigInteger whose value is the absolute value of this
@@ -761,17 +774,17 @@
 
 #pragma mark Package-Private
 
-- (instancetype)initWithCharArray:(IOSCharArray *)val
-                          withInt:(jint)sign
-                          withInt:(jint)len;
+- (instancetype __nonnull)initWithCharArray:(IOSCharArray *)val
+                                    withInt:(jint)sign
+                                    withInt:(jint)len;
 
 /*!
  @brief This internal constructor differs from its public cousin
   with the arguments reversed in two ways: it assumes that its
   arguments are correct, and it doesn't copy the magnitude array.
  */
-- (instancetype)initWithIntArray:(IOSIntArray *)magnitude
-                         withInt:(jint)signum;
+- (instancetype __nonnull)initWithIntArray:(IOSIntArray *)magnitude
+                                   withInt:(jint)signum;
 
 /*!
  @brief Package private methods used by BigDecimal code to add a BigInteger
@@ -849,7 +862,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -985,6 +998,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaMathBigInteger)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaMathBigInteger")

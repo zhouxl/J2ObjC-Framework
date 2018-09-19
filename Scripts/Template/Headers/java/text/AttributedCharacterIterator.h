@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaTextAttributedCharacterIterator_) && (INCLUDE_ALL_JavaTextAttributedCharacterIterator || defined(INCLUDE_JavaTextAttributedCharacterIterator))
 #define JavaTextAttributedCharacterIterator_
 
@@ -129,6 +135,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributedCharacterIterator)
  @brief Defines keys for text attributes.
  */
 @interface JavaTextAttributedCharacterIterator_Attribute : NSObject < JavaIoSerializable >
+@property (readonly, class, strong) JavaTextAttributedCharacterIterator_Attribute *INPUT_METHOD_SEGMENT NS_SWIFT_NAME(INPUT_METHOD_SEGMENT);
+@property (readonly, class, strong) JavaTextAttributedCharacterIterator_Attribute *LANGUAGE NS_SWIFT_NAME(LANGUAGE);
+@property (readonly, class, strong) JavaTextAttributedCharacterIterator_Attribute *READING NS_SWIFT_NAME(READING);
 
 + (JavaTextAttributedCharacterIterator_Attribute *)INPUT_METHOD_SEGMENT;
 
@@ -171,7 +180,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributedCharacterIterator)
  @param name the name of the new 
  <code>Attribute</code> .
  */
-- (instancetype)initWithNSString:(NSString *)name;
+- (instancetype __nonnull)initWithNSString:(NSString *)name;
 
 /*!
  @brief Returns the name of this attribute.
@@ -190,7 +199,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributedCharacterIterator)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -237,6 +246,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributedCharacterIterator_Attribute)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextAttributedCharacterIterator")

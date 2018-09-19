@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoPrintWriter_) && (INCLUDE_ALL_JavaIoPrintWriter || defined(INCLUDE_JavaIoPrintWriter))
 #define JavaIoPrintWriter_
 
@@ -81,7 +87,7 @@
            denies write access to the file
  @since 1.5
  */
-- (instancetype)initWithJavaIoFile:(JavaIoFile *)file;
+- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file;
 
 /*!
  @brief Creates a new PrintWriter, without automatic line flushing, with the
@@ -107,8 +113,8 @@
  If the named charset is not supported
  @since 1.5
  */
-- (instancetype)initWithJavaIoFile:(JavaIoFile *)file
-                      withNSString:(NSString *)csn;
+- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file
+                                withNSString:(NSString *)csn;
 
 /*!
  @brief Creates a new PrintWriter, without automatic line flushing, from an
@@ -118,7 +124,7 @@
  @param outArg An output stream
  - seealso: java.io.OutputStreamWriter
  */
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg;
 
 /*!
  @brief Creates a new PrintWriter from an existing OutputStream.This
@@ -131,8 +137,8 @@
                       flush the output buffer
  - seealso: java.io.OutputStreamWriter
  */
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-                               withBoolean:(jboolean)autoFlush;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+                                         withBoolean:(jboolean)autoFlush;
 
 /*!
  @brief Creates a new PrintWriter, without automatic line flushing, with the
@@ -156,7 +162,7 @@
            access to the file
  @since 1.5
  */
-- (instancetype)initWithNSString:(NSString *)fileName;
+- (instancetype __nonnull)initWithNSString:(NSString *)fileName;
 
 /*!
  @brief Creates a new PrintWriter, without automatic line flushing, with the
@@ -183,14 +189,14 @@
  If the named charset is not supported
  @since 1.5
  */
-- (instancetype)initWithNSString:(NSString *)fileName
-                    withNSString:(NSString *)csn;
+- (instancetype __nonnull)initWithNSString:(NSString *)fileName
+                              withNSString:(NSString *)csn;
 
 /*!
  @brief Creates a new PrintWriter, without automatic line flushing.
  @param outArg A character-output stream
  */
-- (instancetype)initWithJavaIoWriter:(JavaIoWriter *)outArg;
+- (instancetype __nonnull)initWithJavaIoWriter:(JavaIoWriter *)outArg;
 
 /*!
  @brief Creates a new PrintWriter.
@@ -199,8 +205,8 @@
   ,                      <tt> printf </tt> , or  <tt> format </tt>  methods will
                       flush the output buffer
  */
-- (instancetype)initWithJavaIoWriter:(JavaIoWriter *)outArg
-                         withBoolean:(jboolean)autoFlush;
+- (instancetype __nonnull)initWithJavaIoWriter:(JavaIoWriter *)outArg
+                                   withBoolean:(jboolean)autoFlush;
 
 /*!
  @brief Appends the specified character to this writer.
@@ -214,7 +220,7 @@
  @return This writer
  @since 1.5
  */
-- (JavaIoPrintWriter *)appendWithChar:(jchar)c;
+- (JavaIoPrintWriter * __nonnull)appendWithChar:(jchar)c;
 
 /*!
  @brief Appends the specified character sequence to this writer.
@@ -236,7 +242,7 @@
  @return This writer
  @since 1.5
  */
-- (JavaIoPrintWriter *)appendWithJavaLangCharSequence:(id<JavaLangCharSequence>)csq;
+- (JavaIoPrintWriter * __nonnull)appendWithJavaLangCharSequence:(id<JavaLangCharSequence>)csq;
 
 /*!
  @brief Appends a subsequence of the specified character sequence to this writer.
@@ -262,9 +268,9 @@
            <tt>csq.length()</tt>
  @since 1.5
  */
-- (JavaIoPrintWriter *)appendWithJavaLangCharSequence:(id<JavaLangCharSequence>)csq
-                                              withInt:(jint)start
-                                              withInt:(jint)end;
+- (JavaIoPrintWriter * __nonnull)appendWithJavaLangCharSequence:(id<JavaLangCharSequence>)csq
+                                                        withInt:(jint)start
+                                                        withInt:(jint)end;
 
 /*!
  @brief Flushes the stream if it's not closed and checks its error state.
@@ -316,9 +322,9 @@
  @return This writer
  @since 1.5
  */
-- (JavaIoPrintWriter *)formatWithJavaUtilLocale:(JavaUtilLocale *)l
-                                   withNSString:(NSString *)format
-                              withNSObjectArray:(IOSObjectArray *)args;
+- (JavaIoPrintWriter * __nonnull)formatWithJavaUtilLocale:(JavaUtilLocale *)l
+                                             withNSString:(NSString *)format
+                                        withNSObjectArray:(IOSObjectArray *)args;
 
 /*!
  @brief Writes a formatted string to this writer using the specified format
@@ -349,8 +355,8 @@
  @return This writer
  @since 1.5
  */
-- (JavaIoPrintWriter *)formatWithNSString:(NSString *)format
-                        withNSObjectArray:(IOSObjectArray *)args;
+- (JavaIoPrintWriter * __nonnull)formatWithNSString:(NSString *)format
+                                  withNSObjectArray:(IOSObjectArray *)args;
 
 /*!
  @brief Prints a boolean value.The string produced by <code><code>java.lang.String</code>
@@ -482,9 +488,9 @@
  @return This writer
  @since 1.5
  */
-- (JavaIoPrintWriter *)printfWithJavaUtilLocale:(JavaUtilLocale *)l
-                                   withNSString:(NSString *)format
-                              withNSObjectArray:(IOSObjectArray *)args;
+- (JavaIoPrintWriter * __nonnull)printfWithJavaUtilLocale:(JavaUtilLocale *)l
+                                             withNSString:(NSString *)format
+                                        withNSObjectArray:(IOSObjectArray *)args;
 
 /*!
  @brief A convenience method to write a formatted string to this writer using
@@ -518,8 +524,8 @@
  @return This writer
  @since 1.5
  */
-- (JavaIoPrintWriter *)printfWithNSString:(NSString *)format
-                        withNSObjectArray:(IOSObjectArray *)args;
+- (JavaIoPrintWriter * __nonnull)printfWithNSString:(NSString *)format
+                                  withNSObjectArray:(IOSObjectArray *)args;
 
 /*!
  @brief Terminates the current line by writing the line separator string.The
@@ -664,9 +670,9 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
-- (instancetype)initWithId:(id)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithId:(id)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -726,6 +732,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoPrintWriter)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoPrintWriter")

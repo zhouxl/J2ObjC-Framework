@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilArrayList_) && (INCLUDE_ALL_JavaUtilArrayList || defined(INCLUDE_JavaUtilArrayList))
 #define JavaUtilArrayList_
 
@@ -131,7 +137,7 @@
 /*!
  @brief Constructs an empty list with an initial capacity of ten.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a list containing the elements of the specified
@@ -140,7 +146,7 @@
  @param c the collection whose elements are to be placed into this list
  @throw NullPointerExceptionif the specified collection is null
  */
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Constructs an empty list with the specified initial capacity.
@@ -148,7 +154,7 @@
  @throw IllegalArgumentExceptionif the specified initial capacity
           is negative
  */
-- (instancetype)initWithInt:(jint)initialCapacity;
+- (instancetype __nonnull)initWithInt:(jint)initialCapacity;
 
 /*!
  @brief Appends the specified element to the end of this list.
@@ -212,7 +218,7 @@
   elements themselves are not copied.)
  @return a clone of this <tt>ArrayList</tt> instance
  */
-- (id)java_clone;
+- (id __nonnull)java_clone;
 
 /*!
  @brief Returns <tt>true</tt> if this list contains the specified element.
@@ -262,7 +268,7 @@
  <p>The returned iterator is <a href="#fail-fast"><i>fail-fast</i></a>.
  @return an iterator over the elements in this list in proper sequence
  */
-- (id<JavaUtilIterator>)iterator;
+- (id<JavaUtilIterator> __nonnull)iterator;
 
 /*!
  @brief Returns the index of the last occurrence of the specified element
@@ -279,7 +285,7 @@
  <p>The returned list iterator is <a href="#fail-fast"><i>fail-fast</i></a>.
  - seealso: #listIterator(int)
  */
-- (id<JavaUtilListIterator>)listIterator;
+- (id<JavaUtilListIterator> __nonnull)listIterator;
 
 /*!
  @brief Returns a list iterator over the elements in this list (in proper
@@ -291,7 +297,7 @@
  <p>The returned list iterator is <a href="#fail-fast"><i>fail-fast</i></a>.
  @throw IndexOutOfBoundsException
  */
-- (id<JavaUtilListIterator>)listIteratorWithInt:(jint)index;
+- (id<JavaUtilListIterator> __nonnull)listIteratorWithInt:(jint)index;
 
 /*!
  @brief Removes the element at the specified position in this list.
@@ -385,7 +391,7 @@
  @return a <code>Spliterator</code> over the elements in this list
  @since 1.8
  */
-- (id<JavaUtilSpliterator>)spliterator;
+- (id<JavaUtilSpliterator> __nonnull)spliterator;
 
 /*!
  @brief Returns a view of the portion of this list between the specified 
@@ -416,8 +422,8 @@
  @throw IndexOutOfBoundsException
  @throw IllegalArgumentException
  */
-- (id<JavaUtilList>)subListWithInt:(jint)fromIndex
-                           withInt:(jint)toIndex;
+- (id<JavaUtilList> __nonnull)subListWithInt:(jint)fromIndex
+                                     withInt:(jint)toIndex;
 
 /*!
  @brief Returns an array containing all of the elements in this list
@@ -430,7 +436,7 @@
  @return an array containing all of the elements in this list in
           proper sequence
  */
-- (IOSObjectArray *)toArray;
+- (IOSObjectArray * __nonnull)toArray;
 
 /*!
  @brief Returns an array containing all of the elements in this list in proper
@@ -454,7 +460,7 @@
           this list
  @throw NullPointerExceptionif the specified array is null
  */
-- (IOSObjectArray *)toArrayWithNSObjectArray:(IOSObjectArray *)a;
+- (IOSObjectArray * __nonnull)toArrayWithNSObjectArray:(IOSObjectArray *)a;
 
 /*!
  @brief Trims the capacity of this <tt>ArrayList</tt> instance to be the
@@ -551,14 +557,14 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilArrayList)
 /*!
  @brief Create new spliterator covering the given  range
  */
-- (instancetype)initWithJavaUtilArrayList:(JavaUtilArrayList *)list
-                                  withInt:(jint)origin
-                                  withInt:(jint)fence
-                                  withInt:(jint)expectedModCount;
+- (instancetype __nonnull)initWithJavaUtilArrayList:(JavaUtilArrayList *)list
+                                            withInt:(jint)origin
+                                            withInt:(jint)fence
+                                            withInt:(jint)expectedModCount;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -574,6 +580,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilArrayList_ArrayListSpliterator)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilArrayList")

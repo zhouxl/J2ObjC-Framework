@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (OrgXmlSaxInputSource_) && (INCLUDE_ALL_OrgXmlSaxInputSource || defined(INCLUDE_OrgXmlSaxInputSource))
 #define OrgXmlSaxInputSource_
 
@@ -81,7 +87,7 @@
  - seealso: #setCharacterStream
  - seealso: #setEncoding
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Create a new input source with a byte stream.
@@ -96,7 +102,7 @@
  - seealso: #setByteStream
  - seealso: #setCharacterStream
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)byteStream;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)byteStream;
 
 /*!
  @brief Create a new input source with a character stream.
@@ -111,7 +117,7 @@
  - seealso: #setByteStream
  - seealso: #setCharacterStream
  */
-- (instancetype)initWithJavaIoReader:(JavaIoReader *)characterStream;
+- (instancetype __nonnull)initWithJavaIoReader:(JavaIoReader *)characterStream;
 
 /*!
  @brief Create a new input source with a system identifier.
@@ -128,7 +134,7 @@
  - seealso: #setEncoding
  - seealso: #setCharacterStream
  */
-- (instancetype)initWithNSString:(NSString *)systemId;
+- (instancetype __nonnull)initWithNSString:(NSString *)systemId;
 
 /*!
  @brief Get the byte stream for this input source.
@@ -286,6 +292,10 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxInputSource)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxInputSource")

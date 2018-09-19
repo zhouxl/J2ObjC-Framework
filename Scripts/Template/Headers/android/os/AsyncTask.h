@@ -18,6 +18,7 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -169,6 +170,8 @@
  <code>THREAD_POOL_EXECUTOR</code>.</p>
  */
 @interface AndroidOsAsyncTask : NSObject
+@property (readonly, class, strong) id<JavaUtilConcurrentExecutor> THREAD_POOL_EXECUTOR NS_SWIFT_NAME(THREAD_POOL_EXECUTOR);
+@property (readonly, class, strong) id<JavaUtilConcurrentExecutor> SERIAL_EXECUTOR NS_SWIFT_NAME(SERIAL_EXECUTOR);
 
 + (id<JavaUtilConcurrentExecutor>)THREAD_POOL_EXECUTOR;
 
@@ -179,7 +182,7 @@
 /*!
  @brief Creates a new asynchronous task.This constructor must be invoked on the UI thread.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief <p>Attempts to cancel execution of this task.
@@ -457,6 +460,9 @@ typedef NS_ENUM(NSUInteger, AndroidOsAsyncTask_Status_Enum) {
  */
 @interface AndroidOsAsyncTask_Status : JavaLangEnum
 
+@property (readonly, class, nonnull) AndroidOsAsyncTask_Status *PENDING NS_SWIFT_NAME(PENDING);
+@property (readonly, class, nonnull) AndroidOsAsyncTask_Status *RUNNING NS_SWIFT_NAME(RUNNING);
+@property (readonly, class, nonnull) AndroidOsAsyncTask_Status *FINISHED NS_SWIFT_NAME(FINISHED);
 + (AndroidOsAsyncTask_Status * __nonnull)PENDING;
 
 + (AndroidOsAsyncTask_Status * __nonnull)RUNNING;

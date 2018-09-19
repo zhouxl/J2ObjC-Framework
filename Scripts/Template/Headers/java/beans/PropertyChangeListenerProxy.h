@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaBeansPropertyChangeListenerProxy_) && (INCLUDE_ALL_JavaBeansPropertyChangeListenerProxy || defined(INCLUDE_JavaBeansPropertyChangeListenerProxy))
 #define JavaBeansPropertyChangeListenerProxy_
 
@@ -55,8 +61,8 @@
  @param propertyName the name of the property to listen on
  @param listener the listener object
  */
-- (instancetype)initWithNSString:(NSString *)propertyName
-withJavaBeansPropertyChangeListener:(id<JavaBeansPropertyChangeListener>)listener;
+- (instancetype __nonnull)initWithNSString:(NSString *)propertyName
+       withJavaBeansPropertyChangeListener:(id<JavaBeansPropertyChangeListener>)listener;
 
 - (id<JavaBeansPropertyChangeListener>)getListener;
 
@@ -74,7 +80,7 @@ withJavaBeansPropertyChangeListener:(id<JavaBeansPropertyChangeListener>)listene
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaUtilEventListener:(id<JavaUtilEventListener>)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaUtilEventListener:(id<JavaUtilEventListener>)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -90,6 +96,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaBeansPropertyChangeListenerProxy)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaBeansPropertyChangeListenerProxy")

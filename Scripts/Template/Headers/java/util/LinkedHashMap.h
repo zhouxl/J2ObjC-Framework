@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilLinkedHashMap_) && (INCLUDE_ALL_JavaUtilLinkedHashMap || defined(INCLUDE_JavaUtilLinkedHashMap))
 #define JavaUtilLinkedHashMap_
 
@@ -159,7 +165,7 @@
  @brief Constructs an empty insertion-ordered <tt>LinkedHashMap</tt> instance
   with the default initial capacity (16) and load factor (0.75).
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs an empty insertion-ordered <tt>LinkedHashMap</tt> instance
@@ -167,7 +173,7 @@
  @param initialCapacity the initial capacity
  @throw IllegalArgumentExceptionif the initial capacity is negative
  */
-- (instancetype)initWithInt:(jint)initialCapacity;
+- (instancetype __nonnull)initWithInt:(jint)initialCapacity;
 
 /*!
  @brief Constructs an empty insertion-ordered <tt>LinkedHashMap</tt> instance
@@ -177,8 +183,8 @@
  @throw IllegalArgumentExceptionif the initial capacity is negative
           or the load factor is nonpositive
  */
-- (instancetype)initWithInt:(jint)initialCapacity
-                  withFloat:(jfloat)loadFactor;
+- (instancetype __nonnull)initWithInt:(jint)initialCapacity
+                            withFloat:(jfloat)loadFactor;
 
 /*!
  @brief Constructs an empty <tt>LinkedHashMap</tt> instance with the
@@ -190,9 +196,9 @@
  @throw IllegalArgumentExceptionif the initial capacity is negative
           or the load factor is nonpositive
  */
-- (instancetype)initWithInt:(jint)initialCapacity
-                  withFloat:(jfloat)loadFactor
-                withBoolean:(jboolean)accessOrder;
+- (instancetype __nonnull)initWithInt:(jint)initialCapacity
+                            withFloat:(jfloat)loadFactor
+                          withBoolean:(jboolean)accessOrder;
 
 /*!
  @brief Constructs an insertion-ordered <tt>LinkedHashMap</tt> instance with
@@ -202,7 +208,7 @@
  @param m the map whose mappings are to be placed in this map
  @throw NullPointerExceptionif the specified map is null
  */
-- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)m;
+- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)m;
 
 /*!
  @brief Removes all of the mappings from this map.
@@ -329,6 +335,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedHashMap)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilLinkedHashMap")

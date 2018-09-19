@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilProperties_) && (INCLUDE_ALL_JavaUtilProperties || defined(INCLUDE_JavaUtilProperties))
 #define JavaUtilProperties_
 
@@ -29,6 +35,7 @@
 @class JavaIoPrintWriter;
 @class JavaIoReader;
 @class JavaIoWriter;
+@class JavaUtilProperties_LineReader;
 @protocol JavaUtilEnumeration;
 @protocol JavaUtilMap;
 @protocol JavaUtilSet;
@@ -118,13 +125,13 @@
 /*!
  @brief Creates an empty property list with no default values.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates an empty property list with the specified defaults.
  @param defaults the defaults.
  */
-- (instancetype)initWithJavaUtilProperties:(JavaUtilProperties *)defaults;
+- (instancetype __nonnull)initWithJavaUtilProperties:(JavaUtilProperties *)defaults;
 
 /*!
  @brief Searches for the property with the specified key in this property list.
@@ -571,14 +578,19 @@ cheeses
  */
 - (id<JavaUtilSet>)stringPropertyNames;
 
+#pragma mark Package-Private
+
++ (void)load0WithJavaUtilMap:(id<JavaUtilMap>)map
+withJavaUtilProperties_LineReader:(JavaUtilProperties_LineReader *)lr;
+
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithInt:(jint)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithInt:(jint)arg0 NS_UNAVAILABLE;
 
-- (instancetype)initWithInt:(jint)arg0
-                  withFloat:(jfloat)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithInt:(jint)arg0
+                            withFloat:(jfloat)arg1 NS_UNAVAILABLE;
 
-- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -598,6 +610,8 @@ FOUNDATION_EXPORT JavaUtilProperties *new_JavaUtilProperties_initWithJavaUtilPro
 
 FOUNDATION_EXPORT JavaUtilProperties *create_JavaUtilProperties_initWithJavaUtilProperties_(JavaUtilProperties *defaults);
 
+FOUNDATION_EXPORT void JavaUtilProperties_load0WithJavaUtilMap_withJavaUtilProperties_LineReader_(id<JavaUtilMap> map, JavaUtilProperties_LineReader *lr);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilProperties)
 
 #endif
@@ -609,7 +623,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilProperties)
 @class IOSCharArray;
 @class JavaIoInputStream;
 @class JavaIoReader;
-@class JavaUtilProperties;
 
 @interface JavaUtilProperties_LineReader : NSObject {
  @public
@@ -624,11 +637,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilProperties)
 
 #pragma mark Public
 
-- (instancetype)initWithJavaUtilProperties:(JavaUtilProperties *)outer$
-                     withJavaIoInputStream:(JavaIoInputStream *)inStream;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inStream;
 
-- (instancetype)initWithJavaUtilProperties:(JavaUtilProperties *)outer$
-                          withJavaIoReader:(JavaIoReader *)reader;
+- (instancetype __nonnull)initWithJavaIoReader:(JavaIoReader *)reader;
 
 #pragma mark Package-Private
 
@@ -636,7 +647,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilProperties)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -648,17 +659,17 @@ J2OBJC_FIELD_SETTER(JavaUtilProperties_LineReader, lineBuf_, IOSCharArray *)
 J2OBJC_FIELD_SETTER(JavaUtilProperties_LineReader, inStream_, JavaIoInputStream *)
 J2OBJC_FIELD_SETTER(JavaUtilProperties_LineReader, reader_, JavaIoReader *)
 
-FOUNDATION_EXPORT void JavaUtilProperties_LineReader_initWithJavaUtilProperties_withJavaIoInputStream_(JavaUtilProperties_LineReader *self, JavaUtilProperties *outer$, JavaIoInputStream *inStream);
+FOUNDATION_EXPORT void JavaUtilProperties_LineReader_initWithJavaIoInputStream_(JavaUtilProperties_LineReader *self, JavaIoInputStream *inStream);
 
-FOUNDATION_EXPORT JavaUtilProperties_LineReader *new_JavaUtilProperties_LineReader_initWithJavaUtilProperties_withJavaIoInputStream_(JavaUtilProperties *outer$, JavaIoInputStream *inStream) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaUtilProperties_LineReader *new_JavaUtilProperties_LineReader_initWithJavaIoInputStream_(JavaIoInputStream *inStream) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaUtilProperties_LineReader *create_JavaUtilProperties_LineReader_initWithJavaUtilProperties_withJavaIoInputStream_(JavaUtilProperties *outer$, JavaIoInputStream *inStream);
+FOUNDATION_EXPORT JavaUtilProperties_LineReader *create_JavaUtilProperties_LineReader_initWithJavaIoInputStream_(JavaIoInputStream *inStream);
 
-FOUNDATION_EXPORT void JavaUtilProperties_LineReader_initWithJavaUtilProperties_withJavaIoReader_(JavaUtilProperties_LineReader *self, JavaUtilProperties *outer$, JavaIoReader *reader);
+FOUNDATION_EXPORT void JavaUtilProperties_LineReader_initWithJavaIoReader_(JavaUtilProperties_LineReader *self, JavaIoReader *reader);
 
-FOUNDATION_EXPORT JavaUtilProperties_LineReader *new_JavaUtilProperties_LineReader_initWithJavaUtilProperties_withJavaIoReader_(JavaUtilProperties *outer$, JavaIoReader *reader) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaUtilProperties_LineReader *new_JavaUtilProperties_LineReader_initWithJavaIoReader_(JavaIoReader *reader) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaUtilProperties_LineReader *create_JavaUtilProperties_LineReader_initWithJavaUtilProperties_withJavaIoReader_(JavaUtilProperties *outer$, JavaIoReader *reader);
+FOUNDATION_EXPORT JavaUtilProperties_LineReader *create_JavaUtilProperties_LineReader_initWithJavaIoReader_(JavaIoReader *reader);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilProperties_LineReader)
 
@@ -682,6 +693,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilProperties_LineReader)
 @end
 
 @interface JavaUtilProperties_XmlLoader : NSObject
+@property (readonly, class, strong) id<JavaUtilProperties_XmlLoader> INSTANCE NS_SWIFT_NAME(INSTANCE);
 
 + (id<JavaUtilProperties_XmlLoader>)INSTANCE;
 
@@ -698,6 +710,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilProperties_XmlLoader)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilProperties")

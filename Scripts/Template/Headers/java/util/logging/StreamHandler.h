@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilLoggingStreamHandler_) && (INCLUDE_ALL_JavaUtilLoggingStreamHandler || defined(INCLUDE_JavaUtilLoggingStreamHandler))
 #define JavaUtilLoggingStreamHandler_
 
@@ -62,7 +68,7 @@
 /*!
  @brief Create a <tt>StreamHandler</tt>, with no current output stream.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Create a <tt>StreamHandler</tt> with a given <tt>Formatter</tt>
@@ -71,8 +77,8 @@
  @param outArg the target output stream
  @param formatter Formatter to be used to format output
  */
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-              withJavaUtilLoggingFormatter:(JavaUtilLoggingFormatter *)formatter;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+                        withJavaUtilLoggingFormatter:(JavaUtilLoggingFormatter *)formatter;
 
 /*!
  @brief Close the current output stream.
@@ -167,6 +173,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingStreamHandler)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingStreamHandler")

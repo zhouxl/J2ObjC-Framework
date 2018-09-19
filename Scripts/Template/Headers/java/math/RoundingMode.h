@@ -18,6 +18,7 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -105,6 +106,14 @@ typedef NS_ENUM(NSUInteger, JavaMathRoundingMode_Enum) {
   jint oldMode_;
 }
 
+@property (readonly, class, nonnull) JavaMathRoundingMode *UP NS_SWIFT_NAME(UP);
+@property (readonly, class, nonnull) JavaMathRoundingMode *DOWN NS_SWIFT_NAME(DOWN);
+@property (readonly, class, nonnull) JavaMathRoundingMode *CEILING NS_SWIFT_NAME(CEILING);
+@property (readonly, class, nonnull) JavaMathRoundingMode *FLOOR NS_SWIFT_NAME(FLOOR);
+@property (readonly, class, nonnull) JavaMathRoundingMode *HALF_UP NS_SWIFT_NAME(HALF_UP);
+@property (readonly, class, nonnull) JavaMathRoundingMode *HALF_DOWN NS_SWIFT_NAME(HALF_DOWN);
+@property (readonly, class, nonnull) JavaMathRoundingMode *HALF_EVEN NS_SWIFT_NAME(HALF_EVEN);
+@property (readonly, class, nonnull) JavaMathRoundingMode *UNNECESSARY NS_SWIFT_NAME(UNNECESSARY);
 + (JavaMathRoundingMode * __nonnull)UP;
 
 + (JavaMathRoundingMode * __nonnull)DOWN;

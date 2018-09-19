@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoBufferedInputStream_) && (INCLUDE_ALL_JavaIoBufferedInputStream || defined(INCLUDE_JavaIoBufferedInputStream))
 #define JavaIoBufferedInputStream_
 
@@ -130,7 +136,7 @@
   buffer array is created and  stored in <code>buf</code>.
  @param inArg the underlying input stream.
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
 
 /*!
  @brief Creates a <code>BufferedInputStream</code>
@@ -143,8 +149,8 @@
  @param size the buffer size.
  @throw IllegalArgumentExceptionif size <= 0.
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
-                                  withInt:(jint)size;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
+                                            withInt:(jint)size;
 
 /*!
  @brief Returns an estimate of the number of bytes that can be read (or
@@ -294,6 +300,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoBufferedInputStream)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoBufferedInputStream")

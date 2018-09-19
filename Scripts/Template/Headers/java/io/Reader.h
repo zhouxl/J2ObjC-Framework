@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoReader_) && (INCLUDE_ALL_JavaIoReader || defined(INCLUDE_JavaIoReader))
 #define JavaIoReader_
 
@@ -188,14 +194,14 @@
  @brief Creates a new character-stream reader whose critical sections will
   synchronize on the reader itself.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a new character-stream reader whose critical sections will
   synchronize on the given object.
  @param lock The Object to synchronize on.
  */
-- (instancetype)initWithId:(id)lock;
+- (instancetype __nonnull)initWithId:(id)lock;
 
 @end
 
@@ -211,6 +217,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoReader)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoReader")

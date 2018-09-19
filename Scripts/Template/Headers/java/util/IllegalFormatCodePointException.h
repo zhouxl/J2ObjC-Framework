@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilIllegalFormatCodePointException_) && (INCLUDE_ALL_JavaUtilIllegalFormatCodePointException || defined(INCLUDE_JavaUtilIllegalFormatCodePointException))
 #define JavaUtilIllegalFormatCodePointException_
 
@@ -41,7 +47,7 @@
   point as defined by <code>Character.isValidCodePoint</code>.
  @param c The illegal Unicode code point
  */
-- (instancetype)initWithInt:(jint)c;
+- (instancetype __nonnull)initWithInt:(jint)c;
 
 /*!
  @brief Returns the illegal code point as defined by <code>Character.isValidCodePoint</code>
@@ -54,7 +60,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -70,6 +76,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIllegalFormatCodePointException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilIllegalFormatCodePointException")

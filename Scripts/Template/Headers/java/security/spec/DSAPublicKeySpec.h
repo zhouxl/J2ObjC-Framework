@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecuritySpecDSAPublicKeySpec_) && (INCLUDE_ALL_JavaSecuritySpecDSAPublicKeySpec || defined(INCLUDE_JavaSecuritySpecDSAPublicKeySpec))
 #define JavaSecuritySpecDSAPublicKeySpec_
 
@@ -46,10 +52,10 @@
  @param q the sub-prime.
  @param g the base.
  */
-- (instancetype)initWithJavaMathBigInteger:(JavaMathBigInteger *)y
-                    withJavaMathBigInteger:(JavaMathBigInteger *)p
-                    withJavaMathBigInteger:(JavaMathBigInteger *)q
-                    withJavaMathBigInteger:(JavaMathBigInteger *)g;
+- (instancetype __nonnull)initWithJavaMathBigInteger:(JavaMathBigInteger *)y
+                              withJavaMathBigInteger:(JavaMathBigInteger *)p
+                              withJavaMathBigInteger:(JavaMathBigInteger *)q
+                              withJavaMathBigInteger:(JavaMathBigInteger *)g;
 
 /*!
  @brief Returns the base <code>g</code>.
@@ -77,7 +83,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -93,6 +99,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecDSAPublicKeySpec)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecDSAPublicKeySpec")

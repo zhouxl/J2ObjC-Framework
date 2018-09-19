@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoFilterReader_) && (INCLUDE_ALL_JavaIoFilterReader || defined(INCLUDE_JavaIoFilterReader))
 #define JavaIoFilterReader_
 
@@ -97,7 +103,7 @@
  @param inArg a Reader object providing the underlying stream.
  @throw NullPointerExceptionif <code>in</code> is <code>null</code>
  */
-- (instancetype)initWithJavaIoReader:(JavaIoReader *)inArg;
+- (instancetype __nonnull)initWithJavaIoReader:(JavaIoReader *)inArg;
 
 @end
 
@@ -111,6 +117,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFilterReader)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoFilterReader")

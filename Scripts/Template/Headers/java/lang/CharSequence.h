@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangCharSequence_) && (INCLUDE_ALL_JavaLangCharSequence || defined(INCLUDE_JavaLangCharSequence))
 #define JavaLangCharSequence_
 
@@ -90,7 +96,7 @@
   this sequence.
  @return a string consisting of exactly this sequence of characters
  */
-- (NSString *)description;
+- (NSString * __nonnull)description;
 
 /*!
  @brief Returns a stream of <code>int</code> zero-extending the <code>char</code> values
@@ -131,6 +137,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangCharSequence)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangCharSequence")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (OrgMockitoInternalCreationIosIosMockMaker_) && (INCLUDE_ALL_OrgMockitoInternalCreationIosIosMockMaker || defined(INCLUDE_OrgMockitoInternalCreationIosIosMockMaker))
 #define OrgMockitoInternalCreationIosIosMockMaker_
 
@@ -37,7 +43,7 @@
 
 #pragma mark Public
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 - (id)createMockWithOrgMockitoMockMockCreationSettings:(id<OrgMockitoMockMockCreationSettings>)settings
                    withOrgMockitoInvocationMockHandler:(id<OrgMockitoInvocationMockHandler>)handler;
@@ -79,7 +85,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgMockitoInternalCreationIosIosMockMaker)
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 - (id<JavaLangReflectInvocationHandler>)getHandler;
 
@@ -101,6 +107,10 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgMockitoInternalCreationIosIosMockMaker_ClassProxy)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgMockitoInternalCreationIosIosMockMaker")

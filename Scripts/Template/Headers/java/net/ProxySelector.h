@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNetProxySelector_) && (INCLUDE_ALL_JavaNetProxySelector || defined(INCLUDE_JavaNetProxySelector))
 #define JavaNetProxySelector_
 
@@ -54,7 +60,7 @@
 
 #pragma mark Public
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Called to indicate that a connection could not be established
@@ -133,6 +139,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetProxySelector)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetProxySelector")

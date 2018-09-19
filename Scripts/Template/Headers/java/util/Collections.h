@@ -61,6 +61,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilCollections_) && (INCLUDE_ALL_JavaUtilCollections || defined(INCLUDE_JavaUtilCollections))
 #define JavaUtilCollections_
 
@@ -119,6 +125,9 @@
  @since 1.2
  */
 @interface JavaUtilCollections : NSObject
+@property (readonly, class, strong) id<JavaUtilSet> EMPTY_SET NS_SWIFT_NAME(EMPTY_SET);
+@property (readonly, class, strong) id<JavaUtilList> EMPTY_LIST NS_SWIFT_NAME(EMPTY_LIST);
+@property (readonly, class, strong) id<JavaUtilMap> EMPTY_MAP NS_SWIFT_NAME(EMPTY_MAP);
 
 + (id<JavaUtilSet>)EMPTY_SET;
 
@@ -1718,11 +1727,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -1765,11 +1774,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_UnmodifiableCollection)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilSet:(id<JavaUtilSet>)s;
+- (instancetype __nonnull)initWithJavaUtilSet:(id<JavaUtilSet>)s;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -1820,11 +1829,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_UnmodifiableSet)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)s;
+- (instancetype __nonnull)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)s;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaUtilSet:(id<JavaUtilSet>)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaUtilSet:(id<JavaUtilSet>)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -1895,11 +1904,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_UnmodifiableSortedSet)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilList:(id<JavaUtilList>)list;
+- (instancetype __nonnull)initWithJavaUtilList:(id<JavaUtilList>)list;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -1937,7 +1946,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_UnmodifiableList)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilList:(id<JavaUtilList>)list;
+- (instancetype __nonnull)initWithJavaUtilList:(id<JavaUtilList>)list;
 
 @end
 
@@ -2042,7 +2051,7 @@ withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)remappingFunction
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)m;
+- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)m;
 
 @end
 
@@ -2093,11 +2102,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_UnmodifiableMap)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilSortedMap:(id<JavaUtilSortedMap>)m;
+- (instancetype __nonnull)initWithJavaUtilSortedMap:(id<JavaUtilSortedMap>)m;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -2181,14 +2190,14 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_UnmodifiableSortedMap)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c
-                                    withId:(id)mutex;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c
+                                              withId:(id)mutex;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -2234,17 +2243,17 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedCollection)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilSet:(id<JavaUtilSet>)s;
+- (instancetype __nonnull)initWithJavaUtilSet:(id<JavaUtilSet>)s;
 
-- (instancetype)initWithJavaUtilSet:(id<JavaUtilSet>)s
-                             withId:(id)mutex;
+- (instancetype __nonnull)initWithJavaUtilSet:(id<JavaUtilSet>)s
+                                       withId:(id)mutex;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0 NS_UNAVAILABLE;
 
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0
-                                    withId:(id)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0
+                                              withId:(id)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -2297,17 +2306,17 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedSet)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)s;
+- (instancetype __nonnull)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)s;
 
-- (instancetype)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)s
-                                   withId:(id)mutex;
+- (instancetype __nonnull)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)s
+                                             withId:(id)mutex;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaUtilSet:(id<JavaUtilSet>)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaUtilSet:(id<JavaUtilSet>)arg0 NS_UNAVAILABLE;
 
-- (instancetype)initWithJavaUtilSet:(id<JavaUtilSet>)arg0
-                             withId:(id)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaUtilSet:(id<JavaUtilSet>)arg0
+                                       withId:(id)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -2384,17 +2393,17 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedSortedSet)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilList:(id<JavaUtilList>)list;
+- (instancetype __nonnull)initWithJavaUtilList:(id<JavaUtilList>)list;
 
-- (instancetype)initWithJavaUtilList:(id<JavaUtilList>)list
-                              withId:(id)mutex;
+- (instancetype __nonnull)initWithJavaUtilList:(id<JavaUtilList>)list
+                                        withId:(id)mutex;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0 NS_UNAVAILABLE;
 
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0
-                                    withId:(id)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0
+                                              withId:(id)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -2438,10 +2447,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedList)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilList:(id<JavaUtilList>)list;
+- (instancetype __nonnull)initWithJavaUtilList:(id<JavaUtilList>)list;
 
-- (instancetype)initWithJavaUtilList:(id<JavaUtilList>)list
-                              withId:(id)mutex;
+- (instancetype __nonnull)initWithJavaUtilList:(id<JavaUtilList>)list
+                                        withId:(id)mutex;
 
 @end
 
@@ -2555,10 +2564,10 @@ withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)remappingFunction
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)m;
+- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)m;
 
-- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)m
-                             withId:(id)mutex;
+- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)m
+                                       withId:(id)mutex;
 
 @end
 
@@ -2613,17 +2622,17 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedMap)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilSortedMap:(id<JavaUtilSortedMap>)m;
+- (instancetype __nonnull)initWithJavaUtilSortedMap:(id<JavaUtilSortedMap>)m;
 
-- (instancetype)initWithJavaUtilSortedMap:(id<JavaUtilSortedMap>)m
-                                   withId:(id)mutex;
+- (instancetype __nonnull)initWithJavaUtilSortedMap:(id<JavaUtilSortedMap>)m
+                                             withId:(id)mutex;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)arg0 NS_UNAVAILABLE;
 
-- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)arg0
-                             withId:(id)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)arg0
+                                       withId:(id)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -2714,8 +2723,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedSortedMap)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c
-                              withIOSClass:(IOSClass *)type;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c
+                                        withIOSClass:(IOSClass *)type;
 
 - (id<JavaUtilCollection>)checkedCopyOfWithJavaUtilCollection:(id<JavaUtilCollection>)coll;
 
@@ -2723,7 +2732,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedSortedMap)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -2768,13 +2777,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_CheckedCollection)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilSet:(id<JavaUtilSet>)s
-                       withIOSClass:(IOSClass *)elementType;
+- (instancetype __nonnull)initWithJavaUtilSet:(id<JavaUtilSet>)s
+                                 withIOSClass:(IOSClass *)elementType;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0
-                              withIOSClass:(IOSClass *)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0
+                                        withIOSClass:(IOSClass *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -2826,13 +2835,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_CheckedSet)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)s
-                             withIOSClass:(IOSClass *)type;
+- (instancetype __nonnull)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)s
+                                       withIOSClass:(IOSClass *)type;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaUtilSet:(id<JavaUtilSet>)arg0
-                       withIOSClass:(IOSClass *)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaUtilSet:(id<JavaUtilSet>)arg0
+                                 withIOSClass:(IOSClass *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -2910,13 +2919,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_CheckedSortedSet)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilList:(id<JavaUtilList>)list
-                        withIOSClass:(IOSClass *)type;
+- (instancetype __nonnull)initWithJavaUtilList:(id<JavaUtilList>)list
+                                  withIOSClass:(IOSClass *)type;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0
-                              withIOSClass:(IOSClass *)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0
+                                        withIOSClass:(IOSClass *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -2955,8 +2964,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_CheckedList)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilList:(id<JavaUtilList>)list
-                        withIOSClass:(IOSClass *)type;
+- (instancetype __nonnull)initWithJavaUtilList:(id<JavaUtilList>)list
+                                  withIOSClass:(IOSClass *)type;
 
 @end
 
@@ -3063,9 +3072,9 @@ withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)remappingFunction
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)m
-                       withIOSClass:(IOSClass *)keyType
-                       withIOSClass:(IOSClass *)valueType;
+- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)m
+                                 withIOSClass:(IOSClass *)keyType
+                                 withIOSClass:(IOSClass *)valueType;
 
 @end
 
@@ -3120,15 +3129,15 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_CheckedMap)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilSortedMap:(id<JavaUtilSortedMap>)m
-                             withIOSClass:(IOSClass *)keyType
-                             withIOSClass:(IOSClass *)valueType;
+- (instancetype __nonnull)initWithJavaUtilSortedMap:(id<JavaUtilSortedMap>)m
+                                       withIOSClass:(IOSClass *)keyType
+                                       withIOSClass:(IOSClass *)valueType;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)arg0
-                       withIOSClass:(IOSClass *)arg1
-                       withIOSClass:(IOSClass *)arg2 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)arg0
+                                 withIOSClass:(IOSClass *)arg1
+                                 withIOSClass:(IOSClass *)arg2 NS_UNAVAILABLE;
 
 @end
 
@@ -3222,11 +3231,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_CheckedSortedMap)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilDeque:(id<JavaUtilDeque>)q;
+- (instancetype __nonnull)initWithJavaUtilDeque:(id<JavaUtilDeque>)q;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -3242,6 +3251,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_AsLIFOQueue)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilCollections")

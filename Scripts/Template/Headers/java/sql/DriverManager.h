@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSqlDriverManager_) && (INCLUDE_ALL_JavaSqlDriverManager || defined(INCLUDE_JavaSqlDriverManager))
 #define JavaSqlDriverManager_
 
@@ -74,6 +80,7 @@
  - seealso: Connection
  */
 @interface JavaSqlDriverManager : NSObject
+@property (readonly, class, strong) JavaSqlSQLPermission *SET_LOG_PERMISSION NS_SWIFT_NAME(SET_LOG_PERMISSION);
 
 + (JavaSqlSQLPermission *)SET_LOG_PERMISSION;
 
@@ -314,11 +321,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlDriverManager)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaSqlDriver:(id<JavaSqlDriver>)driver;
+- (instancetype __nonnull)initWithJavaSqlDriver:(id<JavaSqlDriver>)driver;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -336,6 +343,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlDriverInfo)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSqlDriverManager")

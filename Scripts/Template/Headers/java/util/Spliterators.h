@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilSpliterators_) && (INCLUDE_ALL_JavaUtilSpliterators || defined(INCLUDE_JavaUtilSpliterators))
 #define JavaUtilSpliterators_
 
@@ -640,8 +646,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators)
  <code>SIZED</code>  and  <code>SUBSIZED</code>
    which are are always reported
  */
-- (instancetype)initWithNSObjectArray:(IOSObjectArray *)array
-                              withInt:(jint)additionalCharacteristics;
+- (instancetype __nonnull)initWithNSObjectArray:(IOSObjectArray *)array
+                                        withInt:(jint)additionalCharacteristics;
 
 /*!
  @brief Creates a spliterator covering the given array and range
@@ -652,10 +658,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators)
  <code>SIZED</code>  and  <code>SUBSIZED</code>
    which are are always reported
  */
-- (instancetype)initWithNSObjectArray:(IOSObjectArray *)array
-                              withInt:(jint)origin
-                              withInt:(jint)fence
-                              withInt:(jint)additionalCharacteristics;
+- (instancetype __nonnull)initWithNSObjectArray:(IOSObjectArray *)array
+                                        withInt:(jint)origin
+                                        withInt:(jint)fence
+                                        withInt:(jint)additionalCharacteristics;
 
 - (jint)characteristics;
 
@@ -671,7 +677,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -720,8 +726,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_ArraySpliterator)
  <code>SIZED</code>  and         <code>SUBSIZED</code>
    which are are always reported
  */
-- (instancetype)initWithIntArray:(IOSIntArray *)array
-                         withInt:(jint)additionalCharacteristics;
+- (instancetype __nonnull)initWithIntArray:(IOSIntArray *)array
+                                   withInt:(jint)additionalCharacteristics;
 
 /*!
  @brief Creates a spliterator covering the given array and range
@@ -732,10 +738,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_ArraySpliterator)
  <code>SIZED</code>  and         <code>SUBSIZED</code>
    which are are always reported
  */
-- (instancetype)initWithIntArray:(IOSIntArray *)array
-                         withInt:(jint)origin
-                         withInt:(jint)fence
-                         withInt:(jint)additionalCharacteristics;
+- (instancetype __nonnull)initWithIntArray:(IOSIntArray *)array
+                                   withInt:(jint)origin
+                                   withInt:(jint)fence
+                                   withInt:(jint)additionalCharacteristics;
 
 - (jint)characteristics;
 
@@ -751,7 +757,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_ArraySpliterator)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -800,8 +806,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_IntArraySpliterator)
  <code>SIZED</code>  and         <code>SUBSIZED</code>
    which are are always reported
  */
-- (instancetype)initWithLongArray:(IOSLongArray *)array
-                          withInt:(jint)additionalCharacteristics;
+- (instancetype __nonnull)initWithLongArray:(IOSLongArray *)array
+                                    withInt:(jint)additionalCharacteristics;
 
 /*!
  @brief Creates a spliterator covering the given array and range
@@ -812,10 +818,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_IntArraySpliterator)
  <code>SIZED</code>  and         <code>SUBSIZED</code>
    which are are always reported
  */
-- (instancetype)initWithLongArray:(IOSLongArray *)array
-                          withInt:(jint)origin
-                          withInt:(jint)fence
-                          withInt:(jint)additionalCharacteristics;
+- (instancetype __nonnull)initWithLongArray:(IOSLongArray *)array
+                                    withInt:(jint)origin
+                                    withInt:(jint)fence
+                                    withInt:(jint)additionalCharacteristics;
 
 - (jint)characteristics;
 
@@ -831,7 +837,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_IntArraySpliterator)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -880,8 +886,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_LongArraySpliterator)
  <code>SIZED</code>  and         <code>SUBSIZED</code>
    which are are always reported
  */
-- (instancetype)initWithDoubleArray:(IOSDoubleArray *)array
-                            withInt:(jint)additionalCharacteristics;
+- (instancetype __nonnull)initWithDoubleArray:(IOSDoubleArray *)array
+                                      withInt:(jint)additionalCharacteristics;
 
 /*!
  @brief Creates a spliterator covering the given array and range
@@ -892,10 +898,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_LongArraySpliterator)
  <code>SIZED</code>  and         <code>SUBSIZED</code>
    which are are always reported
  */
-- (instancetype)initWithDoubleArray:(IOSDoubleArray *)array
-                            withInt:(jint)origin
-                            withInt:(jint)fence
-                            withInt:(jint)additionalCharacteristics;
+- (instancetype __nonnull)initWithDoubleArray:(IOSDoubleArray *)array
+                                      withInt:(jint)origin
+                                      withInt:(jint)fence
+                                      withInt:(jint)additionalCharacteristics;
 
 - (jint)characteristics;
 
@@ -911,7 +917,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_LongArraySpliterator)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -955,6 +961,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_DoubleArraySpliterator)
  @since 1.8
  */
 @interface JavaUtilSpliterators_AbstractSpliterator : NSObject < JavaUtilSpliterator >
+@property (readonly, class) jint BATCH_UNIT NS_SWIFT_NAME(BATCH_UNIT);
+@property (readonly, class) jint MAX_BATCH NS_SWIFT_NAME(MAX_BATCH);
 
 + (jint)BATCH_UNIT;
 
@@ -986,8 +994,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_DoubleArraySpliterator)
  <code>SIZED</code>  is reported then this         spliterator will additionally report 
  <code>SUBSIZED</code> .
  */
-- (instancetype)initWithLong:(jlong)est
-                     withInt:(jint)additionalCharacteristics;
+- (instancetype __nonnull)initWithLong:(jlong)est
+                               withInt:(jint)additionalCharacteristics;
 
 @end
 
@@ -1025,7 +1033,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_AbstractSpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -1066,6 +1074,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_AbstractSpliterator_HoldingConsu
  @since 1.8
  */
 @interface JavaUtilSpliterators_AbstractIntSpliterator : NSObject < JavaUtilSpliterator_OfInt >
+@property (readonly, class) jint MAX_BATCH NS_SWIFT_NAME(MAX_BATCH);
+@property (readonly, class) jint BATCH_UNIT NS_SWIFT_NAME(BATCH_UNIT);
 
 + (jint)MAX_BATCH;
 
@@ -1097,8 +1107,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_AbstractSpliterator_HoldingConsu
  <code>SIZED</code>  is reported then this         spliterator will additionally report 
  <code>SUBSIZED</code> .
  */
-- (instancetype)initWithLong:(jlong)est
-                     withInt:(jint)additionalCharacteristics;
+- (instancetype __nonnull)initWithLong:(jlong)est
+                               withInt:(jint)additionalCharacteristics;
 
 @end
 
@@ -1136,7 +1146,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_AbstractIntSpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -1175,6 +1185,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_AbstractIntSpliterator_HoldingIn
  @since 1.8
  */
 @interface JavaUtilSpliterators_AbstractLongSpliterator : NSObject < JavaUtilSpliterator_OfLong >
+@property (readonly, class) jint MAX_BATCH NS_SWIFT_NAME(MAX_BATCH);
+@property (readonly, class) jint BATCH_UNIT NS_SWIFT_NAME(BATCH_UNIT);
 
 + (jint)MAX_BATCH;
 
@@ -1206,8 +1218,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_AbstractIntSpliterator_HoldingIn
  <code>SIZED</code>  is reported then this         spliterator will additionally report 
  <code>SUBSIZED</code> .
  */
-- (instancetype)initWithLong:(jlong)est
-                     withInt:(jint)additionalCharacteristics;
+- (instancetype __nonnull)initWithLong:(jlong)est
+                               withInt:(jint)additionalCharacteristics;
 
 @end
 
@@ -1245,7 +1257,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_AbstractLongSpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -1284,6 +1296,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_AbstractLongSpliterator_HoldingL
  @since 1.8
  */
 @interface JavaUtilSpliterators_AbstractDoubleSpliterator : NSObject < JavaUtilSpliterator_OfDouble >
+@property (readonly, class) jint MAX_BATCH NS_SWIFT_NAME(MAX_BATCH);
+@property (readonly, class) jint BATCH_UNIT NS_SWIFT_NAME(BATCH_UNIT);
 
 + (jint)MAX_BATCH;
 
@@ -1315,8 +1329,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_AbstractLongSpliterator_HoldingL
  <code>SIZED</code>  is reported then this         spliterator will additionally report 
  <code>SUBSIZED</code> .
  */
-- (instancetype)initWithLong:(jlong)est
-                     withInt:(jint)additionalCharacteristics;
+- (instancetype __nonnull)initWithLong:(jlong)est
+                               withInt:(jint)additionalCharacteristics;
 
 @end
 
@@ -1354,7 +1368,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_AbstractDoubleSpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -1388,6 +1402,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_AbstractDoubleSpliterator_Holdin
   permit limited parallelism.
  */
 @interface JavaUtilSpliterators_IteratorSpliterator : NSObject < JavaUtilSpliterator >
+@property (readonly, class) jint BATCH_UNIT NS_SWIFT_NAME(BATCH_UNIT);
+@property (readonly, class) jint MAX_BATCH NS_SWIFT_NAME(MAX_BATCH);
 
 + (jint)BATCH_UNIT;
 
@@ -1403,8 +1419,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_AbstractDoubleSpliterator_Holdin
  @param c the collection
  @param characteristics properties of this spliterator's         source or elements.
  */
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)collection
-                                   withInt:(jint)characteristics;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)collection
+                                             withInt:(jint)characteristics;
 
 /*!
  @brief Creates a spliterator using the given iterator
@@ -1413,8 +1429,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_AbstractDoubleSpliterator_Holdin
  @param iterator the iterator for the source
  @param characteristics properties of this spliterator's  source or elements.
  */
-- (instancetype)initWithJavaUtilIterator:(id<JavaUtilIterator>)iterator
-                                 withInt:(jint)characteristics;
+- (instancetype __nonnull)initWithJavaUtilIterator:(id<JavaUtilIterator>)iterator
+                                           withInt:(jint)characteristics;
 
 /*!
  @brief Creates a spliterator using the given iterator
@@ -1424,9 +1440,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_AbstractDoubleSpliterator_Holdin
  @param size the number of elements in the source
  @param characteristics properties of this spliterator's  source or elements.
  */
-- (instancetype)initWithJavaUtilIterator:(id<JavaUtilIterator>)iterator
-                                withLong:(jlong)size
-                                 withInt:(jint)characteristics;
+- (instancetype __nonnull)initWithJavaUtilIterator:(id<JavaUtilIterator>)iterator
+                                          withLong:(jlong)size
+                                           withInt:(jint)characteristics;
 
 - (jint)characteristics;
 
@@ -1442,7 +1458,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_AbstractDoubleSpliterator_Holdin
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -1496,6 +1512,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_IteratorSpliterator)
   permit limited parallelism.
  */
 @interface JavaUtilSpliterators_IntIteratorSpliterator : NSObject < JavaUtilSpliterator_OfInt >
+@property (readonly, class) jint BATCH_UNIT NS_SWIFT_NAME(BATCH_UNIT);
+@property (readonly, class) jint MAX_BATCH NS_SWIFT_NAME(MAX_BATCH);
 
 + (jint)BATCH_UNIT;
 
@@ -1510,8 +1528,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_IteratorSpliterator)
  @param iterator the iterator for the source
  @param characteristics properties of this spliterator's  source or elements.
  */
-- (instancetype)initWithJavaUtilPrimitiveIterator_OfInt:(id<JavaUtilPrimitiveIterator_OfInt>)iterator
-                                                withInt:(jint)characteristics;
+- (instancetype __nonnull)initWithJavaUtilPrimitiveIterator_OfInt:(id<JavaUtilPrimitiveIterator_OfInt>)iterator
+                                                          withInt:(jint)characteristics;
 
 /*!
  @brief Creates a spliterator using the given iterator
@@ -1521,9 +1539,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_IteratorSpliterator)
  @param size the number of elements in the source
  @param characteristics properties of this spliterator's  source or elements.
  */
-- (instancetype)initWithJavaUtilPrimitiveIterator_OfInt:(id<JavaUtilPrimitiveIterator_OfInt>)iterator
-                                               withLong:(jlong)size
-                                                withInt:(jint)characteristics;
+- (instancetype __nonnull)initWithJavaUtilPrimitiveIterator_OfInt:(id<JavaUtilPrimitiveIterator_OfInt>)iterator
+                                                         withLong:(jlong)size
+                                                          withInt:(jint)characteristics;
 
 - (jint)characteristics;
 
@@ -1539,7 +1557,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_IteratorSpliterator)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -1582,6 +1600,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_IntIteratorSpliterator)
 @protocol JavaUtilPrimitiveIterator_OfLong;
 
 @interface JavaUtilSpliterators_LongIteratorSpliterator : NSObject < JavaUtilSpliterator_OfLong >
+@property (readonly, class) jint BATCH_UNIT NS_SWIFT_NAME(BATCH_UNIT);
+@property (readonly, class) jint MAX_BATCH NS_SWIFT_NAME(MAX_BATCH);
 
 + (jint)BATCH_UNIT;
 
@@ -1596,8 +1616,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_IntIteratorSpliterator)
  @param iterator the iterator for the source
  @param characteristics properties of this spliterator's  source or elements.
  */
-- (instancetype)initWithJavaUtilPrimitiveIterator_OfLong:(id<JavaUtilPrimitiveIterator_OfLong>)iterator
-                                                 withInt:(jint)characteristics;
+- (instancetype __nonnull)initWithJavaUtilPrimitiveIterator_OfLong:(id<JavaUtilPrimitiveIterator_OfLong>)iterator
+                                                           withInt:(jint)characteristics;
 
 /*!
  @brief Creates a spliterator using the given iterator
@@ -1607,9 +1627,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_IntIteratorSpliterator)
  @param size the number of elements in the source
  @param characteristics properties of this spliterator's  source or elements.
  */
-- (instancetype)initWithJavaUtilPrimitiveIterator_OfLong:(id<JavaUtilPrimitiveIterator_OfLong>)iterator
-                                                withLong:(jlong)size
-                                                 withInt:(jint)characteristics;
+- (instancetype __nonnull)initWithJavaUtilPrimitiveIterator_OfLong:(id<JavaUtilPrimitiveIterator_OfLong>)iterator
+                                                          withLong:(jlong)size
+                                                           withInt:(jint)characteristics;
 
 - (jint)characteristics;
 
@@ -1625,7 +1645,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_IntIteratorSpliterator)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -1668,6 +1688,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_LongIteratorSpliterator)
 @protocol JavaUtilPrimitiveIterator_OfDouble;
 
 @interface JavaUtilSpliterators_DoubleIteratorSpliterator : NSObject < JavaUtilSpliterator_OfDouble >
+@property (readonly, class) jint BATCH_UNIT NS_SWIFT_NAME(BATCH_UNIT);
+@property (readonly, class) jint MAX_BATCH NS_SWIFT_NAME(MAX_BATCH);
 
 + (jint)BATCH_UNIT;
 
@@ -1682,8 +1704,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_LongIteratorSpliterator)
  @param iterator the iterator for the source
  @param characteristics properties of this spliterator's  source or elements.
  */
-- (instancetype)initWithJavaUtilPrimitiveIterator_OfDouble:(id<JavaUtilPrimitiveIterator_OfDouble>)iterator
-                                                   withInt:(jint)characteristics;
+- (instancetype __nonnull)initWithJavaUtilPrimitiveIterator_OfDouble:(id<JavaUtilPrimitiveIterator_OfDouble>)iterator
+                                                             withInt:(jint)characteristics;
 
 /*!
  @brief Creates a spliterator using the given iterator
@@ -1693,9 +1715,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_LongIteratorSpliterator)
  @param size the number of elements in the source
  @param characteristics properties of this spliterator's  source or elements.
  */
-- (instancetype)initWithJavaUtilPrimitiveIterator_OfDouble:(id<JavaUtilPrimitiveIterator_OfDouble>)iterator
-                                                  withLong:(jlong)size
-                                                   withInt:(jint)characteristics;
+- (instancetype __nonnull)initWithJavaUtilPrimitiveIterator_OfDouble:(id<JavaUtilPrimitiveIterator_OfDouble>)iterator
+                                                            withLong:(jlong)size
+                                                             withInt:(jint)characteristics;
 
 - (jint)characteristics;
 
@@ -1711,7 +1733,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_LongIteratorSpliterator)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -1741,6 +1763,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSpliterators_DoubleIteratorSpliterator)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilSpliterators")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoPipedOutputStream_) && (INCLUDE_ALL_JavaIoPipedOutputStream || defined(INCLUDE_JavaIoPipedOutputStream))
 #define JavaIoPipedOutputStream_
 
@@ -41,7 +47,7 @@
   stream must be connected to a <code>PipedInputStream</code> before data can be
   written to it.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a new <code>PipedOutputStream</code> connected to the 
@@ -51,7 +57,7 @@
  @throw IOException
  if this stream or <code>target</code> are already connected.
  */
-- (instancetype)initWithJavaIoPipedInputStream:(JavaIoPipedInputStream *)target;
+- (instancetype __nonnull)initWithJavaIoPipedInputStream:(JavaIoPipedInputStream *)target;
 
 /*!
  @brief Closes this stream.If this stream is connected to an input stream, the
@@ -148,6 +154,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoPipedOutputStream)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoPipedOutputStream")

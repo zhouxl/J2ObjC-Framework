@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (OrgW3cDomDOMException_) && (INCLUDE_ALL_OrgW3cDomDOMException || defined(INCLUDE_OrgW3cDomDOMException))
 #define OrgW3cDomDOMException_
 
@@ -47,6 +53,23 @@
  @public
   jshort code_;
 }
+@property (readonly, class) jshort INDEX_SIZE_ERR NS_SWIFT_NAME(INDEX_SIZE_ERR);
+@property (readonly, class) jshort DOMSTRING_SIZE_ERR NS_SWIFT_NAME(DOMSTRING_SIZE_ERR);
+@property (readonly, class) jshort HIERARCHY_REQUEST_ERR NS_SWIFT_NAME(HIERARCHY_REQUEST_ERR);
+@property (readonly, class) jshort WRONG_DOCUMENT_ERR NS_SWIFT_NAME(WRONG_DOCUMENT_ERR);
+@property (readonly, class) jshort INVALID_CHARACTER_ERR NS_SWIFT_NAME(INVALID_CHARACTER_ERR);
+@property (readonly, class) jshort NO_DATA_ALLOWED_ERR NS_SWIFT_NAME(NO_DATA_ALLOWED_ERR);
+@property (readonly, class) jshort NO_MODIFICATION_ALLOWED_ERR NS_SWIFT_NAME(NO_MODIFICATION_ALLOWED_ERR);
+@property (readonly, class) jshort NOT_FOUND_ERR NS_SWIFT_NAME(NOT_FOUND_ERR);
+@property (readonly, class) jshort NOT_SUPPORTED_ERR NS_SWIFT_NAME(NOT_SUPPORTED_ERR);
+@property (readonly, class) jshort INUSE_ATTRIBUTE_ERR NS_SWIFT_NAME(INUSE_ATTRIBUTE_ERR);
+@property (readonly, class) jshort INVALID_STATE_ERR NS_SWIFT_NAME(INVALID_STATE_ERR);
+@property (readonly, class) jshort SYNTAX_ERR NS_SWIFT_NAME(SYNTAX_ERR);
+@property (readonly, class) jshort INVALID_MODIFICATION_ERR NS_SWIFT_NAME(INVALID_MODIFICATION_ERR);
+@property (readonly, class) jshort NAMESPACE_ERR NS_SWIFT_NAME(NAMESPACE_ERR);
+@property (readonly, class) jshort INVALID_ACCESS_ERR NS_SWIFT_NAME(INVALID_ACCESS_ERR);
+@property (readonly, class) jshort VALIDATION_ERR NS_SWIFT_NAME(VALIDATION_ERR);
+@property (readonly, class) jshort TYPE_MISMATCH_ERR NS_SWIFT_NAME(TYPE_MISMATCH_ERR);
 
 + (jshort)INDEX_SIZE_ERR;
 
@@ -84,24 +107,24 @@
 
 #pragma mark Public
 
-- (instancetype)initWithShort:(jshort)code
-                 withNSString:(NSString *)message;
+- (instancetype __nonnull)initWithShort:(jshort)code
+                           withNSString:(NSString *)message;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
 
-- (instancetype)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
 
-- (instancetype)initWithNSString:(NSString *)arg0
-           withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0
+                     withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
 
-- (instancetype)initWithNSString:(NSString *)arg0
-           withJavaLangThrowable:(JavaLangThrowable *)arg1
-                     withBoolean:(jboolean)arg2
-                     withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0
+                     withJavaLangThrowable:(JavaLangThrowable *)arg1
+                               withBoolean:(jboolean)arg2
+                               withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -259,6 +282,10 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomDOMException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgW3cDomDOMException")

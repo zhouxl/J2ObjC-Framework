@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNetSocketOptions_) && (INCLUDE_ALL_JavaNetSocketOptions || defined(INCLUDE_JavaNetSocketOptions))
 #define JavaNetSocketOptions_
 
@@ -127,6 +133,20 @@
 @end
 
 @interface JavaNetSocketOptions : NSObject
+@property (readonly, class) jint TCP_NODELAY_ NS_SWIFT_NAME(TCP_NODELAY_);
+@property (readonly, class) jint SO_BINDADDR NS_SWIFT_NAME(SO_BINDADDR);
+@property (readonly, class) jint SO_REUSEADDR_ NS_SWIFT_NAME(SO_REUSEADDR_);
+@property (readonly, class) jint SO_BROADCAST_ NS_SWIFT_NAME(SO_BROADCAST_);
+@property (readonly, class) jint IP_MULTICAST_IF_ NS_SWIFT_NAME(IP_MULTICAST_IF_);
+@property (readonly, class) jint IP_MULTICAST_IF2 NS_SWIFT_NAME(IP_MULTICAST_IF2);
+@property (readonly, class) jint IP_MULTICAST_LOOP_ NS_SWIFT_NAME(IP_MULTICAST_LOOP_);
+@property (readonly, class) jint IP_TOS_ NS_SWIFT_NAME(IP_TOS_);
+@property (readonly, class) jint SO_LINGER_ NS_SWIFT_NAME(SO_LINGER_);
+@property (readonly, class) jint SO_TIMEOUT NS_SWIFT_NAME(SO_TIMEOUT);
+@property (readonly, class) jint SO_SNDBUF_ NS_SWIFT_NAME(SO_SNDBUF_);
+@property (readonly, class) jint SO_RCVBUF_ NS_SWIFT_NAME(SO_RCVBUF_);
+@property (readonly, class) jint SO_KEEPALIVE_ NS_SWIFT_NAME(SO_KEEPALIVE_);
+@property (readonly, class) jint SO_OOBINLINE_ NS_SWIFT_NAME(SO_OOBINLINE_);
 
 + (jint)TCP_NODELAY_;
 
@@ -136,13 +156,13 @@
 
 + (jint)SO_BROADCAST_;
 
-+ (jint)IP_MULTICAST_IF;
++ (jint)IP_MULTICAST_IF_;
 
 + (jint)IP_MULTICAST_IF2;
 
 + (jint)IP_MULTICAST_LOOP_;
 
-+ (jint)IP_TOS;
++ (jint)IP_TOS_;
 
 + (jint)SO_LINGER_;
 
@@ -154,7 +174,7 @@
 
 + (jint)SO_KEEPALIVE_;
 
-+ (jint)SO_OOBINLINE;
++ (jint)SO_OOBINLINE_;
 
 @end
 
@@ -386,6 +406,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetSocketOptions)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetSocketOptions")

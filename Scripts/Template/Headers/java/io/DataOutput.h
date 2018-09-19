@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoDataOutput_) && (INCLUDE_ALL_JavaIoDataOutput || defined(INCLUDE_JavaIoDataOutput))
 #define JavaIoDataOutput_
 
@@ -179,6 +185,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoDataOutput)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoDataOutput")

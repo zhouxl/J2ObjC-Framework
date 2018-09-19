@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilJarJarFile_) && (INCLUDE_ALL_JavaUtilJarJarFile || defined(INCLUDE_JavaUtilJarJarFile))
 #define JavaUtilJarJarFile_
 
@@ -48,6 +54,8 @@
  @since 1.2
  */
 @interface JavaUtilJarJarFile : JavaUtilZipZipFile
+@property (readonly, copy, class) NSString *META_DIR NS_SWIFT_NAME(META_DIR);
+@property (readonly, copy, class) NSString *MANIFEST_NAME NS_SWIFT_NAME(MANIFEST_NAME);
 
 + (NSString *)META_DIR;
 
@@ -64,7 +72,7 @@
  @throw SecurityExceptionif access to the file is denied
           by the SecurityManager
  */
-- (instancetype)initWithJavaIoFile:(JavaIoFile *)file;
+- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file;
 
 /*!
  @brief Creates a new <code>JarFile</code> to read from the specified 
@@ -75,8 +83,8 @@
  @throw SecurityExceptionif access to the file is denied
           by the SecurityManager.
  */
-- (instancetype)initWithJavaIoFile:(JavaIoFile *)file
-                       withBoolean:(jboolean)verify;
+- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file
+                                 withBoolean:(jboolean)verify;
 
 /*!
  @brief Creates a new <code>JarFile</code> to read from the specified 
@@ -92,9 +100,9 @@
           by the SecurityManager
  @since 1.3
  */
-- (instancetype)initWithJavaIoFile:(JavaIoFile *)file
-                       withBoolean:(jboolean)verify
-                           withInt:(jint)mode;
+- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file
+                                 withBoolean:(jboolean)verify
+                                     withInt:(jint)mode;
 
 /*!
  @brief Creates a new <code>JarFile</code> to read from the specified
@@ -105,7 +113,7 @@
  @throw SecurityExceptionif access to the file is denied
           by the SecurityManager
  */
-- (instancetype)initWithNSString:(NSString *)name;
+- (instancetype __nonnull)initWithNSString:(NSString *)name;
 
 /*!
  @brief Creates a new <code>JarFile</code> to read from the specified
@@ -116,8 +124,8 @@
  @throw SecurityExceptionif access to the file is denied
           by the SecurityManager
  */
-- (instancetype)initWithNSString:(NSString *)name
-                     withBoolean:(jboolean)verify;
+- (instancetype __nonnull)initWithNSString:(NSString *)name
+                               withBoolean:(jboolean)verify;
 
 /*!
  @brief Returns an enumeration of the zip file entries.
@@ -181,18 +189,18 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaIoFile:(JavaIoFile *)arg0
-                           withInt:(jint)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)arg0
+                                     withInt:(jint)arg1 NS_UNAVAILABLE;
 
-- (instancetype)initWithJavaIoFile:(JavaIoFile *)arg0
-                           withInt:(jint)arg1
-         withJavaNioCharsetCharset:(JavaNioCharsetCharset *)arg2 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)arg0
+                                     withInt:(jint)arg1
+                   withJavaNioCharsetCharset:(JavaNioCharsetCharset *)arg2 NS_UNAVAILABLE;
 
-- (instancetype)initWithJavaIoFile:(JavaIoFile *)arg0
-         withJavaNioCharsetCharset:(JavaNioCharsetCharset *)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)arg0
+                   withJavaNioCharsetCharset:(JavaNioCharsetCharset *)arg1 NS_UNAVAILABLE;
 
-- (instancetype)initWithNSString:(NSString *)arg0
-       withJavaNioCharsetCharset:(JavaNioCharsetCharset *)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0
+                 withJavaNioCharsetCharset:(JavaNioCharsetCharset *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -245,6 +253,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarFile)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilJarJarFile")

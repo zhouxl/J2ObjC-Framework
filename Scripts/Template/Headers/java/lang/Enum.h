@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #ifndef JavaLangEnum_H
 #define JavaLangEnum_H
 
@@ -161,8 +167,8 @@
           is null
  @since 1.5
  */
-+ (JavaLangEnum *)valueOfWithIOSClass:(IOSClass *)enumType
-                         withNSString:(NSString *)name;
++ (JavaLangEnum * __nonnull)valueOfWithIOSClass:(IOSClass *)enumType
+                                   withNSString:(NSString *)name;
 
 #pragma mark Protected
 
@@ -174,8 +180,8 @@
  @param ordinal - The ordinal of this enumeration constant (its position          in the enum declaration, where the initial constant is assigned
            an ordinal of zero).
  */
-- (instancetype)initWithNSString:(NSString *)name
-                         withInt:(jint)ordinal;
+- (instancetype __nonnull)initWithNSString:(NSString *)name
+                                   withInt:(jint)ordinal;
 
 /*!
  @brief Throws CloneNotSupportedException.This guarantees that enums
@@ -206,6 +212,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangEnum)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangEnum")

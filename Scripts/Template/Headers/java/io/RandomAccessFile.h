@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoRandomAccessFile_) && (INCLUDE_ALL_JavaIoRandomAccessFile || defined(INCLUDE_JavaIoRandomAccessFile))
 #define JavaIoRandomAccessFile_
 
@@ -88,8 +94,8 @@
  if <code>mode</code> is not <code>"r"</code>, <code>"rw"</code>, <code>"rws"</code>
   or <code>"rwd"</code>.
  */
-- (instancetype)initWithJavaIoFile:(JavaIoFile *)file
-                      withNSString:(NSString *)mode;
+- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file
+                                withNSString:(NSString *)mode;
 
 /*!
  @brief Constructs a new <code>RandomAccessFile</code> based on the file named <code>fileName</code>
@@ -107,8 +113,8 @@
  if <code>mode</code> is not <code>"r"</code>, <code>"rw"</code>, <code>"rws"</code>
   or <code>"rwd"</code>.
  */
-- (instancetype)initWithNSString:(NSString *)fileName
-                    withNSString:(NSString *)mode;
+- (instancetype __nonnull)initWithNSString:(NSString *)fileName
+                              withNSString:(NSString *)mode;
 
 /*!
  @brief Closes this file.
@@ -594,7 +600,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -616,6 +622,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoRandomAccessFile)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoRandomAccessFile")

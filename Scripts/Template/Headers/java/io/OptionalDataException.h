@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoOptionalDataException_) && (INCLUDE_ALL_JavaIoOptionalDataException || defined(INCLUDE_JavaIoOptionalDataException))
 #define JavaIoOptionalDataException_
 
@@ -57,15 +63,15 @@
 
 #pragma mark Package-Private
 
-- (instancetype)initWithBoolean:(jboolean)end;
+- (instancetype __nonnull)initWithBoolean:(jboolean)end;
 
-- (instancetype)initWithInt:(jint)len;
+- (instancetype __nonnull)initWithInt:(jint)len;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
-- (instancetype)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -87,6 +93,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoOptionalDataException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoOptionalDataException")

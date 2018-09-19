@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNioCharsetStandardCharsets_) && (INCLUDE_ALL_JavaNioCharsetStandardCharsets || defined(INCLUDE_JavaNioCharsetStandardCharsets))
 #define JavaNioCharsetStandardCharsets_
 
@@ -26,6 +32,12 @@
  @since 1.7
  */
 @interface JavaNioCharsetStandardCharsets : NSObject
+@property (readonly, class, strong) JavaNioCharsetCharset *ISO_8859_1 NS_SWIFT_NAME(ISO_8859_1);
+@property (readonly, class, strong) JavaNioCharsetCharset *US_ASCII NS_SWIFT_NAME(US_ASCII);
+@property (readonly, class, strong) JavaNioCharsetCharset *UTF_16 NS_SWIFT_NAME(UTF_16);
+@property (readonly, class, strong) JavaNioCharsetCharset *UTF_16BE NS_SWIFT_NAME(UTF_16BE);
+@property (readonly, class, strong) JavaNioCharsetCharset *UTF_16LE NS_SWIFT_NAME(UTF_16LE);
+@property (readonly, class, strong) JavaNioCharsetCharset *UTF_8 NS_SWIFT_NAME(UTF_8);
 
 + (JavaNioCharsetCharset *)ISO_8859_1;
 
@@ -77,6 +89,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetStandardCharsets)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioCharsetStandardCharsets")

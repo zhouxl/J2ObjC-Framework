@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoObjectStreamConstants_) && (INCLUDE_ALL_JavaIoObjectStreamConstants || defined(INCLUDE_JavaIoObjectStreamConstants))
 #define JavaIoObjectStreamConstants_
 
@@ -29,6 +35,35 @@
 @end
 
 @interface JavaIoObjectStreamConstants : NSObject
+@property (readonly, class) jshort STREAM_MAGIC NS_SWIFT_NAME(STREAM_MAGIC);
+@property (readonly, class) jshort STREAM_VERSION NS_SWIFT_NAME(STREAM_VERSION);
+@property (readonly, class) jbyte TC_BASE NS_SWIFT_NAME(TC_BASE);
+@property (readonly, class) jbyte TC_NULL NS_SWIFT_NAME(TC_NULL);
+@property (readonly, class) jbyte TC_REFERENCE NS_SWIFT_NAME(TC_REFERENCE);
+@property (readonly, class) jbyte TC_CLASSDESC NS_SWIFT_NAME(TC_CLASSDESC);
+@property (readonly, class) jbyte TC_OBJECT NS_SWIFT_NAME(TC_OBJECT);
+@property (readonly, class) jbyte TC_STRING NS_SWIFT_NAME(TC_STRING);
+@property (readonly, class) jbyte TC_ARRAY NS_SWIFT_NAME(TC_ARRAY);
+@property (readonly, class) jbyte TC_CLASS NS_SWIFT_NAME(TC_CLASS);
+@property (readonly, class) jbyte TC_BLOCKDATA NS_SWIFT_NAME(TC_BLOCKDATA);
+@property (readonly, class) jbyte TC_ENDBLOCKDATA NS_SWIFT_NAME(TC_ENDBLOCKDATA);
+@property (readonly, class) jbyte TC_RESET NS_SWIFT_NAME(TC_RESET);
+@property (readonly, class) jbyte TC_BLOCKDATALONG NS_SWIFT_NAME(TC_BLOCKDATALONG);
+@property (readonly, class) jbyte TC_EXCEPTION NS_SWIFT_NAME(TC_EXCEPTION);
+@property (readonly, class) jbyte TC_LONGSTRING NS_SWIFT_NAME(TC_LONGSTRING);
+@property (readonly, class) jbyte TC_PROXYCLASSDESC NS_SWIFT_NAME(TC_PROXYCLASSDESC);
+@property (readonly, class) jbyte TC_MAX NS_SWIFT_NAME(TC_MAX);
+@property (readonly, class) jint baseWireHandle NS_SWIFT_NAME(baseWireHandle);
+@property (readonly, class) jint PROTOCOL_VERSION_1 NS_SWIFT_NAME(PROTOCOL_VERSION_1);
+@property (readonly, class) jint PROTOCOL_VERSION_2 NS_SWIFT_NAME(PROTOCOL_VERSION_2);
+@property (readonly, class, strong) JavaIoSerializablePermission *SUBCLASS_IMPLEMENTATION_PERMISSION NS_SWIFT_NAME(SUBCLASS_IMPLEMENTATION_PERMISSION);
+@property (readonly, class, strong) JavaIoSerializablePermission *SUBSTITUTION_PERMISSION NS_SWIFT_NAME(SUBSTITUTION_PERMISSION);
+@property (readonly, class) jbyte SC_WRITE_METHOD NS_SWIFT_NAME(SC_WRITE_METHOD);
+@property (readonly, class) jbyte SC_SERIALIZABLE NS_SWIFT_NAME(SC_SERIALIZABLE);
+@property (readonly, class) jbyte SC_EXTERNALIZABLE NS_SWIFT_NAME(SC_EXTERNALIZABLE);
+@property (readonly, class) jbyte SC_BLOCK_DATA NS_SWIFT_NAME(SC_BLOCK_DATA);
+@property (readonly, class) jbyte TC_ENUM NS_SWIFT_NAME(TC_ENUM);
+@property (readonly, class) jbyte SC_ENUM NS_SWIFT_NAME(SC_ENUM);
 
 + (jshort)STREAM_MAGIC;
 
@@ -311,6 +346,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectStreamConstants)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoObjectStreamConstants")

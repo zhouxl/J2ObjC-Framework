@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoDataOutputStream_) && (INCLUDE_ALL_JavaIoDataOutputStream || defined(INCLUDE_JavaIoDataOutputStream))
 #define JavaIoDataOutputStream_
 
@@ -54,7 +60,7 @@
   on the resulting output.
  @param outArg the target stream for writing.
  */
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg;
 
 /*!
  @brief Flushes this stream to ensure all pending data is sent out to the target
@@ -149,6 +155,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoDataOutputStream)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoDataOutputStream")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilFunctionIntToLongFunction_) && (INCLUDE_ALL_JavaUtilFunctionIntToLongFunction || defined(INCLUDE_JavaUtilFunctionIntToLongFunction))
 #define JavaUtilFunctionIntToLongFunction_
 
@@ -45,6 +51,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilFunctionIntToLongFunction)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilFunctionIntToLongFunction")

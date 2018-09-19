@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_) && (INCLUDE_ALL_JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer || defined(INCLUDE_JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer))
 #define JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_
 
@@ -48,6 +54,7 @@
  @author Doug Lea
  */
 @interface JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer : JavaUtilConcurrentLocksAbstractOwnableSynchronizer < JavaIoSerializable >
+@property (readonly, class) jlong SPIN_FOR_TIMEOUT_THRESHOLD NS_SWIFT_NAME(SPIN_FOR_TIMEOUT_THRESHOLD);
 
 + (jlong)SPIN_FOR_TIMEOUT_THRESHOLD;
 
@@ -369,7 +376,7 @@
  @brief Creates a new <code>AbstractQueuedLongSynchronizer</code> instance
   with initial synchronization state of zero.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Atomically sets synchronization state to the given updated
@@ -629,7 +636,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer
 /*!
  @brief Creates a new <code>ConditionObject</code> instance.
  */
-- (instancetype)initWithJavaUtilConcurrentLocksAbstractQueuedLongSynchronizer:(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer *)outer$;
+- (instancetype __nonnull)initWithJavaUtilConcurrentLocksAbstractQueuedLongSynchronizer:(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer *)outer$;
 
 /*!
  @brief Implements interruptible condition wait.
@@ -766,7 +773,7 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -782,6 +789,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer")

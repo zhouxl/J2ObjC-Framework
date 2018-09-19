@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (OrgMockitoInternalCreationJmockClassImposterizer_) && (INCLUDE_ALL_OrgMockitoInternalCreationJmockClassImposterizer || defined(INCLUDE_OrgMockitoInternalCreationJmockClassImposterizer))
 #define OrgMockitoInternalCreationJmockClassImposterizer_
 
@@ -26,6 +32,7 @@
   references (not useful on iOS).
  */
 @interface OrgMockitoInternalCreationJmockClassImposterizer : NSObject
+@property (readonly, class, strong) OrgMockitoInternalCreationJmockClassImposterizer *INSTANCE NS_SWIFT_NAME(INSTANCE);
 
 + (OrgMockitoInternalCreationJmockClassImposterizer *)INSTANCE;
 
@@ -46,6 +53,10 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgMockitoInternalCreationJmockClassImposterizer)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgMockitoInternalCreationJmockClassImposterizer")

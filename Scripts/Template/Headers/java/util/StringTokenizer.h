@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilStringTokenizer_) && (INCLUDE_ALL_JavaUtilStringTokenizer || defined(INCLUDE_JavaUtilStringTokenizer))
 #define JavaUtilStringTokenizer_
 
@@ -118,7 +124,7 @@
  @param str a string to be parsed.
  @throw NullPointerExceptionif str is <CODE>null</CODE>
  */
-- (instancetype)initWithNSString:(NSString *)str;
+- (instancetype __nonnull)initWithNSString:(NSString *)str;
 
 /*!
  @brief Constructs a string tokenizer for the specified string.The
@@ -135,8 +141,8 @@
  @param delim the delimiters.
  @throw NullPointerExceptionif str is <CODE>null</CODE>
  */
-- (instancetype)initWithNSString:(NSString *)str
-                    withNSString:(NSString *)delim;
+- (instancetype __nonnull)initWithNSString:(NSString *)str
+                              withNSString:(NSString *)delim;
 
 /*!
  @brief Constructs a string tokenizer for the specified string.All
@@ -158,9 +164,9 @@
  @param returnDelims flag indicating whether to return the delimiters                          as tokens.
  @throw NullPointerExceptionif str is <CODE>null</CODE>
  */
-- (instancetype)initWithNSString:(NSString *)str
-                    withNSString:(NSString *)delim
-                     withBoolean:(jboolean)returnDelims;
+- (instancetype __nonnull)initWithNSString:(NSString *)str
+                              withNSString:(NSString *)delim
+                               withBoolean:(jboolean)returnDelims;
 
 /*!
  @brief Calculates the number of times that this tokenizer's 
@@ -233,7 +239,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -261,6 +267,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStringTokenizer)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilStringTokenizer")

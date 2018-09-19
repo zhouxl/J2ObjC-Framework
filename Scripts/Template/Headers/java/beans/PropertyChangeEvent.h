@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaBeansPropertyChangeEvent_) && (INCLUDE_ALL_JavaBeansPropertyChangeEvent || defined(INCLUDE_JavaBeansPropertyChangeEvent))
 #define JavaBeansPropertyChangeEvent_
 
@@ -53,10 +59,10 @@
  @param oldValue The old value of the property.
  @param newValue The new value of the property.
  */
-- (instancetype)initWithId:(id)source
-              withNSString:(NSString *)propertyName
-                    withId:(id)oldValue
-                    withId:(id)newValue;
+- (instancetype __nonnull)initWithId:(id)source
+                        withNSString:(NSString *)propertyName
+                              withId:(id)oldValue
+                              withId:(id)newValue;
 
 /*!
  @brief Gets the new value for the property, expressed as an Object.
@@ -109,7 +115,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithId:(id)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithId:(id)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -125,6 +131,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaBeansPropertyChangeEvent)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaBeansPropertyChangeEvent")

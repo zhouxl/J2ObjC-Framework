@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (OrgXmlSaxHelpersXMLReaderAdapter_) && (INCLUDE_ALL_OrgXmlSaxHelpersXMLReaderAdapter || defined(INCLUDE_OrgXmlSaxHelpersXMLReaderAdapter))
 #define OrgXmlSaxHelpersXMLReaderAdapter_
 
@@ -78,7 +84,7 @@
              cannot be instantiated or if the
              org.xml.sax.driver property is not specified.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Create a new adapter.
@@ -88,7 +94,7 @@
  @param xmlReader The SAX2 XMLReader to wrap.
  @throw java.lang.NullPointerExceptionIf the argument is null.
  */
-- (instancetype)initWithOrgXmlSaxXMLReader:(id<OrgXmlSaxXMLReader>)xmlReader;
+- (instancetype __nonnull)initWithOrgXmlSaxXMLReader:(id<OrgXmlSaxXMLReader>)xmlReader;
 
 /*!
  @brief Adapt a SAX2 characters event.
@@ -356,7 +362,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersXMLReaderAdapter)
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Set the embedded Attributes object.
@@ -378,6 +384,10 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersXMLReaderAdapter_AttributesAdapter)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersXMLReaderAdapter")

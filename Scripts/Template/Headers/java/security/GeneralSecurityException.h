@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecurityGeneralSecurityException_) && (INCLUDE_ALL_JavaSecurityGeneralSecurityException || defined(INCLUDE_JavaSecurityGeneralSecurityException))
 #define JavaSecurityGeneralSecurityException_
 
@@ -38,7 +44,7 @@
 /*!
  @brief Constructs a GeneralSecurityException with no detail message.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a GeneralSecurityException with the specified detail
@@ -47,7 +53,7 @@
   exception.
  @param msg the detail message.
  */
-- (instancetype)initWithNSString:(NSString *)msg;
+- (instancetype __nonnull)initWithNSString:(NSString *)msg;
 
 /*!
  @brief Creates a <code>GeneralSecurityException</code> with the specified
@@ -58,8 +64,8 @@
  <code>getCause()</code>  method).  (A  <tt> null </tt>  value is permitted,         and indicates that the cause is nonexistent or unknown.)
  @since 1.5
  */
-- (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithNSString:(NSString *)message
+                     withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Creates a <code>GeneralSecurityException</code> with the specified cause
@@ -71,14 +77,14 @@
  <code>getCause()</code>  method).  (A  <tt> null </tt>  value is permitted,         and indicates that the cause is nonexistent or unknown.)
  @since 1.5
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithNSString:(NSString *)arg0
-           withJavaLangThrowable:(JavaLangThrowable *)arg1
-                     withBoolean:(jboolean)arg2
-                     withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0
+                     withJavaLangThrowable:(JavaLangThrowable *)arg1
+                               withBoolean:(jboolean)arg2
+                               withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -112,6 +118,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityGeneralSecurityException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityGeneralSecurityException")

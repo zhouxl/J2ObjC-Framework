@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilListResourceBundle_) && (INCLUDE_ALL_JavaUtilListResourceBundle || defined(INCLUDE_JavaUtilListResourceBundle))
 #define JavaUtilListResourceBundle_
 
@@ -97,7 +103,7 @@
  (For invocation by subclass constructors, typically
   implicit.)
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Returns an <code>Enumeration</code> of the keys contained in
@@ -144,6 +150,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilListResourceBundle)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilListResourceBundle")

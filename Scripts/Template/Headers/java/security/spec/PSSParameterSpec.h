@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecuritySpecPSSParameterSpec_) && (INCLUDE_ALL_JavaSecuritySpecPSSParameterSpec || defined(INCLUDE_JavaSecuritySpecPSSParameterSpec))
 #define JavaSecuritySpecPSSParameterSpec_
 
@@ -68,6 +74,7 @@
  @since 1.4
  */
 @interface JavaSecuritySpecPSSParameterSpec : NSObject < JavaSecuritySpecAlgorithmParameterSpec >
+@property (readonly, class, strong) JavaSecuritySpecPSSParameterSpec *DEFAULT NS_SWIFT_NAME(DEFAULT);
 
 + (JavaSecuritySpecPSSParameterSpec *)DEFAULT;
 
@@ -81,7 +88,7 @@
  @throw IllegalArgumentExceptionif <code>saltLen</code> is
   less than 0.
  */
-- (instancetype)initWithInt:(jint)saltLen;
+- (instancetype __nonnull)initWithInt:(jint)saltLen;
 
 /*!
  @brief Creates a new <code>PSSParameterSpec</code> as defined in
@@ -100,11 +107,11 @@
   or <code>trailerField</code> is less than 0.
  @since 1.5
  */
-- (instancetype)initWithNSString:(NSString *)mdName
-                    withNSString:(NSString *)mgfName
+- (instancetype __nonnull)initWithNSString:(NSString *)mdName
+                              withNSString:(NSString *)mgfName
 withJavaSecuritySpecAlgorithmParameterSpec:(id<JavaSecuritySpecAlgorithmParameterSpec>)mgfSpec
-                         withInt:(jint)saltLen
-                         withInt:(jint)trailerField;
+                                   withInt:(jint)saltLen
+                                   withInt:(jint)trailerField;
 
 /*!
  @brief Returns the message digest algorithm name.
@@ -169,6 +176,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecPSSParameterSpec)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecPSSParameterSpec")

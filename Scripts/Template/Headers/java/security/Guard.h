@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecurityGuard_) && (INCLUDE_ALL_JavaSecurityGuard || defined(INCLUDE_JavaSecurityGuard))
 #define JavaSecurityGuard_
 
@@ -49,6 +55,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityGuard)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityGuard")

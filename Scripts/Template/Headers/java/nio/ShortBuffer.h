@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNioShortBuffer_) && (INCLUDE_ALL_JavaNioShortBuffer || defined(INCLUDE_JavaNioShortBuffer))
 #define JavaNioShortBuffer_
 
@@ -511,17 +517,17 @@
 
 #pragma mark Package-Private
 
-- (instancetype)initWithInt:(jint)mark
-                    withInt:(jint)pos
-                    withInt:(jint)lim
-                    withInt:(jint)cap;
+- (instancetype __nonnull)initWithInt:(jint)mark
+                              withInt:(jint)pos
+                              withInt:(jint)lim
+                              withInt:(jint)cap;
 
-- (instancetype)initWithInt:(jint)mark
-                    withInt:(jint)pos
-                    withInt:(jint)lim
-                    withInt:(jint)cap
-             withShortArray:(IOSShortArray *)hb
-                    withInt:(jint)offset;
+- (instancetype __nonnull)initWithInt:(jint)mark
+                              withInt:(jint)pos
+                              withInt:(jint)lim
+                              withInt:(jint)cap
+                       withShortArray:(IOSShortArray *)hb
+                              withInt:(jint)offset;
 
 @end
 
@@ -543,6 +549,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioShortBuffer)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioShortBuffer")

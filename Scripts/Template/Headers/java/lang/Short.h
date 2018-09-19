@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangShort_) && (INCLUDE_ALL_JavaLangShort || defined(INCLUDE_JavaLangShort))
 #define JavaLangShort_
 
@@ -39,6 +45,11 @@
  @since JDK1.1
  */
 @interface JavaLangShort : NSNumber < JavaLangComparable >
+@property (readonly, class) jshort MIN_VALUE NS_SWIFT_NAME(MIN_VALUE);
+@property (readonly, class) jshort MAX_VALUE NS_SWIFT_NAME(MAX_VALUE);
+@property (readonly, class, strong) IOSClass *TYPE NS_SWIFT_NAME(TYPE);
+@property (readonly, class) jint SIZE NS_SWIFT_NAME(SIZE);
+@property (readonly, class) jint BYTES NS_SWIFT_NAME(BYTES);
 
 + (jshort)MIN_VALUE;
 
@@ -58,7 +69,7 @@
  @param value the value to be represented by the                   
  <code>Short</code> .
  */
-- (instancetype)initWithShort:(jshort)value;
+- (instancetype __nonnull)initWithShort:(jshort)value;
 
 /*!
  @brief Constructs a newly allocated <code>Short</code> object that
@@ -72,7 +83,7 @@
            does not contain a parsable <code>short</code>.
  - seealso: java.lang.Short
  */
-- (instancetype)initWithNSString:(NSString *)s;
+- (instancetype __nonnull)initWithNSString:(NSString *)s;
 
 /*!
  @brief Returns the value of this <code>Short</code> as a 
@@ -367,7 +378,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -454,6 +465,10 @@ BOXED_INC_AND_DEC(Short, shortValue, JavaLangShort)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangShort")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilAbstractSequentialList_) && (INCLUDE_ALL_JavaUtilAbstractSequentialList || defined(INCLUDE_JavaUtilAbstractSequentialList))
 #define JavaUtilAbstractSequentialList_
 
@@ -191,7 +197,7 @@
  (For invocation by subclass constructors, typically
   implicit.)
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 #pragma mark Package-Private
 
@@ -205,6 +211,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractSequentialList)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilAbstractSequentialList")

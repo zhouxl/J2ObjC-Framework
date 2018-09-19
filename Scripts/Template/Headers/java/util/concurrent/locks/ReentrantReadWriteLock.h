@@ -22,6 +22,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentLocksReentrantReadWriteLock_) && (INCLUDE_ALL_JavaUtilConcurrentLocksReentrantReadWriteLock || defined(INCLUDE_JavaUtilConcurrentLocksReentrantReadWriteLock))
 #define JavaUtilConcurrentLocksReentrantReadWriteLock_
 
@@ -212,14 +218,14 @@
  @brief Creates a new <code>ReentrantReadWriteLock</code> with
   default (nonfair) ordering properties.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a new <code>ReentrantReadWriteLock</code> with
   the given fairness policy.
  @param fair<code>true</code>  if this lock should use a fair ordering policy
  */
-- (instancetype)initWithBoolean:(jboolean)fair;
+- (instancetype __nonnull)initWithBoolean:(jboolean)fair;
 
 /*!
  @brief Returns an estimate of the number of threads waiting to acquire
@@ -476,6 +482,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock)
  Subclassed into fair and nonfair versions.
  */
 @interface JavaUtilConcurrentLocksReentrantReadWriteLock_Sync : JavaUtilConcurrentLocksAbstractQueuedSynchronizer
+@property (readonly, class) jint SHARED_SHIFT NS_SWIFT_NAME(SHARED_SHIFT);
+@property (readonly, class) jint SHARED_UNIT NS_SWIFT_NAME(SHARED_UNIT);
+@property (readonly, class) jint MAX_COUNT NS_SWIFT_NAME(MAX_COUNT);
+@property (readonly, class) jint EXCLUSIVE_MASK NS_SWIFT_NAME(EXCLUSIVE_MASK);
 
 + (jint)SHARED_SHIFT;
 
@@ -499,7 +509,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock)
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Returns the number of exclusive holds represented in count.
@@ -604,7 +614,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock_Sync)
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -643,7 +653,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_Ho
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 - (JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_HoldCounter *)childValueWithId:(JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_HoldCounter *)arg0;
 
@@ -671,7 +681,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_Th
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 - (jboolean)readerShouldBlock;
 
@@ -701,7 +711,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock_Nonfair
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 - (jboolean)readerShouldBlock;
 
@@ -899,11 +909,11 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
  @param lock the outer lock object
  @throw NullPointerExceptionif the lock is null
  */
-- (instancetype)initWithJavaUtilConcurrentLocksReentrantReadWriteLock:(JavaUtilConcurrentLocksReentrantReadWriteLock *)lock;
+- (instancetype __nonnull)initWithJavaUtilConcurrentLocksReentrantReadWriteLock:(JavaUtilConcurrentLocksReentrantReadWriteLock *)lock;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -1180,11 +1190,11 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
  @param lock the outer lock object
  @throw NullPointerExceptionif the lock is null
  */
-- (instancetype)initWithJavaUtilConcurrentLocksReentrantReadWriteLock:(JavaUtilConcurrentLocksReentrantReadWriteLock *)lock;
+- (instancetype __nonnull)initWithJavaUtilConcurrentLocksReentrantReadWriteLock:(JavaUtilConcurrentLocksReentrantReadWriteLock *)lock;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -1200,6 +1210,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock_WriteLo
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentLocksReentrantReadWriteLock")

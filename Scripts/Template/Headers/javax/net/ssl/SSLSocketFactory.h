@@ -19,6 +19,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxNetSslSSLSocketFactory_) && (INCLUDE_ALL_JavaxNetSslSSLSocketFactory || defined(INCLUDE_JavaxNetSslSSLSocketFactory))
 #define JavaxNetSslSSLSocketFactory_
 
@@ -42,7 +48,7 @@
 /*!
  @brief Constructor is used only by subclasses.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Returns a socket layered over an existing socket connected to the named
@@ -162,11 +168,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLSocketFactory)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaLangException:(JavaLangException *)reason;
+- (instancetype __nonnull)initWithJavaLangException:(JavaLangException *)reason;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -182,6 +188,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslDefaultSSLSocketFactory)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxNetSslSSLSocketFactory")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilLoggingLoggingPermission_) && (INCLUDE_ALL_JavaUtilLoggingLoggingPermission || defined(INCLUDE_JavaUtilLoggingLoggingPermission))
 #define JavaUtilLoggingLoggingPermission_
 
@@ -30,12 +36,12 @@
 
 #pragma mark Public
 
-- (instancetype)initWithNSString:(NSString *)name
-                    withNSString:(NSString *)actions;
+- (instancetype __nonnull)initWithNSString:(NSString *)name
+                              withNSString:(NSString *)actions;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -51,6 +57,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLoggingPermission)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingLoggingPermission")

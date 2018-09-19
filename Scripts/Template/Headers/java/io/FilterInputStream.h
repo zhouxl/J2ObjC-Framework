@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoFilterInputStream_) && (INCLUDE_ALL_JavaIoFilterInputStream || defined(INCLUDE_JavaIoFilterInputStream))
 #define JavaIoFilterInputStream_
 
@@ -220,11 +226,11 @@
  @param inArg the underlying input stream, or  <code> null </code>  if
             this instance is to be created without an underlying stream.
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -242,6 +248,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFilterInputStream)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoFilterInputStream")

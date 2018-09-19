@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNetURLEncoder_) && (INCLUDE_ALL_JavaNetURLEncoder || defined(INCLUDE_JavaNetURLEncoder))
 #define JavaNetURLEncoder_
 
@@ -61,6 +67,9 @@
  @since JDK1.0
  */
 @interface JavaNetURLEncoder : NSObject
+@property (class, strong) JavaUtilBitSet *dontNeedEncoding NS_SWIFT_NAME(dontNeedEncoding);
+@property (readonly, class) jint caseDiff NS_SWIFT_NAME(caseDiff);
+@property (copy, class) NSString *dfltEncName NS_SWIFT_NAME(dfltEncName);
 
 + (JavaUtilBitSet *)dontNeedEncoding;
 
@@ -134,6 +143,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetURLEncoder)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetURLEncoder")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecuritySecureRandom_) && (INCLUDE_ALL_JavaSecuritySecureRandom || defined(INCLUDE_JavaSecuritySecureRandom))
 #define JavaSecuritySecureRandom_
 
@@ -87,6 +93,8 @@
  @author Josh Bloch
  */
 @interface JavaSecuritySecureRandom : JavaUtilRandom
+@property (readonly, class) jint DEFAULT_SDK_TARGET_FOR_CRYPTO_PROVIDER_WORKAROUND NS_SWIFT_NAME(DEFAULT_SDK_TARGET_FOR_CRYPTO_PROVIDER_WORKAROUND);
+@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jint)DEFAULT_SDK_TARGET_FOR_CRYPTO_PROVIDER_WORKAROUND;
 
@@ -116,7 +124,7 @@
   This self-seeding will not occur if <code>setSeed</code> was
   previously called.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a secure random number generator (RNG) implementing the
@@ -136,7 +144,7 @@
   for information about standard RNG algorithm names.
  @param seed the seed.
  */
-- (instancetype)initWithByteArray:(IOSByteArray *)seed;
+- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)seed;
 
 /*!
  @brief Returns the given number of seed bytes, computed using the seed
@@ -319,8 +327,8 @@
  @param secureRandomSpi the SecureRandom implementation.
  @param provider the provider.
  */
-- (instancetype)initWithJavaSecuritySecureRandomSpi:(JavaSecuritySecureRandomSpi *)secureRandomSpi
-                           withJavaSecurityProvider:(JavaSecurityProvider *)provider;
+- (instancetype __nonnull)initWithJavaSecuritySecureRandomSpi:(JavaSecuritySecureRandomSpi *)secureRandomSpi
+                                     withJavaSecurityProvider:(JavaSecurityProvider *)provider;
 
 /*!
  @brief Generates an integer containing the user-specified number of
@@ -345,11 +353,11 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithLong:(jlong)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithLong:(jlong)arg0 NS_UNAVAILABLE;
 
 @end
 
-J2OBJC_STATIC_INIT(JavaSecuritySecureRandom)
+J2OBJC_EMPTY_STATIC_INIT(JavaSecuritySecureRandom)
 
 /*!
  @brief Maximum SDK version for which the workaround for the Crypto provider is in place.
@@ -399,6 +407,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySecureRandom)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySecureRandom")

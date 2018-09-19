@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (OrgMockitoInternalMatchersLocalizedMatcher_) && (INCLUDE_ALL_OrgMockitoInternalMatchersLocalizedMatcher || defined(INCLUDE_OrgMockitoInternalMatchersLocalizedMatcher))
 #define OrgMockitoInternalMatchersLocalizedMatcher_
 
@@ -47,7 +53,7 @@
 
 #pragma mark Public
 
-- (instancetype)initWithOrgHamcrestMatcher:(id<OrgHamcrestMatcher>)actualMatcher;
+- (instancetype __nonnull)initWithOrgHamcrestMatcher:(id<OrgHamcrestMatcher>)actualMatcher;
 
 - (void)_dont_implement_Matcher___instead_extend_BaseMatcher_;
 
@@ -72,7 +78,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -88,6 +94,10 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgMockitoInternalMatchersLocalizedMatcher)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgMockitoInternalMatchersLocalizedMatcher")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSqlSQLWarning_) && (INCLUDE_ALL_JavaSqlSQLWarning || defined(INCLUDE_JavaSqlSQLWarning))
 #define JavaSqlSQLWarning_
 
@@ -55,7 +61,7 @@
  <code>Throwable.initCause(java.lang.Throwable)</code> method. 
  <p>
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a <code>SQLWarning</code> object
@@ -68,7 +74,7 @@
  <p>
  @param reason a description of the warning
  */
-- (instancetype)initWithNSString:(NSString *)reason;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason;
 
 /*!
  @brief Constructs a <code>SQLWarning</code> object
@@ -81,8 +87,8 @@
  @param reason a description of the warning
  @param SQLState an XOPEN or SQL:2003 code identifying the warning
  */
-- (instancetype)initWithNSString:(NSString *)reason
-                    withNSString:(NSString *)SQLState;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason
+                              withNSString:(NSString *)SQLState;
 
 /*!
  @brief Constructs a  <code>SQLWarning</code> object
@@ -96,9 +102,9 @@
  @param SQLState an XOPEN or SQL:2003 code identifying the warning
  @param vendorCode a database vendor-specific warning code
  */
-- (instancetype)initWithNSString:(NSString *)reason
-                    withNSString:(NSString *)SQLState
-                         withInt:(jint)vendorCode;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason
+                              withNSString:(NSString *)SQLState
+                                   withInt:(jint)vendorCode;
 
 /*!
  @brief Constructs a<code>SQLWarning</code> object
@@ -112,10 +118,10 @@
  @param cause the underlying reason for this  <code> SQLWarning </code>  (which is saved for later retrieval by the  <code> getCause() </code>  method); may be null indicating
        the cause is non-existent or unknown.
  */
-- (instancetype)initWithNSString:(NSString *)reason
-                    withNSString:(NSString *)SQLState
-                         withInt:(jint)vendorCode
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason
+                              withNSString:(NSString *)SQLState
+                                   withInt:(jint)vendorCode
+                     withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a <code>SQLWarning</code> object
@@ -128,9 +134,9 @@
  @param cause the underlying reason for this  <code> SQLWarning </code>  (which is saved for later retrieval by the  <code> getCause() </code>  method); may be null indicating
        the cause is non-existent or unknown.
  */
-- (instancetype)initWithNSString:(NSString *)reason
-                    withNSString:(NSString *)SQLState
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason
+                              withNSString:(NSString *)SQLState
+                     withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a <code>SQLWarning</code> object
@@ -143,8 +149,8 @@
  @param cause the underlying reason for this  <code> SQLWarning </code>
    (which is saved for later retrieval by the  <code> getCause() </code>  method);  may be null indicating the cause is non-existent or unknown.
  */
-- (instancetype)initWithNSString:(NSString *)reason
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason
+                     withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a <code>SQLWarning</code> object
@@ -158,7 +164,7 @@
  @param cause the underlying reason for this  <code> SQLWarning </code>  (which is saved for later retrieval by the  <code> getCause() </code>  method); may be null indicating
        the cause is non-existent or unknown.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Retrieves the warning chained to this <code>SQLWarning</code> object by 
@@ -233,6 +239,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLWarning)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSqlSQLWarning")

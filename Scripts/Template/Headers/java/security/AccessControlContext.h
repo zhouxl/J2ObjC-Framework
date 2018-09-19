@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecurityAccessControlContext_) && (INCLUDE_ALL_JavaSecurityAccessControlContext || defined(INCLUDE_JavaSecurityAccessControlContext))
 #define JavaSecurityAccessControlContext_
 
@@ -30,10 +36,10 @@
 
 #pragma mark Public
 
-- (instancetype)initWithJavaSecurityAccessControlContext:(JavaSecurityAccessControlContext *)acc
-                          withJavaSecurityDomainCombiner:(id<JavaSecurityDomainCombiner>)combiner;
+- (instancetype __nonnull)initWithJavaSecurityAccessControlContext:(JavaSecurityAccessControlContext *)acc
+                                    withJavaSecurityDomainCombiner:(id<JavaSecurityDomainCombiner>)combiner;
 
-- (instancetype)initWithJavaSecurityProtectionDomainArray:(IOSObjectArray *)context;
+- (instancetype __nonnull)initWithJavaSecurityProtectionDomainArray:(IOSObjectArray *)context;
 
 - (void)checkPermissionWithJavaSecurityPermission:(JavaSecurityPermission *)perm;
 
@@ -41,7 +47,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -63,6 +69,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityAccessControlContext)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityAccessControlContext")

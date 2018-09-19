@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxXmlParsersFactoryConfigurationError_) && (INCLUDE_ALL_JavaxXmlParsersFactoryConfigurationError || defined(INCLUDE_JavaxXmlParsersFactoryConfigurationError))
 #define JavaxXmlParsersFactoryConfigurationError_
 
@@ -42,14 +48,14 @@
  @brief Create a new <code>FactoryConfigurationError</code> with no
   detail message.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Create a new <code>FactoryConfigurationError</code> with a
   given <code>Exception</code> base cause of the error.
  @param e The exception to be encapsulated in a  FactoryConfigurationError.
  */
-- (instancetype)initWithJavaLangException:(JavaLangException *)e;
+- (instancetype __nonnull)initWithJavaLangException:(JavaLangException *)e;
 
 /*!
  @brief Create a new <code>FactoryConfigurationError</code> with the
@@ -57,15 +63,15 @@
  @param e The exception to be encapsulated in a  FactoryConfigurationError
  @param msg The detail message.
  */
-- (instancetype)initWithJavaLangException:(JavaLangException *)e
-                             withNSString:(NSString *)msg;
+- (instancetype __nonnull)initWithJavaLangException:(JavaLangException *)e
+                                       withNSString:(NSString *)msg;
 
 /*!
  @brief Create a new <code>FactoryConfigurationError</code> with
   the <code>String </code> specified as an error message.
  @param msg The error message for the exception.
  */
-- (instancetype)initWithNSString:(NSString *)msg;
+- (instancetype __nonnull)initWithNSString:(NSString *)msg;
 
 /*!
  @brief Return the actual exception (if any) that caused this exception to
@@ -86,15 +92,15 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
 
-- (instancetype)initWithNSString:(NSString *)arg0
-           withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0
+                     withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
 
-- (instancetype)initWithNSString:(NSString *)arg0
-           withJavaLangThrowable:(JavaLangThrowable *)arg1
-                     withBoolean:(jboolean)arg2
-                     withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0
+                     withJavaLangThrowable:(JavaLangThrowable *)arg1
+                               withBoolean:(jboolean)arg2
+                               withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -128,6 +134,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlParsersFactoryConfigurationError)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlParsersFactoryConfigurationError")

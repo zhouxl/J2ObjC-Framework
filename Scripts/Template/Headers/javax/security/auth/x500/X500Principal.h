@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxSecurityAuthX500X500Principal_) && (INCLUDE_ALL_JavaxSecurityAuthX500X500Principal || defined(INCLUDE_JavaxSecurityAuthX500X500Principal))
 #define JavaxSecurityAuthX500X500Principal_
 
@@ -59,6 +65,9 @@
  @since 1.4
  */
 @interface JavaxSecurityAuthX500X500Principal : NSObject < JavaSecurityPrincipal, JavaIoSerializable >
+@property (readonly, copy, class) NSString *RFC1779 NS_SWIFT_NAME(RFC1779);
+@property (readonly, copy, class) NSString *RFC2253 NS_SWIFT_NAME(RFC2253);
+@property (readonly, copy, class) NSString *CANONICAL NS_SWIFT_NAME(CANONICAL);
 
 + (NSString *)RFC1779;
 
@@ -97,7 +106,7 @@
  @throw IllegalArgumentExceptionif an encoding error occurs
            (incorrect form for DN)
  */
-- (instancetype)initWithByteArray:(IOSByteArray *)name;
+- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)name;
 
 /*!
  @brief Creates an <code>X500Principal</code> from an <code>InputStream</code>
@@ -115,7 +124,7 @@
  @throw IllegalArgumentExceptionif an encoding error occurs
            (incorrect form for DN)
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)is;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)is;
 
 /*!
  @brief Creates an <code>X500Principal</code> from a string representation of
@@ -136,7 +145,7 @@
  @throw IllegalArgumentExceptionif the <code>name</code>
                    is improperly specified
  */
-- (instancetype)initWithNSString:(NSString *)name;
+- (instancetype __nonnull)initWithNSString:(NSString *)name;
 
 /*!
  @brief Creates an <code>X500Principal</code> from a string representation of
@@ -166,8 +175,8 @@
     OID that is not in the correct form
  @since 1.6
  */
-- (instancetype)initWithNSString:(NSString *)name
-                 withJavaUtilMap:(id<JavaUtilMap>)keywordMap;
+- (instancetype __nonnull)initWithNSString:(NSString *)name
+                           withJavaUtilMap:(id<JavaUtilMap>)keywordMap;
 
 /*!
  @brief Compares the specified <code>Object</code> with this 
@@ -320,11 +329,11 @@
   using privileged reflection from classes in sun.security.*.
   Currently referenced from sun.security.x509.X500Name.asX500Principal().
  */
-- (instancetype)initWithSunSecurityX509X500Name:(SunSecurityX509X500Name *)x500Name;
+- (instancetype __nonnull)initWithSunSecurityX509X500Name:(SunSecurityX509X500Name *)x500Name;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -388,6 +397,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityAuthX500X500Principal)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxSecurityAuthX500X500Principal")

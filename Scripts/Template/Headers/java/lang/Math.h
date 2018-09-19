@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangMath_) && (INCLUDE_ALL_JavaLangMath || defined(INCLUDE_JavaLangMath))
 #define JavaLangMath_
 
@@ -73,6 +79,8 @@
  @since JDK1.0
  */
 @interface JavaLangMath : NSObject
+@property (readonly, class) jdouble E NS_SWIFT_NAME(E);
+@property (readonly, class) jdouble PI NS_SWIFT_NAME(PI);
 
 + (jdouble)E;
 
@@ -1768,6 +1776,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangMath)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangMath")

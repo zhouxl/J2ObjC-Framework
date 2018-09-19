@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxSecurityCertCertificateNotYetValidException_) && (INCLUDE_ALL_JavaxSecurityCertCertificateNotYetValidException || defined(INCLUDE_JavaxSecurityCertCertificateNotYetValidException))
 #define JavaxSecurityCertCertificateNotYetValidException_
 
@@ -39,14 +45,14 @@
 /*!
  @brief Creates a new <code>CertificateNotYetValidException</code>.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a new <code>CertificateNotYetValidException</code> with the specified
   message.
  @param msg the detail message for the exception.
  */
-- (instancetype)initWithNSString:(NSString *)msg;
+- (instancetype __nonnull)initWithNSString:(NSString *)msg;
 
 @end
 
@@ -68,6 +74,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityCertCertificateNotYetValidException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxSecurityCertCertificateNotYetValidException")

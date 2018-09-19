@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentThreadPoolExecutor_) && (INCLUDE_ALL_JavaUtilConcurrentThreadPoolExecutor || defined(INCLUDE_JavaUtilConcurrentThreadPoolExecutor))
 #define JavaUtilConcurrentThreadPoolExecutor_
 
@@ -58,11 +64,11 @@
           <code>maximumPoolSize < corePoolSize</code>
  @throw NullPointerExceptionif <code>workQueue</code> is null
  */
-- (instancetype)initWithInt:(jint)corePoolSize
-                    withInt:(jint)maximumPoolSize
-                   withLong:(jlong)keepAliveTime
-withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit
-withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)workQueue;
+- (instancetype __nonnull)initWithInt:(jint)corePoolSize
+                              withInt:(jint)maximumPoolSize
+                             withLong:(jlong)keepAliveTime
+       withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit
+  withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)workQueue;
 
 /*!
  @brief Creates a new <code>ThreadPoolExecutor</code> with the given initial
@@ -85,11 +91,11 @@ withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)workQue
  @throw NullPointerExceptionif <code>workQueue</code>
           or <code>handler</code> is null
  */
-- (instancetype)initWithInt:(jint)corePoolSize
-                    withInt:(jint)maximumPoolSize
-                   withLong:(jlong)keepAliveTime
-withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit
-withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)workQueue
+- (instancetype __nonnull)initWithInt:(jint)corePoolSize
+                              withInt:(jint)maximumPoolSize
+                             withLong:(jlong)keepAliveTime
+       withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit
+  withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)workQueue
 withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExecutionHandler>)handler;
 
 /*!
@@ -113,12 +119,12 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
  @throw NullPointerExceptionif <code>workQueue</code>
           or <code>threadFactory</code> is null
  */
-- (instancetype)initWithInt:(jint)corePoolSize
-                    withInt:(jint)maximumPoolSize
-                   withLong:(jlong)keepAliveTime
-withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit
-withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)workQueue
-withJavaUtilConcurrentThreadFactory:(id<JavaUtilConcurrentThreadFactory>)threadFactory;
+- (instancetype __nonnull)initWithInt:(jint)corePoolSize
+                              withInt:(jint)maximumPoolSize
+                             withLong:(jlong)keepAliveTime
+       withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit
+  withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)workQueue
+  withJavaUtilConcurrentThreadFactory:(id<JavaUtilConcurrentThreadFactory>)threadFactory;
 
 /*!
  @brief Creates a new <code>ThreadPoolExecutor</code> with the given initial
@@ -142,12 +148,12 @@ withJavaUtilConcurrentThreadFactory:(id<JavaUtilConcurrentThreadFactory>)threadF
  @throw NullPointerExceptionif <code>workQueue</code>
           or <code>threadFactory</code> or <code>handler</code> is null
  */
-- (instancetype)initWithInt:(jint)corePoolSize
-                    withInt:(jint)maximumPoolSize
-                   withLong:(jlong)keepAliveTime
-withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit
-withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)workQueue
-withJavaUtilConcurrentThreadFactory:(id<JavaUtilConcurrentThreadFactory>)threadFactory
+- (instancetype __nonnull)initWithInt:(jint)corePoolSize
+                              withInt:(jint)maximumPoolSize
+                             withLong:(jlong)keepAliveTime
+       withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit
+  withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)workQueue
+  withJavaUtilConcurrentThreadFactory:(id<JavaUtilConcurrentThreadFactory>)threadFactory
 withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExecutionHandler>)handler;
 
 /*!
@@ -606,7 +612,7 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -663,7 +669,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor)
 /*!
  @brief Creates a <code>CallerRunsPolicy</code>.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Executes task r in the caller's thread, unless the executor
@@ -709,7 +715,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor_CallerRunsPolicy
 /*!
  @brief Creates an <code>AbortPolicy</code>.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Always throws RejectedExecutionException.
@@ -755,7 +761,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor_AbortPolicy)
 /*!
  @brief Creates a <code>DiscardPolicy</code>.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Does nothing, which has the effect of discarding task r.
@@ -801,7 +807,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor_DiscardPolicy)
 /*!
  @brief Creates a <code>DiscardOldestPolicy</code> for the given executor.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Obtains and ignores the next task that the executor
@@ -828,6 +834,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor_DiscardOldestPol
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentThreadPoolExecutor")

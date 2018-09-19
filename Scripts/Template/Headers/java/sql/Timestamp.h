@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSqlTimestamp_) && (INCLUDE_ALL_JavaSqlTimestamp || defined(INCLUDE_JavaSqlTimestamp))
 #define JavaSqlTimestamp_
 
@@ -63,6 +69,7 @@
   denotes implementation inheritance, and not type inheritance.
  */
 @interface JavaSqlTimestamp : JavaUtilDate
+@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jlong)serialVersionUID;
 
@@ -80,13 +87,13 @@
  @param nano 0 to 999,999,999
  @throw IllegalArgumentExceptionif the nano argument is out of bounds
  */
-- (instancetype)initWithInt:(jint)year
-                    withInt:(jint)month
-                    withInt:(jint)date
-                    withInt:(jint)hour
-                    withInt:(jint)minute
-                    withInt:(jint)second
-                    withInt:(jint)nano __attribute__((deprecated));
+- (instancetype __nonnull)initWithInt:(jint)year
+                              withInt:(jint)month
+                              withInt:(jint)date
+                              withInt:(jint)hour
+                              withInt:(jint)minute
+                              withInt:(jint)second
+                              withInt:(jint)nano __attribute__((deprecated));
 
 /*!
  @brief Constructs a <code>Timestamp</code> object
@@ -98,7 +105,7 @@
            January 1, 1970, 00:00:00 GMT.
  - seealso: java.util.Calendar
  */
-- (instancetype)initWithLong:(jlong)time;
+- (instancetype __nonnull)initWithLong:(jlong)time;
 
 /*!
  @brief Indicates whether this <code>Timestamp</code> object is
@@ -239,26 +246,26 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
-- (instancetype)initWithInt:(jint)arg0
-                    withInt:(jint)arg1
-                    withInt:(jint)arg2 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithInt:(jint)arg0
+                              withInt:(jint)arg1
+                              withInt:(jint)arg2 NS_UNAVAILABLE;
 
-- (instancetype)initWithInt:(jint)arg0
-                    withInt:(jint)arg1
-                    withInt:(jint)arg2
-                    withInt:(jint)arg3
-                    withInt:(jint)arg4 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithInt:(jint)arg0
+                              withInt:(jint)arg1
+                              withInt:(jint)arg2
+                              withInt:(jint)arg3
+                              withInt:(jint)arg4 NS_UNAVAILABLE;
 
-- (instancetype)initWithInt:(jint)arg0
-                    withInt:(jint)arg1
-                    withInt:(jint)arg2
-                    withInt:(jint)arg3
-                    withInt:(jint)arg4
-                    withInt:(jint)arg5 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithInt:(jint)arg0
+                              withInt:(jint)arg1
+                              withInt:(jint)arg2
+                              withInt:(jint)arg3
+                              withInt:(jint)arg4
+                              withInt:(jint)arg5 NS_UNAVAILABLE;
 
-- (instancetype)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -286,6 +293,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlTimestamp)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSqlTimestamp")

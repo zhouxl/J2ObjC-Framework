@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentAtomicAtomicStampedReference_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicStampedReference || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicStampedReference))
 #define JavaUtilConcurrentAtomicAtomicStampedReference_
 
@@ -40,8 +46,8 @@
  @param initialRef the initial reference
  @param initialStamp the initial stamp
  */
-- (instancetype)initWithId:(id)initialRef
-                   withInt:(jint)initialStamp;
+- (instancetype __nonnull)initWithId:(id)initialRef
+                             withInt:(jint)initialStamp;
 
 /*!
  @brief Atomically sets the value of the stamp to the given update value
@@ -124,7 +130,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -140,6 +146,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicStampedReference)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicStampedReference")

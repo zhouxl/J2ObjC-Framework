@@ -18,6 +18,7 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -409,6 +410,31 @@
  @since 1.1
  */
 @interface JavaUtilLocale : NSObject < NSCopying, JavaIoSerializable >
+@property (readonly, class, strong) JavaUtilLocale *ENGLISH NS_SWIFT_NAME(ENGLISH);
+@property (readonly, class, strong) JavaUtilLocale *FRENCH NS_SWIFT_NAME(FRENCH);
+@property (readonly, class, strong) JavaUtilLocale *GERMAN NS_SWIFT_NAME(GERMAN);
+@property (readonly, class, strong) JavaUtilLocale *ITALIAN NS_SWIFT_NAME(ITALIAN);
+@property (readonly, class, strong) JavaUtilLocale *JAPANESE NS_SWIFT_NAME(JAPANESE);
+@property (readonly, class, strong) JavaUtilLocale *KOREAN NS_SWIFT_NAME(KOREAN);
+@property (readonly, class, strong) JavaUtilLocale *CHINESE NS_SWIFT_NAME(CHINESE);
+@property (readonly, class, strong) JavaUtilLocale *SIMPLIFIED_CHINESE NS_SWIFT_NAME(SIMPLIFIED_CHINESE);
+@property (readonly, class, strong) JavaUtilLocale *TRADITIONAL_CHINESE NS_SWIFT_NAME(TRADITIONAL_CHINESE);
+@property (readonly, class, strong) JavaUtilLocale *FRANCE NS_SWIFT_NAME(FRANCE);
+@property (readonly, class, strong) JavaUtilLocale *GERMANY NS_SWIFT_NAME(GERMANY);
+@property (readonly, class, strong) JavaUtilLocale *ITALY NS_SWIFT_NAME(ITALY);
+@property (readonly, class, strong) JavaUtilLocale *JAPAN NS_SWIFT_NAME(JAPAN);
+@property (readonly, class, strong) JavaUtilLocale *KOREA NS_SWIFT_NAME(KOREA);
+@property (readonly, class, strong) JavaUtilLocale *CHINA NS_SWIFT_NAME(CHINA);
+@property (readonly, class, strong) JavaUtilLocale *PRC NS_SWIFT_NAME(PRC);
+@property (readonly, class, strong) JavaUtilLocale *TAIWAN NS_SWIFT_NAME(TAIWAN);
+@property (readonly, class, strong) JavaUtilLocale *UK NS_SWIFT_NAME(UK);
+@property (readonly, class, strong) JavaUtilLocale *US NS_SWIFT_NAME(US);
+@property (readonly, class, strong) JavaUtilLocale *CANADA NS_SWIFT_NAME(CANADA);
+@property (readonly, class, strong) JavaUtilLocale *CANADA_FRENCH NS_SWIFT_NAME(CANADA_FRENCH);
+@property (readonly, class, strong) JavaUtilLocale *ROOT NS_SWIFT_NAME(ROOT);
+@property (readonly, class) jchar PRIVATE_USE_EXTENSION NS_SWIFT_NAME(PRIVATE_USE_EXTENSION);
+@property (readonly, class) jchar UNICODE_LOCALE_EXTENSION NS_SWIFT_NAME(UNICODE_LOCALE_EXTENSION);
+@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (JavaUtilLocale *)ENGLISH;
 
@@ -480,7 +506,7 @@
  @throw NullPointerExceptionthrown if argument is null.
  @since 1.4
  */
-- (instancetype)initWithNSString:(NSString *)language;
+- (instancetype __nonnull)initWithNSString:(NSString *)language;
 
 /*!
  @brief Construct a locale from language and country.
@@ -502,8 +528,8 @@
   <code> Locale </code>  class description about valid country values.
  @throw NullPointerExceptionthrown if either argument is null.
  */
-- (instancetype)initWithNSString:(NSString *)language
-                    withNSString:(NSString *)country;
+- (instancetype __nonnull)initWithNSString:(NSString *)language
+                              withNSString:(NSString *)country;
 
 /*!
  @brief Construct a locale from language, country and variant.
@@ -529,9 +555,9 @@
   .  See the  <code> Locale </code>  class description for the details.
  @throw NullPointerExceptionthrown if any argument is null.
  */
-- (instancetype)initWithNSString:(NSString *)language
-                    withNSString:(NSString *)country
-                    withNSString:(NSString *)variant;
+- (instancetype __nonnull)initWithNSString:(NSString *)language
+                              withNSString:(NSString *)country
+                              withNSString:(NSString *)variant;
 
 /*!
  */
@@ -1203,7 +1229,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -1495,6 +1521,8 @@ typedef NS_ENUM(NSUInteger, JavaUtilLocale_Category_Enum) {
   NSString *variantKey_;
 }
 
+@property (readonly, class, nonnull) JavaUtilLocale_Category *DISPLAY NS_SWIFT_NAME(DISPLAY);
+@property (readonly, class, nonnull) JavaUtilLocale_Category *FORMAT NS_SWIFT_NAME(FORMAT);
 + (JavaUtilLocale_Category * __nonnull)DISPLAY;
 
 + (JavaUtilLocale_Category * __nonnull)FORMAT;
@@ -1592,7 +1620,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLocale_Category)
   fields, extensions, and private use information is the
   empty string.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Adds a unicode locale attribute, if not already present, otherwise

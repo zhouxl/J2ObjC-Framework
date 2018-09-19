@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecurityCertPKIXCertPathValidatorResult_) && (INCLUDE_ALL_JavaSecurityCertPKIXCertPathValidatorResult || defined(INCLUDE_JavaSecurityCertPKIXCertPathValidatorResult))
 #define JavaSecurityCertPKIXCertPathValidatorResult_
 
@@ -66,9 +72,9 @@
  @throw NullPointerExceptionif the <code>subjectPublicKey</code> or 
  <code>trustAnchor</code> parameters are <code>null</code>
  */
-- (instancetype)initWithJavaSecurityCertTrustAnchor:(JavaSecurityCertTrustAnchor *)trustAnchor
-                     withJavaSecurityCertPolicyNode:(id<JavaSecurityCertPolicyNode>)policyTree
-                          withJavaSecurityPublicKey:(id<JavaSecurityPublicKey>)subjectPublicKey;
+- (instancetype __nonnull)initWithJavaSecurityCertTrustAnchor:(JavaSecurityCertTrustAnchor *)trustAnchor
+                               withJavaSecurityCertPolicyNode:(id<JavaSecurityCertPolicyNode>)policyTree
+                                    withJavaSecurityPublicKey:(id<JavaSecurityPublicKey>)subjectPublicKey;
 
 /*!
  @brief Returns a copy of this object.
@@ -117,7 +123,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -133,6 +139,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertPKIXCertPathValidatorResult)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertPKIXCertPathValidatorResult")

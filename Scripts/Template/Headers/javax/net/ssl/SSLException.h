@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxNetSslSSLException_) && (INCLUDE_ALL_JavaxNetSslSSLException || defined(INCLUDE_JavaxNetSslSSLException))
 #define JavaxNetSslSSLException_
 
@@ -41,7 +47,7 @@
   an SSL subsystem.
  @param reason describes the problem.
  */
-- (instancetype)initWithNSString:(NSString *)reason;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason;
 
 /*!
  @brief Creates a <code>SSLException</code> with the specified
@@ -53,8 +59,8 @@
             unknown.)
  @since 1.5
  */
-- (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithNSString:(NSString *)message
+                     withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Creates a <code>SSLException</code> with the specified cause
@@ -67,11 +73,11 @@
             unknown.)
  @since 1.5
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -99,6 +105,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxNetSslSSLException")

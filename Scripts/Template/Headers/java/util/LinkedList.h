@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilLinkedList_) && (INCLUDE_ALL_JavaUtilLinkedList || defined(INCLUDE_JavaUtilLinkedList))
 #define JavaUtilLinkedList_
 
@@ -112,7 +118,7 @@
 /*!
  @brief Constructs an empty list.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a list containing the elements of the specified
@@ -121,7 +127,7 @@
  @param c the collection whose elements are to be placed into this list
  @throw NullPointerExceptionif the specified collection is null
  */
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Appends the specified element to the end of this list.
@@ -592,9 +598,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedList)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilLinkedList_Node:(JavaUtilLinkedList_Node *)prev
-                                         withId:(id)element
-                    withJavaUtilLinkedList_Node:(JavaUtilLinkedList_Node *)next;
+- (instancetype __nonnull)initWithJavaUtilLinkedList_Node:(JavaUtilLinkedList_Node *)prev
+                                                   withId:(id)element
+                              withJavaUtilLinkedList_Node:(JavaUtilLinkedList_Node *)next;
 
 @end
 
@@ -636,6 +642,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedList_Node)
   jint expectedModCount_;
   jint batch_;
 }
+@property (readonly, class) jint BATCH_UNIT NS_SWIFT_NAME(BATCH_UNIT);
+@property (readonly, class) jint MAX_BATCH NS_SWIFT_NAME(MAX_BATCH);
 
 + (jint)BATCH_UNIT;
 
@@ -655,15 +663,15 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedList_Node)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilLinkedList:(JavaUtilLinkedList *)list
-                                   withInt:(jint)est
-                                   withInt:(jint)expectedModCount;
+- (instancetype __nonnull)initWithJavaUtilLinkedList:(JavaUtilLinkedList *)list
+                                             withInt:(jint)est
+                                             withInt:(jint)expectedModCount;
 
 - (jint)getEst;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -690,6 +698,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedList_LLSpliterator)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilLinkedList")

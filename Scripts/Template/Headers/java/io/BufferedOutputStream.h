@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoBufferedOutputStream_) && (INCLUDE_ALL_JavaIoBufferedOutputStream || defined(INCLUDE_JavaIoBufferedOutputStream))
 #define JavaIoBufferedOutputStream_
 
@@ -56,7 +62,7 @@
   specified underlying output stream.
  @param outArg the underlying output stream.
  */
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg;
 
 /*!
  @brief Creates a new buffered output stream to write data to the
@@ -66,8 +72,8 @@
  @param size the buffer size.
  @throw IllegalArgumentExceptionif size &lt;= 0.
  */
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-                                   withInt:(jint)size;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+                                             withInt:(jint)size;
 
 /*!
  @brief Flushes this buffered output stream.This forces any buffered
@@ -124,6 +130,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoBufferedOutputStream)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoBufferedOutputStream")

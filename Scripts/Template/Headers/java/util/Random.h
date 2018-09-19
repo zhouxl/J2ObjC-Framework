@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilRandom_) && (INCLUDE_ALL_JavaUtilRandom || defined(INCLUDE_JavaUtilRandom))
 #define JavaUtilRandom_
 
@@ -64,6 +70,10 @@
  @since 1.0
  */
 @interface JavaUtilRandom : NSObject < JavaIoSerializable >
+@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
+@property (readonly, copy, class) NSString *BadBound NS_SWIFT_NAME(BadBound);
+@property (readonly, copy, class) NSString *BadRange NS_SWIFT_NAME(BadRange);
+@property (readonly, copy, class) NSString *BadSize NS_SWIFT_NAME(BadSize);
 
 + (jlong)serialVersionUID;
 
@@ -80,7 +90,7 @@
   the seed of the random number generator to a value very likely
   to be distinct from any other invocation of this constructor.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a new random number generator using a single <code>long</code> seed.
@@ -96,7 +106,7 @@
  @param seed the initial seed
  - seealso: #setSeed(long)
  */
-- (instancetype)initWithLong:(jlong)seed;
+- (instancetype __nonnull)initWithLong:(jlong)seed;
 
 /*!
  @brief Returns an effectively unlimited stream of pseudorandom <code>double</code>
@@ -816,15 +826,15 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRandom)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilRandom:(JavaUtilRandom *)rng
-                              withLong:(jlong)index
-                              withLong:(jlong)fence
-                               withInt:(jint)origin
-                               withInt:(jint)bound;
+- (instancetype __nonnull)initWithJavaUtilRandom:(JavaUtilRandom *)rng
+                                        withLong:(jlong)index
+                                        withLong:(jlong)fence
+                                         withInt:(jint)origin
+                                         withInt:(jint)bound;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -880,15 +890,15 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRandom_RandomIntsSpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilRandom:(JavaUtilRandom *)rng
-                              withLong:(jlong)index
-                              withLong:(jlong)fence
-                              withLong:(jlong)origin
-                              withLong:(jlong)bound;
+- (instancetype __nonnull)initWithJavaUtilRandom:(JavaUtilRandom *)rng
+                                        withLong:(jlong)index
+                                        withLong:(jlong)fence
+                                        withLong:(jlong)origin
+                                        withLong:(jlong)bound;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -944,15 +954,15 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRandom_RandomLongsSpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilRandom:(JavaUtilRandom *)rng
-                              withLong:(jlong)index
-                              withLong:(jlong)fence
-                            withDouble:(jdouble)origin
-                            withDouble:(jdouble)bound;
+- (instancetype __nonnull)initWithJavaUtilRandom:(JavaUtilRandom *)rng
+                                        withLong:(jlong)index
+                                        withLong:(jlong)fence
+                                      withDouble:(jdouble)origin
+                                      withDouble:(jdouble)bound;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -970,6 +980,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRandom_RandomDoublesSpliterator)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilRandom")

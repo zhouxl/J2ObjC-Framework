@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNioDoubleBuffer_) && (INCLUDE_ALL_JavaNioDoubleBuffer || defined(INCLUDE_JavaNioDoubleBuffer))
 #define JavaNioDoubleBuffer_
 
@@ -520,17 +526,17 @@
 
 #pragma mark Package-Private
 
-- (instancetype)initWithInt:(jint)mark
-                    withInt:(jint)pos
-                    withInt:(jint)lim
-                    withInt:(jint)cap;
+- (instancetype __nonnull)initWithInt:(jint)mark
+                              withInt:(jint)pos
+                              withInt:(jint)lim
+                              withInt:(jint)cap;
 
-- (instancetype)initWithInt:(jint)mark
-                    withInt:(jint)pos
-                    withInt:(jint)lim
-                    withInt:(jint)cap
-            withDoubleArray:(IOSDoubleArray *)hb
-                    withInt:(jint)offset;
+- (instancetype __nonnull)initWithInt:(jint)mark
+                              withInt:(jint)pos
+                              withInt:(jint)lim
+                              withInt:(jint)cap
+                      withDoubleArray:(IOSDoubleArray *)hb
+                              withInt:(jint)offset;
 
 @end
 
@@ -552,6 +558,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioDoubleBuffer)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioDoubleBuffer")

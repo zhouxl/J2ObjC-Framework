@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxNetSslSSLServerSocket_) && (INCLUDE_ALL_JavaxNetSslSSLServerSocket || defined(INCLUDE_JavaxNetSslSSLServerSocket))
 #define JavaxNetSslSSLServerSocket_
 
@@ -337,7 +343,7 @@
   context.
  @throw IOExceptionif an I/O error occurs when creating the socket
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Used only by subclasses.
@@ -362,7 +368,7 @@
           65535, inclusive.
  - seealso: SecurityManager#checkListen
  */
-- (instancetype)initWithInt:(jint)port;
+- (instancetype __nonnull)initWithInt:(jint)port;
 
 /*!
  @brief Used only by subclasses.
@@ -393,8 +399,8 @@
           65535, inclusive.
  - seealso: SecurityManager#checkListen
  */
-- (instancetype)initWithInt:(jint)port
-                    withInt:(jint)backlog;
+- (instancetype __nonnull)initWithInt:(jint)port
+                              withInt:(jint)backlog;
 
 /*!
  @brief Used only by subclasses.
@@ -433,9 +439,9 @@
           65535, inclusive.
  - seealso: SecurityManager#checkListen
  */
-- (instancetype)initWithInt:(jint)port
-                    withInt:(jint)backlog
-     withJavaNetInetAddress:(JavaNetInetAddress *)address;
+- (instancetype __nonnull)initWithInt:(jint)port
+                              withInt:(jint)backlog
+               withJavaNetInetAddress:(JavaNetInetAddress *)address;
 
 @end
 
@@ -453,6 +459,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLServerSocket)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxNetSslSSLServerSocket")

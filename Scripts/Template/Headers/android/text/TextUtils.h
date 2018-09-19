@@ -21,6 +21,7 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -38,6 +39,34 @@
 @protocol JavaLangIterable;
 
 @interface AndroidTextTextUtils : NSObject
+@property (readonly, class) jint ALIGNMENT_SPAN NS_SWIFT_NAME(ALIGNMENT_SPAN);
+@property (readonly, class) jint FIRST_SPAN NS_SWIFT_NAME(FIRST_SPAN);
+@property (readonly, class) jint FOREGROUND_COLOR_SPAN NS_SWIFT_NAME(FOREGROUND_COLOR_SPAN);
+@property (readonly, class) jint RELATIVE_SIZE_SPAN NS_SWIFT_NAME(RELATIVE_SIZE_SPAN);
+@property (readonly, class) jint SCALE_X_SPAN NS_SWIFT_NAME(SCALE_X_SPAN);
+@property (readonly, class) jint STRIKETHROUGH_SPAN NS_SWIFT_NAME(STRIKETHROUGH_SPAN);
+@property (readonly, class) jint UNDERLINE_SPAN NS_SWIFT_NAME(UNDERLINE_SPAN);
+@property (readonly, class) jint STYLE_SPAN NS_SWIFT_NAME(STYLE_SPAN);
+@property (readonly, class) jint BULLET_SPAN NS_SWIFT_NAME(BULLET_SPAN);
+@property (readonly, class) jint QUOTE_SPAN NS_SWIFT_NAME(QUOTE_SPAN);
+@property (readonly, class) jint LEADING_MARGIN_SPAN NS_SWIFT_NAME(LEADING_MARGIN_SPAN);
+@property (readonly, class) jint URL_SPAN NS_SWIFT_NAME(URL_SPAN);
+@property (readonly, class) jint BACKGROUND_COLOR_SPAN NS_SWIFT_NAME(BACKGROUND_COLOR_SPAN);
+@property (readonly, class) jint TYPEFACE_SPAN NS_SWIFT_NAME(TYPEFACE_SPAN);
+@property (readonly, class) jint SUPERSCRIPT_SPAN NS_SWIFT_NAME(SUPERSCRIPT_SPAN);
+@property (readonly, class) jint SUBSCRIPT_SPAN NS_SWIFT_NAME(SUBSCRIPT_SPAN);
+@property (readonly, class) jint ABSOLUTE_SIZE_SPAN NS_SWIFT_NAME(ABSOLUTE_SIZE_SPAN);
+@property (readonly, class) jint TEXT_APPEARANCE_SPAN NS_SWIFT_NAME(TEXT_APPEARANCE_SPAN);
+@property (readonly, class) jint ANNOTATION NS_SWIFT_NAME(ANNOTATION);
+@property (readonly, class) jint SUGGESTION_SPAN NS_SWIFT_NAME(SUGGESTION_SPAN);
+@property (readonly, class) jint SPELL_CHECK_SPAN NS_SWIFT_NAME(SPELL_CHECK_SPAN);
+@property (readonly, class) jint SUGGESTION_RANGE_SPAN NS_SWIFT_NAME(SUGGESTION_RANGE_SPAN);
+@property (readonly, class) jint EASY_EDIT_SPAN NS_SWIFT_NAME(EASY_EDIT_SPAN);
+@property (readonly, class) jint LOCALE_SPAN NS_SWIFT_NAME(LOCALE_SPAN);
+@property (readonly, class) jint LAST_SPAN NS_SWIFT_NAME(LAST_SPAN);
+@property (readonly, class) jint CAP_MODE_CHARACTERS NS_SWIFT_NAME(CAP_MODE_CHARACTERS);
+@property (readonly, class) jint CAP_MODE_WORDS NS_SWIFT_NAME(CAP_MODE_WORDS);
+@property (readonly, class) jint CAP_MODE_SENTENCES NS_SWIFT_NAME(CAP_MODE_SENTENCES);
 
 + (jint)ALIGNMENT_SPAN;
 
@@ -749,7 +778,7 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextTextUtils_StringSplitter)
  @brief Initializes the splitter.setString may be called later.
  @param delimiter the delimeter on which to split
  */
-- (instancetype)initWithChar:(jchar)delimiter;
+- (instancetype __nonnull)initWithChar:(jchar)delimiter;
 
 - (jboolean)hasNext;
 
@@ -769,7 +798,7 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextTextUtils_StringSplitter)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -804,6 +833,11 @@ typedef NS_ENUM(NSUInteger, AndroidTextTextUtils_TruncateAt_Enum) {
 
 @interface AndroidTextTextUtils_TruncateAt : JavaLangEnum
 
+@property (readonly, class, nonnull) AndroidTextTextUtils_TruncateAt *START NS_SWIFT_NAME(START);
+@property (readonly, class, nonnull) AndroidTextTextUtils_TruncateAt *MIDDLE NS_SWIFT_NAME(MIDDLE);
+@property (readonly, class, nonnull) AndroidTextTextUtils_TruncateAt *END NS_SWIFT_NAME(END);
+@property (readonly, class, nonnull) AndroidTextTextUtils_TruncateAt *MARQUEE NS_SWIFT_NAME(MARQUEE);
+@property (readonly, class, nonnull) AndroidTextTextUtils_TruncateAt *END_SMALL NS_SWIFT_NAME(END_SMALL);
 + (AndroidTextTextUtils_TruncateAt * __nonnull)START;
 
 + (AndroidTextTextUtils_TruncateAt * __nonnull)MIDDLE;

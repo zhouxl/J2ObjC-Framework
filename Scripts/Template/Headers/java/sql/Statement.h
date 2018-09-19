@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSqlStatement_) && (INCLUDE_ALL_JavaSqlStatement || defined(INCLUDE_JavaSqlStatement))
 #define JavaSqlStatement_
 
@@ -938,6 +944,13 @@
 @end
 
 @interface JavaSqlStatement : NSObject
+@property (readonly, class) jint CLOSE_CURRENT_RESULT NS_SWIFT_NAME(CLOSE_CURRENT_RESULT);
+@property (readonly, class) jint KEEP_CURRENT_RESULT NS_SWIFT_NAME(KEEP_CURRENT_RESULT);
+@property (readonly, class) jint CLOSE_ALL_RESULTS NS_SWIFT_NAME(CLOSE_ALL_RESULTS);
+@property (readonly, class) jint SUCCESS_NO_INFO NS_SWIFT_NAME(SUCCESS_NO_INFO);
+@property (readonly, class) jint EXECUTE_FAILED NS_SWIFT_NAME(EXECUTE_FAILED);
+@property (readonly, class) jint RETURN_GENERATED_KEYS NS_SWIFT_NAME(RETURN_GENERATED_KEYS);
+@property (readonly, class) jint NO_GENERATED_KEYS NS_SWIFT_NAME(NO_GENERATED_KEYS);
 
 + (jint)CLOSE_CURRENT_RESULT;
 
@@ -1025,6 +1038,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlStatement)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSqlStatement")

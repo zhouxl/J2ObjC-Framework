@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (OrgMockitoInternalCreationIosInvocationHandlerAdapter_) && (INCLUDE_ALL_OrgMockitoInternalCreationIosInvocationHandlerAdapter || defined(INCLUDE_OrgMockitoInternalCreationIosInvocationHandlerAdapter))
 #define OrgMockitoInternalCreationIosInvocationHandlerAdapter_
 
@@ -35,7 +41,7 @@
 
 #pragma mark Public
 
-- (instancetype)initWithOrgMockitoInvocationMockHandler:(id<OrgMockitoInvocationMockHandler>)handler;
+- (instancetype __nonnull)initWithOrgMockitoInvocationMockHandler:(id<OrgMockitoInvocationMockHandler>)handler;
 
 - (id<OrgMockitoInvocationMockHandler>)getHandler;
 
@@ -47,7 +53,7 @@ withJavaLangReflectMethod:(JavaLangReflectMethod *)method
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -63,6 +69,10 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgMockitoInternalCreationIosInvocationHandlerAdapter
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgMockitoInternalCreationIosInvocationHandlerAdapter")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoOutputStreamWriter_) && (INCLUDE_ALL_JavaIoOutputStreamWriter || defined(INCLUDE_JavaIoOutputStreamWriter))
 #define JavaIoOutputStreamWriter_
 
@@ -48,7 +54,7 @@
   is used.
  @param outArg the non-null target stream to write converted bytes to.
  */
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg;
 
 /*!
  @brief Constructs a new OutputStreamWriter using <code>out</code> as the target
@@ -58,8 +64,8 @@
  @param cs the 
  <code>Charset</code>  that specifies the character encoding.
  */
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-                 withJavaNioCharsetCharset:(JavaNioCharsetCharset *)cs;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+                           withJavaNioCharsetCharset:(JavaNioCharsetCharset *)cs;
 
 /*!
  @brief Constructs a new OutputStreamWriter using <code>out</code> as the target
@@ -68,8 +74,8 @@
  @param outArg the target stream to write converted bytes to.
  @param charsetEncoder the character encoder used for character conversion.
  */
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-          withJavaNioCharsetCharsetEncoder:(JavaNioCharsetCharsetEncoder *)charsetEncoder;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+                    withJavaNioCharsetCharsetEncoder:(JavaNioCharsetCharsetEncoder *)charsetEncoder;
 
 /*!
  @brief Constructs a new OutputStreamWriter using <code>out</code> as the target
@@ -83,8 +89,8 @@
  @throw UnsupportedEncodingException
  if the encoding specified by <code>charsetName</code> cannot be found.
  */
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-                              withNSString:(NSString *)charsetName;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+                                        withNSString:(NSString *)charsetName;
 
 /*!
  @brief Closes this writer.This implementation flushes the buffer as well as the
@@ -178,9 +184,9 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
-- (instancetype)initWithId:(id)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithId:(id)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -214,6 +220,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoOutputStreamWriter)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoOutputStreamWriter")

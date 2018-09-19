@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNioChannelsFileChannel_) && (INCLUDE_ALL_JavaNioChannelsFileChannel || defined(INCLUDE_JavaNioChannelsFileChannel))
 #define JavaNioChannelsFileChannel_
 
@@ -762,7 +768,7 @@ withJavaNioChannelsWritableByteChannel:(id<JavaNioChannelsWritableByteChannel>)t
 /*!
  @brief Initializes a new instance of this class.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -783,6 +789,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsFileChannel)
  - seealso: java.nio.channels.FileChannel
  */
 @interface JavaNioChannelsFileChannel_MapMode : NSObject
+@property (readonly, class, strong) JavaNioChannelsFileChannel_MapMode *READ_ONLY NS_SWIFT_NAME(READ_ONLY);
+@property (readonly, class, strong) JavaNioChannelsFileChannel_MapMode *READ_WRITE NS_SWIFT_NAME(READ_WRITE);
+@property (readonly, class, strong) JavaNioChannelsFileChannel_MapMode *PRIVATE NS_SWIFT_NAME(PRIVATE);
 
 + (JavaNioChannelsFileChannel_MapMode *)READ_ONLY;
 
@@ -800,7 +809,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsFileChannel)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -834,6 +843,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsFileChannel_MapMode)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioChannelsFileChannel")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxXmlTransformOutputKeys_) && (INCLUDE_ALL_JavaxXmlTransformOutputKeys || defined(INCLUDE_JavaxXmlTransformOutputKeys))
 #define JavaxXmlTransformOutputKeys_
 
@@ -28,6 +34,16 @@
    section 16 of the XSL Transformations (XSLT) W3C Recommendation</a>
  */
 @interface JavaxXmlTransformOutputKeys : NSObject
+@property (readonly, copy, class) NSString *METHOD NS_SWIFT_NAME(METHOD);
+@property (readonly, copy, class) NSString *VERSION NS_SWIFT_NAME(VERSION);
+@property (readonly, copy, class) NSString *ENCODING NS_SWIFT_NAME(ENCODING);
+@property (readonly, copy, class) NSString *OMIT_XML_DECLARATION NS_SWIFT_NAME(OMIT_XML_DECLARATION);
+@property (readonly, copy, class) NSString *STANDALONE NS_SWIFT_NAME(STANDALONE);
+@property (readonly, copy, class) NSString *DOCTYPE_PUBLIC NS_SWIFT_NAME(DOCTYPE_PUBLIC);
+@property (readonly, copy, class) NSString *DOCTYPE_SYSTEM NS_SWIFT_NAME(DOCTYPE_SYSTEM);
+@property (readonly, copy, class) NSString *CDATA_SECTION_ELEMENTS NS_SWIFT_NAME(CDATA_SECTION_ELEMENTS);
+@property (readonly, copy, class) NSString *INDENT NS_SWIFT_NAME(INDENT);
+@property (readonly, copy, class) NSString *MEDIA_TYPE NS_SWIFT_NAME(MEDIA_TYPE);
 
 + (NSString *)METHOD;
 
@@ -230,6 +246,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformOutputKeys)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformOutputKeys")

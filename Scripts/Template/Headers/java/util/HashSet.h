@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilHashSet_) && (INCLUDE_ALL_JavaUtilHashSet || defined(INCLUDE_JavaUtilHashSet))
 #define JavaUtilHashSet_
 
@@ -90,6 +96,7 @@
  @since 1.2
  */
 @interface JavaUtilHashSet : JavaUtilAbstractSet < JavaUtilSet, NSCopying, JavaIoSerializable >
+@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jlong)serialVersionUID;
 
@@ -99,7 +106,7 @@
  @brief Constructs a new, empty set; the backing <tt>HashMap</tt> instance has
   default initial capacity (16) and load factor (0.75).
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a new set containing the elements in the specified
@@ -109,7 +116,7 @@
  @param c the collection whose elements are to be placed into this set
  @throw NullPointerExceptionif the specified collection is null
  */
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Constructs a new, empty set; the backing <tt>HashMap</tt> instance has
@@ -118,7 +125,7 @@
  @throw IllegalArgumentExceptionif the initial capacity is less
               than zero
  */
-- (instancetype)initWithInt:(jint)initialCapacity;
+- (instancetype __nonnull)initWithInt:(jint)initialCapacity;
 
 /*!
  @brief Constructs a new, empty set; the backing <tt>HashMap</tt> instance has
@@ -128,8 +135,8 @@
  @throw IllegalArgumentExceptionif the initial capacity is less
               than zero, or if the load factor is nonpositive
  */
-- (instancetype)initWithInt:(jint)initialCapacity
-                  withFloat:(jfloat)loadFactor;
+- (instancetype __nonnull)initWithInt:(jint)initialCapacity
+                            withFloat:(jfloat)loadFactor;
 
 /*!
  @brief Adds the specified element to this set if it is not already present.
@@ -226,9 +233,9 @@
  @throw IllegalArgumentExceptionif the initial capacity is less
               than zero, or if the load factor is nonpositive
  */
-- (instancetype)initWithInt:(jint)initialCapacity
-                  withFloat:(jfloat)loadFactor
-                withBoolean:(jboolean)dummy;
+- (instancetype __nonnull)initWithInt:(jint)initialCapacity
+                            withFloat:(jfloat)loadFactor
+                          withBoolean:(jboolean)dummy;
 
 @end
 
@@ -272,6 +279,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashSet)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilHashSet")

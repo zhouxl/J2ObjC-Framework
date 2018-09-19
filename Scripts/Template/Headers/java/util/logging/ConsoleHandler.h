@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilLoggingConsoleHandler_) && (INCLUDE_ALL_JavaUtilLoggingConsoleHandler || defined(INCLUDE_JavaUtilLoggingConsoleHandler))
 #define JavaUtilLoggingConsoleHandler_
 
@@ -62,7 +68,7 @@
   The <tt>ConsoleHandler</tt> is configured based on 
  <tt>LogManager</tt> properties (or their default values).
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Override <tt>StreamHandler.close</tt> to do a flush but not
@@ -83,8 +89,8 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
-              withJavaUtilLoggingFormatter:(JavaUtilLoggingFormatter *)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
+                        withJavaUtilLoggingFormatter:(JavaUtilLoggingFormatter *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -100,6 +106,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingConsoleHandler)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingConsoleHandler")

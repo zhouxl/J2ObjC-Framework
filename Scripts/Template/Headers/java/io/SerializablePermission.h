@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoSerializablePermission_) && (INCLUDE_ALL_JavaIoSerializablePermission || defined(INCLUDE_JavaIoSerializablePermission))
 #define JavaIoSerializablePermission_
 
@@ -30,10 +36,10 @@
 
 #pragma mark Public
 
-- (instancetype)initWithNSString:(NSString *)name;
+- (instancetype __nonnull)initWithNSString:(NSString *)name;
 
-- (instancetype)initWithNSString:(NSString *)name
-                    withNSString:(NSString *)actions;
+- (instancetype __nonnull)initWithNSString:(NSString *)name
+                              withNSString:(NSString *)actions;
 
 @end
 
@@ -55,6 +61,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoSerializablePermission)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoSerializablePermission")

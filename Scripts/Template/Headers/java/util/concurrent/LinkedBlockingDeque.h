@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentLinkedBlockingDeque_) && (INCLUDE_ALL_JavaUtilConcurrentLinkedBlockingDeque || defined(INCLUDE_JavaUtilConcurrentLinkedBlockingDeque))
 #define JavaUtilConcurrentLinkedBlockingDeque_
 
@@ -85,7 +91,7 @@
  @brief Creates a <code>LinkedBlockingDeque</code> with a capacity of 
  <code>Integer.MAX_VALUE</code>.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a <code>LinkedBlockingDeque</code> with a capacity of 
@@ -96,14 +102,14 @@
  @throw NullPointerExceptionif the specified collection or any
           of its elements are null
  */
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Creates a <code>LinkedBlockingDeque</code> with the given (fixed) capacity.
  @param capacity the capacity of this deque
  @throw IllegalArgumentExceptionif <code>capacity</code> is less than 1
  */
-- (instancetype)initWithInt:(jint)capacity;
+- (instancetype __nonnull)initWithInt:(jint)capacity;
 
 /*!
  @brief Inserts the specified element at the end of this deque unless it would
@@ -477,11 +483,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingDeque)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithId:(id)x;
+- (instancetype __nonnull)initWithId:(id)x;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -524,6 +530,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingDeque_Node)
   jboolean exhausted_;
   jlong est_;
 }
+@property (readonly, class) jint MAX_BATCH NS_SWIFT_NAME(MAX_BATCH);
 
 + (jint)MAX_BATCH;
 
@@ -541,11 +548,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingDeque_Node)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilConcurrentLinkedBlockingDeque:(JavaUtilConcurrentLinkedBlockingDeque *)queue;
+- (instancetype __nonnull)initWithJavaUtilConcurrentLinkedBlockingDeque:(JavaUtilConcurrentLinkedBlockingDeque *)queue;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -568,6 +575,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingDeque_LBDSpliterator)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentLinkedBlockingDeque")

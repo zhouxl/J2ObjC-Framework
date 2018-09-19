@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoPrintStream_) && (INCLUDE_ALL_JavaIoPrintStream || defined(INCLUDE_JavaIoPrintStream))
 #define JavaIoPrintStream_
 
@@ -85,7 +91,7 @@
            denies write access to the file
  @since 1.5
  */
-- (instancetype)initWithJavaIoFile:(JavaIoFile *)file;
+- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file;
 
 /*!
  @brief Creates a new print stream, without automatic line flushing, with the
@@ -111,15 +117,15 @@
  If the named charset is not supported
  @since 1.5
  */
-- (instancetype)initWithJavaIoFile:(JavaIoFile *)file
-                      withNSString:(NSString *)csn;
+- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file
+                                withNSString:(NSString *)csn;
 
 /*!
  @brief Creates a new print stream.This stream will not flush automatically.
  @param outArg The output stream to which values and objects will be                     printed
  - seealso: java.io.PrintWriter
  */
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg;
 
 /*!
  @brief Creates a new print stream.
@@ -130,8 +136,8 @@
   <code> '\n' </code> ) is written
  - seealso: java.io.PrintWriter
  */
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-                               withBoolean:(jboolean)autoFlush;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+                                         withBoolean:(jboolean)autoFlush;
 
 /*!
  @brief Creates a new print stream.
@@ -147,9 +153,9 @@
  If the named encoding is not supported
  @since 1.4
  */
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-                               withBoolean:(jboolean)autoFlush
-                              withNSString:(NSString *)encoding;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+                                         withBoolean:(jboolean)autoFlush
+                                        withNSString:(NSString *)encoding;
 
 /*!
  @brief Creates a new print stream, without automatic line flushing, with the
@@ -173,7 +179,7 @@
            access to the file
  @since 1.5
  */
-- (instancetype)initWithNSString:(NSString *)fileName;
+- (instancetype __nonnull)initWithNSString:(NSString *)fileName;
 
 /*!
  @brief Creates a new print stream, without automatic line flushing, with the
@@ -200,8 +206,8 @@
  If the named charset is not supported
  @since 1.5
  */
-- (instancetype)initWithNSString:(NSString *)fileName
-                    withNSString:(NSString *)csn;
+- (instancetype __nonnull)initWithNSString:(NSString *)fileName
+                              withNSString:(NSString *)csn;
 
 /*!
  @brief Appends the specified character to this output stream.
@@ -716,6 +722,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoPrintStream)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoPrintStream")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangReflectTypeVariable_) && (INCLUDE_ALL_JavaLangReflectTypeVariable || defined(INCLUDE_JavaLangReflectTypeVariable))
 #define JavaLangReflectTypeVariable_
 
@@ -63,7 +69,7 @@
  @return an array of <code>Type</code>s representing the upper
       bound(s) of this type variable
  */
-- (IOSObjectArray *)getBounds;
+- (IOSObjectArray * __nonnull)getBounds;
 
 /*!
  @brief Returns the <code>GenericDeclaration</code> object representing the
@@ -71,13 +77,13 @@
  @return the generic declaration declared for this type variable.
  @since 1.5
  */
-- (id<JavaLangReflectGenericDeclaration>)getGenericDeclaration;
+- (id<JavaLangReflectGenericDeclaration> __nonnull)getGenericDeclaration;
 
 /*!
  @brief Returns the name of this type variable, as it occurs in the source code.
  @return the name of this type variable, as it appears in the source code
  */
-- (NSString *)getName;
+- (NSString * __nonnull)getName;
 
 @end
 
@@ -87,6 +93,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectTypeVariable)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangReflectTypeVariable")

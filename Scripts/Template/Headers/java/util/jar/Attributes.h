@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilJarAttributes_) && (INCLUDE_ALL_JavaUtilJarAttributes || defined(INCLUDE_JavaUtilJarAttributes))
 #define JavaUtilJarAttributes_
 
@@ -59,21 +65,21 @@
 /*!
  @brief Constructs a new, empty Attributes object with default size.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a new Attributes object with the same attribute name-value
   mappings as in the specified Attributes.
  @param attr the specified Attributes
  */
-- (instancetype)initWithJavaUtilJarAttributes:(JavaUtilJarAttributes *)attr;
+- (instancetype __nonnull)initWithJavaUtilJarAttributes:(JavaUtilJarAttributes *)attr;
 
 /*!
  @brief Constructs a new, empty Attributes object with the specified
   initial size.
  @param size the initial number of attributes
  */
-- (instancetype)initWithInt:(jint)size;
+- (instancetype __nonnull)initWithInt:(jint)size;
 
 /*!
  @brief Removes all attributes from this Map.
@@ -292,6 +298,24 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarAttributes)
   for more information about valid attribute names and values.
  */
 @interface JavaUtilJarAttributes_Name : NSObject
+@property (readonly, class, strong) JavaUtilJarAttributes_Name *MANIFEST_VERSION NS_SWIFT_NAME(MANIFEST_VERSION);
+@property (readonly, class, strong) JavaUtilJarAttributes_Name *SIGNATURE_VERSION NS_SWIFT_NAME(SIGNATURE_VERSION);
+@property (readonly, class, strong) JavaUtilJarAttributes_Name *CONTENT_TYPE NS_SWIFT_NAME(CONTENT_TYPE);
+@property (readonly, class, strong) JavaUtilJarAttributes_Name *CLASS_PATH NS_SWIFT_NAME(CLASS_PATH);
+@property (readonly, class, strong) JavaUtilJarAttributes_Name *MAIN_CLASS NS_SWIFT_NAME(MAIN_CLASS);
+@property (readonly, class, strong) JavaUtilJarAttributes_Name *SEALED NS_SWIFT_NAME(SEALED);
+@property (readonly, class, strong) JavaUtilJarAttributes_Name *EXTENSION_LIST NS_SWIFT_NAME(EXTENSION_LIST);
+@property (readonly, class, strong) JavaUtilJarAttributes_Name *EXTENSION_NAME NS_SWIFT_NAME(EXTENSION_NAME);
+@property (readonly, class, strong) JavaUtilJarAttributes_Name *EXTENSION_INSTALLATION NS_SWIFT_NAME(EXTENSION_INSTALLATION);
+@property (readonly, class, strong) JavaUtilJarAttributes_Name *IMPLEMENTATION_TITLE NS_SWIFT_NAME(IMPLEMENTATION_TITLE);
+@property (readonly, class, strong) JavaUtilJarAttributes_Name *IMPLEMENTATION_VERSION NS_SWIFT_NAME(IMPLEMENTATION_VERSION);
+@property (readonly, class, strong) JavaUtilJarAttributes_Name *IMPLEMENTATION_VENDOR NS_SWIFT_NAME(IMPLEMENTATION_VENDOR);
+@property (readonly, class, strong) JavaUtilJarAttributes_Name *IMPLEMENTATION_VENDOR_ID NS_SWIFT_NAME(IMPLEMENTATION_VENDOR_ID);
+@property (readonly, class, strong) JavaUtilJarAttributes_Name *IMPLEMENTATION_URL NS_SWIFT_NAME(IMPLEMENTATION_URL);
+@property (readonly, class, strong) JavaUtilJarAttributes_Name *SPECIFICATION_TITLE NS_SWIFT_NAME(SPECIFICATION_TITLE);
+@property (readonly, class, strong) JavaUtilJarAttributes_Name *SPECIFICATION_VERSION NS_SWIFT_NAME(SPECIFICATION_VERSION);
+@property (readonly, class, strong) JavaUtilJarAttributes_Name *SPECIFICATION_VENDOR NS_SWIFT_NAME(SPECIFICATION_VENDOR);
+@property (readonly, class, strong) JavaUtilJarAttributes_Name *NAME NS_SWIFT_NAME(NAME);
 
 + (JavaUtilJarAttributes_Name *)MANIFEST_VERSION;
 
@@ -338,7 +362,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarAttributes)
              invalid
  @throw NullPointerExceptionif the attribute name was null
  */
-- (instancetype)initWithNSString:(NSString *)name;
+- (instancetype __nonnull)initWithNSString:(NSString *)name;
 
 /*!
  @brief Compares this attribute name to another for equality.
@@ -360,7 +384,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarAttributes)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -571,6 +595,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarAttributes_Name)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilJarAttributes")

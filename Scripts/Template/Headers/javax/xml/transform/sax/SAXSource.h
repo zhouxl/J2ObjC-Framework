@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxXmlTransformSaxSAXSource_) && (INCLUDE_ALL_JavaxXmlTransformSaxSAXSource || defined(INCLUDE_JavaxXmlTransformSaxSAXSource))
 #define JavaxXmlTransformSaxSAXSource_
 
@@ -39,6 +45,7 @@
  @version $Revision: 446598 $, $Date: 2006-09-15 05:55:40 -0700 (Fri, 15 Sep 2006) $
  */
 @interface JavaxXmlTransformSaxSAXSource : NSObject < JavaxXmlTransformSource >
+@property (readonly, copy, class) NSString *FEATURE NS_SWIFT_NAME(FEATURE);
 
 + (NSString *)FEATURE;
 
@@ -54,7 +61,7 @@
  <code>InputSource()</code>.</p>
  - seealso: javax.xml.transform.Transformer
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Create a <code>SAXSource</code>, using a SAX <code>InputSource</code>.
@@ -66,7 +73,7 @@
   reader.parse(inputSource).
  @param inputSource An input source reference that must be non-null  and that will be passed to the parse method of the reader.
  */
-- (instancetype)initWithOrgXmlSaxInputSource:(OrgXmlSaxInputSource *)inputSource;
+- (instancetype __nonnull)initWithOrgXmlSaxInputSource:(OrgXmlSaxInputSource *)inputSource;
 
 /*!
  @brief Create a <code>SAXSource</code>, using an <code>org.xml.sax.XMLReader</code>
@@ -77,8 +84,8 @@
  @param reader An XMLReader to be used for the parse.
  @param inputSource A SAX input source reference that must be non-null  and that will be passed to the reader parse method.
  */
-- (instancetype)initWithOrgXmlSaxXMLReader:(id<OrgXmlSaxXMLReader>)reader
-                  withOrgXmlSaxInputSource:(OrgXmlSaxInputSource *)inputSource;
+- (instancetype __nonnull)initWithOrgXmlSaxXMLReader:(id<OrgXmlSaxXMLReader>)reader
+                            withOrgXmlSaxInputSource:(OrgXmlSaxInputSource *)inputSource;
 
 /*!
  @brief Get the SAX InputSource to be used for the Source.
@@ -172,6 +179,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformSaxSAXSource)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformSaxSAXSource")

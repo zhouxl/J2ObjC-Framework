@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNioChannelsSpiAbstractInterruptibleChannel_) && (INCLUDE_ALL_JavaNioChannelsSpiAbstractInterruptibleChannel || defined(INCLUDE_JavaNioChannelsSpiAbstractInterruptibleChannel))
 #define JavaNioChannelsSpiAbstractInterruptibleChannel_
 
@@ -94,7 +100,7 @@
 /*!
  @brief Initializes a new instance of this class.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Marks the beginning of an I/O operation that might block indefinitely.
@@ -152,6 +158,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSpiAbstractInterruptibleChannel)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioChannelsSpiAbstractInterruptibleChannel")

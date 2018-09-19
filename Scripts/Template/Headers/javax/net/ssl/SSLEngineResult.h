@@ -18,6 +18,7 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -59,10 +60,10 @@
            arguments are null, or if <<code>bytesConsumed</code> or
            <code>bytesProduced</code> is negative.
  */
-- (instancetype)initWithJavaxNetSslSSLEngineResult_Status:(JavaxNetSslSSLEngineResult_Status *)status
-           withJavaxNetSslSSLEngineResult_HandshakeStatus:(JavaxNetSslSSLEngineResult_HandshakeStatus *)handshakeStatus
-                                                  withInt:(jint)bytesConsumed
-                                                  withInt:(jint)bytesProduced;
+- (instancetype __nonnull)initWithJavaxNetSslSSLEngineResult_Status:(JavaxNetSslSSLEngineResult_Status *)status
+                     withJavaxNetSslSSLEngineResult_HandshakeStatus:(JavaxNetSslSSLEngineResult_HandshakeStatus *)handshakeStatus
+                                                            withInt:(jint)bytesConsumed
+                                                            withInt:(jint)bytesProduced;
 
 /*!
  @brief Returns the number of bytes consumed from the input buffer.
@@ -96,7 +97,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -140,6 +141,10 @@ typedef NS_ENUM(NSUInteger, JavaxNetSslSSLEngineResult_Status_Enum) {
  */
 @interface JavaxNetSslSSLEngineResult_Status : JavaLangEnum
 
+@property (readonly, class, nonnull) JavaxNetSslSSLEngineResult_Status *BUFFER_UNDERFLOW NS_SWIFT_NAME(BUFFER_UNDERFLOW);
+@property (readonly, class, nonnull) JavaxNetSslSSLEngineResult_Status *BUFFER_OVERFLOW NS_SWIFT_NAME(BUFFER_OVERFLOW);
+@property (readonly, class, nonnull) JavaxNetSslSSLEngineResult_Status *OK NS_SWIFT_NAME(OK);
+@property (readonly, class, nonnull) JavaxNetSslSSLEngineResult_Status *CLOSED NS_SWIFT_NAME(CLOSED);
 + (JavaxNetSslSSLEngineResult_Status * __nonnull)BUFFER_UNDERFLOW;
 
 + (JavaxNetSslSSLEngineResult_Status * __nonnull)BUFFER_OVERFLOW;
@@ -237,6 +242,11 @@ typedef NS_ENUM(NSUInteger, JavaxNetSslSSLEngineResult_HandshakeStatus_Enum) {
  */
 @interface JavaxNetSslSSLEngineResult_HandshakeStatus : JavaLangEnum
 
+@property (readonly, class, nonnull) JavaxNetSslSSLEngineResult_HandshakeStatus *NOT_HANDSHAKING NS_SWIFT_NAME(NOT_HANDSHAKING);
+@property (readonly, class, nonnull) JavaxNetSslSSLEngineResult_HandshakeStatus *FINISHED NS_SWIFT_NAME(FINISHED);
+@property (readonly, class, nonnull) JavaxNetSslSSLEngineResult_HandshakeStatus *NEED_TASK NS_SWIFT_NAME(NEED_TASK);
+@property (readonly, class, nonnull) JavaxNetSslSSLEngineResult_HandshakeStatus *NEED_WRAP NS_SWIFT_NAME(NEED_WRAP);
+@property (readonly, class, nonnull) JavaxNetSslSSLEngineResult_HandshakeStatus *NEED_UNWRAP NS_SWIFT_NAME(NEED_UNWRAP);
 + (JavaxNetSslSSLEngineResult_HandshakeStatus * __nonnull)NOT_HANDSHAKING;
 
 + (JavaxNetSslSSLEngineResult_HandshakeStatus * __nonnull)FINISHED;

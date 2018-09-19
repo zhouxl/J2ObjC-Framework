@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxXmlTransformTransformerException_) && (INCLUDE_ALL_JavaxXmlTransformTransformerException || defined(INCLUDE_JavaxXmlTransformTransformerException))
 #define JavaxXmlTransformTransformerException_
 
@@ -50,7 +56,7 @@
  @brief Create a new TransformerException.
  @param message The error or warning message.
  */
-- (instancetype)initWithNSString:(NSString *)message;
+- (instancetype __nonnull)initWithNSString:(NSString *)message;
 
 /*!
  @brief Create a new TransformerException from a message and a Locator.
@@ -60,8 +66,8 @@
  @param message The error or warning message.
  @param locator The locator object for the error or warning.
  */
-- (instancetype)initWithNSString:(NSString *)message
-withJavaxXmlTransformSourceLocator:(id<JavaxXmlTransformSourceLocator>)locator;
+- (instancetype __nonnull)initWithNSString:(NSString *)message
+        withJavaxXmlTransformSourceLocator:(id<JavaxXmlTransformSourceLocator>)locator;
 
 /*!
  @brief Wrap an existing exception in a TransformerException.
@@ -69,9 +75,9 @@ withJavaxXmlTransformSourceLocator:(id<JavaxXmlTransformSourceLocator>)locator;
  @param locator The locator object for the error or warning.
  @param e Any exception
  */
-- (instancetype)initWithNSString:(NSString *)message
-withJavaxXmlTransformSourceLocator:(id<JavaxXmlTransformSourceLocator>)locator
-           withJavaLangThrowable:(JavaLangThrowable *)e;
+- (instancetype __nonnull)initWithNSString:(NSString *)message
+        withJavaxXmlTransformSourceLocator:(id<JavaxXmlTransformSourceLocator>)locator
+                     withJavaLangThrowable:(JavaLangThrowable *)e;
 
 /*!
  @brief Wrap an existing exception in a TransformerException.
@@ -80,14 +86,14 @@ withJavaxXmlTransformSourceLocator:(id<JavaxXmlTransformSourceLocator>)locator
  @param message The error or warning message, or null to                 use the message from the embedded exception.
  @param e Any exception
  */
-- (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)e;
+- (instancetype __nonnull)initWithNSString:(NSString *)message
+                     withJavaLangThrowable:(JavaLangThrowable *)e;
 
 /*!
  @brief Create a new TransformerException wrapping an existing exception.
  @param e The exception to be wrapped.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)e;
+- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)e;
 
 /*!
  @brief Returns the cause of this throwable or <code>null</code> if the
@@ -181,12 +187,12 @@ withJavaxXmlTransformSourceLocator:(id<JavaxXmlTransformSourceLocator>)locator
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
-- (instancetype)initWithNSString:(NSString *)arg0
-           withJavaLangThrowable:(JavaLangThrowable *)arg1
-                     withBoolean:(jboolean)arg2
-                     withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0
+                     withJavaLangThrowable:(JavaLangThrowable *)arg1
+                               withBoolean:(jboolean)arg2
+                               withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -229,6 +235,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformTransformerException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformTransformerException")

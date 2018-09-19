@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangReflectGenericArrayType_) && (INCLUDE_ALL_JavaLangReflectGenericArrayType || defined(INCLUDE_JavaLangReflectGenericArrayType))
 #define JavaLangReflectGenericArrayType_
 
@@ -47,7 +53,7 @@
       underlying array type's component type refers to a
       parameterized type that cannot be instantiated for any reason
  */
-- (id<JavaLangReflectType>)getGenericComponentType;
+- (id<JavaLangReflectType> __nonnull)getGenericComponentType;
 
 @end
 
@@ -57,6 +63,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectGenericArrayType)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangReflectGenericArrayType")

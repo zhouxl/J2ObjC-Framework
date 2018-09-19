@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangNoClassDefFoundError_) && (INCLUDE_ALL_JavaLangNoClassDefFoundError || defined(INCLUDE_JavaLangNoClassDefFoundError))
 #define JavaLangNoClassDefFoundError_
 
@@ -42,14 +48,14 @@
 /*!
  @brief Constructs a <code>NoClassDefFoundError</code> with no detail message.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a <code>NoClassDefFoundError</code> with the specified
   detail message.
  @param s the detail message.
  */
-- (instancetype)initWithNSString:(NSString *)s;
+- (instancetype __nonnull)initWithNSString:(NSString *)s;
 
 @end
 
@@ -71,6 +77,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangNoClassDefFoundError)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangNoClassDefFoundError")

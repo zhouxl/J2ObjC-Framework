@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxNetSslX509TrustManager_) && (INCLUDE_ALL_JavaxNetSslX509TrustManager || defined(INCLUDE_JavaxNetSslX509TrustManager))
 #define JavaxNetSslX509TrustManager_
 
@@ -96,6 +102,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslX509TrustManager)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxNetSslX509TrustManager")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoWriteAbortedException_) && (INCLUDE_ALL_JavaIoWriteAbortedException || defined(INCLUDE_JavaIoWriteAbortedException))
 #define JavaIoWriteAbortedException_
 
@@ -62,8 +68,8 @@
  @param s String describing the exception.
  @param ex Exception causing the abort.
  */
-- (instancetype)initWithNSString:(NSString *)s
-           withJavaLangException:(JavaLangException *)ex;
+- (instancetype __nonnull)initWithNSString:(NSString *)s
+                     withJavaLangException:(JavaLangException *)ex;
 
 /*!
  @brief Returns the exception that terminated the operation (the <i>cause</i>).
@@ -81,9 +87,9 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
-- (instancetype)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -101,6 +107,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoWriteAbortedException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoWriteAbortedException")

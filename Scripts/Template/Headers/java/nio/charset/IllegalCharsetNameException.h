@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNioCharsetIllegalCharsetNameException_) && (INCLUDE_ALL_JavaNioCharsetIllegalCharsetNameException || defined(INCLUDE_JavaNioCharsetIllegalCharsetNameException))
 #define JavaNioCharsetIllegalCharsetNameException_
 
@@ -39,7 +45,7 @@
  </p>
  @param charsetName The illegal charset name
  */
-- (instancetype)initWithNSString:(NSString *)charsetName;
+- (instancetype __nonnull)initWithNSString:(NSString *)charsetName;
 
 /*!
  @brief Retrieves the illegal charset name.
@@ -50,12 +56,12 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
 
-- (instancetype)initWithNSString:(NSString *)arg0
-           withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0
+                     withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -71,6 +77,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetIllegalCharsetNameException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioCharsetIllegalCharsetNameException")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (OrgXmlpullV1Sax2Driver_) && (INCLUDE_ALL_OrgXmlpullV1Sax2Driver || defined(INCLUDE_OrgXmlpullV1Sax2Driver))
 #define OrgXmlpullV1Sax2Driver_
 
@@ -50,6 +56,13 @@
   NSString *systemId_;
   id<OrgXmlpullV1XmlPullParser> pp_;
 }
+@property (readonly, copy, class) NSString *DECLARATION_HANDLER_PROPERTY NS_SWIFT_NAME(DECLARATION_HANDLER_PROPERTY);
+@property (readonly, copy, class) NSString *LEXICAL_HANDLER_PROPERTY NS_SWIFT_NAME(LEXICAL_HANDLER_PROPERTY);
+@property (readonly, copy, class) NSString *NAMESPACES_FEATURE NS_SWIFT_NAME(NAMESPACES_FEATURE);
+@property (readonly, copy, class) NSString *NAMESPACE_PREFIXES_FEATURE NS_SWIFT_NAME(NAMESPACE_PREFIXES_FEATURE);
+@property (readonly, copy, class) NSString *VALIDATION_FEATURE NS_SWIFT_NAME(VALIDATION_FEATURE);
+@property (readonly, copy, class) NSString *APACHE_SCHEMA_VALIDATION_FEATURE NS_SWIFT_NAME(APACHE_SCHEMA_VALIDATION_FEATURE);
+@property (readonly, copy, class) NSString *APACHE_DYNAMIC_VALIDATION_FEATURE NS_SWIFT_NAME(APACHE_DYNAMIC_VALIDATION_FEATURE);
 
 + (NSString *)DECLARATION_HANDLER_PROPERTY;
 
@@ -69,9 +82,9 @@
 
 /*!
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
-- (instancetype)initWithOrgXmlpullV1XmlPullParser:(id<OrgXmlpullV1XmlPullParser>)pp;
+- (instancetype __nonnull)initWithOrgXmlpullV1XmlPullParser:(id<OrgXmlpullV1XmlPullParser>)pp;
 
 - (jint)getColumnNumber;
 
@@ -214,6 +227,10 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlpullV1Sax2Driver)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlpullV1Sax2Driver")

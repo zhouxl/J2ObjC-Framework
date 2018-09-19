@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilZipGZIPOutputStream_) && (INCLUDE_ALL_JavaUtilZipGZIPOutputStream || defined(INCLUDE_JavaUtilZipGZIPOutputStream))
 #define JavaUtilZipGZIPOutputStream_
 
@@ -50,7 +56,7 @@
  @param outArg the output stream
  @throw IOExceptionIf an I/O error has occurred.
  */
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg;
 
 /*!
  @brief Creates a new output stream with a default buffer size and
@@ -64,8 +70,8 @@
  @throw IOExceptionIf an I/O error has occurred.
  @since 1.7
  */
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-                               withBoolean:(jboolean)syncFlush;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+                                         withBoolean:(jboolean)syncFlush;
 
 /*!
  @brief Creates a new output stream with the specified buffer size.
@@ -76,8 +82,8 @@
  @throw IOExceptionIf an I/O error has occurred.
  @throw IllegalArgumentExceptionif size is <= 0
  */
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-                                   withInt:(jint)size;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+                                             withInt:(jint)size;
 
 /*!
  @brief Creates a new output stream with the specified buffer size and
@@ -93,9 +99,9 @@
  @throw IllegalArgumentExceptionif size is <= 0
  @since 1.7
  */
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-                                   withInt:(jint)size
-                               withBoolean:(jboolean)syncFlush;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
+                                             withInt:(jint)size
+                                         withBoolean:(jboolean)syncFlush;
 
 /*!
  @brief Finishes writing compressed data to the output stream without closing
@@ -119,21 +125,21 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
-                   withJavaUtilZipDeflater:(JavaUtilZipDeflater *)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
+                             withJavaUtilZipDeflater:(JavaUtilZipDeflater *)arg1 NS_UNAVAILABLE;
 
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
-                   withJavaUtilZipDeflater:(JavaUtilZipDeflater *)arg1
-                               withBoolean:(jboolean)arg2 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
+                             withJavaUtilZipDeflater:(JavaUtilZipDeflater *)arg1
+                                         withBoolean:(jboolean)arg2 NS_UNAVAILABLE;
 
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
-                   withJavaUtilZipDeflater:(JavaUtilZipDeflater *)arg1
-                                   withInt:(jint)arg2 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
+                             withJavaUtilZipDeflater:(JavaUtilZipDeflater *)arg1
+                                             withInt:(jint)arg2 NS_UNAVAILABLE;
 
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
-                   withJavaUtilZipDeflater:(JavaUtilZipDeflater *)arg1
-                                   withInt:(jint)arg2
-                               withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)arg0
+                             withJavaUtilZipDeflater:(JavaUtilZipDeflater *)arg1
+                                             withInt:(jint)arg2
+                                         withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -169,6 +175,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipGZIPOutputStream)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilZipGZIPOutputStream")

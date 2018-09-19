@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNioCharsetCoderResult_) && (INCLUDE_ALL_JavaNioCharsetCoderResult || defined(INCLUDE_JavaNioCharsetCoderResult))
 #define JavaNioCharsetCoderResult_
 
@@ -40,6 +46,8 @@
  </ol>
  */
 @interface JavaNioCharsetCoderResult : NSObject
+@property (readonly, class, strong) JavaNioCharsetCoderResult *UNDERFLOW_ NS_SWIFT_NAME(UNDERFLOW_);
+@property (readonly, class, strong) JavaNioCharsetCoderResult *OVERFLOW_ NS_SWIFT_NAME(OVERFLOW_);
 
 + (JavaNioCharsetCoderResult *)UNDERFLOW_;
 
@@ -134,7 +142,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -166,6 +174,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetCoderResult)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioCharsetCoderResult")

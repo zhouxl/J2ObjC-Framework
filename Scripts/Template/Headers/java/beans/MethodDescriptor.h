@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaBeansMethodDescriptor_) && (INCLUDE_ALL_JavaBeansMethodDescriptor || defined(INCLUDE_JavaBeansMethodDescriptor))
 #define JavaBeansMethodDescriptor_
 
@@ -42,7 +48,7 @@
  </p>
  @param method The Method to set.
  */
-- (instancetype)initWithJavaLangReflectMethod:(JavaLangReflectMethod *)method;
+- (instancetype __nonnull)initWithJavaLangReflectMethod:(JavaLangReflectMethod *)method;
 
 /*!
  @brief <p>
@@ -54,8 +60,8 @@
  @param method The Method to set.
  @param parameterDescriptors An array of parameter descriptors.
  */
-- (instancetype)initWithJavaLangReflectMethod:(JavaLangReflectMethod *)method
-        withJavaBeansParameterDescriptorArray:(IOSObjectArray *)parameterDescriptors;
+- (instancetype __nonnull)initWithJavaLangReflectMethod:(JavaLangReflectMethod *)method
+                  withJavaBeansParameterDescriptorArray:(IOSObjectArray *)parameterDescriptors;
 
 /*!
  @brief <p>
@@ -80,7 +86,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -102,6 +108,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaBeansMethodDescriptor)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaBeansMethodDescriptor")

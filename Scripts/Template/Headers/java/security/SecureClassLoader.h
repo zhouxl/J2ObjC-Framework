@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecuritySecureClassLoader_) && (INCLUDE_ALL_JavaSecuritySecureClassLoader || defined(INCLUDE_JavaSecuritySecureClassLoader))
 #define JavaSecuritySecureClassLoader_
 
@@ -51,7 +57,7 @@
               creation of a class loader.
  - seealso: SecurityManager#checkCreateClassLoader
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a new SecureClassLoader using the specified parent
@@ -66,7 +72,7 @@
               creation of a class loader.
  - seealso: SecurityManager#checkCreateClassLoader
  */
-- (instancetype)initWithJavaLangClassLoader:(JavaLangClassLoader *)parent;
+- (instancetype __nonnull)initWithJavaLangClassLoader:(JavaLangClassLoader *)parent;
 
 /*!
  @brief Converts an array of bytes into an instance of class Class,
@@ -162,6 +168,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySecureClassLoader)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySecureClassLoader")

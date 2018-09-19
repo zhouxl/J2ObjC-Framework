@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxXmlTransformStreamStreamResult_) && (INCLUDE_ALL_JavaxXmlTransformStreamStreamResult || defined(INCLUDE_JavaxXmlTransformStreamStreamResult))
 #define JavaxXmlTransformStreamStreamResult_
 
@@ -34,6 +40,7 @@
  @author <a href="Jeff.Suttor@@Sun.com">Jeff Suttor</a>
  */
 @interface JavaxXmlTransformStreamStreamResult : NSObject < JavaxXmlTransformResult >
+@property (readonly, copy, class) NSString *FEATURE NS_SWIFT_NAME(FEATURE);
 
 + (NSString *)FEATURE;
 
@@ -42,13 +49,13 @@
 /*!
  @brief Zero-argument default constructor.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Construct a StreamResult from a File.
  @param f Must a non-null File reference.
  */
-- (instancetype)initWithJavaIoFile:(JavaIoFile *)f;
+- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)f;
 
 /*!
  @brief Construct a StreamResult from a byte stream.Normally,
@@ -57,13 +64,13 @@
   transformation instructions to control the encoding.
  @param outputStream A valid OutputStream reference.
  */
-- (instancetype)initWithJavaIoOutputStream:(JavaIoOutputStream *)outputStream;
+- (instancetype __nonnull)initWithJavaIoOutputStream:(JavaIoOutputStream *)outputStream;
 
 /*!
  @brief Construct a StreamResult from a URL.
  @param systemId Must be a String that conforms to the URI syntax.
  */
-- (instancetype)initWithNSString:(NSString *)systemId;
+- (instancetype __nonnull)initWithNSString:(NSString *)systemId;
 
 /*!
  @brief Construct a StreamResult from a character stream.Normally,
@@ -75,7 +82,7 @@
   stream, such as when using a StringWriter.
  @param writer A valid Writer reference.
  */
-- (instancetype)initWithJavaIoWriter:(JavaIoWriter *)writer;
+- (instancetype __nonnull)initWithJavaIoWriter:(JavaIoWriter *)writer;
 
 /*!
  @brief Get the byte stream that was set with setOutputStream.
@@ -188,6 +195,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformStreamStreamResult)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformStreamStreamResult")

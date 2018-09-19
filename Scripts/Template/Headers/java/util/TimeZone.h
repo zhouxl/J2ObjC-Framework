@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilTimeZone_) && (INCLUDE_ALL_JavaUtilTimeZone || defined(INCLUDE_JavaUtilTimeZone))
 #define JavaUtilTimeZone_
 
@@ -111,6 +117,10 @@
  @since JDK1.1
  */
 @interface JavaUtilTimeZone : NSObject < JavaIoSerializable, NSCopying >
+@property (readonly, class) jint SHORT NS_SWIFT_NAME(SHORT);
+@property (readonly, class) jint LONG NS_SWIFT_NAME(LONG);
+@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
+@property (readonly, class, strong) JavaUtilTimeZone *NO_TIMEZONE NS_SWIFT_NAME(NO_TIMEZONE);
 
 + (jint)SHORT;
 
@@ -127,7 +137,7 @@
  (For invocation by subclass constructors, typically
   implicit.)
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a copy of this <code>TimeZone</code>.
@@ -456,7 +466,7 @@
 
 @end
 
-J2OBJC_STATIC_INIT(JavaUtilTimeZone)
+J2OBJC_EMPTY_STATIC_INIT(JavaUtilTimeZone)
 
 /*!
  @brief A style specifier for <code>getDisplayName()</code> indicating
@@ -510,6 +520,72 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTimeZone)
 
 #endif
 
+#if !defined (JavaUtilTimeZone_GMTHolder_) && (INCLUDE_ALL_JavaUtilTimeZone || defined(INCLUDE_JavaUtilTimeZone_GMTHolder))
+#define JavaUtilTimeZone_GMTHolder_
+
+@class JavaUtilTimeZone;
+
+@interface JavaUtilTimeZone_GMTHolder : NSObject
+@property (readonly, class, strong) JavaUtilTimeZone *INSTANCE NS_SWIFT_NAME(INSTANCE);
+
++ (JavaUtilTimeZone *)INSTANCE;
+
+#pragma mark Package-Private
+
+- (instancetype __nonnull)init;
+
+@end
+
+J2OBJC_STATIC_INIT(JavaUtilTimeZone_GMTHolder)
+
+inline JavaUtilTimeZone *JavaUtilTimeZone_GMTHolder_get_INSTANCE(void);
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilTimeZone *JavaUtilTimeZone_GMTHolder_INSTANCE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilTimeZone_GMTHolder, INSTANCE, JavaUtilTimeZone *)
+
+FOUNDATION_EXPORT void JavaUtilTimeZone_GMTHolder_init(JavaUtilTimeZone_GMTHolder *self);
+
+FOUNDATION_EXPORT JavaUtilTimeZone_GMTHolder *new_JavaUtilTimeZone_GMTHolder_init(void) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilTimeZone_GMTHolder *create_JavaUtilTimeZone_GMTHolder_init(void);
+
+J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTimeZone_GMTHolder)
+
+#endif
+
+#if !defined (JavaUtilTimeZone_UTCHolder_) && (INCLUDE_ALL_JavaUtilTimeZone || defined(INCLUDE_JavaUtilTimeZone_UTCHolder))
+#define JavaUtilTimeZone_UTCHolder_
+
+@class JavaUtilTimeZone;
+
+@interface JavaUtilTimeZone_UTCHolder : NSObject
+@property (readonly, class, strong) JavaUtilTimeZone *INSTANCE NS_SWIFT_NAME(INSTANCE);
+
++ (JavaUtilTimeZone *)INSTANCE;
+
+#pragma mark Package-Private
+
+- (instancetype __nonnull)init;
+
+@end
+
+J2OBJC_STATIC_INIT(JavaUtilTimeZone_UTCHolder)
+
+inline JavaUtilTimeZone *JavaUtilTimeZone_UTCHolder_get_INSTANCE(void);
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilTimeZone *JavaUtilTimeZone_UTCHolder_INSTANCE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilTimeZone_UTCHolder, INSTANCE, JavaUtilTimeZone *)
+
+FOUNDATION_EXPORT void JavaUtilTimeZone_UTCHolder_init(JavaUtilTimeZone_UTCHolder *self);
+
+FOUNDATION_EXPORT JavaUtilTimeZone_UTCHolder *new_JavaUtilTimeZone_UTCHolder_init(void) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilTimeZone_UTCHolder *create_JavaUtilTimeZone_UTCHolder_init(void);
+
+J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTimeZone_UTCHolder)
+
+#endif
+
 #if !defined (JavaUtilTimeZone_AvailableIDsGetter_) && (INCLUDE_ALL_JavaUtilTimeZone || defined(INCLUDE_JavaUtilTimeZone_AvailableIDsGetter))
 #define JavaUtilTimeZone_AvailableIDsGetter_
 
@@ -520,12 +596,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTimeZone)
  A static class is used for lazy-initialization of available time zone IDs.
  */
 @interface JavaUtilTimeZone_AvailableIDsGetter : NSObject
+@property (readonly, class, strong) IOSObjectArray *IDS NS_SWIFT_NAME(IDS);
 
 + (IOSObjectArray *)IDS;
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 + (IOSObjectArray *)getAllIds;
 
@@ -550,6 +627,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTimeZone_AvailableIDsGetter)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilTimeZone")

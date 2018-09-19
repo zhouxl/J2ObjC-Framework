@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecurityPermission_) && (INCLUDE_ALL_JavaSecurityPermission || defined(INCLUDE_JavaSecurityPermission))
 #define JavaSecurityPermission_
 
@@ -36,7 +42,7 @@
 
 #pragma mark Public
 
-- (instancetype)initWithNSString:(NSString *)name;
+- (instancetype __nonnull)initWithNSString:(NSString *)name;
 
 - (void)checkGuardWithId:(id)object;
 
@@ -58,6 +64,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityPermission)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityPermission")

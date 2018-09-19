@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxNetSslSSLEngine_) && (INCLUDE_ALL_JavaxNetSslSSLEngine || defined(INCLUDE_JavaxNetSslSSLEngine))
 #define JavaxNetSslSSLEngine_
 
@@ -1735,7 +1741,7 @@
  - seealso: SSLContext#createSSLEngine()
  - seealso: SSLSessionContext
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructor for an <code>SSLEngine</code>.
@@ -1755,8 +1761,8 @@
  - seealso: SSLContext#createSSLEngine(String, int)
  - seealso: SSLSessionContext
  */
-- (instancetype)initWithNSString:(NSString *)peerHost
-                         withInt:(jint)peerPort;
+- (instancetype __nonnull)initWithNSString:(NSString *)peerHost
+                                   withInt:(jint)peerPort;
 
 @end
 
@@ -1770,6 +1776,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLEngine)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxNetSslSSLEngine")

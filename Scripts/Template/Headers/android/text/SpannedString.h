@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (AndroidTextSpannedString_) && (INCLUDE_ALL_AndroidTextSpannedString || defined(INCLUDE_AndroidTextSpannedString))
 #define AndroidTextSpannedString_
 
@@ -44,7 +50,7 @@
 
 #pragma mark Public
 
-- (instancetype)initWithJavaLangCharSequence:(id<JavaLangCharSequence>)source;
+- (instancetype __nonnull)initWithJavaLangCharSequence:(id<JavaLangCharSequence>)source;
 
 - (id<JavaLangCharSequence>)subSequenceFrom:(jint)start
                                          to:(jint)end;
@@ -67,6 +73,10 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannedString)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidTextSpannedString")

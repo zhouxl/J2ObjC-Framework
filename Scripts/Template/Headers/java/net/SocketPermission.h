@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNetSocketPermission_) && (INCLUDE_ALL_JavaNetSocketPermission || defined(INCLUDE_JavaNetSocketPermission))
 #define JavaNetSocketPermission_
 
@@ -34,8 +40,8 @@
 
 #pragma mark Public
 
-- (instancetype)initWithNSString:(NSString *)host
-                    withNSString:(NSString *)action;
+- (instancetype __nonnull)initWithNSString:(NSString *)host
+                              withNSString:(NSString *)action;
 
 - (NSString *)getActions;
 
@@ -43,7 +49,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -59,6 +65,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetSocketPermission)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetSocketPermission")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilAbstractCollection_) && (INCLUDE_ALL_JavaUtilAbstractCollection || defined(INCLUDE_JavaUtilAbstractCollection))
 #define JavaUtilAbstractCollection_
 
@@ -254,7 +260,7 @@
  (For invocation by subclass constructors, typically
   implicit.)
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 #pragma mark Package-Private
 
@@ -268,6 +274,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractCollection)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilAbstractCollection")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangPackage_) && (INCLUDE_ALL_JavaLangPackage || defined(INCLUDE_JavaLangPackage))
 #define JavaLangPackage_
 
@@ -271,19 +277,19 @@
  @param implvendor the organization that maintains the implementation
  @return a new package for containing the specified information.
  */
-- (instancetype)initWithNSString:(NSString *)name
-                    withNSString:(NSString *)spectitle
-                    withNSString:(NSString *)specversion
-                    withNSString:(NSString *)specvendor
-                    withNSString:(NSString *)impltitle
-                    withNSString:(NSString *)implversion
-                    withNSString:(NSString *)implvendor
-                  withJavaNetURL:(JavaNetURL *)sealbase
-         withJavaLangClassLoader:(JavaLangClassLoader *)loader;
+- (instancetype __nonnull)initWithNSString:(NSString *)name
+                              withNSString:(NSString *)spectitle
+                              withNSString:(NSString *)specversion
+                              withNSString:(NSString *)specvendor
+                              withNSString:(NSString *)impltitle
+                              withNSString:(NSString *)implversion
+                              withNSString:(NSString *)implvendor
+                            withJavaNetURL:(JavaNetURL *)sealbase
+                   withJavaLangClassLoader:(JavaLangClassLoader *)loader;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -303,6 +309,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangPackage)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangPackage")

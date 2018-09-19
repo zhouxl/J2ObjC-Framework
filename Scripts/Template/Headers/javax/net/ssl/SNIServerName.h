@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxNetSslSNIServerName_) && (INCLUDE_ALL_JavaxNetSslSNIServerName || defined(INCLUDE_JavaxNetSslSNIServerName))
 #define JavaxNetSslSNIServerName_
 
@@ -122,8 +128,8 @@
           of 0 to 255, inclusive.
  @throw NullPointerExceptionif <code>encoded</code> is null
  */
-- (instancetype)initWithInt:(jint)type
-              withByteArray:(IOSByteArray *)encoded;
+- (instancetype __nonnull)initWithInt:(jint)type
+                        withByteArray:(IOSByteArray *)encoded;
 
 @end
 
@@ -135,6 +141,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSNIServerName)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxNetSslSNIServerName")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilZipDeflaterInputStream_) && (INCLUDE_ALL_JavaUtilZipDeflaterInputStream || defined(INCLUDE_JavaUtilZipDeflaterInputStream))
 #define JavaUtilZipDeflaterInputStream_
 
@@ -56,7 +62,7 @@
  @param inArg input stream to read the uncompressed data to
  @throw NullPointerExceptionif <code>in</code> is null
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
 
 /*!
  @brief Creates a new input stream with the specified compressor and a
@@ -65,8 +71,8 @@
  @param defl compressor ("deflater") for this stream
  @throw NullPointerExceptionif <code>in</code> or <code>defl</code> is null
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
-                  withJavaUtilZipDeflater:(JavaUtilZipDeflater *)defl;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
+                            withJavaUtilZipDeflater:(JavaUtilZipDeflater *)defl;
 
 /*!
  @brief Creates a new input stream with the specified compressor and buffer
@@ -77,9 +83,9 @@
  @throw IllegalArgumentExceptionif <code>bufLen</code> is <= 0
  @throw NullPointerExceptionif <code>in</code> or <code>defl</code> is null
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
-                  withJavaUtilZipDeflater:(JavaUtilZipDeflater *)defl
-                                  withInt:(jint)bufLen;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
+                            withJavaUtilZipDeflater:(JavaUtilZipDeflater *)defl
+                                            withInt:(jint)bufLen;
 
 /*!
  @brief Returns 0 after EOF has been reached, otherwise always return 1.
@@ -188,6 +194,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipDeflaterInputStream)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilZipDeflaterInputStream")

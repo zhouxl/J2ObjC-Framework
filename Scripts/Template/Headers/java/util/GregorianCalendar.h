@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilGregorianCalendar_) && (INCLUDE_ALL_JavaUtilGregorianCalendar || defined(INCLUDE_JavaUtilGregorianCalendar))
 #define JavaUtilGregorianCalendar_
 
@@ -288,6 +294,17 @@
  @since JDK1.1
  */
 @interface JavaUtilGregorianCalendar : JavaUtilCalendar
+@property (readonly, class) jint BC NS_SWIFT_NAME(BC);
+@property (readonly, class) jint BCE NS_SWIFT_NAME(BCE);
+@property (readonly, class) jint AD NS_SWIFT_NAME(AD);
+@property (readonly, class) jint CE NS_SWIFT_NAME(CE);
+@property (readonly, class, strong) IOSIntArray *MONTH_LENGTH NS_SWIFT_NAME(MONTH_LENGTH);
+@property (readonly, class, strong) IOSIntArray *LEAP_MONTH_LENGTH NS_SWIFT_NAME(LEAP_MONTH_LENGTH);
+@property (readonly, class, strong) IOSIntArray *MIN_VALUES NS_SWIFT_NAME(MIN_VALUES);
+@property (readonly, class, strong) IOSIntArray *LEAST_MAX_VALUES NS_SWIFT_NAME(LEAST_MAX_VALUES);
+@property (readonly, class, strong) IOSIntArray *MAX_VALUES NS_SWIFT_NAME(MAX_VALUES);
+@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
+@property (readonly, class) jlong DEFAULT_GREGORIAN_CUTOVER NS_SWIFT_NAME(DEFAULT_GREGORIAN_CUTOVER);
 
 + (jint)BC;
 
@@ -317,7 +334,7 @@
  @brief Constructs a default <code>GregorianCalendar</code> using the current time
   in the default time zone with the default locale.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a <code>GregorianCalendar</code> with the given date set
@@ -327,9 +344,9 @@
    Month value is 0-based. e.g., 0 for January.
  @param dayOfMonth the value used to set the  <code> DAY_OF_MONTH </code>  calendar field in the calendar.
  */
-- (instancetype)initWithInt:(jint)year
-                    withInt:(jint)month
-                    withInt:(jint)dayOfMonth;
+- (instancetype __nonnull)initWithInt:(jint)year
+                              withInt:(jint)month
+                              withInt:(jint)dayOfMonth;
 
 /*!
  @brief Constructs a <code>GregorianCalendar</code> with the given date
@@ -343,11 +360,11 @@
  @param minute the value used to set the  <code> MINUTE </code>  calendar field
    in the calendar.
  */
-- (instancetype)initWithInt:(jint)year
-                    withInt:(jint)month
-                    withInt:(jint)dayOfMonth
-                    withInt:(jint)hourOfDay
-                    withInt:(jint)minute;
+- (instancetype __nonnull)initWithInt:(jint)year
+                              withInt:(jint)month
+                              withInt:(jint)dayOfMonth
+                              withInt:(jint)hourOfDay
+                              withInt:(jint)minute;
 
 /*!
  @brief Constructs a GregorianCalendar with the given date
@@ -363,26 +380,26 @@
  @param second the value used to set the  <code> SECOND </code>  calendar field
    in the calendar.
  */
-- (instancetype)initWithInt:(jint)year
-                    withInt:(jint)month
-                    withInt:(jint)dayOfMonth
-                    withInt:(jint)hourOfDay
-                    withInt:(jint)minute
-                    withInt:(jint)second;
+- (instancetype __nonnull)initWithInt:(jint)year
+                              withInt:(jint)month
+                              withInt:(jint)dayOfMonth
+                              withInt:(jint)hourOfDay
+                              withInt:(jint)minute
+                              withInt:(jint)second;
 
 /*!
  @brief Constructs a <code>GregorianCalendar</code> based on the current time
   in the default time zone with the given locale.
  @param aLocale the given locale.
  */
-- (instancetype)initWithJavaUtilLocale:(JavaUtilLocale *)aLocale;
+- (instancetype __nonnull)initWithJavaUtilLocale:(JavaUtilLocale *)aLocale;
 
 /*!
  @brief Constructs a <code>GregorianCalendar</code> based on the current time
   in the given time zone with the default locale.
  @param zone the given time zone.
  */
-- (instancetype)initWithJavaUtilTimeZone:(JavaUtilTimeZone *)zone;
+- (instancetype __nonnull)initWithJavaUtilTimeZone:(JavaUtilTimeZone *)zone;
 
 /*!
  @brief Constructs a <code>GregorianCalendar</code> based on the current time
@@ -390,8 +407,8 @@
  @param zone the given time zone.
  @param aLocale the given locale.
  */
-- (instancetype)initWithJavaUtilTimeZone:(JavaUtilTimeZone *)zone
-                      withJavaUtilLocale:(JavaUtilLocale *)aLocale;
+- (instancetype __nonnull)initWithJavaUtilTimeZone:(JavaUtilTimeZone *)zone
+                                withJavaUtilLocale:(JavaUtilLocale *)aLocale;
 
 /*!
  @brief Adds the specified (signed) amount of time to the given calendar field,
@@ -811,15 +828,15 @@
    in the calendar.
  @param millis the value used to set the  <code> MILLISECOND </code>  calendar field
  */
-- (instancetype)initWithInt:(jint)year
-                    withInt:(jint)month
-                    withInt:(jint)dayOfMonth
-                    withInt:(jint)hourOfDay
-                    withInt:(jint)minute
-                    withInt:(jint)second
-                    withInt:(jint)millis;
+- (instancetype __nonnull)initWithInt:(jint)year
+                              withInt:(jint)month
+                              withInt:(jint)dayOfMonth
+                              withInt:(jint)hourOfDay
+                              withInt:(jint)minute
+                              withInt:(jint)second
+                              withInt:(jint)millis;
 
-- (instancetype)initWithLong:(jlong)milliseconds;
+- (instancetype __nonnull)initWithLong:(jlong)milliseconds;
 
 @end
 
@@ -956,6 +973,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilGregorianCalendar)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilGregorianCalendar")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (AndroidTextSpanSet_) && (INCLUDE_ALL_AndroidTextSpanSet || defined(INCLUDE_AndroidTextSpanSet))
 #define AndroidTextSpanSet_
 
@@ -59,7 +65,7 @@
 
 #pragma mark Package-Private
 
-- (instancetype)initWithIOSClass:(IOSClass *)type;
+- (instancetype __nonnull)initWithIOSClass:(IOSClass *)type;
 
 /*!
  @brief Similar to <code>int, Class)</code>
@@ -69,7 +75,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -90,6 +96,10 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpanSet)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidTextSpanSet")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxSecurityCertCertificateEncodingException_) && (INCLUDE_ALL_JavaxSecurityCertCertificateEncodingException || defined(INCLUDE_JavaxSecurityCertCertificateEncodingException))
 #define JavaxSecurityCertCertificateEncodingException_
 
@@ -40,14 +46,14 @@
 /*!
  @brief Creates a new <code>CertificateEncodingException</code>.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a new <code>CertificateEncodingException</code> with the specified
   message.
  @param msg the detail message for the exception.
  */
-- (instancetype)initWithNSString:(NSString *)msg;
+- (instancetype __nonnull)initWithNSString:(NSString *)msg;
 
 @end
 
@@ -69,6 +75,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityCertCertificateEncodingException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxSecurityCertCertificateEncodingException")

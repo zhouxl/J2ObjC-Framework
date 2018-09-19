@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaTextChoiceFormat_) && (INCLUDE_ALL_JavaTextChoiceFormat || defined(INCLUDE_JavaTextChoiceFormat))
 #define JavaTextChoiceFormat_
 
@@ -156,6 +162,9 @@
  @author Mark Davis
  */
 @interface JavaTextChoiceFormat : JavaTextNumberFormat
+@property (readonly, class) jlong SIGN NS_SWIFT_NAME(SIGN);
+@property (readonly, class) jlong EXPONENT NS_SWIFT_NAME(EXPONENT);
+@property (readonly, class) jlong POSITIVEINFINITY NS_SWIFT_NAME(POSITIVEINFINITY);
 
 + (jlong)SIGN;
 
@@ -169,14 +178,14 @@
  @brief Constructs with the limits and the corresponding formats.
  - seealso: #setChoices
  */
-- (instancetype)initWithDoubleArray:(IOSDoubleArray *)limits
-                  withNSStringArray:(IOSObjectArray *)formats;
+- (instancetype __nonnull)initWithDoubleArray:(IOSDoubleArray *)limits
+                            withNSStringArray:(IOSObjectArray *)formats;
 
 /*!
  @brief Constructs with limits and corresponding formats based on the pattern.
  - seealso: #applyPattern
  */
-- (instancetype)initWithNSString:(NSString *)newPattern;
+- (instancetype __nonnull)initWithNSString:(NSString *)newPattern;
 
 /*!
  @brief Sets the pattern.
@@ -295,7 +304,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -335,6 +344,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextChoiceFormat)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextChoiceFormat")

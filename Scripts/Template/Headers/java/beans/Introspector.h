@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaBeansIntrospector_) && (INCLUDE_ALL_JavaBeansIntrospector || defined(INCLUDE_JavaBeansIntrospector))
 #define JavaBeansIntrospector_
 
@@ -53,6 +59,9 @@
   </ol>
  */
 @interface JavaBeansIntrospector : NSObject
+@property (readonly, class) jint IGNORE_ALL_BEANINFO NS_SWIFT_NAME(IGNORE_ALL_BEANINFO);
+@property (readonly, class) jint IGNORE_IMMEDIATE_BEANINFO NS_SWIFT_NAME(IGNORE_IMMEDIATE_BEANINFO);
+@property (readonly, class) jint USE_ALL_BEANINFO NS_SWIFT_NAME(USE_ALL_BEANINFO);
 
 + (jint)IGNORE_ALL_BEANINFO;
 
@@ -205,6 +214,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaBeansIntrospector)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaBeansIntrospector")

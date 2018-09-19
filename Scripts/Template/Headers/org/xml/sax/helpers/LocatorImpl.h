@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (OrgXmlSaxHelpersLocatorImpl_) && (INCLUDE_ALL_OrgXmlSaxHelpersLocatorImpl || defined(INCLUDE_OrgXmlSaxHelpersLocatorImpl))
 #define OrgXmlSaxHelpersLocatorImpl_
 
@@ -71,7 +77,7 @@
  <p>This will not normally be useful, since the main purpose
   of this class is to make a snapshot of an existing Locator.</p>
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Copy constructor.
@@ -81,7 +87,7 @@
   DocumentHandler methods).</p>
  @param locator The locator to copy.
  */
-- (instancetype)initWithOrgXmlSaxLocator:(id<OrgXmlSaxLocator>)locator;
+- (instancetype __nonnull)initWithOrgXmlSaxLocator:(id<OrgXmlSaxLocator>)locator;
 
 /*!
  @brief Return the saved column number (1-based).
@@ -165,6 +171,10 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersLocatorImpl)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersLocatorImpl")

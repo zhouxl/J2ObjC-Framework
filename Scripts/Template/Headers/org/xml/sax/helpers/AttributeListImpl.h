@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (OrgXmlSaxHelpersAttributeListImpl_) && (INCLUDE_ALL_OrgXmlSaxHelpersAttributeListImpl || defined(INCLUDE_OrgXmlSaxHelpersAttributeListImpl))
 #define OrgXmlSaxHelpersAttributeListImpl_
 
@@ -81,7 +87,7 @@ __attribute__((deprecated))
  - seealso: #addAttribute
  - seealso: #clear
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Construct a persistent copy of an existing attribute list.
@@ -91,7 +97,7 @@ __attribute__((deprecated))
  @param atts The attribute list to copy
  - seealso: org.xml.sax.DocumentHandler
  */
-- (instancetype)initWithOrgXmlSaxAttributeList:(id<OrgXmlSaxAttributeList>)atts;
+- (instancetype __nonnull)initWithOrgXmlSaxAttributeList:(id<OrgXmlSaxAttributeList>)atts;
 
 /*!
  @brief Add an attribute to an attribute list.
@@ -215,6 +221,10 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersAttributeListImpl)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersAttributeListImpl")

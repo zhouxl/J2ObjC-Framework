@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilInvalidPropertiesFormatException_) && (INCLUDE_ALL_JavaUtilInvalidPropertiesFormatException || defined(INCLUDE_JavaUtilInvalidPropertiesFormatException))
 #define JavaUtilInvalidPropertiesFormatException_
 
@@ -47,7 +53,7 @@
  @param message the detail message. The detail message is saved for           later retrieval by the 
  <code>Throwable.getMessage()</code>  method.
  */
-- (instancetype)initWithNSString:(NSString *)message;
+- (instancetype __nonnull)initWithNSString:(NSString *)message;
 
 /*!
  @brief Constructs an InvalidPropertiesFormatException with the specified
@@ -55,14 +61,14 @@
  @param cause the cause (which is saved for later retrieval by the          
  <code>Throwable.getCause()</code>  method).
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
-- (instancetype)initWithNSString:(NSString *)arg0
-           withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0
+                     withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -84,6 +90,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilInvalidPropertiesFormatException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilInvalidPropertiesFormatException")

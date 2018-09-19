@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilEventListenerProxy_) && (INCLUDE_ALL_JavaUtilEventListenerProxy || defined(INCLUDE_JavaUtilEventListenerProxy))
 #define JavaUtilEventListenerProxy_
 
@@ -59,7 +65,7 @@
  @brief Creates a proxy for the specified listener.
  @param listener the listener object
  */
-- (instancetype)initWithJavaUtilEventListener:(id<JavaUtilEventListener>)listener;
+- (instancetype __nonnull)initWithJavaUtilEventListener:(id<JavaUtilEventListener>)listener;
 
 /*!
  @brief Returns the listener associated with the proxy.
@@ -77,6 +83,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilEventListenerProxy)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilEventListenerProxy")

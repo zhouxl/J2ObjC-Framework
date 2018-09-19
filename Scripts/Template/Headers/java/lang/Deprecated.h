@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangDeprecated_) && (INCLUDE_ALL_JavaLangDeprecated || defined(INCLUDE_JavaLangDeprecated))
 #define JavaLangDeprecated_
 
@@ -35,6 +41,10 @@
  */
 @protocol JavaLangDeprecated < JavaLangAnnotationAnnotation >
 
+- (jboolean)isEqual:(id)obj;
+
+- (NSUInteger)hash;
+
 @end
 
 @interface JavaLangDeprecated : NSObject < JavaLangDeprecated >
@@ -49,6 +59,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangDeprecated)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangDeprecated")

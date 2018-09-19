@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecurityCertCertStoreException_) && (INCLUDE_ALL_JavaSecurityCertCertStoreException || defined(INCLUDE_JavaSecurityCertCertStoreException))
 #define JavaSecurityCertCertStoreException_
 
@@ -52,7 +58,7 @@
  @brief Creates a <code>CertStoreException</code> with <code>null</code> as
   its detail message.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a <code>CertStoreException</code> with the given detail
@@ -60,7 +66,7 @@
   particular exception.
  @param msg the detail message
  */
-- (instancetype)initWithNSString:(NSString *)msg;
+- (instancetype __nonnull)initWithNSString:(NSString *)msg;
 
 /*!
  @brief Creates a <code>CertStoreException</code> with the specified detail
@@ -69,8 +75,8 @@
  @param cause the cause (which is saved for later retrieval by the  
  <code>getCause()</code>  method). (A <code>null</code>  value is  permitted, and indicates that the cause is nonexistent or unknown.)
  */
-- (instancetype)initWithNSString:(NSString *)msg
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithNSString:(NSString *)msg
+                     withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Creates a <code>CertStoreException</code> that wraps the specified
@@ -83,7 +89,7 @@
  @param cause the cause (which is saved for later retrieval by the  
  <code>getCause()</code>  method). (A <code>null</code>  value is  permitted, and indicates that the cause is nonexistent or unknown.)
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 @end
 
@@ -117,6 +123,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertStoreException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCertStoreException")

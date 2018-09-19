@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangReflectProxy_) && (INCLUDE_ALL_JavaLangReflectProxy || defined(INCLUDE_JavaLangReflectProxy))
 #define JavaLangReflectProxy_
 
@@ -210,6 +216,8 @@
 
 #pragma mark Public
 
+- (jboolean)isEqual:(id)obj;
+
 /*!
  @brief Returns the invocation handler for the specified proxy instance.
  @param proxy the proxy instance to return the invocation handler for
@@ -217,7 +225,7 @@
  @throw IllegalArgumentExceptionif the argument is not a
            proxy instance
  */
-+ (id<JavaLangReflectInvocationHandler>)getInvocationHandlerWithId:(id)proxy;
++ (id<JavaLangReflectInvocationHandler> __nonnull)getInvocationHandlerWithId:(id)proxy;
 
 /*!
  @brief Returns the <code>java.lang.Class</code> object for a proxy class
@@ -289,8 +297,10 @@
  @throw NullPointerExceptionif the <code>interfaces</code> array
            argument or any of its elements are <code>null</code>
  */
-+ (IOSClass *)getProxyClassWithJavaLangClassLoader:(JavaLangClassLoader *)loader
-                                 withIOSClassArray:(IOSObjectArray *)interfaces;
++ (IOSClass * __nonnull)getProxyClassWithJavaLangClassLoader:(JavaLangClassLoader *)loader
+                                           withIOSClassArray:(IOSObjectArray *)interfaces;
+
+- (NSUInteger)hash;
 
 /*!
  @brief Returns true if and only if the specified class was dynamically
@@ -335,9 +345,11 @@
            if the invocation handler, <code>h</code>, is
            <code>null</code>
  */
-+ (id)newProxyInstanceWithJavaLangClassLoader:(JavaLangClassLoader *)loader
-                            withIOSClassArray:(IOSObjectArray *)interfaces
-         withJavaLangReflectInvocationHandler:(id<JavaLangReflectInvocationHandler>)h OBJC_METHOD_FAMILY_NONE;
++ (id __nonnull)newProxyInstanceWithJavaLangClassLoader:(JavaLangClassLoader *)loader
+                                      withIOSClassArray:(IOSObjectArray *)interfaces
+                   withJavaLangReflectInvocationHandler:(id<JavaLangReflectInvocationHandler>)h OBJC_METHOD_FAMILY_NONE;
+
+- (NSString *)description;
 
 #pragma mark Protected
 
@@ -347,9 +359,15 @@
   for its invocation handler.
  @param h the invocation handler for this proxy instance
  */
-- (instancetype)initWithJavaLangReflectInvocationHandler:(id<JavaLangReflectInvocationHandler>)h;
+- (instancetype __nonnull)initWithJavaLangReflectInvocationHandler:(id<JavaLangReflectInvocationHandler>)h;
 
 #pragma mark Package-Private
+
+- (jboolean)proxy_equalsWithId:(id)obj;
+
+- (jint)proxy_hashCode;
+
+- (NSString *)proxy_toString;
 
 @end
 
@@ -375,6 +393,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectProxy)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangReflectProxy")

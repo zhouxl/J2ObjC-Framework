@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecurityCertCollectionCertStoreParameters_) && (INCLUDE_ALL_JavaSecurityCertCollectionCertStoreParameters || defined(INCLUDE_JavaSecurityCertCollectionCertStoreParameters))
 #define JavaSecurityCertCollectionCertStoreParameters_
 
@@ -56,7 +62,7 @@
   the default parameter values (an empty and immutable 
  <code>Collection</code>).
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates an instance of <code>CollectionCertStoreParameters</code>
@@ -84,7 +90,7 @@
  @throw NullPointerExceptionif <code>collection</code> is 
  <code>null</code>
  */
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)collection;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)collection;
 
 /*!
  @brief Returns a copy of this object.Note that only a reference to the 
@@ -130,6 +136,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCollectionCertStoreParameters)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCollectionCertStoreParameters")

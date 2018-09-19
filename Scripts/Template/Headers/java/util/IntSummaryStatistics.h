@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilIntSummaryStatistics_) && (INCLUDE_ALL_JavaUtilIntSummaryStatistics || defined(INCLUDE_JavaUtilIntSummaryStatistics))
 #define JavaUtilIntSummaryStatistics_
 
@@ -57,7 +63,7 @@
  <code>Integer.MAX_VALUE</code> min, <code>Integer.MIN_VALUE</code> max and zero
   average.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Records a new value into the summary information
@@ -122,6 +128,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIntSummaryStatistics)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilIntSummaryStatistics")

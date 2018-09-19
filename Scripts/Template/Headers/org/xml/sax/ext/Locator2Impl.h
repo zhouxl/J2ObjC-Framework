@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (OrgXmlSaxExtLocator2Impl_) && (INCLUDE_ALL_OrgXmlSaxExtLocator2Impl || defined(INCLUDE_OrgXmlSaxExtLocator2Impl))
 #define OrgXmlSaxExtLocator2Impl_
 
@@ -51,7 +57,7 @@
  This will not normally be useful, since the main purpose
   of this class is to make a snapshot of an existing Locator.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Copy an existing Locator or Locator2 object.
@@ -60,7 +66,7 @@
   otherwise they set to <em>null</em>.
  @param locator The existing Locator object.
  */
-- (instancetype)initWithOrgXmlSaxLocator:(id<OrgXmlSaxLocator>)locator;
+- (instancetype __nonnull)initWithOrgXmlSaxLocator:(id<OrgXmlSaxLocator>)locator;
 
 /*!
  @brief Returns the current value of the encoding property.
@@ -110,6 +116,10 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtLocator2Impl)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxExtLocator2Impl")

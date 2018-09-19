@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaBeansIndexedPropertyChangeEvent_) && (INCLUDE_ALL_JavaBeansIndexedPropertyChangeEvent || defined(INCLUDE_JavaBeansIndexedPropertyChangeEvent))
 #define JavaBeansIndexedPropertyChangeEvent_
 
@@ -52,11 +58,11 @@
  @param newValue The new value of the property.
  @param index index of the property element that was changed.
  */
-- (instancetype)initWithId:(id)source
-              withNSString:(NSString *)propertyName
-                    withId:(id)oldValue
-                    withId:(id)newValue
-                   withInt:(jint)index;
+- (instancetype __nonnull)initWithId:(id)source
+                        withNSString:(NSString *)propertyName
+                              withId:(id)oldValue
+                              withId:(id)newValue
+                             withInt:(jint)index;
 
 /*!
  @brief Gets the index of the property that was changed.
@@ -71,10 +77,10 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithId:(id)arg0
-              withNSString:(NSString *)arg1
-                    withId:(id)arg2
-                    withId:(id)arg3 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithId:(id)arg0
+                        withNSString:(NSString *)arg1
+                              withId:(id)arg2
+                              withId:(id)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -90,6 +96,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaBeansIndexedPropertyChangeEvent)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaBeansIndexedPropertyChangeEvent")

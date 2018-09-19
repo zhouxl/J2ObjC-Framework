@@ -19,6 +19,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecurityMessageDigest_) && (INCLUDE_ALL_JavaSecurityMessageDigest || defined(INCLUDE_JavaSecurityMessageDigest))
 #define JavaSecurityMessageDigest_
 
@@ -318,7 +324,7 @@
    Java Cryptography Architecture Standard Algorithm Name Documentation
   </a>  for information about standard algorithm names.
  */
-- (instancetype)initWithNSString:(NSString *)algorithm;
+- (instancetype __nonnull)initWithNSString:(NSString *)algorithm;
 
 @end
 
@@ -349,8 +355,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityMessageDigest)
 
 #pragma mark Public
 
-- (instancetype)initWithJavaSecurityMessageDigestSpi:(JavaSecurityMessageDigestSpi *)digestSpi
-                                        withNSString:(NSString *)algorithm;
+- (instancetype __nonnull)initWithJavaSecurityMessageDigestSpi:(JavaSecurityMessageDigestSpi *)digestSpi
+                                                  withNSString:(NSString *)algorithm;
 
 /*!
  @brief Returns a clone if the delegate is cloneable.
@@ -382,7 +388,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityMessageDigest)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -398,6 +404,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityMessageDigest_Delegate)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityMessageDigest")

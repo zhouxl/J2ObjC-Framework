@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaBeansPropertyDescriptor_) && (INCLUDE_ALL_JavaBeansPropertyDescriptor || defined(INCLUDE_JavaBeansPropertyDescriptor))
 #define JavaBeansPropertyDescriptor_
 
@@ -39,17 +45,17 @@
 
 #pragma mark Public
 
-- (instancetype)initWithNSString:(NSString *)propertyName
-                    withIOSClass:(IOSClass *)beanClass;
+- (instancetype __nonnull)initWithNSString:(NSString *)propertyName
+                              withIOSClass:(IOSClass *)beanClass;
 
-- (instancetype)initWithNSString:(NSString *)propertyName
-                    withIOSClass:(IOSClass *)beanClass
-                    withNSString:(NSString *)getterName
-                    withNSString:(NSString *)setterName;
+- (instancetype __nonnull)initWithNSString:(NSString *)propertyName
+                              withIOSClass:(IOSClass *)beanClass
+                              withNSString:(NSString *)getterName
+                              withNSString:(NSString *)setterName;
 
-- (instancetype)initWithNSString:(NSString *)propertyName
-       withJavaLangReflectMethod:(JavaLangReflectMethod *)getter
-       withJavaLangReflectMethod:(JavaLangReflectMethod *)setter;
+- (instancetype __nonnull)initWithNSString:(NSString *)propertyName
+                 withJavaLangReflectMethod:(JavaLangReflectMethod *)getter
+                 withJavaLangReflectMethod:(JavaLangReflectMethod *)setter;
 
 - (jboolean)isEqual:(id)object;
 
@@ -86,7 +92,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -114,6 +120,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaBeansPropertyDescriptor)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaBeansPropertyDescriptor")

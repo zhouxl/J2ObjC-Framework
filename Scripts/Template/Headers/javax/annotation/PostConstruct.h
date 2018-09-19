@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxAnnotationPostConstruct_) && (INCLUDE_ALL_JavaxAnnotationPostConstruct || defined(INCLUDE_JavaxAnnotationPostConstruct))
 #define JavaxAnnotationPostConstruct_
 
@@ -31,6 +37,10 @@
  */
 @protocol JavaxAnnotationPostConstruct < JavaLangAnnotationAnnotation >
 
+- (jboolean)isEqual:(id)obj;
+
+- (NSUInteger)hash;
+
 @end
 
 @interface JavaxAnnotationPostConstruct : NSObject < JavaxAnnotationPostConstruct >
@@ -45,6 +55,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxAnnotationPostConstruct)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxAnnotationPostConstruct")

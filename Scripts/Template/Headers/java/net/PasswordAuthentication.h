@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNetPasswordAuthentication_) && (INCLUDE_ALL_JavaNetPasswordAuthentication || defined(INCLUDE_JavaNetPasswordAuthentication))
 #define JavaNetPasswordAuthentication_
 
@@ -41,8 +47,8 @@
  @param userName the user name
  @param password the user's password
  */
-- (instancetype)initWithNSString:(NSString *)userName
-                   withCharArray:(IOSCharArray *)password;
+- (instancetype __nonnull)initWithNSString:(NSString *)userName
+                             withCharArray:(IOSCharArray *)password;
 
 /*!
  @brief Returns the user password.
@@ -61,7 +67,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -77,6 +83,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetPasswordAuthentication)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetPasswordAuthentication")

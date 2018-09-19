@@ -18,6 +18,7 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -43,6 +44,10 @@
 @property (readonly) NSString *name;
 @property (readonly) jboolean shareable;
 @property (readonly) IOSClass *type;
+
+- (jboolean)isEqual:(id)obj;
+
+- (NSUInteger)hash;
 
 @end
 
@@ -82,6 +87,8 @@ typedef NS_ENUM(NSUInteger, JavaxAnnotationResource_AuthenticationType_Enum) {
 
 @interface JavaxAnnotationResource_AuthenticationType : JavaLangEnum
 
+@property (readonly, class, nonnull) JavaxAnnotationResource_AuthenticationType *APPLICATION NS_SWIFT_NAME(APPLICATION);
+@property (readonly, class, nonnull) JavaxAnnotationResource_AuthenticationType *CONTAINER NS_SWIFT_NAME(CONTAINER);
 + (JavaxAnnotationResource_AuthenticationType * __nonnull)APPLICATION;
 
 + (JavaxAnnotationResource_AuthenticationType * __nonnull)CONTAINER;

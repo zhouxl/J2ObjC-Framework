@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecurityCertX509CRL_) && (INCLUDE_ALL_JavaSecurityCertX509CRL || defined(INCLUDE_JavaSecurityCertX509CRL))
 #define JavaSecurityCertX509CRL_
 
@@ -372,7 +378,7 @@
 /*!
  @brief Constructor for X.509 CRLs.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -384,6 +390,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertX509CRL)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertX509CRL")

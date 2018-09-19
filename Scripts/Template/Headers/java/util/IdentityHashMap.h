@@ -25,6 +25,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilIdentityHashMap_) && (INCLUDE_ALL_JavaUtilIdentityHashMap || defined(INCLUDE_JavaUtilIdentityHashMap))
 #define JavaUtilIdentityHashMap_
 
@@ -150,7 +156,7 @@
  @brief Constructs a new, empty identity hash map with a default expected
   maximum size (21).
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a new, empty map with the specified expected maximum size.
@@ -160,7 +166,7 @@
  @param expectedMaxSize the expected maximum size of the map
  @throw IllegalArgumentExceptionif <tt>expectedMaxSize</tt> is negative
  */
-- (instancetype)initWithInt:(jint)expectedMaxSize;
+- (instancetype __nonnull)initWithInt:(jint)expectedMaxSize;
 
 /*!
  @brief Constructs a new identity hash map containing the keys-value mappings
@@ -168,7 +174,7 @@
  @param m the map whose mappings are to be placed into this map
  @throw NullPointerExceptionif the specified map is null
  */
-- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)m;
+- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)m;
 
 /*!
  @brief Removes all of the mappings from this map.
@@ -458,17 +464,17 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIdentityHashMap)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilIdentityHashMap:(JavaUtilIdentityHashMap *)map
-                                        withInt:(jint)origin
-                                        withInt:(jint)fence
-                                        withInt:(jint)est
-                                        withInt:(jint)expectedModCount;
+- (instancetype __nonnull)initWithJavaUtilIdentityHashMap:(JavaUtilIdentityHashMap *)map
+                                                  withInt:(jint)origin
+                                                  withInt:(jint)fence
+                                                  withInt:(jint)est
+                                                  withInt:(jint)expectedModCount;
 
 - (jint)getFence;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -511,11 +517,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIdentityHashMap_IdentityHashMapSpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilIdentityHashMap:(JavaUtilIdentityHashMap *)map
-                                        withInt:(jint)origin
-                                        withInt:(jint)fence
-                                        withInt:(jint)est
-                                        withInt:(jint)expectedModCount;
+- (instancetype __nonnull)initWithJavaUtilIdentityHashMap:(JavaUtilIdentityHashMap *)map
+                                                  withInt:(jint)origin
+                                                  withInt:(jint)fence
+                                                  withInt:(jint)est
+                                                  withInt:(jint)expectedModCount;
 
 @end
 
@@ -556,11 +562,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIdentityHashMap_KeySpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilIdentityHashMap:(JavaUtilIdentityHashMap *)m
-                                        withInt:(jint)origin
-                                        withInt:(jint)fence
-                                        withInt:(jint)est
-                                        withInt:(jint)expectedModCount;
+- (instancetype __nonnull)initWithJavaUtilIdentityHashMap:(JavaUtilIdentityHashMap *)m
+                                                  withInt:(jint)origin
+                                                  withInt:(jint)fence
+                                                  withInt:(jint)est
+                                                  withInt:(jint)expectedModCount;
 
 @end
 
@@ -601,11 +607,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIdentityHashMap_ValueSpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilIdentityHashMap:(JavaUtilIdentityHashMap *)m
-                                        withInt:(jint)origin
-                                        withInt:(jint)fence
-                                        withInt:(jint)est
-                                        withInt:(jint)expectedModCount;
+- (instancetype __nonnull)initWithJavaUtilIdentityHashMap:(JavaUtilIdentityHashMap *)m
+                                                  withInt:(jint)origin
+                                                  withInt:(jint)fence
+                                                  withInt:(jint)est
+                                                  withInt:(jint)expectedModCount;
 
 @end
 
@@ -621,6 +627,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIdentityHashMap_EntrySpliterator)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilIdentityHashMap")

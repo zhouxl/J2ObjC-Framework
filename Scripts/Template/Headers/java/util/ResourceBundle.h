@@ -19,6 +19,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilResourceBundle_) && (INCLUDE_ALL_JavaUtilResourceBundle || defined(INCLUDE_JavaUtilResourceBundle))
 #define JavaUtilResourceBundle_
 
@@ -92,7 +98,7 @@
 /*!
  @brief Constructs a new instance of this class.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 + (void)clearCache;
 
@@ -323,7 +329,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilResourceBundle)
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -357,6 +363,16 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilResourceBundle_MissingBundle)
  @public
   id<JavaUtilList> format_;
 }
+@property (class, strong) id<JavaUtilList> listDefault NS_SWIFT_NAME(listDefault);
+@property (class, strong) id<JavaUtilList> listClass NS_SWIFT_NAME(listClass);
+@property (class, strong) id<JavaUtilList> listProperties NS_SWIFT_NAME(listProperties);
+@property (copy, class) NSString *JAVACLASS NS_SWIFT_NAME(JAVACLASS);
+@property (copy, class) NSString *JAVAPROPERTIES NS_SWIFT_NAME(JAVAPROPERTIES);
+@property (readonly, class, strong) id<JavaUtilList> FORMAT_DEFAULT NS_SWIFT_NAME(FORMAT_DEFAULT);
+@property (readonly, class, strong) id<JavaUtilList> FORMAT_CLASS NS_SWIFT_NAME(FORMAT_CLASS);
+@property (readonly, class, strong) id<JavaUtilList> FORMAT_PROPERTIES NS_SWIFT_NAME(FORMAT_PROPERTIES);
+@property (readonly, class) jlong TTL_DONT_CACHE NS_SWIFT_NAME(TTL_DONT_CACHE);
+@property (readonly, class) jlong TTL_NO_EXPIRATION_CONTROL NS_SWIFT_NAME(TTL_NO_EXPIRATION_CONTROL);
 
 + (id<JavaUtilList>)listDefault;
 
@@ -491,7 +507,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilResourceBundle_MissingBundle)
 /*!
  @brief default constructor
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -581,6 +597,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilResourceBundle_Control)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilResourceBundle")

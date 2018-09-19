@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaTextFieldPosition_) && (INCLUDE_ALL_JavaTextFieldPosition || defined(INCLUDE_JavaTextFieldPosition))
 #define JavaTextFieldPosition_
 
@@ -82,7 +88,7 @@
  @param attribute Format.Field constant identifying a field
  @since 1.4
  */
-- (instancetype)initWithJavaTextFormat_Field:(JavaTextFormat_Field *)attribute;
+- (instancetype __nonnull)initWithJavaTextFormat_Field:(JavaTextFormat_Field *)attribute;
 
 /*!
  @brief Creates a <code>FieldPosition</code> object for the given field.
@@ -99,8 +105,8 @@
  @param fieldID integer constantce identifying a field
  @since 1.4
  */
-- (instancetype)initWithJavaTextFormat_Field:(JavaTextFormat_Field *)attribute
-                                     withInt:(jint)fieldID;
+- (instancetype __nonnull)initWithJavaTextFormat_Field:(JavaTextFormat_Field *)attribute
+                                               withInt:(jint)fieldID;
 
 /*!
  @brief Creates a FieldPosition object for the given field.Fields are
@@ -111,7 +117,7 @@
  - seealso: java.text.DateFormat
  - seealso: java.text.DateFormat
  */
-- (instancetype)initWithInt:(jint)field;
+- (instancetype __nonnull)initWithInt:(jint)field;
 
 /*!
  @brief Overrides equals
@@ -179,7 +185,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -207,6 +213,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextFieldPosition)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextFieldPosition")

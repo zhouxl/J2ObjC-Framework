@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilJarJarEntry_) && (INCLUDE_ALL_JavaUtilJarJarEntry || defined(INCLUDE_JavaUtilJarJarEntry))
 #define JavaUtilJarJarEntry_
 
@@ -44,7 +50,7 @@
   specified <code>JarEntry</code> object.
  @param je the  <code> JarEntry </code>  to copy
  */
-- (instancetype)initWithJavaUtilJarJarEntry:(JavaUtilJarJarEntry *)je;
+- (instancetype __nonnull)initWithJavaUtilJarJarEntry:(JavaUtilJarJarEntry *)je;
 
 /*!
  @brief Creates a new <code>JarEntry</code> for the specified JAR file
@@ -54,7 +60,7 @@
  @throw IllegalArgumentExceptionif the entry name is longer than
              0xFFFF bytes.
  */
-- (instancetype)initWithNSString:(NSString *)name;
+- (instancetype __nonnull)initWithNSString:(NSString *)name;
 
 /*!
  @brief Creates a new <code>JarEntry</code> with fields taken from the
@@ -62,7 +68,7 @@
  @param ze the  <code> ZipEntry </code>  object to create the
               <code> JarEntry </code>  from
  */
-- (instancetype)initWithJavaUtilZipZipEntry:(JavaUtilZipZipEntry *)ze;
+- (instancetype __nonnull)initWithJavaUtilZipZipEntry:(JavaUtilZipZipEntry *)ze;
 
 /*!
  @brief Returns the <code>Manifest</code> <code>Attributes</code> for this
@@ -109,17 +115,17 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
-- (instancetype)initWithNSString:(NSString *)arg0
-                    withNSString:(NSString *)arg1
-                        withLong:(jlong)arg2
-                        withLong:(jlong)arg3
-                        withLong:(jlong)arg4
-                         withInt:(jint)arg5
-                         withInt:(jint)arg6
-                   withByteArray:(IOSByteArray *)arg7
-                        withLong:(jlong)arg8 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0
+                              withNSString:(NSString *)arg1
+                                  withLong:(jlong)arg2
+                                  withLong:(jlong)arg3
+                                  withLong:(jlong)arg4
+                                   withInt:(jint)arg5
+                                   withInt:(jint)arg6
+                             withByteArray:(IOSByteArray *)arg7
+                                  withLong:(jlong)arg8 NS_UNAVAILABLE;
 
 @end
 
@@ -151,6 +157,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarEntry)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilJarJarEntry")

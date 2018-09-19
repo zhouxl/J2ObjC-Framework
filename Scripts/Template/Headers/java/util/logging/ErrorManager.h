@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilLoggingErrorManager_) && (INCLUDE_ALL_JavaUtilLoggingErrorManager || defined(INCLUDE_JavaUtilLoggingErrorManager))
 #define JavaUtilLoggingErrorManager_
 
@@ -31,6 +37,12 @@
   should call its associated ErrorManager.
  */
 @interface JavaUtilLoggingErrorManager : NSObject
+@property (readonly, class) jint GENERIC_FAILURE NS_SWIFT_NAME(GENERIC_FAILURE);
+@property (readonly, class) jint WRITE_FAILURE NS_SWIFT_NAME(WRITE_FAILURE);
+@property (readonly, class) jint FLUSH_FAILURE NS_SWIFT_NAME(FLUSH_FAILURE);
+@property (readonly, class) jint CLOSE_FAILURE NS_SWIFT_NAME(CLOSE_FAILURE);
+@property (readonly, class) jint OPEN_FAILURE NS_SWIFT_NAME(OPEN_FAILURE);
+@property (readonly, class) jint FORMAT_FAILURE NS_SWIFT_NAME(FORMAT_FAILURE);
 
 + (jint)GENERIC_FAILURE;
 
@@ -46,7 +58,7 @@
 
 #pragma mark Public
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief The error method is called when a Handler failure occurs.
@@ -119,6 +131,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingErrorManager)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingErrorManager")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecurityInterfacesECPrivateKey_) && (INCLUDE_ALL_JavaSecurityInterfacesECPrivateKey || defined(INCLUDE_JavaSecurityInterfacesECPrivateKey))
 #define JavaSecurityInterfacesECPrivateKey_
 
@@ -47,6 +53,7 @@
 @end
 
 @interface JavaSecurityInterfacesECPrivateKey : NSObject
+@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jlong)serialVersionUID;
 
@@ -66,6 +73,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInterfacesECPrivateKey)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityInterfacesECPrivateKey")

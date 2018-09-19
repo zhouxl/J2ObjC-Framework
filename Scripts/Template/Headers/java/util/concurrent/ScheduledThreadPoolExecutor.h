@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentScheduledThreadPoolExecutor_) && (INCLUDE_ALL_JavaUtilConcurrentScheduledThreadPoolExecutor || defined(INCLUDE_JavaUtilConcurrentScheduledThreadPoolExecutor))
 #define JavaUtilConcurrentScheduledThreadPoolExecutor_
 
@@ -122,7 +128,7 @@
  <code>allowCoreThreadTimeOut</code>  is set
  @throw IllegalArgumentExceptionif <code>corePoolSize < 0</code>
  */
-- (instancetype)initWithInt:(jint)corePoolSize;
+- (instancetype __nonnull)initWithInt:(jint)corePoolSize;
 
 /*!
  @brief Creates a new <code>ScheduledThreadPoolExecutor</code> with the
@@ -133,7 +139,7 @@
  @throw IllegalArgumentExceptionif <code>corePoolSize < 0</code>
  @throw NullPointerExceptionif <code>handler</code> is null
  */
-- (instancetype)initWithInt:(jint)corePoolSize
+- (instancetype __nonnull)initWithInt:(jint)corePoolSize
 withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExecutionHandler>)handler;
 
 /*!
@@ -145,8 +151,8 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
  @throw IllegalArgumentExceptionif <code>corePoolSize < 0</code>
  @throw NullPointerExceptionif <code>threadFactory</code> is null
  */
-- (instancetype)initWithInt:(jint)corePoolSize
-withJavaUtilConcurrentThreadFactory:(id<JavaUtilConcurrentThreadFactory>)threadFactory;
+- (instancetype __nonnull)initWithInt:(jint)corePoolSize
+  withJavaUtilConcurrentThreadFactory:(id<JavaUtilConcurrentThreadFactory>)threadFactory;
 
 /*!
  @brief Creates a new <code>ScheduledThreadPoolExecutor</code> with the
@@ -159,8 +165,8 @@ withJavaUtilConcurrentThreadFactory:(id<JavaUtilConcurrentThreadFactory>)threadF
  @throw NullPointerExceptionif <code>threadFactory</code> or
           <code>handler</code> is null
  */
-- (instancetype)initWithInt:(jint)corePoolSize
-withJavaUtilConcurrentThreadFactory:(id<JavaUtilConcurrentThreadFactory>)threadFactory
+- (instancetype __nonnull)initWithInt:(jint)corePoolSize
+  withJavaUtilConcurrentThreadFactory:(id<JavaUtilConcurrentThreadFactory>)threadFactory
 withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExecutionHandler>)handler;
 
 /*!
@@ -419,32 +425,32 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithInt:(jint)arg0
-                    withInt:(jint)arg1
-                   withLong:(jlong)arg2
-withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)arg3
-withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)arg4 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithInt:(jint)arg0
+                              withInt:(jint)arg1
+                             withLong:(jlong)arg2
+       withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)arg3
+  withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)arg4 NS_UNAVAILABLE;
 
-- (instancetype)initWithInt:(jint)arg0
-                    withInt:(jint)arg1
-                   withLong:(jlong)arg2
-withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)arg3
-withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)arg4
+- (instancetype __nonnull)initWithInt:(jint)arg0
+                              withInt:(jint)arg1
+                             withLong:(jlong)arg2
+       withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)arg3
+  withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)arg4
 withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExecutionHandler>)arg5 NS_UNAVAILABLE;
 
-- (instancetype)initWithInt:(jint)arg0
-                    withInt:(jint)arg1
-                   withLong:(jlong)arg2
-withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)arg3
-withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)arg4
-withJavaUtilConcurrentThreadFactory:(id<JavaUtilConcurrentThreadFactory>)arg5 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithInt:(jint)arg0
+                              withInt:(jint)arg1
+                             withLong:(jlong)arg2
+       withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)arg3
+  withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)arg4
+  withJavaUtilConcurrentThreadFactory:(id<JavaUtilConcurrentThreadFactory>)arg5 NS_UNAVAILABLE;
 
-- (instancetype)initWithInt:(jint)arg0
-                    withInt:(jint)arg1
-                   withLong:(jlong)arg2
-withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)arg3
-withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)arg4
-withJavaUtilConcurrentThreadFactory:(id<JavaUtilConcurrentThreadFactory>)arg5
+- (instancetype __nonnull)initWithInt:(jint)arg0
+                              withInt:(jint)arg1
+                             withLong:(jlong)arg2
+       withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)arg3
+  withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)arg4
+  withJavaUtilConcurrentThreadFactory:(id<JavaUtilConcurrentThreadFactory>)arg5
 withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExecutionHandler>)arg6 NS_UNAVAILABLE;
 
 @end
@@ -554,7 +560,7 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -570,6 +576,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentScheduledThreadPoolExecutor_Delayed
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentScheduledThreadPoolExecutor")

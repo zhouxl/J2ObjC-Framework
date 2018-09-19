@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (AndroidTextUtilRfc822Tokenizer_) && (INCLUDE_ALL_AndroidTextUtilRfc822Tokenizer || defined(INCLUDE_AndroidTextUtilRfc822Tokenizer))
 #define AndroidTextUtilRfc822Tokenizer_
 
@@ -33,7 +39,7 @@
 
 #pragma mark Public
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  */
@@ -97,6 +103,10 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextUtilRfc822Tokenizer)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidTextUtilRfc822Tokenizer")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentAtomicAtomicReferenceArray_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicReferenceArray || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicReferenceArray))
 #define JavaUtilConcurrentAtomicAtomicReferenceArray_
 
@@ -45,14 +51,14 @@
  @param array the array to copy elements from
  @throw NullPointerExceptionif array is null
  */
-- (instancetype)initWithNSObjectArray:(IOSObjectArray *)array;
+- (instancetype __nonnull)initWithNSObjectArray:(IOSObjectArray *)array;
 
 /*!
  @brief Creates a new AtomicReferenceArray of the given length, with all
   elements initially null.
  @param length the length of the array
  */
-- (instancetype)initWithInt:(jint)length;
+- (instancetype __nonnull)initWithInt:(jint)length;
 
 /*!
  @brief Atomically updates the element at index <code>i</code> with the
@@ -196,7 +202,7 @@ withJavaUtilFunctionUnaryOperator:(id<JavaUtilFunctionUnaryOperator>)updateFunct
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -218,6 +224,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicReferenceArray)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicReferenceArray")

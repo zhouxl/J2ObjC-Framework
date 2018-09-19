@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecurityCertCRLException_) && (INCLUDE_ALL_JavaSecurityCertCRLException || defined(INCLUDE_JavaSecurityCertCRLException))
 #define JavaSecurityCertCRLException_
 
@@ -38,7 +44,7 @@
   detail message is a String that describes this particular
   exception.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a CRLException with the specified detail
@@ -46,7 +52,7 @@
   particular exception.
  @param message the detail message.
  */
-- (instancetype)initWithNSString:(NSString *)message;
+- (instancetype __nonnull)initWithNSString:(NSString *)message;
 
 /*!
  @brief Creates a <code>CRLException</code> with the specified
@@ -57,8 +63,8 @@
  <code>getCause()</code>  method).  (A <code>null</code>  value is permitted,         and indicates that the cause is nonexistent or unknown.)
  @since 1.5
  */
-- (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithNSString:(NSString *)message
+                     withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Creates a <code>CRLException</code> with the specified cause
@@ -70,7 +76,7 @@
  <code>getCause()</code>  method).  (A <code>null</code>  value is permitted,         and indicates that the cause is nonexistent or unknown.)
  @since 1.5
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 @end
 
@@ -104,6 +110,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCRLException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCRLException")

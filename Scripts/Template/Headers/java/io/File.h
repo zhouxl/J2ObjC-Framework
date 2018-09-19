@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoFile_) && (INCLUDE_ALL_JavaIoFile || defined(INCLUDE_JavaIoFile))
 #define JavaIoFile_
 
@@ -51,6 +57,10 @@
  - seealso: java.lang.Comparable
  */
 @interface JavaIoFile : NSObject < JavaIoSerializable, JavaLangComparable >
+@property (readonly, class) jchar separatorChar NS_SWIFT_NAME(separatorChar);
+@property (readonly, copy, class) NSString *separator NS_SWIFT_NAME(separator);
+@property (readonly, class) jchar pathSeparatorChar NS_SWIFT_NAME(pathSeparatorChar);
+@property (readonly, copy, class) NSString *pathSeparator NS_SWIFT_NAME(pathSeparator);
 
 + (jchar)separatorChar;
 
@@ -69,14 +79,14 @@
  @throw NullPointerException
  if <code>name</code> is <code>null</code>.
  */
-- (instancetype)initWithJavaIoFile:(JavaIoFile *)dir
-                      withNSString:(NSString *)name;
+- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)dir
+                                withNSString:(NSString *)name;
 
 /*!
  @brief Constructs a new file using the specified path.
  @param path the path to be used for the file.
  */
-- (instancetype)initWithNSString:(NSString *)path;
+- (instancetype __nonnull)initWithNSString:(NSString *)path;
 
 /*!
  @brief Constructs a new File using the specified directory path and file name,
@@ -86,8 +96,8 @@
  @throw NullPointerException
  if <code>name == null</code>.
  */
-- (instancetype)initWithNSString:(NSString *)dirPath
-                    withNSString:(NSString *)name;
+- (instancetype __nonnull)initWithNSString:(NSString *)dirPath
+                              withNSString:(NSString *)name;
 
 /*!
  @brief Constructs a new File using the path of the specified URI.
@@ -102,7 +112,7 @@
  - seealso: #toURI
  - seealso: java.net.URI
  */
-- (instancetype)initWithJavaNetURI:(JavaNetURI *)uri;
+- (instancetype __nonnull)initWithJavaNetURI:(JavaNetURI *)uri;
 
 /*!
  @brief Tests whether or not this process is allowed to execute this file.
@@ -642,7 +652,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -723,6 +733,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFile)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoFile")

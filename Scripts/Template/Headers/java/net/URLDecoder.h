@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNetURLDecoder_) && (INCLUDE_ALL_JavaNetURLDecoder || defined(INCLUDE_JavaNetURLDecoder))
 #define JavaNetURLDecoder_
 
@@ -66,6 +72,7 @@
  @since 1.2
  */
 @interface JavaNetURLDecoder : NSObject
+@property (copy, class) NSString *dfltEncName NS_SWIFT_NAME(dfltEncName);
 
 + (NSString *)dfltEncName;
 
@@ -73,7 +80,7 @@
 
 #pragma mark Public
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Decodes a <code>x-www-form-urlencoded</code> string.
@@ -134,6 +141,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetURLDecoder)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetURLDecoder")

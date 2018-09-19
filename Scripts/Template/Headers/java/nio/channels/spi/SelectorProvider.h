@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNioChannelsSpiSelectorProvider_) && (INCLUDE_ALL_JavaNioChannelsSpiSelectorProvider || defined(INCLUDE_JavaNioChannelsSpiSelectorProvider))
 #define JavaNioChannelsSpiSelectorProvider_
 
@@ -198,7 +204,7 @@
  If a security manager has been installed and it denies
            <code>RuntimePermission</code><tt>("selectorProvider")</tt>
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -212,6 +218,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSpiSelectorProvider)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioChannelsSpiSelectorProvider")

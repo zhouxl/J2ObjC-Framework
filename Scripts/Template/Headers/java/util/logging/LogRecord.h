@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilLoggingLogRecord_) && (INCLUDE_ALL_JavaUtilLoggingLogRecord || defined(INCLUDE_JavaUtilLoggingLogRecord))
 #define JavaUtilLoggingLogRecord_
 
@@ -78,8 +84,8 @@
  @param level a logging level value
  @param msg the raw non-localized logging message (may be null)
  */
-- (instancetype)initWithJavaUtilLoggingLevel:(JavaUtilLoggingLevel *)level
-                                withNSString:(NSString *)msg;
+- (instancetype __nonnull)initWithJavaUtilLoggingLevel:(JavaUtilLoggingLevel *)level
+                                          withNSString:(NSString *)msg;
 
 /*!
  @brief Get the logging message level, for example Level.SEVERE.
@@ -275,7 +281,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -291,6 +297,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLogRecord)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingLogRecord")

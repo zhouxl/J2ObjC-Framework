@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaTextStringCharacterIterator_) && (INCLUDE_ALL_JavaTextStringCharacterIterator || defined(INCLUDE_JavaTextStringCharacterIterator))
 #define JavaTextStringCharacterIterator_
 
@@ -42,7 +48,7 @@
   end index is set to the length of the string.
  @param value the source string to iterate over.
  */
-- (instancetype)initWithNSString:(NSString *)value;
+- (instancetype __nonnull)initWithNSString:(NSString *)value;
 
 /*!
  @brief Constructs a new <code>StringCharacterIterator</code> on the specified string
@@ -55,8 +61,8 @@
  if <code>location</code> is negative or greater than the length
              of the source string.
  */
-- (instancetype)initWithNSString:(NSString *)value
-                         withInt:(jint)location;
+- (instancetype __nonnull)initWithNSString:(NSString *)value
+                                   withInt:(jint)location;
 
 /*!
  @brief Constructs a new <code>StringCharacterIterator</code> on the specified string
@@ -71,10 +77,10 @@
  , <code>location > end</code> or if <code>end</code> is greater
              than the length of <code>value</code>.
  */
-- (instancetype)initWithNSString:(NSString *)value
-                         withInt:(jint)start
-                         withInt:(jint)end
-                         withInt:(jint)location;
+- (instancetype __nonnull)initWithNSString:(NSString *)value
+                                   withInt:(jint)start
+                                   withInt:(jint)end
+                                   withInt:(jint)location;
 
 /*!
  @brief Returns a new <code>StringCharacterIterator</code> with the same source
@@ -173,7 +179,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -203,6 +209,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextStringCharacterIterator)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextStringCharacterIterator")

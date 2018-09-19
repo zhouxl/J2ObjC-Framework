@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilBitSet_) && (INCLUDE_ALL_JavaUtilBitSet || defined(INCLUDE_JavaUtilBitSet))
 #define JavaUtilBitSet_
 
@@ -64,7 +70,7 @@
 /*!
  @brief Creates a new bit set.All bits are initially <code>false</code>.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a bit set whose initial size is large enough to explicitly
@@ -74,7 +80,7 @@
  @throw NegativeArraySizeExceptionif the specified initial size
           is negative
  */
-- (instancetype)initWithInt:(jint)nbits;
+- (instancetype __nonnull)initWithInt:(jint)nbits;
 
 /*!
  @brief Performs a logical <b>AND</b> of this target bit set with the
@@ -555,6 +561,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilBitSet)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilBitSet")

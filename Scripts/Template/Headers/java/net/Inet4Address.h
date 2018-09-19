@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNetInet4Address_) && (INCLUDE_ALL_JavaNetInet4Address || defined(INCLUDE_JavaNetInet4Address))
 #define JavaNetInet4Address_
 
@@ -72,6 +78,10 @@
  @since 1.4
  */
 @interface JavaNetInet4Address : JavaNetInetAddress
+@property (readonly, class) jint INADDRSZ NS_SWIFT_NAME(INADDRSZ);
+@property (readonly, class, strong) JavaNetInetAddress *ANY NS_SWIFT_NAME(ANY);
+@property (readonly, class, strong) JavaNetInetAddress *ALL NS_SWIFT_NAME(ALL);
+@property (readonly, class, strong) JavaNetInetAddress *LOOPBACK NS_SWIFT_NAME(LOOPBACK);
 
 + (jint)INADDRSZ;
 
@@ -205,13 +215,13 @@
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
-- (instancetype)initWithNSString:(NSString *)hostName
-                   withByteArray:(IOSByteArray *)addr;
+- (instancetype __nonnull)initWithNSString:(NSString *)hostName
+                             withByteArray:(IOSByteArray *)addr;
 
-- (instancetype)initWithNSString:(NSString *)hostName
-                         withInt:(jint)address;
+- (instancetype __nonnull)initWithNSString:(NSString *)hostName
+                                   withInt:(jint)address;
 
 + (NSString *)numericToTextFormatWithByteArray:(IOSByteArray *)src;
 
@@ -268,6 +278,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetInet4Address)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetInet4Address")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangThreadLocal_) && (INCLUDE_ALL_JavaLangThreadLocal || defined(INCLUDE_JavaLangThreadLocal))
 #define JavaLangThreadLocal_
 
@@ -68,7 +74,7 @@
 /*!
  @brief Creates a thread local variable.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Returns the value in the current thread's copy of this
@@ -77,7 +83,7 @@
   by an invocation of the <code>initialValue</code> method.
  @return the current thread's value of this thread-local
  */
-- (id)get;
+- (id __nullable)get;
 
 /*!
  @brief Removes the current thread's value for this thread-local
@@ -121,7 +127,7 @@
   anonymous inner class will be used.
  @return the initial value for this thread-local
  */
-- (id)initialValue OBJC_METHOD_FAMILY_NONE;
+- (id __nullable)initialValue OBJC_METHOD_FAMILY_NONE;
 
 #pragma mark Package-Private
 
@@ -202,12 +208,12 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangThreadLocal)
  ThreadLocalMaps are constructed lazily, so we only create
   one when we have at least one entry to put in it.
  */
-- (instancetype)initWithJavaLangThreadLocal:(JavaLangThreadLocal *)firstKey
-                                     withId:(id)firstValue;
+- (instancetype __nonnull)initWithJavaLangThreadLocal:(JavaLangThreadLocal *)firstKey
+                                               withId:(id)firstValue;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -256,15 +262,15 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangThreadLocal_ThreadLocalMap)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaLangThreadLocal:(JavaLangThreadLocal *)k
-                                     withId:(id)v;
+- (instancetype __nonnull)initWithJavaLangThreadLocal:(JavaLangThreadLocal *)k
+                                               withId:(id)v;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithId:(id)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithId:(id)arg0 NS_UNAVAILABLE;
 
-- (instancetype)initWithId:(id)arg0
-withJavaLangRefReferenceQueue:(JavaLangRefReferenceQueue *)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithId:(id)arg0
+       withJavaLangRefReferenceQueue:(JavaLangRefReferenceQueue *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -282,6 +288,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangThreadLocal_ThreadLocalMap_Entry)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangThreadLocal")

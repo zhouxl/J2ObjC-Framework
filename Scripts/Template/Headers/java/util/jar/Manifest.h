@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilJarManifest_) && (INCLUDE_ALL_JavaUtilJarManifest || defined(INCLUDE_JavaUtilJarManifest))
 #define JavaUtilJarManifest_
 
@@ -44,20 +50,20 @@
 /*!
  @brief Constructs a new, empty Manifest.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a new Manifest from the specified input stream.
  @param is the input stream containing manifest data
  @throw IOExceptionif an I/O error has occured
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)is;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)is;
 
 /*!
  @brief Constructs a new Manifest that is a copy of the specified Manifest.
  @param man the Manifest to copy
  */
-- (instancetype)initWithJavaUtilJarManifest:(JavaUtilJarManifest *)man;
+- (instancetype __nonnull)initWithJavaUtilJarManifest:(JavaUtilJarManifest *)man;
 
 /*!
  @brief Clears the main Attributes as well as the entries in this Manifest.
@@ -221,10 +227,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarManifest)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
 
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
-                                  withInt:(jint)size;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
+                                            withInt:(jint)size;
 
 @end
 
@@ -246,6 +252,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarManifest_FastInputStream)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilJarManifest")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangSystem_) && (INCLUDE_ALL_JavaLangSystem || defined(INCLUDE_JavaLangSystem))
 #define JavaLangSystem_
 
@@ -33,6 +39,9 @@
  @author Tom Ball
  */
 @interface JavaLangSystem : NSObject
+@property (nonatomic, setter=setInWithJavaIoInputStream:, class, strong) JavaIoInputStream *in NS_SWIFT_NAME(in);
+@property (nonatomic, setter=setOutWithJavaIoPrintStream:, class, strong) JavaIoPrintStream *out NS_SWIFT_NAME(out);
+@property (nonatomic, setter=setErrWithJavaIoPrintStream:, class, strong) JavaIoPrintStream *err NS_SWIFT_NAME(err);
 
 + (JavaIoInputStream *)in;
 
@@ -42,7 +51,7 @@
 
 #pragma mark Public
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 + (void)arraycopyWithId:(id)src
                 withInt:(jint)srcPos
@@ -50,7 +59,7 @@
                 withInt:(jint)destPos
                 withInt:(jint)length;
 
-+ (NSString *)clearPropertyWithNSString:(NSString *)key;
++ (NSString * __nullable)clearPropertyWithNSString:(NSString *)key;
 
 /*!
  @brief Returns the <code>java.io.Console</code> associated with this VM, or null.
@@ -58,7 +67,7 @@
   available for programs run from the command line.
  @since 1.6
  */
-+ (JavaIoConsole *)console;
++ (JavaIoConsole * __nullable)console;
 
 + (jlong)currentTimeMillis;
 
@@ -66,16 +75,16 @@
 
 + (void)gc;
 
-+ (id<JavaUtilMap>)getenv;
++ (id<JavaUtilMap> __nonnull)getenv;
 
-+ (NSString *)getenvWithNSString:(NSString *)name;
++ (NSString * __nullable)getenvWithNSString:(NSString *)name;
 
-+ (JavaUtilProperties *)getProperties;
++ (JavaUtilProperties * __nonnull)getProperties;
 
-+ (NSString *)getPropertyWithNSString:(NSString *)key;
++ (NSString * __nullable)getPropertyWithNSString:(NSString *)key;
 
-+ (NSString *)getPropertyWithNSString:(NSString *)key
-                         withNSString:(NSString *)defaultValue;
++ (NSString * __nullable)getPropertyWithNSString:(NSString *)key
+                                    withNSString:(NSString *)defaultValue;
 
 /*!
  @brief Returns null.Android does not use <code>SecurityManager</code>.
@@ -83,7 +92,7 @@
   is only provided for source compatibility.
  @return null
  */
-+ (JavaLangSecurityManager *)getSecurityManager;
++ (JavaLangSecurityManager * __nullable)getSecurityManager;
 
 + (jint)identityHashCodeWithId:(id)anObject;
 
@@ -91,7 +100,7 @@
  @brief Returns the system's line separator.
  @since 1.7
  */
-+ (NSString *)lineSeparator;
++ (NSString * __nonnull)lineSeparator;
 
 /*!
  @brief See <code>Runtime.load</code>.
@@ -150,8 +159,8 @@
 
 + (void)setPropertiesWithJavaUtilProperties:(JavaUtilProperties *)properties;
 
-+ (NSString *)setPropertyWithNSString:(NSString *)key
-                         withNSString:(NSString *)value;
++ (NSString * __nullable)setPropertyWithNSString:(NSString *)key
+                                    withNSString:(NSString *)value;
 
 #pragma mark Package-Private
 
@@ -160,19 +169,22 @@
 J2OBJC_STATIC_INIT(JavaLangSystem)
 
 inline JavaIoInputStream *JavaLangSystem_get_in(void);
+inline JavaIoInputStream *JavaLangSystem_set_in(JavaIoInputStream *value);
 /*! INTERNAL ONLY - Use accessor function from above. */
 FOUNDATION_EXPORT JavaIoInputStream *JavaLangSystem_in;
-J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangSystem, in, JavaIoInputStream *)
+J2OBJC_STATIC_FIELD_OBJ(JavaLangSystem, in, JavaIoInputStream *)
 
 inline JavaIoPrintStream *JavaLangSystem_get_out(void);
+inline JavaIoPrintStream *JavaLangSystem_set_out(JavaIoPrintStream *value);
 /*! INTERNAL ONLY - Use accessor function from above. */
 FOUNDATION_EXPORT JavaIoPrintStream *JavaLangSystem_out;
-J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangSystem, out, JavaIoPrintStream *)
+J2OBJC_STATIC_FIELD_OBJ(JavaLangSystem, out, JavaIoPrintStream *)
 
 inline JavaIoPrintStream *JavaLangSystem_get_err(void);
+inline JavaIoPrintStream *JavaLangSystem_set_err(JavaIoPrintStream *value);
 /*! INTERNAL ONLY - Use accessor function from above. */
 FOUNDATION_EXPORT JavaIoPrintStream *JavaLangSystem_err;
-J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangSystem, err, JavaIoPrintStream *)
+J2OBJC_STATIC_FIELD_OBJ(JavaLangSystem, err, JavaIoPrintStream *)
 
 FOUNDATION_EXPORT void JavaLangSystem_init(JavaLangSystem *self);
 
@@ -244,6 +256,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangSystem)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangSystem")

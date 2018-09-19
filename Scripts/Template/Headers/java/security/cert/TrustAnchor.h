@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecurityCertTrustAnchor_) && (INCLUDE_ALL_JavaSecurityCertTrustAnchor || defined(INCLUDE_JavaSecurityCertTrustAnchor))
 #define JavaSecurityCertTrustAnchor_
 
@@ -84,9 +90,9 @@
  @throw NullPointerExceptionif the specified <code>caName</code> or 
  <code>pubKey</code> parameter is <code>null</code>
  */
-- (instancetype)initWithNSString:(NSString *)caName
-       withJavaSecurityPublicKey:(id<JavaSecurityPublicKey>)pubKey
-                   withByteArray:(IOSByteArray *)nameConstraints;
+- (instancetype __nonnull)initWithNSString:(NSString *)caName
+                 withJavaSecurityPublicKey:(id<JavaSecurityPublicKey>)pubKey
+                             withByteArray:(IOSByteArray *)nameConstraints;
 
 /*!
  @brief Creates an instance of <code>TrustAnchor</code> where the
@@ -114,9 +120,9 @@
  <code>pubKey</code> parameter is <code>null</code>
  @since 1.5
  */
-- (instancetype)initWithJavaxSecurityAuthX500X500Principal:(JavaxSecurityAuthX500X500Principal *)caPrincipal
-                                 withJavaSecurityPublicKey:(id<JavaSecurityPublicKey>)pubKey
-                                             withByteArray:(IOSByteArray *)nameConstraints;
+- (instancetype __nonnull)initWithJavaxSecurityAuthX500X500Principal:(JavaxSecurityAuthX500X500Principal *)caPrincipal
+                                           withJavaSecurityPublicKey:(id<JavaSecurityPublicKey>)pubKey
+                                                       withByteArray:(IOSByteArray *)nameConstraints;
 
 /*!
  @brief Creates an instance of <code>TrustAnchor</code> with the specified 
@@ -165,8 +171,8 @@
  @throw NullPointerExceptionif the specified 
  <code>X509Certificate</code> is <code>null</code>
  */
-- (instancetype)initWithJavaSecurityCertX509Certificate:(JavaSecurityCertX509Certificate *)trustedCert
-                                          withByteArray:(IOSByteArray *)nameConstraints;
+- (instancetype __nonnull)initWithJavaSecurityCertX509Certificate:(JavaSecurityCertX509Certificate *)trustedCert
+                                                    withByteArray:(IOSByteArray *)nameConstraints;
 
 /*!
  @brief Returns the name of the most-trusted CA as an X500Principal.
@@ -230,7 +236,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -258,6 +264,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertTrustAnchor)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertTrustAnchor")

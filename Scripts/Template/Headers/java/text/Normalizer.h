@@ -18,6 +18,7 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -93,6 +94,10 @@ typedef NS_ENUM(NSUInteger, JavaTextNormalizer_Form_Enum) {
  */
 @interface JavaTextNormalizer_Form : JavaLangEnum
 
+@property (readonly, class, nonnull) JavaTextNormalizer_Form *NFD NS_SWIFT_NAME(NFD);
+@property (readonly, class, nonnull) JavaTextNormalizer_Form *NFC NS_SWIFT_NAME(NFC);
+@property (readonly, class, nonnull) JavaTextNormalizer_Form *NFKD NS_SWIFT_NAME(NFKD);
+@property (readonly, class, nonnull) JavaTextNormalizer_Form *NFKC NS_SWIFT_NAME(NFKC);
 + (JavaTextNormalizer_Form * __nonnull)NFD;
 
 + (JavaTextNormalizer_Form * __nonnull)NFC;

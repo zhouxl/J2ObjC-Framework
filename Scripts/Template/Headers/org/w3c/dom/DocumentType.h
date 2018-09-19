@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (OrgW3cDomDocumentType_) && (INCLUDE_ALL_OrgW3cDomDocumentType || defined(INCLUDE_OrgW3cDomDocumentType))
 #define OrgW3cDomDocumentType_
 
@@ -106,6 +112,10 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomDocumentType)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgW3cDomDocumentType")

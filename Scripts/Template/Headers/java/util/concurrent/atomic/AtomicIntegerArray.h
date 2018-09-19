@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentAtomicAtomicIntegerArray_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicIntegerArray || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicIntegerArray))
 #define JavaUtilConcurrentAtomicAtomicIntegerArray_
 
@@ -44,7 +50,7 @@
   elements initially zero.
  @param length the length of the array
  */
-- (instancetype)initWithInt:(jint)length;
+- (instancetype __nonnull)initWithInt:(jint)length;
 
 /*!
  @brief Creates a new AtomicIntegerArray with the same length as, and
@@ -52,7 +58,7 @@
  @param array the array to copy elements from
  @throw NullPointerExceptionif array is null
  */
-- (instancetype)initWithIntArray:(IOSIntArray *)array;
+- (instancetype __nonnull)initWithIntArray:(IOSIntArray *)array;
 
 /*!
  @brief Atomically updates the element at index <code>i</code> with the
@@ -242,7 +248,7 @@ withJavaUtilFunctionIntUnaryOperator:(id<JavaUtilFunctionIntUnaryOperator>)updat
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -264,6 +270,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicIntegerArray)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicIntegerArray")

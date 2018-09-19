@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilZipAdler32_) && (INCLUDE_ALL_JavaUtilZipAdler32 || defined(INCLUDE_JavaUtilZipAdler32))
 #define JavaUtilZipAdler32_
 
@@ -39,7 +45,7 @@
 /*!
  @brief Creates a new Adler32 object.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Returns the checksum value.
@@ -85,6 +91,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipAdler32)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilZipAdler32")

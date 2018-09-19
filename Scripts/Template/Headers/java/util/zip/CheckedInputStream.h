@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilZipCheckedInputStream_) && (INCLUDE_ALL_JavaUtilZipCheckedInputStream || defined(INCLUDE_JavaUtilZipCheckedInputStream))
 #define JavaUtilZipCheckedInputStream_
 
@@ -42,8 +48,8 @@
  @param inArg the input stream
  @param cksum the Checksum
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
-                  withJavaUtilZipChecksum:(id<JavaUtilZipChecksum>)cksum;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
+                            withJavaUtilZipChecksum:(id<JavaUtilZipChecksum>)cksum;
 
 /*!
  @brief Returns the Checksum for this input stream.
@@ -87,7 +93,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -103,6 +109,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipCheckedInputStream)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilZipCheckedInputStream")

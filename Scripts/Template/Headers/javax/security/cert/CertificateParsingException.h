@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxSecurityCertCertificateParsingException_) && (INCLUDE_ALL_JavaxSecurityCertCertificateParsingException || defined(INCLUDE_JavaxSecurityCertCertificateParsingException))
 #define JavaxSecurityCertCertificateParsingException_
 
@@ -44,7 +50,7 @@
   detail message is a String that describes this particular
   exception.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a CertificateParsingException with the specified detail
@@ -52,7 +58,7 @@
   particular exception.
  @param message the detail message.
  */
-- (instancetype)initWithNSString:(NSString *)message;
+- (instancetype __nonnull)initWithNSString:(NSString *)message;
 
 @end
 
@@ -74,6 +80,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityCertCertificateParsingException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxSecurityCertCertificateParsingException")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilFormatFlagsConversionMismatchException_) && (INCLUDE_ALL_JavaUtilFormatFlagsConversionMismatchException || defined(INCLUDE_JavaUtilFormatFlagsConversionMismatchException))
 #define JavaUtilFormatFlagsConversionMismatchException_
 
@@ -40,8 +46,8 @@
  @param f The flag
  @param c The conversion
  */
-- (instancetype)initWithNSString:(NSString *)f
-                        withChar:(jchar)c;
+- (instancetype __nonnull)initWithNSString:(NSString *)f
+                                  withChar:(jchar)c;
 
 /*!
  @brief Returns the incompatible conversion.
@@ -59,7 +65,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -75,6 +81,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilFormatFlagsConversionMismatchException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilFormatFlagsConversionMismatchException")

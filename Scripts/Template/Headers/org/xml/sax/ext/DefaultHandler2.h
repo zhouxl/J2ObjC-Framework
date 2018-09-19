@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (OrgXmlSaxExtDefaultHandler2_) && (INCLUDE_ALL_OrgXmlSaxExtDefaultHandler2 || defined(INCLUDE_OrgXmlSaxExtDefaultHandler2))
 #define OrgXmlSaxExtDefaultHandler2_
 
@@ -67,7 +73,7 @@
 /*!
  @brief Constructs a handler which ignores all parsing events.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 - (void)attributeDeclWithNSString:(NSString *)eName
                      withNSString:(NSString *)aName
@@ -186,6 +192,10 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtDefaultHandler2)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxExtDefaultHandler2")

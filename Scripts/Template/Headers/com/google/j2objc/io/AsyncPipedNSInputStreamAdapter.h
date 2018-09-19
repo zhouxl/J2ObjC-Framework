@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter_) && (INCLUDE_ALL_ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter || defined(INCLUDE_ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter))
 #define ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter_
 
@@ -133,9 +139,9 @@ J2OBJC_TYPE_LITERAL_HEADER(ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter_Deleg
 
 #pragma mark Package-Private
 
-- (instancetype)initWithComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter_Delegate:(id<ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter_Delegate>)delegate
-                                                                          withId:(id)nativeInputStream
-                                                                          withId:(id)nativeOutputStream;
+- (instancetype __nonnull)initWithComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter_Delegate:(id<ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter_Delegate>)delegate
+                                                                                    withId:(id)nativeInputStream
+                                                                                    withId:(id)nativeOutputStream;
 
 /*!
  @brief Schedule the actual native close on the dedicated thread.
@@ -154,7 +160,7 @@ J2OBJC_TYPE_LITERAL_HEADER(ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter_Deleg
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -170,6 +176,10 @@ J2OBJC_TYPE_LITERAL_HEADER(ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter_Outpu
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_ComGoogleJ2objcIoAsyncPipedNSInputStreamAdapter")

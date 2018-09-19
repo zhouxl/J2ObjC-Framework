@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNetURI_) && (INCLUDE_ALL_JavaNetURI || defined(INCLUDE_JavaNetURI))
 #define JavaNetURI_
 
@@ -366,6 +372,7 @@
  - seealso: <a href="http://www.ietf.org/rfc/rfc2732.txt">RFC&nbsp;2732: Format for Literal IPv6 Addresses in URLs</a>
  */
 @interface JavaNetURI : NSObject < JavaLangComparable, JavaIoSerializable >
+@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jlong)serialVersionUID;
 
@@ -436,7 +443,7 @@
  If the given string violates RFC&nbsp;2396, as augmented
            by the above deviations
  */
-- (instancetype)initWithNSString:(NSString *)str;
+- (instancetype __nonnull)initWithNSString:(NSString *)str;
 
 /*!
  @brief Constructs a URI from the given components.
@@ -472,9 +479,9 @@
  If the URI string constructed from the given components
            violates RFC&nbsp;2396
  */
-- (instancetype)initWithNSString:(NSString *)scheme
-                    withNSString:(NSString *)ssp
-                    withNSString:(NSString *)fragment;
+- (instancetype __nonnull)initWithNSString:(NSString *)scheme
+                              withNSString:(NSString *)ssp
+                              withNSString:(NSString *)fragment;
 
 /*!
  @brief Constructs a hierarchical URI from the given components.
@@ -546,13 +553,13 @@
           RFC&nbsp;2396, or if the authority component of the string is
           present but cannot be parsed as a server-based authority
  */
-- (instancetype)initWithNSString:(NSString *)scheme
-                    withNSString:(NSString *)userInfo
-                    withNSString:(NSString *)host
-                         withInt:(jint)port
-                    withNSString:(NSString *)path
-                    withNSString:(NSString *)query
-                    withNSString:(NSString *)fragment;
+- (instancetype __nonnull)initWithNSString:(NSString *)scheme
+                              withNSString:(NSString *)userInfo
+                              withNSString:(NSString *)host
+                                   withInt:(jint)port
+                              withNSString:(NSString *)path
+                              withNSString:(NSString *)query
+                              withNSString:(NSString *)fragment;
 
 /*!
  @brief Constructs a hierarchical URI from the given components.
@@ -572,10 +579,10 @@
  If the URI string constructed from the given components
            violates RFC&nbsp;2396
  */
-- (instancetype)initWithNSString:(NSString *)scheme
-                    withNSString:(NSString *)host
-                    withNSString:(NSString *)path
-                    withNSString:(NSString *)fragment;
+- (instancetype __nonnull)initWithNSString:(NSString *)scheme
+                              withNSString:(NSString *)host
+                              withNSString:(NSString *)path
+                              withNSString:(NSString *)fragment;
 
 /*!
  @brief Constructs a hierarchical URI from the given components.
@@ -634,11 +641,11 @@
           RFC&nbsp;2396, or if the authority component of the string is
           present but cannot be parsed as a server-based authority
  */
-- (instancetype)initWithNSString:(NSString *)scheme
-                    withNSString:(NSString *)authority
-                    withNSString:(NSString *)path
-                    withNSString:(NSString *)query
-                    withNSString:(NSString *)fragment;
+- (instancetype __nonnull)initWithNSString:(NSString *)scheme
+                              withNSString:(NSString *)authority
+                              withNSString:(NSString *)path
+                              withNSString:(NSString *)query
+                              withNSString:(NSString *)fragment;
 
 /*!
  @brief Compares this URI to another object, which must be a URI.
@@ -1216,6 +1223,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetURI)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetURI")

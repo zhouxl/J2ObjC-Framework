@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecuritySpecRSAKeyGenParameterSpec_) && (INCLUDE_ALL_JavaSecuritySpecRSAKeyGenParameterSpec || defined(INCLUDE_JavaSecuritySpecRSAKeyGenParameterSpec))
 #define JavaSecuritySpecRSAKeyGenParameterSpec_
 
@@ -33,6 +39,8 @@
  @since 1.3
  */
 @interface JavaSecuritySpecRSAKeyGenParameterSpec : NSObject < JavaSecuritySpecAlgorithmParameterSpec >
+@property (readonly, class, strong) JavaMathBigInteger *F0 NS_SWIFT_NAME(F0);
+@property (readonly, class, strong) JavaMathBigInteger *F4 NS_SWIFT_NAME(F4);
 
 + (JavaMathBigInteger *)F0;
 
@@ -46,8 +54,8 @@
  @param keysize the modulus size (specified in number of bits)
  @param publicExponent the public exponent
  */
-- (instancetype)initWithInt:(jint)keysize
-     withJavaMathBigInteger:(JavaMathBigInteger *)publicExponent;
+- (instancetype __nonnull)initWithInt:(jint)keysize
+               withJavaMathBigInteger:(JavaMathBigInteger *)publicExponent;
 
 /*!
  @brief Returns the keysize.
@@ -63,7 +71,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -95,6 +103,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecRSAKeyGenParameterSpec)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecRSAKeyGenParameterSpec")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilInputMismatchException_) && (INCLUDE_ALL_JavaUtilInputMismatchException || defined(INCLUDE_JavaUtilInputMismatchException))
 #define JavaUtilInputMismatchException_
 
@@ -39,7 +45,7 @@
  @brief Constructs an <code>InputMismatchException</code> with <tt>null</tt>
   as its error message string.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs an <code>InputMismatchException</code>, saving a reference
@@ -47,7 +53,7 @@
  <tt>getMessage</tt> method.
  @param s the detail message.
  */
-- (instancetype)initWithNSString:(NSString *)s;
+- (instancetype __nonnull)initWithNSString:(NSString *)s;
 
 @end
 
@@ -69,6 +75,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilInputMismatchException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilInputMismatchException")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangInternalError_) && (INCLUDE_ALL_JavaLangInternalError || defined(INCLUDE_JavaLangInternalError))
 #define JavaLangInternalError_
 
@@ -38,14 +44,14 @@
 /*!
  @brief Constructs an <code>InternalError</code> with no detail message.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs an <code>InternalError</code> with the specified
   detail message.
  @param message the detail message.
  */
-- (instancetype)initWithNSString:(NSString *)message;
+- (instancetype __nonnull)initWithNSString:(NSString *)message;
 
 /*!
  @brief Constructs an <code>InternalError</code> with the specified detail
@@ -60,8 +66,8 @@
            unknown.)
  @since 1.8
  */
-- (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithNSString:(NSString *)message
+                     withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs an <code>InternalError</code> with the specified cause
@@ -75,7 +81,7 @@
            unknown.)
  @since 1.8
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 @end
 
@@ -109,6 +115,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangInternalError)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangInternalError")

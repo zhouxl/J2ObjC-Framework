@@ -19,6 +19,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilVector_) && (INCLUDE_ALL_JavaUtilVector || defined(INCLUDE_JavaUtilVector))
 #define JavaUtilVector_
 
@@ -128,7 +134,7 @@
   has size <code>10</code> and its standard capacity increment is
   zero.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a vector containing the elements of the specified
@@ -138,7 +144,7 @@
  @throw NullPointerExceptionif the specified collection is null
  @since 1.2
  */
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Constructs an empty vector with the specified initial capacity and
@@ -147,7 +153,7 @@
  @throw IllegalArgumentExceptionif the specified initial capacity
           is negative
  */
-- (instancetype)initWithInt:(jint)initialCapacity;
+- (instancetype __nonnull)initWithInt:(jint)initialCapacity;
 
 /*!
  @brief Constructs an empty vector with the specified initial capacity and
@@ -157,8 +163,8 @@
  @throw IllegalArgumentExceptionif the specified initial capacity
           is negative
  */
-- (instancetype)initWithInt:(jint)initialCapacity
-                    withInt:(jint)capacityIncrement;
+- (instancetype __nonnull)initWithInt:(jint)initialCapacity
+                              withInt:(jint)capacityIncrement;
 
 /*!
  @brief Appends the specified element to the end of this Vector.
@@ -864,8 +870,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilVector_Itr)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilVector:(JavaUtilVector *)outer$
-                               withInt:(jint)index;
+- (instancetype __nonnull)initWithJavaUtilVector:(JavaUtilVector *)outer$
+                                         withInt:(jint)index;
 
 @end
 
@@ -915,15 +921,15 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilVector_ListItr)
 /*!
  @brief Create new spliterator covering the given  range
  */
-- (instancetype)initWithJavaUtilVector:(JavaUtilVector *)list
-                     withNSObjectArray:(IOSObjectArray *)array
-                               withInt:(jint)origin
-                               withInt:(jint)fence
-                               withInt:(jint)expectedModCount;
+- (instancetype __nonnull)initWithJavaUtilVector:(JavaUtilVector *)list
+                               withNSObjectArray:(IOSObjectArray *)array
+                                         withInt:(jint)origin
+                                         withInt:(jint)fence
+                                         withInt:(jint)expectedModCount;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -939,6 +945,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilVector_VectorSpliterator)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilVector")

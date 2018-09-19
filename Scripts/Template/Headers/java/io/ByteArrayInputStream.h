@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoByteArrayInputStream_) && (INCLUDE_ALL_JavaIoByteArrayInputStream || defined(INCLUDE_JavaIoByteArrayInputStream))
 #define JavaIoByteArrayInputStream_
 
@@ -96,7 +102,7 @@
  <code>buf</code>.
  @param buf the input buffer.
  */
-- (instancetype)initWithByteArray:(IOSByteArray *)buf;
+- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)buf;
 
 /*!
  @brief Creates <code>ByteArrayInputStream</code>
@@ -111,9 +117,9 @@
  @param offset the offset in the buffer of the first byte to read.
  @param length the maximum number of bytes to read from the buffer.
  */
-- (instancetype)initWithByteArray:(IOSByteArray *)buf
-                          withInt:(jint)offset
-                          withInt:(jint)length;
+- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)buf
+                                    withInt:(jint)offset
+                                    withInt:(jint)length;
 
 /*!
  @brief Returns the number of remaining bytes that can be read (or skipped over)
@@ -226,7 +232,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -250,6 +256,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoByteArrayInputStream)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoByteArrayInputStream")

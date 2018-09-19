@@ -25,6 +25,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilWeakHashMap_) && (INCLUDE_ALL_JavaUtilWeakHashMap || defined(INCLUDE_JavaUtilWeakHashMap))
 #define JavaUtilWeakHashMap_
 
@@ -156,7 +162,7 @@
  @brief Constructs a new, empty <tt>WeakHashMap</tt> with the default initial
   capacity (16) and load factor (0.75).
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a new, empty <tt>WeakHashMap</tt> with the given initial
@@ -164,7 +170,7 @@
  @param initialCapacity The initial capacity of the  <tt> WeakHashMap </tt>
  @throw IllegalArgumentExceptionif the initial capacity is negative
  */
-- (instancetype)initWithInt:(jint)initialCapacity;
+- (instancetype __nonnull)initWithInt:(jint)initialCapacity;
 
 /*!
  @brief Constructs a new, empty <tt>WeakHashMap</tt> with the given initial
@@ -174,8 +180,8 @@
  @throw IllegalArgumentExceptionif the initial capacity is negative,
           or if the load factor is nonpositive.
  */
-- (instancetype)initWithInt:(jint)initialCapacity
-                  withFloat:(jfloat)loadFactor;
+- (instancetype __nonnull)initWithInt:(jint)initialCapacity
+                            withFloat:(jfloat)loadFactor;
 
 /*!
  @brief Constructs a new <tt>WeakHashMap</tt> with the same mappings as the
@@ -186,7 +192,7 @@
  @throw NullPointerExceptionif the specified map is null
  @since 1.3
  */
-- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)m;
+- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)m;
 
 /*!
  @brief Removes all of the mappings from this map.
@@ -448,11 +454,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilWeakHashMap)
 /*!
  @brief Creates new entry.
  */
-- (instancetype)initWithId:(id)key
-                    withId:(id)value
-withJavaLangRefReferenceQueue:(JavaLangRefReferenceQueue *)queue
-                   withInt:(jint)hash_
-withJavaUtilWeakHashMap_Entry:(JavaUtilWeakHashMap_Entry *)next;
+- (instancetype __nonnull)initWithId:(id)key
+                              withId:(id)value
+       withJavaLangRefReferenceQueue:(JavaLangRefReferenceQueue *)queue
+                             withInt:(jint)hash_
+       withJavaUtilWeakHashMap_Entry:(JavaUtilWeakHashMap_Entry *)next;
 
 @end
 
@@ -497,17 +503,17 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilWeakHashMap_Entry)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilWeakHashMap:(JavaUtilWeakHashMap *)m
-                                    withInt:(jint)origin
-                                    withInt:(jint)fence
-                                    withInt:(jint)est
-                                    withInt:(jint)expectedModCount;
+- (instancetype __nonnull)initWithJavaUtilWeakHashMap:(JavaUtilWeakHashMap *)m
+                                              withInt:(jint)origin
+                                              withInt:(jint)fence
+                                              withInt:(jint)est
+                                              withInt:(jint)expectedModCount;
 
 - (jint)getFence;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -551,11 +557,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilWeakHashMap_WeakHashMapSpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilWeakHashMap:(JavaUtilWeakHashMap *)m
-                                    withInt:(jint)origin
-                                    withInt:(jint)fence
-                                    withInt:(jint)est
-                                    withInt:(jint)expectedModCount;
+- (instancetype __nonnull)initWithJavaUtilWeakHashMap:(JavaUtilWeakHashMap *)m
+                                              withInt:(jint)origin
+                                              withInt:(jint)fence
+                                              withInt:(jint)est
+                                              withInt:(jint)expectedModCount;
 
 @end
 
@@ -596,11 +602,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilWeakHashMap_KeySpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilWeakHashMap:(JavaUtilWeakHashMap *)m
-                                    withInt:(jint)origin
-                                    withInt:(jint)fence
-                                    withInt:(jint)est
-                                    withInt:(jint)expectedModCount;
+- (instancetype __nonnull)initWithJavaUtilWeakHashMap:(JavaUtilWeakHashMap *)m
+                                              withInt:(jint)origin
+                                              withInt:(jint)fence
+                                              withInt:(jint)est
+                                              withInt:(jint)expectedModCount;
 
 @end
 
@@ -641,11 +647,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilWeakHashMap_ValueSpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilWeakHashMap:(JavaUtilWeakHashMap *)m
-                                    withInt:(jint)origin
-                                    withInt:(jint)fence
-                                    withInt:(jint)est
-                                    withInt:(jint)expectedModCount;
+- (instancetype __nonnull)initWithJavaUtilWeakHashMap:(JavaUtilWeakHashMap *)m
+                                              withInt:(jint)origin
+                                              withInt:(jint)fence
+                                              withInt:(jint)est
+                                              withInt:(jint)expectedModCount;
 
 @end
 
@@ -661,6 +667,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilWeakHashMap_EntrySpliterator)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilWeakHashMap")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNetInetAddress_) && (INCLUDE_ALL_JavaNetInetAddress || defined(INCLUDE_JavaNetInetAddress))
 #define JavaNetInetAddress_
 
@@ -152,6 +158,8 @@
  @public
   JavaNetInetAddress_InetAddressHolder *holder_;
 }
+@property (readonly, class, strong) id<JavaNetInetAddressImpl> impl NS_SWIFT_NAME(impl);
+@property (readonly, class) jint NETID_UNSET NS_SWIFT_NAME(NETID_UNSET);
 
 + (id<JavaNetInetAddressImpl>)impl;
 
@@ -578,7 +586,7 @@
   the accept() method.  This InetAddress, however, is not
   put in the address cache, since it is not created by name.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 + (JavaNetInetAddress *)anyLocalAddress;
 
@@ -670,11 +678,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetInetAddress)
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
-- (instancetype)initWithNSString:(NSString *)hostName
-                         withInt:(jint)address
-                         withInt:(jint)family;
+- (instancetype __nonnull)initWithNSString:(NSString *)hostName
+                                   withInt:(jint)address
+                                   withInt:(jint)family;
 
 - (jint)getAddress;
 
@@ -704,6 +712,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetInetAddress_InetAddressHolder)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetInetAddress")

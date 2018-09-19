@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (AndroidTextSelection_) && (INCLUDE_ALL_AndroidTextSelection || defined(INCLUDE_AndroidTextSelection))
 #define AndroidTextSelection_
 
@@ -27,6 +33,8 @@
  A cursor is a selection where the start and end are at the same offset.
  */
 @interface AndroidTextSelection : NSObject
+@property (readonly, class, strong) id SELECTION_START NS_SWIFT_NAME(SELECTION_START);
+@property (readonly, class, strong) id SELECTION_END NS_SWIFT_NAME(SELECTION_END);
 
 + (id)SELECTION_START;
 
@@ -108,6 +116,10 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSelection)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidTextSelection")

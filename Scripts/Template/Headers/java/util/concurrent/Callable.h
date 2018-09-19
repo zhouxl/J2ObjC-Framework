@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentCallable_) && (INCLUDE_ALL_JavaUtilConcurrentCallable || defined(INCLUDE_JavaUtilConcurrentCallable))
 #define JavaUtilConcurrentCallable_
 
@@ -52,6 +58,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCallable)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentCallable")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (OrgXmlSaxExtLocator2_) && (INCLUDE_ALL_OrgXmlSaxExtLocator2 || defined(INCLUDE_OrgXmlSaxExtLocator2))
 #define OrgXmlSaxExtLocator2_
 
@@ -91,6 +97,10 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtLocator2)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxExtLocator2")

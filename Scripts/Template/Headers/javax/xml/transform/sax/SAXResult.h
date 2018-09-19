@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxXmlTransformSaxSAXResult_) && (INCLUDE_ALL_JavaxXmlTransformSaxSAXResult || defined(INCLUDE_JavaxXmlTransformSaxSAXResult))
 #define JavaxXmlTransformSaxSAXResult_
 
@@ -32,6 +38,7 @@
  @author <a href="Jeff.Suttor@@Sun.com">Jeff Suttor</a>
  */
 @interface JavaxXmlTransformSaxSAXResult : NSObject < JavaxXmlTransformResult >
+@property (readonly, copy, class) NSString *FEATURE NS_SWIFT_NAME(FEATURE);
 
 + (NSString *)FEATURE;
 
@@ -40,13 +47,13 @@
 /*!
  @brief Zero-argument default constructor.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Create a SAXResult that targets a SAX2 <code>org.xml.sax.ContentHandler</code>.
  @param handler Must be a non-null ContentHandler reference.
  */
-- (instancetype)initWithOrgXmlSaxContentHandler:(id<OrgXmlSaxContentHandler>)handler;
+- (instancetype __nonnull)initWithOrgXmlSaxContentHandler:(id<OrgXmlSaxContentHandler>)handler;
 
 /*!
  @brief Get the <code>org.xml.sax.ContentHandler</code> that is the Result.
@@ -121,6 +128,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformSaxSAXResult)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformSaxSAXResult")

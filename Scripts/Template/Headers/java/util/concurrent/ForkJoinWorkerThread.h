@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentForkJoinWorkerThread_) && (INCLUDE_ALL_JavaUtilConcurrentForkJoinWorkerThread || defined(INCLUDE_JavaUtilConcurrentForkJoinWorkerThread))
 #define JavaUtilConcurrentForkJoinWorkerThread_
 
@@ -81,7 +87,7 @@
  @param pool the pool this thread works in
  @throw NullPointerExceptionif pool is null
  */
-- (instancetype)initWithJavaUtilConcurrentForkJoinPool:(JavaUtilConcurrentForkJoinPool *)pool;
+- (instancetype __nonnull)initWithJavaUtilConcurrentForkJoinPool:(JavaUtilConcurrentForkJoinPool *)pool;
 
 /*!
  @brief Initializes internal state after construction but before
@@ -117,29 +123,29 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
-- (instancetype)initWithJavaLangRunnable:(id<JavaLangRunnable>)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaLangRunnable:(id<JavaLangRunnable>)arg0 NS_UNAVAILABLE;
 
-- (instancetype)initWithJavaLangRunnable:(id<JavaLangRunnable>)arg0
-                            withNSString:(NSString *)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaLangRunnable:(id<JavaLangRunnable>)arg0
+                                      withNSString:(NSString *)arg1 NS_UNAVAILABLE;
 
-- (instancetype)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)arg0
-                       withJavaLangRunnable:(id<JavaLangRunnable>)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)arg0
+                                 withJavaLangRunnable:(id<JavaLangRunnable>)arg1 NS_UNAVAILABLE;
 
-- (instancetype)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)arg0
-                       withJavaLangRunnable:(id<JavaLangRunnable>)arg1
-                               withNSString:(NSString *)arg2 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)arg0
+                                 withJavaLangRunnable:(id<JavaLangRunnable>)arg1
+                                         withNSString:(NSString *)arg2 NS_UNAVAILABLE;
 
-- (instancetype)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)arg0
-                       withJavaLangRunnable:(id<JavaLangRunnable>)arg1
-                               withNSString:(NSString *)arg2
-                                   withLong:(jlong)arg3 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)arg0
+                                 withJavaLangRunnable:(id<JavaLangRunnable>)arg1
+                                         withNSString:(NSString *)arg2
+                                             withLong:(jlong)arg3 NS_UNAVAILABLE;
 
-- (instancetype)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)arg0
-                               withNSString:(NSString *)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)arg0
+                                         withNSString:(NSString *)arg1 NS_UNAVAILABLE;
 
-- (instancetype)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -157,6 +163,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinWorkerThread)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentForkJoinWorkerThread")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaTextDecimalFormatSymbols_) && (INCLUDE_ALL_JavaTextDecimalFormatSymbols || defined(INCLUDE_JavaTextDecimalFormatSymbols))
 #define JavaTextDecimalFormatSymbols_
 
@@ -41,6 +47,7 @@
  @author Alan Liu
  */
 @interface JavaTextDecimalFormatSymbols : NSObject < NSCopying, JavaIoSerializable >
+@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jlong)serialVersionUID;
 
@@ -57,7 +64,7 @@
  - seealso: java.util.Locale
  - seealso: java.util.Locale.Category
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Create a DecimalFormatSymbols object for the given locale.
@@ -76,7 +83,7 @@
  @param locale the desired locale
  @throw NullPointerExceptionif <code>locale</code> is null
  */
-- (instancetype)initWithJavaUtilLocale:(JavaUtilLocale *)locale;
+- (instancetype __nonnull)initWithJavaUtilLocale:(JavaUtilLocale *)locale;
 
 /*!
  @brief Standard override.
@@ -416,6 +423,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextDecimalFormatSymbols)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextDecimalFormatSymbols")

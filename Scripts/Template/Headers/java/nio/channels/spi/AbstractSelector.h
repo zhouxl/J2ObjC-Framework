@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNioChannelsSpiAbstractSelector_) && (INCLUDE_ALL_JavaNioChannelsSpiAbstractSelector || defined(INCLUDE_JavaNioChannelsSpiAbstractSelector))
 #define JavaNioChannelsSpiAbstractSelector_
 
@@ -88,7 +94,7 @@
  @brief Initializes a new instance of this class.
  </p>
  */
-- (instancetype)initWithJavaNioChannelsSpiSelectorProvider:(JavaNioChannelsSpiSelectorProvider *)provider;
+- (instancetype __nonnull)initWithJavaNioChannelsSpiSelectorProvider:(JavaNioChannelsSpiSelectorProvider *)provider;
 
 /*!
  @brief Marks the beginning of an I/O operation that might block indefinitely.
@@ -171,6 +177,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSpiAbstractSelector)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioChannelsSpiAbstractSelector")

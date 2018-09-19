@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentArrayBlockingQueue_) && (INCLUDE_ALL_JavaUtilConcurrentArrayBlockingQueue || defined(INCLUDE_JavaUtilConcurrentArrayBlockingQueue))
 #define JavaUtilConcurrentArrayBlockingQueue_
 
@@ -104,7 +110,7 @@
  @param capacity the capacity of this queue
  @throw IllegalArgumentExceptionif <code>capacity < 1</code>
  */
-- (instancetype)initWithInt:(jint)capacity;
+- (instancetype __nonnull)initWithInt:(jint)capacity;
 
 /*!
  @brief Creates an <code>ArrayBlockingQueue</code> with the given (fixed)
@@ -115,8 +121,8 @@
  <code>false</code>  the access order is unspecified.
  @throw IllegalArgumentExceptionif <code>capacity < 1</code>
  */
-- (instancetype)initWithInt:(jint)capacity
-                withBoolean:(jboolean)fair;
+- (instancetype __nonnull)initWithInt:(jint)capacity
+                          withBoolean:(jboolean)fair;
 
 /*!
  @brief Creates an <code>ArrayBlockingQueue</code> with the given (fixed)
@@ -133,9 +139,9 @@
  @throw NullPointerExceptionif the specified collection or any
           of its elements are null
  */
-- (instancetype)initWithInt:(jint)capacity
-                withBoolean:(jboolean)fair
-     withJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype __nonnull)initWithInt:(jint)capacity
+                          withBoolean:(jboolean)fair
+               withJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Inserts the specified element at the tail of this queue if it is
@@ -345,7 +351,7 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -435,8 +441,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentArrayBlockingQueue)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilConcurrentArrayBlockingQueue:(JavaUtilConcurrentArrayBlockingQueue *)outer$
-                withJavaUtilConcurrentArrayBlockingQueue_Itr:(JavaUtilConcurrentArrayBlockingQueue_Itr *)initial;
+- (instancetype __nonnull)initWithJavaUtilConcurrentArrayBlockingQueue:(JavaUtilConcurrentArrayBlockingQueue *)outer$
+                          withJavaUtilConcurrentArrayBlockingQueue_Itr:(JavaUtilConcurrentArrayBlockingQueue_Itr *)initial;
 
 /*!
  @brief Sweeps itrs, looking for and expunging stale iterators.
@@ -477,7 +483,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentArrayBlockingQueue)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -493,6 +499,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentArrayBlockingQueue_Itrs)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentArrayBlockingQueue")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangInstantiationError_) && (INCLUDE_ALL_JavaLangInstantiationError || defined(INCLUDE_JavaLangInstantiationError))
 #define JavaLangInstantiationError_
 
@@ -40,14 +46,14 @@
 /*!
  @brief Constructs an <code>InstantiationError</code> with no detail  message.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs an <code>InstantiationError</code> with the specified
   detail message.
  @param s the detail message.
  */
-- (instancetype)initWithNSString:(NSString *)s;
+- (instancetype __nonnull)initWithNSString:(NSString *)s;
 
 @end
 
@@ -69,6 +75,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangInstantiationError)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangInstantiationError")

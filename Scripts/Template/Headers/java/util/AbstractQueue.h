@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilAbstractQueue_) && (INCLUDE_ALL_JavaUtilAbstractQueue || defined(INCLUDE_JavaUtilAbstractQueue))
 #define JavaUtilAbstractQueue_
 
@@ -138,7 +144,7 @@
 /*!
  @brief Constructor for use by subclasses.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 #pragma mark Package-Private
 
@@ -152,6 +158,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractQueue)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilAbstractQueue")

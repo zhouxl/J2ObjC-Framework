@@ -46,6 +46,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentConcurrentSkipListMap_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentSkipListMap || defined(INCLUDE_JavaUtilConcurrentConcurrentSkipListMap))
 #define JavaUtilConcurrentConcurrentSkipListMap_
 
@@ -131,6 +137,7 @@
    */
   id<JavaUtilComparator> comparator_;
 }
+@property (readonly, class, strong) id BASE_HEADER NS_SWIFT_NAME(BASE_HEADER);
 
 + (id)BASE_HEADER;
 
@@ -140,7 +147,7 @@
  @brief Constructs a new, empty map, sorted according to the 
  ordering of the keys.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a new, empty map, sorted according to the specified
@@ -149,7 +156,7 @@
  <code>null</code> , the ordering
    of the keys will be used.
  */
-- (instancetype)initWithJavaUtilComparator:(id<JavaUtilComparator>)comparator;
+- (instancetype __nonnull)initWithJavaUtilComparator:(id<JavaUtilComparator>)comparator;
 
 /*!
  @brief Constructs a new map containing the same mappings as the given map,
@@ -161,7 +168,7 @@
  @throw NullPointerExceptionif the specified map or any of its keys
           or values are null
  */
-- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)m;
+- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)m;
 
 /*!
  @brief Constructs a new map containing the same mappings and using the
@@ -170,7 +177,7 @@
  @throw NullPointerExceptionif the specified sorted map or any of
           its keys or values are null
  */
-- (instancetype)initWithJavaUtilSortedMap:(id<JavaUtilSortedMap>)m;
+- (instancetype __nonnull)initWithJavaUtilSortedMap:(id<JavaUtilSortedMap>)m;
 
 /*!
  @brief Returns a key-value mapping associated with the least key
@@ -789,19 +796,19 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListMap)
 /*!
  @brief Creates a new regular node.
  */
-- (instancetype)initWithId:(id)key
-                    withId:(id)value
+- (instancetype __nonnull)initWithId:(id)key
+                              withId:(id)value
 withJavaUtilConcurrentConcurrentSkipListMap_Node:(JavaUtilConcurrentConcurrentSkipListMap_Node *)next;
 
 /*!
  @brief Creates a new marker node.A marker is distinguished by
-  having its value field point to itself.
+  having its value field point to a sentinel.
  Marker nodes also
   have null keys, a fact that is exploited in a few places,
   but this doesn't distinguish markers from the base-level
   header node (head.node), which also has a null key.
  */
-- (instancetype)initWithJavaUtilConcurrentConcurrentSkipListMap_Node:(JavaUtilConcurrentConcurrentSkipListMap_Node *)next;
+- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentSkipListMap_Node:(JavaUtilConcurrentConcurrentSkipListMap_Node *)next;
 
 /*!
  @brief Tries to append a deletion marker to this node.
@@ -865,7 +872,7 @@ withJavaUtilConcurrentConcurrentSkipListMap_Node:(JavaUtilConcurrentConcurrentSk
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -915,9 +922,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListMap_Node)
 /*!
  @brief Creates index node with given values.
  */
-- (instancetype)initWithJavaUtilConcurrentConcurrentSkipListMap_Node:(JavaUtilConcurrentConcurrentSkipListMap_Node *)node
-                   withJavaUtilConcurrentConcurrentSkipListMap_Index:(JavaUtilConcurrentConcurrentSkipListMap_Index *)down
-                   withJavaUtilConcurrentConcurrentSkipListMap_Index:(JavaUtilConcurrentConcurrentSkipListMap_Index *)right;
+- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentSkipListMap_Node:(JavaUtilConcurrentConcurrentSkipListMap_Node *)node
+                             withJavaUtilConcurrentConcurrentSkipListMap_Index:(JavaUtilConcurrentConcurrentSkipListMap_Index *)down
+                             withJavaUtilConcurrentConcurrentSkipListMap_Index:(JavaUtilConcurrentConcurrentSkipListMap_Index *)right;
 
 /*!
  @brief compareAndSet right field.
@@ -953,7 +960,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListMap_Node)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -989,16 +996,16 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListMap_Index)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilConcurrentConcurrentSkipListMap_Node:(JavaUtilConcurrentConcurrentSkipListMap_Node *)node
-                   withJavaUtilConcurrentConcurrentSkipListMap_Index:(JavaUtilConcurrentConcurrentSkipListMap_Index *)down
-                   withJavaUtilConcurrentConcurrentSkipListMap_Index:(JavaUtilConcurrentConcurrentSkipListMap_Index *)right
-                                                             withInt:(jint)level;
+- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentSkipListMap_Node:(JavaUtilConcurrentConcurrentSkipListMap_Node *)node
+                             withJavaUtilConcurrentConcurrentSkipListMap_Index:(JavaUtilConcurrentConcurrentSkipListMap_Index *)down
+                             withJavaUtilConcurrentConcurrentSkipListMap_Index:(JavaUtilConcurrentConcurrentSkipListMap_Index *)right
+                                                                       withInt:(jint)level;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaUtilConcurrentConcurrentSkipListMap_Node:(JavaUtilConcurrentConcurrentSkipListMap_Node *)arg0
-                   withJavaUtilConcurrentConcurrentSkipListMap_Index:(JavaUtilConcurrentConcurrentSkipListMap_Index *)arg1
-                   withJavaUtilConcurrentConcurrentSkipListMap_Index:(JavaUtilConcurrentConcurrentSkipListMap_Index *)arg2 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentSkipListMap_Node:(JavaUtilConcurrentConcurrentSkipListMap_Node *)arg0
+                             withJavaUtilConcurrentConcurrentSkipListMap_Index:(JavaUtilConcurrentConcurrentSkipListMap_Index *)arg1
+                             withJavaUtilConcurrentConcurrentSkipListMap_Index:(JavaUtilConcurrentConcurrentSkipListMap_Index *)arg2 NS_UNAVAILABLE;
 
 @end
 
@@ -1055,7 +1062,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListMap_HeadIndex)
 /*!
  @brief Initializes ascending iterator for entire range.
  */
-- (instancetype)initWithJavaUtilConcurrentConcurrentSkipListMap:(JavaUtilConcurrentConcurrentSkipListMap *)outer$;
+- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentSkipListMap:(JavaUtilConcurrentConcurrentSkipListMap *)outer$;
 
 /*!
  @brief Advances next to higher entry.
@@ -1089,7 +1096,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListMap_Iter)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilConcurrentConcurrentSkipListMap:(JavaUtilConcurrentConcurrentSkipListMap *)outer$;
+- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentSkipListMap:(JavaUtilConcurrentConcurrentSkipListMap *)outer$;
 
 @end
 
@@ -1118,7 +1125,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListMap_ValueIterator
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilConcurrentConcurrentSkipListMap:(JavaUtilConcurrentConcurrentSkipListMap *)outer$;
+- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentSkipListMap:(JavaUtilConcurrentConcurrentSkipListMap *)outer$;
 
 @end
 
@@ -1148,7 +1155,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListMap_KeyIterator)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilConcurrentConcurrentSkipListMap:(JavaUtilConcurrentConcurrentSkipListMap *)outer$;
+- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentSkipListMap:(JavaUtilConcurrentConcurrentSkipListMap *)outer$;
 
 @end
 
@@ -1250,11 +1257,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListMap_EntryIterator
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilConcurrentConcurrentNavigableMap:(id<JavaUtilConcurrentConcurrentNavigableMap>)map;
+- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentNavigableMap:(id<JavaUtilConcurrentConcurrentNavigableMap>)map;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -1312,11 +1319,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListMap_KeySet)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilConcurrentConcurrentNavigableMap:(id<JavaUtilConcurrentConcurrentNavigableMap>)map;
+- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentNavigableMap:(id<JavaUtilConcurrentConcurrentNavigableMap>)map;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -1378,11 +1385,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListMap_Values)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilConcurrentConcurrentNavigableMap:(id<JavaUtilConcurrentConcurrentNavigableMap>)map;
+- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentNavigableMap:(id<JavaUtilConcurrentConcurrentNavigableMap>)map;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -1545,12 +1552,12 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListMap_EntrySet)
 /*!
  @brief Creates a new submap, initializing all fields.
  */
-- (instancetype)initWithJavaUtilConcurrentConcurrentSkipListMap:(JavaUtilConcurrentConcurrentSkipListMap *)map
-                                                         withId:(id)fromKey
-                                                    withBoolean:(jboolean)fromInclusive
-                                                         withId:(id)toKey
-                                                    withBoolean:(jboolean)toInclusive
-                                                    withBoolean:(jboolean)isDescending;
+- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentSkipListMap:(JavaUtilConcurrentConcurrentSkipListMap *)map
+                                                                   withId:(id)fromKey
+                                                              withBoolean:(jboolean)fromInclusive
+                                                                   withId:(id)toKey
+                                                              withBoolean:(jboolean)toInclusive
+                                                              withBoolean:(jboolean)isDescending;
 
 - (void)checkKeyBoundsWithId:(id)key
       withJavaUtilComparator:(id<JavaUtilComparator>)cmp;
@@ -1620,7 +1627,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListMap_EntrySet)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -1690,7 +1697,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListMap_SubMap)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilConcurrentConcurrentSkipListMap_SubMap:(JavaUtilConcurrentConcurrentSkipListMap_SubMap *)outer$;
+- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentSkipListMap_SubMap:(JavaUtilConcurrentConcurrentSkipListMap_SubMap *)outer$;
 
 - (void)advance;
 
@@ -1723,7 +1730,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListMap_SubMap_SubMap
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilConcurrentConcurrentSkipListMap_SubMap:(JavaUtilConcurrentConcurrentSkipListMap_SubMap *)outer$;
+- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentSkipListMap_SubMap:(JavaUtilConcurrentConcurrentSkipListMap_SubMap *)outer$;
 
 @end
 
@@ -1757,7 +1764,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListMap_SubMap_SubMap
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilConcurrentConcurrentSkipListMap_SubMap:(JavaUtilConcurrentConcurrentSkipListMap_SubMap *)outer$;
+- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentSkipListMap_SubMap:(JavaUtilConcurrentConcurrentSkipListMap_SubMap *)outer$;
 
 @end
 
@@ -1789,7 +1796,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListMap_SubMap_SubMap
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilConcurrentConcurrentSkipListMap_SubMap:(JavaUtilConcurrentConcurrentSkipListMap_SubMap *)outer$;
+- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentSkipListMap_SubMap:(JavaUtilConcurrentConcurrentSkipListMap_SubMap *)outer$;
 
 @end
 
@@ -1843,11 +1850,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListMap_SubMap_SubMap
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilComparator:(id<JavaUtilComparator>)comparator
-withJavaUtilConcurrentConcurrentSkipListMap_Index:(JavaUtilConcurrentConcurrentSkipListMap_Index *)row
-withJavaUtilConcurrentConcurrentSkipListMap_Node:(JavaUtilConcurrentConcurrentSkipListMap_Node *)origin
-                                    withId:(id)fence
-                                   withInt:(jint)est;
+- (instancetype __nonnull)initWithJavaUtilComparator:(id<JavaUtilComparator>)comparator
+   withJavaUtilConcurrentConcurrentSkipListMap_Index:(JavaUtilConcurrentConcurrentSkipListMap_Index *)row
+    withJavaUtilConcurrentConcurrentSkipListMap_Node:(JavaUtilConcurrentConcurrentSkipListMap_Node *)origin
+                                              withId:(id)fence
+                                             withInt:(jint)est;
 
 @end
 
@@ -1892,11 +1899,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListMap_CSLMSpliterat
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilComparator:(id<JavaUtilComparator>)comparator
-withJavaUtilConcurrentConcurrentSkipListMap_Index:(JavaUtilConcurrentConcurrentSkipListMap_Index *)row
-withJavaUtilConcurrentConcurrentSkipListMap_Node:(JavaUtilConcurrentConcurrentSkipListMap_Node *)origin
-                                    withId:(id)fence
-                                   withInt:(jint)est;
+- (instancetype __nonnull)initWithJavaUtilComparator:(id<JavaUtilComparator>)comparator
+   withJavaUtilConcurrentConcurrentSkipListMap_Index:(JavaUtilConcurrentConcurrentSkipListMap_Index *)row
+    withJavaUtilConcurrentConcurrentSkipListMap_Node:(JavaUtilConcurrentConcurrentSkipListMap_Node *)origin
+                                              withId:(id)fence
+                                             withInt:(jint)est;
 
 @end
 
@@ -1938,11 +1945,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListMap_KeySpliterato
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilComparator:(id<JavaUtilComparator>)comparator
-withJavaUtilConcurrentConcurrentSkipListMap_Index:(JavaUtilConcurrentConcurrentSkipListMap_Index *)row
-withJavaUtilConcurrentConcurrentSkipListMap_Node:(JavaUtilConcurrentConcurrentSkipListMap_Node *)origin
-                                    withId:(id)fence
-                                   withInt:(jint)est;
+- (instancetype __nonnull)initWithJavaUtilComparator:(id<JavaUtilComparator>)comparator
+   withJavaUtilConcurrentConcurrentSkipListMap_Index:(JavaUtilConcurrentConcurrentSkipListMap_Index *)row
+    withJavaUtilConcurrentConcurrentSkipListMap_Node:(JavaUtilConcurrentConcurrentSkipListMap_Node *)origin
+                                              withId:(id)fence
+                                             withInt:(jint)est;
 
 @end
 
@@ -1986,11 +1993,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListMap_ValueSplitera
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilComparator:(id<JavaUtilComparator>)comparator
-withJavaUtilConcurrentConcurrentSkipListMap_Index:(JavaUtilConcurrentConcurrentSkipListMap_Index *)row
-withJavaUtilConcurrentConcurrentSkipListMap_Node:(JavaUtilConcurrentConcurrentSkipListMap_Node *)origin
-                                    withId:(id)fence
-                                   withInt:(jint)est;
+- (instancetype __nonnull)initWithJavaUtilComparator:(id<JavaUtilComparator>)comparator
+   withJavaUtilConcurrentConcurrentSkipListMap_Index:(JavaUtilConcurrentConcurrentSkipListMap_Index *)row
+    withJavaUtilConcurrentConcurrentSkipListMap_Node:(JavaUtilConcurrentConcurrentSkipListMap_Node *)origin
+                                              withId:(id)fence
+                                             withInt:(jint)est;
 
 @end
 
@@ -2006,6 +2013,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListMap_EntrySplitera
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentConcurrentSkipListMap")

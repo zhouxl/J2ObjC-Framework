@@ -21,6 +21,7 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -69,7 +70,7 @@
  @brief Creates a <code>CertPathValidatorException</code> with
   no detail message.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a <code>CertPathValidatorException</code> with the given
@@ -77,7 +78,7 @@
   describes this particular exception.
  @param msg the detail message
  */
-- (instancetype)initWithNSString:(NSString *)msg;
+- (instancetype __nonnull)initWithNSString:(NSString *)msg;
 
 /*!
  @brief Creates a <code>CertPathValidatorException</code> with the specified
@@ -86,8 +87,8 @@
  @param cause the cause (which is saved for later retrieval by the  
  <code>getCause()</code>  method). (A <code>null</code>  value is  permitted, and indicates that the cause is nonexistent or unknown.)
  */
-- (instancetype)initWithNSString:(NSString *)msg
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithNSString:(NSString *)msg
+                     withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Creates a <code>CertPathValidatorException</code> with the specified
@@ -104,10 +105,10 @@
  @throw IllegalArgumentExceptionif <code>certPath</code> is 
  <code>null</code> and <code>index</code> is not -1
  */
-- (instancetype)initWithNSString:(NSString *)msg
-           withJavaLangThrowable:(JavaLangThrowable *)cause
-    withJavaSecurityCertCertPath:(JavaSecurityCertCertPath *)certPath
-                         withInt:(jint)index;
+- (instancetype __nonnull)initWithNSString:(NSString *)msg
+                     withJavaLangThrowable:(JavaLangThrowable *)cause
+              withJavaSecurityCertCertPath:(JavaSecurityCertCertPath *)certPath
+                                   withInt:(jint)index;
 
 /*!
  @brief Creates a <code>CertPathValidatorException</code> with the specified
@@ -127,10 +128,10 @@
  @throw NullPointerExceptionif <code>reason</code> is <code>null</code>
  @since 1.7
  */
-- (instancetype)initWithNSString:(NSString *)msg
-           withJavaLangThrowable:(JavaLangThrowable *)cause
-    withJavaSecurityCertCertPath:(JavaSecurityCertCertPath *)certPath
-                         withInt:(jint)index
+- (instancetype __nonnull)initWithNSString:(NSString *)msg
+                     withJavaLangThrowable:(JavaLangThrowable *)cause
+              withJavaSecurityCertCertPath:(JavaSecurityCertCertPath *)certPath
+                                   withInt:(jint)index
 withJavaSecurityCertCertPathValidatorException_Reason:(id<JavaSecurityCertCertPathValidatorException_Reason>)reason;
 
 /*!
@@ -145,7 +146,7 @@ withJavaSecurityCertCertPathValidatorException_Reason:(id<JavaSecurityCertCertPa
  @param cause the cause (which is saved for later retrieval by the  
  <code>getCause()</code>  method). (A <code>null</code>  value is  permitted, and indicates that the cause is nonexistent or unknown.)
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Returns the certification path that was being validated when
@@ -267,6 +268,13 @@ typedef NS_ENUM(NSUInteger, JavaSecurityCertCertPathValidatorException_BasicReas
  */
 @interface JavaSecurityCertCertPathValidatorException_BasicReason : JavaLangEnum < JavaSecurityCertCertPathValidatorException_Reason >
 
+@property (readonly, class, nonnull) JavaSecurityCertCertPathValidatorException_BasicReason *UNSPECIFIED NS_SWIFT_NAME(UNSPECIFIED);
+@property (readonly, class, nonnull) JavaSecurityCertCertPathValidatorException_BasicReason *EXPIRED NS_SWIFT_NAME(EXPIRED);
+@property (readonly, class, nonnull) JavaSecurityCertCertPathValidatorException_BasicReason *NOT_YET_VALID NS_SWIFT_NAME(NOT_YET_VALID);
+@property (readonly, class, nonnull) JavaSecurityCertCertPathValidatorException_BasicReason *REVOKED NS_SWIFT_NAME(REVOKED);
+@property (readonly, class, nonnull) JavaSecurityCertCertPathValidatorException_BasicReason *UNDETERMINED_REVOCATION_STATUS NS_SWIFT_NAME(UNDETERMINED_REVOCATION_STATUS);
+@property (readonly, class, nonnull) JavaSecurityCertCertPathValidatorException_BasicReason *INVALID_SIGNATURE NS_SWIFT_NAME(INVALID_SIGNATURE);
+@property (readonly, class, nonnull) JavaSecurityCertCertPathValidatorException_BasicReason *ALGORITHM_CONSTRAINED NS_SWIFT_NAME(ALGORITHM_CONSTRAINED);
 + (JavaSecurityCertCertPathValidatorException_BasicReason * __nonnull)UNSPECIFIED;
 
 + (JavaSecurityCertCertPathValidatorException_BasicReason * __nonnull)EXPIRED;

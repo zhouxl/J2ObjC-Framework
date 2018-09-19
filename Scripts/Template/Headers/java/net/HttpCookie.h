@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNetHttpCookie_) && (INCLUDE_ALL_JavaNetHttpCookie || defined(INCLUDE_JavaNetHttpCookie))
 #define JavaNetHttpCookie_
 
@@ -48,6 +54,8 @@
    */
   NSString *header_;
 }
+@property (class, strong) id<JavaUtilMap> assignors NS_SWIFT_NAME(assignors);
+@property (readonly, class, strong) JavaUtilTimeZone *GMT NS_SWIFT_NAME(GMT);
 
 + (id<JavaUtilMap>)assignors;
 
@@ -79,8 +87,8 @@
  - seealso: #setValue
  - seealso: #setVersion
  */
-- (instancetype)initWithNSString:(NSString *)name
-                    withNSString:(NSString *)value;
+- (instancetype __nonnull)initWithNSString:(NSString *)name
+                              withNSString:(NSString *)value;
 
 /*!
  @brief Create and return a copy of this object.
@@ -439,7 +447,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -493,6 +501,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetHttpCookie_CookieAttributeAssignor)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetHttpCookie")

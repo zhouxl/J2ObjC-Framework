@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangInvokeMethodHandles_) && (INCLUDE_ALL_JavaLangInvokeMethodHandles || defined(INCLUDE_JavaLangInvokeMethodHandles))
 #define JavaLangInvokeMethodHandles_
 
@@ -32,7 +38,7 @@
 
 #pragma mark Public
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 + (JavaLangInvokeMethodHandle *)arrayElementGetterWithIOSClass:(IOSClass *)arrayClass;
 
@@ -171,6 +177,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangInvokeMethodHandles)
 @protocol JavaLangInvokeMethodHandleInfo;
 
 @interface JavaLangInvokeMethodHandles_Lookup : NSObject
+@property (readonly, class) jint PUBLIC NS_SWIFT_NAME(PUBLIC);
+@property (readonly, class) jint PRIVATE NS_SWIFT_NAME(PRIVATE);
+@property (readonly, class) jint PROTECTED NS_SWIFT_NAME(PROTECTED);
+@property (readonly, class) jint PACKAGE NS_SWIFT_NAME(PACKAGE);
 
 + (jint)PUBLIC;
 
@@ -182,7 +192,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangInvokeMethodHandles)
 
 #pragma mark Public
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 - (JavaLangInvokeMethodHandle *)bindWithId:(id)receiver
                               withNSString:(NSString *)name
@@ -269,6 +279,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangInvokeMethodHandles_Lookup)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangInvokeMethodHandles")

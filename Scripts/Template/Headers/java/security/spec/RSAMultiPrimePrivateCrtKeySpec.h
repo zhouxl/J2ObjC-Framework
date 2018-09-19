@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_) && (INCLUDE_ALL_JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec || defined(INCLUDE_JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec))
 #define JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_
 
@@ -70,15 +76,15 @@
  @throw IllegalArgumentExceptionif an empty, i.e. 0-length, 
  <code>otherPrimeInfo</code> is specified.
  */
-- (instancetype)initWithJavaMathBigInteger:(JavaMathBigInteger *)modulus
-                    withJavaMathBigInteger:(JavaMathBigInteger *)publicExponent
-                    withJavaMathBigInteger:(JavaMathBigInteger *)privateExponent
-                    withJavaMathBigInteger:(JavaMathBigInteger *)primeP
-                    withJavaMathBigInteger:(JavaMathBigInteger *)primeQ
-                    withJavaMathBigInteger:(JavaMathBigInteger *)primeExponentP
-                    withJavaMathBigInteger:(JavaMathBigInteger *)primeExponentQ
-                    withJavaMathBigInteger:(JavaMathBigInteger *)crtCoefficient
-withJavaSecuritySpecRSAOtherPrimeInfoArray:(IOSObjectArray *)otherPrimeInfo;
+- (instancetype __nonnull)initWithJavaMathBigInteger:(JavaMathBigInteger *)modulus
+                              withJavaMathBigInteger:(JavaMathBigInteger *)publicExponent
+                              withJavaMathBigInteger:(JavaMathBigInteger *)privateExponent
+                              withJavaMathBigInteger:(JavaMathBigInteger *)primeP
+                              withJavaMathBigInteger:(JavaMathBigInteger *)primeQ
+                              withJavaMathBigInteger:(JavaMathBigInteger *)primeExponentP
+                              withJavaMathBigInteger:(JavaMathBigInteger *)primeExponentQ
+                              withJavaMathBigInteger:(JavaMathBigInteger *)crtCoefficient
+          withJavaSecuritySpecRSAOtherPrimeInfoArray:(IOSObjectArray *)otherPrimeInfo;
 
 /*!
  @brief Returns the crtCoefficient.
@@ -126,8 +132,8 @@ withJavaSecuritySpecRSAOtherPrimeInfoArray:(IOSObjectArray *)otherPrimeInfo;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaMathBigInteger:(JavaMathBigInteger *)arg0
-                    withJavaMathBigInteger:(JavaMathBigInteger *)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaMathBigInteger:(JavaMathBigInteger *)arg0
+                              withJavaMathBigInteger:(JavaMathBigInteger *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -143,6 +149,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec")

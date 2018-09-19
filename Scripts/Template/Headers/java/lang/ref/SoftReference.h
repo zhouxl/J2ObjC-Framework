@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangRefSoftReference_) && (INCLUDE_ALL_JavaLangRefSoftReference || defined(INCLUDE_JavaLangRefSoftReference))
 #define JavaLangRefSoftReference_
 
@@ -66,7 +72,7 @@
   reference is not registered with any queue.
  @param referent object the new soft reference will refer to
  */
-- (instancetype)initWithId:(id)referent;
+- (instancetype __nonnull)initWithId:(id)referent;
 
 /*!
  @brief Creates a new soft reference that refers to the given object and is
@@ -75,8 +81,8 @@
  @param q the queue with which the reference is to be registered,           or 
   <tt> null </tt>  if registration is not required
  */
-- (instancetype)initWithId:(id)referent
-withJavaLangRefReferenceQueue:(JavaLangRefReferenceQueue *)q;
+- (instancetype __nonnull)initWithId:(id)referent
+       withJavaLangRefReferenceQueue:(JavaLangRefReferenceQueue *)q;
 
 @end
 
@@ -98,6 +104,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangRefSoftReference)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangRefSoftReference")

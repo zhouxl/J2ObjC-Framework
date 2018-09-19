@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangByte_) && (INCLUDE_ALL_JavaLangByte || defined(INCLUDE_JavaLangByte))
 #define JavaLangByte_
 
@@ -39,6 +45,11 @@
  @since JDK1.1
  */
 @interface JavaLangByte : NSNumber < JavaLangComparable >
+@property (readonly, class) jbyte MIN_VALUE NS_SWIFT_NAME(MIN_VALUE);
+@property (readonly, class) jbyte MAX_VALUE NS_SWIFT_NAME(MAX_VALUE);
+@property (readonly, class, strong) IOSClass *TYPE NS_SWIFT_NAME(TYPE);
+@property (readonly, class) jint SIZE NS_SWIFT_NAME(SIZE);
+@property (readonly, class) jint BYTES NS_SWIFT_NAME(BYTES);
 
 + (jbyte)MIN_VALUE;
 
@@ -58,7 +69,7 @@
  @param value the value to be represented by the                   
  <code>Byte</code> .
  */
-- (instancetype)initWithByte:(jbyte)value;
+- (instancetype __nonnull)initWithByte:(jbyte)value;
 
 /*!
  @brief Constructs a newly allocated <code>Byte</code> object that
@@ -72,7 +83,7 @@
                    does not contain a parsable <code>byte</code>.
  - seealso: java.lang.Byte
  */
-- (instancetype)initWithNSString:(NSString *)s;
+- (instancetype __nonnull)initWithNSString:(NSString *)s;
 
 /*!
  @brief Returns the value of this <code>Byte</code> as a 
@@ -151,7 +162,7 @@
              contain a parsable <code>byte</code>.
  - seealso: java.lang.Byte
  */
-+ (JavaLangByte *)decodeWithNSString:(NSString *)nm;
++ (JavaLangByte * __nonnull)decodeWithNSString:(NSString *)nm;
 
 /*!
  @brief Returns the value of this <code>Byte</code> as a 
@@ -273,8 +284,8 @@
 /*!
  @brief ----- BEGIN android -----
  */
-+ (NSString *)toHexStringWithByte:(jbyte)b
-                      withBoolean:(jboolean)upperCase;
++ (NSString * __nonnull)toHexStringWithByte:(jbyte)b
+                                withBoolean:(jboolean)upperCase;
 
 /*!
  @brief Returns a <code>String</code> object representing this 
@@ -285,7 +296,7 @@
  @return a string representation of the value of this object in
            base&nbsp;10.
  */
-- (NSString *)description;
+- (NSString * __nonnull)description;
 
 /*!
  @brief Returns a new <code>String</code> object representing the
@@ -294,7 +305,7 @@
  @return the string representation of the specified <code>byte</code>
  - seealso: java.lang.Integer
  */
-+ (NSString *)toStringWithByte:(jbyte)b;
++ (NSString * __nonnull)toStringWithByte:(jbyte)b;
 
 /*!
  @brief Returns a <code>Byte</code> instance representing the specified 
@@ -308,7 +319,7 @@
  @return a <code>Byte</code> instance representing <code>b</code>.
  @since 1.5
  */
-+ (JavaLangByte *)valueOfWithByte:(jbyte)b;
++ (JavaLangByte * __nonnull)valueOfWithByte:(jbyte)b;
 
 /*!
  @brief Returns a <code>Byte</code> object holding the value
@@ -330,7 +341,7 @@
  @throw NumberFormatExceptionIf the <code>String</code> does
                    not contain a parsable <code>byte</code>.
  */
-+ (JavaLangByte *)valueOfWithNSString:(NSString *)s;
++ (JavaLangByte * __nonnull)valueOfWithNSString:(NSString *)s;
 
 /*!
  @brief Returns a <code>Byte</code> object holding the value
@@ -355,14 +366,14 @@
  @throw NumberFormatExceptionIf the <code>String</code> does
                    not contain a parsable <code>byte</code>.
  */
-+ (JavaLangByte *)valueOfWithNSString:(NSString *)s
-                              withInt:(jint)radix;
++ (JavaLangByte * __nonnull)valueOfWithNSString:(NSString *)s
+                                        withInt:(jint)radix;
 
 #pragma mark Package-Private
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -449,6 +460,10 @@ BOXED_INC_AND_DEC(Byte, charValue, JavaLangByte)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangByte")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxXmlNamespaceQName_) && (INCLUDE_ALL_JavaxXmlNamespaceQName || defined(INCLUDE_JavaxXmlNamespaceQName))
 #define JavaxXmlNamespaceQName_
 
@@ -97,7 +103,7 @@
  QName(String namespaceURI, String localPart, String
   prefix)
  */
-- (instancetype)initWithNSString:(NSString *)localPart;
+- (instancetype __nonnull)initWithNSString:(NSString *)localPart;
 
 /*!
  @brief <p><code>QName</code> constructor specifying the Namespace URI
@@ -135,8 +141,8 @@
  QName(String namespaceURI, String localPart, String
   prefix)
  */
-- (instancetype)initWithNSString:(NSString *)namespaceURI
-                    withNSString:(NSString *)localPart;
+- (instancetype __nonnull)initWithNSString:(NSString *)namespaceURI
+                              withNSString:(NSString *)localPart;
 
 /*!
  @brief <p><code>QName</code> constructor specifying the Namespace URI,
@@ -173,9 +179,9 @@
  @param localPart local part of the  <code> QName </code>
  @param prefix prefix of the  <code> QName </code>
  */
-- (instancetype)initWithNSString:(NSString *)namespaceURI
-                    withNSString:(NSString *)localPart
-                    withNSString:(NSString *)prefix;
+- (instancetype __nonnull)initWithNSString:(NSString *)namespaceURI
+                              withNSString:(NSString *)localPart
+                              withNSString:(NSString *)prefix;
 
 /*!
  @brief <p>Test this <code>QName</code> for equality with another 
@@ -310,7 +316,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -340,6 +346,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlNamespaceQName)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlNamespaceQName")

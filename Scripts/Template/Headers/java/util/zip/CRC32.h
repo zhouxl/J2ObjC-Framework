@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilZipCRC32_) && (INCLUDE_ALL_JavaUtilZipCRC32 || defined(INCLUDE_JavaUtilZipCRC32))
 #define JavaUtilZipCRC32_
 
@@ -37,7 +43,7 @@
 /*!
  @brief Creates a new CRC32 object.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Returns CRC-32 value.
@@ -83,6 +89,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipCRC32)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilZipCRC32")

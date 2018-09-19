@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangAnnotationDocumented_) && (INCLUDE_ALL_JavaLangAnnotationDocumented || defined(INCLUDE_JavaLangAnnotationDocumented))
 #define JavaLangAnnotationDocumented_
 
@@ -38,6 +44,10 @@
  */
 @protocol JavaLangAnnotationDocumented < JavaLangAnnotationAnnotation >
 
+- (jboolean)isEqual:(id)obj;
+
+- (NSUInteger)hash;
+
 @end
 
 @interface JavaLangAnnotationDocumented : NSObject < JavaLangAnnotationDocumented >
@@ -52,6 +62,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangAnnotationDocumented)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangAnnotationDocumented")

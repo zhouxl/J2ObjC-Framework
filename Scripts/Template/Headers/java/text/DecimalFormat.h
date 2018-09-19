@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaTextDecimalFormat_) && (INCLUDE_ALL_JavaTextDecimalFormat || defined(INCLUDE_JavaTextDecimalFormat))
 #define JavaTextDecimalFormat_
 
@@ -345,6 +351,12 @@
  @author Alan Liu
  */
 @interface JavaTextDecimalFormat : JavaTextNumberFormat
+@property (readonly, class) jint currentSerialVersion NS_SWIFT_NAME(currentSerialVersion);
+@property (readonly, class) jint DOUBLE_INTEGER_DIGITS NS_SWIFT_NAME(DOUBLE_INTEGER_DIGITS);
+@property (readonly, class) jint DOUBLE_FRACTION_DIGITS NS_SWIFT_NAME(DOUBLE_FRACTION_DIGITS);
+@property (readonly, class) jint MAXIMUM_INTEGER_DIGITS NS_SWIFT_NAME(MAXIMUM_INTEGER_DIGITS);
+@property (readonly, class) jint MAXIMUM_FRACTION_DIGITS NS_SWIFT_NAME(MAXIMUM_FRACTION_DIGITS);
+@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jint)currentSerialVersion;
 
@@ -375,7 +387,7 @@
  - seealso: java.text.NumberFormat
  - seealso: java.text.NumberFormat
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a DecimalFormat using the given pattern and the symbols
@@ -395,7 +407,7 @@
  - seealso: java.text.NumberFormat
  - seealso: java.text.NumberFormat
  */
-- (instancetype)initWithNSString:(NSString *)pattern;
+- (instancetype __nonnull)initWithNSString:(NSString *)pattern;
 
 /*!
  @brief Creates a DecimalFormat using the given pattern and symbols.
@@ -417,8 +429,8 @@
  - seealso: java.text.NumberFormat
  - seealso: java.text.DecimalFormatSymbols
  */
-- (instancetype)initWithNSString:(NSString *)pattern
-withJavaTextDecimalFormatSymbols:(JavaTextDecimalFormatSymbols *)symbols;
+- (instancetype __nonnull)initWithNSString:(NSString *)pattern
+          withJavaTextDecimalFormatSymbols:(JavaTextDecimalFormatSymbols *)symbols;
 
 /*!
  @brief Apply the given pattern to this Format object.The pattern
@@ -976,6 +988,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextDecimalFormat)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextDecimalFormat")

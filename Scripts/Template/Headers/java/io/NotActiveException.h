@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoNotActiveException_) && (INCLUDE_ALL_JavaIoNotActiveException || defined(INCLUDE_JavaIoNotActiveException))
 #define JavaIoNotActiveException_
 
@@ -35,13 +41,13 @@
 /*!
  @brief Constructor to create a new NotActiveException without a reason.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructor to create a new NotActiveException with the reason given.
  @param reason a String describing the reason for the exception.
  */
-- (instancetype)initWithNSString:(NSString *)reason;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason;
 
 @end
 
@@ -63,6 +69,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoNotActiveException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoNotActiveException")

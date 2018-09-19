@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaTextAttributedString_) && (INCLUDE_ALL_JavaTextAttributedString || defined(INCLUDE_JavaTextAttributedString))
 #define JavaTextAttributedString_
 
@@ -58,7 +64,7 @@
  @param text The text for this attributed string.
  @throw NullPointerExceptionif <code>text</code> is null.
  */
-- (instancetype)initWithJavaTextAttributedCharacterIterator:(id<JavaTextAttributedCharacterIterator>)text;
+- (instancetype __nonnull)initWithJavaTextAttributedCharacterIterator:(id<JavaTextAttributedCharacterIterator>)text;
 
 /*!
  @brief Constructs an AttributedString instance with the subrange of
@@ -76,9 +82,9 @@
   beginIndex and endIndex is out of the text range.
  - seealso: java.text.Annotation
  */
-- (instancetype)initWithJavaTextAttributedCharacterIterator:(id<JavaTextAttributedCharacterIterator>)text
-                                                    withInt:(jint)beginIndex
-                                                    withInt:(jint)endIndex;
+- (instancetype __nonnull)initWithJavaTextAttributedCharacterIterator:(id<JavaTextAttributedCharacterIterator>)text
+                                                              withInt:(jint)beginIndex
+                                                              withInt:(jint)endIndex;
 
 /*!
  @brief Constructs an AttributedString instance with the subrange of
@@ -100,17 +106,17 @@
   beginIndex and endIndex is out of the text range.
  - seealso: java.text.Annotation
  */
-- (instancetype)initWithJavaTextAttributedCharacterIterator:(id<JavaTextAttributedCharacterIterator>)text
-                                                    withInt:(jint)beginIndex
-                                                    withInt:(jint)endIndex
-     withJavaTextAttributedCharacterIterator_AttributeArray:(IOSObjectArray *)attributes;
+- (instancetype __nonnull)initWithJavaTextAttributedCharacterIterator:(id<JavaTextAttributedCharacterIterator>)text
+                                                              withInt:(jint)beginIndex
+                                                              withInt:(jint)endIndex
+               withJavaTextAttributedCharacterIterator_AttributeArray:(IOSObjectArray *)attributes;
 
 /*!
  @brief Constructs an AttributedString instance with the given text.
  @param text The text for this attributed string.
  @throw NullPointerExceptionif <code>text</code> is null.
  */
-- (instancetype)initWithNSString:(NSString *)text;
+- (instancetype __nonnull)initWithNSString:(NSString *)text;
 
 /*!
  @brief Constructs an AttributedString instance with the given text and attributes.
@@ -122,8 +128,8 @@
   and the attributes parameter is not an empty Map (attributes
   cannot be applied to a 0-length range).
  */
-- (instancetype)initWithNSString:(NSString *)text
-                 withJavaUtilMap:(id<JavaUtilMap>)attributes;
+- (instancetype __nonnull)initWithNSString:(NSString *)text
+                           withJavaUtilMap:(id<JavaUtilMap>)attributes;
 
 /*!
  @brief Adds an attribute to the entire string.
@@ -214,13 +220,13 @@
  @param iterators AttributedCharacterIterators to construct  AttributedString from.
  @throw NullPointerExceptionif iterators is null
  */
-- (instancetype)initWithJavaTextAttributedCharacterIteratorArray:(IOSObjectArray *)iterators;
+- (instancetype __nonnull)initWithJavaTextAttributedCharacterIteratorArray:(IOSObjectArray *)iterators;
 
 - (jint)length;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -298,12 +304,12 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributedString)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaTextAttributedCharacterIterator_Attribute:(JavaTextAttributedCharacterIterator_Attribute *)key
-                                                               withId:(id)value;
+- (instancetype __nonnull)initWithJavaTextAttributedCharacterIterator_Attribute:(JavaTextAttributedCharacterIterator_Attribute *)key
+                                                                         withId:(id)value;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -319,6 +325,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributeEntry)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextAttributedString")

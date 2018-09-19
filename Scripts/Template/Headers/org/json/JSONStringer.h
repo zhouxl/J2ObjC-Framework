@@ -18,6 +18,7 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -76,7 +77,7 @@
 
 #pragma mark Public
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Begins encoding a new array.Each call to this method must be paired with
@@ -152,7 +153,7 @@
 
 #pragma mark Package-Private
 
-- (instancetype)initWithInt:(jint)indentSpaces;
+- (instancetype __nonnull)initWithInt:(jint)indentSpaces;
 
 /*!
  @brief Closes the current scope by appending any necessary whitespace and the
@@ -216,6 +217,12 @@ typedef NS_ENUM(NSUInteger, OrgJsonJSONStringer_Scope_Enum) {
  */
 @interface OrgJsonJSONStringer_Scope : JavaLangEnum
 
+@property (readonly, class, nonnull) OrgJsonJSONStringer_Scope *EMPTY_ARRAY NS_SWIFT_NAME(EMPTY_ARRAY);
+@property (readonly, class, nonnull) OrgJsonJSONStringer_Scope *NONEMPTY_ARRAY NS_SWIFT_NAME(NONEMPTY_ARRAY);
+@property (readonly, class, nonnull) OrgJsonJSONStringer_Scope *EMPTY_OBJECT NS_SWIFT_NAME(EMPTY_OBJECT);
+@property (readonly, class, nonnull) OrgJsonJSONStringer_Scope *DANGLING_KEY NS_SWIFT_NAME(DANGLING_KEY);
+@property (readonly, class, nonnull) OrgJsonJSONStringer_Scope *NONEMPTY_OBJECT NS_SWIFT_NAME(NONEMPTY_OBJECT);
+@property (readonly, class, nonnull) OrgJsonJSONStringer_Scope *NULL_ NS_SWIFT_NAME(NULL_);
 + (OrgJsonJSONStringer_Scope * __nonnull)EMPTY_ARRAY;
 
 + (OrgJsonJSONStringer_Scope * __nonnull)NONEMPTY_ARRAY;

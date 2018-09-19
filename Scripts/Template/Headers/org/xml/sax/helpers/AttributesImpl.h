@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (OrgXmlSaxHelpersAttributesImpl_) && (INCLUDE_ALL_OrgXmlSaxHelpersAttributesImpl || defined(INCLUDE_OrgXmlSaxHelpersAttributesImpl))
 #define OrgXmlSaxHelpersAttributesImpl_
 
@@ -67,7 +73,7 @@
 /*!
  @brief Construct a new, empty AttributesImpl object.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Copy an existing Attributes object.
@@ -75,7 +81,7 @@
  <code>startElement</code> event.</p>
  @param atts The existing Attributes object.
  */
-- (instancetype)initWithOrgXmlSaxAttributes:(id<OrgXmlSaxAttributes>)atts;
+- (instancetype __nonnull)initWithOrgXmlSaxAttributes:(id<OrgXmlSaxAttributes>)atts;
 
 /*!
  @brief Add an attribute to the end of the list.
@@ -332,6 +338,10 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersAttributesImpl)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersAttributesImpl")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilLoggingLogger_) && (INCLUDE_ALL_JavaUtilLoggingLogger || defined(INCLUDE_JavaUtilLoggingLogger))
 #define JavaUtilLoggingLogger_
 
@@ -162,10 +168,11 @@
  @since 1.4
  */
 @interface JavaUtilLoggingLogger : NSObject
+@property (readonly, copy, class) NSString *GLOBAL_LOGGER_NAME NS_SWIFT_NAME(GLOBAL_LOGGER_NAME);
+@property (readonly, nonatomic, getter=getGlobal, class, strong) JavaUtilLoggingLogger *global NS_SWIFT_NAME(global);
+@property (readonly, copy, class) NSString *SYSTEM_LOGGER_RB_NAME NS_SWIFT_NAME(SYSTEM_LOGGER_RB_NAME);
 
 + (NSString *)GLOBAL_LOGGER_NAME;
-
-+ (JavaUtilLoggingLogger *)global;
 
 + (NSString *)SYSTEM_LOGGER_RB_NAME;
 
@@ -899,14 +906,14 @@
  @throw MissingResourceExceptionif the resourceBundleName is non-null and
               no corresponding resource can be found.
  */
-- (instancetype)initWithNSString:(NSString *)name
-                    withNSString:(NSString *)resourceBundleName;
+- (instancetype __nonnull)initWithNSString:(NSString *)name
+                              withNSString:(NSString *)resourceBundleName;
 
 #pragma mark Package-Private
 
-- (instancetype)initWithNSString:(NSString *)name
-                    withNSString:(NSString *)resourceBundleName
-                    withIOSClass:(IOSClass *)caller;
+- (instancetype __nonnull)initWithNSString:(NSString *)name
+                              withNSString:(NSString *)resourceBundleName
+                              withIOSClass:(IOSClass *)caller;
 
 + (JavaUtilLoggingLogger *)getPlatformLoggerWithNSString:(NSString *)name;
 
@@ -916,7 +923,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -981,6 +988,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLogger)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingLogger")

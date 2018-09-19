@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecurityCertCertPath_) && (INCLUDE_ALL_JavaSecurityCertCertPath || defined(INCLUDE_JavaSecurityCertCertPath))
 #define JavaSecurityCertCertPath_
 
@@ -212,7 +218,7 @@
  @param type the standard name of the type of  
   <code> Certificate </code> s in this path
  */
-- (instancetype)initWithNSString:(NSString *)type;
+- (instancetype __nonnull)initWithNSString:(NSString *)type;
 
 /*!
  @brief Replaces the <code>CertPath</code> to be serialized with a 
@@ -256,8 +262,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertPath)
  @param type the standard name of a  <code> CertPath </code>  type
  @param data the encoded form of the certification path
  */
-- (instancetype)initWithNSString:(NSString *)type
-                   withByteArray:(IOSByteArray *)data;
+- (instancetype __nonnull)initWithNSString:(NSString *)type
+                             withByteArray:(IOSByteArray *)data;
 
 /*!
  @brief Returns a <code>CertPath</code> constructed from the type and data.
@@ -269,7 +275,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertPath)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -285,6 +291,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertPath_CertPathRep)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCertPath")

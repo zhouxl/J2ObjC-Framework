@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecuritySpecECPublicKeySpec_) && (INCLUDE_ALL_JavaSecuritySpecECPublicKeySpec || defined(INCLUDE_JavaSecuritySpecECPublicKeySpec))
 #define JavaSecuritySpecECPublicKeySpec_
 
@@ -49,8 +55,8 @@
  @throw IllegalArgumentExceptionif <code>w</code>
   is point at infinity, i.e. ECPoint.POINT_INFINITY
  */
-- (instancetype)initWithJavaSecuritySpecECPoint:(JavaSecuritySpecECPoint *)w
-            withJavaSecuritySpecECParameterSpec:(JavaSecuritySpecECParameterSpec *)params;
+- (instancetype __nonnull)initWithJavaSecuritySpecECPoint:(JavaSecuritySpecECPoint *)w
+                      withJavaSecuritySpecECParameterSpec:(JavaSecuritySpecECParameterSpec *)params;
 
 /*!
  @brief Returns the associated elliptic curve domain
@@ -67,7 +73,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -83,6 +89,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecECPublicKeySpec)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecECPublicKeySpec")

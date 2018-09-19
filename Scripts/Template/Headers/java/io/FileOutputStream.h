@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoFileOutputStream_) && (INCLUDE_ALL_JavaIoFileOutputStream || defined(INCLUDE_JavaIoFileOutputStream))
 #define JavaIoFileOutputStream_
 
@@ -62,7 +68,7 @@
   truncated if it exists, and created if it doesn't exist.
  @throw FileNotFoundExceptionif file cannot be opened for writing.
  */
-- (instancetype)initWithJavaIoFile:(JavaIoFile *)file;
+- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file;
 
 /*!
  @brief Constructs a new <code>FileOutputStream</code> that writes to <code>file</code>.
@@ -70,21 +76,21 @@
   it will be truncated. The file will be created if it does not exist.
  @throw FileNotFoundExceptionif the file cannot be opened for writing.
  */
-- (instancetype)initWithJavaIoFile:(JavaIoFile *)file
-                       withBoolean:(jboolean)append;
+- (instancetype __nonnull)initWithJavaIoFile:(JavaIoFile *)file
+                                 withBoolean:(jboolean)append;
 
 /*!
  @brief Constructs a new <code>FileOutputStream</code> that writes to <code>fd</code>.
  @throw NullPointerExceptionif <code>fd</code> is null.
  */
-- (instancetype)initWithJavaIoFileDescriptor:(JavaIoFileDescriptor *)fd;
+- (instancetype __nonnull)initWithJavaIoFileDescriptor:(JavaIoFileDescriptor *)fd;
 
 /*!
  @brief Constructs a new <code>FileOutputStream</code> that writes to <code>path</code>.The file will be
   truncated if it exists, and created if it doesn't exist.
  @throw FileNotFoundExceptionif file cannot be opened for writing.
  */
-- (instancetype)initWithNSString:(NSString *)path;
+- (instancetype __nonnull)initWithNSString:(NSString *)path;
 
 /*!
  @brief Constructs a new <code>FileOutputStream</code> that writes to <code>path</code>.
@@ -92,8 +98,8 @@
   it will be truncated. The file will be created if it does not exist.
  @throw FileNotFoundExceptionif the file cannot be opened for writing.
  */
-- (instancetype)initWithNSString:(NSString *)path
-                     withBoolean:(jboolean)append;
+- (instancetype __nonnull)initWithNSString:(NSString *)path
+                               withBoolean:(jboolean)append;
 
 - (void)close;
 
@@ -120,7 +126,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -160,6 +166,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileOutputStream)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoFileOutputStream")

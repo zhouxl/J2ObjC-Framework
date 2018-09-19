@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoCharArrayWriter_) && (INCLUDE_ALL_JavaIoCharArrayWriter || defined(INCLUDE_JavaIoCharArrayWriter))
 #define JavaIoCharArrayWriter_
 
@@ -54,14 +60,14 @@
 /*!
  @brief Creates a new CharArrayWriter.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a new CharArrayWriter with the specified initial size.
  @param initialSize an int specifying the initial buffer size.
  @throw IllegalArgumentExceptionif initialSize is negative
  */
-- (instancetype)initWithInt:(jint)initialSize;
+- (instancetype __nonnull)initWithInt:(jint)initialSize;
 
 /*!
  @brief Appends the specified character to this writer.
@@ -198,7 +204,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithId:(id)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithId:(id)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -222,6 +228,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoCharArrayWriter)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoCharArrayWriter")

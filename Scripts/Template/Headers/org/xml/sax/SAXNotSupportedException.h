@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (OrgXmlSaxSAXNotSupportedException_) && (INCLUDE_ALL_OrgXmlSaxSAXNotSupportedException || defined(INCLUDE_OrgXmlSaxSAXNotSupportedException))
 #define OrgXmlSaxSAXNotSupportedException_
 
@@ -50,20 +56,20 @@
 /*!
  @brief Construct a new exception with no message.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Construct a new exception with the given message.
  @param message The text message of the exception.
  */
-- (instancetype)initWithNSString:(NSString *)message;
+- (instancetype __nonnull)initWithNSString:(NSString *)message;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaLangException:(JavaLangException *)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaLangException:(JavaLangException *)arg0 NS_UNAVAILABLE;
 
-- (instancetype)initWithNSString:(NSString *)arg0
-           withJavaLangException:(JavaLangException *)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0
+                     withJavaLangException:(JavaLangException *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -85,6 +91,10 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxSAXNotSupportedException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxSAXNotSupportedException")

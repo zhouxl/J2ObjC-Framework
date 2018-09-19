@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSqlSQLClientInfoException_) && (INCLUDE_ALL_JavaSqlSQLClientInfoException || defined(INCLUDE_JavaSqlSQLClientInfoException))
 #define JavaSqlSQLClientInfoException_
 
@@ -59,7 +65,7 @@
  <p>
  @since 1.6
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a <code>SQLClientInfoException</code> object initialized with a
@@ -78,7 +84,7 @@
   <code> ClientInfoStatus </code>   <p>
  @since 1.6
  */
-- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)failedProperties;
+- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)failedProperties;
 
 /*!
  @brief Constructs a <code>SQLClientInfoException</code> object initialized with
@@ -97,8 +103,8 @@
     <p>
  @since 1.6
  */
-- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)failedProperties
-              withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)failedProperties
+                        withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a <code>SQLClientInfoException</code> object initialized with a
@@ -118,8 +124,8 @@
   <code> ClientInfoStatus </code>   <p>
  @since 1.6
  */
-- (instancetype)initWithNSString:(NSString *)reason
-                 withJavaUtilMap:(id<JavaUtilMap>)failedProperties;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason
+                           withJavaUtilMap:(id<JavaUtilMap>)failedProperties;
 
 /*!
  @brief Constructs a <code>SQLClientInfoException</code> object initialized with a
@@ -139,9 +145,9 @@
     <p>
  @since 1.6
  */
-- (instancetype)initWithNSString:(NSString *)reason
-                 withJavaUtilMap:(id<JavaUtilMap>)failedProperties
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason
+                           withJavaUtilMap:(id<JavaUtilMap>)failedProperties
+                     withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a <code>SQLClientInfoException</code> object initialized with a
@@ -162,10 +168,10 @@
   <code> ClientInfoStatus </code>   <p>
  @since 1.6
  */
-- (instancetype)initWithNSString:(NSString *)reason
-                    withNSString:(NSString *)SQLState
-                         withInt:(jint)vendorCode
-                 withJavaUtilMap:(id<JavaUtilMap>)failedProperties;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason
+                              withNSString:(NSString *)SQLState
+                                   withInt:(jint)vendorCode
+                           withJavaUtilMap:(id<JavaUtilMap>)failedProperties;
 
 /*!
  @brief Constructs a <code>SQLClientInfoException</code> object initialized with a
@@ -186,11 +192,11 @@
     <p>
  @since 1.6
  */
-- (instancetype)initWithNSString:(NSString *)reason
-                    withNSString:(NSString *)SQLState
-                         withInt:(jint)vendorCode
-                 withJavaUtilMap:(id<JavaUtilMap>)failedProperties
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason
+                              withNSString:(NSString *)SQLState
+                                   withInt:(jint)vendorCode
+                           withJavaUtilMap:(id<JavaUtilMap>)failedProperties
+                     withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a <code>SQLClientInfoException</code> object initialized with a
@@ -211,9 +217,9 @@
   <code> ClientInfoStatus </code>   <p>
  @since 1.6
  */
-- (instancetype)initWithNSString:(NSString *)reason
-                    withNSString:(NSString *)SQLState
-                 withJavaUtilMap:(id<JavaUtilMap>)failedProperties;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason
+                              withNSString:(NSString *)SQLState
+                           withJavaUtilMap:(id<JavaUtilMap>)failedProperties;
 
 /*!
  @brief Constructs a <code>SQLClientInfoException</code> object initialized with a
@@ -232,10 +238,10 @@
     <p>
  @since 1.6
  */
-- (instancetype)initWithNSString:(NSString *)reason
-                    withNSString:(NSString *)SQLState
-                 withJavaUtilMap:(id<JavaUtilMap>)failedProperties
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason
+                              withNSString:(NSString *)SQLState
+                           withJavaUtilMap:(id<JavaUtilMap>)failedProperties
+                     withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Returns the list of client info properties that could not be set.The
@@ -254,28 +260,28 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
 
-- (instancetype)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
 
-- (instancetype)initWithNSString:(NSString *)arg0
-           withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0
+                     withJavaLangThrowable:(JavaLangThrowable *)arg1 NS_UNAVAILABLE;
 
-- (instancetype)initWithNSString:(NSString *)arg0
-                    withNSString:(NSString *)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0
+                              withNSString:(NSString *)arg1 NS_UNAVAILABLE;
 
-- (instancetype)initWithNSString:(NSString *)arg0
-                    withNSString:(NSString *)arg1
-                         withInt:(jint)arg2 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0
+                              withNSString:(NSString *)arg1
+                                   withInt:(jint)arg2 NS_UNAVAILABLE;
 
-- (instancetype)initWithNSString:(NSString *)arg0
-                    withNSString:(NSString *)arg1
-                         withInt:(jint)arg2
-           withJavaLangThrowable:(JavaLangThrowable *)arg3 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0
+                              withNSString:(NSString *)arg1
+                                   withInt:(jint)arg2
+                     withJavaLangThrowable:(JavaLangThrowable *)arg3 NS_UNAVAILABLE;
 
-- (instancetype)initWithNSString:(NSString *)arg0
-                    withNSString:(NSString *)arg1
-           withJavaLangThrowable:(JavaLangThrowable *)arg2 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0
+                              withNSString:(NSString *)arg1
+                     withJavaLangThrowable:(JavaLangThrowable *)arg2 NS_UNAVAILABLE;
 
 @end
 
@@ -339,6 +345,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLClientInfoException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSqlSQLClientInfoException")

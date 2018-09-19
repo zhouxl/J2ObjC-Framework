@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoObjectStreamClass_) && (INCLUDE_ALL_JavaIoObjectStreamClass || defined(INCLUDE_JavaIoObjectStreamClass))
 #define JavaIoObjectStreamClass_
 
@@ -42,6 +48,12 @@
  - seealso: java.lang.Class
  */
 @interface JavaIoObjectStreamClass : NSObject < JavaIoSerializable >
+@property (readonly, class) jlong CONSTRUCTOR_IS_NOT_RESOLVED NS_SWIFT_NAME(CONSTRUCTOR_IS_NOT_RESOLVED);
+@property (readonly, class, strong) IOSObjectArray *NO_FIELDS NS_SWIFT_NAME(NO_FIELDS);
+@property (readonly, class, strong) IOSClass *ARRAY_OF_FIELDS NS_SWIFT_NAME(ARRAY_OF_FIELDS);
+@property (readonly, class, strong) IOSClass *STRINGCLASS NS_SWIFT_NAME(STRINGCLASS);
+@property (readonly, class, strong) IOSClass *CLASSCLASS NS_SWIFT_NAME(CLASSCLASS);
+@property (readonly, class, strong) IOSClass *OBJECTSTREAMCLASSCLASS NS_SWIFT_NAME(OBJECTSTREAMCLASSCLASS);
 
 + (jlong)CONSTRUCTOR_IS_NOT_RESOLVED;
 
@@ -126,7 +138,7 @@
 /*!
  @brief Constructs a new instance of this class.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Builds the collection of field descriptors for the receiver
@@ -440,6 +452,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectStreamClass_Digest)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoObjectStreamClass")

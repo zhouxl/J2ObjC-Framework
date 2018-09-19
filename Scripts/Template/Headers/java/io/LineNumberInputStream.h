@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoLineNumberInputStream_) && (INCLUDE_ALL_JavaIoLineNumberInputStream || defined(INCLUDE_JavaIoLineNumberInputStream))
 #define JavaIoLineNumberInputStream_
 
@@ -58,7 +64,7 @@ __attribute__((deprecated))
   from the specified input stream.
  @param inArg the underlying input stream.
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
 
 /*!
  @brief Returns the number of bytes that can be read from this input
@@ -210,6 +216,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoLineNumberInputStream)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoLineNumberInputStream")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (OrgW3cDomUserDataHandler_) && (INCLUDE_ALL_OrgW3cDomUserDataHandler || defined(INCLUDE_OrgW3cDomUserDataHandler))
 #define OrgW3cDomUserDataHandler_
 
@@ -57,6 +63,11 @@
 @end
 
 @interface OrgW3cDomUserDataHandler : NSObject
+@property (readonly, class) jshort NODE_CLONED NS_SWIFT_NAME(NODE_CLONED);
+@property (readonly, class) jshort NODE_IMPORTED NS_SWIFT_NAME(NODE_IMPORTED);
+@property (readonly, class) jshort NODE_DELETED NS_SWIFT_NAME(NODE_DELETED);
+@property (readonly, class) jshort NODE_RENAMED NS_SWIFT_NAME(NODE_RENAMED);
+@property (readonly, class) jshort NODE_ADOPTED NS_SWIFT_NAME(NODE_ADOPTED);
 
 + (jshort)NODE_CLONED;
 
@@ -114,6 +125,10 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomUserDataHandler)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgW3cDomUserDataHandler")

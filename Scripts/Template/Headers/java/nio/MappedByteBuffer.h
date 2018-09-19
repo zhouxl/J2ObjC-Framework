@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNioMappedByteBuffer_) && (INCLUDE_ALL_JavaNioMappedByteBuffer || defined(INCLUDE_JavaNioMappedByteBuffer))
 #define JavaNioMappedByteBuffer_
 
@@ -101,23 +107,23 @@
 
 #pragma mark Package-Private
 
-- (instancetype)initWithInt:(jint)mark
-                    withInt:(jint)pos
-                    withInt:(jint)lim
-                    withInt:(jint)cap;
+- (instancetype __nonnull)initWithInt:(jint)mark
+                              withInt:(jint)pos
+                              withInt:(jint)lim
+                              withInt:(jint)cap;
 
-- (instancetype)initWithInt:(jint)mark
-                    withInt:(jint)pos
-                    withInt:(jint)lim
-                    withInt:(jint)cap
-              withByteArray:(IOSByteArray *)buf
-                    withInt:(jint)offset;
+- (instancetype __nonnull)initWithInt:(jint)mark
+                              withInt:(jint)pos
+                              withInt:(jint)lim
+                              withInt:(jint)cap
+                        withByteArray:(IOSByteArray *)buf
+                              withInt:(jint)offset;
 
-- (instancetype)initWithInt:(jint)mark
-                    withInt:(jint)pos
-                    withInt:(jint)lim
-                    withInt:(jint)cap
-   withJavaIoFileDescriptor:(JavaIoFileDescriptor *)fd;
+- (instancetype __nonnull)initWithInt:(jint)mark
+                              withInt:(jint)pos
+                              withInt:(jint)lim
+                              withInt:(jint)cap
+             withJavaIoFileDescriptor:(JavaIoFileDescriptor *)fd;
 
 @end
 
@@ -133,6 +139,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioMappedByteBuffer)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioMappedByteBuffer")

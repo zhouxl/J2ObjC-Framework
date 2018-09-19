@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecurityProtectionDomain_) && (INCLUDE_ALL_JavaSecurityProtectionDomain || defined(INCLUDE_JavaSecurityProtectionDomain))
 #define JavaSecurityProtectionDomain_
 
@@ -32,13 +38,13 @@
 
 #pragma mark Public
 
-- (instancetype)initWithJavaSecurityCodeSource:(JavaSecurityCodeSource *)codesource
-          withJavaSecurityPermissionCollection:(JavaSecurityPermissionCollection *)permissions;
+- (instancetype __nonnull)initWithJavaSecurityCodeSource:(JavaSecurityCodeSource *)codesource
+                    withJavaSecurityPermissionCollection:(JavaSecurityPermissionCollection *)permissions;
 
-- (instancetype)initWithJavaSecurityCodeSource:(JavaSecurityCodeSource *)codesource
-          withJavaSecurityPermissionCollection:(JavaSecurityPermissionCollection *)permissions
-                       withJavaLangClassLoader:(JavaLangClassLoader *)classloader
-                withJavaSecurityPrincipalArray:(IOSObjectArray *)principals;
+- (instancetype __nonnull)initWithJavaSecurityCodeSource:(JavaSecurityCodeSource *)codesource
+                    withJavaSecurityPermissionCollection:(JavaSecurityPermissionCollection *)permissions
+                                 withJavaLangClassLoader:(JavaLangClassLoader *)classloader
+                          withJavaSecurityPrincipalArray:(IOSObjectArray *)principals;
 
 - (JavaLangClassLoader *)getClassLoader;
 
@@ -52,7 +58,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -74,6 +80,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityProtectionDomain)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityProtectionDomain")

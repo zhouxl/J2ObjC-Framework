@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaTextDateFormat_) && (INCLUDE_ALL_JavaTextDateFormat || defined(INCLUDE_JavaTextDateFormat))
 #define JavaTextDateFormat_
 
@@ -143,6 +149,30 @@
    */
   JavaTextNumberFormat *numberFormat_;
 }
+@property (readonly, class) jint ERA_FIELD NS_SWIFT_NAME(ERA_FIELD);
+@property (readonly, class) jint YEAR_FIELD NS_SWIFT_NAME(YEAR_FIELD);
+@property (readonly, class) jint MONTH_FIELD NS_SWIFT_NAME(MONTH_FIELD);
+@property (readonly, class) jint DATE_FIELD NS_SWIFT_NAME(DATE_FIELD);
+@property (readonly, class) jint HOUR_OF_DAY1_FIELD NS_SWIFT_NAME(HOUR_OF_DAY1_FIELD);
+@property (readonly, class) jint HOUR_OF_DAY0_FIELD NS_SWIFT_NAME(HOUR_OF_DAY0_FIELD);
+@property (readonly, class) jint MINUTE_FIELD NS_SWIFT_NAME(MINUTE_FIELD);
+@property (readonly, class) jint SECOND_FIELD NS_SWIFT_NAME(SECOND_FIELD);
+@property (readonly, class) jint MILLISECOND_FIELD NS_SWIFT_NAME(MILLISECOND_FIELD);
+@property (readonly, class) jint DAY_OF_WEEK_FIELD NS_SWIFT_NAME(DAY_OF_WEEK_FIELD);
+@property (readonly, class) jint DAY_OF_YEAR_FIELD NS_SWIFT_NAME(DAY_OF_YEAR_FIELD);
+@property (readonly, class) jint DAY_OF_WEEK_IN_MONTH_FIELD NS_SWIFT_NAME(DAY_OF_WEEK_IN_MONTH_FIELD);
+@property (readonly, class) jint WEEK_OF_YEAR_FIELD NS_SWIFT_NAME(WEEK_OF_YEAR_FIELD);
+@property (readonly, class) jint WEEK_OF_MONTH_FIELD NS_SWIFT_NAME(WEEK_OF_MONTH_FIELD);
+@property (readonly, class) jint AM_PM_FIELD NS_SWIFT_NAME(AM_PM_FIELD);
+@property (readonly, class) jint HOUR1_FIELD NS_SWIFT_NAME(HOUR1_FIELD);
+@property (readonly, class) jint HOUR0_FIELD NS_SWIFT_NAME(HOUR0_FIELD);
+@property (readonly, class) jint TIMEZONE_FIELD NS_SWIFT_NAME(TIMEZONE_FIELD);
+@property (readonly, class) jint FULL NS_SWIFT_NAME(FULL);
+@property (readonly, class) jint LONG NS_SWIFT_NAME(LONG);
+@property (readonly, class) jint MEDIUM NS_SWIFT_NAME(MEDIUM);
+@property (readonly, class) jint SHORT NS_SWIFT_NAME(SHORT);
+@property (readonly, class) jint DEFAULT NS_SWIFT_NAME(DEFAULT);
+@property (class, strong) JavaLangBoolean *is24Hour NS_SWIFT_NAME(is24Hour);
 
 + (jint)ERA_FIELD;
 
@@ -530,7 +560,7 @@
 /*!
  @brief Create a new date format.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -783,6 +813,24 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextDateFormat)
  - seealso: java.util.Calendar
  */
 @interface JavaTextDateFormat_Field : JavaTextFormat_Field
+@property (readonly, class, strong) JavaTextDateFormat_Field *ERA NS_SWIFT_NAME(ERA);
+@property (readonly, class, strong) JavaTextDateFormat_Field *YEAR NS_SWIFT_NAME(YEAR);
+@property (readonly, class, strong) JavaTextDateFormat_Field *MONTH NS_SWIFT_NAME(MONTH);
+@property (readonly, class, strong) JavaTextDateFormat_Field *DAY_OF_MONTH NS_SWIFT_NAME(DAY_OF_MONTH);
+@property (readonly, class, strong) JavaTextDateFormat_Field *HOUR_OF_DAY1 NS_SWIFT_NAME(HOUR_OF_DAY1);
+@property (readonly, class, strong) JavaTextDateFormat_Field *HOUR_OF_DAY0 NS_SWIFT_NAME(HOUR_OF_DAY0);
+@property (readonly, class, strong) JavaTextDateFormat_Field *MINUTE NS_SWIFT_NAME(MINUTE);
+@property (readonly, class, strong) JavaTextDateFormat_Field *SECOND NS_SWIFT_NAME(SECOND);
+@property (readonly, class, strong) JavaTextDateFormat_Field *MILLISECOND NS_SWIFT_NAME(MILLISECOND);
+@property (readonly, class, strong) JavaTextDateFormat_Field *DAY_OF_WEEK NS_SWIFT_NAME(DAY_OF_WEEK);
+@property (readonly, class, strong) JavaTextDateFormat_Field *DAY_OF_YEAR NS_SWIFT_NAME(DAY_OF_YEAR);
+@property (readonly, class, strong) JavaTextDateFormat_Field *DAY_OF_WEEK_IN_MONTH NS_SWIFT_NAME(DAY_OF_WEEK_IN_MONTH);
+@property (readonly, class, strong) JavaTextDateFormat_Field *WEEK_OF_YEAR NS_SWIFT_NAME(WEEK_OF_YEAR);
+@property (readonly, class, strong) JavaTextDateFormat_Field *WEEK_OF_MONTH NS_SWIFT_NAME(WEEK_OF_MONTH);
+@property (readonly, class, strong) JavaTextDateFormat_Field *AM_PM NS_SWIFT_NAME(AM_PM);
+@property (readonly, class, strong) JavaTextDateFormat_Field *HOUR1 NS_SWIFT_NAME(HOUR1);
+@property (readonly, class, strong) JavaTextDateFormat_Field *HOUR0 NS_SWIFT_NAME(HOUR0);
+@property (readonly, class, strong) JavaTextDateFormat_Field *TIME_ZONE NS_SWIFT_NAME(TIME_ZONE);
 
 + (JavaTextDateFormat_Field *)ERA;
 
@@ -858,8 +906,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextDateFormat)
   <code> -1 </code>  should be used for values         that don't correspond to legal 
   <code> Calendar </code>  values
  */
-- (instancetype)initWithNSString:(NSString *)name
-                         withInt:(jint)calendarField;
+- (instancetype __nonnull)initWithNSString:(NSString *)name
+                                   withInt:(jint)calendarField;
 
 /*!
  @brief Resolves instances being deserialized to the predefined constants.
@@ -871,7 +919,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextDateFormat)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -1039,6 +1087,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextDateFormat_Field)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextDateFormat")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxXmlValidationSchemaFactory_) && (INCLUDE_ALL_JavaxXmlValidationSchemaFactory || defined(INCLUDE_JavaxXmlValidationSchemaFactory))
 #define JavaxXmlValidationSchemaFactory_
 
@@ -547,7 +553,7 @@
  <code>null</code> <code>ErrorHandler</code> and 
  <code>null</code> <code>LSResourceResolver</code>.</p>
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -563,6 +569,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlValidationSchemaFactory)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlValidationSchemaFactory")

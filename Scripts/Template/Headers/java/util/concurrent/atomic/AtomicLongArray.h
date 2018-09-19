@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentAtomicAtomicLongArray_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLongArray || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicLongArray))
 #define JavaUtilConcurrentAtomicAtomicLongArray_
 
@@ -43,7 +49,7 @@
   elements initially zero.
  @param length the length of the array
  */
-- (instancetype)initWithInt:(jint)length;
+- (instancetype __nonnull)initWithInt:(jint)length;
 
 /*!
  @brief Creates a new AtomicLongArray with the same length as, and
@@ -51,7 +57,7 @@
  @param array the array to copy elements from
  @throw NullPointerExceptionif array is null
  */
-- (instancetype)initWithLongArray:(IOSLongArray *)array;
+- (instancetype __nonnull)initWithLongArray:(IOSLongArray *)array;
 
 /*!
  @brief Atomically updates the element at index <code>i</code> with the
@@ -241,7 +247,7 @@ withJavaUtilFunctionLongUnaryOperator:(id<JavaUtilFunctionLongUnaryOperator>)upd
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -263,6 +269,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicLongArray)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLongArray")

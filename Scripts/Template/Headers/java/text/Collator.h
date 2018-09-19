@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaTextCollator_) && (INCLUDE_ALL_JavaTextCollator || defined(INCLUDE_JavaTextCollator))
 #define JavaTextCollator_
 
@@ -118,6 +124,13 @@
  - seealso: CollationKey
  */
 @interface JavaTextCollator : NSObject < JavaUtilComparator, NSCopying >
+@property (readonly, class) jint NO_DECOMPOSITION NS_SWIFT_NAME(NO_DECOMPOSITION);
+@property (readonly, class) jint CANONICAL_DECOMPOSITION NS_SWIFT_NAME(CANONICAL_DECOMPOSITION);
+@property (readonly, class) jint FULL_DECOMPOSITION NS_SWIFT_NAME(FULL_DECOMPOSITION);
+@property (readonly, class) jint PRIMARY NS_SWIFT_NAME(PRIMARY);
+@property (readonly, class) jint SECONDARY NS_SWIFT_NAME(SECONDARY);
+@property (readonly, class) jint TERTIARY NS_SWIFT_NAME(TERTIARY);
+@property (readonly, class) jint IDENTICAL NS_SWIFT_NAME(IDENTICAL);
 
 + (jint)NO_DECOMPOSITION;
 
@@ -135,7 +148,7 @@
 
 #pragma mark Public
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 - (id)java_clone;
 
@@ -303,6 +316,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextCollator)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextCollator")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilRegexMatcher_) && (INCLUDE_ALL_JavaUtilRegexMatcher || defined(INCLUDE_JavaUtilRegexMatcher))
 #define JavaUtilRegexMatcher_
 
@@ -656,12 +662,12 @@
 /*!
  @brief All matchers have the state used by Pattern during a match.
  */
-- (instancetype)initWithJavaUtilRegexPattern:(JavaUtilRegexPattern *)parent
-                    withJavaLangCharSequence:(id<JavaLangCharSequence>)text;
+- (instancetype __nonnull)initWithJavaUtilRegexPattern:(JavaUtilRegexPattern *)parent
+                              withJavaLangCharSequence:(id<JavaLangCharSequence>)text;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -714,12 +720,12 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRegexMatcher)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithNSString:(NSString *)input
-                    withIntArray:(IOSIntArray *)offsets;
+- (instancetype __nonnull)initWithNSString:(NSString *)input
+                              withIntArray:(IOSIntArray *)offsets;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -735,6 +741,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRegexMatcher_OffsetBasedMatchResult)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilRegexMatcher")

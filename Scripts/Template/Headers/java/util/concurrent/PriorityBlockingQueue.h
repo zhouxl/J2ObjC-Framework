@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentPriorityBlockingQueue_) && (INCLUDE_ALL_JavaUtilConcurrentPriorityBlockingQueue || defined(INCLUDE_JavaUtilConcurrentPriorityBlockingQueue))
 #define JavaUtilConcurrentPriorityBlockingQueue_
 
@@ -97,7 +103,7 @@
   initial capacity (11) that orders its elements according to
   their ordering.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a <code>PriorityBlockingQueue</code> containing the elements
@@ -113,7 +119,7 @@
  @throw NullPointerExceptionif the specified collection or any
           of its elements are null
  */
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Creates a <code>PriorityBlockingQueue</code> with the specified
@@ -123,7 +129,7 @@
  @throw IllegalArgumentExceptionif <code>initialCapacity</code> is less
           than 1
  */
-- (instancetype)initWithInt:(jint)initialCapacity;
+- (instancetype __nonnull)initWithInt:(jint)initialCapacity;
 
 /*!
  @brief Creates a <code>PriorityBlockingQueue</code> with the specified initial
@@ -136,8 +142,8 @@
  @throw IllegalArgumentExceptionif <code>initialCapacity</code> is less
           than 1
  */
-- (instancetype)initWithInt:(jint)initialCapacity
-     withJavaUtilComparator:(id<JavaUtilComparator>)comparator;
+- (instancetype __nonnull)initWithInt:(jint)initialCapacity
+               withJavaUtilComparator:(id<JavaUtilComparator>)comparator;
 
 /*!
  @brief Inserts the specified element into this priority queue.
@@ -404,12 +410,12 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentPriorityBlockingQueue)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilConcurrentPriorityBlockingQueue:(JavaUtilConcurrentPriorityBlockingQueue *)outer$
-                                              withNSObjectArray:(IOSObjectArray *)array;
+- (instancetype __nonnull)initWithJavaUtilConcurrentPriorityBlockingQueue:(JavaUtilConcurrentPriorityBlockingQueue *)outer$
+                                                        withNSObjectArray:(IOSObjectArray *)array;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -461,16 +467,16 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentPriorityBlockingQueue_Itr)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilConcurrentPriorityBlockingQueue:(JavaUtilConcurrentPriorityBlockingQueue *)queue
-                                              withNSObjectArray:(IOSObjectArray *)array
-                                                        withInt:(jint)index
-                                                        withInt:(jint)fence;
+- (instancetype __nonnull)initWithJavaUtilConcurrentPriorityBlockingQueue:(JavaUtilConcurrentPriorityBlockingQueue *)queue
+                                                        withNSObjectArray:(IOSObjectArray *)array
+                                                                  withInt:(jint)index
+                                                                  withInt:(jint)fence;
 
 - (jint)getFence;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -489,6 +495,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentPriorityBlockingQueue_PBQSpliterato
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentPriorityBlockingQueue")

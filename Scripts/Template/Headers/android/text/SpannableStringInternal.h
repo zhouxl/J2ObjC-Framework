@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (AndroidTextSpannableStringInternal_) && (INCLUDE_ALL_AndroidTextSpannableStringInternal || defined(INCLUDE_AndroidTextSpannableStringInternal))
 #define AndroidTextSpannableStringInternal_
 
@@ -29,6 +35,7 @@
 @protocol JavaUtilStreamIntStream;
 
 @interface AndroidTextSpannableStringInternal : NSObject < JavaLangCharSequence >
+@property (readonly, class, strong) IOSObjectArray *EMPTY NS_SWIFT_NAME(EMPTY);
 
 + (IOSObjectArray *)EMPTY;
 
@@ -65,9 +72,9 @@
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaLangCharSequence:(id<JavaLangCharSequence>)source
-                                     withInt:(jint)start
-                                     withInt:(jint)end;
+- (instancetype __nonnull)initWithJavaLangCharSequence:(id<JavaLangCharSequence>)source
+                                               withInt:(jint)start
+                                               withInt:(jint)end;
 
 - (void)removeSpanWithId:(id)what;
 
@@ -91,6 +98,10 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannableStringInternal)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidTextSpannableStringInternal")

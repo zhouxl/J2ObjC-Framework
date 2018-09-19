@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxNetSslHandshakeCompletedEvent_) && (INCLUDE_ALL_JavaxNetSslHandshakeCompletedEvent || defined(INCLUDE_JavaxNetSslHandshakeCompletedEvent))
 #define JavaxNetSslHandshakeCompletedEvent_
 
@@ -52,8 +58,8 @@
  @param sock the SSLSocket acting as the source of the event
  @param s the SSLSession this event is associated with
  */
-- (instancetype)initWithJavaxNetSslSSLSocket:(JavaxNetSslSSLSocket *)sock
-                   withJavaxNetSslSSLSession:(id<JavaxNetSslSSLSession>)s;
+- (instancetype __nonnull)initWithJavaxNetSslSSLSocket:(JavaxNetSslSSLSocket *)sock
+                             withJavaxNetSslSSLSession:(id<JavaxNetSslSSLSession>)s;
 
 /*!
  @brief Returns the cipher suite in use by the session which was produced
@@ -157,7 +163,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithId:(id)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithId:(id)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -173,6 +179,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslHandshakeCompletedEvent)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxNetSslHandshakeCompletedEvent")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (AndroidUtilSparseIntArray_) && (INCLUDE_ALL_AndroidUtilSparseIntArray || defined(INCLUDE_AndroidUtilSparseIntArray))
 #define AndroidUtilSparseIntArray_
 
@@ -47,7 +53,7 @@
 /*!
  @brief Creates a new SparseIntArray containing no mappings.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a new SparseIntArray containing no mappings that will not
@@ -56,7 +62,7 @@
   sparse array will be initialized with a light-weight representation
   not requiring any additional array allocations.
  */
-- (instancetype)initWithInt:(jint)initialCapacity;
+- (instancetype __nonnull)initWithInt:(jint)initialCapacity;
 
 /*!
  @brief Puts a key/value pair into the array, optimizing for the case where
@@ -174,6 +180,10 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilSparseIntArray)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidUtilSparseIntArray")

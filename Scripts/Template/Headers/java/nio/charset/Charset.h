@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNioCharsetCharset_) && (INCLUDE_ALL_JavaNioCharsetCharset || defined(INCLUDE_JavaNioCharsetCharset))
 #define JavaNioCharsetCharset_
 
@@ -327,8 +333,8 @@
               <code>canonicalName</code> or for any element of
               <code>aliases</code>.
  */
-- (instancetype)initWithNSString:(NSString *)canonicalName
-               withNSStringArray:(IOSObjectArray *)aliases;
+- (instancetype __nonnull)initWithNSString:(NSString *)canonicalName
+                         withNSStringArray:(IOSObjectArray *)aliases;
 
 @end
 
@@ -350,6 +356,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetCharset)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioCharsetCharset")

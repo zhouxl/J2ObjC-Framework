@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxXmlTransformDomDOMSource_) && (INCLUDE_ALL_JavaxXmlTransformDomDOMSource || defined(INCLUDE_JavaxXmlTransformDomDOMSource))
 #define JavaxXmlTransformDomDOMSource_
 
@@ -39,6 +45,7 @@
  - seealso: <a href="http://www.w3.org/TR/DOM-Level-2">Document Object Model (DOM) Level 2 Specification</a>
  */
 @interface JavaxXmlTransformDomDOMSource : NSObject < JavaxXmlTransformSource >
+@property (readonly, copy, class) NSString *FEATURE NS_SWIFT_NAME(FEATURE);
 
 + (NSString *)FEATURE;
 
@@ -53,7 +60,7 @@
  <code>javax.xml.parsers.DocumentBuilder</code>.</p>
  - seealso: javax.xml.transform.Transformer
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Create a new input source with a DOM node.The operation
@@ -64,7 +71,7 @@
   from the root node also.
  @param n The DOM node that will contain the Source tree.
  */
-- (instancetype)initWithOrgW3cDomNode:(id<OrgW3cDomNode>)n;
+- (instancetype __nonnull)initWithOrgW3cDomNode:(id<OrgW3cDomNode>)n;
 
 /*!
  @brief Create a new input source with a DOM node, and with the
@@ -72,8 +79,8 @@
  @param node The DOM node that will contain the Source tree.
  @param systemID Specifies the base URI associated with node.
  */
-- (instancetype)initWithOrgW3cDomNode:(id<OrgW3cDomNode>)node
-                         withNSString:(NSString *)systemID;
+- (instancetype __nonnull)initWithOrgW3cDomNode:(id<OrgW3cDomNode>)node
+                                   withNSString:(NSString *)systemID;
 
 /*!
  @brief Get the node that represents a Source DOM tree.
@@ -137,6 +144,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformDomDOMSource)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformDomDOMSource")

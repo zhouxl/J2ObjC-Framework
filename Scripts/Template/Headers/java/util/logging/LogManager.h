@@ -19,6 +19,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilLoggingLogManager_) && (INCLUDE_ALL_JavaUtilLoggingLogManager || defined(INCLUDE_JavaUtilLoggingLogManager))
 #define JavaUtilLoggingLogManager_
 
@@ -137,6 +143,7 @@
  @since 1.4
  */
 @interface JavaUtilLoggingLogManager : NSObject
+@property (readonly, copy, class) NSString *LOGGING_MXBEAN_NAME NS_SWIFT_NAME(LOGGING_MXBEAN_NAME);
 
 + (NSString *)LOGGING_MXBEAN_NAME;
 
@@ -303,7 +310,7 @@
   it is intended that there only be one LogManager object, whose value is
   retrieved by calling Logmanager.getLogManager.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 #pragma mark Package-Private
 
@@ -417,7 +424,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLogManager_LoggerContext)
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 - (JavaUtilLoggingLogger *)demandLoggerWithNSString:(NSString *)name
                                        withNSString:(NSString *)resourceBundleName;
@@ -456,8 +463,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLogManager_SystemLoggerContext)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilLoggingLogManager:(JavaUtilLoggingLogManager *)outer$
-                        withJavaUtilLoggingLogger:(JavaUtilLoggingLogger *)logger;
+- (instancetype __nonnull)initWithJavaUtilLoggingLogManager:(JavaUtilLoggingLogManager *)outer$
+                                  withJavaUtilLoggingLogger:(JavaUtilLoggingLogger *)logger;
 
 - (void)dispose;
 
@@ -467,10 +474,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLogManager_SystemLoggerContext)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithId:(id)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithId:(id)arg0 NS_UNAVAILABLE;
 
-- (instancetype)initWithId:(id)arg0
-withJavaLangRefReferenceQueue:(JavaLangRefReferenceQueue *)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithId:(id)arg0
+       withJavaLangRefReferenceQueue:(JavaLangRefReferenceQueue *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -504,8 +511,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLogManager_LoggerWeakRef)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilLoggingLogManager_LogNode:(JavaUtilLoggingLogManager_LogNode *)parent
-              withJavaUtilLoggingLogManager_LoggerContext:(JavaUtilLoggingLogManager_LoggerContext *)context;
+- (instancetype __nonnull)initWithJavaUtilLoggingLogManager_LogNode:(JavaUtilLoggingLogManager_LogNode *)parent
+                        withJavaUtilLoggingLogManager_LoggerContext:(JavaUtilLoggingLogManager_LoggerContext *)context;
 
 - (void)walkAndSetParentWithJavaUtilLoggingLogger:(JavaUtilLoggingLogger *)parent;
 
@@ -527,6 +534,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLogManager_LogNode)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingLogManager")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaTextMessageFormat_) && (INCLUDE_ALL_JavaTextMessageFormat || defined(INCLUDE_JavaTextMessageFormat))
 #define JavaTextMessageFormat_
 
@@ -343,7 +349,7 @@
  @param pattern the pattern for this message format
  @throw IllegalArgumentExceptionif the pattern is invalid
  */
-- (instancetype)initWithNSString:(NSString *)pattern;
+- (instancetype __nonnull)initWithNSString:(NSString *)pattern;
 
 /*!
  @brief Constructs a MessageFormat for the specified locale and
@@ -357,8 +363,8 @@
  @throw IllegalArgumentExceptionif the pattern is invalid
  @since 1.4
  */
-- (instancetype)initWithNSString:(NSString *)pattern
-              withJavaUtilLocale:(JavaUtilLocale *)locale;
+- (instancetype __nonnull)initWithNSString:(NSString *)pattern
+                        withJavaUtilLocale:(JavaUtilLocale *)locale;
 
 /*!
  @brief Sets the pattern used by this message format.
@@ -751,7 +757,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -789,6 +795,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextMessageFormat)
  @since 1.4
  */
 @interface JavaTextMessageFormat_Field : JavaTextFormat_Field
+@property (readonly, class, strong) JavaTextMessageFormat_Field *ARGUMENT NS_SWIFT_NAME(ARGUMENT);
 
 + (JavaTextMessageFormat_Field *)ARGUMENT;
 
@@ -798,7 +805,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextMessageFormat)
  @brief Creates a Field with the specified name.
  @param name Name of the attribute
  */
-- (instancetype)initWithNSString:(NSString *)name;
+- (instancetype __nonnull)initWithNSString:(NSString *)name;
 
 /*!
  @brief Resolves instances being deserialized to the predefined constants.
@@ -834,6 +841,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextMessageFormat_Field)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextMessageFormat")

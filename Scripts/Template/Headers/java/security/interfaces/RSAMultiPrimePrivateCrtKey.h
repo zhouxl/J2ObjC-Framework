@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey_) && (INCLUDE_ALL_JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey || defined(INCLUDE_JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey))
 #define JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey_
 
@@ -85,6 +91,7 @@
 @end
 
 @interface JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey : NSObject
+@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jlong)serialVersionUID;
 
@@ -100,6 +107,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey")

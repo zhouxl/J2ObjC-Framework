@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (OrgXmlSaxHandlerBase_) && (INCLUDE_ALL_OrgXmlSaxHandlerBase || defined(INCLUDE_OrgXmlSaxHandlerBase))
 #define OrgXmlSaxHandlerBase_
 
@@ -76,7 +82,7 @@ __attribute__((deprecated))
 
 #pragma mark Public
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Receive notification of character data inside an element.
@@ -297,6 +303,10 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHandlerBase)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHandlerBase")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangAppendable_) && (INCLUDE_ALL_JavaLangAppendable || defined(INCLUDE_JavaLangAppendable))
 #define JavaLangAppendable_
 
@@ -53,7 +59,7 @@
  @throw IOException
  If an I/O error occurs
  */
-- (id<JavaLangAppendable>)appendWithJavaLangCharSequence:(id<JavaLangCharSequence>)csq;
+- (id<JavaLangAppendable> __nonnull)appendWithJavaLangCharSequence:(id<JavaLangCharSequence>)csq;
 
 /*!
  @brief Appends a subsequence of the specified character sequence to this 
@@ -81,9 +87,9 @@
  @throw IOException
  If an I/O error occurs
  */
-- (id<JavaLangAppendable>)appendWithJavaLangCharSequence:(id<JavaLangCharSequence>)csq
-                                                 withInt:(jint)start
-                                                 withInt:(jint)end;
+- (id<JavaLangAppendable> __nonnull)appendWithJavaLangCharSequence:(id<JavaLangCharSequence>)csq
+                                                           withInt:(jint)start
+                                                           withInt:(jint)end;
 
 /*!
  @brief Appends the specified character to this <tt>Appendable</tt>.
@@ -92,7 +98,7 @@
  @throw IOException
  If an I/O error occurs
  */
-- (id<JavaLangAppendable>)appendWithChar:(jchar)c;
+- (id<JavaLangAppendable> __nonnull)appendWithChar:(jchar)c;
 
 @end
 
@@ -102,6 +108,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangAppendable)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangAppendable")

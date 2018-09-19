@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangInvokeSerializedLambda_) && (INCLUDE_ALL_JavaLangInvokeSerializedLambda || defined(INCLUDE_JavaLangInvokeSerializedLambda))
 #define JavaLangInvokeSerializedLambda_
 
@@ -30,16 +36,16 @@
 
 #pragma mark Public
 
-- (instancetype)initWithIOSClass:(IOSClass *)capturingClass
-                    withNSString:(NSString *)functionalInterfaceClass
-                    withNSString:(NSString *)functionalInterfaceMethodName
-                    withNSString:(NSString *)functionalInterfaceMethodSignature
-                         withInt:(jint)implMethodKind
-                    withNSString:(NSString *)implClass
-                    withNSString:(NSString *)implMethodName
-                    withNSString:(NSString *)implMethodSignature
-                    withNSString:(NSString *)instantiatedMethodType
-               withNSObjectArray:(IOSObjectArray *)capturedArgs;
+- (instancetype __nonnull)initWithIOSClass:(IOSClass *)capturingClass
+                              withNSString:(NSString *)functionalInterfaceClass
+                              withNSString:(NSString *)functionalInterfaceMethodName
+                              withNSString:(NSString *)functionalInterfaceMethodSignature
+                                   withInt:(jint)implMethodKind
+                              withNSString:(NSString *)implClass
+                              withNSString:(NSString *)implMethodName
+                              withNSString:(NSString *)implMethodSignature
+                              withNSString:(NSString *)instantiatedMethodType
+                         withNSObjectArray:(IOSObjectArray *)capturedArgs;
 
 - (id)getCapturedArgWithInt:(jint)i;
 
@@ -65,7 +71,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -81,6 +87,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangInvokeSerializedLambda)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangInvokeSerializedLambda")

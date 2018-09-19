@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecuritySpecPKCS8EncodedKeySpec_) && (INCLUDE_ALL_JavaSecuritySpecPKCS8EncodedKeySpec || defined(INCLUDE_JavaSecuritySpecPKCS8EncodedKeySpec))
 #define JavaSecuritySpecPKCS8EncodedKeySpec_
 
@@ -62,7 +68,7 @@
  @throw NullPointerExceptionif <code>encodedKey</code>
   is null.
  */
-- (instancetype)initWithByteArray:(IOSByteArray *)encodedKey;
+- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)encodedKey;
 
 /*!
  @brief Returns the key bytes, encoded according to the PKCS #8 standard.
@@ -92,6 +98,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecPKCS8EncodedKeySpec)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecPKCS8EncodedKeySpec")

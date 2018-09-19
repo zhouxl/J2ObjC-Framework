@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecuritySpecX509EncodedKeySpec_) && (INCLUDE_ALL_JavaSecuritySpecX509EncodedKeySpec || defined(INCLUDE_JavaSecuritySpecX509EncodedKeySpec))
 #define JavaSecuritySpecX509EncodedKeySpec_
 
@@ -56,7 +62,7 @@
  @throw NullPointerExceptionif <code>encodedKey</code>
   is null.
  */
-- (instancetype)initWithByteArray:(IOSByteArray *)encodedKey;
+- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)encodedKey;
 
 /*!
  @brief Returns the key bytes, encoded according to the X.509 standard.
@@ -86,6 +92,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecX509EncodedKeySpec)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecX509EncodedKeySpec")

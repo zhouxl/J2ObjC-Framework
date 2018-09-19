@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilMap_) && (INCLUDE_ALL_JavaUtilMap || defined(INCLUDE_JavaUtilMap))
 #define JavaUtilMap_
 
@@ -183,7 +189,7 @@
           does not permit null keys
   (<a href="Collection.html#optional-restrictions">optional</a>)
  */
-- (id)getWithId:(id)key;
+- (id __nullable)getWithId:(id)key;
 
 /*!
  @brief Associates the specified value with the specified key in this map
@@ -209,8 +215,8 @@
  @throw IllegalArgumentExceptionif some property of the specified key
           or value prevents it from being stored in this map
  */
-- (id)putWithId:(id)key
-         withId:(id)value;
+- (id __nullable)putWithId:(id)key
+                    withId:(id)value;
 
 /*!
  @brief Removes the mapping for a key from this map if it is present
@@ -240,7 +246,7 @@
           map does not permit null keys
   (<a href="Collection.html#optional-restrictions">optional</a>)
  */
-- (id)removeWithId:(id)key;
+- (id __nullable)removeWithId:(id)key;
 
 /*!
  @brief Copies all of the mappings from the specified map to this map
@@ -285,7 +291,7 @@
   operations.
  @return a set view of the keys contained in this map
  */
-- (id<JavaUtilSet>)keySet;
+- (id<JavaUtilSet> __nonnull)keySet;
 
 /*!
  @brief Returns a <code>Collection</code> view of the values contained in this map.
@@ -301,7 +307,7 @@
   support the <code>add</code> or <code>addAll</code> operations.
  @return a collection view of the values contained in this map
  */
-- (id<JavaUtilCollection>)values;
+- (id<JavaUtilCollection> __nonnull)values;
 
 /*!
  @brief Returns a <code>Set</code> view of the mappings contained in this map.
@@ -318,7 +324,7 @@
  <code>add</code> or <code>addAll</code> operations.
  @return a set view of the mappings contained in this map
  */
-- (id<JavaUtilSet>)entrySet;
+- (id<JavaUtilSet> __nonnull)entrySet;
 
 /*!
  @brief Compares the specified object with this map for equality.Returns
@@ -364,8 +370,8 @@
   (<a href="Collection.html#optional-restrictions">optional</a>)
  @since 1.8
  */
-- (id)getOrDefaultWithId:(id)key
-                  withId:(id)defaultValue;
+- (id __nullable)getOrDefaultWithId:(id)key
+                             withId:(id)defaultValue;
 
 /*!
  @brief Performs the given action for each entry in this map until all entries
@@ -434,8 +440,8 @@
           (<a href="Collection.html#optional-restrictions">optional</a>)
  @since 1.8
  */
-- (id)putIfAbsentWithId:(id)key
-                 withId:(id)value;
+- (id __nullable)putIfAbsentWithId:(id)key
+                            withId:(id)value;
 
 /*!
  @brief Removes the entry for the specified key only if it is currently
@@ -504,8 +510,8 @@
           or value prevents it from being stored in this map
  @since 1.8
  */
-- (id)replaceWithId:(id)key
-             withId:(id)value;
+- (id __nullable)replaceWithId:(id)key
+                        withId:(id)value;
 
 /*!
  @brief If the specified key is not already associated with a value (or is mapped
@@ -547,8 +553,8 @@
           (<a href="Collection.html#optional-restrictions">optional</a>)
  @since 1.8
  */
-- (id)computeIfAbsentWithId:(id)key
-withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)mappingFunction;
+- (id __nullable)computeIfAbsentWithId:(id)key
+          withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)mappingFunction;
 
 /*!
  @brief If the value for the specified key is present and non-null, attempts to
@@ -574,8 +580,8 @@ withJavaUtilFunctionFunction:(id<JavaUtilFunctionFunction>)mappingFunction;
           (<a href="Collection.html#optional-restrictions">optional</a>)
  @since 1.8
  */
-- (id)computeIfPresentWithId:(id)key
-withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)remappingFunction;
+- (id __nullable)computeIfPresentWithId:(id)key
+         withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)remappingFunction;
 
 /*!
  @brief Attempts to compute a mapping for the specified key and its current
@@ -610,7 +616,7 @@ withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)remappingFunction
           (<a href="Collection.html#optional-restrictions">optional</a>)
  @since 1.8
  */
-- (id)computeWithId:(id)key
+- (id __nullable)computeWithId:(id)key
 withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)remappingFunction;
 
 /*!
@@ -650,8 +656,8 @@ withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)remappingFunction
           null
  @since 1.8
  */
-- (id)mergeWithId:(id)key
-           withId:(id)value
+- (id __nullable)mergeWithId:(id)key
+                      withId:(id)value
 withJavaUtilFunctionBiFunction:(id<JavaUtilFunctionBiFunction>)remappingFunction;
 
 @end
@@ -799,7 +805,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMap)
  - seealso: Comparable
  @since 1.8
  */
-+ (id<JavaUtilComparator>)comparingByKey;
++ (id<JavaUtilComparator> __nonnull)comparingByKey;
 
 /*!
  @brief Returns a comparator that compares <code>Map.Entry</code> in natural order on value.
@@ -809,7 +815,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMap)
  - seealso: Comparable
  @since 1.8
  */
-+ (id<JavaUtilComparator>)comparingByValue;
++ (id<JavaUtilComparator> __nonnull)comparingByValue;
 
 /*!
  @brief Returns a comparator that compares <code>Map.Entry</code> by key using the given 
@@ -820,7 +826,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMap)
  @return a comparator that compares <code>Map.Entry</code> by the key.
  @since 1.8
  */
-+ (id<JavaUtilComparator>)comparingByKeyWithJavaUtilComparator:(id<JavaUtilComparator>)cmp;
++ (id<JavaUtilComparator> __nonnull)comparingByKeyWithJavaUtilComparator:(id<JavaUtilComparator>)cmp;
 
 /*!
  @brief Returns a comparator that compares <code>Map.Entry</code> by value using the given 
@@ -831,7 +837,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMap)
  @return a comparator that compares <code>Map.Entry</code> by the value.
  @since 1.8
  */
-+ (id<JavaUtilComparator>)comparingByValueWithJavaUtilComparator:(id<JavaUtilComparator>)cmp;
++ (id<JavaUtilComparator> __nonnull)comparingByValueWithJavaUtilComparator:(id<JavaUtilComparator>)cmp;
 
 @end
 
@@ -849,6 +855,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMap_Entry)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilMap")

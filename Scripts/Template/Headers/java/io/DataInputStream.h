@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoDataInputStream_) && (INCLUDE_ALL_JavaIoDataInputStream || defined(INCLUDE_JavaIoDataInputStream))
 #define JavaIoDataInputStream_
 
@@ -54,7 +60,7 @@
  - seealso: DataOutputStream
  - seealso: RandomAccessFile
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
 
 - (jint)readWithByteArray:(IOSByteArray *)buffer;
 
@@ -130,6 +136,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoDataInputStream)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoDataInputStream")

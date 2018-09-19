@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangError_) && (INCLUDE_ALL_JavaLangError || defined(INCLUDE_JavaLangError))
 #define JavaLangError_
 
@@ -42,6 +48,7 @@
  @since JDK1.0
  */
 @interface JavaLangError : JavaLangThrowable
+@property (readonly, class) jlong serialVersionUID NS_SWIFT_NAME(serialVersionUID);
 
 + (jlong)serialVersionUID;
 
@@ -52,7 +59,7 @@
  The cause is not initialized, and may subsequently be initialized by a
   call to <code>initCause</code>.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a new error with the specified detail message.The
@@ -61,7 +68,7 @@
  @param message the detail message. The detail message is saved for           later retrieval by the 
  <code>getMessage()</code>  method.
  */
-- (instancetype)initWithNSString:(NSString *)message;
+- (instancetype __nonnull)initWithNSString:(NSString *)message;
 
 /*!
  @brief Constructs a new error with the specified detail message and
@@ -76,8 +83,8 @@
            unknown.)
  @since 1.4
  */
-- (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithNSString:(NSString *)message
+                     withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a new error with the specified cause and a detail
@@ -91,7 +98,7 @@
            unknown.)
  @since 1.4
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 #pragma mark Protected
 
@@ -106,10 +113,10 @@
  @param writableStackTrace whether or not the stack trace should                            be writable
  @since 1.7
  */
-- (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause
-                     withBoolean:(jboolean)enableSuppression
-                     withBoolean:(jboolean)writableStackTrace;
+- (instancetype __nonnull)initWithNSString:(NSString *)message
+                     withJavaLangThrowable:(JavaLangThrowable *)cause
+                               withBoolean:(jboolean)enableSuppression
+                               withBoolean:(jboolean)writableStackTrace;
 
 @end
 
@@ -153,6 +160,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangError)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangError")

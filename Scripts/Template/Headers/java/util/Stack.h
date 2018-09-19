@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilStack_) && (INCLUDE_ALL_JavaUtilStack || defined(INCLUDE_JavaUtilStack))
 #define JavaUtilStack_
 
@@ -53,7 +59,7 @@
 /*!
  @brief Creates an empty Stack.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Tests if this stack is empty.
@@ -112,12 +118,12 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithInt:(jint)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithInt:(jint)arg0 NS_UNAVAILABLE;
 
-- (instancetype)initWithInt:(jint)arg0
-                    withInt:(jint)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithInt:(jint)arg0
+                              withInt:(jint)arg1 NS_UNAVAILABLE;
 
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -133,6 +139,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStack)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilStack")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecurityCertPolicyQualifierInfo_) && (INCLUDE_ALL_JavaSecurityCertPolicyQualifierInfo || defined(INCLUDE_JavaSecurityCertPolicyQualifierInfo))
 #define JavaSecurityCertPolicyQualifierInfo_
 
@@ -82,7 +88,7 @@
  @throw IOExceptionthrown if the byte array does not represent a
   valid and parsable policy qualifier
  */
-- (instancetype)initWithByteArray:(IOSByteArray *)encoded;
+- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)encoded;
 
 /*!
  @brief Returns the ASN.1 DER encoded form of this 
@@ -121,7 +127,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -137,6 +143,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertPolicyQualifierInfo)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertPolicyQualifierInfo")

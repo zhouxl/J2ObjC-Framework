@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSqlSQLException_) && (INCLUDE_ALL_JavaSqlSQLException || defined(INCLUDE_JavaSqlSQLException))
 #define JavaSqlSQLException_
 
@@ -65,7 +71,7 @@
  <code>Throwable.initCause(java.lang.Throwable)</code> method. 
  <p>
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a <code>SQLException</code> object with a given 
@@ -77,7 +83,7 @@
  <p>
  @param reason a description of the exception
  */
-- (instancetype)initWithNSString:(NSString *)reason;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason;
 
 /*!
  @brief Constructs a <code>SQLException</code> object with a given 
@@ -90,8 +96,8 @@
  @param reason a description of the exception
  @param SQLState an XOPEN or SQL:2003 code identifying the exception
  */
-- (instancetype)initWithNSString:(NSString *)reason
-                    withNSString:(NSString *)SQLState;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason
+                              withNSString:(NSString *)SQLState;
 
 /*!
  @brief Constructs a <code>SQLException</code> object with a given 
@@ -105,9 +111,9 @@
  @param SQLState an XOPEN or SQL:2003 code identifying the exception
  @param vendorCode a database vendor-specific exception code
  */
-- (instancetype)initWithNSString:(NSString *)reason
-                    withNSString:(NSString *)SQLState
-                         withInt:(jint)vendorCode;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason
+                              withNSString:(NSString *)SQLState
+                                   withInt:(jint)vendorCode;
 
 /*!
  @brief Constructs a <code>SQLException</code> object with a given 
@@ -122,10 +128,10 @@
    may be null indicating the cause is non-existent or unknown.
  @since 1.6
  */
-- (instancetype)initWithNSString:(NSString *)reason
-                    withNSString:(NSString *)sqlState
-                         withInt:(jint)vendorCode
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason
+                              withNSString:(NSString *)sqlState
+                                   withInt:(jint)vendorCode
+                     withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a <code>SQLException</code> object with a given 
@@ -139,9 +145,9 @@
   getCause() </code>  method); may be null indicating      the cause is non-existent or unknown.
  @since 1.6
  */
-- (instancetype)initWithNSString:(NSString *)reason
-                    withNSString:(NSString *)sqlState
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason
+                              withNSString:(NSString *)sqlState
+                     withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a <code>SQLException</code> object with a given 
@@ -155,8 +161,8 @@
    may be null indicating the cause is non-existent or unknown.
  @since 1.6
  */
-- (instancetype)initWithNSString:(NSString *)reason
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason
+                     withJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Constructs a <code>SQLException</code> object with a given 
@@ -172,7 +178,7 @@
    may be null indicating the cause is non-existent or unknown.
  @since 1.6
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
 
 /*!
  @brief Retrieves the vendor-specific exception code
@@ -218,10 +224,10 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithNSString:(NSString *)arg0
-           withJavaLangThrowable:(JavaLangThrowable *)arg1
-                     withBoolean:(jboolean)arg2
-                     withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithNSString:(NSString *)arg0
+                     withJavaLangThrowable:(JavaLangThrowable *)arg1
+                               withBoolean:(jboolean)arg2
+                               withBoolean:(jboolean)arg3 NS_UNAVAILABLE;
 
 @end
 
@@ -294,7 +300,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLException)
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -310,6 +316,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLException_NextExceptionUpdater)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSqlSQLException")

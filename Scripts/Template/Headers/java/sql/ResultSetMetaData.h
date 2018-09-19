@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSqlResultSetMetaData_) && (INCLUDE_ALL_JavaSqlResultSetMetaData || defined(INCLUDE_JavaSqlResultSetMetaData))
 #define JavaSqlResultSetMetaData_
 
@@ -236,6 +242,9 @@
 @end
 
 @interface JavaSqlResultSetMetaData : NSObject
+@property (readonly, class) jint columnNoNulls NS_SWIFT_NAME(columnNoNulls);
+@property (readonly, class) jint columnNullable NS_SWIFT_NAME(columnNullable);
+@property (readonly, class) jint columnNullableUnknown NS_SWIFT_NAME(columnNullableUnknown);
 
 + (jint)columnNoNulls;
 
@@ -275,6 +284,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlResultSetMetaData)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSqlResultSetMetaData")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangInvokeMethodType_) && (INCLUDE_ALL_JavaLangInvokeMethodType || defined(INCLUDE_JavaLangInvokeMethodType))
 #define JavaLangInvokeMethodType_
 
@@ -32,7 +38,7 @@
 
 #pragma mark Public
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 - (JavaLangInvokeMethodType *)appendParameterTypesWithIOSClassArray:(IOSObjectArray *)ptypesToInsert;
 
@@ -134,6 +140,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangInvokeMethodType)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangInvokeMethodType")

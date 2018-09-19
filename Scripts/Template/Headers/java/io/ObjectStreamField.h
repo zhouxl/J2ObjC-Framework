@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoObjectStreamField_) && (INCLUDE_ALL_JavaIoObjectStreamField || defined(INCLUDE_JavaIoObjectStreamField))
 #define JavaIoObjectStreamField_
 
@@ -48,8 +54,8 @@
  @throw NullPointerException
  if <code>name</code> or <code>cl</code> is <code>null</code>.
  */
-- (instancetype)initWithNSString:(NSString *)name
-                    withIOSClass:(IOSClass *)cl;
+- (instancetype __nonnull)initWithNSString:(NSString *)name
+                              withIOSClass:(IOSClass *)cl;
 
 /*!
  @brief Constructs an ObjectStreamField with the specified name, type and the
@@ -63,9 +69,9 @@
  if <code>name</code> or <code>cl</code> is <code>null</code>.
  - seealso: ObjectOutputStream#writeUnshared(Object)
  */
-- (instancetype)initWithNSString:(NSString *)name
-                    withIOSClass:(IOSClass *)cl
-                     withBoolean:(jboolean)unshared;
+- (instancetype __nonnull)initWithNSString:(NSString *)name
+                              withIOSClass:(IOSClass *)cl
+                               withBoolean:(jboolean)unshared;
 
 /*!
  @brief Compares this field descriptor to the specified one.Checks first if one
@@ -163,8 +169,8 @@
  @param signature A String representing the type of the field
  @param name a String, the name of the field, or null
  */
-- (instancetype)initWithNSString:(NSString *)signature
-                    withNSString:(NSString *)name;
+- (instancetype __nonnull)initWithNSString:(NSString *)signature
+                              withNSString:(NSString *)name;
 
 /*!
  @brief Return the type of the field the receiver represents, this is an internal
@@ -181,7 +187,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -209,6 +215,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectStreamField)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoObjectStreamField")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilArrayDeque_) && (INCLUDE_ALL_JavaUtilArrayDeque || defined(INCLUDE_JavaUtilArrayDeque))
 #define JavaUtilArrayDeque_
 
@@ -107,7 +113,7 @@
  @brief Constructs an empty array deque with an initial capacity
   sufficient to hold 16 elements.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a deque containing the elements of the specified
@@ -119,14 +125,14 @@
  @param c the collection whose elements are to be placed into the deque
  @throw NullPointerExceptionif the specified collection is null
  */
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Constructs an empty array deque with an initial capacity
   sufficient to hold the specified number of elements.
  @param numElements lower bound on initial capacity of the deque
  */
-- (instancetype)initWithInt:(jint)numElements;
+- (instancetype __nonnull)initWithInt:(jint)numElements;
 
 /*!
  @brief Inserts the specified element at the end of this deque.
@@ -478,13 +484,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilArrayDeque)
 /*!
  @brief Creates new spliterator covering the given array and range.
  */
-- (instancetype)initWithJavaUtilArrayDeque:(JavaUtilArrayDeque *)deq
-                                   withInt:(jint)origin
-                                   withInt:(jint)fence;
+- (instancetype __nonnull)initWithJavaUtilArrayDeque:(JavaUtilArrayDeque *)deq
+                                             withInt:(jint)origin
+                                             withInt:(jint)fence;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -500,6 +506,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilArrayDeque_DeqSpliterator)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilArrayDeque")

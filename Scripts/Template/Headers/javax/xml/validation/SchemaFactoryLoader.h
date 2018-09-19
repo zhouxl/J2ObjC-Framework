@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxXmlValidationSchemaFactoryLoader_) && (INCLUDE_ALL_JavaxXmlValidationSchemaFactoryLoader || defined(INCLUDE_JavaxXmlValidationSchemaFactoryLoader))
 #define JavaxXmlValidationSchemaFactoryLoader_
 
@@ -35,7 +41,7 @@
 
 #pragma mark Protected
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -47,6 +53,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlValidationSchemaFactoryLoader)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlValidationSchemaFactoryLoader")

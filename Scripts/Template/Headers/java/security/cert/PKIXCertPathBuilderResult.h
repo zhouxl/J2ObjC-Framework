@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecurityCertPKIXCertPathBuilderResult_) && (INCLUDE_ALL_JavaSecurityCertPKIXCertPathBuilderResult || defined(INCLUDE_JavaSecurityCertPKIXCertPathBuilderResult))
 #define JavaSecurityCertPKIXCertPathBuilderResult_
 
@@ -74,10 +80,10 @@
   <code>trustAnchor</code> or <code>subjectPublicKey</code> parameters
   are <code>null</code>
  */
-- (instancetype)initWithJavaSecurityCertCertPath:(JavaSecurityCertCertPath *)certPath
-                 withJavaSecurityCertTrustAnchor:(JavaSecurityCertTrustAnchor *)trustAnchor
-                  withJavaSecurityCertPolicyNode:(id<JavaSecurityCertPolicyNode>)policyTree
-                       withJavaSecurityPublicKey:(id<JavaSecurityPublicKey>)subjectPublicKey;
+- (instancetype __nonnull)initWithJavaSecurityCertCertPath:(JavaSecurityCertCertPath *)certPath
+                           withJavaSecurityCertTrustAnchor:(JavaSecurityCertTrustAnchor *)trustAnchor
+                            withJavaSecurityCertPolicyNode:(id<JavaSecurityCertPolicyNode>)policyTree
+                                 withJavaSecurityPublicKey:(id<JavaSecurityPublicKey>)subjectPublicKey;
 
 /*!
  @brief Returns the built and validated certification path.The
@@ -100,9 +106,9 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaSecurityCertTrustAnchor:(JavaSecurityCertTrustAnchor *)arg0
-                     withJavaSecurityCertPolicyNode:(id<JavaSecurityCertPolicyNode>)arg1
-                          withJavaSecurityPublicKey:(id<JavaSecurityPublicKey>)arg2 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaSecurityCertTrustAnchor:(JavaSecurityCertTrustAnchor *)arg0
+                               withJavaSecurityCertPolicyNode:(id<JavaSecurityCertPolicyNode>)arg1
+                                    withJavaSecurityPublicKey:(id<JavaSecurityPublicKey>)arg2 NS_UNAVAILABLE;
 
 @end
 
@@ -118,6 +124,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertPKIXCertPathBuilderResult)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertPKIXCertPathBuilderResult")

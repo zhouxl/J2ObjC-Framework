@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilFormattableFlags_) && (INCLUDE_ALL_JavaUtilFormattableFlags || defined(INCLUDE_JavaUtilFormattableFlags))
 #define JavaUtilFormattableFlags_
 
@@ -27,6 +33,9 @@
  @since 1.5
  */
 @interface JavaUtilFormattableFlags : NSObject
+@property (readonly, class) jint LEFT_JUSTIFY NS_SWIFT_NAME(LEFT_JUSTIFY);
+@property (readonly, class) jint UPPERCASE NS_SWIFT_NAME(UPPERCASE);
+@property (readonly, class) jint ALTERNATE NS_SWIFT_NAME(ALTERNATE);
 
 + (jint)LEFT_JUSTIFY;
 
@@ -84,6 +93,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilFormattableFlags)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilFormattableFlags")

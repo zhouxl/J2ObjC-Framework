@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaTextCollationKey_) && (INCLUDE_ALL_JavaTextCollationKey || defined(INCLUDE_JavaTextCollationKey))
 #define JavaTextCollationKey_
 
@@ -112,7 +118,7 @@
 
 #pragma mark Protected
 
-- (instancetype)initWithNSString:(NSString *)source;
+- (instancetype __nonnull)initWithNSString:(NSString *)source;
 
 @end
 
@@ -124,6 +130,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextCollationKey)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextCollationKey")

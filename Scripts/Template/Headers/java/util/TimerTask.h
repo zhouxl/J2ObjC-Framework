@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilTimerTask_) && (INCLUDE_ALL_JavaUtilTimerTask || defined(INCLUDE_JavaUtilTimerTask))
 #define JavaUtilTimerTask_
 
@@ -53,6 +59,10 @@
    */
   jlong period_;
 }
+@property (readonly, class) jint VIRGIN NS_SWIFT_NAME(VIRGIN);
+@property (readonly, class) jint SCHEDULED NS_SWIFT_NAME(SCHEDULED);
+@property (readonly, class) jint EXECUTED NS_SWIFT_NAME(EXECUTED);
+@property (readonly, class) jint CANCELLED NS_SWIFT_NAME(CANCELLED);
 
 + (jint)VIRGIN;
 
@@ -98,7 +108,7 @@
 /*!
  @brief Creates a new timer task.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -142,6 +152,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTimerTask)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilTimerTask")

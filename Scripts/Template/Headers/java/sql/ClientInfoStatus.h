@@ -18,6 +18,7 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -44,6 +45,10 @@ typedef NS_ENUM(NSUInteger, JavaSqlClientInfoStatus_Enum) {
  */
 @interface JavaSqlClientInfoStatus : JavaLangEnum
 
+@property (readonly, class, nonnull) JavaSqlClientInfoStatus *REASON_UNKNOWN NS_SWIFT_NAME(REASON_UNKNOWN);
+@property (readonly, class, nonnull) JavaSqlClientInfoStatus *REASON_UNKNOWN_PROPERTY NS_SWIFT_NAME(REASON_UNKNOWN_PROPERTY);
+@property (readonly, class, nonnull) JavaSqlClientInfoStatus *REASON_VALUE_INVALID NS_SWIFT_NAME(REASON_VALUE_INVALID);
+@property (readonly, class, nonnull) JavaSqlClientInfoStatus *REASON_VALUE_TRUNCATED NS_SWIFT_NAME(REASON_VALUE_TRUNCATED);
 + (JavaSqlClientInfoStatus * __nonnull)REASON_UNKNOWN;
 
 + (JavaSqlClientInfoStatus * __nonnull)REASON_UNKNOWN_PROPERTY;

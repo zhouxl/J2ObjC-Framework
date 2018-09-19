@@ -18,6 +18,7 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -44,6 +45,11 @@ typedef NS_ENUM(NSUInteger, JavaSqlRowIdLifetime_Enum) {
  */
 @interface JavaSqlRowIdLifetime : JavaLangEnum
 
+@property (readonly, class, nonnull) JavaSqlRowIdLifetime *ROWID_UNSUPPORTED NS_SWIFT_NAME(ROWID_UNSUPPORTED);
+@property (readonly, class, nonnull) JavaSqlRowIdLifetime *ROWID_VALID_OTHER NS_SWIFT_NAME(ROWID_VALID_OTHER);
+@property (readonly, class, nonnull) JavaSqlRowIdLifetime *ROWID_VALID_SESSION NS_SWIFT_NAME(ROWID_VALID_SESSION);
+@property (readonly, class, nonnull) JavaSqlRowIdLifetime *ROWID_VALID_TRANSACTION NS_SWIFT_NAME(ROWID_VALID_TRANSACTION);
+@property (readonly, class, nonnull) JavaSqlRowIdLifetime *ROWID_VALID_FOREVER NS_SWIFT_NAME(ROWID_VALID_FOREVER);
 + (JavaSqlRowIdLifetime * __nonnull)ROWID_UNSUPPORTED;
 
 + (JavaSqlRowIdLifetime * __nonnull)ROWID_VALID_OTHER;

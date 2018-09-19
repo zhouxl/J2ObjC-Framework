@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilIllegalFormatPrecisionException_) && (INCLUDE_ALL_JavaUtilIllegalFormatPrecisionException || defined(INCLUDE_JavaUtilIllegalFormatPrecisionException))
 #define JavaUtilIllegalFormatPrecisionException_
 
@@ -37,7 +43,7 @@
  @brief Constructs an instance of this class with the specified precision.
  @param p The precision
  */
-- (instancetype)initWithInt:(jint)p;
+- (instancetype __nonnull)initWithInt:(jint)p;
 
 - (NSString *)getMessage;
 
@@ -49,7 +55,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -65,6 +71,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIllegalFormatPrecisionException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilIllegalFormatPrecisionException")

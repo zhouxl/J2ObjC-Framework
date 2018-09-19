@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilZipInflaterInputStream_) && (INCLUDE_ALL_JavaUtilZipInflaterInputStream || defined(INCLUDE_JavaUtilZipInflaterInputStream))
 #define JavaUtilZipInflaterInputStream_
 
@@ -57,7 +63,7 @@
  @brief Creates a new input stream with a default decompressor and buffer size.
  @param inArg the input stream
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
 
 /*!
  @brief Creates a new input stream with the specified decompressor and a
@@ -65,8 +71,8 @@
  @param inArg the input stream
  @param inf the decompressor ("inflater")
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
-                  withJavaUtilZipInflater:(JavaUtilZipInflater *)inf;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
+                            withJavaUtilZipInflater:(JavaUtilZipInflater *)inf;
 
 /*!
  @brief Creates a new input stream with the specified decompressor and
@@ -76,9 +82,9 @@
  @param size the input buffer size
  @throw IllegalArgumentExceptionif size is <= 0
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
-                  withJavaUtilZipInflater:(JavaUtilZipInflater *)inf
-                                  withInt:(jint)size;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
+                            withJavaUtilZipInflater:(JavaUtilZipInflater *)inf
+                                            withInt:(jint)size;
 
 /*!
  @brief Returns 0 after EOF has been reached, otherwise always return 1.
@@ -204,6 +210,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipInflaterInputStream)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilZipInflaterInputStream")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentFutureTask_) && (INCLUDE_ALL_JavaUtilConcurrentFutureTask || defined(INCLUDE_JavaUtilConcurrentFutureTask))
 #define JavaUtilConcurrentFutureTask_
 
@@ -60,7 +66,7 @@
  @param callable the callable task
  @throw NullPointerExceptionif the callable is null
  */
-- (instancetype)initWithJavaUtilConcurrentCallable:(id<JavaUtilConcurrentCallable>)callable;
+- (instancetype __nonnull)initWithJavaUtilConcurrentCallable:(id<JavaUtilConcurrentCallable>)callable;
 
 /*!
  @brief Creates a <code>FutureTask</code> that will, upon running, execute the
@@ -72,8 +78,8 @@
    <code>Future<?> f = new FutureTask<Void>(runnable, null)</code>
  @throw NullPointerExceptionif the runnable is null
  */
-- (instancetype)initWithJavaLangRunnable:(id<JavaLangRunnable>)runnable
-                                  withId:(id)result;
+- (instancetype __nonnull)initWithJavaLangRunnable:(id<JavaLangRunnable>)runnable
+                                            withId:(id)result;
 
 - (jboolean)cancelWithBoolean:(jboolean)mayInterruptIfRunning;
 
@@ -139,7 +145,7 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -179,7 +185,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentFutureTask)
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -198,6 +204,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentFutureTask_WaitNode)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentFutureTask")

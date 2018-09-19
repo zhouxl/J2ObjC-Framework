@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilEnumMap_) && (INCLUDE_ALL_JavaUtilEnumMap || defined(INCLUDE_JavaUtilEnumMap))
 #define JavaUtilEnumMap_
 
@@ -87,7 +93,7 @@
  @param keyType the class object of the key type for this enum map
  @throw NullPointerExceptionif <tt>keyType</tt> is null
  */
-- (instancetype)initWithIOSClass:(IOSClass *)keyType;
+- (instancetype __nonnull)initWithIOSClass:(IOSClass *)keyType;
 
 /*!
  @brief Creates an enum map with the same key type as the specified enum
@@ -95,7 +101,7 @@
  @param m the enum map from which to initialize this enum map
  @throw NullPointerExceptionif <tt>m</tt> is null
  */
-- (instancetype)initWithJavaUtilEnumMap:(JavaUtilEnumMap *)m;
+- (instancetype __nonnull)initWithJavaUtilEnumMap:(JavaUtilEnumMap *)m;
 
 /*!
  @brief Creates an enum map initialized from the specified map.If the
@@ -109,7 +115,7 @@
       <tt>EnumMap</tt> instance and contains no mappings
  @throw NullPointerExceptionif <tt>m</tt> is null
  */
-- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)m;
+- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)m;
 
 /*!
  @brief Removes all mappings from this map.
@@ -246,7 +252,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -274,6 +280,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilEnumMap)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilEnumMap")

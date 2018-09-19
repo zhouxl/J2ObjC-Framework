@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNioByteOrder_) && (INCLUDE_ALL_JavaNioByteOrder || defined(INCLUDE_JavaNioByteOrder))
 #define JavaNioByteOrder_
 
@@ -26,6 +32,8 @@
  @since 1.4
  */
 @interface JavaNioByteOrder : NSObject
+@property (readonly, class, strong) JavaNioByteOrder *BIG_ENDIAN_ NS_SWIFT_NAME(BIG_ENDIAN_);
+@property (readonly, class, strong) JavaNioByteOrder *LITTLE_ENDIAN_ NS_SWIFT_NAME(LITTLE_ENDIAN_);
 
 + (JavaNioByteOrder *)BIG_ENDIAN_;
 
@@ -55,7 +63,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -88,6 +96,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioByteOrder)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNioByteOrder")

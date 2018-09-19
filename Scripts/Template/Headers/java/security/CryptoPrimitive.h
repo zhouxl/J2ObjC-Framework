@@ -18,6 +18,7 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -49,6 +50,16 @@ typedef NS_ENUM(NSUInteger, JavaSecurityCryptoPrimitive_Enum) {
  */
 @interface JavaSecurityCryptoPrimitive : JavaLangEnum
 
+@property (readonly, class, nonnull) JavaSecurityCryptoPrimitive *MESSAGE_DIGEST NS_SWIFT_NAME(MESSAGE_DIGEST);
+@property (readonly, class, nonnull) JavaSecurityCryptoPrimitive *SECURE_RANDOM NS_SWIFT_NAME(SECURE_RANDOM);
+@property (readonly, class, nonnull) JavaSecurityCryptoPrimitive *BLOCK_CIPHER NS_SWIFT_NAME(BLOCK_CIPHER);
+@property (readonly, class, nonnull) JavaSecurityCryptoPrimitive *STREAM_CIPHER NS_SWIFT_NAME(STREAM_CIPHER);
+@property (readonly, class, nonnull) JavaSecurityCryptoPrimitive *MAC NS_SWIFT_NAME(MAC);
+@property (readonly, class, nonnull) JavaSecurityCryptoPrimitive *KEY_WRAP NS_SWIFT_NAME(KEY_WRAP);
+@property (readonly, class, nonnull) JavaSecurityCryptoPrimitive *PUBLIC_KEY_ENCRYPTION NS_SWIFT_NAME(PUBLIC_KEY_ENCRYPTION);
+@property (readonly, class, nonnull) JavaSecurityCryptoPrimitive *SIGNATURE NS_SWIFT_NAME(SIGNATURE);
+@property (readonly, class, nonnull) JavaSecurityCryptoPrimitive *KEY_ENCAPSULATION NS_SWIFT_NAME(KEY_ENCAPSULATION);
+@property (readonly, class, nonnull) JavaSecurityCryptoPrimitive *KEY_AGREEMENT NS_SWIFT_NAME(KEY_AGREEMENT);
 + (JavaSecurityCryptoPrimitive * __nonnull)MESSAGE_DIGEST;
 
 + (JavaSecurityCryptoPrimitive * __nonnull)SECURE_RANDOM;

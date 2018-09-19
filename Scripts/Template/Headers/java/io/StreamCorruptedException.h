@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoStreamCorruptedException_) && (INCLUDE_ALL_JavaIoStreamCorruptedException || defined(INCLUDE_JavaIoStreamCorruptedException))
 #define JavaIoStreamCorruptedException_
 
@@ -36,13 +42,13 @@
 /*!
  @brief Create a StreamCorruptedException and list no reason why thrown.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Create a StreamCorruptedException and list a reason why thrown.
  @param reason String describing the reason for the exception.
  */
-- (instancetype)initWithNSString:(NSString *)reason;
+- (instancetype __nonnull)initWithNSString:(NSString *)reason;
 
 @end
 
@@ -64,6 +70,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoStreamCorruptedException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoStreamCorruptedException")

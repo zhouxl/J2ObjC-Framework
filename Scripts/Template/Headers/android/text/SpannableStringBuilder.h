@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (AndroidTextSpannableStringBuilder_) && (INCLUDE_ALL_AndroidTextSpannableStringBuilder || defined(INCLUDE_AndroidTextSpannableStringBuilder))
 #define AndroidTextSpannableStringBuilder_
 
@@ -54,21 +60,21 @@
 /*!
  @brief Create a new SpannableStringBuilder with empty contents
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Create a new SpannableStringBuilder containing a copy of the
   specified text, including its spans if any.
  */
-- (instancetype)initWithJavaLangCharSequence:(id<JavaLangCharSequence>)text;
+- (instancetype __nonnull)initWithJavaLangCharSequence:(id<JavaLangCharSequence>)text;
 
 /*!
  @brief Create a new SpannableStringBuilder containing a copy of the
   specified slice of the specified text, including its spans if any.
  */
-- (instancetype)initWithJavaLangCharSequence:(id<JavaLangCharSequence>)text
-                                     withInt:(jint)start
-                                     withInt:(jint)end;
+- (instancetype __nonnull)initWithJavaLangCharSequence:(id<JavaLangCharSequence>)text
+                                               withInt:(jint)start
+                                               withInt:(jint)end;
 
 - (AndroidTextSpannableStringBuilder *)appendWithChar:(jchar)text;
 
@@ -230,6 +236,10 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannableStringBuilder)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_AndroidTextSpannableStringBuilder")

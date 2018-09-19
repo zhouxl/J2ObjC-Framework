@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilObservable_) && (INCLUDE_ALL_JavaUtilObservable || defined(INCLUDE_JavaUtilObservable))
 #define JavaUtilObservable_
 
@@ -61,7 +67,7 @@
 /*!
  @brief Construct an Observable with zero Observers.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Adds an observer to the set of observers for this object, provided
@@ -167,6 +173,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilObservable)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilObservable")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNetJarURLConnection_) && (INCLUDE_ALL_JavaNetJarURLConnection || defined(INCLUDE_JavaNetJarURLConnection))
 #define JavaNetJarURLConnection_
 
@@ -234,7 +240,7 @@
   could be found in a specification string or the
   string could not be parsed.
  */
-- (instancetype)initWithJavaNetURL:(JavaNetURL *)url;
+- (instancetype __nonnull)initWithJavaNetURL:(JavaNetURL *)url;
 
 @end
 
@@ -248,6 +254,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetJarURLConnection)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetJarURLConnection")

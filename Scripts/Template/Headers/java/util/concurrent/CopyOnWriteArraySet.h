@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentCopyOnWriteArraySet_) && (INCLUDE_ALL_JavaUtilConcurrentCopyOnWriteArraySet || defined(INCLUDE_JavaUtilConcurrentCopyOnWriteArraySet))
 #define JavaUtilConcurrentCopyOnWriteArraySet_
 
@@ -82,7 +88,7 @@
 /*!
  @brief Creates an empty set.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a set containing all of the elements of the specified
@@ -90,7 +96,7 @@
  @param c the collection of elements to initially contain
  @throw NullPointerExceptionif the specified collection is null
  */
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Adds the specified element to this set if it is not already present.
@@ -332,6 +338,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCopyOnWriteArraySet)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentCopyOnWriteArraySet")

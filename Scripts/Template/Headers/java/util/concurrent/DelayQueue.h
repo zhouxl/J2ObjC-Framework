@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentDelayQueue_) && (INCLUDE_ALL_JavaUtilConcurrentDelayQueue || defined(INCLUDE_JavaUtilConcurrentDelayQueue))
 #define JavaUtilConcurrentDelayQueue_
 
@@ -62,7 +68,7 @@
 /*!
  @brief Creates a new <code>DelayQueue</code> that is initially empty.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a <code>DelayQueue</code> initially containing the elements of the
@@ -71,7 +77,7 @@
  @throw NullPointerExceptionif the specified collection or any
           of its elements are null
  */
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Inserts the specified element into this delay queue.
@@ -276,6 +282,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentDelayQueue)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentDelayQueue")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangClassNotFoundException_) && (INCLUDE_ALL_JavaLangClassNotFoundException || defined(INCLUDE_JavaLangClassNotFoundException))
 #define JavaLangClassNotFoundException_
 
@@ -55,14 +61,14 @@
 /*!
  @brief Constructs a <code>ClassNotFoundException</code> with no detail message.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a <code>ClassNotFoundException</code> with the
   specified detail message.
  @param s the detail message.
  */
-- (instancetype)initWithNSString:(NSString *)s;
+- (instancetype __nonnull)initWithNSString:(NSString *)s;
 
 /*!
  @brief Constructs a <code>ClassNotFoundException</code> with the
@@ -72,8 +78,8 @@
  @param ex the exception that was raised while loading the class
  @since 1.2
  */
-- (instancetype)initWithNSString:(NSString *)s
-           withJavaLangThrowable:(JavaLangThrowable *)ex;
+- (instancetype __nonnull)initWithNSString:(NSString *)s
+                     withJavaLangThrowable:(JavaLangThrowable *)ex;
 
 /*!
  @brief Returns the cause of this exception (the exception that was raised
@@ -97,7 +103,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaLangThrowable:(JavaLangThrowable *)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -125,6 +131,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangClassNotFoundException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangClassNotFoundException")

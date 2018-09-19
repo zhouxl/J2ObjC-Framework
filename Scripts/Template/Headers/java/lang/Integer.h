@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangInteger_) && (INCLUDE_ALL_JavaLangInteger || defined(INCLUDE_JavaLangInteger))
 #define JavaLangInteger_
 
@@ -48,6 +54,12 @@
  @since JDK1.0
  */
 @interface JavaLangInteger : NSNumber < JavaLangComparable >
+@property (readonly, class) jint MIN_VALUE NS_SWIFT_NAME(MIN_VALUE);
+@property (readonly, class) jint MAX_VALUE NS_SWIFT_NAME(MAX_VALUE);
+@property (readonly, class, strong) IOSClass *TYPE NS_SWIFT_NAME(TYPE);
+@property (readonly, class, strong) IOSIntArray *sizeTable NS_SWIFT_NAME(sizeTable);
+@property (readonly, class) jint SIZE NS_SWIFT_NAME(SIZE);
+@property (readonly, class) jint BYTES NS_SWIFT_NAME(BYTES);
 
 + (jint)MIN_VALUE;
 
@@ -69,7 +81,7 @@
  @param value the value to be represented by the                   
  <code>Integer</code>  object.
  */
-- (instancetype)initWithInt:(jint)value;
+- (instancetype __nonnull)initWithInt:(jint)value;
 
 /*!
  @brief Constructs a newly allocated <code>Integer</code> object that
@@ -83,7 +95,7 @@
                 contain a parsable integer.
  - seealso: java.lang.Integer
  */
-- (instancetype)initWithNSString:(NSString *)s;
+- (instancetype __nonnull)initWithNSString:(NSString *)s;
 
 /*!
  @brief Returns the number of one-bits in the two's complement binary
@@ -172,7 +184,7 @@
              contain a parsable integer.
  - seealso: java.lang.Integer
  */
-+ (JavaLangInteger *)decodeWithNSString:(NSString *)nm;
++ (JavaLangInteger * __nonnull)decodeWithNSString:(NSString *)nm;
 
 /*!
  @brief Returns the value of this <code>Integer</code> as a 
@@ -221,7 +233,7 @@
  - seealso: java.lang.System
  - seealso: java.lang.System
  */
-+ (JavaLangInteger *)getIntegerWithNSString:(NSString *)nm;
++ (JavaLangInteger * __nullable)getIntegerWithNSString:(NSString *)nm;
 
 /*!
  @brief Determines the integer value of the system property with the
@@ -260,8 +272,8 @@
  - seealso: java.lang.System
  - seealso: java.lang.System
  */
-+ (JavaLangInteger *)getIntegerWithNSString:(NSString *)nm
-                                    withInt:(jint)val;
++ (JavaLangInteger * __nullable)getIntegerWithNSString:(NSString *)nm
+                                               withInt:(jint)val;
 
 /*!
  @brief Returns the integer value of the system property with the
@@ -298,8 +310,8 @@
  - seealso: java.lang.System
  - seealso: java.lang.Integer
  */
-+ (JavaLangInteger *)getIntegerWithNSString:(NSString *)nm
-                        withJavaLangInteger:(JavaLangInteger *)val;
++ (JavaLangInteger * __nullable)getIntegerWithNSString:(NSString *)nm
+                                   withJavaLangInteger:(JavaLangInteger *)val;
 
 /*!
  @brief Returns a hash code for this <code>Integer</code>.
@@ -597,7 +609,7 @@
            represented by the argument in binary (base&nbsp;2).
  @since JDK1.0.2
  */
-+ (NSString *)toBinaryStringWithInt:(jint)i;
++ (NSString * __nonnull)toBinaryStringWithInt:(jint)i;
 
 /*!
  @brief Returns a string representation of the integer argument as an
@@ -628,7 +640,7 @@
            represented by the argument in hexadecimal (base&nbsp;16).
  @since JDK1.0.2
  */
-+ (NSString *)toHexStringWithInt:(jint)i;
++ (NSString * __nonnull)toHexStringWithInt:(jint)i;
 
 /*!
  @brief Returns a string representation of the integer argument as an
@@ -654,7 +666,7 @@
            represented by the argument in octal (base&nbsp;8).
  @since JDK1.0.2
  */
-+ (NSString *)toOctalStringWithInt:(jint)i;
++ (NSString * __nonnull)toOctalStringWithInt:(jint)i;
 
 /*!
  @brief Returns a <code>String</code> object representing this 
@@ -665,7 +677,7 @@
  @return a string representation of the value of this object in
            base&nbsp;10.
  */
-- (NSString *)description;
+- (NSString * __nonnull)description;
 
 /*!
  @brief Returns a <code>String</code> object representing the
@@ -676,7 +688,7 @@
  @param i an integer to be converted.
  @return a string representation of the argument in base&nbsp;10.
  */
-+ (NSString *)toStringWithInt:(jint)i;
++ (NSString * __nonnull)toStringWithInt:(jint)i;
 
 /*!
  @brief Returns a string representation of the first argument in the
@@ -715,8 +727,8 @@
  - seealso: java.lang.Character
  - seealso: java.lang.Character
  */
-+ (NSString *)toStringWithInt:(jint)i
-                      withInt:(jint)radix;
++ (NSString * __nonnull)toStringWithInt:(jint)i
+                                withInt:(jint)radix;
 
 /*!
  @brief Returns an <code>Integer</code> instance representing the specified 
@@ -731,7 +743,7 @@
  @return an <code>Integer</code> instance representing <code>i</code>.
  @since 1.5
  */
-+ (JavaLangInteger *)valueOfWithInt:(jint)i;
++ (JavaLangInteger * __nonnull)valueOfWithInt:(jint)i;
 
 /*!
  @brief Returns an <code>Integer</code> object holding the
@@ -753,7 +765,7 @@
  @throw NumberFormatExceptionif the string cannot be parsed
               as an integer.
  */
-+ (JavaLangInteger *)valueOfWithNSString:(NSString *)s;
++ (JavaLangInteger * __nonnull)valueOfWithNSString:(NSString *)s;
 
 /*!
  @brief Returns an <code>Integer</code> object holding the value
@@ -778,8 +790,8 @@
  @throw NumberFormatExceptionif the <code>String</code>
              does not contain a parsable <code>int</code>.
  */
-+ (JavaLangInteger *)valueOfWithNSString:(NSString *)s
-                                 withInt:(jint)radix;
++ (JavaLangInteger * __nonnull)valueOfWithNSString:(NSString *)s
+                                           withInt:(jint)radix;
 
 #pragma mark Package-Private
 
@@ -799,7 +811,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -938,6 +950,10 @@ BOXED_SHIFT_ASSIGN_32(Int, intValue, jint, JavaLangInteger)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangInteger")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoPipedReader_) && (INCLUDE_ALL_JavaIoPipedReader || defined(INCLUDE_JavaIoPipedReader))
 #define JavaIoPipedReader_
 
@@ -67,7 +73,7 @@
   to a <code>PipedWriter</code>
   before being used.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a <code>PipedReader</code> so that it is not yet 
@@ -80,7 +86,7 @@
  @throw IllegalArgumentExceptionif <code>pipeSize <= 0</code>.
  @since 1.6
  */
-- (instancetype)initWithInt:(jint)pipeSize;
+- (instancetype __nonnull)initWithInt:(jint)pipeSize;
 
 /*!
  @brief Creates a <code>PipedReader</code> so
@@ -90,7 +96,7 @@
  @param src the stream to connect to.
  @throw IOExceptionif an I/O error occurs.
  */
-- (instancetype)initWithJavaIoPipedWriter:(JavaIoPipedWriter *)src;
+- (instancetype __nonnull)initWithJavaIoPipedWriter:(JavaIoPipedWriter *)src;
 
 /*!
  @brief Creates a <code>PipedReader</code> so that it is connected
@@ -103,8 +109,8 @@
  @throw IllegalArgumentExceptionif <code>pipeSize <= 0</code>.
  @since 1.6
  */
-- (instancetype)initWithJavaIoPipedWriter:(JavaIoPipedWriter *)src
-                                  withInt:(jint)pipeSize;
+- (instancetype __nonnull)initWithJavaIoPipedWriter:(JavaIoPipedWriter *)src
+                                            withInt:(jint)pipeSize;
 
 /*!
  @brief Closes this piped stream and releases any system resources
@@ -209,7 +215,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithId:(id)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithId:(id)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -247,6 +253,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoPipedReader)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoPipedReader")

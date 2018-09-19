@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecurityGuardedObject_) && (INCLUDE_ALL_JavaSecurityGuardedObject || defined(INCLUDE_JavaSecurityGuardedObject))
 #define JavaSecurityGuardedObject_
 
@@ -53,8 +59,8 @@
  @param object the object to be guarded.
  @param guard the Guard object that guards access to the object.
  */
-- (instancetype)initWithId:(id)object
-     withJavaSecurityGuard:(id<JavaSecurityGuard>)guard;
+- (instancetype __nonnull)initWithId:(id)object
+               withJavaSecurityGuard:(id<JavaSecurityGuard>)guard;
 
 /*!
  @brief Retrieves the guarded object, or throws an exception if access
@@ -67,7 +73,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -83,6 +89,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityGuardedObject)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityGuardedObject")

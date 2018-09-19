@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoStringWriter_) && (INCLUDE_ALL_JavaIoStringWriter || defined(INCLUDE_JavaIoStringWriter))
 #define JavaIoStringWriter_
 
@@ -45,7 +51,7 @@
  @brief Create a new string writer using the default initial string-buffer
   size.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Create a new string writer using the specified initial string-buffer
@@ -55,7 +61,7 @@
  @throw IllegalArgumentException
  If <tt>initialSize</tt> is negative
  */
-- (instancetype)initWithInt:(jint)initialSize;
+- (instancetype __nonnull)initWithInt:(jint)initialSize;
 
 /*!
  @brief Appends the specified character to this writer.
@@ -176,7 +182,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithId:(id)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithId:(id)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -198,6 +204,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoStringWriter)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoStringWriter")

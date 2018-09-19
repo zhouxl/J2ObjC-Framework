@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentConcurrentLinkedQueue_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentLinkedQueue || defined(INCLUDE_JavaUtilConcurrentConcurrentLinkedQueue))
 #define JavaUtilConcurrentConcurrentLinkedQueue_
 
@@ -105,7 +111,7 @@
 /*!
  @brief Creates a <code>ConcurrentLinkedQueue</code> that is initially empty.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a <code>ConcurrentLinkedQueue</code>
@@ -115,7 +121,7 @@
  @throw NullPointerExceptionif the specified collection or any
           of its elements are null
  */
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Inserts the specified element at the tail of this queue.
@@ -379,6 +385,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentLinkedQueue_Node)
   jint batch_;
   jboolean exhausted_;
 }
+@property (readonly, class) jint MAX_BATCH NS_SWIFT_NAME(MAX_BATCH);
 
 + (jint)MAX_BATCH;
 
@@ -396,11 +403,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentLinkedQueue_Node)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilConcurrentConcurrentLinkedQueue:(JavaUtilConcurrentConcurrentLinkedQueue *)queue;
+- (instancetype __nonnull)initWithJavaUtilConcurrentConcurrentLinkedQueue:(JavaUtilConcurrentConcurrentLinkedQueue *)queue;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -423,6 +430,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentLinkedQueue_CLQSpliterato
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentConcurrentLinkedQueue")

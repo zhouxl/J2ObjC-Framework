@@ -22,6 +22,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilAbstractList_) && (INCLUDE_ALL_JavaUtilAbstractList || defined(INCLUDE_JavaUtilAbstractList))
 #define JavaUtilAbstractList_
 
@@ -342,7 +348,7 @@
  (For invocation by subclass constructors, typically
   implicit.)
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Removes from this list all of the elements whose index is between 
@@ -422,13 +428,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractList)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilAbstractList:(JavaUtilAbstractList *)list
-                                     withInt:(jint)fromIndex
-                                     withInt:(jint)toIndex;
+- (instancetype __nonnull)initWithJavaUtilAbstractList:(JavaUtilAbstractList *)list
+                                               withInt:(jint)fromIndex
+                                               withInt:(jint)toIndex;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -463,9 +469,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSubList)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilAbstractList:(JavaUtilAbstractList *)list
-                                     withInt:(jint)fromIndex
-                                     withInt:(jint)toIndex;
+- (instancetype __nonnull)initWithJavaUtilAbstractList:(JavaUtilAbstractList *)list
+                                               withInt:(jint)fromIndex
+                                               withInt:(jint)toIndex;
 
 @end
 
@@ -481,6 +487,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRandomAccessSubList)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilAbstractList")

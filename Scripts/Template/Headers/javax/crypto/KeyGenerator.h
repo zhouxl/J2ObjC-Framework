@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxCryptoKeyGenerator_) && (INCLUDE_ALL_JavaxCryptoKeyGenerator || defined(INCLUDE_JavaxCryptoKeyGenerator))
 #define JavaxCryptoKeyGenerator_
 
@@ -309,9 +315,9 @@ withJavaSecuritySecureRandom:(JavaSecuritySecureRandom *)random OBJC_METHOD_FAMI
  @param provider the provider
  @param algorithm the algorithm
  */
-- (instancetype)initWithJavaxCryptoKeyGeneratorSpi:(JavaxCryptoKeyGeneratorSpi *)keyGenSpi
-                          withJavaSecurityProvider:(JavaSecurityProvider *)provider
-                                      withNSString:(NSString *)algorithm;
+- (instancetype __nonnull)initWithJavaxCryptoKeyGeneratorSpi:(JavaxCryptoKeyGeneratorSpi *)keyGenSpi
+                                    withJavaSecurityProvider:(JavaSecurityProvider *)provider
+                                                withNSString:(NSString *)algorithm;
 
 #pragma mark Package-Private
 
@@ -319,7 +325,7 @@ withJavaSecuritySecureRandom:(JavaSecuritySecureRandom *)random OBJC_METHOD_FAMI
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -341,6 +347,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoKeyGenerator)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxCryptoKeyGenerator")

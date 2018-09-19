@@ -18,6 +18,7 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -59,7 +60,7 @@
 
 #pragma mark Public
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Ask the authenticator that has been registered with the system
@@ -288,6 +289,8 @@ typedef NS_ENUM(NSUInteger, JavaNetAuthenticator_RequestorType_Enum) {
  */
 @interface JavaNetAuthenticator_RequestorType : JavaLangEnum
 
+@property (readonly, class, nonnull) JavaNetAuthenticator_RequestorType *PROXY NS_SWIFT_NAME(PROXY);
+@property (readonly, class, nonnull) JavaNetAuthenticator_RequestorType *SERVER NS_SWIFT_NAME(SERVER);
 + (JavaNetAuthenticator_RequestorType * __nonnull)PROXY;
 
 + (JavaNetAuthenticator_RequestorType * __nonnull)SERVER;

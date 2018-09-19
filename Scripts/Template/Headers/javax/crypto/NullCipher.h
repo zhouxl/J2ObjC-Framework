@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxCryptoNullCipher_) && (INCLUDE_ALL_JavaxCryptoNullCipher || defined(INCLUDE_JavaxCryptoNullCipher))
 #define JavaxCryptoNullCipher_
 
@@ -40,13 +46,13 @@
 
 #pragma mark Public
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaxCryptoCipherSpi:(JavaxCryptoCipherSpi *)arg0
-                    withJavaSecurityProvider:(JavaSecurityProvider *)arg1
-                                withNSString:(NSString *)arg2 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaxCryptoCipherSpi:(JavaxCryptoCipherSpi *)arg0
+                              withJavaSecurityProvider:(JavaSecurityProvider *)arg1
+                                          withNSString:(NSString *)arg2 NS_UNAVAILABLE;
 
 @end
 
@@ -62,6 +68,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoNullCipher)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxCryptoNullCipher")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNetNetworkInterface_) && (INCLUDE_ALL_JavaNetNetworkInterface || defined(INCLUDE_JavaNetNetworkInterface))
 #define JavaNetNetworkInterface_
 
@@ -266,11 +272,11 @@
  Setting such an interface on a MulticastSocket will cause the
   kernel to choose one interface for sending multicast packets.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
-- (instancetype)initWithNSString:(NSString *)name
-                         withInt:(jint)index
-     withJavaNetInetAddressArray:(IOSObjectArray *)addrs;
+- (instancetype __nonnull)initWithNSString:(NSString *)name
+                                   withInt:(jint)index
+               withJavaNetInetAddressArray:(IOSObjectArray *)addrs;
 
 /*!
  @brief Returns the default network interface of this system
@@ -308,6 +314,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetNetworkInterface)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetNetworkInterface")

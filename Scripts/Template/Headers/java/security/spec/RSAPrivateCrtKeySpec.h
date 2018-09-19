@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecuritySpecRSAPrivateCrtKeySpec_) && (INCLUDE_ALL_JavaSecuritySpecRSAPrivateCrtKeySpec || defined(INCLUDE_JavaSecuritySpecRSAPrivateCrtKeySpec))
 #define JavaSecuritySpecRSAPrivateCrtKeySpec_
 
@@ -55,14 +61,14 @@
  @param primeExponentQ this is d mod (q-1)
  @param crtCoefficient the Chinese Remainder Theorem  coefficient q-1 mod p
  */
-- (instancetype)initWithJavaMathBigInteger:(JavaMathBigInteger *)modulus
-                    withJavaMathBigInteger:(JavaMathBigInteger *)publicExponent
-                    withJavaMathBigInteger:(JavaMathBigInteger *)privateExponent
-                    withJavaMathBigInteger:(JavaMathBigInteger *)primeP
-                    withJavaMathBigInteger:(JavaMathBigInteger *)primeQ
-                    withJavaMathBigInteger:(JavaMathBigInteger *)primeExponentP
-                    withJavaMathBigInteger:(JavaMathBigInteger *)primeExponentQ
-                    withJavaMathBigInteger:(JavaMathBigInteger *)crtCoefficient;
+- (instancetype __nonnull)initWithJavaMathBigInteger:(JavaMathBigInteger *)modulus
+                              withJavaMathBigInteger:(JavaMathBigInteger *)publicExponent
+                              withJavaMathBigInteger:(JavaMathBigInteger *)privateExponent
+                              withJavaMathBigInteger:(JavaMathBigInteger *)primeP
+                              withJavaMathBigInteger:(JavaMathBigInteger *)primeQ
+                              withJavaMathBigInteger:(JavaMathBigInteger *)primeExponentP
+                              withJavaMathBigInteger:(JavaMathBigInteger *)primeExponentQ
+                              withJavaMathBigInteger:(JavaMathBigInteger *)crtCoefficient;
 
 /*!
  @brief Returns the crtCoefficient.
@@ -102,8 +108,8 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaMathBigInteger:(JavaMathBigInteger *)arg0
-                    withJavaMathBigInteger:(JavaMathBigInteger *)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaMathBigInteger:(JavaMathBigInteger *)arg0
+                              withJavaMathBigInteger:(JavaMathBigInteger *)arg1 NS_UNAVAILABLE;
 
 @end
 
@@ -119,6 +125,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecRSAPrivateCrtKeySpec)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecRSAPrivateCrtKeySpec")

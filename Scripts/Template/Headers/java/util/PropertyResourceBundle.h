@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilPropertyResourceBundle_) && (INCLUDE_ALL_JavaUtilPropertyResourceBundle || defined(INCLUDE_JavaUtilPropertyResourceBundle))
 #define JavaUtilPropertyResourceBundle_
 
@@ -103,7 +109,7 @@
  @throw IOExceptionif an I/O error occurs
  @throw NullPointerExceptionif <code>stream</code> is null
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)stream;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)stream;
 
 /*!
  @brief Creates a property resource bundle from a <code>Reader</code>
@@ -115,7 +121,7 @@
  @throw NullPointerExceptionif <code>reader</code> is null
  @since 1.6
  */
-- (instancetype)initWithJavaIoReader:(JavaIoReader *)reader;
+- (instancetype __nonnull)initWithJavaIoReader:(JavaIoReader *)reader;
 
 /*!
  @brief Returns an <code>Enumeration</code> of the keys contained in
@@ -142,7 +148,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -164,6 +170,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilPropertyResourceBundle)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilPropertyResourceBundle")

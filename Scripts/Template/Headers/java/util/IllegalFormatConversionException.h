@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilIllegalFormatConversionException_) && (INCLUDE_ALL_JavaUtilIllegalFormatConversionException || defined(INCLUDE_JavaUtilIllegalFormatConversionException))
 #define JavaUtilIllegalFormatConversionException_
 
@@ -43,8 +49,8 @@
  @param c Inapplicable conversion
  @param arg Class of the mismatched argument
  */
-- (instancetype)initWithChar:(jchar)c
-                withIOSClass:(IOSClass *)arg;
+- (instancetype __nonnull)initWithChar:(jchar)c
+                          withIOSClass:(IOSClass *)arg;
 
 /*!
  @brief Returns the class of the mismatched argument.
@@ -62,7 +68,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -78,6 +84,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIllegalFormatConversionException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilIllegalFormatConversionException")

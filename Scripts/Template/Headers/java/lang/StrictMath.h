@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaLangStrictMath_) && (INCLUDE_ALL_JavaLangStrictMath || defined(INCLUDE_JavaLangStrictMath))
 #define JavaLangStrictMath_
 
@@ -50,6 +56,8 @@
  @since 1.3
  */
 @interface JavaLangStrictMath : NSObject
+@property (readonly, class) jdouble E NS_SWIFT_NAME(E);
+@property (readonly, class) jdouble PI NS_SWIFT_NAME(PI);
 
 + (jdouble)E;
 
@@ -1555,6 +1563,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangStrictMath)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaLangStrictMath")

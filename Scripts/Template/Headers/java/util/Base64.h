@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilBase64_) && (INCLUDE_ALL_JavaUtilBase64 || defined(INCLUDE_JavaUtilBase64))
 #define JavaUtilBase64_
 
@@ -168,6 +174,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilBase64)
  @since 1.8
  */
 @interface JavaUtilBase64_Encoder : NSObject
+@property (readonly, class, strong) JavaUtilBase64_Encoder *RFC4648 NS_SWIFT_NAME(RFC4648);
+@property (readonly, class, strong) JavaUtilBase64_Encoder *RFC4648_URLSAFE NS_SWIFT_NAME(RFC4648_URLSAFE);
+@property (readonly, class, strong) JavaUtilBase64_Encoder *RFC2045 NS_SWIFT_NAME(RFC2045);
 
 + (JavaUtilBase64_Encoder *)RFC4648;
 
@@ -258,7 +267,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilBase64)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -313,6 +322,9 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilBase64_Encoder)
  @since 1.8
  */
 @interface JavaUtilBase64_Decoder : NSObject
+@property (readonly, class, strong) JavaUtilBase64_Decoder *RFC4648 NS_SWIFT_NAME(RFC4648);
+@property (readonly, class, strong) JavaUtilBase64_Decoder *RFC4648_URLSAFE NS_SWIFT_NAME(RFC4648_URLSAFE);
+@property (readonly, class, strong) JavaUtilBase64_Decoder *RFC2045 NS_SWIFT_NAME(RFC2045);
 
 + (JavaUtilBase64_Decoder *)RFC4648;
 
@@ -398,7 +410,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilBase64_Encoder)
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -423,6 +435,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilBase64_Decoder)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilBase64")

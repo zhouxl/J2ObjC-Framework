@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoObjectStreamException_) && (INCLUDE_ALL_JavaIoObjectStreamException || defined(INCLUDE_JavaIoObjectStreamException))
 #define JavaIoObjectStreamException_
 
@@ -35,13 +41,13 @@
 /*!
  @brief Create an ObjectStreamException.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Create an ObjectStreamException with the specified argument.
  @param classname the detailed message for the exception
  */
-- (instancetype)initWithNSString:(NSString *)classname;
+- (instancetype __nonnull)initWithNSString:(NSString *)classname;
 
 @end
 
@@ -55,6 +61,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectStreamException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoObjectStreamException")

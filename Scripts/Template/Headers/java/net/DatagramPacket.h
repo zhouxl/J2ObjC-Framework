@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaNetDatagramPacket_) && (INCLUDE_ALL_JavaNetDatagramPacket || defined(INCLUDE_JavaNetDatagramPacket))
 #define JavaNetDatagramPacket_
 
@@ -57,8 +63,8 @@
  @param buf buffer for holding the incoming datagram.
  @param length the number of bytes to read.
  */
-- (instancetype)initWithByteArray:(IOSByteArray *)buf
-                          withInt:(jint)length;
+- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)buf
+                                    withInt:(jint)length;
 
 /*!
  @brief Constructs a datagram packet for sending packets of length 
@@ -71,10 +77,10 @@
  @param port the destination port number.
  - seealso: java.net.InetAddress
  */
-- (instancetype)initWithByteArray:(IOSByteArray *)buf
-                          withInt:(jint)length
-           withJavaNetInetAddress:(JavaNetInetAddress *)address
-                          withInt:(jint)port;
+- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)buf
+                                    withInt:(jint)length
+                     withJavaNetInetAddress:(JavaNetInetAddress *)address
+                                    withInt:(jint)port;
 
 /*!
  @brief Constructs a <code>DatagramPacket</code> for receiving packets of
@@ -87,9 +93,9 @@
  @param length the number of bytes to read.
  @since 1.2
  */
-- (instancetype)initWithByteArray:(IOSByteArray *)buf
-                          withInt:(jint)offset
-                          withInt:(jint)length;
+- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)buf
+                                    withInt:(jint)offset
+                                    withInt:(jint)length;
 
 /*!
  @brief Constructs a datagram packet for sending packets of length 
@@ -105,11 +111,11 @@
  - seealso: java.net.InetAddress
  @since 1.2
  */
-- (instancetype)initWithByteArray:(IOSByteArray *)buf
-                          withInt:(jint)offset
-                          withInt:(jint)length
-           withJavaNetInetAddress:(JavaNetInetAddress *)address
-                          withInt:(jint)port;
+- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)buf
+                                    withInt:(jint)offset
+                                    withInt:(jint)length
+                     withJavaNetInetAddress:(JavaNetInetAddress *)address
+                                    withInt:(jint)port;
 
 /*!
  @brief Constructs a datagram packet for sending packets of length 
@@ -125,10 +131,10 @@
  - seealso: java.net.InetAddress
  @since 1.4
  */
-- (instancetype)initWithByteArray:(IOSByteArray *)buf
-                          withInt:(jint)offset
-                          withInt:(jint)length
-         withJavaNetSocketAddress:(JavaNetSocketAddress *)address;
+- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)buf
+                                    withInt:(jint)offset
+                                    withInt:(jint)length
+                   withJavaNetSocketAddress:(JavaNetSocketAddress *)address;
 
 /*!
  @brief Constructs a datagram packet for sending packets of length 
@@ -142,9 +148,9 @@
  @since 1.4
  - seealso: java.net.InetAddress
  */
-- (instancetype)initWithByteArray:(IOSByteArray *)buf
-                          withInt:(jint)length
-         withJavaNetSocketAddress:(JavaNetSocketAddress *)address;
+- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)buf
+                                    withInt:(jint)length
+                   withJavaNetSocketAddress:(JavaNetSocketAddress *)address;
 
 /*!
  @brief Returns the IP address of the machine to which this datagram is being
@@ -282,7 +288,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -331,6 +337,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetDatagramPacket)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaNetDatagramPacket")

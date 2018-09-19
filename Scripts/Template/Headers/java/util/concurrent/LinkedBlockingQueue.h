@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentLinkedBlockingQueue_) && (INCLUDE_ALL_JavaUtilConcurrentLinkedBlockingQueue || defined(INCLUDE_JavaUtilConcurrentLinkedBlockingQueue))
 #define JavaUtilConcurrentLinkedBlockingQueue_
 
@@ -76,7 +82,7 @@
  @brief Creates a <code>LinkedBlockingQueue</code> with a capacity of 
  <code>Integer.MAX_VALUE</code>.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates a <code>LinkedBlockingQueue</code> with a capacity of 
@@ -87,7 +93,7 @@
  @throw NullPointerExceptionif the specified collection or any
           of its elements are null
  */
-- (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
+- (instancetype __nonnull)initWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
 /*!
  @brief Creates a <code>LinkedBlockingQueue</code> with the given (fixed) capacity.
@@ -95,7 +101,7 @@
  @throw IllegalArgumentExceptionif <code>capacity</code> is not greater
           than zero
  */
-- (instancetype)initWithInt:(jint)capacity;
+- (instancetype __nonnull)initWithInt:(jint)capacity;
 
 /*!
  @brief Atomically removes all of the elements from this queue.
@@ -340,11 +346,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingQueue)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithId:(id)x;
+- (instancetype __nonnull)initWithId:(id)x;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -386,6 +392,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingQueue_Node)
   jboolean exhausted_;
   jlong est_;
 }
+@property (readonly, class) jint MAX_BATCH NS_SWIFT_NAME(MAX_BATCH);
 
 + (jint)MAX_BATCH;
 
@@ -403,11 +410,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingQueue_Node)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilConcurrentLinkedBlockingQueue:(JavaUtilConcurrentLinkedBlockingQueue *)queue;
+- (instancetype __nonnull)initWithJavaUtilConcurrentLinkedBlockingQueue:(JavaUtilConcurrentLinkedBlockingQueue *)queue;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -430,6 +437,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingQueue_LBQSpliterator)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentLinkedBlockingQueue")

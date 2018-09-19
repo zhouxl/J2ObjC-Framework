@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaTextFormat_) && (INCLUDE_ALL_JavaTextFormat || defined(INCLUDE_JavaTextFormat))
 #define JavaTextFormat_
 
@@ -224,7 +230,7 @@
  (For invocation by subclass constructors, typically
   implicit.)
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 #pragma mark Package-Private
 
@@ -304,7 +310,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextFormat)
  @brief Creates a Field with the specified name.
  @param name Name of the attribute
  */
-- (instancetype)initWithNSString:(NSString *)name;
+- (instancetype __nonnull)initWithNSString:(NSString *)name;
 
 @end
 
@@ -380,6 +386,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextFormat_FieldDelegate)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaTextFormat")

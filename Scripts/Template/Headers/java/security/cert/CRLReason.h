@@ -18,6 +18,7 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -56,6 +57,17 @@ typedef NS_ENUM(NSUInteger, JavaSecurityCertCRLReason_Enum) {
  */
 @interface JavaSecurityCertCRLReason : JavaLangEnum
 
+@property (readonly, class, nonnull) JavaSecurityCertCRLReason *UNSPECIFIED NS_SWIFT_NAME(UNSPECIFIED);
+@property (readonly, class, nonnull) JavaSecurityCertCRLReason *KEY_COMPROMISE NS_SWIFT_NAME(KEY_COMPROMISE);
+@property (readonly, class, nonnull) JavaSecurityCertCRLReason *CA_COMPROMISE NS_SWIFT_NAME(CA_COMPROMISE);
+@property (readonly, class, nonnull) JavaSecurityCertCRLReason *AFFILIATION_CHANGED NS_SWIFT_NAME(AFFILIATION_CHANGED);
+@property (readonly, class, nonnull) JavaSecurityCertCRLReason *SUPERSEDED NS_SWIFT_NAME(SUPERSEDED);
+@property (readonly, class, nonnull) JavaSecurityCertCRLReason *CESSATION_OF_OPERATION NS_SWIFT_NAME(CESSATION_OF_OPERATION);
+@property (readonly, class, nonnull) JavaSecurityCertCRLReason *CERTIFICATE_HOLD NS_SWIFT_NAME(CERTIFICATE_HOLD);
+@property (readonly, class, nonnull) JavaSecurityCertCRLReason *UNUSED NS_SWIFT_NAME(UNUSED);
+@property (readonly, class, nonnull) JavaSecurityCertCRLReason *REMOVE_FROM_CRL NS_SWIFT_NAME(REMOVE_FROM_CRL);
+@property (readonly, class, nonnull) JavaSecurityCertCRLReason *PRIVILEGE_WITHDRAWN NS_SWIFT_NAME(PRIVILEGE_WITHDRAWN);
+@property (readonly, class, nonnull) JavaSecurityCertCRLReason *AA_COMPROMISE NS_SWIFT_NAME(AA_COMPROMISE);
 + (JavaSecurityCertCRLReason * __nonnull)UNSPECIFIED;
 
 + (JavaSecurityCertCRLReason * __nonnull)KEY_COMPROMISE;

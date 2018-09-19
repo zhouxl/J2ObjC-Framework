@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecurityUnrecoverableKeyException_) && (INCLUDE_ALL_JavaSecurityUnrecoverableKeyException || defined(INCLUDE_JavaSecurityUnrecoverableKeyException))
 #define JavaSecurityUnrecoverableKeyException_
 
@@ -34,7 +40,7 @@
 /*!
  @brief Constructs an UnrecoverableKeyException with no detail message.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs an UnrecoverableKeyException with the specified detail
@@ -42,7 +48,7 @@
   has been thrown.
  @param msg the detail message.
  */
-- (instancetype)initWithNSString:(NSString *)msg;
+- (instancetype __nonnull)initWithNSString:(NSString *)msg;
 
 @end
 
@@ -64,6 +70,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityUnrecoverableKeyException)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityUnrecoverableKeyException")

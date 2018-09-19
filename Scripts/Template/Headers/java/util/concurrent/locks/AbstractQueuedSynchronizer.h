@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentLocksAbstractQueuedSynchronizer_) && (INCLUDE_ALL_JavaUtilConcurrentLocksAbstractQueuedSynchronizer || defined(INCLUDE_JavaUtilConcurrentLocksAbstractQueuedSynchronizer))
 #define JavaUtilConcurrentLocksAbstractQueuedSynchronizer_
 
@@ -252,6 +258,7 @@
  @author Doug Lea
  */
 @interface JavaUtilConcurrentLocksAbstractQueuedSynchronizer : JavaUtilConcurrentLocksAbstractOwnableSynchronizer < JavaIoSerializable >
+@property (readonly, class) jlong SPIN_FOR_TIMEOUT_THRESHOLD NS_SWIFT_NAME(SPIN_FOR_TIMEOUT_THRESHOLD);
 
 + (jlong)SPIN_FOR_TIMEOUT_THRESHOLD;
 
@@ -573,7 +580,7 @@
  @brief Creates a new <code>AbstractQueuedSynchronizer</code> instance
   with initial synchronization state of zero.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Atomically sets synchronization state to the given updated
@@ -954,6 +961,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksAbstractQueuedSynchronizer)
    */
   JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node *nextWaiter_;
 }
+@property (readonly, class, strong) JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node *SHARED NS_SWIFT_NAME(SHARED);
+@property (readonly, class, strong) JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node *EXCLUSIVE NS_SWIFT_NAME(EXCLUSIVE);
+@property (readonly, class) jint CANCELLED NS_SWIFT_NAME(CANCELLED);
+@property (readonly, class) jint SIGNAL NS_SWIFT_NAME(SIGNAL);
+@property (readonly, class) jint CONDITION NS_SWIFT_NAME(CONDITION);
+@property (readonly, class) jint PROPAGATE NS_SWIFT_NAME(PROPAGATE);
+@property (readonly, class) jlong PREV NS_SWIFT_NAME(PREV);
 
 + (JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node *)SHARED;
 
@@ -974,17 +988,17 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksAbstractQueuedSynchronizer)
 /*!
  @brief Establishes initial head or SHARED marker.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructor used by addConditionWaiter.
  */
-- (instancetype)initWithInt:(jint)waitStatus;
+- (instancetype __nonnull)initWithInt:(jint)waitStatus;
 
 /*!
  @brief Constructor used by addWaiter.
  */
-- (instancetype)initWithJavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node:(JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node *)nextWaiter;
+- (instancetype __nonnull)initWithJavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node:(JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node *)nextWaiter;
 
 /*!
  @brief CASes next field.
@@ -1129,7 +1143,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Nod
 /*!
  @brief Creates a new <code>ConditionObject</code> instance.
  */
-- (instancetype)initWithJavaUtilConcurrentLocksAbstractQueuedSynchronizer:(JavaUtilConcurrentLocksAbstractQueuedSynchronizer *)outer$;
+- (instancetype __nonnull)initWithJavaUtilConcurrentLocksAbstractQueuedSynchronizer:(JavaUtilConcurrentLocksAbstractQueuedSynchronizer *)outer$;
 
 /*!
  @brief Implements interruptible condition wait.
@@ -1266,7 +1280,7 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -1282,6 +1296,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Con
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentLocksAbstractQueuedSynchronizer")

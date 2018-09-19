@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoBufferedReader_) && (INCLUDE_ALL_JavaIoBufferedReader || defined(INCLUDE_JavaIoBufferedReader))
 #define JavaIoBufferedReader_
 
@@ -63,7 +69,7 @@
   input buffer.
  @param inArg A Reader
  */
-- (instancetype)initWithJavaIoReader:(JavaIoReader *)inArg;
+- (instancetype __nonnull)initWithJavaIoReader:(JavaIoReader *)inArg;
 
 /*!
  @brief Creates a buffering character-input stream that uses an input buffer of
@@ -72,8 +78,8 @@
  @param sz Input-buffer size
  @throw IllegalArgumentExceptionIf sz is <= 0
  */
-- (instancetype)initWithJavaIoReader:(JavaIoReader *)inArg
-                             withInt:(jint)sz;
+- (instancetype __nonnull)initWithJavaIoReader:(JavaIoReader *)inArg
+                                       withInt:(jint)sz;
 
 - (void)close;
 
@@ -228,9 +234,9 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
-- (instancetype)initWithId:(id)arg0 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithId:(id)arg0 NS_UNAVAILABLE;
 
 @end
 
@@ -252,6 +258,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoBufferedReader)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoBufferedReader")

@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoStringBufferInputStream_) && (INCLUDE_ALL_JavaIoStringBufferInputStream || defined(INCLUDE_JavaIoStringBufferInputStream))
 #define JavaIoStringBufferInputStream_
 
@@ -63,7 +69,7 @@ __attribute__((deprecated))
  @brief Creates a string input stream to read data from the specified string.
  @param s the underlying input buffer.
  */
-- (instancetype)initWithNSString:(NSString *)s;
+- (instancetype __nonnull)initWithNSString:(NSString *)s;
 
 /*!
  @brief Returns the number of bytes that can be read from the input
@@ -124,7 +130,7 @@ __attribute__((deprecated))
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -142,6 +148,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoStringBufferInputStream)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoStringBufferInputStream")

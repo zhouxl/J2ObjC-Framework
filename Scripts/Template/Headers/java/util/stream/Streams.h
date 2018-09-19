@@ -43,6 +43,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilStreamStreams_) && (INCLUDE_ALL_JavaUtilStreamStreams || defined(INCLUDE_JavaUtilStreamStreams))
 #define JavaUtilStreamStreams_
 
@@ -57,6 +63,7 @@
  @since 1.8
  */
 @interface JavaUtilStreamStreams : NSObject
+@property (readonly, class, strong) id NONE NS_SWIFT_NAME(NONE);
 
 + (id)NONE;
 
@@ -134,13 +141,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithInt:(jint)from
-                    withInt:(jint)upTo
-                withBoolean:(jboolean)closed;
+- (instancetype __nonnull)initWithInt:(jint)from
+                              withInt:(jint)upTo
+                          withBoolean:(jboolean)closed;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -190,13 +197,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_RangeIntSpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithLong:(jlong)from
-                    withLong:(jlong)upTo
-                 withBoolean:(jboolean)closed;
+- (instancetype __nonnull)initWithLong:(jlong)from
+                              withLong:(jlong)upTo
+                           withBoolean:(jboolean)closed;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -277,13 +284,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_AbstractStreamBuilderImpl)
 /*!
  @brief Constructor for building a stream of 0 or more elements.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructor for a singleton stream.
  @param t the single element
  */
-- (instancetype)initWithId:(id)t;
+- (instancetype __nonnull)initWithId:(id)t;
 
 @end
 
@@ -345,13 +352,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_StreamBuilderImpl)
 /*!
  @brief Constructor for building a stream of 0 or more elements.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructor for a singleton stream.
  @param t the single element
  */
-- (instancetype)initWithInt:(jint)t;
+- (instancetype __nonnull)initWithInt:(jint)t;
 
 @end
 
@@ -412,13 +419,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_IntStreamBuilderImpl)
 /*!
  @brief Constructor for building a stream of 0 or more elements.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructor for a singleton stream.
  @param t the single element
  */
-- (instancetype)initWithLong:(jlong)t;
+- (instancetype __nonnull)initWithLong:(jlong)t;
 
 @end
 
@@ -479,13 +486,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_LongStreamBuilderImpl)
 /*!
  @brief Constructor for building a stream of 0 or more elements.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructor for a singleton stream.
  @param t the single element
  */
-- (instancetype)initWithDouble:(jdouble)t;
+- (instancetype __nonnull)initWithDouble:(jdouble)t;
 
 @end
 
@@ -529,8 +536,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_DoubleStreamBuilderImpl)
 
 #pragma mark Public
 
-- (instancetype)initWithJavaUtilSpliterator:(id<JavaUtilSpliterator>)aSpliterator
-                    withJavaUtilSpliterator:(id<JavaUtilSpliterator>)bSpliterator;
+- (instancetype __nonnull)initWithJavaUtilSpliterator:(id<JavaUtilSpliterator>)aSpliterator
+                              withJavaUtilSpliterator:(id<JavaUtilSpliterator>)bSpliterator;
 
 - (jint)characteristics;
 
@@ -566,8 +573,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_ConcatSpliterator)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilSpliterator:(id<JavaUtilSpliterator>)aSpliterator
-                    withJavaUtilSpliterator:(id<JavaUtilSpliterator>)bSpliterator;
+- (instancetype __nonnull)initWithJavaUtilSpliterator:(id<JavaUtilSpliterator>)aSpliterator
+                              withJavaUtilSpliterator:(id<JavaUtilSpliterator>)bSpliterator;
 
 @end
 
@@ -617,8 +624,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_ConcatSpliterator_OfPrimitive)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilSpliterator_OfInt:(id<JavaUtilSpliterator_OfInt>)aSpliterator
-                    withJavaUtilSpliterator_OfInt:(id<JavaUtilSpliterator_OfInt>)bSpliterator;
+- (instancetype __nonnull)initWithJavaUtilSpliterator_OfInt:(id<JavaUtilSpliterator_OfInt>)aSpliterator
+                              withJavaUtilSpliterator_OfInt:(id<JavaUtilSpliterator_OfInt>)bSpliterator;
 
 @end
 
@@ -645,8 +652,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_ConcatSpliterator_OfInt)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilSpliterator_OfLong:(id<JavaUtilSpliterator_OfLong>)aSpliterator
-                    withJavaUtilSpliterator_OfLong:(id<JavaUtilSpliterator_OfLong>)bSpliterator;
+- (instancetype __nonnull)initWithJavaUtilSpliterator_OfLong:(id<JavaUtilSpliterator_OfLong>)aSpliterator
+                              withJavaUtilSpliterator_OfLong:(id<JavaUtilSpliterator_OfLong>)bSpliterator;
 
 @end
 
@@ -673,8 +680,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_ConcatSpliterator_OfLong)
 
 #pragma mark Package-Private
 
-- (instancetype)initWithJavaUtilSpliterator_OfDouble:(id<JavaUtilSpliterator_OfDouble>)aSpliterator
-                    withJavaUtilSpliterator_OfDouble:(id<JavaUtilSpliterator_OfDouble>)bSpliterator;
+- (instancetype __nonnull)initWithJavaUtilSpliterator_OfDouble:(id<JavaUtilSpliterator_OfDouble>)aSpliterator
+                              withJavaUtilSpliterator_OfDouble:(id<JavaUtilSpliterator_OfDouble>)bSpliterator;
 
 @end
 
@@ -690,6 +697,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStreamStreams_ConcatSpliterator_OfDouble)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilStreamStreams")

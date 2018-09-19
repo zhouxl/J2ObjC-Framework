@@ -18,6 +18,7 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -75,7 +76,22 @@ typedef NS_ENUM(NSUInteger, JavaUtilConcurrentTimeUnit_Enum) {
  @author Doug Lea
  */
 @interface JavaUtilConcurrentTimeUnit : JavaLangEnum
+@property (readonly, class) jlong C0 NS_SWIFT_NAME(C0);
+@property (readonly, class) jlong C1 NS_SWIFT_NAME(C1);
+@property (readonly, class) jlong C2 NS_SWIFT_NAME(C2);
+@property (readonly, class) jlong C3 NS_SWIFT_NAME(C3);
+@property (readonly, class) jlong C4 NS_SWIFT_NAME(C4);
+@property (readonly, class) jlong C5 NS_SWIFT_NAME(C5);
+@property (readonly, class) jlong C6 NS_SWIFT_NAME(C6);
+@property (readonly, class) jlong MAX NS_SWIFT_NAME(MAX);
 
+@property (readonly, class, nonnull) JavaUtilConcurrentTimeUnit *NANOSECONDS NS_SWIFT_NAME(NANOSECONDS);
+@property (readonly, class, nonnull) JavaUtilConcurrentTimeUnit *MICROSECONDS NS_SWIFT_NAME(MICROSECONDS);
+@property (readonly, class, nonnull) JavaUtilConcurrentTimeUnit *MILLISECONDS NS_SWIFT_NAME(MILLISECONDS);
+@property (readonly, class, nonnull) JavaUtilConcurrentTimeUnit *SECONDS NS_SWIFT_NAME(SECONDS);
+@property (readonly, class, nonnull) JavaUtilConcurrentTimeUnit *MINUTES NS_SWIFT_NAME(MINUTES);
+@property (readonly, class, nonnull) JavaUtilConcurrentTimeUnit *HOURS NS_SWIFT_NAME(HOURS);
+@property (readonly, class, nonnull) JavaUtilConcurrentTimeUnit *DAYS NS_SWIFT_NAME(DAYS);
 + (jlong)C0;
 
 + (jlong)C1;

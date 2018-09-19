@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaIoLineNumberReader_) && (INCLUDE_ALL_JavaIoLineNumberReader || defined(INCLUDE_JavaIoLineNumberReader))
 #define JavaIoLineNumberReader_
 
@@ -53,7 +59,7 @@
   size.
  @param inArg A Reader object to provide the underlying stream
  */
-- (instancetype)initWithJavaIoReader:(JavaIoReader *)inArg;
+- (instancetype __nonnull)initWithJavaIoReader:(JavaIoReader *)inArg;
 
 /*!
  @brief Create a new line-numbering reader, reading characters into a buffer of
@@ -61,8 +67,8 @@
  @param inArg A Reader object to provide the underlying stream
  @param sz An int specifying the size of the buffer
  */
-- (instancetype)initWithJavaIoReader:(JavaIoReader *)inArg
-                             withInt:(jint)sz;
+- (instancetype __nonnull)initWithJavaIoReader:(JavaIoReader *)inArg
+                                       withInt:(jint)sz;
 
 /*!
  @brief Get the current line number.
@@ -168,6 +174,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoLineNumberReader)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaIoLineNumberReader")

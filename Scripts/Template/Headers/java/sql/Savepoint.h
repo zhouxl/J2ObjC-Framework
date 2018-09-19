@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSqlSavepoint_) && (INCLUDE_ALL_JavaSqlSavepoint || defined(INCLUDE_JavaSqlSavepoint))
 #define JavaSqlSavepoint_
 
@@ -58,6 +64,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSavepoint)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSqlSavepoint")

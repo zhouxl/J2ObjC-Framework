@@ -22,6 +22,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilConcurrentLocksReentrantLock_) && (INCLUDE_ALL_JavaUtilConcurrentLocksReentrantLock || defined(INCLUDE_JavaUtilConcurrentLocksReentrantLock))
 #define JavaUtilConcurrentLocksReentrantLock_
 
@@ -105,14 +111,14 @@
  @brief Creates an instance of <code>ReentrantLock</code>.
  This is equivalent to using <code>ReentrantLock(false)</code>.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Creates an instance of <code>ReentrantLock</code> with the
   given fairness policy.
  @param fair<code>true</code>  if this lock should use a fair ordering policy
  */
-- (instancetype)initWithBoolean:(jboolean)fair;
+- (instancetype __nonnull)initWithBoolean:(jboolean)fair;
 
 /*!
  @brief Queries the number of holds on this lock by the current thread.
@@ -547,7 +553,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantLock)
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 - (jint)getHoldCount;
 
@@ -593,7 +599,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantLock_Sync)
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Performs lock.Try immediate barge, backing up to normal
@@ -633,7 +639,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantLock_NonfairSync)
 
 #pragma mark Package-Private
 
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 - (void)lock;
 
@@ -651,6 +657,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantLock_FairSync)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentLocksReentrantLock")

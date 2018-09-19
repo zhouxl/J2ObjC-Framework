@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxXmlTransformResult_) && (INCLUDE_ALL_JavaxXmlTransformResult || defined(INCLUDE_JavaxXmlTransformResult))
 #define JavaxXmlTransformResult_
 
@@ -46,6 +52,8 @@
 @end
 
 @interface JavaxXmlTransformResult : NSObject
+@property (readonly, copy, class) NSString *PI_DISABLE_OUTPUT_ESCAPING NS_SWIFT_NAME(PI_DISABLE_OUTPUT_ESCAPING);
+@property (readonly, copy, class) NSString *PI_ENABLE_OUTPUT_ESCAPING NS_SWIFT_NAME(PI_ENABLE_OUTPUT_ESCAPING);
 
 + (NSString *)PI_DISABLE_OUTPUT_ESCAPING;
 
@@ -92,6 +100,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformResult)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformResult")

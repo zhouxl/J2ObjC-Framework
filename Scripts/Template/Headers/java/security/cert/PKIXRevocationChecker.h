@@ -18,6 +18,7 @@
 
 #if __has_feature(nullability)
 #pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
 #pragma GCC diagnostic ignored "-Wnullability-completeness"
 #endif
 
@@ -196,7 +197,7 @@
 /*!
  @brief Default constructor.
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 @end
 
@@ -230,6 +231,10 @@ typedef NS_ENUM(NSUInteger, JavaSecurityCertPKIXRevocationChecker_Option_Enum) {
  */
 @interface JavaSecurityCertPKIXRevocationChecker_Option : JavaLangEnum
 
+@property (readonly, class, nonnull) JavaSecurityCertPKIXRevocationChecker_Option *ONLY_END_ENTITY NS_SWIFT_NAME(ONLY_END_ENTITY);
+@property (readonly, class, nonnull) JavaSecurityCertPKIXRevocationChecker_Option *PREFER_CRLS NS_SWIFT_NAME(PREFER_CRLS);
+@property (readonly, class, nonnull) JavaSecurityCertPKIXRevocationChecker_Option *NO_FALLBACK NS_SWIFT_NAME(NO_FALLBACK);
+@property (readonly, class, nonnull) JavaSecurityCertPKIXRevocationChecker_Option *SOFT_FAIL NS_SWIFT_NAME(SOFT_FAIL);
 + (JavaSecurityCertPKIXRevocationChecker_Option * __nonnull)ONLY_END_ENTITY;
 
 + (JavaSecurityCertPKIXRevocationChecker_Option * __nonnull)PREFER_CRLS;

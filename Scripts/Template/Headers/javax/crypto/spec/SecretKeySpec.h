@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaxCryptoSpecSecretKeySpec_) && (INCLUDE_ALL_JavaxCryptoSpecSecretKeySpec || defined(INCLUDE_JavaxCryptoSpecSecretKeySpec))
 #define JavaxCryptoSpecSecretKeySpec_
 
@@ -80,10 +86,10 @@
  <code>offset</code> or <code>len</code> index bytes outside the 
  <code>key</code>.
  */
-- (instancetype)initWithByteArray:(IOSByteArray *)key
-                          withInt:(jint)offset
-                          withInt:(jint)len
-                     withNSString:(NSString *)algorithm;
+- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)key
+                                    withInt:(jint)offset
+                                    withInt:(jint)len
+                               withNSString:(NSString *)algorithm;
 
 /*!
  @brief Constructs a secret key from the given byte array.
@@ -104,8 +110,8 @@
  @throw IllegalArgumentExceptionif <code>algorithm</code>
   is null or <code>key</code> is null or empty.
  */
-- (instancetype)initWithByteArray:(IOSByteArray *)key
-                     withNSString:(NSString *)algorithm;
+- (instancetype __nonnull)initWithByteArray:(IOSByteArray *)key
+                               withNSString:(NSString *)algorithm;
 
 /*!
  @brief Tests for equality between the specified object and this
@@ -145,7 +151,7 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -167,6 +173,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoSpecSecretKeySpec)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaxCryptoSpecSecretKeySpec")

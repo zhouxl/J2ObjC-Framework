@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilZipGZIPInputStream_) && (INCLUDE_ALL_JavaUtilZipGZIPInputStream || defined(INCLUDE_JavaUtilZipGZIPInputStream))
 #define JavaUtilZipGZIPInputStream_
 
@@ -45,6 +51,7 @@
    */
   jboolean eos_;
 }
+@property (readonly, class) jint GZIP_MAGIC NS_SWIFT_NAME(GZIP_MAGIC);
 
 + (jint)GZIP_MAGIC;
 
@@ -57,7 +64,7 @@
                           compression method used is unsupported
  @throw IOExceptionif an I/O error has occurred
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
 
 /*!
  @brief Creates a new input stream with the specified buffer size.
@@ -68,8 +75,8 @@
  @throw IOExceptionif an I/O error has occurred
  @throw IllegalArgumentExceptionif size is <= 0
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
-                                  withInt:(jint)size;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)inArg
+                                            withInt:(jint)size;
 
 /*!
  @brief Closes this input stream and releases any system resources associated
@@ -100,12 +107,12 @@
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)arg0
-                  withJavaUtilZipInflater:(JavaUtilZipInflater *)arg1 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)arg0
+                            withJavaUtilZipInflater:(JavaUtilZipInflater *)arg1 NS_UNAVAILABLE;
 
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)arg0
-                  withJavaUtilZipInflater:(JavaUtilZipInflater *)arg1
-                                  withInt:(jint)arg2 NS_UNAVAILABLE;
+- (instancetype __nonnull)initWithJavaIoInputStream:(JavaIoInputStream *)arg0
+                            withJavaUtilZipInflater:(JavaUtilZipInflater *)arg1
+                                            withInt:(jint)arg2 NS_UNAVAILABLE;
 
 @end
 
@@ -136,6 +143,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipGZIPInputStream)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilZipGZIPInputStream")

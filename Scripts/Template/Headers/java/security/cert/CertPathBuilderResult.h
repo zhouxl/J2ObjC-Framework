@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaSecurityCertCertPathBuilderResult_) && (INCLUDE_ALL_JavaSecurityCertCertPathBuilderResult || defined(INCLUDE_JavaSecurityCertCertPathBuilderResult))
 #define JavaSecurityCertCertPathBuilderResult_
 
@@ -66,6 +72,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertPathBuilderResult)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCertPathBuilderResult")

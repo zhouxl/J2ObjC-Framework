@@ -16,6 +16,12 @@
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability"
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (JavaUtilHashtable_) && (INCLUDE_ALL_JavaUtilHashtable || defined(INCLUDE_JavaUtilHashtable))
 #define JavaUtilHashtable_
 
@@ -138,7 +144,7 @@
  @brief Constructs a new, empty hashtable with a default initial capacity (11)
   and load factor (0.75).
  */
-- (instancetype)init;
+- (instancetype __nonnull)init;
 
 /*!
  @brief Constructs a new, empty hashtable with the specified initial capacity
@@ -147,7 +153,7 @@
  @throw IllegalArgumentExceptionif the initial capacity is less
                than zero.
  */
-- (instancetype)initWithInt:(jint)initialCapacity;
+- (instancetype __nonnull)initWithInt:(jint)initialCapacity;
 
 /*!
  @brief Constructs a new, empty hashtable with the specified initial
@@ -157,8 +163,8 @@
  @throw IllegalArgumentExceptionif the initial capacity is less
               than zero, or if the load factor is nonpositive.
  */
-- (instancetype)initWithInt:(jint)initialCapacity
-                  withFloat:(jfloat)loadFactor;
+- (instancetype __nonnull)initWithInt:(jint)initialCapacity
+                            withFloat:(jfloat)loadFactor;
 
 /*!
  @brief Constructs a new hashtable with the same mappings as the given
@@ -168,7 +174,7 @@
  @throw NullPointerExceptionif the specified map is null.
  @since 1.2
  */
-- (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)t;
+- (instancetype __nonnull)initWithJavaUtilMap:(id<JavaUtilMap>)t;
 
 /*!
  @brief Clears this hashtable so that it contains no keys.
@@ -499,16 +505,16 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashtable)
 
 #pragma mark Protected
 
-- (instancetype)initWithInt:(jint)hash_
-                     withId:(id)key
-                     withId:(id)value
-withJavaUtilHashtable_HashtableEntry:(JavaUtilHashtable_HashtableEntry *)next;
+- (instancetype __nonnull)initWithInt:(jint)hash_
+                               withId:(id)key
+                               withId:(id)value
+ withJavaUtilHashtable_HashtableEntry:(JavaUtilHashtable_HashtableEntry *)next;
 
 - (id)java_clone;
 
 // Disallowed inherited constructors, do not use.
 
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype __nonnull)init NS_UNAVAILABLE;
 
 @end
 
@@ -528,6 +534,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashtable_HashtableEntry)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 
 #pragma clang diagnostic pop
 #pragma pop_macro("INCLUDE_ALL_JavaUtilHashtable")
